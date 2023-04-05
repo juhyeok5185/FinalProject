@@ -18,7 +18,7 @@
   <link href='https://unpkg.com/css.gg@2.0.0/icons/css/instagram.css' rel='stylesheet'>
   <link href='https://unpkg.com/css.gg@2.0.0/icons/css/facebook.css' rel='stylesheet'>
   <link href='https://unpkg.com/css.gg@2.0.0/icons/css/shopping-bag.css' rel='stylesheet'>
-  <link rel="stylesheet" href="/Style.css">
+  <link rel="stylesheet" href="/미르/Style1.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style>
 		body {
@@ -40,7 +40,7 @@
     #section1 {
       background-color: white;
     }
-	
+
 
     #infopackage {
   width: 100vw;
@@ -109,6 +109,7 @@
   height: 100%;
 }
 
+
 @media screen and (max-width: 768px) {
 
 #photo1 {
@@ -141,8 +142,10 @@
 }
 }
 
-@media screen and (max-width: 480px) {
-
+@media (max-width: 700px) {
+.hd,#nav1,#nav2 {
+  display: none;
+}
 
 
   
@@ -189,11 +192,25 @@
     width: 100%;
   }
 }
+@media (min-width: 700px) {
+  #dropmenu {
+    display: none;
+    position: relative;
+    left: 100vw;
+  }
+ 
+}
 	</style>
 </head>
 <body>
   <div id="headerAndnav" class="navbar navbar-expand-sm">
     <div id="header">
+      <div id="dropmenu">
+        <i id="drop_icon" class="fa-solid fa-bars dropdown" data-bs-toggle="dropdown"></i>
+        <ul class="dropdown-menu">
+          <li></li>
+        </ul>
+      </div>
       <ul class="navbar-nav hd">
         <li class="nav-item" id="liLine">
           <a class="nav-link" href="#" id="textcolor">로그인</a>
@@ -226,7 +243,7 @@
     </div>
     <div id="div_logo">
       <div id="logo">
-        <a href="/MR2.html"><img src="/Logo.png" alt="로고"></a>
+        <a href="/MR2.html"><img src="/Logo.png" alt="로고" width="10%"></a>
       </div>
     </div>
     <div id="nav2">
@@ -257,13 +274,13 @@
     
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img id="img1" src="야경1.jpg" alt="이미지1" class="d-block" style="width:100%; height:65wh;">
+        <img id="img1" src="야경1.jpg" alt="이미지1" class="d-block" style="width:100vw; height: 65wh;">
       </div>
       <div class="carousel-item">
-        <img id="img2" src="야경1.jpg" alt="이미지2" class="d-block" style="width:100%;  height:65wh;">
+        <img id="img2" src="야경1.jpg" alt="이미지2" class="d-block" style="width:100vw;  height:65wh;">
       </div>
       <div class="carousel-item">
-        <img id="img3" src="야경1.jpg" alt="이미지3" class="d-block" style="width:100%;  height:65wh;">
+        <img id="img3" src="야경1.jpg" alt="이미지3" class="d-block" style="width:100vw;  height:65wh;">
       </div>
     </div>
     

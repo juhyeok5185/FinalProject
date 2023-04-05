@@ -147,6 +147,7 @@
   left: 84vw;
   bottom: 5vh;
   font-size: 0.7vw;
+  min-width: 300px;
 }
 #headerAndnav span {
   position: absolute;
@@ -1332,110 +1333,3 @@ color: red;
   width: 100vw;
   height: 0.2vh;
 }
-
-@media screen and (max-width: 768px) {
-
-  #photo1 {
-    height: 50vh;
-    margin: 3% 3% 3% 3%;
-  }
-  
-  #photo2 {
-    float: none;
-    height: 45vh;
-    margin: 3% auto;
-    width: 100%;
-  }
-  
-  #photo3 {
-    float: none;
-    height: 45vh;
-    margin: 3% auto;
-    width: 100%;
-  }
-  
-  #photo4 {
-    margin: 7% 7% 7% 7%;
-    height: 35%;
-  }
-  
-  #photo5 {
-    margin: 7% 7% 7% 7%;
-    height: 70%;
-  }
-  }
-  
-  @media screen and (max-width: 700px) {
-  .hd,#nav1,#nav2 ,.reservation-area{
-    display: none;
-  }
-  
-  #photo1 {
-    height: 30vh;
-    margin: 3% 3% 3% 3%;
-  }
-  
-  .infopackage-image-left {
-      float: none;
-      width: 100%;
-      height: auto;
-  }
-  
-  .infopackage-image-right {
-      float: none;
-      width: 100%;
-      height: auto;
-  }
-  
-  #photo2 {
-    float: none;
-    height: 40vh;
-    margin: 3% auto;
-    width: 100%;
-  }
-  
-  #photo3 {
-    float: none;
-    height: 40vh;
-    margin: 3% auto;
-    width: 100%;
-  }
-  
-  #photo4 {
-      margin: 7% 7% 7% 7%;
-      width: 100%;
-      height: 30%;
-    }
-    #photo5 {
-      margin: 7% 7% 7% 7%;
-      height: 60%;
-      width: 100%;
-    }
-  }
-  @media screen and (min-width: 700px) {
-    #dropmenu {
-      display: none;
-    }
-    #drop_icon {
-      display: none;
-    }
-    .reservation-button {
-      display: none;
-    } 
-    #r-b {
-      display: none;
-    } 
-  }
-
-  .media-dropdown {
-    margin-right: 4vw;
-  }
-  .reservation-button {
-    margin: auto;
-    width: 100vw;
-    height: 6vh;
-  } 
-  #r-b {
-    width: 97.5vw;
-  } 
-
