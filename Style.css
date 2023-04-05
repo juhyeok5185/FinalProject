@@ -769,21 +769,84 @@
 
 #luxury_itemprice1{
   flex: 1;
-  text-align: center;
+  position: relative;
+  left: 4.1vw;
 }
 
 #luxury_itemprice2{
   flex: 1;
-  text-align: center;
+  position: relative;
+  left: 2.9vw;
 }
 
 #luxury_itemprice3{
   flex: 1;
-  text-align: center;
+  position: relative;
+  left: 2.5vw;
 }
 
+#luxury_pricebar2{
+  display: flex;
+}
 
+#luxury_itemprice4{
+  flex: 1;
+  position: relative;
+  left: 4.1vw;
+}
 
+#luxury_itemprice5{
+  flex: 1;
+  position: relative;
+  left: 3.3vw;
+}
+
+#luxury_itemprice6{
+  flex: 1;
+  position: relative;
+  left: 2.5vw;
+}
+
+#luxury_imgplace1{
+  display: flex;
+}
+#imgplace1 {
+  position: relative;
+  right: 2vw;
+}
+#imgplace2 {
+  position: relative;
+  right: 1.5vw;
+}
+#imgplace3 {
+  position: relative;
+  right: 1vw;
+}
+#luxury_imgplace2{
+  display: flex;
+}
+#imgplace4 {
+  position: relative;
+  right: 2vw;
+}
+#imgplace5 {
+  position: relative;
+  right: 1.5vw;
+}
+#imgplace6 {
+  position: relative;
+  right: 1vw;
+}
+#luxury_page {
+  width: 100vw;
+  height:120vh;
+  background-color: white;
+  display: flex;
+}
+#luxurytem {
+  position: relative;
+  bottom: 5vh;
+}
 /*요기까지*/
 /*남주성*/
 
@@ -795,7 +858,7 @@
 }
 
 #headtit{
-  width: 47vw;
+  width: 49vw;
   padding: auto;
   margin: auto;
   position: relative;
@@ -878,17 +941,17 @@
   font-size: 0.8em;
   }
   
-  .col2 {
+.col2 {
   text-align: left;
   padding: 5px;
   font-size: 1em;
-  }
+}
 
-  #passwordname {
-    border: 1px solid;
-    width: 150px;
-    height: 200px;
-  }
+#passwordname {
+  border: 1px solid;
+  width: 150px;
+  height: 200px;
+}
 
 
 
@@ -953,14 +1016,16 @@
   position: relative;
   top: 10vh;
 }
-
-
-
-p{
-  padding: auto;
+#luxurytem {
   margin: auto;
   position: relative;
-  top:50px;
+  right: 2vw;
+}
+
+#p_content{
+  position: relative;
+  top:3vh;
+  right: 5vw;
   color: #555;
 }
 
@@ -1234,14 +1299,28 @@ color: red;
   color: white;
   font-weight: bold;
 }
-.dark-mode #headtit ,.dark-mode #article,.dark-mode p, .dark-mode #toolbar, .dark-mode #toolbar a, .dark-mode #menu a{
+.dark-mode #article,.dark-mode p, .dark-mode #toolbar, .dark-mode #toolbar a, .dark-mode #menu a{
   color: white;
   font-weight: bold;
 }
+.dark-mode #headtit{
+  color: white;
+  font-weight: bold;
+  border-bottom: 0.3rem solid white; 
+}
+.dark-mode #headtit > h3  {
+  color: white;
+  font-weight: bold;
+}
+.dark-mode #tit {
+  color: white;
+  font-weight: bold;
+  border-bottom: 0.3rem solid white; 
+}
+
 .dark-mode .reservation-area, .dark-mode .reservation-site, .dark-mode .hotel {
   background-color: rgb(20, 20, 20);
 }
-
 
 
 #nothing{
