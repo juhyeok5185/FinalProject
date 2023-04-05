@@ -1332,6 +1332,7 @@ color: red;
   width: 100vw;
   height: 0.2vh;
 }
+
 @media screen and (max-width: 768px) {
 
   #photo1 {
@@ -1365,12 +1366,9 @@ color: red;
   }
   
   @media screen and (max-width: 700px) {
-  .hd,#nav1,#nav2{
+  .hd,#nav1,#nav2 ,.reservation-area{
     display: none;
   }
-  
-  
-    
   
   #photo1 {
     height: 30vh;
@@ -1418,12 +1416,26 @@ color: red;
     #dropmenu {
       display: none;
     }
-   
-  
-  
     #drop_icon {
       display: none;
     }
-    
-    
+    .reservation-button {
+      display: none;
+    } 
+    #r-b {
+      display: none;
+    } 
   }
+
+  .media-dropdown {
+    margin-right: 4vw;
+  }
+  .reservation-button {
+    margin: auto;
+    width: 100vw;
+    height: 6vh;
+  } 
+  #r-b {
+    width: 97.5vw;
+  } 
+
