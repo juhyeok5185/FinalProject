@@ -1,18 +1,62 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>My Website</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-      div {
-        border: 1px solid red;
-        max-width: 100%;
-        height: auto;
-      }
-    </style>
-  </head>
-  <body>
-    <div>버튼</div>
-  </body>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: sans-serif;
+			background-color: #fff;
+			color: #333;
+			font-size: 16px;
+			overflow-x: hidden; /* 가로 스크롤 막기 */
+		}
+
+		.container {
+			height: 100%;
+			min-height: 100vh;
+			width: 100%;
+			max-width: 1024px; /* 최대 너비 설정 */
+			margin: 0 auto;
+			background-color: #eee;
+			box-sizing: border-box;
+		}
+
+		.box {
+			width: 25%;
+			height: 200px;
+			margin: 10px;
+			padding: 20px;
+			background-color: #ddd;
+			box-sizing: border-box;
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		@media screen and (max-width: 768px) {
+			.box {
+				width: 50%;
+			}
+		}
+
+		@media screen and (max-width: 480px) {
+			.box {
+				width: 100%;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box">Box 1</div>
+		<div class="box">Box 2</div>
+		<div class="box">Box 3</div>
+		<div class="box">Box 4</div>
+		<div class="box">Box 5</div>
+		<div class="box">Box 6</div>
+		<div class="box">Box 7</div>
+		<div class="box">Box 8</div>
+	</div>
+</body>
 </html>
