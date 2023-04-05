@@ -20,139 +20,21 @@
   <link href='https://unpkg.com/css.gg@2.0.0/icons/css/shopping-bag.css' rel='stylesheet'>
   <link rel="stylesheet" href="/Style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<style>
-*{
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-  font-weight: bold;
-}
-.hd {
-  position: absolute;
-  left: 84vw;
-  bottom: 5vh;
-  font-size: 0.7vw;
-  min-width: 300px;
-}
-#aaa {
-  position: absolute;
-}
-.hotel {
-  overflow: hidden;
-  background-color: white;
-  width: 100vw;
-}
-#nav1 {
-  margin: auto;
-  position: relative;
-  left: 10vw;
-}
-#nav2 {
-  margin: auto;
-  position: relative;
-  right: 3vw;
-}
-#i1 {
-  margin: auto;
-  position: relative;
-  right: 2vw;
-}
-#i2 {
-  margin: auto;
-  position: relative;
-  left: 10vh;
-}
-#i3 {
-  margin: auto;
-  position: relative;
-  right: 9vw;
-}
-#i4 {
-  margin: auto;
-  position: relative;
-  right: 4vw;
-}
-#headerAndnav {
-  background-color: #f1e3c4;
-  width: 100vw;
-  height: 9vh;
-}
-#div_logo{
-  margin:0 auto;
-  position: relative;
-  left: 1vw;
-}
-#logo img {
-  width: 15vw;
-  height: 9vh;
-  
-}
-
-@media (max-width: 480px) {
-  .navul1 li,
-  .navul2 li {
-    display: none;
+<style>
+  .media-dropdown{
+    margin-left: 100px;
   }
-
-  #google_translate_element {
-    display: none;
-  }
-}
-	</style>
+</style>
 </head>
 <body>
-  <div id="headerAndnav" class="navbar navbar-expand-sm">
-    <div id="header">
-        <ul class="navbar-nav hd">
-          <li class="nav-item" id="liLine">
-            <a class="nav-link" href="#" id="textcolor">로그인</a>
-          </li>
-          <li class="nav-item" id="liLine">
-            <a class="nav-link" href="#" id="textcolor">회원가입</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" id="textcolor">예약.주문확인</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">객실</a></li>
-              <li><a class="dropdown-item" href="#">다이닝</a></li>
-              <li><a class="dropdown-item" href="#">명품관</a></li>
-            </ul>
-          </li>
-          <li id="google_translate_element" class="nav-item dropdown">
-          </li>
-        </ul>
-      <span id="colorchange"><input type="checkbox" class="dark-mode" onclick="darkmode()" id="dark-checkbox">다크모드</span>
-    </div>
-    <div id="nav1">
-      <ul class="navbar-nav navul1">
-        <li class="nav-item" id="i1">
-          <a class="nav-link" href="#" id="textcolor">호텔소개</a>
-        </li>
-        <li class="nav-item" id="i2">
-          <a class="nav-link" href="#" id="textcolor">예약</a>
-        </li>
+  <div class="media-dropdown">
+    <i id="drop_icon" class="fa-solid fa-bars dropdown" data-bs-toggle="dropdown">
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li><a class="dropdown-item" href="#">Link 1</a></li>
+        <li><a class="dropdown-item" href="#">Link 2</a></li>
+        <li><a class="dropdown-item" href="#">Link 3</a></li>
       </ul>
-    </div>
-    <div id="div_logo">
-      <div id="logo">
-        <a href="/MR2.html"><img src="/Logo.png" alt="로고"></a>
-      </div>
-    </div>
-    <div id="nav2">
-      <ul class="navbar-nav navul2">
-        <li class="nav-item" id="i3">
-          <a class="nav-link" href="/LuxuryHall.html" id="textcolor">명품관</a>
-        </li>  
-        <li class="nav-item dropdown" id="i4">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" id="textcolor">고객문의</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/MenuContact.html">고객문의</a></li>
-            <li><a class="dropdown-item" href="/HowToCome.html">오시는길</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
+    </i>
   </div>
-
 </body>
 </html>
