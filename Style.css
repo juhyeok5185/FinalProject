@@ -1,0 +1,1254 @@
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-weight: bold;
+}
+.hotel {
+  overflow: hidden;
+  background-color: white;
+  width: 100vw;
+}
+#nav1 {
+  margin: auto;
+  position: relative;
+  left: 10vw;
+}
+#nav2 {
+  margin: auto;
+  position: relative;
+  right: 3vw;
+}
+#i1 {
+  margin: auto;
+  position: relative;
+  right: 2vw;
+}
+#i2 {
+  margin: auto;
+  position: relative;
+  left: 10vh;
+}
+#i3 {
+  margin: auto;
+  position: relative;
+  right: 9vw;
+}
+#i4 {
+  margin: auto;
+  position: relative;
+  right: 4vw;
+}
+#headerAndnav {
+  background-color: #f1e3c4;
+  width: 100vw;
+  height: 9vh;
+}
+#div_logo{
+  margin:0 auto;
+  position: relative;
+  left: 1vw;
+}
+#logo img {
+  width: 15vw;
+  height: 9vh;
+  
+}
+.carousel-indicators{
+  position: absolute;
+  right: 1.2vw;
+}
+#mainsection1 {
+  width: 100vw;
+  height: 200vh;
+  overflow: hidden;
+}
+.scroll-downs {
+  position: relative;
+  top: 1vh;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  
+  width :3.4vw;
+  height: 3vh;
+}
+.mousey {
+  width: 0.3vw;
+  padding: 0.7vw 1.5vh;
+  height: 3.5vh;
+  border: 0.2rem solid gray;
+  border-radius: 2.5rem;
+  opacity: 0.75;
+  box-sizing: content-box;
+}
+.scroller {
+  width: 0.3vw;
+  height: 1vh;
+  border-radius: 2.5rem;
+  background-color:gray;
+  animation-name: scroll;
+  animation-duration: 2.2s;
+  animation-timing-function: cubic-bezier(.15,.41,.69,.94);
+  animation-iteration-count: infinite;
+}
+@keyframes scroll {
+  0% { opacity: 0; }
+  10% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(15px); opacity: 0;}
+}
+
+#section1 {
+  background-color: white;
+}
+
+#section2 {
+  background-color: #f6f6f6;
+  width: 100vw;
+  height: 36vh;
+}
+#section3 {
+  background-color: white;
+  width: 100vw;
+  height: 36vh;
+}
+#footer {
+  background-color: #f1e3c4;
+  height: 20vh;
+  width: 100vw;
+  display: flex;
+  text-align: center;
+  overflow: hidden;
+}
+#footerLogo {
+  width: 20vw;
+  line-height: 20vh;
+  border-right: 0.1rem solid #0000008C;
+}
+#footerInfo {
+  width: 80vw;
+  text-align: start;
+  line-height: 10vh;
+  color: #0000008C;
+}
+
+.navul1 {
+  position: relative;
+  top: 1vw;
+}
+.navul2 {
+  position: relative;
+  top: 1vw;
+}
+
+.hd {
+  position: absolute;
+  left: 84vw;
+  bottom: 5vh;
+  font-size: 0.7vw;
+}
+#headerAndnav span {
+  position: absolute;
+  bottom: 6.5vh;
+  left: 1.5vw;
+  font-size: 0.6vw;
+}
+.dropdown-menu {
+  background-color: gray;
+  font-weight: bold;
+  font-size: 0.7vw;
+}
+.dropdown-item {
+  font-weight: bold;
+  color: white;
+}
+#textcolor{
+  color: #0000008C;
+  margin: 0;
+  padding: 0 0.8vh;
+  border: 0;
+}
+#colorchange {
+  color: #0000008C;
+}
+#liLine {
+  border-right:2px solid #0000008C;
+}
+
+#map-area {
+  position: relative;
+  top: 10vh;
+}
+#snssection{
+  width: 5vw;
+  height: 4vh;
+  position: relative;
+  left: 40vw;
+  bottom: 1.7vh;
+  padding: 0 2vw;
+}
+#snsicon {
+  position: relative;
+  bottom: 2.5vh;
+  left: 0.1vw;
+  display: flex;
+}
+#you {
+  width: 1vw;
+  height: 0.8vw;
+  position: absolute;
+  right: 1.2vw;
+}
+#insta {
+  width: 1vw;
+  height: 0.8vw;
+  padding: 0.3vw;
+  position: absolute;
+  left: 0.26vw;
+}
+#face {
+  width: 1vw;
+  height: 0.1vw;
+  position: absolute;
+  left: 1.5vw;
+  bottom: 0.1vh;
+}
+
+#rewardsTitle {
+  margin: auto;
+  padding: auto;
+  text-align: center;
+  color: white;
+}
+#titlediv {
+  margin:0 auto;
+  padding-top: 3vh;
+  width: 16vw;
+  text-align: center;
+}
+#texth2 {
+  border-bottom: 0.1vw solid rgba(10, 2, 2, 0.815);
+  padding-bottom: 2vh;
+  color: #343434;
+  letter-spacing: 2vw;
+  text-align: center;
+  padding-left: 2vw;
+}
+#membership{
+  padding-left: 0.5vw;
+  letter-spacing: 1vw;
+  color: #9d8c78;
+}
+#rewardsContent{
+  margin: auto;
+  padding: auto;
+  padding-top: 2vh;
+  position: relative;
+  right: 4vw;
+}
+#itemReward {
+  text-align: left;
+  margin: auto;
+  padding: auto;
+  width: 30vw;
+  height: 18vh;
+  background-color: #f6f6f6;
+  display: flex;
+}
+#itemcontent {
+  font-size: 1vw;
+  padding-left: 1vw;
+}
+#ct1 {
+  color: #9d8c78;
+}
+/*쇼핑백 아이콘*/
+.gg-shopping-bag {
+  transform: scale(var(--ggs,1))
+}
+.gg-shopping-bag,
+.gg-shopping-bag::after {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  width: 5vw;
+  height: 13vh;
+  border: 0.2rem solid;
+  border-radius: 0.3vw;
+}
+.gg-shopping-bag::after {
+  content: "";
+  position: absolute;
+  width: 2vw;
+  height: 1vh;
+  border-bottom-left-radius: 12vw;
+  border-bottom-right-radius: 12vw;
+  border-top: 0;
+  top: 0.2vh;
+  left: 1.3vw;
+}
+/*요기까지*/
+/*유튜브아이콘*/
+.gg-youtube {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs,1));
+  width: 1.6vw;
+  height: 1vh;
+  box-shadow: 0 0 0 2px;
+  border-radius:
+      15px 15px 15px 15px /
+      45px 45px 45px 45px
+}
+
+.gg-youtube::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  left: 0.4vw;
+  top: 0.5vh;
+  border-left: 4px solid currentColor;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent
+}
+/*요기까지*/
+/*페이스북아이콘*/
+.gg-facebook {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs,1));
+  width: 20px;
+  height: 20px
+}
+
+.gg-facebook::after,
+.gg-facebook::before {
+  content: "";
+  display: block;
+  position: absolute;
+  box-sizing: border-box
+}
+
+.gg-facebook::before {
+  width: 0.4vw;
+  height: 2.3vh;
+  border-left: 0.3vw solid;
+  border-top: 0.5vh solid;
+  border-top-left-radius: 0.3vw;
+  left: 0.31vw
+}
+
+.gg-facebook::after {
+  width: 0.5vw;
+  height: 0.4vh;
+  background: currentColor;
+  top: 0.3vw;
+  left: 0.4vh;
+  transform: skew(-5deg)
+}
+/*요기까지*/
+/*인스타아이콘*/
+.gg-instagram {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs,1));
+  border: 0.2rem solid transparent;
+  box-shadow: 0 0 0 0.1vw;
+  border-radius: 0.3rem;
+  width: 2vw;
+  height: 2vh;
+}
+
+.gg-instagram::after,
+.gg-instagram::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute
+}
+
+.gg-instagram::after {
+  border: 0.15rem solid;
+  left: 0.1vw;
+  width: 0.5vw;
+  height: 1vh;
+  border-radius: 100vw;
+  top: 0.1vw;
+}
+
+.gg-instagram::before {
+  border-radius: 2rem;
+  width: 0.1vw;
+  height: 0.15vh;
+  background: currentColor;
+  right: 0.05vw;
+}
+/*요기까지*/
+
+#letsGo {
+  margin: auto;
+  width: 10vw;
+  height: 3vh;
+  font-size: 1vw;
+  background-color: #f6f6f6;
+}
+#lets_go{
+  background-color: #f6f6f6;
+  border: 0.2vw solid #9d8c78;
+  text-align: center;
+  line-height: 5vh;
+  position: relative;
+  bottom: 8vh;
+  left: 15vw;
+}
+#linkforletsgo {
+  text-decoration: none;
+  color:#343434;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*주혁이형 */
+
+.reservation-area {
+  background-color: white;
+  margin-top: 5vh;
+  margin-bottom: 30vh;
+  width: 100vw;
+  height: 12vh;
+}
+
+.reservation-site {
+  background-color: white;
+  display: flex;
+  height: 20vh;
+  width: 100vw;
+  margin: 0 auto;
+  margin-left: 7%;
+  line-height: 0;
+}
+
+.reservation-text1 {
+  height: 8vh;
+  margin-top: 1.2vh;
+  margin-right: 0.5vw;
+  padding: 1vw;
+  flex: 0.2;
+}
+
+.reservation-text2 {
+  height: 8vh;
+  margin-top: 1.2vh;
+  margin-right: 0.5vw;
+  padding: 1vw;
+  flex: 0.05;
+
+}
+.reservation-text3 {
+  height: 8vh;
+  margin-top: 1.2vh;
+  margin-right: 0.5vw;
+  padding: 1vw;
+  flex: 0.2;
+}
+
+.reservation-text4 {
+  height: 8vh;
+  margin-top: 1.2vh;
+  margin-right: 0.5vw;
+  padding: 1vw;
+  flex: 0.05;
+}
+
+.reservation-text5 {
+  height: 8vh;
+  margin-top: 1.2vh;
+  margin-right: 0.5vw;
+  padding: 1vw;
+  flex: 0.2;
+}
+.reservation-text6 {
+  height: 8vh;
+  margin-top: 1.2vh;
+  margin-right: 0.5vw;
+  padding: 1vw;
+  flex: 0.07;
+}
+
+.reservation-text7 {
+  height: 8vh;
+  margin-top: 1.2vh;
+  margin-right: 0.5vw;
+  padding: 1vw;
+  flex: 0.05;
+}
+#reservation-btn {
+  position: relative;
+  top: 10px;
+  margin-left: 2vw;
+  height: 30px;
+  width: 120px;
+}
+#reservation-hotelinfo{
+  height: 5vh;
+  text-align: center;
+  margin-top: 0.5vh;
+}
+
+.reservation-color {
+  color : rgb(157, 154, 145)
+}
+   
+#datepicker , #datepicker2 {
+  font-size: 15px;
+  text-align: center;
+  position: relative;
+  bottom: 2px;
+}
+#section1 {
+  width: 100vw;
+  height: 140vh;
+  overflow: hidden;
+}
+#infopackage {
+  width: 100vw;
+  height: 130vh;
+}
+.infopackage-text-area {
+  width: 100vw;
+  height: 30vh;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.infopackage-text {
+  width: 100vw;
+  text-align: center;
+  font-size: 3.5em;
+}
+.infopackage-image-area{
+  width: 100vw;
+  height: 70vh;
+}
+.infopackage-image-left{
+  float: left;  
+  width: 70vw;
+  height: 100vh;
+}
+.infopackage-image-right{
+  float: left;
+  width: 30vw;
+  height: 70vh;
+}
+
+#photo1 {
+  height: 50vh;
+  margin: 3% 3% 3% 3%;
+}
+
+#photo2 {
+  float: left;
+  height: 35%;
+  margin-left: 3%;
+  margin-right: 3%;
+  width: 55vh;
+}
+#photo3 {
+  float: right;
+  height: 35vh;
+  margin-left: 3%;
+  margin-right: 3%;      
+  width: 55vh;
+}
+
+#photo4 {
+  margin: 7% 7% 7% 7%;
+  height: 35%;
+}
+
+#photo5 {
+  margin: 7% 7% 7% 7%;
+  height: 87%;
+}
+
+#infopackage-image-size{
+  width: 100%;
+  height: 100%;
+}
+
+#logo-area{
+  position: relative;
+  bottom: 1vh;
+  font-size: 5vw;
+  height: 3vh;
+  text-align: center;
+  color: rgb(40, 65, 26);
+}
+
+/* 애니메이션 */
+.site-wrap {
+        border: 0.1rem blue solid;
+        text-align: center;
+        margin-left: 40vw;
+        margin-right: 40vw;
+        margin-bottom: 40vh;
+        margin-top: 40vh;
+}
+[data-scroll] {
+        opacity: 0;
+        will-change: transform, scale , opacity;
+        transform: translateY(6rem) scale(0.93);
+        transition: all 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+[data-scroll='in'] {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+}
+
+[data-scroll='out']{
+        opacity: 0;
+}
+/*요기까지*/
+
+/*김동욱*/
+#article {
+  margin: auto;
+  padding: auto;
+  height: 120vh;
+  width: 50vw;
+  position: relative;
+  right: 4vw;
+}
+
+#footerInfo_contact{
+  border-bottom: 0.1vw solid black;
+}
+
+#contact1_span{
+  position: relative;
+  left: 1vw;
+  bottom: 1vh;
+}
+#contact2_span{
+  position: relative;
+  left: 2vw;
+  bottom: 1vh;
+}
+#contact3_span{
+  position: relative;
+  right: 23.7vw;
+  top: 2vh;
+}
+
+#address_span{
+  position: relative;
+  left: 1vw;
+}
+
+#address_guide{
+  position: relative;
+  left: 3vw;
+  font-weight: bold;
+  color: #555;
+}
+#address_a{
+  text-decoration: none;
+}
+
+#footerInfo_report{
+  position: relative;
+  left: 3vw;
+  font-weight: bold;
+  color: #555;
+  text-decoration: none;
+}
+
+#footerInfo_under{
+  display: flex;
+}
+
+#footerInfo_footercontact{
+  position: relative;
+  left: 6vw;
+  font-weight: bold;
+  color: #555;
+  text-decoration: none;
+}
+
+#luxury_item1{
+  margin-top: 15vh;
+}
+
+#luxury_item2{
+  margin-top: 10vh;
+}
+
+#luxury_itemname1{
+  position: relative;
+  left: 5vw;
+  bottom: 2.5vh;
+}
+
+#luxury_itemname2{
+  position: relative;
+  left: 17.5vw;
+  bottom: 2.5vh;
+  
+}
+
+#luxury_itemname3{
+  position: relative;
+  left: 31vw;
+  bottom:2vh;
+}
+
+#luxury_itemname4{
+  position: relative;
+  left: 5vw;
+  bottom:2vh;
+}
+
+#luxury_itemname5{
+  position: relative;
+  left: 18vw;
+  bottom:2vh;
+}
+
+#luxury_itemname6{
+  position: relative;
+  left: 31vw;
+  bottom:2vh;
+}
+
+#luxury_itemintroduction1{
+  position: relative;
+  right: 1vw;
+}
+
+#luxury_itemintroduction2{
+  position: relative;
+  left: 2vw;
+}
+#luxury_itemintroduction3{
+  position: relative;
+  left: 2vw;
+}
+
+#luxury_itemintroduction4{
+  position: relative;
+  left: 1vw;
+}
+
+#luxury_itemintroduction5{
+  position: relative;
+  left: 7vw;
+}
+#luxury_itemintroduction6{
+  position: relative;
+  left: 6vw;
+}
+#luxury_pricebar1{
+  display: flex;
+}
+
+#luxury_itemprice1{
+  flex: 1;
+  text-align: center;
+}
+
+#luxury_itemprice2{
+  flex: 1;
+  text-align: center;
+}
+
+#luxury_itemprice3{
+  flex: 1;
+  text-align: center;
+}
+
+
+
+/*요기까지*/
+/*남주성*/
+
+#page{
+  width: 100%;
+  height:120vh;
+  background-color: white;
+  display: flex;
+}
+
+#headtit{
+  width: 47vw;
+  padding: auto;
+  margin: auto;
+  position: relative;
+  padding: 0.1vw 0.5vh 0 0;
+  border-bottom: 0.4rem solid #a1886f;
+  color: #555;
+  right: 5.5vw;
+}
+
+#headtit>h3 {
+  color: #9e774c;
+}
+
+#toolbar {
+  font-size: 12px;
+  position: relative;
+  left: 39.4vw;
+  color: black;
+  bottom: 10px;
+}
+
+#aside{
+  width: 15vw;
+  background-color:#f1e3c4;
+  padding: auto;
+  margin: auto;    
+  position: relative;
+  height: 25vh;
+  left: 5vw;
+  bottom: 37vh;
+}
+
+#tit {
+  color: #9e774c;
+  border-bottom: 0.3rem solid #a1886f; 
+}
+
+#inmenu{
+  width: 10vw;
+  background-color:#f1e3c4;
+  margin: auto;
+  padding-top: 3vh;
+  padding-left: 0.1vw;
+  text-align: left;
+  height: 15vh;
+  color: #555;
+}
+
+#menu {
+  padding-left: 0.1vw;
+}
+
+#m1first {
+  list-style: none;
+}
+
+#m2last {
+  list-style: none;
+}
+
+.insert {
+  width: 20vw;
+  margin: 0 auto;
+  padding: 0 auto;
+  position: relative;
+  top: 2vw;
+  right: 19vw;
+}
+
+#radio-check {
+  margin-left: 2vw;
+}
+
+.col1 {
+  background-color: #faf9f4;
+  padding: 10px;
+  width: 7vw;
+  text-align: left;
+  font-weight: bold;
+  font-size: 0.8em;
+  }
+  
+  .col2 {
+  text-align: left;
+  padding: 5px;
+  font-size: 1em;
+  }
+
+  #passwordname {
+    border: 1px solid;
+    width: 150px;
+    height: 200px;
+  }
+
+
+
+
+#logintitle {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 auto;
+  top: 10vh;
+  text-align: center;
+}
+
+#logintitle1 {
+ color: #a1886f;
+}
+
+#loginsub1 {
+  font-size: 1rem;
+}
+
+#loginsub2 {
+  font-size: 0.8rem;
+}
+
+#login0 {
+  width: 35vw;
+  height: 5vh;
+  background-color: #fbfbfb;
+  border-bottom: 0.1rem solid #a1886f;
+}
+
+#login1 {
+  width: 35vw;
+  height: 25vh;
+  background-color: #f1ebd6;
+}
+
+#login2 {
+  width: 35vw;
+  height: 5vh;
+  background-color: #fbfbfb;
+}
+
+#login3 {
+  width: 35vw;
+  height: 15vh;
+  background-color: #f1ebd6;
+}
+
+.container {
+  position: relative;
+  top: 10vh;
+  right: 4vw;
+  width: 40vw;
+}
+
+#article {
+  margin: auto;
+  padding: auto;
+  height: 120vh;
+  width: 50vw;
+  position: relative;
+  top: 10vh;
+}
+
+
+
+p{
+  padding: auto;
+  margin: auto;
+  position: relative;
+  top:50px;
+  color: #555;
+}
+
+#subh{
+  text-decoration: none;
+  color: #555;
+}
+
+
+
+div.create{
+width: 47vw;
+text-align: center;
+padding: 30px;
+border-bottom: 1px solid #a1886f;
+margin: auto;
+}
+
+table {
+height: 40vh;
+width: 47vw;
+border-top: 1px solid #a1886f;
+border-bottom: 1px solid #a1886f;
+margin-right: auto;
+margin-left: auto;
+}
+
+td{
+border-bottom: 1px dotted black;
+}
+
+caption{
+text-align: left;
+}
+
+
+
+.but1 {
+height: 3vh;
+width: 4vw;
+color: white;
+background-color: white;
+border: 1px solid #a1886f;
+color: #a1886f;
+}
+
+.but2 {
+height: 27px;
+width: 120px;
+background-color: white;
+border: 1px solid #a1886f;
+color: #a1886f;
+}
+
+.but3 {
+height: 35px;
+width: 150px;
+background-color: white;
+border: 1px solid #a1886f;
+color: #a1886f;
+}
+
+.but4{
+height: 35px;
+width: 150px;
+background-color: white;
+border: 1px solid #a1886f;
+color: #a1886f;
+}
+
+.but1:hover {
+background-color: #b9b9b9;
+color: #a1886f;
+border: 1px solid #a1886f;
+}
+
+.but2:hover {
+background-color: #b9b9b9;
+color: #a1886f;
+border: 1px solid #a1886f;
+}
+
+.but3:hover {
+  background-color: #b9b9b9;
+  color: #a1886f;
+  border: 1px solid #a1886f;
+}
+
+.but4:hover {
+  background-color: #b9b9b9;
+  color: #a1886f;
+  border: 1px solid #a1886f;
+}
+
+p{
+font-size: 0.7em;
+}
+
+.g{
+font-size: 0.7em;
+}
+
+.c{
+font-size: 0.7em;
+}
+
+.a{
+font-size: 0.7em;
+}
+
+.num{
+color: red;
+}
+
+#numcheck {
+  font-size: 0.75rem;
+}
+
+#notnull {
+  color: red;
+}
+
+#notnullbar {
+  left: 40vw;
+  position: relative;
+  font-size: 0.8rem;
+  bottom: 1vh;
+}
+
+.login-input-section-wrap {
+  margin: 0 auto;
+  padding: 10vw;
+  width: 40vw;
+  height: 40vh;
+  border: 1px solid red;
+  position: relative;
+  padding-bottom: 20vh;
+  top: 20vh;
+  right: 0.5vw;
+}
+
+.login-input-wrap input{
+  width: 30vw;
+}
+
+#login-wrap0 {
+  position: relative;
+  background-color: #f1ebd6;
+  width: 35vw;
+  height: 25vh;
+  top: 20vh;
+  left: 7.2vw;
+  padding-left: 2.5vw;
+  padding-top: 2.3vh;
+}
+
+#login-wrap1 {
+  position: relative;
+  background-color: #fbfbfb;
+  border: 1px solid f1f1f1;
+  width: 35vw;
+  height: 5vh;
+  top: 22vh;
+  left: 7.2vw;
+  font-size: 0.9rem;
+  text-align: center;
+  padding-top: 1.2vh;
+  color: #727272;
+}
+
+#loginbutton {
+  position: relative;
+  color: white;
+  width: 30vw;
+  background-color: #3a3125;
+}
+
+#loginbar {
+  position: relative;
+  display: flex;
+  width: 34vw;
+  font-size: 0.9rem;
+  right: 0.25vw;
+}
+
+#loginlink {
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  background-color: #3a3125;
+  width: 9.65vw;
+  height: 2.8vh;
+  padding-bottom: 0.2vw;
+  margin: 5px;
+  border: 2px solid black;
+}
+
+/*요기까지*/
+
+
+
+
+
+/*다크모드*/
+.dark-mode {
+  background-color: rgb(20, 20, 20);
+  color: white;
+  font-weight: bold;
+}
+
+.dark-mode #mainsection1 {
+  background-color: rgb(20, 20, 20);
+  width: 100%;
+  height: 350vh;
+}
+.dark-mode #section1 {
+  background-color: rgb(20, 20, 20);
+  height: 100vh;
+}
+
+.dark-mode #section2 {
+  background-color: #212529;
+  height: 100vh;
+}
+.dark-mode #section3 {
+  background-color: rgb(20, 20, 20);
+  height: 100vh;
+}
+
+.dark-mode #headerAndnav{
+  width: 100vw;
+  height: 9vh;
+  background-color: #212529;
+}
+
+.dark-mode #footer {
+  background-color: #212529;
+  height: 20vh;
+  width: 100vw;
+  display: flex;
+  text-align: center;
+  overflow: hidden;
+}
+.dark-mode #textcolor{
+  color: white;
+}
+.dark-mode #footerInfo {
+  width: 80vw;
+  text-align: start;
+  line-height: 10vh;
+  color: white;
+}
+.dark-mode #colorchange {
+  color: white;
+}
+.dark-mode #liLine {
+  border-right: 0.1rem solid white;
+}
+.dark-mode #footerLogo {
+  width: 20vw;
+  line-height: 20vh;
+  border-right: 0.1rem solid white;
+}
+.dark-mode #page {
+  background-color: rgb(20, 20, 20);
+  color: white;
+  font-weight: bold;
+}
+.dark-mode #aside, .dark-mode #inmenu{
+  background-color: gray;
+  color: white;
+  font-weight: bold;
+}
+.dark-mode #headtit ,.dark-mode #article,.dark-mode p, .dark-mode #toolbar, .dark-mode #toolbar a, .dark-mode #menu a{
+  color: white;
+  font-weight: bold;
+}
+.dark-mode .reservation-area, .dark-mode .reservation-site, .dark-mode .hotel {
+  background-color: rgb(20, 20, 20);
+}
+
+
+
+#nothing{
+  width: 100vw;
+  height: 0.2vh;
+}
+.dark-mode #nothing {
+  background-color: rgb(20, 20, 20);
+  width: 100vw;
+  height: 0.2vh;
+}
