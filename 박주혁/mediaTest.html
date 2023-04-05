@@ -18,7 +18,7 @@
   <link href='https://unpkg.com/css.gg@2.0.0/icons/css/instagram.css' rel='stylesheet'>
   <link href='https://unpkg.com/css.gg@2.0.0/icons/css/facebook.css' rel='stylesheet'>
   <link href='https://unpkg.com/css.gg@2.0.0/icons/css/shopping-bag.css' rel='stylesheet'>
-  <link rel="stylesheet" href="/Style.css">
+  <link rel="stylesheet" href="/미르/Style1.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style>
 		body {
@@ -40,7 +40,7 @@
     #section1 {
       background-color: white;
     }
-	
+
 
     #infopackage {
   width: 100vw;
@@ -108,6 +108,10 @@
   width: 100%;
   height: 100%;
 }
+.media-dropdown {
+    margin-right: 4vw;
+  }
+
 
 @media screen and (max-width: 768px) {
 
@@ -141,8 +145,10 @@
 }
 }
 
-@media screen and (max-width: 480px) {
-
+@media screen and (max-width: 700px) {
+.hd,#nav1,#nav2 {
+  display: none;
+}
 
 
   
@@ -189,11 +195,25 @@
     width: 100%;
   }
 }
+@media screen and (min-width: 700px) {
+  #dropmenu {
+    display: none;
+  }
+ 
+
+
+  #drop_icon {
+    display: none;
+  }
+  
+  
+}
 	</style>
 </head>
 <body>
   <div id="headerAndnav" class="navbar navbar-expand-sm">
     <div id="header">
+     
       <ul class="navbar-nav hd">
         <li class="nav-item" id="liLine">
           <a class="nav-link" href="#" id="textcolor">로그인</a>
@@ -226,7 +246,7 @@
     </div>
     <div id="div_logo">
       <div id="logo">
-        <a href="/MR2.html"><img src="/Logo.png" alt="로고"></a>
+        <a href="/MR2.html"><img src="/Logo.png" alt="로고" width="10%"></a>
       </div>
     </div>
     <div id="nav2">
@@ -243,7 +263,17 @@
         </li>
       </ul>
     </div>
+    <div class="media-dropdown">
+      <i id="drop_icon" class="fa-solid fa-bars dropdown" data-bs-toggle="dropdown">
+        <ul class="dropdown-menu dropdown-menu-start">
+          <li><a class="dropdown-item" href="#">Link 1</a></li>
+          <li><a class="dropdown-item" href="#">Link 2</a></li>
+          <li><a class="dropdown-item" href="#">Link 3</a></li>
+        </ul>
+      </i>
+    </div>
   </div>
+
 
 
   <!-- --------------- -->
@@ -257,13 +287,13 @@
     
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img id="img1" src="야경1.jpg" alt="이미지1" class="d-block" style="width:100%; height:65wh;">
+        <img id="img1" src="야경1.jpg" alt="이미지1" class="d-block" style="width:100vw; height: 65wh;">
       </div>
       <div class="carousel-item">
-        <img id="img2" src="야경1.jpg" alt="이미지2" class="d-block" style="width:100%;  height:65wh;">
+        <img id="img2" src="야경1.jpg" alt="이미지2" class="d-block" style="width:100vw;  height:65wh;">
       </div>
       <div class="carousel-item">
-        <img id="img3" src="야경1.jpg" alt="이미지3" class="d-block" style="width:100%;  height:65wh;">
+        <img id="img3" src="야경1.jpg" alt="이미지3" class="d-block" style="width:100vw;  height:65wh;">
       </div>
     </div>
     
