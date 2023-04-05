@@ -22,19 +22,31 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
   .media-dropdown{
-    margin-left: 100px;
+    margin-left: 200px;
   }
 </style>
 </head>
 <body>
   <div class="media-dropdown">
     <i id="drop_icon" class="fa-solid fa-bars dropdown" data-bs-toggle="dropdown">
-      <ul class="dropdown-menu dropdown-menu-end">
+      <ul class="dropdown-menu dropdown-menu-">
         <li><a class="dropdown-item" href="#">Link 1</a></li>
         <li><a class="dropdown-item" href="#">Link 2</a></li>
         <li><a class="dropdown-item" href="#">Link 3</a></li>
       </ul>
     </i>
   </div>
+  
+  <div class="media-dropdown">
+    <i id="drop_icon" class="fa-solid fa-bars dropdown" data-bs-toggle="dropdown">
+      <div class="dropdown-menu dropdown-menu-end">
+        <a class="dropdown-item" href="#">Link 1</a>
+        <a class="dropdown-item" href="#">Link 2</a>
+        <a class="dropdown-item" href="#">Link 3</a>
+      </div>
+    </i>
+  </div>
+  
+  
 </body>
 </html>

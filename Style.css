@@ -1332,7 +1332,6 @@ color: red;
   width: 100vw;
   height: 0.2vh;
 }
-
 @media screen and (max-width: 768px) {
 
   #photo1 {
@@ -1365,8 +1364,10 @@ color: red;
   }
   }
   
-  @media screen and (max-width: 480px) {
-  
+  @media screen and (max-width: 700px) {
+  .hd,#nav1,#nav2{
+    display: none;
+  }
   
   
     
@@ -1411,4 +1412,18 @@ color: red;
       margin: 7% 7% 7% 7%;
       height: 60%;
       width: 100%;
-    }}
+    }
+  }
+  @media screen and (min-width: 700px) {
+    #dropmenu {
+      display: none;
+    }
+   
+  
+  
+    #drop_icon {
+      display: none;
+    }
+    
+    
+  }
