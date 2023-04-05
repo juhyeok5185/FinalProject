@@ -96,7 +96,7 @@
     margin: 0;
     padding: 0 0.8vh;
     border: 0;
-    text-decoration: none;
+    text-decoration: no;
   }
   #colorchange {
     color: #0000008C;
@@ -126,7 +126,9 @@
 
   margin-bottom: 30px;
  }
-
+#listthead tr th{
+  text-align: center;
+}
 
  #managmentmain{
     height: 2000px;
@@ -147,6 +149,7 @@
   height: 2000px;
   width: 1670px;
   padding-left: 30px;
+  padding-right: 40px;
 }
 #list{
   width: 1670px;
