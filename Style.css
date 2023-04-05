@@ -147,6 +147,7 @@
   left: 84vw;
   bottom: 5vh;
   font-size: 0.7vw;
+  min-width: 300px;
 }
 #headerAndnav span {
   position: absolute;
@@ -561,20 +562,16 @@
   margin: 3% 3% 3% 3%;
 }
 
+
 #photo2 {
   float: left;
   height: 35%;
   margin-left: 3%;
   margin-right: 3%;
-  width: 55vh;
+  width: 30vw;
 }
-#photo3 {
-  float: right;
-  height: 35vh;
-  margin-left: 3%;
-  margin-right: 3%;      
-  width: 55vh;
-}
+
+
 
 #photo4 {
   margin: 7% 7% 7% 7%;
@@ -1353,6 +1350,7 @@ color: red;
     margin: 3% auto;
     width: 100%;
   }
+
   
   #photo4 {
     margin: 7% 7% 7% 7%;
