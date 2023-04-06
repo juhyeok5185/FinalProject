@@ -532,7 +532,6 @@
 .infopackage-text-area {
   width: 100vw;
   height: 30vh;
-  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -545,8 +544,12 @@
 .infopackage-image-area{
   width: 100vw;
   height: 70vh;
+  background-color: black;
+  border: 1px solid red;
+  
 }
 .infopackage-image-left{
+  background-color: black;
   float: left;  
   width: 70vw;
   height: 100vh;
@@ -570,6 +573,8 @@
   margin-right: 3%;
   width: 30vw;
 }
+
+
 
 #photo4 {
   margin: 7% 7% 7% 7%;
