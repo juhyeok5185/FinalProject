@@ -1360,12 +1360,18 @@ color: red;
     height: 70%;
   }
   }
-  
+  /*700 이상 보일곳*/
   @media screen and (max-width: 700px) {
   .hd,#nav1,#nav2 ,.reservation-area{
     display: none;
   }
   
+  #section2 {
+    display: none;
+  }
+  #footer{
+    display: none;
+  }
   #photo1 {
     height: 30vh;
     margin: 3% 3% 3% 3%;
@@ -1408,7 +1414,8 @@ color: red;
       width: 100%;
     }
   }
-  @media screen and (min-width: 700px) {
+  /*700이하부터 보일곳*/
+  @media screen and (min-width: 701px) {
     #dropmenu {
       display: none;
     }
@@ -1421,7 +1428,15 @@ color: red;
     #r-b {
       display: none;
     } 
+    #section2-1 {
+      display: none;
+    }
+    #footer-1 {
+      display: none;
+    }
   }
+
+/*반응형 존*/
 
   .media-dropdown {
     margin-right: 4vw;
@@ -1432,6 +1447,99 @@ color: red;
     height: 6vh;
   } 
   #r-b {
-    width: 97.5vw;
+    width: 100vw;
   } 
-
+  #section2-1 {
+    width: 100vw;
+    height: 35vh;
+    margin: 0;
+    padding: 0;
+    background-color: #f6f6f6;
+  }
+  #rewardsTitle-1 {
+    margin: auto;
+    padding: auto;
+    text-align: center;
+    color: white;
+  }
+  #titlediv-1 {
+  margin:0 auto;
+  padding-top: 3vh;
+  width: 27vw;
+  text-align: center;
+}
+  #texth2-1 {
+  border-bottom: 0.1vw solid rgba(10, 2, 2, 0.815);
+  padding-bottom: 1vh;
+  color: #343434;
+  letter-spacing: 2vw;
+  text-align: center;
+  padding-left: 2vw;
+}
+#membership-1{
+  padding-left: 0.5vw;
+  letter-spacing: 1vw;
+  color: #9d8c78;
+}
+#rewardsContent-1{
+  margin: auto;
+  padding: auto;
+  padding-top: 2vh;
+  text-align: center;
+}
+#ct1-1 {
+  color: #9d8c78;
+}
+#itemicon-1 {
+  position: relative;
+  left: 45vw;
+}
+.gg-shopping-bag-1 {
+  transform: scale(var(--ggs,1))
+}
+.gg-shopping-bag-1,
+.gg-shopping-bag-1::after {
+  box-sizing: border-box;
+  position: relative;
+  right: 2.5vw;
+  display: block;
+  width: 15vw;
+  height: 12vh;
+  border: 0.2rem solid;
+  border-radius: 0.3vw;
+}
+.gg-shopping-bag-1::after {
+  content: "";
+  position: absolute;
+  width: 2vw;
+  height: 1vh;
+  border-bottom-left-radius: 12vw;
+  border-bottom-right-radius: 12vw;
+  border-top: 0;
+  top: 0.2vh;
+  left: 6vw;
+}
+#letsGo-1 {
+  margin: auto;
+  width: 11vw;
+  height: 4vh;
+  font-size: 1vw;
+  background-color: #f6f6f6;
+}
+#lets_go-1{
+  background-color: #f6f6f6;
+  border: 0.2vw solid #9d8c78;
+  text-align: center;
+  line-height: 5vh;
+  position: relative;
+  bottom: 6.5vh;
+  left: 20vw;
+}
+#footer-1 {
+  width: 100vw;
+  height: 20vh;
+  background-color: #f1e3c4;
+}
+#footerimg-1 {
+  text-align: center;
+}
