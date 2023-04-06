@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   text-decoration: none;
@@ -44,17 +44,16 @@
   width: 100vw;
   height: 9vh;
 }
-#div_logo{
-  margin:0 auto;
+#div_logo {
+  margin: 0 auto;
   position: relative;
   left: 1vw;
 }
 #logo img {
   width: 15vw;
   height: 9vh;
-  
 }
-.carousel-indicators{
+.carousel-indicators {
   position: absolute;
   right: 1.2vw;
 }
@@ -70,8 +69,8 @@
   bottom: 0;
   left: 0;
   margin: auto;
-  
-  width :3.4vw;
+
+  width: 3.4vw;
   height: 3vh;
 }
 .mousey {
@@ -87,16 +86,24 @@
   width: 0.3vw;
   height: 1vh;
   border-radius: 2.5rem;
-  background-color:gray;
+  background-color: gray;
   animation-name: scroll;
   animation-duration: 2.2s;
-  animation-timing-function: cubic-bezier(.15,.41,.69,.94);
+  animation-timing-function: cubic-bezier(0.15, 0.41, 0.69, 0.94);
   animation-iteration-count: infinite;
 }
 @keyframes scroll {
-  0% { opacity: 0; }
-  10% { transform: translateY(0); opacity: 1; }
-  100% { transform: translateY(15px); opacity: 0;}
+  0% {
+    opacity: 0;
+  }
+  10% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(15px);
+    opacity: 0;
+  }
 }
 
 #section1 {
@@ -124,13 +131,13 @@
 #footerLogo {
   width: 20vw;
   line-height: 20vh;
-  border-right: 0.1rem solid #0000008C;
+  border-right: 0.1rem solid #0000008c;
 }
 #footerInfo {
   width: 80vw;
   text-align: start;
   line-height: 10vh;
-  color: #0000008C;
+  color: #0000008c;
 }
 
 .navul1 {
@@ -164,17 +171,17 @@
   font-weight: bold;
   color: white;
 }
-#textcolor{
-  color: #0000008C;
+#textcolor {
+  color: #0000008c;
   margin: 0;
   padding: 0 0.8vh;
   border: 0;
 }
 #colorchange {
-  color: #0000008C;
+  color: #0000008c;
 }
 #liLine {
-  border-right:2px solid #0000008C;
+  border-right: 2px solid #0000008c;
 }
 
 #map-area {
@@ -182,7 +189,7 @@
   top: 5vh;
   right: 4vw;
 }
-#snssection{
+#snssection {
   width: 5vw;
   height: 4vh;
   position: relative;
@@ -224,7 +231,7 @@
   color: white;
 }
 #titlediv {
-  margin:0 auto;
+  margin: 0 auto;
   padding-top: 3vh;
   width: 16vw;
   text-align: center;
@@ -237,12 +244,12 @@
   text-align: center;
   padding-left: 2vw;
 }
-#membership{
+#membership {
   padding-left: 0.5vw;
   letter-spacing: 1vw;
   color: #9d8c78;
 }
-#rewardsContent{
+#rewardsContent {
   margin: auto;
   padding: auto;
   padding-top: 2vh;
@@ -267,7 +274,7 @@
 }
 /*쇼핑백 아이콘*/
 .gg-shopping-bag {
-  transform: scale(var(--ggs,1))
+  transform: scale(var(--ggs, 1));
 }
 .gg-shopping-bag,
 .gg-shopping-bag::after {
@@ -296,13 +303,11 @@
   box-sizing: border-box;
   position: relative;
   display: block;
-  transform: scale(var(--ggs,1));
+  transform: scale(var(--ggs, 1));
   width: 1.6vw;
   height: 1vh;
   box-shadow: 0 0 0 2px;
-  border-radius:
-      15px 15px 15px 15px /
-      45px 45px 45px 45px
+  border-radius: 15px 15px 15px 15px / 45px 45px 45px 45px;
 }
 
 .gg-youtube::before {
@@ -314,7 +319,7 @@
   top: 0.5vh;
   border-left: 4px solid currentColor;
   border-top: 3px solid transparent;
-  border-bottom: 3px solid transparent
+  border-bottom: 3px solid transparent;
 }
 /*요기까지*/
 /*페이스북아이콘*/
@@ -322,9 +327,9 @@
   box-sizing: border-box;
   position: relative;
   display: block;
-  transform: scale(var(--ggs,1));
+  transform: scale(var(--ggs, 1));
   width: 20px;
-  height: 20px
+  height: 20px;
 }
 
 .gg-facebook::after,
@@ -332,7 +337,7 @@
   content: "";
   display: block;
   position: absolute;
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 .gg-facebook::before {
@@ -341,7 +346,7 @@
   border-left: 0.3vw solid;
   border-top: 0.5vh solid;
   border-top-left-radius: 0.3vw;
-  left: 0.31vw
+  left: 0.31vw;
 }
 
 .gg-facebook::after {
@@ -350,7 +355,7 @@
   background: currentColor;
   top: 0.3vw;
   left: 0.4vh;
-  transform: skew(-5deg)
+  transform: skew(-5deg);
 }
 /*요기까지*/
 /*인스타아이콘*/
@@ -358,7 +363,7 @@
   box-sizing: border-box;
   position: relative;
   display: block;
-  transform: scale(var(--ggs,1));
+  transform: scale(var(--ggs, 1));
   border: 0.2rem solid transparent;
   box-shadow: 0 0 0 0.1vw;
   border-radius: 0.3rem;
@@ -371,7 +376,7 @@
   content: "";
   display: block;
   box-sizing: border-box;
-  position: absolute
+  position: absolute;
 }
 
 .gg-instagram::after {
@@ -399,7 +404,7 @@
   font-size: 1vw;
   background-color: #f6f6f6;
 }
-#lets_go{
+#lets_go {
   background-color: #f6f6f6;
   border: 0.2vw solid #9d8c78;
   text-align: center;
@@ -410,18 +415,8 @@
 }
 #linkforletsgo {
   text-decoration: none;
-  color:#343434;
+  color: #343434;
 }
-
-
-
-
-
-
-
-
-
-
 
 /*주혁이형 */
 
@@ -457,7 +452,6 @@
   margin-right: 0.5vw;
   padding: 1vw;
   flex: 0.05;
-
 }
 .reservation-text3 {
   height: 8vh;
@@ -504,33 +498,37 @@
   height: 30px;
   width: 120px;
 }
-#reservation-hotelinfo{
+#reservation-hotelinfo {
   height: 5vh;
   text-align: center;
   margin-top: 0.5vh;
 }
 
 .reservation-color {
-  color : rgb(157, 154, 145)
+  color: rgb(157, 154, 145);
 }
-   
-#datepicker , #datepicker2 {
+
+#datepicker,
+#datepicker2 {
   font-size: 15px;
   text-align: center;
   position: relative;
   bottom: 2px;
 }
 #section1 {
-  width: 100vw;
-  height: 140vh;
-  overflow: hidden;
+  /* jj */
+  margin-top: 15vw;
+  margin-left: 11%;
+  margin-right: 11%;
+  width: 1000px;
+  height: 1000px;
 }
 #infopackage {
-  width: 100vw;
-  height: 130vh;
+  width: 1000px;
+  height: 1000px;
 }
 .infopackage-text-area {
-  width: 100vw;
+  width: 100%;
   height: 30vh;
   display: flex;
   justify-content: center;
@@ -541,57 +539,60 @@
   text-align: center;
   font-size: 3.5em;
 }
-.infopackage-image-area{
-  width: 100vw;
-  height: 70vh;
-  background-color: black;
-  border: 1px solid red;
-  
+/* jj */
+.infopackage-image-area {
+  width: 1000px;
+  height: 200vh;
 }
-.infopackage-image-left{
-  background-color: black;
-  float: left;  
-  width: 70vw;
+
+.infopackage-image-right {
+  float: right;
+  width: 350px;
   height: 100vh;
 }
-.infopackage-image-right{
+.infopackage-image-left {
   float: left;
-  width: 30vw;
-  height: 70vh;
+  width: 650px;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-#photo1 {
-  height: 50vh;
+.photo1 {
   margin: 3% 3% 3% 3%;
+  height: 50%;
+  flex-basis: 100%;
 }
 
-
-#photo2 {
-  float: left;
-  height: 35%;
-  margin-left: 3%;
-  margin-right: 3%;
-  width: 30vw;
+.photo2 {
+  margin: 3% 3% 3% 3%;
+  height: 40%;
+  flex-basis: 44%;
 }
 
-
-
-#photo4 {
-  margin: 7% 7% 7% 7%;
-  height: 35%;
+.photo3 {
+  margin: 3% 3% 3% 3%;
+  height: 40%;
+  flex-basis: 44%;
 }
 
-#photo5 {
-  margin: 7% 7% 7% 7%;
-  height: 87%;
+.photo4 {
+  margin: 5.7% 3% 3% 3%;
+  height: 40%;
 }
 
-#infopackage-image-size{
+.photo5 {
+  margin: 6% 3% 3% 3%;
+  height: 52.7%;
+}
+/* jj */
+
+#infopackage-image-size {
   width: 100%;
   height: 100%;
 }
 
-#logo-area{
+#logo-area {
   position: relative;
   bottom: 1vh;
   font-size: 5vw;
@@ -602,27 +603,27 @@
 
 /* 애니메이션 */
 .site-wrap {
-        border: 0.1rem blue solid;
-        text-align: center;
-        margin-left: 40vw;
-        margin-right: 40vw;
-        margin-bottom: 40vh;
-        margin-top: 40vh;
+  border: 0.1rem blue solid;
+  text-align: center;
+  margin-left: 40vw;
+  margin-right: 40vw;
+  margin-bottom: 40vh;
+  margin-top: 40vh;
 }
 [data-scroll] {
-        opacity: 0;
-        will-change: transform, scale , opacity;
-        transform: translateY(6rem) scale(0.93);
-        transition: all 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  opacity: 0;
+  will-change: transform, scale, opacity;
+  transform: translateY(6rem) scale(0.93);
+  transition: all 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-[data-scroll='in'] {
-        opacity: 1;
-        transform: translateY(0) scale(1);
+[data-scroll="in"] {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
-[data-scroll='out']{
-        opacity: 0;
+[data-scroll="out"] {
+  opacity: 0;
 }
 /*요기까지*/
 
@@ -636,42 +637,42 @@
   right: 4vw;
 }
 
-#footerInfo_contact{
+#footerInfo_contact {
   border-bottom: 0.1vw solid black;
 }
 
-#contact1_span{
+#contact1_span {
   position: relative;
   left: 1vw;
   bottom: 1vh;
 }
-#contact2_span{
+#contact2_span {
   position: relative;
   left: 2vw;
   bottom: 1vh;
 }
-#contact3_span{
+#contact3_span {
   position: relative;
   right: 23.7vw;
   top: 2vh;
 }
 
-#address_span{
+#address_span {
   position: relative;
   left: 1vw;
 }
 
-#address_guide{
+#address_guide {
   position: relative;
   left: 3vw;
   font-weight: bold;
   color: #555;
 }
-#address_a{
+#address_a {
   text-decoration: none;
 }
 
-#footerInfo_report{
+#footerInfo_report {
   position: relative;
   left: 3vw;
   font-weight: bold;
@@ -679,11 +680,11 @@
   text-decoration: none;
 }
 
-#footerInfo_under{
+#footerInfo_under {
   display: flex;
 }
 
-#footerInfo_footercontact{
+#footerInfo_footercontact {
   position: relative;
   left: 6vw;
   font-weight: bold;
@@ -691,123 +692,122 @@
   text-decoration: none;
 }
 
-#luxury_item1{
+#luxury_item1 {
   margin-top: 15vh;
 }
 
-#luxury_item2{
+#luxury_item2 {
   margin-top: 10vh;
 }
 
-#luxury_itemname1{
+#luxury_itemname1 {
   position: relative;
   left: 5vw;
   bottom: 2.5vh;
 }
 
-#luxury_itemname2{
+#luxury_itemname2 {
   position: relative;
   left: 17.5vw;
   bottom: 2.5vh;
-  
 }
 
-#luxury_itemname3{
+#luxury_itemname3 {
   position: relative;
   left: 31vw;
-  bottom:2vh;
+  bottom: 2vh;
 }
 
-#luxury_itemname4{
+#luxury_itemname4 {
   position: relative;
   left: 5vw;
-  bottom:2vh;
+  bottom: 2vh;
 }
 
-#luxury_itemname5{
+#luxury_itemname5 {
   position: relative;
   left: 18vw;
-  bottom:2vh;
+  bottom: 2vh;
 }
 
-#luxury_itemname6{
+#luxury_itemname6 {
   position: relative;
   left: 31vw;
-  bottom:2vh;
+  bottom: 2vh;
 }
 
-#luxury_itemintroduction1{
+#luxury_itemintroduction1 {
   position: relative;
   right: 1vw;
 }
 
-#luxury_itemintroduction2{
+#luxury_itemintroduction2 {
   position: relative;
   left: 2vw;
 }
-#luxury_itemintroduction3{
+#luxury_itemintroduction3 {
   position: relative;
   left: 2vw;
 }
 
-#luxury_itemintroduction4{
+#luxury_itemintroduction4 {
   position: relative;
   left: 1vw;
 }
 
-#luxury_itemintroduction5{
+#luxury_itemintroduction5 {
   position: relative;
   left: 7vw;
 }
-#luxury_itemintroduction6{
+#luxury_itemintroduction6 {
   position: relative;
   left: 6vw;
 }
-#luxury_pricebar1{
+#luxury_pricebar1 {
   display: flex;
 }
 
-#luxury_itemprice1{
+#luxury_itemprice1 {
   flex: 1;
   position: relative;
   left: 4.1vw;
 }
 
-#luxury_itemprice2{
+#luxury_itemprice2 {
   flex: 1;
   position: relative;
   left: 2.9vw;
 }
 
-#luxury_itemprice3{
+#luxury_itemprice3 {
   flex: 1;
   position: relative;
   left: 2.5vw;
 }
 
-#luxury_pricebar2{
+#luxury_pricebar2 {
   display: flex;
 }
 
-#luxury_itemprice4{
+#luxury_itemprice4 {
   flex: 1;
   position: relative;
   left: 4.1vw;
 }
 
-#luxury_itemprice5{
+#luxury_itemprice5 {
   flex: 1;
   position: relative;
   left: 3.3vw;
 }
 
-#luxury_itemprice6{
+#luxury_itemprice6 {
   flex: 1;
   position: relative;
   left: 2.5vw;
 }
 
-#luxury_imgplace1{
+#luxury_imgplace1 {
   display: flex;
 }
 #imgplace1 {
@@ -822,7 +822,7 @@
   position: relative;
   right: 1vw;
 }
-#luxury_imgplace2{
+#luxury_imgplace2 {
   display: flex;
 }
 #imgplace4 {
@@ -839,7 +839,7 @@
 }
 #luxury_page {
   width: 100vw;
-  height:120vh;
+  height: 120vh;
   background-color: white;
   display: flex;
 }
@@ -850,14 +850,14 @@
 /*요기까지*/
 /*남주성*/
 
-#page{
+#page {
   width: 100%;
-  height:120vh;
+  height: 120vh;
   background-color: white;
   display: flex;
 }
 
-#headtit{
+#headtit {
   width: 49vw;
   padding: auto;
   margin: auto;
@@ -868,7 +868,7 @@
   right: 5.5vw;
 }
 
-#headtit>h3 {
+#headtit > h3 {
   color: #9e774c;
 }
 
@@ -880,11 +880,11 @@
   bottom: 10px;
 }
 
-#aside{
+#aside {
   width: 15vw;
-  background-color:#f1e3c4;
+  background-color: #f1e3c4;
   padding: auto;
-  margin: auto;    
+  margin: auto;
   position: relative;
   height: 25vh;
   left: 5vw;
@@ -893,12 +893,12 @@
 
 #tit {
   color: #9e774c;
-  border-bottom: 0.3rem solid #a1886f; 
+  border-bottom: 0.3rem solid #a1886f;
 }
 
-#inmenu{
+#inmenu {
   width: 10vw;
-  background-color:#f1e3c4;
+  background-color: #f1e3c4;
   margin: auto;
   padding-top: 3vh;
   padding-left: 0.1vw;
@@ -939,8 +939,8 @@
   text-align: left;
   font-weight: bold;
   font-size: 0.8em;
-  }
-  
+}
+
 .col2 {
   text-align: left;
   padding: 5px;
@@ -953,9 +953,6 @@
   height: 200px;
 }
 
-
-
-
 #logintitle {
   position: relative;
   margin: 0 auto;
@@ -965,7 +962,7 @@
 }
 
 #logintitle1 {
- color: #a1886f;
+  color: #a1886f;
 }
 
 #loginsub1 {
@@ -1022,90 +1019,86 @@
   right: 2vw;
 }
 
-#p_content{
+#p_content {
   position: relative;
-  top:3vh;
+  top: 3vh;
   right: 5vw;
   color: #555;
 }
 
-#subh{
+#subh {
   text-decoration: none;
   color: #555;
 }
 
-
-
-div.create{
-width: 47vw;
-text-align: center;
-padding: 30px;
-border-bottom: 1px solid #a1886f;
-margin: auto;
+div.create {
+  width: 47vw;
+  text-align: center;
+  padding: 30px;
+  border-bottom: 1px solid #a1886f;
+  margin: auto;
 }
 
 table {
-height: 40vh;
-width: 47vw;
-border-top: 1px solid #a1886f;
-border-bottom: 1px solid #a1886f;
-margin-right: auto;
-margin-left: auto;
+  height: 40vh;
+  width: 47vw;
+  border-top: 1px solid #a1886f;
+  border-bottom: 1px solid #a1886f;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-td{
-border-bottom: 1px dotted black;
+td {
+  border-bottom: 1px dotted black;
 }
 
-caption{
-text-align: left;
+caption {
+  text-align: left;
 }
-
-
 
 .but1 {
-height: 3vh;
-width: 4vw;
-color: white;
-background-color: white;
-border: 1px solid #a1886f;
-color: #a1886f;
+  height: 3vh;
+  width: 4vw;
+  color: white;
+  background-color: white;
+  border: 1px solid #a1886f;
+  color: #a1886f;
 }
 
 .but2 {
-height: 27px;
-width: 120px;
-background-color: white;
-border: 1px solid #a1886f;
-color: #a1886f;
+  height: 27px;
+  width: 120px;
+  background-color: white;
+  border: 1px solid #a1886f;
+  color: #a1886f;
 }
 
 .but3 {
-height: 35px;
-width: 150px;
-background-color: white;
-border: 1px solid #a1886f;
-color: #a1886f;
+  height: 35px;
+  width: 150px;
+  background-color: white;
+  border: 1px solid #a1886f;
+  color: #a1886f;
 }
 
-.but4{
-height: 35px;
-width: 150px;
-background-color: white;
-border: 1px solid #a1886f;
-color: #a1886f;
+.but4 {
+  height: 35px;
+  width: 150px;
+  background-color: white;
+  border: 1px solid #a1886f;
+  color: #a1886f;
 }
 
 .but1:hover {
-background-color: #b9b9b9;
-color: #a1886f;
-border: 1px solid #a1886f;
+  background-color: #b9b9b9;
+  color: #a1886f;
+  border: 1px solid #a1886f;
 }
 
 .but2:hover {
-background-color: #b9b9b9;
-color: #a1886f;
-border: 1px solid #a1886f;
+  background-color: #b9b9b9;
+  color: #a1886f;
+  border: 1px solid #a1886f;
 }
 
 .but3:hover {
@@ -1120,24 +1113,24 @@ border: 1px solid #a1886f;
   border: 1px solid #a1886f;
 }
 
-p{
-font-size: 0.7em;
+p {
+  font-size: 0.7em;
 }
 
-.g{
-font-size: 0.7em;
+.g {
+  font-size: 0.7em;
 }
 
-.c{
-font-size: 0.7em;
+.c {
+  font-size: 0.7em;
 }
 
-.a{
-font-size: 0.7em;
+.a {
+  font-size: 0.7em;
 }
 
-.num{
-color: red;
+.num {
+  color: red;
 }
 
 #numcheck {
@@ -1167,7 +1160,7 @@ color: red;
   right: 0.5vw;
 }
 
-.login-input-wrap input{
+.login-input-wrap input {
   width: 30vw;
 }
 
@@ -1225,10 +1218,6 @@ color: red;
 
 /*요기까지*/
 
-
-
-
-
 /*다크모드*/
 .dark-mode {
   background-color: rgb(20, 20, 20);
@@ -1255,7 +1244,7 @@ color: red;
   height: 100vh;
 }
 
-.dark-mode #headerAndnav{
+.dark-mode #headerAndnav {
   width: 100vw;
   height: 9vh;
   background-color: #212529;
@@ -1269,7 +1258,7 @@ color: red;
   text-align: center;
   overflow: hidden;
 }
-.dark-mode #textcolor{
+.dark-mode #textcolor {
   color: white;
 }
 .dark-mode #footerInfo {
@@ -1294,36 +1283,42 @@ color: red;
   color: white;
   font-weight: bold;
 }
-.dark-mode #aside, .dark-mode #inmenu{
+.dark-mode #aside,
+.dark-mode #inmenu {
   background-color: gray;
   color: white;
   font-weight: bold;
 }
-.dark-mode #article,.dark-mode p, .dark-mode #toolbar, .dark-mode #toolbar a, .dark-mode #menu a{
+.dark-mode #article,
+.dark-mode p,
+.dark-mode #toolbar,
+.dark-mode #toolbar a,
+.dark-mode #menu a {
   color: white;
   font-weight: bold;
 }
-.dark-mode #headtit{
+.dark-mode #headtit {
   color: white;
   font-weight: bold;
-  border-bottom: 0.3rem solid white; 
+  border-bottom: 0.3rem solid white;
 }
-.dark-mode #headtit > h3  {
+.dark-mode #headtit > h3 {
   color: white;
   font-weight: bold;
 }
 .dark-mode #tit {
   color: white;
   font-weight: bold;
-  border-bottom: 0.3rem solid white; 
+  border-bottom: 0.3rem solid white;
 }
 
-.dark-mode .reservation-area, .dark-mode .reservation-site, .dark-mode .hotel {
+.dark-mode .reservation-area,
+.dark-mode .reservation-site,
+.dark-mode .hotel {
   background-color: rgb(20, 20, 20);
 }
 
-
-#nothing{
+#nothing {
   width: 100vw;
   height: 0.2vh;
 }
@@ -1334,19 +1329,18 @@ color: red;
 }
 
 @media screen and (max-width: 768px) {
-
   #photo1 {
     height: 50vh;
     margin: 3% 3% 3% 3%;
   }
-  
+
   #photo2 {
     float: none;
     height: 45vh;
     margin: 3% auto;
     width: 100%;
   }
-  
+
   #photo3 {
     float: none;
     height: 45vh;
@@ -1354,89 +1348,90 @@ color: red;
     width: 100%;
   }
 
-  
   #photo4 {
     margin: 7% 7% 7% 7%;
     height: 35%;
   }
-  
+
   #photo5 {
     margin: 7% 7% 7% 7%;
     height: 70%;
   }
-  }
-  
-  @media screen and (max-width: 700px) {
-  .hd,#nav1,#nav2 ,.reservation-area{
+}
+
+@media screen and (max-width: 700px) {
+  .hd,
+  #nav1,
+  #nav2,
+  .reservation-area {
     display: none;
   }
-  
+
   #photo1 {
     height: 30vh;
     margin: 3% 3% 3% 3%;
   }
-  
+
   .infopackage-image-left {
-      float: none;
-      width: 100%;
-      height: auto;
+    float: none;
+    width: 100%;
+    height: auto;
   }
-  
+
   .infopackage-image-right {
-      float: none;
-      width: 100%;
-      height: auto;
+    float: none;
+    width: 100%;
+    height: auto;
   }
-  
+
   #photo2 {
     float: none;
     height: 40vh;
     margin: 3% auto;
     width: 100%;
   }
-  
+
   #photo3 {
     float: none;
     height: 40vh;
     margin: 3% auto;
     width: 100%;
   }
-  
-  #photo4 {
-      margin: 7% 7% 7% 7%;
-      width: 100%;
-      height: 30%;
-    }
-    #photo5 {
-      margin: 7% 7% 7% 7%;
-      height: 60%;
-      width: 100%;
-    }
-  }
-  @media screen and (min-width: 700px) {
-    #dropmenu {
-      display: none;
-    }
-    #drop_icon {
-      display: none;
-    }
-    .reservation-button {
-      display: none;
-    } 
-    #r-b {
-      display: none;
-    } 
-  }
 
-  .media-dropdown {
-    margin-right: 4vw;
+  #photo4 {
+    margin: 7% 7% 7% 7%;
+    width: 100%;
+    height: 30%;
+  }
+  #photo5 {
+    margin: 7% 7% 7% 7%;
+    height: 60%;
+    width: 100%;
+  }
+}
+@media screen and (min-width: 700px) {
+  #dropmenu {
+    display: none;
+  }
+  #drop_icon {
+    display: none;
   }
   .reservation-button {
-    margin: auto;
-    width: 100vw;
-    height: 6vh;
-  } 
+    display: none;
+  }
   #r-b {
-    width: 97.5vw;
-  } 
+    display: none;
+  }
+}
 
+.media-dropdown {
+  margin-right: 4vw;
+}
+.reservation-button {
+  margin: auto;
+  width: 100vw;
+  height: 6vh;
+}
+#r-b {
+  width: 97.5vw;
+}
