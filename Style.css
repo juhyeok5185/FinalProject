@@ -1237,7 +1237,7 @@ color: red;
   }
   /*700 이상 보일곳*/
   @media screen and (max-width: 700px) {
-  .hd,#nav1,#nav2 ,.reservation-area{
+  .hd,#nav1,#nav2 ,.reservation-area,#section3{
     display: none;
   }
   
@@ -1309,6 +1309,13 @@ color: red;
     #footer-1 {
       display: none;
     }
+    #section3-1 {
+      display: none;
+    }
+    #snsicon-1 {
+      display: none;
+    }
+    
   }
 
 /*반응형 존*/
@@ -1395,20 +1402,20 @@ color: red;
   left: 6vw;
 }
 #letsGo-1 {
-  margin: auto;
+  margin: 0;
   width: 11vw;
   height: 4vh;
   font-size: 1vw;
   background-color: #f6f6f6;
+  position: relative;
+  bottom: 6.5vh;
+  left: 65vw;
 }
 #lets_go-1{
   background-color: #f6f6f6;
   border: 0.2vw solid #9d8c78;
   text-align: center;
   line-height: 5vh;
-  position: relative;
-  bottom: 6.5vh;
-  left: 20vw;
 }
 #footer-1 {
   width: 100vw;
@@ -1418,3 +1425,98 @@ color: red;
 #footerimg-1 {
   text-align: center;
 }
+#section3-1 {
+  width: 100vw;
+  height: 25vh;
+}
+#snsicon-1 {
+  display: flex;
+  width: 100vw;
+  height: 25vh;
+}
+#you-1 {
+  flex: 1;
+  position: relative;
+  left: 20vw;
+  top: 7.5vh;
+}
+#insta-1 {
+  flex: 1;
+  position: relative;
+  left:14.5vw;
+  top: 7.5vh;
+}
+
+/*유튜브아이콘*/
+.gg-youtube-1 {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs,1));
+  width: 17vw;
+  height: 10vh;
+  box-shadow: 0 0 0 2px;
+  border-radius:
+      15px 15px 15px 15px /
+      45px 45px 45px 45px
+}
+
+.gg-youtube-1::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  left: 6.5vw;
+  top: 1.5vh;
+  border-left: 40px solid currentColor;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent
+}
+/*요기까지*/
+
+/*인스타아이콘*/
+.gg-instagram-1 {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs,1));
+  border: 2vh solid transparent;
+  box-shadow: 0 0 0 0.1vw;
+  border-radius: 0.3rem;
+  width: 15vw;
+  height: 10vh;
+  box-shadow: 0 0 0 2px;
+}
+
+.gg-instagram-1::after {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  padding: 1vh 0;
+}
+.gg-instagram-1::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+}
+
+.gg-instagram-1::after {
+  border: 0.15rem solid;
+  width: 6.5vw;
+  height: 5vh;
+  border-radius: 100rem;
+  position: absolute;
+  left: 2vw;
+  top: 1.2vw;
+}
+
+.gg-instagram-1::before {
+  border-radius: 10rem;
+  width: 0.6vw;
+  height: 0.6vh;
+  background: currentColor;
+  right: 0.05vw;
+}
+/*요기까지*/
