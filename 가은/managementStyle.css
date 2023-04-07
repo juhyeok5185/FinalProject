@@ -8,105 +8,47 @@
 
 .managment {
   overflow: hidden;
-  background-color: white;
-  width: 100vw;
+  background-color: black;
+  width: 1903px;
+  margin: 0;
 }
 
 #nav1 {
   margin: auto;
   position: relative;
-  left: 10vw;
 }
 
 #nav2 {
   margin: auto;
   position: relative;
-  right: 3vw;
-}
-
-#i1 {
-  margin: auto;
-  position: relative;
-  right: 2vw;
-}
-
-#i2 {
-  margin: auto;
-  position: relative;
-  left: 10vh;
-}
-
-#i3 {
-  margin: auto;
-  position: relative;
-  right: 9vw;
-}
-
-#i4 {
-  margin: auto;
-  position: relative;
-  right: 4vw;
 }
 
 #headerAndnav {
-  width: 100vw;
-  height: 9vh;
-}
-
-#div_logo{
-  margin:0 auto;
-  position: relative;
-  left: 1vw;
+  width: 1903px;
+  height: 87.2px;
+  margin: 0;
+  padding: 0;
+  background-color: #f1e3c4;
 }
 
 #logo img {
-  width: 15vw;
-  height: 9vh;
+  position: relative;
+  width: 288px;
+  height: 87.2px;
+  right: 25px;
 }
 
-.navul1 {
-  position: relative;
-  top: 1vw;
-}
-
-.navul2 {
-  position: relative;
-  top: 1vw;
-}
-  
 .hd {
   position: absolute;
-  left: 90vw;
-  bottom: 5vh;
-  font-size: 0.7vw;
-}
-
-#headerAndnav span {
-  position: absolute;
-  bottom: 6.5vh;
-  left: 1.5vw;
-  font-size: 0.6vw;
-}
-
-.dropdown-menu {
-  background-color: gray;
-  font-weight: bold;
-  font-size: 0.7vw;
-}
-
-.dropdown-item {
-  font-weight: bold;
-  color: white;
-}
-
-#headerAndnav {
-  background-color: #f1e3c4;
+  right: 20px;
+  top: 15px;
+  font-size: 14px;
 }
 
 #textcolor{
   color: #0000008C;
   margin: 0;
-  padding: 0 0.8vh;
+  padding: 0;
   border: 0;
   text-decoration: none;
 }
@@ -119,7 +61,7 @@
   height: 2000px;
   width: 250px;
   background-color: blue;
-  margin: 0 0;
+  margin: 0;
   float: left;
 }
 
@@ -153,6 +95,8 @@
     height: 2000px;
     background-color: red;
     overflow: hidden;
+    width: 1903px;
+    margin-right: 0;
   }
 
 #searcharea{
@@ -166,26 +110,17 @@
   float: left;
   background-color: silver;
   height: 2000px;
-  width: 1670px;
+  width: 1653px;
   padding-left: 30px;
   padding-right: 40px;
 }
 
 #list{
-  width: 1670px;
+  width: 1653px;
   height: 2000px;
   background-color: tomato;
   float: left;
 }
-  
 
-/*결제관리*/
-#searcharea h2 {
-  float: left;
-  margin-left: 20px;
-  margin-bottom: 0;
-}
-  
-  
   
  

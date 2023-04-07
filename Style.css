@@ -1124,16 +1124,16 @@ color: red;
 .dark-mode #mainsection1 {
   background-color: rgb(20, 20, 20);
   width: 100%;
-  height: 350vh;
+  height: 200vh;
 }
 .dark-mode #section1 {
   background-color: rgb(20, 20, 20);
-  height: 100vh;
+  height: 140vh;
 }
 
 .dark-mode #section2 {
   background-color: #212529;
-  height: 100vh;
+  height: 36vh;
 }
 .dark-mode #section3 {
   background-color: rgb(20, 20, 20);
@@ -1146,6 +1146,81 @@ color: red;
   background-color: #212529;
 }
 
+.dark-mode #section2-1 {
+  width: 100vw;
+  height: 35vh;
+  margin: 0;
+  padding: 0;
+  background-color: #212529;
+}
+
+
+.dark-mode #texth2-1 {
+  border-bottom: 0.1vw solid #9d8c78;
+  padding-bottom: 1vh;
+  color: #fbfbfb;
+  letter-spacing: 2vw;
+  text-align: center;
+  padding-left: 2vw;
+}
+
+.dark-mode #texth2 {
+  border-bottom: 0.1vw solid #9d8c78;
+  padding-bottom: 1vh;
+  color: #fbfbfb;
+  letter-spacing: 2vw;
+  text-align: center;
+  padding-left: 2vw;
+}
+
+.dark-mode #itemReward {
+  text-align: left;
+  margin: auto;
+  padding: auto;
+  width: 30vw;
+  height: 18vh;
+  background-color: #212529;
+  display: flex;
+}
+
+
+.dark-mode #letsGo-1 {
+  margin: 0;
+  width: 11vw;
+  height: 4vh;
+  font-size: 1vw;
+  background-color: #212529;
+  position: relative;
+  bottom: 6.5vh;
+  left: 65vw;
+}
+
+.dark-mode #lets_go-1{
+  background-color: #212529;
+  border: 0.2vw solid #9d8c78;
+  text-align: center;
+  line-height: 5vh;
+  color: #fbfbfb;
+}
+
+.dark-mode #letsGo {
+  margin: 0;
+  width: 11vw;
+  height: 4vh;
+  font-size: 1vw;
+  background-color: #212529;
+  position: relative;
+  left: 45vw;
+}
+.dark-mode #lets_go {
+  background-color: #212529;
+  border: 0.2vw solid #9d8c78;
+  text-align: center;
+  line-height: 5vh;
+  color: #fbfbfb;
+}
+
+
 .dark-mode #footer {
   background-color: #212529;
   height: 20vh;
@@ -1154,6 +1229,21 @@ color: red;
   text-align: center;
   overflow: hidden;
 }
+
+.dark-mode #footer-1 {
+  background-color: #212529;
+  height: 20vh;
+  width: 100vw;
+  display: flex;
+  text-align: center;
+  overflow: hidden;
+}
+
+.dark-mode #footerimg-1 {
+  text-align: center;
+  margin: auto;
+}
+
 .dark-mode #textcolor{
   color: white;
 }
@@ -1163,6 +1253,14 @@ color: red;
   line-height: 10vh;
   color: white;
 }
+
+.dark-mode #address_guide{
+  position: relative;
+  left: 3vw;
+  font-weight: bold;
+  color: white;
+}
+
 .dark-mode #colorchange {
   color: white;
 }
@@ -1262,6 +1360,11 @@ color: red;
   #footer{
     display: none;
   }
+
+  .dark-mode #footer {
+    display: none;
+  }
+
   #photo1 {
     height: 30vh;
     margin: 3% 3% 3% 3%;
@@ -1330,7 +1433,9 @@ color: red;
     #snsicon-1 {
       display: none;
     }
-    
+    .dark-mode #footer-1 {
+      display: none;
+    }
   }
 
 /*반응형 존*/
