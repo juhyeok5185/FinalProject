@@ -622,14 +622,7 @@
 /*요기까지*/
 
 /*김동욱*/
-#article {
-  margin: auto;
-  padding: auto;
-  height: 120vh;
-  width: 50vw;
-  position: relative;
-  right: 4vw;
-}
+
 
 #footerInfo_contact{
   border-bottom: 0.1vw solid black;
@@ -686,163 +679,52 @@
   text-decoration: none;
 }
 
-#luxury_item1{
-  margin-top: 15vh;
+
+/*문의게시판*/
+
+#reportboard {
+  height: 120vh;
+  width: 50vw;
+  margin: auto;
+  position: relative;
+  top: 0.4vh;
+  text-align: center;
 }
 
-#luxury_item2{
+#reportpage{
+  width: 100vw;
+  height:200vh;
+  background-color: white;
+  overflow: hidden;
+}
+
+#contactarticle {
+  height: 100vh;
+  width: 50vw;
+  position: absolute;
+  left: 35vw;
   margin-top: 10vh;
 }
 
-#luxury_itemname1{
-  position: relative;
-  left: 5vw;
-  bottom: 2.5vh;
+#luxuryarticle{
+ height: 130vh;
+  width: 50vw;
+  position: absolute;
+  left: 35vw;
+  margin-top: 10vh;
 }
 
-#luxury_itemname2{
-  position: relative;
-  left: 17.5vw;
-  bottom: 2.5vh;
-  
-}
-
-#luxury_itemname3{
-  position: relative;
-  left: 31vw;
-  bottom:2vh;
-}
-
-#luxury_itemname4{
-  position: relative;
-  left: 5vw;
-  bottom:2vh;
-}
-
-#luxury_itemname5{
-  position: relative;
-  left: 18vw;
-  bottom:2vh;
-}
-
-#luxury_itemname6{
-  position: relative;
-  left: 31vw;
-  bottom:2vh;
-}
-
-#luxury_itemintroduction1{
-  position: relative;
-  right: 1vw;
-}
-
-#luxury_itemintroduction2{
-  position: relative;
-  left: 2vw;
-}
-#luxury_itemintroduction3{
-  position: relative;
-  left: 2vw;
-}
-
-#luxury_itemintroduction4{
-  position: relative;
-  left: 1vw;
-}
-
-#luxury_itemintroduction5{
-  position: relative;
-  left: 7vw;
-}
-#luxury_itemintroduction6{
-  position: relative;
-  left: 6vw;
-}
-#luxury_pricebar1{
-  display: flex;
-}
-
-#luxury_itemprice1{
-  flex: 1;
-  position: relative;
-  left: 4.1vw;
-}
-
-#luxury_itemprice2{
-  flex: 1;
-  position: relative;
-  left: 2.9vw;
-}
-
-#luxury_itemprice3{
-  flex: 1;
-  position: relative;
-  left: 2.5vw;
-}
-
-#luxury_pricebar2{
-  display: flex;
-}
-
-#luxury_itemprice4{
-  flex: 1;
-  position: relative;
-  left: 4.1vw;
-}
-
-#luxury_itemprice5{
-  flex: 1;
-  position: relative;
-  left: 3.3vw;
-}
-
-#luxury_itemprice6{
-  flex: 1;
-  position: relative;
-  left: 2.5vw;
-}
-
-#luxury_imgplace1{
-  display: flex;
-}
-#imgplace1 {
-  position: relative;
-  right: 2vw;
-}
-#imgplace2 {
-  position: relative;
-  right: 1.5vw;
-}
-#imgplace3 {
-  position: relative;
-  right: 1vw;
-}
-#luxury_imgplace2{
-  display: flex;
-}
-#imgplace4 {
-  position: relative;
-  right: 2vw;
-}
-#imgplace5 {
-  position: relative;
-  right: 1.5vw;
-}
-#imgplace6 {
-  position: relative;
-  right: 1vw;
-}
 #luxury_page {
   width: 100vw;
-  height:120vh;
+  height:130vh;
   background-color: white;
-  display: flex;
-}
-#luxurytem {
-  position: relative;
-  bottom: 5vh;
+  overflow: hidden;
 }
 /*요기까지*/
+
+
+
+
 /*남주성*/
 
 #page{
@@ -854,13 +736,10 @@
 
 #headtit{
   width: 49vw;
-  padding: auto;
-  margin: auto;
   position: relative;
   padding: 0.1vw 0.5vh 0 0;
   border-bottom: 0.4rem solid #a1886f;
   color: #555;
-  right: 5.5vw;
 }
 
 #headtit>h3 {
@@ -874,16 +753,22 @@
   color: black;
   bottom: 10px;
 }
+#reportarticle {
+  height: 200vh;
+  width: 50vw;
+  position: absolute;
+  left: 35vw;
+  margin-top: 10vh;
+}
 
 #aside{
   width: 15vw;
-  background-color:#f1e3c4;
-  padding: auto;
-  margin: auto;    
-  position: relative;
   height: 25vh;
-  left: 5vw;
-  bottom: 37vh;
+  background-color:#f1e3c4; 
+  float: left;
+  position: absolute;
+  left: 15vw;
+  top: 19vh;
 }
 
 #tit {
@@ -915,12 +800,10 @@
 }
 
 .insert {
-  width: 20vw;
-  margin: 0 auto;
-  padding: 0 auto;
+  width: 50vw;
+  margin-top: 5vh;
   position: relative;
-  top: 2vw;
-  right: 19vw;
+  right: 1.5vw;
 }
 
 #radio-check {
@@ -1003,24 +886,16 @@
   width: 40vw;
 }
 
-#article {
-  margin: auto;
-  padding: auto;
-  height: 120vh;
-  width: 50vw;
-  position: relative;
-  top: 10vh;
-}
 #luxurytem {
   margin: auto;
-  position: relative;
-  right: 2vw;
+  margin-top: 5vh;
+  padding-right: 1vw;
+  text-align: center;
 }
 
 #p_content{
   position: relative;
   top:3vh;
-  right: 5vw;
   color: #555;
 }
 
