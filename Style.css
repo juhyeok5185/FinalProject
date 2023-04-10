@@ -763,6 +763,7 @@
 
 #toolbar {
   font-size: 12px;
+  width: 10vw;
   position: relative;
   left: 39.4vw;
   color: black;
@@ -1144,6 +1145,11 @@ color: red;
   width: 100vw;
   height: 9vh;
   background-color: #212529;
+}
+
+.dark-mode #r-b {
+  border: 1px solid #f1e3c4;
+  color: white;
 }
 
 .dark-mode #section2-1 {
@@ -1557,16 +1563,22 @@ color: red;
 #you-1 {
   flex: 1;
   position: relative;
-  left: 20vw;
-  top: 7.5vh;
+  border-right: 1px solid #9d8c78;
+}
+#you-2 {
+  position: relative;
+  left: 17vw;
+  top: 8vh;
 }
 #insta-1 {
   flex: 1;
   position: relative;
-  left:14.5vw;
-  top: 7.5vh;
 }
-
+#insta-2 {
+  position: relative;
+  left: 17vw;
+  top: 8vh;
+}
 /*유튜브아이콘*/
 .gg-youtube-1 {
   box-sizing: border-box;
