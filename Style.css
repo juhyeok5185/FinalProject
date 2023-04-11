@@ -806,11 +806,12 @@
 }
 
 #internalFacilities_article {
-  height: 130vh;
+  height: 170vh;
   width: 50vw;
   position: absolute;
   left: 35vw;
   margin-top: 10vh;
+  overflow: hidden;
 }
 
 #internalFacilities_tem {
@@ -843,8 +844,6 @@
 
 #hotel_mission {
   display: flex;
-  margin: 0 auto;
-  padding: auto;
 }
 
 #hotel_mission1 {
@@ -885,7 +884,7 @@
 }
 
 #outline_page {
-  width: 50vw;
+  width: 49vw;
   height:120vh;
   background-color: white;
   overflow: hidden;
