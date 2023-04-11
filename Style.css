@@ -890,8 +890,50 @@
   overflow: hidden;
 }
 
+/* 여기까지 개요 */
 
+/* React Stay */
+#totalStay {
+  width: 49vw;
+  height:88vh;
+  background-color: white;
+  overflow: hidden;
+  margin-top: 2vh;
+}
 
+#stayImage {
+  width: 49vw;
+  height: 50vh;
+}
+
+#stayContent {
+  width: 49vw;
+  height: 35vh;
+  margin-top: 3vh;
+  border: 1px solid #cebda5;
+  display: flex;
+}
+
+#stayContent1 {
+  width: 25vw;
+  height: 25vh;
+  margin: 45px;
+}
+
+#stayContent2 {
+  width: 25vw;
+  height: 25vh;
+  margin: 45px;
+}
+
+#stayContentfonttit {
+  color: #392f26;
+}
+
+#stayContentfont {
+  font-size: 0.95em;
+  color: #383122;
+}
 
 
 
