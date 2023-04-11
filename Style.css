@@ -742,6 +742,117 @@
 
 /*남주성*/
 
+/* 내부시설 */
+
+/* aside */
+#aside{
+  width: 15vw;
+  height: 25vh;
+  background-color:#f1e3c4; 
+  float: left;
+  position: absolute;
+  left: 15vw;
+  top: 19vh;
+}
+
+#inmenu{
+  width: 10vw;
+  background-color:#f1e3c4;
+  margin: auto;
+  padding-top: 3vh;
+  padding-left: 0.1vw;
+  text-align: left;
+  height: 15vh;
+  color: #555;
+}
+
+#tit {
+  color: #9e774c;
+  border-bottom: 0.3rem solid #a1886f; 
+}
+
+#internal_outline {
+  margin-top: 2vh;
+}
+
+#internal_outline1 {
+  text-decoration: none;
+  color: #555;
+}
+
+#internal_outline2 {
+  text-decoration: none;
+  color: #555;
+}
+
+#internal_outline3 {
+  text-decoration: none;
+  color: #555;
+}
+
+#menu {
+  padding-left: 0.1vw;
+}
+
+#internal_outline {
+  list-style: none;
+}
+
+#internal_outline1 {
+  list-style: none;
+}
+
+#internal_outline2 {
+  list-style: none;
+}
+
+
+
+/* section */
+#internalFacilities_page {
+  width: 100vw;
+  height:160vh;
+  background-color: white;
+  overflow: hidden;
+}
+
+#internalFacilities_article {
+  height: 130vh;
+  width: 50vw;
+  position: absolute;
+  left: 35vw;
+  margin-top: 10vh;
+}
+
+#internalFacilities_tem {
+  margin: auto;
+  margin-top: 5vh;
+  padding-right: 1vw;
+  text-align: center;
+}
+
+#internalFacilities_1 {
+  display: flex;
+}
+
+#internal_common {
+  list-style: none;
+  text-align: left;
+  font-size: 0.9em;
+}
+
+#internal_commonintro {
+  font-size: 0.9em;
+}
+
+
+
+
+
+
+
+
+
 #page{
   width: 100%;
   height:120vh;
@@ -777,43 +888,10 @@
   margin-top: 10vh;
 }
 
-#aside{
-  width: 15vw;
-  height: 25vh;
-  background-color:#f1e3c4; 
-  float: left;
-  position: absolute;
-  left: 15vw;
-  top: 19vh;
-}
 
-#tit {
-  color: #9e774c;
-  border-bottom: 0.3rem solid #a1886f; 
-}
 
-#inmenu{
-  width: 10vw;
-  background-color:#f1e3c4;
-  margin: auto;
-  padding-top: 3vh;
-  padding-left: 0.1vw;
-  text-align: left;
-  height: 15vh;
-  color: #555;
-}
 
-#menu {
-  padding-left: 0.1vw;
-}
 
-#m1first {
-  list-style: none;
-}
-
-#m2last {
-  list-style: none;
-}
 
 .insert {
   width: 50vw;
@@ -1004,10 +1082,6 @@ border: 1px solid #a1886f;
   background-color: #b9b9b9;
   color: #a1886f;
   border: 1px solid #a1886f;
-}
-
-p{
-font-size: 0.7em;
 }
 
 .g{
