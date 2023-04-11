@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html  lang="ko" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+  <title>J.H.H.L</title>
+</head>
+<body>
+    <div id="footer">
+        <div id="footerLogo">
+          <img src="Logo.png" alt="로꼬" width="200vw;">
+        </div>
+        <div id="footerInfo">
+          <div id="footerInfo_contact">
+            <span id="contact1_span">㈜ React Hotel 인천광역시 학익동 주혁로 228</span>
+            <span id="contact2_span">대표이사 : 박주혁 </span>
+            <span id="contact3_span">사업자등록번호 001-987654-32123 통신판매신고번호 미추홀구 401호</span>
+          </div>
+          <div id="footerInfo_under">
+            <div id="footerInfo_address">
+              <span id="address_span">연락처 : 032-1234-5678</span> 
+              <a href="/HowToCome.html" id="address_a"><span id="address_guide">[오시는길] </span></a> 
+            </div>
+              <div id="footerInfo_report">
+                <a href="/MenuReport.html" id="address_a"><span id="address_guide">[문의하기] </span></a> 
+              </div>
+                <div id="footerInfo_footercontact">
+                  <a href="MenuContact.html" id="address_a"><span id="address_guide">[연락처] </span></a> 
+                </div>
+            <div id="snssection">
+              SNS 
+              <div id="snsicon">
+                <a href="https://www.youtube.com/watch?v=Lc6TCDDU_to"><i class="gg-youtube" id="you"></i></a>
+                <a href="https://www.instagram.com/ogura_yuna/"><i class="gg-instagram" id="insta"></i></a>
+              </div> 
+            </div>
+          </div>
+        </div>
+        <div id="kmap" style="width:20vw; height:20.5vh;"></div>
+        <script>
+        var mapContainer = document.getElementById('kmap'), // 지도를 표시할 div 
+              mapOption = {
+                  center: new kakao.maps.LatLng(37.438765494939645, 126.67503967933081), // 지도의 중심좌표
+                  level: 2, // 지도의 확대 레벨
+                  mapTypeId : kakao.maps.MapTypeId.ROADMAP // 지도종류
+              }; 
+      
+          // 지도를 생성한다 
+          var map = new kakao.maps.Map(mapContainer, mapOption); 
+      
+          // 지도에 마커를 생성하고 표시한다
+          var marker = new kakao.maps.Marker({
+              position: new kakao.maps.LatLng(37.438765494939645, 126.67503967933081), // 마커의 좌표
+              map: map // 마커를 표시할 지도 객체
+          });
+        </script>
+      </div>
+      <div id="footer-1">
+        <div id="footerimg-1">
+          <img src="/Logo.png" alt="로꼬" width="150vw">
+        </div>
+      </div>
+      <div id="nothing">
+      </div>
+</body>
+</html>
