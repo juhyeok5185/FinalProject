@@ -1,7 +1,38 @@
-function darkmode(){
-  let element=document.body;
-  element.classList.toggle('dark-mode');
- 
+function darkmode() {
+  let element = document.body;
+  let checkbox = document.getElementById("dark-checkbox");
+
+  if (checkbox.checked) {
+    element.classList.add("dark-mode");
+    localStorage.setItem("dark-mode-enabled", "true");
+  } else {
+    element.classList.remove("dark-mode");
+    localStorage.setItem("dark-mode-enabled", "false");
+  }
+}
+
+function chackDarkMode(){
+  let $body = $('body');
+  let $checkbox = $('#dark-checkbox');
+  let darkModeEnabled = localStorage.getItem('dark-mode-enabled');
+  
+  if (darkModeEnabled === 'true') {
+    $body.addClass('dark-mode');
+    $checkbox.prop('checked', true);
+  } else {
+    $body.removeClass('dark-mode');
+    $checkbox.prop('checked', false);
+  }
+
+  checkbox.on('change', function() {
+    if (checkbox.prop('checked')) {
+      $body.addClass('dark-mode');
+      localStorage.setItem('dark-mode-enabled', 'true');
+    } else {
+      $body.removeClass('dark-mode');
+      localStorage.setItem('dark-mode-enabled', 'false');
+    }
+  });
 }
 
   function googleTranslateElementInit() {
@@ -15,6 +46,10 @@ function darkmode(){
 
 
 $(document).ready(function(){
+  chackDarkMode();
+
+
+
   $('#dark-checkbox').click(function() {
     if($(this).is(':checked')) {
       $('#img1').attr('src','야경1.jpg');
