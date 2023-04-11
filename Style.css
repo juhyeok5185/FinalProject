@@ -843,12 +843,14 @@
 
 #hotel_mission {
   display: flex;
+  margin: 0 auto;
+  padding: auto;
 }
 
 #hotel_mission1 {
   background-color: #f1e3c4;
   width: 15vw;
-  height: 20vh;
+  height: 21vh;
   margin: 0.5vw;
 }
 
@@ -863,11 +865,35 @@
   
 }
 
+#hotel_mission3 {
+  text-align: center;
+  width: 10vw;
+  height: 2.5vh;
+  line-height: 2.5vh;
+  margin-left: 2.5vw;
+  margin-top: 1vh;
+}
+
 #mission2_title {
   font-size: 18px;
   font-weight: bold;
   color: #3b302a;
 }
+
+#mission_font {
+  font-size: 0.9em;
+}
+
+#outline_page {
+  width: 50vw;
+  height:120vh;
+  background-color: white;
+  overflow: hidden;
+}
+
+
+
+
 
 
 
