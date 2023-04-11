@@ -773,45 +773,23 @@
 
 #internal_outline {
   margin-top: 2vh;
+  list-style: none;
 }
 
 #internal_outline1 {
   text-decoration: none;
   color: #555;
-}
-
-#internal_outline2 {
-  text-decoration: none;
-  color: #555;
-}
-
-#internal_outline3 {
-  text-decoration: none;
-  color: #555;
+  list-style: none;
 }
 
 #menu {
   padding-left: 0.1vw;
 }
 
-#internal_outline {
-  list-style: none;
-}
-
-#internal_outline1 {
-  list-style: none;
-}
-
-#internal_outline2 {
-  list-style: none;
-}
-
-
-
 /* section */
 #internalFacilities_page {
   width: 100vw;
-  height:160vh;
+  height:170vh;
   background-color: white;
   overflow: hidden;
 }
@@ -845,7 +823,7 @@
   font-size: 0.9em;
 }
 
-
+/* 여기 까지 부대시설 */
 
 
 
