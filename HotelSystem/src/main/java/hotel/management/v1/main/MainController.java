@@ -9,6 +9,6 @@ public class MainController {
     @GetMapping("/main")
     public void viewMain(){}
 
-    @GetMapping("/menuContact")
-    public void menuContact(){}
+    @GetMapping("/contact")
+    public void contact(){}
 }
