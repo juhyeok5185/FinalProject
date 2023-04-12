@@ -50,8 +50,8 @@
   left: 1vw;
 }
 #logo img {
-  width: 15vw;
-  height: 9vh;  
+  width: 8vw;
+  height: 11vh;  
 }
 .carousel-indicators{
   position: absolute;
@@ -566,7 +566,7 @@
   height: 35%;
   margin-left: 3%;
   margin-right: 3%;
-  width: 30vw;
+  width: 94%;
 }
 
 #photo4 {

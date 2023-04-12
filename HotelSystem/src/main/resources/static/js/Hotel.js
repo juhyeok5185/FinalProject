@@ -1,7 +1,7 @@
 function darkmode() {
   let element = document.body;
   let checkbox = document.getElementById("dark-checkbox");
-
+  
   if (checkbox.checked) {
     element.classList.add("dark-mode");
     localStorage.setItem("dark-mode-enabled", "true");
@@ -16,25 +16,28 @@ function chackDarkMode(){
   let $checkbox = $('#dark-checkbox');
   let darkModeEnabled = localStorage.getItem('dark-mode-enabled');
   let $logoImg = $('#logoImg');
+  console.log(localStorage.getItem('dark-mode-enabled'));
   
   if (darkModeEnabled === 'true') {
+    console.log("dddd")
     $body.addClass('dark-mode');
     $logoImg.attr('src' , "/img/logo_darkmode.png");
     $checkbox.prop('checked', true);
-
+    
+    $('#img1').attr('src','/img/res3.jpg');
+    $('#img2').attr('src','/img/hotel15.jpg');
     $('#img3').attr('src','/img/pool2.jpg');
-      $('#img2').attr('src','/img/night2.jpg');
-      $('#img1').attr('src','/img/night.jpg');
-
+    
   } else {
+    console.log("dddd")
     $body.removeClass('dark-mode');
     $logoImg.attr('src' , "/img/logo.png");
     $checkbox.prop('checked', false);
 
 
-    $('#img1').attr('src','/img/pool.jpg');
-    $('#img3').attr('src','/img/lobby.jpg');
-    $('#img2').attr('src','/img/room.jpg');
+    $('#img1').attr('src','/img/pool6.jpg');
+    $('#img2').attr('src','/img/pool4.jpg');
+    $('#img3').attr('src','/img/pool.jpg');
   }
   
   $checkbox.on('change', function() {
@@ -42,10 +45,16 @@ function chackDarkMode(){
       $logoImg.attr('src' , "/img/logo_darkmode.png");
       $body.addClass('dark-mode');
       localStorage.setItem('dark-mode-enabled', 'true');
+      $('#img1').attr('src','/img/res3.jpg');
+      $('#img2').attr('src','/img/hotel15.jpg');
+      $('#img3').attr('src','/img/pool2.jpg');
     } else {
       $body.removeClass('dark-mode');
       $logoImg.attr('src' , "/img/logo.png");
       localStorage.setItem('dark-mode-enabled', 'false');
+      $('#img1').attr('src','/img/pool6.jpg');
+      $('#img2').attr('src','/img/pool4.jpg');
+      $('#img3').attr('src','/img/pool.jpg');
     }
   });
 }
