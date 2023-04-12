@@ -20,24 +20,42 @@
 <body>
     <div th:replace="~{/fragment/nav.html}"></div>
     <!--고객 문의 게시판-->
-    <div id="page"> 
+    <div id="comepage"> 
       <div id= "aside"> 
         <div id="inmenu">
-          <h3 id="tit">고객문의</h3><br>
-          <ul id="menu">
-            <li id="m1first"><a href="/hotel/contact" id="subh">연락처</a></li><br> 
-            <li id="m2last"><a href="/hotel/report" id="subh">문의하기</a></li>
-          </ul>   
+          <h2 id="tit">오시는길</h2>
+         
         </div>
       </div>
-      <div id="contactarticle">
+      <div id="howtocomearticle">
         <div id="headtit"> 
-          <h3>연락처</h3>
-        <div id="toolbar">
-          <i class="fa-solid fa-house"></i> > 고객문의 ><a href="/hotel/contact" id="subh"> 연락처</a>
+          <h3>오시는길</h3>
+          <div id="toolbar">
+            <i class="fa-solid fa-house"></i> > 고객문의 ><a href="/hotel/howtocome" id="subh"> 오시는길</a>
+          </div>
         </div>
+        <div id="map-area">
+        <div id="map" style="width:49.6vw; height:50vh;"></div>
+        <script>
+         var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+            mapOption = {
+                center: new kakao.maps.LatLng(37.438765494939645, 126.67503967933081), // 지도의 중심좌표
+                level: 2, // 지도의 확대 레벨
+                mapTypeId : kakao.maps.MapTypeId.ROADMAP // 지도종류
+            }; 
+    
+        // 지도를 생성한다 
+        var map = new kakao.maps.Map(mapContainer, mapOption); 
+    
+        // 지도에 마커를 생성하고 표시한다
+        var marker = new kakao.maps.Marker({
+            position: new kakao.maps.LatLng(37.438765494939645, 126.67503967933081), // 마커의 좌표
+            map: map // 마커를 표시할 지도 객체
+        });
+
+        
+          </script>
         </div>
-         <p id="p_content">호텔 이용 문의는 해당 호텔 대표전화를 이용하시면 더욱 빠르게 답변 받으실 수 있습니다.</p>
       </div>
     </div>
     <!--풋터-->

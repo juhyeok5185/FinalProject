@@ -23,4 +23,13 @@ public class MainController {
     @GetMapping("/internalfacilities")
     public void internalFacilities(){}
     
+    @GetMapping("/report")
+    public void report(){}
+    
+    @GetMapping("/luxuryhall")
+    public void luxuryHall(){}
+    
+    @GetMapping("/howtocome")
+    public void howToCome(){}
+    
 }
