@@ -24,8 +24,8 @@ function chackDarkMode(){
     $checkbox.prop('checked', false);
   }
 
-  checkbox.on('change', function() {
-    if (checkbox.prop('checked')) {
+  $checkbox.on('change', function() {
+    if ($checkbox.prop('checked')) {
       $body.addClass('dark-mode');
       localStorage.setItem('dark-mode-enabled', 'true');
     } else {

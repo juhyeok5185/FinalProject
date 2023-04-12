@@ -1562,6 +1562,9 @@ color: red;
     .dark-mode #footer-1 {
       display: none;
     }
+    #dropdownbar{
+    	display:none;
+    }
   }
 
 /*반응형 존*/
