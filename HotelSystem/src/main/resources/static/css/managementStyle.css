@@ -1,0 +1,85 @@
+/*관리자 루트페이지*/
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.managment {
+  overflow: hidden;
+  width: 1903px;
+  margin: 0;
+}
+
+#textcolor{
+  color: #0000008C;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-decoration: none;
+}
+
+#colorchange {
+  color: #0000008C;
+}
+
+/* aside */
+
+#asidearea{
+  height: 100%;
+  width: 12%;
+  margin: 0;
+  float: left;
+}
+
+#asidemenu{
+  height: 300px;
+  padding-top: 30px;
+  text-align: center;
+}
+
+#asidemenu ul{
+    padding: 0;
+    list-style-type: none;
+}
+
+#asidemenu li {
+  height: 50px;
+  line-height: 50px;
+}
+
+
+#listthead tr th{
+  text-align: center;
+}
+
+ #managmentmain{
+    height: 2000px;
+    overflow: hidden;
+    width: 1903px;
+    margin-right: 0;
+  }
+
+#searcharea{
+  height: 70px;
+  text-align: center;
+  padding: 17px 0;
+}
+
+#listarea{
+  float: left;
+  height: 2000px;
+  width: 1653px;
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+#list{
+  width: 1653px;
+  height: 2000px;
+  float: left;
+}
+
+  
+ 
