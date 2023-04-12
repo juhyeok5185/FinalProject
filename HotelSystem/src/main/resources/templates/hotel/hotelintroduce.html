@@ -20,14 +20,14 @@
 <body>
     <div th:replace="~{/fragment/nav.html}"></div>
     <!--고객 문의 게시판-->
-<div id="internalFacilities_page"> 
+	<div id="internalFacilities_page"> 
       <div id= "aside"> 
         <div id="inmenu">
           <h3 id="tit">호텔소개</h3>
             <ul id="menu">
-              <li id="internal_outline"><a href="/internalOutline.html" id="subh">개요</a></li><br> 
-              <li id="internal_outline1"><a href="/internalStay.html" id="subh">React 스테이</a></li><br>
-              <li id="internal_outline1"><a href="/internalFacilities.html" id="subh">부대시설 소개</a></li>
+              <li id="internal_outline"><a href="/hotel/hotelintroduce" id="subh">개요</a></li><br> 
+              <li id="internal_outline1"><a href="/hotel/hotelstay" id="subh">React 스테이</a></li><br>
+              <li id="internal_outline1"><a href="/hotel/internalfacilities" id="subh">부대시설 소개</a></li>
             </ul>  
         </div>
       </div>
@@ -35,7 +35,7 @@
         <div id="headtit"> 
           <h3>개요</h3>
           <div id="toolbar">
-            <i class="fa-solid fa-house"></i> > 호텔소개><a href="/LuxuryHall.html" id="subh"> 개요</a>
+            <i class="fa-solid fa-house"></i> > 호텔소개><a href="/hotel/hotelintroduce" id="subh"> 개요</a>
           </div>
         </div>
         <div class="mb-3 mt-3">
