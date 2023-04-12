@@ -49,25 +49,7 @@
 	                      <input type="password" id="securitynumber2" name="securitynumber2" maxlength="7">
 	                  	</td>
 	                  </tr>
-	                  <tr>
-	                    <td class="col1">아이디</td>
-	                    <td class="col2">
-	                      <input type="text" name="id" maxlength="10">
-	                      <input class='but1' type="button" value="중복확인" onclick="">
-	                    </td>
-	                  </tr>
-	                  <tr>
-	                    <td class="col1">비밀번호</td>
-	                    <td class="col2">
-	                      <input type="password" name="pwd" maxlength="16">
-	                      <p style="font-size:0.75em">※비밀번호는 <span class="num">문자, 숫자, 특수문자(~!@#$%^&*)의 조합
-	                          10 ~ 16자리</span>로 입력이 가능합니다.</p>
-	                    </td>
-	                  </tr>
-	                  <tr>
-	                    <td class="col1">비밀번호 확인</td>
-	                    <td class="col2"><input type="password" name="pwdCheck" maxlength="16"></td>
-	                  </tr>
+	                  
 	                  <tr>
 	                    <td class="col1">이메일</td>
 	                    <td class="col2">
@@ -84,7 +66,48 @@
 	                      <input class='but2' type="button" value="이메일 중복확인" onclick="">
 	                    </td>
 	                  </tr>
+	                  <tr>
+	                    <td class="col1">생년월일</td>
+	                    <td class="col2">
+	                      <input type="date" name="birthday" id="birthday">
+	                    </td>
+	                  </tr>
+	                  <tr>
+	                    <td class="col1">휴대전화</td>
+	                    <td class="col2">
+	                      <input type="text" id="phonenumber" name="phonenumber">
+	                      <p style="font-size:0.75em">※ -는 빼고입력해주세요.</p>
+	                    </td>
+	                  </tr>
 	                </table>
+	                <div id="joinintro3">
+	        			<span>웹사이트 비밀번호 입력</span>
+	        		</div>
+	                <table id="jointable1">
+	                  <tr>
+	                    <td class="col1">아이디</td>
+	                    <td class="col2">
+	                      <input type="text" name="id" maxlength="10">
+	                      <input class='but1' type="button" value="중복확인" onclick="">
+	                    </td>
+	                  </tr>
+	                  <tr>
+	                    <td class="col1">비밀번호</td>
+	                    <td class="col2">
+	                      <input type="password" name="pwd" maxlength="16">
+	                      <p style="font-size:0.75em">※ 비밀번호는 <span style="color:red;">문자, 숫자, 특수문자(~!@#$%^&*)의 조합
+	                          10 ~ 16자리</span>로 입력이 가능합니다.</p>
+	                    </td>
+	                  </tr>
+	                  <tr>
+	                    <td class="col1">비밀번호 확인</td>
+	                    <td class="col2"><input type="password" name="pwdCheck" maxlength="16"></td>
+	                  </tr>
+	                </table>
+	                <div class="create">
+                		<input class="but3" type="button" value="가입취소" onclick="">
+                		<input class="but4" type="button" value="회원가입" onclick="formCheck(this.form)">
+              		</div>
       </div>
     </div>
     <!--풋터-->

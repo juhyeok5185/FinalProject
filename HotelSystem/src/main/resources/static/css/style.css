@@ -982,13 +982,23 @@
 }
 
 #jointable {
-  height: 40vh;
+  height: 15vh;
   width: 47vw;
   border-top: 1px solid #a1886f;
   border-bottom: 1px solid #a1886f;
   margin-right: auto;
   margin-left: 1vw;
-  margin-top: 1vh;
+  margin-top: 2vh;
+}
+
+#jointable1 {
+  height: 15vh;
+  width: 47vw;
+  border-top: 1px solid #a1886f;
+  border-bottom: 1px solid #a1886f;
+  margin-right: auto;
+  margin-left: 1vw;
+  margin-top: 2vh;
 }
 
 .col1 {
@@ -1014,11 +1024,109 @@
 #joinintro1 {
   height: 3vh;
   width: 5vw;
-  border: 1px solid black;
   margin-right: auto;
   margin-left: 1vw;
+  font-size: 0.80em;
+  margin-top: 3vh;
 }
 
+#joinintro2 {
+  height: 3vh;
+  width: 6.8vw;
+  margin-right: 1vw;
+  margin-left: auto;
+  font-size: 0.80em;
+  margin-top: 3vh;
+}
+
+#joinintro3 {
+  height: 3vh;
+  width: 7.2vw;
+  margin-right: auto;
+  margin-left: 1vw;
+  font-size: 0.80em;
+  margin-top: 3vh;
+}
+
+#birthday {
+  width: 11vw;
+  text-align: right;
+}
+
+.but1 {
+  height: 3vh;
+  width: 4vw;
+  color: white;
+  background-color: white;
+  border: 1px solid #a1886f;
+  color: #a1886f;
+}
+
+#join {
+  height: 3vh;
+  width: 4vw;
+  color: white;
+  background-color: white;
+  border: 1px solid #a1886f;
+  color: #a1886f;
+}
+
+.but2 {
+height: 27px;
+width: 120px;
+background-color: white;
+border: 1px solid #a1886f;
+color: #a1886f;
+}
+
+.but3 {
+height: 35px;
+width: 150px;
+background-color: white;
+border: 1px solid #a1886f;
+color: #a1886f;
+}
+
+.but4{
+height: 35px;
+width: 150px;
+background-color: white;
+border: 1px solid #a1886f;
+color: #a1886f;
+}
+
+.but1:hover {
+background-color: #b9b9b9;
+color: #a1886f;
+border: 1px solid #a1886f;
+}
+
+.but2:hover {
+background-color: #b9b9b9;
+color: #a1886f;
+border: 1px solid #a1886f;
+}
+
+.but3:hover {
+  background-color: #b9b9b9;
+  color: #a1886f;
+  border: 1px solid #a1886f;
+}
+
+.but4:hover {
+  background-color: #b9b9b9;
+  color: #a1886f;
+  border: 1px solid #a1886f;
+}
+
+div.create{
+  width: 47vw;
+  text-align: center;
+  padding: 30px;
+  border-bottom: 1px solid #a1886f;
+  margin: auto;
+  margin-top:5vh;
+}
 
 
 
@@ -1138,81 +1246,18 @@
 
 
 
-div.create{
-width: 47vw;
-text-align: center;
-padding: 30px;
-border-bottom: 1px solid #a1886f;
-margin: auto;
-}
+
 
 
 td{
-border-bottom: 1px dotted black;
-}
-
-caption{
-text-align: left;
+	border-bottom: 1px dotted black;
 }
 
 
 
-.but1 {
-height: 3vh;
-width: 4vw;
-color: white;
-background-color: white;
-border: 1px solid #a1886f;
-color: #a1886f;
-}
 
-.but2 {
-height: 27px;
-width: 120px;
-background-color: white;
-border: 1px solid #a1886f;
-color: #a1886f;
-}
 
-.but3 {
-height: 35px;
-width: 150px;
-background-color: white;
-border: 1px solid #a1886f;
-color: #a1886f;
-}
 
-.but4{
-height: 35px;
-width: 150px;
-background-color: white;
-border: 1px solid #a1886f;
-color: #a1886f;
-}
-
-.but1:hover {
-background-color: #b9b9b9;
-color: #a1886f;
-border: 1px solid #a1886f;
-}
-
-.but2:hover {
-background-color: #b9b9b9;
-color: #a1886f;
-border: 1px solid #a1886f;
-}
-
-.but3:hover {
-  background-color: #b9b9b9;
-  color: #a1886f;
-  border: 1px solid #a1886f;
-}
-
-.but4:hover {
-  background-color: #b9b9b9;
-  color: #a1886f;
-  border: 1px solid #a1886f;
-}
 
 .g{
 font-size: 0.7em;
@@ -1226,9 +1271,6 @@ font-size: 0.7em;
 font-size: 0.7em;
 }
 
-.num{
-color: red;
-}
 
 #numcheck {
   font-size: 0.75rem;
