@@ -21,10 +21,20 @@ function chackDarkMode(){
     $body.addClass('dark-mode');
     $logoImg.attr('src' , "/img/logo_darkmode.png");
     $checkbox.prop('checked', true);
+
+    $('#img3').attr('src','/img/pool2.jpg');
+      $('#img2').attr('src','/img/night2.jpg');
+      $('#img1').attr('src','/img/night.jpg');
+
   } else {
     $body.removeClass('dark-mode');
     $logoImg.attr('src' , "/img/logo.png");
     $checkbox.prop('checked', false);
+
+
+    $('#img1').attr('src','/img/pool.jpg');
+    $('#img3').attr('src','/img/lobby.jpg');
+    $('#img2').attr('src','/img/room.jpg');
   }
   
   $checkbox.on('change', function() {
@@ -57,13 +67,13 @@ $(document).ready(function(){
 
   $('#dark-checkbox').click(function() {
     if($(this).is(':checked')) {
-      $('#img1').attr('src','야경1.jpg');
-    $('#img2').attr('src','야경2.jpg');
-    $('#img3').attr('src','야경3.jpg');
+      $('#img3').attr('src','/img/pool2.jpg');
+      $('#img2').attr('src','/img/night2.jpg');
+      $('#img1').attr('src','/img/night.jpg');
   } else {
-    $('#img1').attr('src','낮1.jpg');
-    $('#img2').attr('src','낮2.jpg');
-    $('#img3').attr('src','낮3.jpg');
+    $('#img1').attr('src','/img/pool.jpg');
+    $('#img3').attr('src','/img/lobby.jpg');
+    $('#img2').attr('src','/img/room.jpg');
     }
   });
 
