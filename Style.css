@@ -51,8 +51,7 @@
 }
 #logo img {
   width: 15vw;
-  height: 9vh;
-  
+  height: 9vh;  
 }
 .carousel-indicators{
   position: absolute;
@@ -802,7 +801,6 @@
   width: 100vw;
   height:170vh;
   background-color: white;
-  margin-bottom: 20vh;
   overflow: hidden;
 }
 
@@ -880,18 +878,12 @@
   color: #3b302a;
 }
 
-#mission_font {
-  font-size: 0.9em;
-}
-
 #outline_page {
   width: 49vw;
-  height:120vh;
+  height:110vh;
   background-color: white;
   overflow: hidden;
 }
-
-/* 여기까지 개요 */
 
 /* React Stay */
 #totalStay {
@@ -911,7 +903,7 @@
   width: 49vw;
   height: 35vh;
   margin-top: 3vh;
-  border: 1px solid #cebda5;
+  border: 3px solid #cebda5;
   display: flex;
 }
 
@@ -935,6 +927,7 @@
   font-size: 0.95em;
   color: #383122;
 }
+
 
 
 
@@ -1519,10 +1512,15 @@ color: red;
   }
   /*700 이상 보일곳*/
   @media screen and (max-width: 700px) {
-  .hd,#nav1,#nav2 ,.reservation-area,#section3{
+  .hd,#nav1,#nav2 ,.reservation-area,#section3,#aside,#outline_page{
     display: none;
   }
-  
+  #internalFacilities_article {
+    display: none;
+  }
+  #internalFacilities_page {
+    display: none;
+  }
   #section2 {
     display: none;
   }
@@ -1575,6 +1573,14 @@ color: red;
       height: 60%;
       width: 100%;
     }
+
+    #toolbar {
+      display: none;
+    }
+    #headtit {
+      display: none;
+    }
+
   }
   /*700이하부터 보일곳*/
   @media screen and (min-width: 701px) {
@@ -1603,6 +1609,24 @@ color: red;
       display: none;
     }
     .dark-mode #footer-1 {
+      display: none;
+    }
+    #dropdownbar{
+    	display:none;
+    }
+    #internalFacilities_article-1 {
+      display: none;
+    }
+    #internalFacilities_page-1 {
+      display: none;
+    }
+    #toolbar-1{
+      display: none;
+    }
+    #headtit-1 {
+      display: none;
+    }
+    #outline_page-1{
       display: none;
     }
   }
@@ -1815,3 +1839,56 @@ color: red;
   right: 0.05vw;
 }
 /*요기까지*/
+
+#internalFacilities_article-1 {
+  height: 170vh;
+  width: 80vw;
+  margin: auto;
+  margin-top: 2vh;
+  overflow: hidden;
+}
+#internalFacilities_page-1 {
+  width: 100vw;
+  height:170vh;
+  background-color: white;
+  overflow: hidden;
+}
+
+#toolbar-1{
+  font-size: 12px;
+  width: 20vw;
+  position: relative;
+  left: 60vw;
+  color: black;
+  bottom: 10px;
+}
+
+#headtit-1 {
+  width: 80vw;
+  position: relative;
+  padding: 0.1vw 0.5vh 0 0;
+  border-bottom: 0.4rem solid #a1886f;
+  color: #555;
+}
+
+#headtit-1 >h3 {
+  color: #9e774c;
+}
+#outline_page-1 {
+  width: 80vw;
+  height:170vh;
+  background-color: white;
+  overflow: hidden;
+}
+
+#hotel_mission1-1 {
+  background-color: #f1e3c4;
+  width: 20vw;
+  height: 21vh;
+  margin: auto;
+}
+#aboutfont{
+  font-weight: bold;
+  margin-left: 1vw;
+  font-size: 1.8vw;
+}
