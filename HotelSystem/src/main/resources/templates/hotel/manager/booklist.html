@@ -5,6 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="/js/Manager.js"></script>
+  <script src="/js/Hotel.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -16,9 +18,8 @@
   <title>관리자</title>
 </head>
 <body id="body">
-  <div class="managment">
-    <div th:replace="~{/fragment/nav.html}"></div>
-
+<div class="managment">
+  <div th:replace="~{/fragment/nav.html}"></div>
 
   <div id="managmentmain">
     <div id = "asidearea">
@@ -26,40 +27,97 @@
         <ul>
           <li><a href="/management.html" id="textcolor">회원관리</a></li>
           <li><a href="#" id="textcolor">문의게시판</a></li>
-          <li><a href="/payment.html" id="textcolor">결제관리</a></li>
-          <li><a href="#" id="textcolor">???</a></li>
         </ul>
       </div>
     </div>
 
-    <div id = "list">
+    <div id="list">
+
         <div id = "searcharea">
-          <div id="inputarea">
-            <input type="text" id = "searchname" placeholder="이름 입력" height="2px;">
-            <input type="text" id = "searchroomnumber" placeholder="방호수 입력" height="2px;">
-            <input type="date" id = "searchdate">
-            <button class="btn btn-secondary" style="width: 70px;">검색</button>
+          <div id="search">
+              <input type="checkbox"> 숙박              
+              <input type="checkbox"> 레스토랑
+              <input type="text" id="from" name="from" placeholder="날짜를 지정하세요">
+              <input type="text" id="to" name="to" placeholder="기간을 등록하세요" disabled>
+              <input type="text" id = "searchroomnumber" placeholder="방호수 입력" height="2px;">
+              <input type="text" id = "searchname" placeholder="이름 입력" height="2px;">
+              <button class="btn btn-secondary" style="width: 70px;">검색</button>
           </div>
         </div>
+
+        <div class="dropdown">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" id="dropdownBtn">
+            ALL
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">All</a></li>
+            <li><a class="dropdown-item" href="#">Check In</a></li>
+            <li><a class="dropdown-item" href="#">Check Out</a></li>
+            <li><a class="dropdown-item" href="#">Breakfast</a></li>
+            <li><a class="dropdown-item" href="#">Dinner</a></li>
+          </ul>
+        </div>
+        
         <div id = "listarea">
           <table class = "table table-hover">
             <thead id = "listthead">
               <tr>
                 <th>이름</th>
                 <th>연락처</th>
-                <th>체크인날짜</th>
-                <th>체크아웃날짜</th>
                 <th>방호수</th>
                 <th>예약일</th>
+                <th>등급</th>
+                <th>체크인날짜</th>
+                <th>체크아웃날짜</th>
+                <th>조식</th>
+                <th>석식</th>
+                <th>상태</th>
+                <th>비고</th>
               </tr>
             </thead>
-            <tbody id = "listtbody"></tbody>
+            <tbody>
+              <tr>
+                <td>박주혁</td>
+                <td>01066805185</td>
+                <td></td>
+                <td>2023.04.12</td>
+                <td>스위트</td>
+                <td>2023.04.15</td>
+                <td>2023.04.16</td>
+                <td>o</td>
+                <td></td>
+                <td>체크인대기</td>
+                <td><button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" id="dropdownBtn">체크인</button></td>
+              </tr>
+              <tr>
+                <td>김미르</td>
+                <td>01066345354</td>
+                <td>101</td>
+                <td>2023.04.12</td>
+                <td>디럭스</td>
+                <td>2023.04.15</td>
+                <td>2023.04.16</td>
+                <td></td>
+                <td></td>
+                <td>체크인완료</td>
+                <td></td>
+              </tr>
+            </tbody>
           </table>
         </div>
+
     </div>
+
   </div>
 
-  <div th:replace="~{/fragment/footer.html}"></div>
+</div>
+
+
+<div id="managerFooter">
+  <div id="managerFooterLogo">
+    <img src="/img/logo.png" alt="로꼬" width="200vw;">
+  </div>
+</div>
 
 </body>
 </html>
