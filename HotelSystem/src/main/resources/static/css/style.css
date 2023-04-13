@@ -1202,7 +1202,7 @@ div.joincreate{
   display: flex;
   margin: 5vw;
   margin-top: 9vh;
-  width: 2vw;
+  width: 25w;
   height: 1vh;
 }
 
@@ -1213,7 +1213,7 @@ div.joincreate{
 
 #loginbut {
   width: 5vw;
-  height: 7.2vh;
+  height: 7.6vh;
   margin-left: 0.5vw;
   background-color: #3a3125;
   border: 2px solid black;
@@ -1221,12 +1221,12 @@ div.joincreate{
 }
 
 #logintoolbar {
-  position: relative;
   display: flex;
-  width: 21vw;
-  height: 4vh;
+  width: 50vw;
+  height: 5vh;
   font-size: 0.9rem;
-  left: 4.7vw;
+  margin-left: 4.7vw;
+ 
 }
 
 div #logintoolbar > a {
@@ -1234,11 +1234,18 @@ div #logintoolbar > a {
   text-decoration: none;
   color: #d5ccb0;
   background-color: #3a3125;
-  width: 9.8vw;
+  width: 6.5vw;
   height: 3vh;
+  line-height: 3vh;
   padding-bottom: 0.2vw;
   margin: 5px;
   border: 2px solid black;
+  padding: 5 auto;
+}
+
+#loginbarbut {
+  width: 8vw;
+  height: 10vh;
 }
 
 #jointable td {
