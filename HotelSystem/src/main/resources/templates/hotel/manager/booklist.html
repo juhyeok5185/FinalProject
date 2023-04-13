@@ -19,16 +19,24 @@
 </head>
 <body id="body">
 <div class="managment">
-  <div th:replace="~{/fragment/nav.html}"></div>
-
+  <div id="headerAndnav" class="navbar navbar-expand-sm">
+    <div id="div_logo">
+      <div id="logo">
+        <a href="/hotel/main"><img src="/img/logo.png" id="logoImg" alt="로고"></a>
+      </div>
+    </div>  
+    <div id="logoutArea">
+          <a class="nav-link" href="/hotel/member/login" id="textcolor">로그아웃</a>
+    </div>
+  </div>
   <div id="managmentmain">
     <div id = "asidearea">
       <div id = "asidemenu">
         <ul>
-          <li><a href="/manager/bookList" id="textcolor">예약조회</a></li>
-          <li><a href="#" id="textcolor">회원검색</a></li>
-          <li><a href="#" id="textcolor">예약</a></li>
-          <li><a href="#" id="textcolor">명품관</a></li>
+          <li><a href="/hotel/manager/bookList" id="textcolor">예약조회</a></li>
+          <li><a href="/hotel/manager/memberSearch" id="textcolor">회원조회</a></li>
+          <li><a href="/hotel/manager/book" id="textcolor">예약</a></li>
+          <li><a href="/hotel/mall/list" id="textcolor">명품관</a></li>
           <li><a href="#" id="textcolor">문의게시판</a></li>
         </ul>
       </div>
@@ -38,13 +46,13 @@
 
         <div id = "searcharea">
           <div id="search">
-              <input type="checkbox"> 숙박              
-              <input type="checkbox"> 레스토랑
-              <input type="text" id="from" name="from" placeholder="날짜를 지정하세요">
-              <input type="text" id="to" name="to" placeholder="기간을 등록하세요" disabled>
-              <input type="text" id = "searchroomnumber" placeholder="방호수 입력" height="2px;">
-              <input type="text" id = "searchname" placeholder="이름 입력" height="2px;">
-              <button class="btn btn-secondary" style="width: 70px;">검색</button>
+              <input type="checkbox" id="stayCheckBox"> 숙박              
+              <input type="checkbox" id="restaurantCheckBox"> 레스토랑
+              <input type="text" id="from" placeholder="날짜를 지정하세요">
+              <input type="text" id="to" placeholder="기간을 등록하세요" disabled>
+              <input type="number" id = "searchRoomNumber" placeholder="방호수 입력" height="2px;">
+              <input type="text" id = "searchName" placeholder="이름 입력" height="2px;">
+              <button class="btn btn-secondary" style="width: 70px;" type="button" id="searchBtn">검색</button>
           </div>
         </div>
 
@@ -53,11 +61,12 @@
             ALL
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">All</a></li>
-            <li><a class="dropdown-item" href="#">Check In</a></li>
-            <li><a class="dropdown-item" href="#">Check Out</a></li>
-            <li><a class="dropdown-item" href="#">Breakfast</a></li>
-            <li><a class="dropdown-item" href="#">Dinner</a></li>
+            <li><a class="dropdown-item active" href="#" data-index="1">All</a></li>
+            <li><a class="dropdown-item" href="#" data-index="2">Check In 대기중</a></li>
+            <li><a class="dropdown-item" href="#" data-index="3">투숙중</a></li>
+            <li><a class="dropdown-item" href="#" data-index="4">Check Out 완료된 회원</a></li>
+            <li><a class="dropdown-item" href="#" data-index="5">Breakfast</a></li>
+            <li><a class="dropdown-item" href="#" data-index="6">Dinner</a></li>
           </ul>
         </div>
         <div id = "listarea">
@@ -81,26 +90,26 @@
               <tr>
                 <td>박주혁</td>
                 <td>01066805185</td>
-                <td></td>
+                <td>x</td>
                 <td>2023.04.12</td>
                 <td>스위트</td>
                 <td>2023.04.15</td>
                 <td>2023.04.16</td>
-                <td>o</td>
-                <td></td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
                 <td>체크인대기</td>
                 <td><button type="button" class="btn btn-primary dropdown-toggle" id="checkInBtn" >체크인</button><button type="button" class="btn btn-primary" >예약취소</button></td>
               </tr>
                 <tr>
                   <td>김동욱</td>
                   <td>01088990000</td>
-                  <td></td>
+                  <td>x</td>
                   <td>2023.04.12</td>
                   <td>스위트</td>
                   <td>2023.04.15</td>
                   <td>2023.04.16</td>
-                  <td>o</td>
-                  <td></td>
+                  <td><input type="checkbox"></td>
+                  <td><input type="checkbox"></td>
                   <td>예약취소</td>
                   <td></td>
                 </tr>
@@ -112,10 +121,10 @@
                 <td>디럭스</td>
                 <td>2023.04.15</td>
                 <td>2023.04.16</td>
-                <td></td>
-                <td></td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
                 <td>체크인완료</td>
-                <td><button type="button" class="btn btn-danger" >체크아웃</button></td>
+                <td><button type="button" class="btn btn-danger" id="checkInBtn" >체크아웃</button><button type="button" class="btn btn-success">예약변경</button></td>
               </tr>
               <tr>
                 <td>이가은</td>
@@ -125,8 +134,8 @@
                 <td>스탠다드</td>
                 <td>2023.04.15</td>
                 <td>2023.04.16</td>
-                <td>o</td>
-                <td>o</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
                 <td>체크아웃완료</td>
                 <td></td>
               </tr>
