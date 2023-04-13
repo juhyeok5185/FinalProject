@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/hotel")
 public class managerController {
     
-    @GetMapping("/manager/booklist")
+    @GetMapping("/manager/bookList")
     public void booklist(){
         
     }
