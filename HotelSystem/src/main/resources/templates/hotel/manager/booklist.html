@@ -25,7 +25,10 @@
     <div id = "asidearea">
       <div id = "asidemenu">
         <ul>
-          <li><a href="/management.html" id="textcolor">회원관리</a></li>
+          <li><a href="/manager/bookList" id="textcolor">예약조회</a></li>
+          <li><a href="#" id="textcolor">회원검색</a></li>
+          <li><a href="#" id="textcolor">예약</a></li>
+          <li><a href="#" id="textcolor">명품관</a></li>
           <li><a href="#" id="textcolor">문의게시판</a></li>
         </ul>
       </div>
@@ -57,7 +60,6 @@
             <li><a class="dropdown-item" href="#">Dinner</a></li>
           </ul>
         </div>
-        
         <div id = "listarea">
           <table class = "table table-hover">
             <thead id = "listthead">
@@ -87,8 +89,21 @@
                 <td>o</td>
                 <td></td>
                 <td>체크인대기</td>
-                <td><button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" id="dropdownBtn">체크인</button></td>
+                <td><button type="button" class="btn btn-primary dropdown-toggle" id="checkInBtn" >체크인</button><button type="button" class="btn btn-primary" >예약취소</button></td>
               </tr>
+                <tr>
+                  <td>김동욱</td>
+                  <td>01088990000</td>
+                  <td></td>
+                  <td>2023.04.12</td>
+                  <td>스위트</td>
+                  <td>2023.04.15</td>
+                  <td>2023.04.16</td>
+                  <td>o</td>
+                  <td></td>
+                  <td>예약취소</td>
+                  <td></td>
+                </tr>
               <tr>
                 <td>김미르</td>
                 <td>01066345354</td>
@@ -100,12 +115,24 @@
                 <td></td>
                 <td></td>
                 <td>체크인완료</td>
+                <td><button type="button" class="btn btn-danger" >체크아웃</button></td>
+              </tr>
+              <tr>
+                <td>이가은</td>
+                <td>01049845554</td>
+                <td>105</td>
+                <td>2023.04.12</td>
+                <td>스탠다드</td>
+                <td>2023.04.15</td>
+                <td>2023.04.16</td>
+                <td>o</td>
+                <td>o</td>
+                <td>체크아웃완료</td>
                 <td></td>
               </tr>
             </tbody>
           </table>
         </div>
-
     </div>
 
   </div>
