@@ -38,6 +38,9 @@ public class MainController {
     @GetMapping("/member/join")
     public void join() {}
     
+    @GetMapping("/member/login")
+    public void login() {}
+    
     
     
 }
