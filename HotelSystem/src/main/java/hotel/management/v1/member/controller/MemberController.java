@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import hotel.management.v1.member.service.MemberService;
 
 @Controller
-@RequestMapping("/member")
+@RequestMapping("/hotel")
 public class MemberController {
 	@Autowired
 	private MemberService service;
 	
 	@PreAuthorize("isAnonymous()")
-    @GetMapping("/join")
+    @GetMapping("/member/join")
     public void join() {
     	
     }
@@ -27,7 +27,12 @@ public class MemberController {
     	
     }
     
-    @GetMapping("/login")
+    @GetMapping("/member/login")
     public void login() {}
+    
+    @GetMapping("/member/find")
+    public void find() {
+    	
+    }
 	
 }

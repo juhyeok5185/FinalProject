@@ -754,7 +754,8 @@
 #headtit{
   width: 49vw;
   position: relative;
-  padding: 0.1vw 0.5vh 0 0;
+  margin: 0 auto;
+  padding: 0 auto;
   border-bottom: 0.4rem solid #a1886f;
   color: #555;
 }
@@ -1264,10 +1265,73 @@ div #logintoolbar > a {
   margin-top: 10vh;
 }
 
+/* 아이디 비밀번호 찾기 */
+#idfind {
+	width: 30vw;
+	height: 103vh;
+	
+}
 
+#passwordfind {
+	width: 30vw;
+	height: 103vh;
+}
 
+#idpasswordfind {
+	display: flex;
+	width: 49vw;
+	height: 103vh;
+	margin: 0 auto;
+	padding: 0 auto;
+}
 
+#idfind1 {
+	width: 20vw;
+	height: 92vh;
+	margin: auto;
+	margin-top: 11vh;
+}
 
+#passwordfind1 {
+	width: 20vw;
+	height: 92vh;
+	margin: auto;
+	margin-top: 11vh;
+}
+
+#idfind1_1 {
+	width: 20vw;
+	height: 20vh;
+	padding-top: 4vh;
+	padding-left: 4vh;
+	border: 1px solid #9b7f5b;
+	background-color: #f1e3c4;
+}
+
+#passwordfind1_1 {
+	width: 20vw;
+	height: 20vh;
+	padding-top: 4vh;
+	padding-left: 4vh;
+	border: 1px solid #9b7f5b;
+	background-color: #f1e3c4;
+}
+
+#findId {
+  width: 16vw;
+  height: 3vh;
+  background-color: #3a3125;
+  border: 2px solid black;
+  color: #d5ccb0;
+}
+
+#resetpassword {
+  width: 16vw;
+  height: 3vh;
+  background-color: #3a3125;
+  border: 2px solid black;
+  color: #d5ccb0;
+}
 
 
 
