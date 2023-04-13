@@ -2,10 +2,12 @@ package hotel.management.v1.board.dto;
 
 import java.time.LocalDateTime;
 
+
 import hotel.management.v1.board.entity.Board;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.ToString;
 
 // 관리자 = 김동욱
 
@@ -24,6 +26,18 @@ public class BoardDto {
 			return Board.builder().title(title).content(content).username(username).writeDay(LocalDateTime.now())
 					.build();
 		}
+	}
+	
+	@Data
+	@Builder
+	@AllArgsConstructor
+	@ToString
+	public static class list{
+		private Integer boardno; 
+		private String title;
+		private String content;
+		private String username;
+		private LocalDateTime writeDay;
 	}
 
 }
