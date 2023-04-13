@@ -15,25 +15,25 @@ $(document).ready(function() {
       isRestaurant: restaurantCheckBox,
       fromDate: $('#from').val(),
       toDate: $('#to').val(),
-      roomNum: $('#searchRoomNumber').val(),
+      roomNum: Number($('#searchRoomNumber').val()),
       name: $('#searchName').val(),
       listType: $('.dropdown-menu a.active').data('index')
     }
 
-    console.log(param);
 
 
 
-    // try {
-    //     const board = await $.ajax({
-    //     url: '/hotel/manager/list',
-    //     method: 'post',
-    //     // data: param
-    //   });
-    //   location.href = "/board/read?no=" + board.bno;
-    // } catch(err) {
-    //   console.log(err);
-    // }
+    try {
+          const board = await $.ajax({
+          url: '/hotel/manager/bookSearch',
+          method: 'post',
+          data: param
+          });
+
+
+        } catch(err) {
+      console.log(err);
+    }
   });
 
 
