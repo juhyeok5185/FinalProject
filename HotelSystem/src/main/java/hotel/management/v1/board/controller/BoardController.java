@@ -30,7 +30,7 @@ public class BoardController {
 	@PostMapping("/hotel/board/write")
 	public ModelAndView write(BoardDto.BoardDtoWrite dto) {
 		Board board = boardService.write(dto);
-		return new ModelAndView("")
+		return new ModelAndView("");
 	}
 	
 

@@ -16,7 +16,7 @@ public class BoardService {
 	
 	public Board write(BoardDto.BoardDtoWrite dto) {
 		Board board = dto.toEntity();
-		return baorddao.write(dto);
+		return
 	}
 
 }
