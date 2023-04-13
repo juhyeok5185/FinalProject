@@ -754,7 +754,8 @@
 #headtit{
   width: 49vw;
   position: relative;
-  padding: 0.1vw 0.5vh 0 0;
+  margin: 0 auto;
+  padding: 0 auto;
   border-bottom: 0.4rem solid #a1886f;
   color: #555;
 }
@@ -1263,6 +1264,101 @@ div #logintoolbar > a {
   left: 25vw;
   margin-top: 10vh;
 }
+
+/* 아이디 비밀번호 찾기 */
+#newdim{
+  width: 100vw;
+  height: 100vh;
+  background-color: gray;
+  opacity: 0.7;
+  position: fixed;
+  bottom: 0.01vh;
+  right: 0.01vw;
+}
+#Box{
+  width: 26.5vw;
+  height: 29vh;
+  background-color: #9b7f5b;
+  position: fixed;
+  left: 37vw;
+  top: 33vh;
+  opacity: 1;
+  margin: auto;
+}
+#findidbar{
+  width: 25vw;
+  height: 8vh;
+  position: absolute;
+  bottom: 20.3vh;
+  padding-bottom: 1px solid black;
+  text-align: left;
+  padding-left: 0.5vw;
+  color: #ffffff;
+  font-size: 1.3em;
+
+}
+#findidbox{
+  line-height: 100px;
+  flex:1;
+}
+#findidbox1 {
+  width: 25.8vw;
+  height: 24.5vh;
+  margin: auto;
+  position: absolute;
+  left: 0.3vw;
+  top: 4vh;
+  background-color: #ffffff;
+}
+#findidbox2 {
+  width: 23.8vw;
+  height: 13.2vh;
+  margin: auto;
+  position: absolute;
+  left: 1vw;
+  top: 2vh;
+  background-color: #fbfbfb;
+  border: 1px solid #cccccc;
+}
+#rest{
+  line-height: 100px;
+  flex: 1;
+}
+#bedbox > a {
+  text-decoration: none;
+  color: black;
+  
+}
+#cancel{
+  position: relative;
+  left:12.3vw;
+  bottom: 1vh;
+}
+#cancelx{
+  font-size: 30px;
+  color: #ffffff
+}
+#cancel > a{
+  text-decoration: none;
+  color: black;
+}
+
+#findidbox2_1 {
+  width: 23.8vw;
+  height: 6.6vh;
+  background-color: blue;
+  display:flex;
+}
+
+#findidbox2_2 {
+  width: 23.8vw;
+  height: 6.6vh;
+  background-color: red;
+  display:flex;
+}
+
+
+
 
 
 
