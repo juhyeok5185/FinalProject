@@ -6,10 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/hotel")
-public class managerController {
+public class ManagerController {
     
     @GetMapping("/manager/bookList")
-    public void booklist(){
-        
-    }
+    public void booklist(){}
+    
+    @GetMapping("/manager/memberSearch")
+    public void membersearch(){}
 }
