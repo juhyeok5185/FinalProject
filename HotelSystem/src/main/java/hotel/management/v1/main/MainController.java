@@ -32,15 +32,4 @@ public class MainController {
     @GetMapping("/howtocome")
     public void howToCome(){}
     
-    
-    
-    // member
-    @GetMapping("/member/join")
-    public void join() {}
-    
-    @GetMapping("/member/login")
-    public void login() {}
-    
-    
-    
 }
