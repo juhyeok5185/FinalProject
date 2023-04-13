@@ -28,7 +28,5 @@ public class Board {
 	private LocalDateTime writeDay;
 	
 	
-	public Board toEntity(Write dto) {
-		return null;
-	}
+	
 }
