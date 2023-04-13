@@ -32,6 +32,7 @@ public class BoardController {
 	@GetMapping("/hotel/board/list")
 	public ModelAndView findAll(BoardDto.FindAll dto) {
 		List<Board> list = boarddao.findAll(dto);
+		System.out.println(dto);
 		return new ModelAndView("board").addObject("board", list);
 	}
 }
