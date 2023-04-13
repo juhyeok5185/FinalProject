@@ -11,12 +11,11 @@ import hotel.management.v1.board.entity.Board;
 @Service
 public class BoardService {
 	@Autowired
-	private BoardDao baorddao;
+	private BoardDao boardDao;
 	
-	
-	public Board write(BoardDto.BoardDtoWrite dto) {
-		Board board = dto.toEntity();
-		return
+	public void write(BoardDto.Write dto) {
+		Board board = new Board(null, dto.getTitle(), dto.getContent(), dto.getUsername(), null);
+		boardDao.write(board);
 	}
 
 }
