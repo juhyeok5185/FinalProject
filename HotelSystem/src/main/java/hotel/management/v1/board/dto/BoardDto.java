@@ -17,7 +17,8 @@ public class BoardDto {
 		private String title;
 		private String content;
 		
-		public Board toEntity() {
+		
+		public Board toEntity(String title, String content) {
 			return Board.builder().title(title).content(content).build();
 		}
 	}

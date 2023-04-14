@@ -15,6 +15,7 @@ public class BoardService {
 	private BoardDao boardDao;
 
 	public void write(BoardDto.Write dto) {
+		Board board = dto.toEntity(dto.getTitle(),dto.getContent());
 		boardDao.write(dto);
 	}
 
