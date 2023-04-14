@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hotel.management.v1.manager.dao.MemberDao">
+	<insert id="save">
+		insert into users(username,name,tel,password,email,personalId,levels,role)
+		values(#{username},#{name},#{tel},#{password},#{email},#{personalId},#{level},#{role})
+	</insert>
+</mapper>

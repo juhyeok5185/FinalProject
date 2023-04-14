@@ -16,14 +16,13 @@ public class Member {
 	private String tel;
 	private String password;
 	private String email;
-	private Integer personalId;
+	private String personalId;
 	private Integer loginFailCount;
 	private Boolean disabled;
 	@Builder.Default
 	private Level userLevel = Level.BRONZE;
-	
-	private String nationality;
-	
-	
-	
+	private Role role;
+	private Integer bookCnt;
 }
+	
+	
