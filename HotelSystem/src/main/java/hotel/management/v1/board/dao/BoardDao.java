@@ -21,7 +21,7 @@ public interface BoardDao {
 	
 	//게시물 리스트 dao
 	@Select("select * from board")
-	public List<Board> list(BoardDto.list list);
+	public List<Board> list();
 	
 //	//게시물 리드 dao
 //	@Select("select * from baord where boardNo=#{boardNo}")

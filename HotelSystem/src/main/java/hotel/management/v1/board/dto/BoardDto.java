@@ -27,17 +27,5 @@ public class BoardDto {
 					.build();
 		}
 	}
-	
-	@Data
-	@Builder
-	@AllArgsConstructor
-	@ToString
-	public static class list{
-		private Integer boardno; 
-		private String title;
-		private String content;
-		private String username;
-		private LocalDateTime writeDay;
-	}
 
 }

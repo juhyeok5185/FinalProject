@@ -21,8 +21,8 @@ public class BoardService {
 	}
 	
 	
-	public List<Board> list(BoardDto.list dto) {
-		List<Board> list = boardDao.list(dto);
+	public List<Board> list() {
+		List<Board> list = boardDao.list();
 		return null;
 	}
 
