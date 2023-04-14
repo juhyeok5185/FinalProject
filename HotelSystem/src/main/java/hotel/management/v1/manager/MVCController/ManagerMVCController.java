@@ -20,11 +20,8 @@ public class ManagerMVCController {
     
     @GetMapping("/manager/bookList")
     public ModelAndView booklist(){
-        List<ManagerDto.test> bookList = service.bookList();
+        List<ManagerDto.bookList> bookList = service.bookList();
         return new ModelAndView("hotel/manager/bookList").addObject("bookList", bookList);
     }
     
-    @GetMapping("/manager/memberSearch")
-    public void membersearch(){
-    }
 }

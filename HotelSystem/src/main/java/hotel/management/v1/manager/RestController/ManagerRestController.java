@@ -12,7 +12,7 @@ import hotel.management.v1.manager.dto.ManagerDto;
 public class ManagerRestController {
 
     @PostMapping("/manager/bookSearch")
-    public ResponseEntity<String> booklist(ManagerDto.bookList dto) {
+    public ResponseEntity<String> booklist(ManagerDto.bookSearchCondition dto) {
         System.out.println(dto);
         return ResponseEntity.ok("dd");
     }
