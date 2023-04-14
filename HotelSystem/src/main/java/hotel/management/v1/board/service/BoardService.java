@@ -23,4 +23,7 @@ public class BoardService {
 		return list;
 	}
 
+	public Board findByNo(Integer boardNo) {
+		return boardDao.findByNo(boardNo);
+	}
 }
