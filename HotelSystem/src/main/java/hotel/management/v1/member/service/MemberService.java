@@ -14,7 +14,6 @@ public class MemberService {
 	
 	public void join(MemberDto.Join dto) {
 		Member member = dto.toEntity();
-		System.out.println(member.getUserLevel());
 		dao.save(member);
 	}
 }

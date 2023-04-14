@@ -19,12 +19,6 @@ public class Member {
 	private String password;
 	private String email;
 	private String personalId;
-	private Integer loginFailCount;
-	private Boolean disabled;
-	@Builder.Default
-	private Level userLevel = Level.BRONZE;
-	private Role role;
-	private Integer bookCnt;
 }
 	
 	

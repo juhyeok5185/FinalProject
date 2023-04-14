@@ -1,8 +1,6 @@
 package hotel.management.v1.member.dto;
 
-import hotel.management.v1.member.entity.Level;
 import hotel.management.v1.member.entity.Member;
-import hotel.management.v1.member.entity.Role;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,7 +20,6 @@ public class MemberDto {
 		public Member toEntity() {
 			return Member.builder().username(username).name(name).tel(tel)
 					.password(password).email(email).personalId(personalId)
-					.userLevel(Level.BRONZE).role(Role.USER)
 					.build();
 		}
 	}
