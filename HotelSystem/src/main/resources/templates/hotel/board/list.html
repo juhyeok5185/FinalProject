@@ -15,15 +15,13 @@
 		<th>작성자</th>
 		<th>글작성일</th>
 		<th>글제목</th>
-		<th>글내용</th>
 	  </thead>
 	  <tbody>
 		<tr th:each="b : ${board}">
 		<td th:text=${b.boardNo}></td>
-		<td th:text=${b.writer}></td>
+		<td>spring1</td>
 		<td th:text=${b.writeDay}></td>
-		<td th:text=${b.title}></td>
-		<td th:text=${b.content}></td>
+		<td><a th:href="@{/board/read(boardNo=${b.boardNo})}" th:text=${b.title}></a></td>
 		</tr>
 	  </tbody>
  	</table>

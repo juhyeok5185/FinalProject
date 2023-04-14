@@ -24,11 +24,7 @@ public interface BoardDao {
 	@Select("select * from board")
 	public List<Board> list();
 
+	@Select("select * from board where boardNo=#{boardNo}")
+	public Board findByNo(Integer boardNo);
 	
-	
-//	//게시물 리드 dao
-//	@Select("select * from baord where boardNo=#{boardNo}")
-//	public List<Board> findByNo(Integer boardNo);
-//	
-
 }
