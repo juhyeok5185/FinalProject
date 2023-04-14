@@ -11,11 +11,26 @@ import lombok.ToString;
 
 @NoArgsConstructor(access=AccessLevel.PRIVATE)
 public class ManagerDto {
-    
     @Data
     @ToString
     @Builder
 	public static class bookList {
+        private String booker;
+        private String bookTel;
+        private Integer roomNo;
+        private LocalDate bookDate;
+        private String gradeName; //gradename이 예약에 있어야한다.
+        private LocalDate checkIn;
+        private LocalDate checkOut;
+        private Integer breakfast;
+        private Integer dinner;
+
+    }
+    
+    @Data
+    @ToString
+    @Builder
+	public static class booksearch {
         private Boolean isStay;
         private Boolean isRestaurant;
         private String fromDate;
