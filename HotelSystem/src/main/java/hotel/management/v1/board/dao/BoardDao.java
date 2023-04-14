@@ -6,8 +6,8 @@ import java.util.List;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
-import hotel.management.v1.board.dto.BoardDto;
 import hotel.management.v1.board.dto.BoardDto.Write;
 import hotel.management.v1.board.entity.Board;
 
@@ -21,10 +21,18 @@ public interface BoardDao {
 	public void write(Write dto);
 	
 	//게시물 리스트 dao
-	@Select("select * from board")
+	@Select("select * from board order by boardNo desc")
 	public List<Board> list();
 
 	@Select("select * from board where boardNo=#{boardNo}")
 	public Board findByNo(Integer boardNo);
+	
+	@Select("select count(*) from board")
+	public Integer count();
+	
+	@Update("update board b set b.replycontent = #{replyContent}, replywriteday = sysdate where b.boardno=#{boardNo}")
+	public void update(Integer boardNo, String replyContent);
+	
+	
 	
 }
