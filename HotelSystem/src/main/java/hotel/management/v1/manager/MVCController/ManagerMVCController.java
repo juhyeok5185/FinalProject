@@ -15,13 +15,7 @@ import hotel.management.v1.manager.dto.ManagerDto;
 public class ManagerMVCController {
     
     @GetMapping("/manager/bookList")
-    public void booklist(){
-        
-    }
-
-    
-
-  
+    public void booklist(){}
 
     @GetMapping("/manager/memberSearch")
     public void membersearch(){}

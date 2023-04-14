@@ -14,7 +14,7 @@ public class ManagerRestController {
     @PostMapping("/manager/bookSearch")
     public ResponseEntity<String> booklist(ManagerDto.bookList dto) {
         System.out.println(dto);
-          return ResponseEntity.ok("dd");
+        return ResponseEntity.ok("dd");
     }
     
 }
