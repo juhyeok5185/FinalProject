@@ -27,13 +27,13 @@ public class BoardController {
 	
 	@PostMapping("/hotel/board/write")
 	public void write(BoardDto.Write dto) {
-		System.out.println(dto);
 		boardService.write(dto);
 	}
 	
-//	@GetMapping("/hotel/board/list")
-//	public ModelAndView list() {
-//		return List<Board> list = new ModelAndView("/hotel/board/list").addObject("/hotel/board/list", list);
-//	}
+	@GetMapping("/hotel/board/list")
+	public ModelAndView list() {
+		List<Board> list = boardService.list(); 
+		return new ModelAndView("/hotel/board/list").addObject("board", list);
+	}
 	
 }
