@@ -12,16 +12,17 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Member {
 	private String username;
-	private String irum;
-	private Integer phoneNumber;
+	private String name;
+	private String tel;
 	private String password;
-	private String nationality;
 	private String email;
-	private Integer residentRegistrationNumber;
-	private Integer loginFailCnt;
-	private Boolean enabled;
+	private Integer personalId;
+	private Integer loginFailCount;
+	private Boolean disabled;
 	@Builder.Default
-	private Level level = Level.BRONZE;
+	private Level userLevel = Level.BRONZE;
+	
+	private String nationality;
 	
 	
 	
