@@ -19,18 +19,18 @@ public class ManagerDto {
         private String bookTel;
         private Integer roomNo;
         private LocalDate bookDate;
-        private String gradeName; //gradename이 예약에 있어야한다.
+        private String bookRoomGrade; //gradename이 예약에 있어야한다.
         private LocalDate checkIn;
         private LocalDate checkOut;
         private Integer breakfast;
-        private Integer dinner;
-
+        private Integer resNo;
+        private String bookStatus;
     }
     
     @Data
     @ToString
     @Builder
-	public static class booksearch {
+	public static class bookSearchCondition {
         private Boolean isStay;
         private Boolean isRestaurant;
         private String fromDate;

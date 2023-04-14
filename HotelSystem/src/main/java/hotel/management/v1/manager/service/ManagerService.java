@@ -14,8 +14,9 @@ public class ManagerService {
    @Autowired
    ManagerDao dao;
 
-    public List<ManagerDto.test> bookList(){
-        List<ManagerDto.test> test = dao.test();
+    public List<ManagerDto.bookList> bookList(){
+        List<ManagerDto.bookList> test = dao.test();
+        System.out.println(test);
         return test;
     }
 }

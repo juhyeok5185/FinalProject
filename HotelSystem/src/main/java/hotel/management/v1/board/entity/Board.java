@@ -23,6 +23,9 @@ public class Board {
 	private String username;
 	@JsonFormat(pattern = "yy/MM/dd")
 	private LocalDate writeDay;
+	private String replyContent;
+	@JsonFormat(pattern = "yy/MM/dd")
+	private LocalDate replywriteDay;
 	private String title; 
 	private String content;	
 	

@@ -10,6 +10,6 @@ import hotel.management.v1.manager.dto.ManagerDto;
 @Mapper
 public interface ManagerDao {
 
-    public List<ManagerDto.test> test();
+    public List<ManagerDto.bookList> test();
     
 }
