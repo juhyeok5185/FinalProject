@@ -36,5 +36,10 @@ public class MemberController {
     public void find() {
     	
     }
+    
+    @GetMapping("/member/joincomplete")
+    public void joinComplete() {
+    	
+    }
 	
 }
