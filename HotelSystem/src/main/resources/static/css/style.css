@@ -754,8 +754,6 @@
 #headtit{
   width: 49vw;
   position: relative;
-  margin: 0 auto;
-  padding: 0 auto;
   border-bottom: 0.4rem solid #a1886f;
   color: #555;
 }
@@ -769,6 +767,33 @@
   width: 10vw;
   position: relative;
   left: 39.4vw;
+  color: black;
+  bottom: 10px;
+}
+
+#logintool {
+  font-size: 12px;
+  width: 10vw;
+  position: relative;
+  left: 45.3vw;
+  color: black;
+  bottom: 10px;
+}
+
+#jointool {
+  font-size: 12px;
+  width: 10vw;
+  position: relative;
+  left: 44.8vw;
+  color: black;
+  bottom: 10px;
+}
+
+#introducetool {
+  font-size: 12px;
+  width: 10vw;
+  position: relative;
+  left: 42.8vw;
   color: black;
   bottom: 10px;
 }
@@ -831,6 +856,9 @@
   height:170vh;
   background-color: white;
   overflow: hidden;
+  margin:0 auto;
+  padding: 0 auto;
+  
 }
 
 #internalFacilities_article {
@@ -840,13 +868,14 @@
   left: 35vw;
   margin-top: 10vh;
   overflow: hidden;
+  
 }
 
 #internalFacilities_tem {
   margin: auto;
   margin-top: 5vh;
-  padding-right: 1vw;
   text-align: center;
+  padding-right: 0.3vw;
 }
 
 #internalFacilities_1 {
@@ -1465,7 +1494,7 @@ div #logintoolbar > a {
 }
 
 #findidcheckbut {
-  width: 23.9vw;
+  width: 10vw;
   height: 3vh;
   margin: auto;
   padding: auto;
@@ -1478,7 +1507,7 @@ div #logintoolbar > a {
 }
 
 #findpasswordcheckbut {
-  width: 23.9vw;
+  width: 10vw;
   height: 3vh;
   margin: auto;
   padding: auto;
@@ -1789,12 +1818,12 @@ div #logintoolbar > a {
   color: white;
   font-weight: bold;
 }
-.dark-mode #headtit{
+.dark-mode #{
   color: white;
   font-weight: bold;
   border-bottom: 0.3rem solid white; 
 }
-.dark-mode #headtit > h3  {
+.dark-mode # > h3  {
   color: white;
   font-weight: bold;
 }
