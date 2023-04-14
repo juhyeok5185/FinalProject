@@ -11,11 +11,16 @@
 
 </head>
 <body>
-  <div ></div>
 	글번호 : <div th:text="${board.boardNo}"></div>
 	작성자 : <div>spring1</div>
 	작성일 : <div th:text="${board.writeDay}"></div> 
 	글제목 : <div th:text="${board.title}"></div>
 	글내용 : <div th:text="${board.content}"></div>
+	<form action="/hotel/board/read" method="post">
+		<input type="hidden" name="boardNo" th:field="*{board.boardNo}">
+		<input type="text" id="replyContent" name="replyContent">
+		<button>답변</button>
+	</form>	
+	답변 : <div th:text="${board.replyContent}"></div> 
 </body>
 </html>
