@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import hotel.management.v1.member.dto.MemberDto;
 import hotel.management.v1.member.service.MemberService;
 
 @Controller
@@ -23,8 +24,9 @@ public class MemberController {
     
     @PreAuthorize("isAnonymous()")
 	@PostMapping("/member/join")
-	public void postjoin() {
-    	
+	public String join(MemberDto.Join dto) {
+    	service.join(dto);
+		return "redirect:/hotel/main";
     }
     
     @GetMapping("/member/login")
@@ -32,6 +34,11 @@ public class MemberController {
     
     @GetMapping("/member/find")
     public void find() {
+    	
+    }
+    
+    @GetMapping("/member/joincomplete")
+    public void joinComplete() {
     	
     }
 	

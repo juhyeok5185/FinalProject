@@ -1087,14 +1087,6 @@
   color: #a1886f;
 }
 
-#join {
-  height: 3vh;
-  width: 4vw;
-  color: white;
-  background-color: white;
-  border: 1px solid #a1886f;
-  color: #a1886f;
-}
 
 .but2 {
 height: 27px;
@@ -1570,7 +1562,40 @@ div #logintoolbar > a {
 	padding-right: 0.4vh;
 }
 
+#joincompletebox {
+	width: 49vw;
+	height: 90vh;
+}
 
+#joincompletebox1 {
+	width: 48.8vw;
+	height: 20.8vh;
+	line-height: 20.8vh;
+	text-align: center;
+	font-size: 1.4em;
+}
+
+#joincompletebox3_1 {
+	margin-top: 3vh;
+	margin-left: 1.4vw;
+	width: 45.8vw;
+	height: 23.4vh;
+	border: 1px solid #cccccc;
+	background-color: #f1f1f1;
+	text-align: center;
+	line-height: 13.4vh;
+}
+
+#joincompletebox2 {
+	width: 48.8vw;
+	height: 29.8vh;
+}
+#joincompletebox3 {
+	margin-top: 3vh;
+	width: 48.8vw;
+	height: 29.8vh;
+	border: 2px solid #cebda5;
+}
 
 
 
@@ -1818,12 +1843,12 @@ div #logintoolbar > a {
   color: white;
   font-weight: bold;
 }
-.dark-mode #{
+.dark-mode {
   color: white;
   font-weight: bold;
   border-bottom: 0.3rem solid white; 
 }
-.dark-mode # > h3  {
+.dark-mode > h3  {
   color: white;
   font-weight: bold;
 }
