@@ -638,7 +638,7 @@
 }
 #contact3_span{
   position: relative;
-  right: 25.7vw;
+  right: 23.7vw;
   top: 2vh;
 }
 
@@ -1223,11 +1223,11 @@ div.joincreate{
 
 #logintoolbar {
   display: flex;
-  width: 50vw;
-  height: 5vh;
+  width: 25vw;
+  height: 3vh;
+  line-height: 3vh;
   font-size: 0.9rem;
   margin-left: 4.7vw;
- 
 }
 
 div #logintoolbar > a {
@@ -1238,9 +1238,9 @@ div #logintoolbar > a {
   width: 6.5vw;
   height: 3vh;
   line-height: 3vh;
-  padding-bottom: 0.2vw;
+  padding-bottom: 0.1vh;
   margin: 5px;
-  border: 2px solid black;
+  border: 1px solid black;
   padding: 5 auto;
 }
 
@@ -1285,6 +1285,36 @@ div #logintoolbar > a {
   opacity: 1;
   margin: auto;
 }
+#newdim1{
+  width: 100vw;
+  height: 100vh;
+  background-color: gray;
+  opacity: 0.7;
+  position: fixed;
+  bottom: 0.01vh;
+  right: 0.01vw;
+}
+#Box1{
+  width: 26.5vw;
+  height: 50vh;
+  background-color: #9b7f5b;
+  position: fixed;
+  left: 37vw;
+  top: 23vh;
+  opacity: 1;
+  margin: auto;
+}
+#newdim2{
+  width: 100vw;
+  height: 100vh;
+  background-color: gray;
+  opacity: 0.7;
+  position: fixed;
+  bottom: 0.01vh;
+  right: 0.01vw;
+}
+
+
 #findidbar{
   width: 25vw;
   height: 8vh;
@@ -1295,9 +1325,26 @@ div #logintoolbar > a {
   padding-left: 0.5vw;
   color: #ffffff;
   font-size: 1.3em;
-
 }
+
+#findpasswordbar{
+  width: 25vw;
+  height: 8vh;
+  position: absolute;
+  bottom: 41.3vh;
+  padding-bottom: 1px solid black;
+  text-align: left;
+  padding-left: 0.5vw;
+  color: #ffffff;
+  font-size: 1.3em;
+}
+
 #findidbox{
+  line-height: 100px;
+  flex:1;
+}
+
+#findpasswordbox{
   line-height: 100px;
   flex:1;
 }
@@ -1310,9 +1357,18 @@ div #logintoolbar > a {
   top: 4vh;
   background-color: #ffffff;
 }
+#findpasswordbox1 {
+  width: 25.8vw;
+  height: 45.4vh;
+  margin: auto;
+  position: absolute;
+  left: 0.3vw;
+  top: 4vh;
+  background-color: #ffffff;
+}
 #findidbox2 {
-  width: 23.8vw;
-  height: 13.2vh;
+  width: 23.9vw;
+  height: 13.4vh;
   margin: auto;
   position: absolute;
   left: 1vw;
@@ -1320,15 +1376,18 @@ div #logintoolbar > a {
   background-color: #fbfbfb;
   border: 1px solid #cccccc;
 }
-#rest{
-  line-height: 100px;
-  flex: 1;
+#findpasswordbox2 {
+  width: 23.9vw;
+  height: 20.4vh;
+  margin: auto;
+  position: absolute;
+  left: 1vw;
+  top: 2vh;
+  background-color: #fbfbfb;
+  border: 1px solid #cccccc;
 }
-#bedbox > a {
-  text-decoration: none;
-  color: black;
-  
-}
+
+
 #cancel{
   position: relative;
   left:12.3vw;
@@ -1346,15 +1405,141 @@ div #logintoolbar > a {
 #findidbox2_1 {
   width: 23.8vw;
   height: 6.6vh;
-  background-color: blue;
+  background-color: #fbfbfb;
+  display:flex;
+}
+#findpasswordbox2_1 {
+  width: 23.8vw;
+  height: 6.6vh;
+  background-color: #fbfbfb;
   display:flex;
 }
 
 #findidbox2_2 {
   width: 23.8vw;
   height: 6.6vh;
-  background-color: red;
+  background-color: #fbfbfb;
   display:flex;
+}
+#findpasswordbox2_2 {
+  width: 23.8vw;
+  height: 6.6vh;
+  background-color: #fbfbfb;
+  display:flex;
+}
+
+#findidbox2_3 {
+  width: 20%;
+  height: 6.6vh;
+  background-color: #fbfbfb;
+  display:flex;
+  line-height: 6.6vh;
+  padding-left: 1vw;
+  margin: 0 auto;
+}
+#findpasswordbox2_3 {
+  width: 20%;
+  height: 6.6vh;
+  background-color: #fbfbfb;
+  display:flex;
+  line-height: 6.6vh;
+  padding-left: 1vw;
+  margin: 0 auto;
+}
+
+#findidbox2_4 {
+  width: 80%;
+  height: 6.6vh;
+  background-color: #fbfbfb;
+  display:flex;
+  padding-top: 1.8vh;
+  padding-bottom: 1.8vh;
+}
+
+#findpasswordbox2_4 {
+  width: 80%;
+  height: 6.6vh;
+  background-color: #fbfbfb;
+  display:flex;
+  padding-top: 1.8vh;
+  padding-bottom: 1.8vh;
+}
+
+#findidcheckbut {
+  width: 23.9vw;
+  height: 3vh;
+  margin: auto;
+  padding: auto;
+  line-height: 3vh;
+  left: 1vw;
+  margin-top: 18.5vh;
+  background-color: #3a3125;
+  border: 1px solid #cccccc;
+  color: #faf1d0;
+}
+
+#findpasswordcheckbut {
+  width: 23.9vw;
+  height: 3vh;
+  margin: auto;
+  padding: auto;
+  line-height: 3vh;
+  left: 1vw;
+  margin-top: 25vh;
+  background-color: #3a3125;
+  border: 1px solid #cccccc;
+  color: #faf1d0;
+}
+
+#findpasswordcheckbar {
+  display: flex;
+  width: 23.9vw;
+  height: 6.3vw;
+  margin: auto;
+  padding: auto;
+  left: 1vw;
+  margin-top: 2.5vh;
+  position: absolute;
+  border-top: 1px solid #3a3125;
+  border-bottom: 1px solid #3a3125;
+}
+
+#findpasswordcheckbar1 {
+  width: 11.94vw;
+  height: 6vh;
+  line-height: 6vh;
+}
+
+#findpasswordcheckbar2 {
+  width: 11.94vw;
+  height: 6vh;
+  line-height: 6vh;
+}
+
+#findpwlogin {
+	width: 7vw;
+	height: 3vh;
+	background-color: #3a3125;
+	text-decoration: none;
+	color: #faf1d0;
+	font-size: 1.0em;
+	padding-top: 0.2vh;
+	padding-bottom: 0.2vh;
+	padding-left: 0.4vh;
+	padding-right: 0.4vh;
+}
+
+#find_id1 {
+	width: 10vw;
+	height: 3vh;
+	background-color: #3a3125;
+	text-decoration: none;
+	color: #faf1d0;
+	font-size: 1.0em;
+	padding-top: 0.2vh;
+	padding-bottom: 0.2vh;
+	padding-left: 0.4vh;
+	padding-right: 0.4vh;
 }
 
 
