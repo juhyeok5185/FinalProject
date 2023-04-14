@@ -26,7 +26,7 @@ public class MemberController {
 	@PostMapping("/member/join")
 	public String join(MemberDto.Join dto) {
     	service.join(dto);
-		return "redirect:/hotel/main";
+		return "redirect:/hotel/member/joincomplete";
     }
     
     @GetMapping("/member/login")
