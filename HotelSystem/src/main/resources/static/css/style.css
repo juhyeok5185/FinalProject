@@ -1810,12 +1810,12 @@ div #logintoolbar > a {
   color: white;
   font-weight: bold;
 }
-.dark-mode #{
+.dark-mode {
   color: white;
   font-weight: bold;
   border-bottom: 0.3rem solid white; 
 }
-.dark-mode # > h3  {
+.dark-mode > h3  {
   color: white;
   font-weight: bold;
 }
