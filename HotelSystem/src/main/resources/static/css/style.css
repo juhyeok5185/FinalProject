@@ -1391,7 +1391,6 @@ div #logintoolbar > a {
 #cancel{
   position: relative;
   left:12.3vw;
-  bottom: 1vh;
 }
 #cancelx{
   font-size: 30px;
@@ -1567,13 +1566,6 @@ div #logintoolbar > a {
 
 
 
-#reportarticle {
-  height: 200vh;
-  width: 50vw;
-  position: absolute;
-  left: 35vw;
-  margin-top: 10vh;
-}
 
 #radio-check {
   margin-left: 2vw;
