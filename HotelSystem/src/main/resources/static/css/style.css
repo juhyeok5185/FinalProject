@@ -1223,11 +1223,11 @@ div.joincreate{
 
 #logintoolbar {
   display: flex;
-  width: 50vw;
-  height: 5vh;
+  width: 25vw;
+  height: 3vh;
+  line-height: 3vh;
   font-size: 0.9rem;
   margin-left: 4.7vw;
- 
 }
 
 div #logintoolbar > a {
@@ -1238,9 +1238,9 @@ div #logintoolbar > a {
   width: 6.5vw;
   height: 3vh;
   line-height: 3vh;
-  padding-bottom: 0.2vw;
+  padding-bottom: 0.1vh;
   margin: 5px;
-  border: 2px solid black;
+  border: 1px solid black;
   padding: 5 auto;
 }
 
@@ -1541,6 +1541,8 @@ div #logintoolbar > a {
 	padding-left: 0.4vh;
 	padding-right: 0.4vh;
 }
+
+
 
 
 
