@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -34,6 +35,11 @@ public class BoardController {
 	public ModelAndView list() {
 		List<Board> list = boardService.list(); 
 		return new ModelAndView("/hotel/board/list").addObject("board", list);
+	}
+	@GetMapping("/hotel/board/read")
+	public void read(Integer boardNo, Model model) {
+		Board board = boardService.findByNo(boardNo);
+		model.addAttribute("board",boardService.findByNo(boardNo));
 	}
 	
 }

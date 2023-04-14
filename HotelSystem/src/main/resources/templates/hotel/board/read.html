@@ -20,10 +20,10 @@
 	  </thead>
 	  <tbody>
 		<tr th:each="b : ${board}">
-		<td th:text=${b.boardno}></td>
-		<td><a th:href="@{/hotel/board/read(boardno=${b.boardno})}" th:text=${b.title}></a></td>
+		<td th:text=${b.boardNo}></td>
+		<td><a th:href="@{/hotel/board/read(boardNo=${b.boardNo})}" th:text=${b.title}></a></td>
 		<td th:text=${b.content}></td>
-		<td th:text=${b.username}></td>
+		<td>spring1</td>
 		</tr>
 	  </tbody>
  	</table>

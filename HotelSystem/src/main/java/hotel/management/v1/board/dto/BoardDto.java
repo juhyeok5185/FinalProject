@@ -1,5 +1,4 @@
 package hotel.management.v1.board.dto;
-import java.time.LocalDate;
 
 import hotel.management.v1.board.entity.Board;
 import lombok.AllArgsConstructor;
@@ -20,7 +19,7 @@ public class BoardDto {
 		
 		public Board toEntity() {
 			return Board.builder().title(title).content(content).build();
-
 		}
 	}
+	
 }
