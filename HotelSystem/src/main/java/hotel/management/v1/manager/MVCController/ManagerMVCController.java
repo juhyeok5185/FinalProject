@@ -18,8 +18,7 @@ import hotel.management.v1.manager.service.ManagerService;
 @Controller
 @RequestMapping("/hotel")
 public class ManagerMVCController {
-    @Autowired
-    ManagerService service;
+   
     
     @GetMapping("/manager/bookList")
     public ModelAndView booklist(){

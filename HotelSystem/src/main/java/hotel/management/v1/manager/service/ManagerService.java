@@ -7,6 +7,5 @@ import org.springframework.stereotype.Service;
 public class ManagerService {
    
     public void bookList(){
-        System.out.println(LocalDate.now());
     }
 }
