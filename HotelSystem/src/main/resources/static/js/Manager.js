@@ -24,7 +24,7 @@ $(document).ready(function() {
 
 
     try {
-          const board = await $.ajax({
+          const searchCondition = await $.ajax({
           url: '/hotel/manager/bookSearch',
           method: 'post',
           data: param

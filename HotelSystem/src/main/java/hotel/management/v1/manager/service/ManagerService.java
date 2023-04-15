@@ -14,9 +14,14 @@ public class ManagerService {
    @Autowired
    ManagerDao dao;
 
-    public List<ManagerDto.bookList> bookList(){
-        List<ManagerDto.bookList> test = dao.test();
-        System.out.println(test);
-        return test;
+    public List<ManagerDto.findBookList> findBookList(){
+        List<ManagerDto.findBookList> list = dao.findBookList();
+        return list;
     }
+
+    public List<ManagerDto.findUserList> userSearch(String name) {
+        List<ManagerDto.findUserList> list = dao.findUserList(name);
+        return list;
+    }
+
 }

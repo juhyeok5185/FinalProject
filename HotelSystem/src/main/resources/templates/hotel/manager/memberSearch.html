@@ -16,6 +16,23 @@
   <link rel="stylesheet" href="/css/managementStyle.css">
   <link rel="stylesheet" href="/css/style.css">
   <title>관리자</title>
+  <script>
+    $(document).ready(function(){
+      $('#nameSearchBtn').on('click' ,async function(){
+        const name = $('#searchName').val();
+        try {
+          const list = await $.ajax({
+          url: '/hotel/manager/memberSearch?name='+name,
+          method: 'post'
+          });
+          $('#test').append(JSON.stringify(list)); 
+
+        } catch(err) {
+           console.log(err);
+       }
+      })
+    })
+  </script>
 </head>
 <body id="body">
 <div class="managment">
@@ -46,10 +63,12 @@
 
         <div id = "searcharea">
           <div id="search">
-              <input type="text" id = "searchname" placeholder="이름 입력" height="2px;">
-              <button class="btn btn-secondary" style="width: 70px;">검색</button>
+              <input type="text" id = "searchName" placeholder="이름 입력" height="2px;">
+              <button class="btn btn-secondary" style="width: 70px;" id="nameSearchBtn">검색</button>
           </div>
         </div>
+
+        <div id="test"></div>
 
         <div id = "listarea">
           <table class = "table table-hover">

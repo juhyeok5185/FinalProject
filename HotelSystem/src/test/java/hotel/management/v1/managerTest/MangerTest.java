@@ -16,7 +16,6 @@ public class MangerTest {
     
     @Test
     public void test() {
-        List<ManagerDto.test> test = dao.test();
     }
 }
 

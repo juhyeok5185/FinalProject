@@ -14,7 +14,7 @@ public class ManagerDto {
     @Data
     @ToString
     @Builder
-	public static class bookList {
+	public static class findBookList {
         private String booker;
         private String bookTel;
         private Integer roomNo;
@@ -25,6 +25,18 @@ public class ManagerDto {
         private Integer breakfast;
         private Integer resNo;
         private String bookStatus;
+    }
+
+    @Data
+    @ToString
+    @Builder
+	public static class findUserList {
+        private String name;
+        private String tel;
+        private String email;
+        private String username;
+        // private Boolean blackList;
+        // private Boolean VIP;
     }
     
     @Data
@@ -40,15 +52,5 @@ public class ManagerDto {
         private Integer listType;
     }
 
-    @Data
-    @ToString
-    @Builder
-	public static class test {
-        private Integer bookNo;
-        private String userName;
-        private Integer totalCount;
-        private LocalDate bookDate;
-        private String bookTel;
-        private String booker;
-    }
+   
 }
