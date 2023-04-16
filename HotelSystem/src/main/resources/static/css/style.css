@@ -754,8 +754,6 @@
 #headtit{
   width: 49vw;
   position: relative;
-  margin: 0 auto;
-  padding: 0 auto;
   border-bottom: 0.4rem solid #a1886f;
   color: #555;
 }
@@ -769,6 +767,33 @@
   width: 10vw;
   position: relative;
   left: 39.4vw;
+  color: black;
+  bottom: 10px;
+}
+
+#logintool {
+  font-size: 12px;
+  width: 10vw;
+  position: relative;
+  left: 45.3vw;
+  color: black;
+  bottom: 10px;
+}
+
+#jointool {
+  font-size: 12px;
+  width: 10vw;
+  position: relative;
+  left: 44.8vw;
+  color: black;
+  bottom: 10px;
+}
+
+#introducetool {
+  font-size: 12px;
+  width: 10vw;
+  position: relative;
+  left: 42.8vw;
   color: black;
   bottom: 10px;
 }
@@ -831,6 +856,9 @@
   height:170vh;
   background-color: white;
   overflow: hidden;
+  margin:0 auto;
+  padding: 0 auto;
+  
 }
 
 #internalFacilities_article {
@@ -840,13 +868,14 @@
   left: 35vw;
   margin-top: 10vh;
   overflow: hidden;
+  
 }
 
 #internalFacilities_tem {
   margin: auto;
   margin-top: 5vh;
-  padding-right: 1vw;
   text-align: center;
+  padding-right: 0.3vw;
 }
 
 #internalFacilities_1 {
@@ -1058,14 +1087,6 @@
   color: #a1886f;
 }
 
-#join {
-  height: 3vh;
-  width: 4vw;
-  color: white;
-  background-color: white;
-  border: 1px solid #a1886f;
-  color: #a1886f;
-}
 
 .but2 {
 height: 27px;
@@ -1391,7 +1412,6 @@ div #logintoolbar > a {
 #cancel{
   position: relative;
   left:12.3vw;
-  bottom: 1vh;
 }
 #cancelx{
   font-size: 30px;
@@ -1466,7 +1486,7 @@ div #logintoolbar > a {
 }
 
 #findidcheckbut {
-  width: 23.9vw;
+  width: 10vw;
   height: 3vh;
   margin: auto;
   padding: auto;
@@ -1479,7 +1499,7 @@ div #logintoolbar > a {
 }
 
 #findpasswordcheckbut {
-  width: 23.9vw;
+  width: 10vw;
   height: 3vh;
   margin: auto;
   padding: auto;
@@ -1542,38 +1562,64 @@ div #logintoolbar > a {
 	padding-right: 0.4vh;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#reportarticle {
-  height: 200vh;
-  width: 50vw;
-  position: absolute;
-  left: 35vw;
-  margin-top: 10vh;
+#joincompletebox {
+	width: 49vw;
+	height: 90vh;
 }
+
+#joincompletebox1 {
+	width: 48.8vw;
+	height: 20.8vh;
+	line-height: 20.8vh;
+	text-align: center;
+	font-size: 1.4em;
+}
+
+#joincompletebox3_1 {
+	margin-top: 3vh;
+	margin-left: 1.4vw;
+	width: 45.8vw;
+	height: 23.4vh;
+	border: 1px solid #cccccc;
+	background-color: #f1f1f1;
+	text-align: center;
+	line-height: 13.4vh;
+}
+
+#joincompletebox2 {
+	width: 48.8vw;
+	height: 29.8vh;
+}
+#joincompletebox3 {
+	margin-top: 3vh;
+	width: 48.8vw;
+	height: 29.8vh;
+	border: 2px solid #cebda5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #radio-check {
   margin-left: 2vw;
@@ -1797,12 +1843,12 @@ div #logintoolbar > a {
   color: white;
   font-weight: bold;
 }
-.dark-mode #headtit{
+.dark-mode {
   color: white;
   font-weight: bold;
   border-bottom: 0.3rem solid white; 
 }
-.dark-mode #headtit > h3  {
+.dark-mode > h3  {
   color: white;
   font-weight: bold;
 }

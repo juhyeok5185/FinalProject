@@ -9,7 +9,6 @@ $(document).ready(function() {
       stayCheckBox = true;
       restaurantCheckBox = true;
     } 
-    
     const param = {
       isStay: stayCheckBox,
       isRestaurant: restaurantCheckBox,
@@ -19,28 +18,16 @@ $(document).ready(function() {
       name: $('#searchName').val(),
       listType: $('.dropdown-menu a.active').data('index')
     }
-
-
-
-
     try {
-          const board = await $.ajax({
+          const searchCondition = await $.ajax({
           url: '/hotel/manager/bookSearch',
           method: 'post',
           data: param
           });
-
-
         } catch(err) {
       console.log(err);
     }
   });
-
-
-
-
-
-
 
  $('.dropdown-menu a').click(function() {
       $('.dropdown-menu a').removeClass('active');
@@ -48,4 +35,8 @@ $(document).ready(function() {
       let text = $(this).text();
       $('#dropdownBtn').text(text);
     });
+
+  $('#bookCancel').on('click' , function(){
+    console.log("ddd");
+  })
 });

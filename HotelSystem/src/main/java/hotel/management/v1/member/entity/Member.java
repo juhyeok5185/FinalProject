@@ -5,24 +5,20 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@ToString
 public class Member {
 	private String username;
-	private String irum;
-	private Integer phoneNumber;
+	private String name;
+	private String tel;
 	private String password;
-	private String nationality;
 	private String email;
-	private Integer residentRegistrationNumber;
-	private Integer loginFailCnt;
-	private Boolean enabled;
-	@Builder.Default
-	private Level level = Level.BRONZE;
-	
-	
-	
+	private String personalId;
 }
+	
+	

@@ -24,7 +24,7 @@
       <div id="loginarticle">
         <div id="headtit"> 
           <h3>로그인</h3>
-        <div id="toolbar">
+        <div id="logintool">
           <i class="fa-solid fa-house"></i> ><a href="/hotel/member/login" id="subh"> 로그인</a>
         </div>
         </div>
@@ -61,6 +61,7 @@
         				$('#find_id').click(function(){
         		            $('#newdim').attr('style','display:block;');
         		            $('#Box').attr('style','display:block');
+        		            $('html').attr('style','overflow:hidden');
         		          });
   						</script>
        <div id="newdim" style="display: none;"></div>
@@ -97,6 +98,7 @@
               $('#btn2').click(function(){
             $('#newdim').attr('style','display:none;');
             $('#Box').attr('style','display:none');
+            $('html').attr('style','overflow:none');
           });
             </script>
           </div>
@@ -107,6 +109,7 @@
         				$('#find_password').click(function(){
         		            $('#newdim1').attr('style','display:block;');
         		            $('#Box1').attr('style','display:block');
+        		            $('html').attr('style','overflow:hidden');
         		          });
   						</script>
        <div id="newdim1" style="display: none;"></div>
@@ -200,6 +203,7 @@
               $('#btn2').click(function(){
             $('#newdim').attr('style','display:none;');
             $('#Box').attr('style','display:none');
+            $('html').attr('style','overflow:none');
           });
             </script>
           </div>
@@ -215,6 +219,7 @@
               $('#passwordcancelbtn').click(function(){
             $('#newdim1').attr('style','display:none;');
             $('#Box1').attr('style','display:none');
+            $('html').attr('style','overflow:none');
           });
             </script>
           </div>
