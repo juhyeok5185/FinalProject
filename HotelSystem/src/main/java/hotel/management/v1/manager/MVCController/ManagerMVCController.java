@@ -25,8 +25,10 @@ public class ManagerMVCController {
     }
 
     @GetMapping("/manager/memberSearch")
-    public void memberSearch(){
-        
-    }
+    public void memberSearch(){}
     
+    @GetMapping("/manager/memberDetail")
+    public void memberDetail(String name){
+        // service.findUserByName(name);
+    }
 }

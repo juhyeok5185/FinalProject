@@ -19,18 +19,12 @@ $(document).ready(function() {
       name: $('#searchName').val(),
       listType: $('.dropdown-menu a.active').data('index')
     }
-
-
-
-
     try {
           const searchCondition = await $.ajax({
           url: '/hotel/manager/bookSearch',
           method: 'post',
           data: param
           });
-
-
         } catch(err) {
       console.log(err);
     }

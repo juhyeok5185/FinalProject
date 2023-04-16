@@ -70,7 +70,6 @@
           </ul>
         </div>
         <div id = "listarea">
-          <div th:text="${bookList}"></div>
           <table class = "table table-hover">
             <thead id = "listthead">
               <tr>
@@ -140,6 +139,20 @@
                 <td>체크아웃완료</td>
                 <td></td>
               </tr>
+              <tr th:each="b : ${bookList}">
+                <td th:text="${b.booker}"></td>
+                <td th:text="${b.bookTel}"></td>
+                <td th:text="${b.roomNo}"></td>
+                <td th:text="${b.bookDate}"></td>
+                <td th:text="${b.bookRoomGrade}"></td>
+                <td th:text="${b.checkIn}"></td>
+                <td th:text="${b.checkOut}"></td>
+                <td th:text="${b.breakfast}"></td>
+                <td th:text="${b.resNo}"></td>
+                <td th:text="${b.bookStatus}"></td>
+                <td></td>
+              </tr>
+
             </tbody>
           </table>
         </div>
