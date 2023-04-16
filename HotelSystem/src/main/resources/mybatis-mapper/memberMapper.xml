@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="hotel.management.v1.member.dao.MemberDao">
 	<insert id="save">
-		insert into users(username,name,tel,password,email,personalId)
-		values(#{username},#{name},#{tel},#{password},#{email},#{personalId})
+		insert into users(username,name,tel,password,email,personalId,black,vip)
+		values(#{username},#{name},#{tel},#{password},#{email},#{personalId},0,0)
 	</insert>
 </mapper>
