@@ -1,87 +1,116 @@
 <!DOCTYPE html>
-<html  lang="ko" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-  <meta charset="UTF-8">
-  <title>J.H.H.L</title>
-  <style>
-   
-  </style>
+<meta charset="UTF-8">
+<title>J.H.H.L</title>
+<style>
+</style>
 </head>
 <body>
- <div id="headerAndnav" class="navbar navbar-expand-sm">
-      <div id="header">
-        <ul class="navbar-nav hd">
-          <li class="nav-item" id="liLine">
-            <a class="nav-link" href="/hotel/member/login" id="textcolor">로그인</a>
-          </li>
-          <li class="nav-item" id="liLine">
-            <a class="nav-link" href="/hotel/member/join" id="textcolor">회원가입</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" id="textcolor">예약.주문확인</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">객실</a></li>
-              <li><a class="dropdown-item" href="#">다이닝</a></li>
-              <li><a class="dropdown-item" href="#">명품관</a></li>
-            </ul>
-          </li>
-          <li id="google_translate_element" class="nav-item dropdown">
-          </li>
-        </ul>
-        <span id="colorchange"><input type="checkbox" class="dark-mode" onclick="darkmode()" id="dark-checkbox">다크모드</span>
-      </div>
-      <div id="nav1">
-        <ul class="navbar-nav navul1">
-          <li class="nav-item" id="i1">
-            <a class="nav-link" href="/hotel/hotelintroduce" id="textcolor">호텔소개</a>
-          </li>
-          <li class="nav-item" id="i2">
-            <a class="nav-link" href="#" id="textcolor">예약</a>
-          </li>
-        </ul>
-      </div>
-      <div id="div_logo">
-        <div id="logo">
-          <a href="/hotel/main"><img src="/img/logo.png" id="logoImg" alt="로고"></a>
-        </div>
-      </div>
-      <div id="nav2">
-        <ul class="navbar-nav navul2">
-          <li class="nav-item" id="i3">
-            <a class="nav-link" href="/hotel/luxuryhall" id="textcolor">명품관</a>
-          </li>  
-          <li class="nav-item dropdown" id="i4">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" id="textcolor">고객문의</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/hotel/contact">고객문의</a></li>
-              <li><a class="dropdown-item" href="/hotel/howtocome">오시는길</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <div class="media-dropdown">
-        <i id="drop_icon" class="fa-solid fa-bars dropdown"  data-bs-toggle="dropdown" aria-expanded="false">
-        </i>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li id="aboutfont">회원</li>
-            <li><a class="dropdown-item" href="/hotel/member/login">로그인</a></li>
-            <li><a class="dropdown-item" href="/hotel/member/join">회원가입</a></li>
-            <hr>
-            <li id="aboutfont">예약</li>
-            <li><a class="dropdown-item" href="#">예약</a></li>
-            <li><a class="dropdown-item" href="#">예약.주문조회</a></li>
-            <li><a class="dropdown-item" href="/hotel/luxuryhall">명품관</a></li>
-            <hr>
-            <li id="aboutfont">호텔소개</li>
-            <li><a class="dropdown-item" href="/hotel/hotelintroduce">개요</a></li>
-            <li><a class="dropdown-item" href="/hotel/hotelstay">React스테이</a></li>
-            <li><a class="dropdown-item" href="/hotel/internalfacilities">부대시설</a></li>
-            <hr>
-            <li id="aboutfont">고객문의</li>
-            <li><a class="dropdown-item" href="/hotel/howtocome">오시는길</a></li>
-            <li><a class="dropdown-item" href="/hotel/contact">고객문의</a></li>
-          </ul>
-       </div>
-    </div>
+	<div id="headerAndnav" class="navbar navbar-expand-sm">
+		<div id="header">
+			<ul class="navbar-nav hd">
+				<li class="nav-item" id="liLine"><a class="nav-link"
+					href="/hotel/member/login" id="textcolor">로그인</a></li>
+				<li class="nav-item" id="liLine"><a class="nav-link"
+					href="/hotel/member/join" id="textcolor">회원가입</a></li>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" role="button"
+					data-bs-toggle="dropdown" id="textcolor">예약.주문확인</a>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="#">객실</a></li>
+						<li><a class="dropdown-item" href="#">다이닝</a></li>
+						<li><a class="dropdown-item" href="#">명품관</a></li>
+					</ul></li>
+				<li id="google_translate_element" class="nav-item dropdown"></li>
+			</ul>
+			<span id="colorchange"><input type="checkbox"
+				class="dark-mode" onclick="darkmode()" id="dark-checkbox">다크모드</span>
+		</div>
+		<div id="nav1">
+			<ul class="navbar-nav navul1">
+				<li class="nav-item" id="i1"><a class="nav-link"
+					href="/hotel/hotelintroduce" id="textcolor">호텔소개</a></li>
+				<li class="nav-item bookbtn" id="i2"><a id="textcolor"> 예약
+				</a></li>
+			</ul>
+		</div>
+		<script>
+			$('.bookbtn').click(function() {
+				$('#booknewdim').attr('style', 'display:block;');
+				$('#bookBox').attr('style', 'display:block');
+				$('html').attr('style', 'overflow: hidden');
+			});
+		</script>
+
+		<div id="booknewdim" style="display: none;"></div>
+		<div id="bookBox" style="display: none;">
+			<div id="bookheadbar">
+				<span>예약</span>
+				<div id="bookcancel">
+					<a href="#none" id="bookbtn2"><span id="bookcancelx">x</span></a>
+					<script>
+						$('#bookbtn2').click(function() {
+							$('#booknewdim').attr('style', 'display:none;');
+							$('#bookBox').attr('style', 'display:none');
+							$('html').attr('style', 'overflow:none');
+						});
+					</script>
+				</div>
+			</div>
+			<div id="bookbed">
+				<div id="bookbedbox">
+					<img src="/img/눕자.png" width="60vw;" height="60vh;" id="bookbedimg">
+				</div>
+				<div id="bookrestbox">
+					<img src="/img/뭘봐.png" width="60vw;" height="60vh;" id="bookrestimg">
+				</div>
+			</div>
+
+		</div>
+		<div id="div_logo">
+			<div id="logo">
+				<a href="/hotel/main"><img src="/img/logo.png" id="logoImg"
+					alt="로고"></a>
+			</div>
+		</div>
+		<div id="nav2">
+			<ul class="navbar-nav navul2">
+				<li class="nav-item" id="i3"><a class="nav-link"
+					href="/hotel/luxuryhall" id="textcolor">명품관</a></li>
+				<li class="nav-item dropdown" id="i4"><a
+					class="nav-link dropdown-toggle" href="#" role="button"
+					data-bs-toggle="dropdown" id="textcolor">고객문의</a>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="/hotel/contact">고객문의</a></li>
+						<li><a class="dropdown-item" href="/hotel/howtocome">오시는길</a></li>
+					</ul></li>
+			</ul>
+		</div>
+		<div class="media-dropdown">
+			<i id="drop_icon" class="fa-solid fa-bars dropdown"
+				data-bs-toggle="dropdown" aria-expanded="false"> </i>
+			<ul class="dropdown-menu dropdown-menu-end">
+				<li id="aboutfont">회원</li>
+				<li><a class="dropdown-item" href="/hotel/member/login">로그인</a></li>
+				<li><a class="dropdown-item" href="/hotel/member/join">회원가입</a></li>
+				<hr>
+				<li id="aboutfont">예약</li>
+				<li><a class="dropdown-item" href="#">예약</a></li>
+				<li><a class="dropdown-item" href="#">예약.주문조회</a></li>
+				<li><a class="dropdown-item" href="/hotel/luxuryhall">명품관</a></li>
+				<hr>
+				<li id="aboutfont">호텔소개</li>
+				<li><a class="dropdown-item" href="/hotel/hotelintroduce">개요</a></li>
+				<li><a class="dropdown-item" href="/hotel/hotelstay">React스테이</a></li>
+				<li><a class="dropdown-item" href="/hotel/internalfacilities">부대시설</a></li>
+				<hr>
+				<li id="aboutfont">고객문의</li>
+				<li><a class="dropdown-item" href="/hotel/howtocome">오시는길</a></li>
+				<li><a class="dropdown-item" href="/hotel/contact">고객문의</a></li>
+			</ul>
+		</div>
+	</div>
 </body>
 </html>
