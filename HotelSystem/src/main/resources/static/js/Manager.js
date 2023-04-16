@@ -9,7 +9,6 @@ $(document).ready(function() {
       stayCheckBox = true;
       restaurantCheckBox = true;
     } 
-    
     const param = {
       isStay: stayCheckBox,
       isRestaurant: restaurantCheckBox,
@@ -30,16 +29,14 @@ $(document).ready(function() {
     }
   });
 
-
-
-
-
-
-
  $('.dropdown-menu a').click(function() {
       $('.dropdown-menu a').removeClass('active');
       $(this).addClass('active');
       let text = $(this).text();
       $('#dropdownBtn').text(text);
     });
+
+  $('#bookCancel').on('click' , function(){
+    console.log("ddd");
+  })
 });

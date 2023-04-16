@@ -147,10 +147,27 @@
                 <td th:text="${b.bookRoomGrade}"></td>
                 <td th:text="${b.checkIn}"></td>
                 <td th:text="${b.checkOut}"></td>
-                <td th:text="${b.breakfast}"></td>
-                <td th:text="${b.resNo}"></td>
+                <td>
+                  <span th:if="${b.breakfast == 1}"><input type="checkbox" checked></span>
+                  <span th:if="${b.breakfast == 0}"><input type="checkbox"></span>
+                </td>
+                <td>
+                  <span th:if="${b.resNo != null}"><input type="checkbox" checked></span>
+                  <span th:if="${b.resNo == null}"><input type="checkbox"></span>
+                </td>
                 <td th:text="${b.bookStatus}"></td>
-                <td></td>
+                <td>
+                  <span th:if="${b.bookStatus == '체크인대기'}">
+                    <button type="button" class="btn btn-primary dropdown-toggle" id="checkInBtn" >체크인</button>
+                    <button type="button" class="btn btn-primary" id="bookCancel" >예약취소</button>
+                  </span>
+                  <span th:if="${b.bookStatus == '체크인완료'}">
+                    <button type="button" class="btn btn-danger" id="checkOutBtn">체크아웃</button>
+                    <button type="button" class="btn btn-success">예약변경</button>
+                  </span>
+                  <span th:if="${b.bookStatus == '체크아웃완료'}"></span>
+                  <span th:if="${b.bookStatus == '예약취소'}"></span>
+                </td>
               </tr>
 
             </tbody>
