@@ -1242,6 +1242,16 @@ div.joincreate{
   color: #d5ccb0;
 }
 
+#todologin {
+  width: 5vw;
+  height: 3vh;
+  margin-top: 2vh;
+  margin-left: 22vw;
+  background-color: #3a3125;
+  border: 2px solid black;
+  color: #d5ccb0;
+}
+
 #logintoolbar {
   display: flex;
   width: 25vw;
