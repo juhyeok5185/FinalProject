@@ -40,8 +40,6 @@ public class MyUserDetailsService implements UserDetailsService {
 	@Value("${admin.password}")
 	private String adminPassword;
 	
-	
-	// 사용자 객체를 담아서 넘기는 역할 ~!
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		if(username.equals(adminUsername)) {

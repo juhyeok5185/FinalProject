@@ -48,7 +48,7 @@ public class LoginFailHandler extends SimpleUrlAuthenticationFailureHandler {
 		} else if(e instanceof DisabledException) {
 			session.setAttribute("msg", "비활성화된 계정입니다. 관리자에게 문의하세요");
 		}
-		response.sendRedirect("/member/login");
+		response.sendRedirect("/hotel/main");
 	}
 }
 
