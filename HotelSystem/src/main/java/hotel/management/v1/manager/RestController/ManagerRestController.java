@@ -28,5 +28,12 @@ public class ManagerRestController {
         List<ManagerDto.findUserList> list = service.userSearch(name);
         return ResponseEntity.ok(list);
     }
+
+    @PostMapping("/manager/bookCancel")
+    public ResponseEntity<?> bookCancel(String name) {
+        System.out.println(name);
+        Integer bookCancel = service.bookCancel(name);
+        return ResponseEntity.ok("");
+    }
     
 }

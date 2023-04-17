@@ -87,58 +87,6 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>박주혁</td>
-                <td>01066805185</td>
-                <td>x</td>
-                <td>2023.04.12</td>
-                <td>스위트</td>
-                <td>2023.04.15</td>
-                <td>2023.04.16</td>
-                <td><input type="checkbox"></td>
-                <td><input type="checkbox"></td>
-                <td>체크인대기</td>
-                <td><button type="button" class="btn btn-primary dropdown-toggle" id="checkInBtn" >체크인</button><button type="button" class="btn btn-primary" >예약취소</button></td>
-              </tr>
-                <tr>
-                  <td>김동욱</td>
-                  <td>01088990000</td>
-                  <td>x</td>
-                  <td>2023.04.12</td>
-                  <td>스위트</td>
-                  <td>2023.04.15</td>
-                  <td>2023.04.16</td>
-                  <td><input type="checkbox"></td>
-                  <td><input type="checkbox"></td>
-                  <td>예약취소</td>
-                  <td></td>
-                </tr>
-              <tr>
-                <td>김미르</td>
-                <td>01066345354</td>
-                <td>101</td>
-                <td>2023.04.12</td>
-                <td>디럭스</td>
-                <td>2023.04.15</td>
-                <td>2023.04.16</td>
-                <td><input type="checkbox"></td>
-                <td><input type="checkbox"></td>
-                <td>체크인완료</td>
-                <td><button type="button" class="btn btn-danger" id="checkInBtn" >체크아웃</button><button type="button" class="btn btn-success">예약변경</button></td>
-              </tr>
-              <tr>
-                <td>이가은</td>
-                <td>01049845554</td>
-                <td>105</td>
-                <td>2023.04.12</td>
-                <td>스탠다드</td>
-                <td>2023.04.15</td>
-                <td>2023.04.16</td>
-                <td><input type="checkbox"></td>
-                <td><input type="checkbox"></td>
-                <td>체크아웃완료</td>
-                <td></td>
-              </tr>
               <tr th:each="b : ${bookList}">
                 <td th:text="${b.booker}"></td>
                 <td th:text="${b.bookTel}"></td>
@@ -158,11 +106,11 @@
                 <td th:text="${b.bookStatus}"></td>
                 <td>
                   <span th:if="${b.bookStatus == '체크인대기'}">
-                    <button type="button" class="btn btn-primary dropdown-toggle" id="checkInBtn" >체크인</button>
-                    <button type="button" class="btn btn-primary" id="bookCancel" >예약취소</button>
+                    <button type="button" class="btn btn-primary dropdown-toggle">체크인</button>
+                    <button type="button" class="btn btn-primary bookCancel">예약취소 <input type="hidden" th:value="${b.booker}" class="aaa"></button>
                   </span>
                   <span th:if="${b.bookStatus == '체크인완료'}">
-                    <button type="button" class="btn btn-danger" id="checkOutBtn">체크아웃</button>
+                    <button type="button" class="btn btn-danger">체크아웃</button>
                     <button type="button" class="btn btn-success">예약변경</button>
                   </span>
                   <span th:if="${b.bookStatus == '체크아웃완료'}"></span>

@@ -36,7 +36,16 @@ $(document).ready(function() {
       $('#dropdownBtn').text(text);
     });
 
-  $('#bookCancel').on('click' , function(){
-    console.log("ddd");
+    $('.bookCancel').on('click' , async function(){
+      var booker = $(this).find('input').val();
+        try {
+          const searchCondition = await $.ajax({
+          url: '/hotel/manager/bookCancel?name=' + booker,
+          method: 'post',
+          });
+        } catch(err) {
+      console.log(err);
+    }
   })
+
 });

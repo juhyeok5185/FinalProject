@@ -13,5 +13,8 @@ public interface ManagerDao {
 
     //주말동안한거
     public List<ManagerDto.findUserList> findUserList(String name);
+
+    
+    public Integer bookCancel(String name);
     
 }

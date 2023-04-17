@@ -17,9 +17,8 @@
   <link rel="stylesheet" href="/css/style.css">
   <title>관리자</title>
   <script>
-   function openPopup(url) {  
-    window.open(url, 'popup01', 'width=800, height=700, scrollbars= 0, toolbar=0, menubar=no, left=300px , top=100px');
-
+    function openPopup(url) {  
+      window.open(url, 'memberDetail', 'width=800, height=700, scrollbars=1, toolbar=1, menubar=yes, left=300px, top=100px');
     }
 
     function addList(list){
@@ -47,8 +46,8 @@
             <td>${l.tel}</td>
             <td>${l.email}</td>
             <td>${l.username}</td>
-            <td>블랙리스트 추가 필요</td>
-            <td>VIP 추가 필요</td>
+            <td>${l.black}</td>
+            <td>${l.vip}</td>
           </tr>
             `
           $listBody.append(tableContent);
