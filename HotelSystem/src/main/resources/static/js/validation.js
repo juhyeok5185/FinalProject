@@ -10,6 +10,28 @@ function check(value,pattern,message,element) {
 	return true;
 }
 
+function nameCheck() {
+	$('#name_msg').text("");
+	const pattern = /^[가-힣]{2,10}$/;
+	return check($('#name').val(),pattern,"이름은 한글 2~10글자입니다",$("#name_msg"));
+}
+
+function personalIdCheck() {
+	$('#personalId_msg').text("");
+	const pattern = /^(?:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1])([1-8][0-9]{6}))$/
+	return check($('#personalId').val(),pattern,"주민등록번호 형식에 맞게 입력해주세요",$("#personalId_msg"));
+}
+
+
+
+
+
+
+
+
+
+
+
 function usernameCheck() {
 	const value = $("#username").val();
 	$('#username').val(value);
@@ -18,7 +40,24 @@ function usernameCheck() {
 
 
 
+
+
+
+
+
+
+
+
+
 $(document).ready(function() {
+	$('#name').blur(nameCheck);
+	$('#personalId').blur(personalIdCheck);
+	
+	
+	
+	
+	
+	
 	$('#username').blur(async function() {
 		if(usernameCheck()==false) {
 			return false;

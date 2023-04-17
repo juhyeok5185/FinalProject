@@ -1608,7 +1608,15 @@ div #logintoolbar > a {
 	margin-left: 4.4vw;
 }
 
+.success {
+	color: blue;
+	font-size: 0.75em
+}
 
+.fail {
+	color: red;
+	font-size: 0.75em
+}
 
 
 
