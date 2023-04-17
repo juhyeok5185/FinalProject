@@ -704,6 +704,20 @@
   margin-top: 10vh;
 }
 
+#luxuryarticle{
+  height: 130vh;
+  width: 50vw;
+  position: absolute;
+  left: 35vw;
+  margin-top: 10vh;
+}
+
+#luxury_page {
+  width: 100vw;
+  height:130vh;
+  background-color: white;
+  overflow: hidden;
+}
 
 #comepage{
   width: 100%;
@@ -720,7 +734,58 @@
   margin-top: 10vh;
 }
 
+
+#reportarticle{
+  height: 110vh;
+  width: 50vw;
+  position: absolute;
+  left: 35vw;
+  margin-top: 10vh;
+}
+
+#reportpagination{
+	margin: auto;
+}
+
+#listclick{
+	list-style: none;
+	background-color:transparent;
+	border: none;
+	border-color: none;
+	text-decoration-line:none;
+	color: black;
+	float: left;
+}
+
+#pnclick{
+	list-style: none;
+	background-color:transparent;
+	border: none;
+	border-color: none;
+	text-decoration-line:none;
+	color: black;
+	float: left;
+}
+
+#titleclick{
+	list-style: none;
+	background-color:transparent;
+	border: none;
+	border-color: none;
+	color: black;
+}
+
+#writeclick{
+	list-style: none;
+	background-color:transparent;
+	border: none;
+	border-color: none;
+	color: black;
+	
+}
+
 /*요기까지*/
+
 
 
 
@@ -1785,41 +1850,7 @@ div #logintoolbar > a {
 #bookformbox{
 	height: 62.6vh;
 	}
-/*요기까지*/
 
-
-/*가은*/
-#luxuryarticle{
-  height: 160vh;
-  width: 50vw;
-  position: absolute;
-  left: 35vw;
-  margin-top: 10vh;
-}
-
-#luxury_page {
-  width: 100vw;
-  height:170vh;
-  background-color: white;
-  overflow: hidden;
-}
-
-
-#luxurytem ul li {
-	list-style: none;
-	display: inline-block;
-	margin-right : 2vw;
-	margin-bottom: 6vh;
-	text-align: left;
-}
-
-#luxurytem ul li a {
-	text-decoration: none;
-}
-
-#luxurytem ul {
-	padding: 0;
-}
 
 
 
@@ -2129,21 +2160,10 @@ div #logintoolbar > a {
     #toolbar {
       display: none;
     }
-    
     #headtit {
       display: none;
     }
-    
-    /*명품관*/
-	#luxury_page {
-		display: none;
-	}
-	
-    #luxuryarticle {
-    	display: none;
-    }
 
-    
   }
   /*700이하부터 보일곳*/
   @media screen and (min-width: 701px) {
@@ -2192,16 +2212,6 @@ div #logintoolbar > a {
     #outline_page-1{
       display: none;
     }
-    
-    /*명품관*/
-	#luxury_page-1 {
-		display: none;
-	}
-    
-    #luxuryarticle-1 {
-    	display: none;
-    }
-    
   }
 
 /*반응형 존*/
@@ -2465,37 +2475,3 @@ div #logintoolbar > a {
   margin-left: 1vw;
   font-size: 1.8vw;
 }
-
-/*명품관*/
-#luxury_page-1 {
-	width: 100vw;
-	height: 340vh;
-}
-
-#luxuryarticle-1 {
-	width: 80vw;
-	height: 340vh;
-	margin: auto;
-	margin-top: 2vh;
-}
-
-
-#mallItem {
-	margin-top: 3vh;
-}
-
-#mallItem div a {
-	text-decoration: none;
-}
-
-#itemName {
-	color: black;
-	font-size: 24px;	
-} 
-
-#itemPrice {
-	color: black;
-}
-
-
-
