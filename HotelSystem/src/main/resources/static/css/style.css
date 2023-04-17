@@ -1647,6 +1647,9 @@ div #logintoolbar > a {
 	right: 0.01vw;
 	z-index: 6;
 }
+#reservation-sitebook{
+	display: flex;
+}
 
 #bookBox {
 	width: 40vw;
