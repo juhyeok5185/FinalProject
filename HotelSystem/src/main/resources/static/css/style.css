@@ -1242,6 +1242,16 @@ div.joincreate{
   color: #d5ccb0;
 }
 
+#todologin {
+  width: 5vw;
+  height: 3vh;
+  margin-top: 2vh;
+  margin-left: 22vw;
+  background-color: #3a3125;
+  border: 2px solid black;
+  color: #d5ccb0;
+}
+
 #logintoolbar {
   display: flex;
   width: 25vw;
@@ -1578,7 +1588,7 @@ div #logintoolbar > a {
 #joincompletebox3_1 {
 	margin-top: 3vh;
 	margin-left: 1.4vw;
-	width: 45.8vw;
+	width: 37vw;
 	height: 23.4vh;
 	border: 1px solid #cccccc;
 	background-color: #f1f1f1;
@@ -1592,12 +1602,21 @@ div #logintoolbar > a {
 }
 #joincompletebox3 {
 	margin-top: 3vh;
-	width: 48.8vw;
+	width: 40vw;
 	height: 29.8vh;
 	border: 2px solid #cebda5;
+	margin-left: 4.4vw;
 }
 
+.success {
+	color: blue;
+	font-size: 0.75em
+}
 
+.fail {
+	color: red;
+	font-size: 0.75em
+}
 
 
 
@@ -1661,7 +1680,155 @@ div #logintoolbar > a {
 
 
 /*요기까지*/
+/*동현*/
+.bookbtn{
+	cursor: pointer;
+}
+#booknewdim {
+	width: 100vw;
+	height: 100vh;
+	background-color: gray;
+	opacity: 0.7;
+	position: fixed;
+	bottom: 0.01vh;
+	right: 0.01vw;
+	z-index: 6;
+}
 
+#bookBox {
+	width: 40vw;
+	height: 29vh;
+	background-color: white;
+	position: fixed;
+	left: 30vw;
+	top: 33vh;
+	opacity: 1;
+	margin: auto;
+	z-index: 7;
+}
+
+#bookheadbar {
+	height: 8vh;
+	background-color: #cccccc;
+}
+
+#bookheadbar>span {
+	position: absolute;
+	bottom: 23vh;
+	font-size: 20px;
+}
+
+#bookbed {
+	display: flex;
+	width: 40vw;
+	height: 24vh;
+	background-color: white;
+}
+
+#bookbedimg {
+	position: absolute;
+	top: 1.5vh;
+	left: 5.7vw;
+}
+
+#bookrestimg {
+	position: absolute;
+	top: 1.5vh;
+	left: 5.7vw;
+}
+
+#bookbedbox {
+	cursor : pointer;
+	width: 15vw;
+	height: 10vh;
+	border: 3px solid #eaeaea;
+	position: absolute;
+	left: 4.6vw;
+	top: 15vh;
+}
+
+#bookrestbox {
+	cursor : pointer;
+	width: 15vw;
+	height: 10vh;
+	border: 3px solid #eaeaea;
+	position: absolute;
+	left: 20.4vw;
+	top: 15vh;
+}
+
+#bookbedbox:hover {
+	border: 3px solid #856f56;
+}
+
+#bookrestbox:hover {
+	border: 3px solid #856f56;
+}
+
+#findidbar {
+	width: 25vw;
+	height: 8vh;
+	position: absolute;
+	bottom: 20.3vh;
+	padding-bottom: 1px solid black;
+	text-align: left;
+	padding-left: 0.5vw;
+	color: #ffffff;
+	font-size: 1.3em;
+}
+
+#findpasswordbar {
+	width: 25vw;
+	height: 8vh;
+	position: absolute;
+	bottom: 41.3vh;
+	padding-bottom: 1px solid black;
+	text-align: left;
+	padding-left: 0.5vw;
+	color: #ffffff;
+	font-size: 1.3em;
+}
+
+#findidbox {
+	line-height: 100px;
+	flex: 1;
+}
+
+#bookcancel {
+	position: relative;
+	left: 36.5vw;
+	top: 9.5vh;
+	width: 3vw;
+	height: 3vh;
+}
+
+#bookcancelx {
+	color: #ffffff
+}
+
+#bookcancel>a {
+	text-decoration: none;
+	color: black;
+}
+
+#bookbtn2>span {
+	font-size: 30px;
+}
+#bookarticle{
+	text-align: center;
+}
+#bookpage{
+	background-color: white;
+	width: 100vw;
+	height: 75vh;
+	padding-top: 8vh;
+}
+#bookbox{
+	
+}
+#bookformbox{
+	height: 62.6vh;
+	}
 
 
 
