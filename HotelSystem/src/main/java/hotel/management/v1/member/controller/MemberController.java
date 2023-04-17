@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import hotel.management.v1.member.dto.MemberDto;
 import hotel.management.v1.member.service.MemberService;
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/hotel")
@@ -31,6 +32,7 @@ public class MemberController {
 		return "redirect:/hotel/member/joincomplete";
     }
     
+    @PreAuthorize("isAnonymous()")
     @GetMapping("/member/login")
     public void login() {}
     
