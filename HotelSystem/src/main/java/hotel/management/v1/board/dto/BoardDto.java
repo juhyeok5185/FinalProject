@@ -1,5 +1,10 @@
 package hotel.management.v1.board.dto;
 
+import java.time.LocalDate;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import hotel.management.v1.board.entity.Board;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -44,6 +49,20 @@ public class BoardDto {
 		private Integer start;
 		private Integer end;
 		private Integer next;
+		private List<FindAll> board;
+	}
+	
+	@Data
+	@Builder
+	@AllArgsConstructor
+	@ToString
+	public static class FindAll {
+		private Integer rnum;
+		private Integer boardNo;
+		private String username;
+		@JsonFormat(pattern = "yy/MM/dd")
+		private LocalDate writeDay;
+		private String title; 
 	}
 	
 }

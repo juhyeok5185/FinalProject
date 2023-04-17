@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import hotel.management.v1.board.dto.BoardDto;
 import hotel.management.v1.board.dto.BoardDto.Write;
 import hotel.management.v1.board.entity.Board;
 
@@ -33,6 +34,7 @@ public interface BoardDao {
 	@Update("update board b set b.replycontent = #{replyContent}, replywriteday = sysdate where b.boardno=#{boardNo}")
 	public void update(Integer boardNo, String replyContent);
 	
+    @Select("select * from (select rownum as rnum, b.* from (select boardNo, username, writeDay, title from board) b where rownum<=#{endRownum}) where rnum>=#{startRownum}")
+	public List<BoardDto.FindAll> findAll(Integer startRownum, Integer endRownum);
 	
-	
-}
+	}

@@ -96,7 +96,7 @@
                 <td th:text="${b.checkIn}"></td>
                 <td th:text="${b.checkOut}"></td>
                 <td>
-                  <span th:if="${b.breakfast == 1}"><input type="checkbox" checked></span>
+                  <span th:if="${b.breakfast != 0}"><input type="checkbox" checked></span>
                   <span th:if="${b.breakfast == 0}"><input type="checkbox"></span>
                 </td>
                 <td>

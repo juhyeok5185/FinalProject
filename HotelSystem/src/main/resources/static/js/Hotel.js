@@ -16,10 +16,8 @@ function chackDarkMode() {
 	let $checkbox = $('#dark-checkbox');
 	let darkModeEnabled = localStorage.getItem('dark-mode-enabled');
 	let $logoImg = $('#logoImg');
-	console.log(localStorage.getItem('dark-mode-enabled'));
 
 	if (darkModeEnabled === 'true') {
-		console.log("dddd")
 		$body.addClass('dark-mode');
 		$logoImg.attr('src', "/img/logo_darkmode.png");
 		$checkbox.prop('checked', true);

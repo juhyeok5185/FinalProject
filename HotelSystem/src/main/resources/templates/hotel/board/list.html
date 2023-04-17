@@ -29,11 +29,11 @@
  	<button><a href="/hotel/board/write">글작성</a></button>
  	
  		<ul>
-	  	<li><a th:href="@{'/hotel/board/list?pageno='+${pagination.prev}}">prev</a> </li>
-	  	<li th:each="i: ${#numbers.sequence(pagination.start, pagination.end)}">
+	  	<li><a th:href="@{'/hotel/board/list?pageno='+${prev}}">prev</a> </li>
+	  	<li th:each="i: ${#numbers.sequence(start, end)}">
 	   	<a th:href="@{'/hotel/board/list?pageno=' + ${i}}" th:text="${i}"></a>
 	  	</li>
-	  	<li><a th:href="@{'/hotel/board/list?pageno='+${pagination.next}}">next</a></li>
+	  	<li><a th:href="@{'/hotel/board/list?pageno='+${next}}">next</a></li>
 		</ul>
  	
 </body>
