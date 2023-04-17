@@ -17,9 +17,9 @@ public class MemberDto {
 		private String email;
 		private String personalId;
 		
-		public Member toEntity() {
+		public Member toEntity(String encodedPassword) {
 			return Member.builder().username(username).name(name).tel(tel)
-					.password(password).email(email).personalId(personalId)
+					.password(encodedPassword).email(email).personalId(personalId)
 					.build();
 		}
 	}

@@ -20,10 +20,13 @@ public class Member {
 	private String email;
 	private String personalId;
 	private Integer loginFailCount;
-	@Builder.Default
-	private Level level = Level.BRONZE;
-	private Role role;
 	private Boolean disabled;
+	@Builder.Default
+	private Level userLevel = Level.BRONZE;
+	private Role role;
+	private Integer bookcnt;
+	private Boolean black;
+	private Boolean vip;
 }
 	
 	

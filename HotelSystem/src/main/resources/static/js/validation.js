@@ -18,8 +18,14 @@ function nameCheck() {
 
 function personalIdCheck() {
 	$('#personalId_msg').text("");
-	const pattern = /^(?:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1])([1-8][0-9]{6}))$/
+	const pattern = /^(?:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1]))$/;
 	return check($('#personalId').val(),pattern,"주민등록번호 형식에 맞게 입력해주세요",$("#personalId_msg"));
+}
+
+function personalId2Check() {
+	$('#personalId_msg').text("");
+	const pattern = /^[1-8][0-9]{6}$/;
+	return check($('#personalId2').val(),pattern,"주민등록번호 형식에 맞게 입력해주세요",$("#personalId_msg"));
 }
 
 function emailCheck() {
@@ -62,6 +68,7 @@ function password2Check() {
 $(document).ready(function() {
 	$('#name').blur(nameCheck);
 	$('#personalId').blur(personalIdCheck);
+	$('#personalId2').blur(personalId2Check);
 	$('#email').blur(async function() {
 		if(emailCheck()==false) {
 			return false;
@@ -88,7 +95,7 @@ $(document).ready(function() {
 	$('#password').blur(passwordCheck);
 	$('#password2').blur(password2Check);
 	$('#join').click(async function() {
-		const result = nameCheck() && personalIdCheck() && emailCheck() && telCheck() && usernameCheck() && passwordCheck() && password2Check();
+		const result = nameCheck() && personalIdCheck() && personalId2Check() && emailCheck() && telCheck() && usernameCheck() && passwordCheck() && password2Check();
 		if(result==false) {
 			alert("입력사항을 다시한번 확인해주세요.");
 			return false;
