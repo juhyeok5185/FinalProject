@@ -30,7 +30,7 @@ function emailCheck() {
 
 function telCheck() {
 	$('tel_msg').text("");
-	const pattern = /^01([0|1|6|7|8|9])?([0-9]{4})?([0-9]{4})$/;
+	const pattern = /^01([0|1|6|7|8|9])(?:[0-9]{4})(?:[0-9]{4})$/;
 	return check($('#tel').val(),pattern,"휴대전화 형식에 맞게 입력하세요",$('#tel_msg'));
 }
 
