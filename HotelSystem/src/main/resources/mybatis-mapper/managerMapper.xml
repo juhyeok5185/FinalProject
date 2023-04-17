@@ -10,7 +10,13 @@
         select name , tel , email , username, black , vip from users where name = #{name}
     </select>
 
-    <select id="bookCancel">
-                
+    <update id="bookCancel">
+        UPDATE book
+        SET bookStatus = '예약취소'
+        WHERE bookTel = #{tel}
+    </update>
+
+    <select id="findTelByName" resultType="string">
+        select bookTel from book where booker = #{name}
     </select>
 </mapper>

@@ -27,7 +27,6 @@ function chackDarkMode() {
 		$('#img3').attr('src', '/img/pool2.jpg');
 
 	} else {
-		console.log("dddd")
 		$body.removeClass('dark-mode');
 		$logoImg.attr('src', "/img/logo.png");
 		$checkbox.prop('checked', false);
