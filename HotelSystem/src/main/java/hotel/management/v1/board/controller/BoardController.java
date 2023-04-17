@@ -32,7 +32,7 @@ public class BoardController {
 	}
 
 	@GetMapping("/hotel/board/list")
-	public ModelAndView list(@RequestParam(defaultValue = "1") int pageno) {
+	public ModelAndView list(@RequestParam(defaultValue = "1") Integer pageno) {
 		List<Board> list = boardService.list();
 		return new ModelAndView("/hotel/board/list").addObject("board", list).addObject("pagination",
 				boardService.pagination(pageno));
