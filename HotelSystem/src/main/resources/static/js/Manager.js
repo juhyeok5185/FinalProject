@@ -43,6 +43,7 @@ $(document).ready(function() {
           url: '/hotel/manager/bookCancel?name=' + booker,
           method: 'post',
           });
+          location.href = '/hotel/manager/bookList';
         } catch(err) {
       console.log(err);
     }

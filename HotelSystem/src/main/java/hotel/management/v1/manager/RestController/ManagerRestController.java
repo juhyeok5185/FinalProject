@@ -31,7 +31,6 @@ public class ManagerRestController {
 
     @PostMapping("/manager/bookCancel")
     public ResponseEntity<?> bookCancel(String name) {
-        System.out.println(name);
         Integer bookCancel = service.bookCancel(name);
         return ResponseEntity.ok("");
     }
