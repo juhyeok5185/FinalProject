@@ -1,5 +1,6 @@
 package hotel.management.v1.board.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,15 +28,20 @@ public class BoardController {
 	}
 
 	@PostMapping("/hotel/board/write")
-	public void write(BoardDto.Write dto) {
+	public void write(BoardDto.Write dto ,Principal principal) {
+		//username 추가 해야함
 		boardService.write(dto);
 	}
 
 	@GetMapping("/hotel/board/list")
 	public ModelAndView list(@RequestParam(defaultValue = "1") Integer pageno) {
-		List<Board> list = boardService.list();
-		return new ModelAndView("/hotel/board/list").addObject("board", list).addObject("pagination",
-				boardService.pagination(pageno));
+		BoardDto.Pagination list = boardService.pagination(pageno);
+		return new ModelAndView("/hotel/board/list")
+				.addObject("board", list.getBoard())
+				.addObject("prev",	list.getPrev())
+				.addObject("start",  list.getStart())
+				.addObject("end",	list.getEnd())
+				.addObject("next",	list.getNext());
 	}
 
 	@GetMapping("/hotel/board/read")

@@ -57,6 +57,7 @@ public class BoardDto {
 	@AllArgsConstructor
 	@ToString
 	public static class FindAll {
+		private Integer rnum;
 		private Integer boardNo;
 		private String username;
 		@JsonFormat(pattern = "yy/MM/dd")
