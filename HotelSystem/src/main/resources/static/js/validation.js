@@ -87,9 +87,10 @@ $(document).ready(function() {
 	});
 	$('#password').blur(passwordCheck);
 	$('#password2').blur(password2Check);
-	$('#join').click(function() {
+	$('#join').click(async function() {
 		const result = nameCheck() && personalIdCheck() && emailCheck() && telCheck() && usernameCheck() && passwordCheck() && password2Check();
 		if(result==false) {
+			alert("입력사항을 다시한번 확인해주세요.");
 			return false;
 		}
 		try {
@@ -101,5 +102,5 @@ $(document).ready(function() {
 			alert("아이디나 이메일이 사용 중입니다");
 		}
 		
-	})
+	});
 })
