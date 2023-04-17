@@ -26,16 +26,27 @@
         WHERE bookTel = #{tel}
     </update>
 
-    <select id="findBookNoByTel" resultType="int">
-        select bookNo from book where booktel = #{tel}
+    <select id="findBookNoCountByTel" resultType="hotel.management.v1.manager.dto.ManagerDto$findBookNoCount">
+        select bookNo , totalCount from book where bookTel = #{tel}
     </select>
 
     <update id="updateBreakfast">
         UPDATE roombooking
-        SET breakfast = '체크아웃완료'
+        SET breakfast = #{bookNo}
+        WHERE bookNo = #{bookNo}
+    </update>
+
+    <update id="cancelBreakfast">
+        UPDATE roombooking
+        SET breakfast = 0
         WHERE bookNo = #{bookNo}
     </update>
 
     <insert id="updateDinner">
+        insert into dinner values(#{bookNo} , #{totalCount} , 333)
     </insert>
+
+    <update id="cancelDinner">
+        delete from dinner where resno = #{bookNo}
+    </update>
 </mapper>

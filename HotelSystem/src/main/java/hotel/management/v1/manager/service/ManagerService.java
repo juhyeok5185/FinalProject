@@ -34,13 +34,19 @@ public class ManagerService {
     }
 
     public void changeBook(boolean breakfast, boolean dinner, String tel) {
-        Integer bookNo = dao.findBookNoByTel(tel);
+        ManagerDto.findBookNoCount bookNoCount = dao.findBookNoCountByTel(tel);
         if(breakfast == true){
-            dao.updateBreakfast(bookNo);
+            dao.updateBreakfast(bookNoCount.getBookNo() , tel);
+        } else {
+            dao.cancelBreakfast(bookNoCount.getBookNo());
         }
-        else if (dinner == true){
-            //if문 한번더
-            dao.updateDinner(bookNo);
+        Integer searchRes = dao.searchRes(bookNoCount.getBookNo());
+        if (dinner == true){
+            if(searchRes == null){
+                dao.updateDinner(bookNoCount.getBookNo() , bookNoCount.getTotalCount());
+            }
+        } else {
+            dao.cancelDinner(bookNoCount.getBookNo());
         }
     }
 

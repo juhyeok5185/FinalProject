@@ -65,9 +65,11 @@ $(document).ready(function() {
 
 $('.changeBook').on('click' , async function(){
   const row = $(this).closest('tr');
-    const breakfastChecked = row.find('td:eq(7) input[type="checkbox"]').is(':checked');
-    const resNoChecked = row.find('td:eq(8) input[type="checkbox"]').is(':checked');
+  const breakfastChecked = row.find('td:nth-child(9) input[type="checkbox"]').prop('checked');
+  const resNoChecked = row.find('td:nth-child(10) input[type="checkbox"]').prop('checked');
+  
     var booktel = $(this).find('input').val();
+    console.log(resNoChecked);
     const param = {
       breakfast: breakfastChecked,
       dinner: resNoChecked,
@@ -79,6 +81,7 @@ $('.changeBook').on('click' , async function(){
       method: 'post',
       data: param
       });
+      alert('예약이 변경되었습니다.');
       location.href = '/hotel/manager/bookList';
     } catch(err) {
   console.log(err);

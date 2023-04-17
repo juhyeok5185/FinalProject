@@ -56,12 +56,8 @@ public class ManagerDto {
     @Data
     @ToString
     @Builder
-	public static class findUser {
-        private String name;
-        private String tel;
-        private String email;
-        private String username;
-        // private Boolean blackList;
-        // private Boolean VIP;
+	public static class findBookNoCount {
+        private Integer bookNo;
+        private Integer totalCount;
     }
 }

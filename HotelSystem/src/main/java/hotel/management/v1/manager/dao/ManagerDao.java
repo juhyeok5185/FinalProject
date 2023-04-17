@@ -1,6 +1,5 @@
 package hotel.management.v1.manager.dao;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -22,10 +21,17 @@ public interface ManagerDao {
 
     public void checkOut(String name);
 
-	public void updateBreakfast(Integer bookNo);
+	public void updateBreakfast(Integer bookNo , String tel);
 
-    public void updateDinner(Integer bookNo);
+    public void updateDinner(Integer bookNo , Integer totalCount);
 
-    public Integer findBookNoByTel(String tel);
+    public ManagerDto.findBookNoCount findBookNoCountByTel(String tel);
+
+    public void cancelBreakfast(Integer bookNo);
+
+    public void cancelDinner(Integer bookNo);
+
+    @Select("select * from dinner where resNo = #{resNo}")
+    public Integer searchRes(Integer resNo);
     
 }
