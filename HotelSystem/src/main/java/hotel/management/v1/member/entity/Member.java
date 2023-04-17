@@ -19,6 +19,11 @@ public class Member {
 	private String password;
 	private String email;
 	private String personalId;
+	private Integer loginFailCount;
+	@Builder.Default
+	private Level level = Level.BRONZE;
+	private Role role;
+	private Boolean disabled;
 }
 	
 	

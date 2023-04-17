@@ -15,9 +15,9 @@ public class SecurityConfig {
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.csrf().disable();
-		http.formLogin().loginPage("/member/login")
-				.loginProcessingUrl("/member/login");
-		http.logout().logoutUrl("/member/logout").logoutSuccessUrl("/");
+		http.formLogin().loginPage("/hotel/member/login")
+				.loginProcessingUrl("/hotel/member/login");
+		http.logout().logoutUrl("/hotel/member/logout").logoutSuccessUrl("/");
 		return http.build();
 	}
 }
