@@ -61,15 +61,16 @@
 	                  <tr>
 	                    <td class="col1"><span style="color:red;">*</span>이메일</td>
 	                    <td class="col2">
-	                      <input type="text" name="email">
-	                      <input class='but2' type="button" value="이메일 중복확인" onclick="">
+	                      <input type="text" id="email" name="email">
+	                      <p id="email_msg"></p>
 	                    </td>
 	                  </tr>
 	                  <tr>
 	                    <td class="col1"><span style="color:red;">*</span>휴대전화</td>
 	                    <td class="col2">
-	                      <input type="text" id="tel" name="tel">
-	                      <p style="font-size:0.75em">-는 빼고입력해주세요.</p>
+	                      <input type="text" id="tel" name="tel" maxlength="11">
+	                      <p style="font-size:0.75em">-를 빼고 입력해주세요.</p>
+	                      <p id="tel_msg">
 	                    </td>
 	                  </tr>
 	                </table>

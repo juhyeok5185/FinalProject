@@ -1078,24 +1078,6 @@
   margin-top: 3vh;
 }
 
-.but1 {
-  height: 3vh;
-  width: 4vw;
-  color: white;
-  background-color: white;
-  border: 1px solid #a1886f;
-  color: #a1886f;
-}
-
-
-.but2 {
-height: 27px;
-width: 120px;
-background-color: white;
-border: 1px solid #a1886f;
-color: #a1886f;
-}
-
 .but3 {
 height: 35px;
 width: 150px;
@@ -1112,18 +1094,6 @@ background-color: white;
 border: 1px solid #a1886f;
 color: #a1886f;
 margin-left: 2vw;
-}
-
-.but1:hover {
-background-color: #b9b9b9;
-color: #a1886f;
-border: 1px solid #a1886f;
-}
-
-.but2:hover {
-background-color: #b9b9b9;
-color: #a1886f;
-border: 1px solid #a1886f;
 }
 
 .but3:hover {
@@ -2152,7 +2122,7 @@ div #logintoolbar > a {
     #drop_icon {
       display: none;
     }
-    .reservation-button {
+    .reservation-ton {
       display: none;
     } 
     #r-b {
@@ -2198,7 +2168,7 @@ div #logintoolbar > a {
   .media-dropdown {
     margin-right: 4vw;
   }
-  .reservation-button {
+  .reservation-ton {
     margin: auto;
     width: 100vw;
     height: 6vh;
