@@ -1242,6 +1242,16 @@ div.joincreate{
   color: #d5ccb0;
 }
 
+#todologin {
+  width: 5vw;
+  height: 3vh;
+  margin-top: 2vh;
+  margin-left: 22vw;
+  background-color: #3a3125;
+  border: 2px solid black;
+  color: #d5ccb0;
+}
+
 #logintoolbar {
   display: flex;
   width: 25vw;
@@ -1578,7 +1588,7 @@ div #logintoolbar > a {
 #joincompletebox3_1 {
 	margin-top: 3vh;
 	margin-left: 1.4vw;
-	width: 45.8vw;
+	width: 37vw;
 	height: 23.4vh;
 	border: 1px solid #cccccc;
 	background-color: #f1f1f1;
@@ -1592,9 +1602,10 @@ div #logintoolbar > a {
 }
 #joincompletebox3 {
 	margin-top: 3vh;
-	width: 48.8vw;
+	width: 40vw;
 	height: 29.8vh;
 	border: 2px solid #cebda5;
+	margin-left: 4.4vw;
 }
 
 

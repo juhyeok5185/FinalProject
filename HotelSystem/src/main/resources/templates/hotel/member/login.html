@@ -15,6 +15,11 @@
   <link href='https://unpkg.com/css.gg@2.0.0/icons/css/instagram.css' rel='stylesheet'>
   <link href='https://unpkg.com/css.gg@2.0.0/icons/css/facebook.css' rel='stylesheet'>
   <link rel="stylesheet" href="/css/style.css">
+  <script th:inline="javascript">
+	const msg=[[${msg}]];
+	if(msg!=null)
+		alert(msg);
+  </script>
   <title>J.H.H.L</title>
   
 </head>
@@ -44,15 +49,17 @@
         		<div id="loginblocknav">
         			<p>회원</p>
         		</div>
+        		<form action="/hotel/member/login" method="post">
         		<div id="loginbar">
         			<div id="loginbar1">
         				<input type="text" id="username" name="username" placeholder="아이디 입력" style="width: 15vw;">
         				<input type="password" id="password" name="password" placeholder="비밀번호" style="width: 15vw;" class="mb-3 mt-3">
         			</div>
         			<div id="loginbarbut">
-        				<input type="button" id="loginbut" value="로그인">
+        				<button id="loginbut">로그인</button>
         			</div>
         		</div>
+        		</form>
         			<div id="logintoolbar">
         				<a href="/hotel/member/join"><span id="loginlink">회원가입</span></a>
         				<a href="#none" id="find_id"><span id="loginlink">아이디 찾기</span></a>
