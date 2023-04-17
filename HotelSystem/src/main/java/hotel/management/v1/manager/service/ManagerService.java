@@ -25,7 +25,6 @@ public class ManagerService {
     }
 
     public Integer bookCancel(String name) {
-        
         return dao.bookCancel(name);
     }
 
