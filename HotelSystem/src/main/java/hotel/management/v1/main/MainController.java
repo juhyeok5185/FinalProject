@@ -35,6 +35,4 @@ public class MainController {
     @GetMapping("/test")
     public void index(){}
     
-    @GetMapping("/client/roombook")
-    public void book(){}
 }
