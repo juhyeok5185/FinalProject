@@ -35,8 +35,8 @@ public class ManagerDto {
         private String tel;
         private String email;
         private String username;
-        // private Boolean blackList;
-        // private Boolean VIP;
+        private Boolean black;
+        private Boolean VIP;
     }
     
     @Data

@@ -7,6 +7,10 @@
 
 
     <select id="findUserList" resultType="hotel.management.v1.manager.dto.ManagerDto$findUserList">
-        select name , tel , email , username from users where name = #{name}
+        select name , tel , email , username, black , vip from users where name = #{name}
+    </select>
+
+    <select id="bookCancel">
+                
     </select>
 </mapper>

@@ -32,7 +32,6 @@ public class MainController {
     @GetMapping("/howtocome")
     public void howToCome(){}
     
-    @GetMapping("/client/roombook")
-    public void book(){}
-    
+    @GetMapping("/test")
+    public void index(){}
 }
