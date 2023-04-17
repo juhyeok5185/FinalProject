@@ -21,4 +21,8 @@ public class MemberService {
 	public Boolean checkUsername(String username) {
 		return !dao.existsByUsername(username);
 	}
+
+	public Boolean checkEmail(String email) {
+		return !dao.existsByEmail(email);
+	}
 }

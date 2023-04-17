@@ -1,6 +1,8 @@
 package hotel.management.v1.member.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,14 +34,24 @@ public class MemberController {
     @GetMapping("/member/login")
     public void login() {}
     
-    @GetMapping("/member/find")
-    public void find() {
-    	
-    }
     
     @GetMapping("/member/joincomplete")
     public void joinComplete() {
     	
     }
+    
+    @PreAuthorize("isAnonymous()")
+	@GetMapping("/member/check/username")
+	public ResponseEntity<Void> checkUsername(String username) {
+		Boolean result = service.checkUsername(username);
+		return result? ResponseEntity.ok(null) :ResponseEntity.status(HttpStatus.CONFLICT).body(null);
+	}
+	
+	@PreAuthorize("isAnonymous()")
+	@GetMapping("/member/check/email")
+	public ResponseEntity<Void> emailUsername(String email) {
+		Boolean result = service.checkEmail(email);
+		return result? ResponseEntity.ok(null) :ResponseEntity.status(HttpStatus.CONFLICT).body(null);
+	}
 	
 }
