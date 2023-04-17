@@ -24,6 +24,7 @@ public class LoginFailHandler extends SimpleUrlAuthenticationFailureHandler {
 	
 	@Override
 	public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException e) throws IOException, ServletException {
+		System.out.println("실패");
 		HttpSession session = request.getSession();
 		if(e instanceof BadCredentialsException) {
 			String username = request.getParameter("username");

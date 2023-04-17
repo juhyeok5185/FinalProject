@@ -75,6 +75,7 @@
               <tr>
                 <th>이름</th>
                 <th>연락처</th>
+                <th>인원수</th>
                 <th>방호수</th>
                 <th>예약일</th>
                 <th>등급</th>
@@ -90,6 +91,7 @@
               <tr th:each="b : ${bookList}">
                 <td th:text="${b.booker}"></td>
                 <td th:text="${b.bookTel}"></td>
+                <td th:text="${b.totalCount}"></td>
                 <td th:text="${b.roomNo}"></td>
                 <td th:text="${b.bookDate}"></td>
                 <td th:text="${b.bookRoomGrade}"></td>
@@ -107,11 +109,12 @@
                 <td>
                   <span th:if="${b.bookStatus == '체크인대기'}">
                     <button type="button" class="btn btn-primary dropdown-toggle">체크인</button>
-                    <button type="button" class="btn btn-primary bookCancel">예약취소 <input type="hidden" th:value="${b.booker}" class="aaa"></button>
+                    <button type="button" class="btn btn-primary bookCancel">예약취소 <input type="hidden" th:value="${b.bookTel}"></button>
                   </span>
                   <span th:if="${b.bookStatus == '체크인완료'}">
-                    <button type="button" class="btn btn-danger">체크아웃</button>
-                    <button type="button" class="btn btn-success">예약변경</button>
+                    <button type="button" class="btn btn-danger checkOutBtn">체크아웃 <input type="hidden" th:value="${b.bookTel}"></button>
+                    <button type="button" class="btn btn-success changeBook">예약변경 <input type="hidden" th:value="${b.bookTel}"></td>
+                    </button>
                   </span>
                   <span th:if="${b.bookStatus == '체크아웃완료'}"></span>
                   <span th:if="${b.bookStatus == '예약취소'}"></span>

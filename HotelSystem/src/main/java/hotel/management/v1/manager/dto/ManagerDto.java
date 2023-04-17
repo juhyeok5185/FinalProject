@@ -17,6 +17,7 @@ public class ManagerDto {
 	public static class findBookList {
         private String booker;
         private String bookTel;
+        private Integer totalCount;
         private Integer roomNo;
         private LocalDate bookDate;
         private String bookRoomGrade; //gradename이 예약에 있어야한다.
@@ -55,12 +56,8 @@ public class ManagerDto {
     @Data
     @ToString
     @Builder
-	public static class findUser {
-        private String name;
-        private String tel;
-        private String email;
-        private String username;
-        // private Boolean blackList;
-        // private Boolean VIP;
+	public static class findBookNoCount {
+        private Integer bookNo;
+        private Integer totalCount;
     }
 }

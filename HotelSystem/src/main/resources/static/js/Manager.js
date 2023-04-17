@@ -40,7 +40,7 @@ $(document).ready(function() {
       var booker = $(this).find('input').val();
         try {
           const searchCondition = await $.ajax({
-          url: '/hotel/manager/bookCancel?name=' + booker,
+          url: '/hotel/manager/bookCancel?bookTel=' + booker,
           method: 'post',
           });
           location.href = '/hotel/manager/bookList';
@@ -48,5 +48,45 @@ $(document).ready(function() {
       console.log(err);
     }
   })
+
+  $('.checkOutBtn').on('click' , async function(){
+    var booker = $(this).find('input').val();
+    console.log(booker);
+      try {
+        const searchCondition = await $.ajax({
+        url: '/hotel/manager/checkOut?bookTel=' + booker,
+        method: 'post',
+        });
+        location.href = '/hotel/manager/bookList';
+      } catch(err) {
+    console.log(err);
+  }
+})
+
+$('.changeBook').on('click' , async function(){
+  const row = $(this).closest('tr');
+  const breakfastChecked = row.find('td:nth-child(9) input[type="checkbox"]').prop('checked');
+  const resNoChecked = row.find('td:nth-child(10) input[type="checkbox"]').prop('checked');
+  
+    var booktel = $(this).find('input').val();
+    console.log(resNoChecked);
+    const param = {
+      breakfast: breakfastChecked,
+      dinner: resNoChecked,
+      bookTel: booktel
+    }
+    try {
+      const searchCondition = await $.ajax({
+      url: '/hotel/manager/changeBook' ,
+      method: 'post',
+      data: param
+      });
+      alert('예약이 변경되었습니다.');
+      location.href = '/hotel/manager/bookList';
+    } catch(err) {
+  console.log(err);
+}
+})
+
 
 });

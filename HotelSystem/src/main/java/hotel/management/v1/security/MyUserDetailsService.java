@@ -42,6 +42,7 @@ public class MyUserDetailsService implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		System.out.println(username);
 		if(username.equals(adminUsername)) {
 			return new MyUserDetails(username, passwordEncoder.encode(adminPassword), true, Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN")));
 		}
@@ -50,8 +51,9 @@ public class MyUserDetailsService implements UserDetailsService {
 			String role = "ROLE_" + member.getRole().name();
 			Collection<GrantedAuthority> list = new ArrayList<>();
 			list.add(new SimpleGrantedAuthority(role));
+			System.out.println(!member.getDisabled());
 			
-			return new MyUserDetails(username,member.getPassword(),member.getDisabled(),list);
+			return new MyUserDetails(username,member.getPassword(),!member.getDisabled(),list);
 		} catch(NoSuchElementException e) {
 			// 예외 전환
 			throw new UsernameNotFoundException("사용자를 찾을 수 없습니다");

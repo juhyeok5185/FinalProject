@@ -19,4 +19,34 @@
     <select id="findTelByName" resultType="string">
         select bookTel from book where booker = #{name}
     </select>
+
+    <update id="checkOut">
+        UPDATE book
+        SET bookStatus = '체크아웃완료'
+        WHERE bookTel = #{tel}
+    </update>
+
+    <select id="findBookNoCountByTel" resultType="hotel.management.v1.manager.dto.ManagerDto$findBookNoCount">
+        select bookNo , totalCount from book where bookTel = #{tel}
+    </select>
+
+    <update id="updateBreakfast">
+        UPDATE roombooking
+        SET breakfast = #{bookNo}
+        WHERE bookNo = #{bookNo}
+    </update>
+
+    <update id="cancelBreakfast">
+        UPDATE roombooking
+        SET breakfast = 0
+        WHERE bookNo = #{bookNo}
+    </update>
+
+    <insert id="updateDinner">
+        insert into dinner values(#{bookNo} , #{totalCount} , 333)
+    </insert>
+
+    <update id="cancelDinner">
+        delete from dinner where resno = #{bookNo}
+    </update>
 </mapper>
