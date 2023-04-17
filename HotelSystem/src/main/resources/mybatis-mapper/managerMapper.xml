@@ -19,4 +19,23 @@
     <select id="findTelByName" resultType="string">
         select bookTel from book where booker = #{name}
     </select>
+
+    <update id="checkOut">
+        UPDATE book
+        SET bookStatus = '체크아웃완료'
+        WHERE bookTel = #{tel}
+    </update>
+
+    <select id="findBookNoByTel" resultType="int">
+        select bookNo from book where booktel = #{tel}
+    </select>
+
+    <update id="updateBreakfast">
+        UPDATE roombooking
+        SET breakfast = '체크아웃완료'
+        WHERE bookNo = #{bookNo}
+    </update>
+
+    <insert id="updateDinner">
+    </insert>
 </mapper>

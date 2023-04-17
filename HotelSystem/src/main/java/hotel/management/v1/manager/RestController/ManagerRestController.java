@@ -30,9 +30,20 @@ public class ManagerRestController {
     }
 
     @PostMapping("/manager/bookCancel")
-    public ResponseEntity<?> bookCancel(String name) {
-        Integer bookCancel = service.bookCancel(name);
+    public ResponseEntity<?> bookCancel(String bookTel) {
+        Integer bookCancel = service.bookCancel(bookTel);
         return ResponseEntity.ok("");
     }
-    
+
+    @PostMapping("/manager/checkOut")
+    public ResponseEntity<?> checkOut(String bookTel) {
+        service.checkOut(bookTel);
+        return ResponseEntity.ok("");
+    }
+
+    @PostMapping("/manager/changeBook")
+    public ResponseEntity<?> changeBook(boolean breakfast , boolean dinner, String bookTel) {
+        service.changeBook(breakfast , dinner , bookTel);
+        return ResponseEntity.ok("");
+    }
 }

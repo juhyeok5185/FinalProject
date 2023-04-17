@@ -19,5 +19,13 @@ public interface ManagerDao {
     public Integer bookCancel(String tel);
 
     public String findTelByName(String name);
+
+    public void checkOut(String name);
+
+	public void updateBreakfast(Integer bookNo);
+
+    public void updateDinner(Integer bookNo);
+
+    public Integer findBookNoByTel(String tel);
     
 }

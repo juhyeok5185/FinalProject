@@ -24,10 +24,24 @@ public class ManagerService {
         return list;
     }
 
-    public Integer bookCancel(String name) {
+    public Integer bookCancel(String tel) {
        
-        String tel = dao.findTelByName(name);
         return dao.bookCancel(tel);
+    }
+
+    public void checkOut(String tel) {
+        dao.checkOut(tel);
+    }
+
+    public void changeBook(boolean breakfast, boolean dinner, String tel) {
+        Integer bookNo = dao.findBookNoByTel(tel);
+        if(breakfast == true){
+            dao.updateBreakfast(bookNo);
+        }
+        else if (dinner == true){
+            //if문 한번더
+            dao.updateDinner(bookNo);
+        }
     }
 
 }
