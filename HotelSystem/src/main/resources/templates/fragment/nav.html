@@ -8,6 +8,7 @@
 </style>
 </head>
 <body>
+	<input sec:authorize="isAuthenticated()" type="hidden">
 	<div id="headerAndnav" class="navbar navbar-expand-sm">
 		<div id="header">
 			<ul class="navbar-nav hd">
@@ -79,10 +80,29 @@
 		<div class="media-dropdown">
 			<i id="drop_icon" class="fa-solid fa-bars dropdown"
 				data-bs-toggle="dropdown" aria-expanded="false"> </i>
-			<ul class="dropdown-menu dropdown-menu-end">
+			<ul class="dropdown-menu dropdown-menu-end" sec:authorize="isAnonymous()">
 				<li id="aboutfont">회원</li>
 				<li><a class="dropdown-item" href="/hotel/member/login">로그인</a></li>
 				<li><a class="dropdown-item" href="/hotel/member/join">회원가입</a></li>
+				<hr>
+				<li id="aboutfont">예약</li>
+				<li><a class="dropdown-item" href="#">예약</a></li>
+				<li><a class="dropdown-item" href="#">예약.주문조회</a></li>
+				<li><a class="dropdown-item" href="/hotel/luxuryhall">명품관</a></li>
+				<hr>
+				<li id="aboutfont">호텔소개</li>
+				<li><a class="dropdown-item" href="/hotel/hotelintroduce">개요</a></li>
+				<li><a class="dropdown-item" href="/hotel/hotelstay">React스테이</a></li>
+				<li><a class="dropdown-item" href="/hotel/internalfacilities">부대시설</a></li>
+				<hr>
+				<li id="aboutfont">고객문의</li>
+				<li><a class="dropdown-item" href="/hotel/howtocome">오시는길</a></li>
+				<li><a class="dropdown-item" href="/hotel/contact">고객문의</a></li>
+			</ul>
+			<ul class="dropdown-menu dropdown-menu-end" sec:authorize="hasAuthority('ROLE_USER')">
+				<li id="aboutfont">회원</li>
+				<li><a class="dropdown-item" href="/hotel/member/logout">로그아웃</a></li>
+				<li><a class="dropdown-item" href="#">마이페이지</a></li>
 				<hr>
 				<li id="aboutfont">예약</li>
 				<li><a class="dropdown-item" href="#">예약</a></li>

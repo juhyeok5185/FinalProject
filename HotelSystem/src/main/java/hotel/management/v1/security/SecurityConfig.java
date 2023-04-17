@@ -23,7 +23,7 @@ public class SecurityConfig {
 				.loginProcessingUrl("/hotel/member/login")
 				.successHandler(loginSuccessHandler)
 				.failureHandler(loginFailHandler);
-		http.logout().logoutUrl("/hotel/member/logout").logoutSuccessUrl("/");
+		http.logout().logoutUrl("/hotel/member/logout").logoutSuccessUrl("/hotel/main");
 		return http.build();
 	}
 }

@@ -22,6 +22,8 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 	
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
+		System.out.println("성공");
+		response.sendRedirect("/hotel/main");
 		// 로그인에 성공하면 로그인 실패횟수 리셋
 		memberDao.resetLoginCnt(authentication.getName());
 		
@@ -34,20 +36,20 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 		HttpSession session = request.getSession();
 	
 		// 임시비밀번호인 경우 비밀번호 변경으로 보내자
-		if (sr!=null) {
-			redirectUrl = sr.getRedirectUrl();
-		} else if(session.getAttribute("referer")!=null) {
-			redirectUrl = (String)session.getAttribute("referer");
-			session.removeAttribute("referer");
-		}
-		
-		String password = request.getParameter("password");
-		if (password.length()<=10) {
-			response.sendRedirect(redirectUrl);
-		} else {
-			session.setAttribute("msg", "임시비밀번호로 로그인했습니다. 비밀번호를 변경하세요");
-			response.sendRedirect("/member/change_password");
-		}
+//		if (sr!=null) {
+//			redirectUrl = sr.getRedirectUrl();
+//		} else if(session.getAttribute("referer")!=null) {
+//			redirectUrl = (String)session.getAttribute("referer");
+//			session.removeAttribute("referer");
+//		}
+//		
+//		String password = request.getParameter("password");
+//		if (password.length()<=10) {
+//			response.sendRedirect(redirectUrl);
+//		} else {
+//			session.setAttribute("msg", "임시비밀번호로 로그인했습니다. 비밀번호를 변경하세요");
+//			response.sendRedirect("/member/change_password");
+//		}
 //		if(password.length()<=10) {
 //			if(sr!=null) 
 //				response.sendRedirect(sr.getRedirectUrl());
