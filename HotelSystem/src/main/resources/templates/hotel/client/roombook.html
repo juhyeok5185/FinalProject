@@ -6,35 +6,77 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 	<script src="/js/Hotel.js"></script>
 	<script src="https://kit.fontawesome.com/7fe498c607.js" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
 	<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72764d4407eae4771ae834fbbe85f476"></script>
 	<link href='https://unpkg.com/css.gg@2.0.0/icons/css/youtube.css' rel='stylesheet'>
 	<link href='https://unpkg.com/css.gg@2.0.0/icons/css/instagram.css' rel='stylesheet'>
 	<link href='https://unpkg.com/css.gg@2.0.0/icons/css/facebook.css' rel='stylesheet'>
+	<link href='https://unpkg.com/css.gg@2.0.0/icons/css/shopping-bag.css' rel='stylesheet'>
 	<link rel="stylesheet" href="/css/style.css">
 	<title>J.H.H.L</title>
 </head>
 
 <body>
-	<div th:replace="~{/fragment/nav.html}"></div>
-	<!--고객 문의 게시판-->
-	<div id="bookpage">
-		<div id="bookarticle">
-			<h3>날짜,인원 선택</h3>
+	<!--헤더겸 네비바-->
+	<div class="hotel">
+		<div th:replace="~{/fragment/nav.html}"></div>
+		<!--고객 문의 게시판-->
+		<div id="bookpage">
+			<div id="bookarticle">
+				<h3>날짜,인원 선택</h3>
+				<form action="" id="bookformbox">
+					<div id="bookbox">
+						<div id="bookhaed"></div>
+						<div id="bookbady">
+							<div class="reservation-sitebook">
+								<div class="bookreservation-text1">
+									<div class="reservation-color" id="reservation-hotelinfo">호텔 또는 도시</div>
+									<div class="reservation-color" id="reservation-hotelinfo">리엑트 호텔</div>
+								</div>
+								<div class="reservation-text2">
+									<div id="reservation-hotelinfo"></div>
+									<div id="reservation-hotelinfo"><i class="fa-solid fa-magnifying-glass"></i></div>
+								</div>
+								<div class="reservation-text3">
+									<div class="reservation-color" id="reservation-hotelinfo">체크인</div>
+									<!-- 달력 라이브러리 -->
+									<div id="reservation-hotelinfo"> <input type="text" id="from" name="from"
+											placeholder="체크인 날짜를 고르세요">
+									</div>
+								</div>
+								<div class="reservation-text4">
+									<div class="reservation-color" id="reservation-hotelinfo">밤</div>
+									<div id="reservation-hotelinfo" class="night"></div>
+								</div>
+								<div class="reservation-text5">
+									<div class="reservation-color" id="reservation-hotelinfo">체크아웃</div>
+									<!-- 달력 라이브러리 -->
+									<div id="reservation-hotelinfo"><input type="text" id="to" name="to"
+											placeholder="체크아웃 날짜를 고르세요" disabled>
+									</div>
+								</div>
+								<div class="reservation-text6">
+									<button id="reservation-btn">예약</button>
+								</div>
+							</div>
+						</div>
+						<hr id = "bookhr">
+						<div id="bookfooter"></div>
+					</div>
+				</form>
+			</div>
 		</div>
-		<form action="" id = "bookformbox">
-		<div id = "bookbox">
-			<input type="text">
-		</div>
-		</form>
-	</div>
+		<!--풋터-->
 
-	<!--풋터-->
-	<div th:replace="~{/fragment/footer.html}"></div>
+		<div th:replace="~{/fragment/footer.html}"></div>
+	</div>
 </body>
 
 </html>

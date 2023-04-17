@@ -25,7 +25,9 @@ public class ManagerService {
     }
 
     public Integer bookCancel(String name) {
-        return dao.bookCancel(name);
+       
+        String tel = dao.findTelByName(name);
+        return dao.bookCancel(tel);
     }
 
 }

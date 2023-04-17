@@ -18,7 +18,7 @@ import hotel.management.v1.board.entity.Board;
 public interface BoardDao {
 	
 	//게시물 작성 dao
-	@Insert("insert into board(boardNo, username, writeDay, title, content) values(BOARD_SEQ_BOARDNO.nextval, #{username} , sysdate , #{title}, #{content})")
+	@Insert("insert into board(boardNo, username, writeDay, title, content) values(BOARD_SEQ_BOARDNO.nextval, 'spring1' , sysdate , #{title}, #{content})")
 	public void write(Write dto);
 	
 	//게시물 리스트 dao
@@ -34,8 +34,7 @@ public interface BoardDao {
 	@Update("update board b set b.replycontent = #{replyContent}, replywriteday = sysdate where b.boardno=#{boardNo}")
 	public void update(Integer boardNo, String replyContent);
 	
-//	@Select("select * from board order by boardNo desc")
-	@Select("select rownum as rnum, A.boardNo , A.username , A.writeDay , A.title from (select rownum as rnum , boardNo, username, writeDay, title from board order by boardNo) A where rownum between 1 and 10")
+    @Select("select * from (select rownum as rnum, b.* from (select boardNo, username, writeDay, title from board) b where rownum<=#{endRownum}) where rnum>=#{startRownum}")
 	public List<BoardDto.FindAll> findAll(Integer startRownum, Integer endRownum);
 	
 	}
