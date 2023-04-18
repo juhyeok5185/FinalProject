@@ -16,6 +16,12 @@
   <link rel="stylesheet" href="/css/managementStyle.css">
   <link rel="stylesheet" href="/css/style.css">
   <title>관리자</title>
+  <script>
+    function openPopup(name) {
+      console.log(name);
+      // window.open('/hotel/manager/memberDetail?name=' + name, 'memberDetail', 'width=800, height=700, scrollbars=1, toolbar=1, menubar=yes, left=300px, top=100px');
+    }
+  </script>
 </head>
 <body id="body">
 <div class="managment">
@@ -89,7 +95,9 @@
             </thead>
             <tbody>
               <tr th:each="b : ${bookList}">
-                <td th:text="${b.booker}"></td>
+                <td>
+                  <a th:href="@{/hotel/manager/memberDetail(name=${b.booker})}" th:text="${b.booker}" target="_blank"></a>
+                </td>
                 <td th:text="${b.bookTel}"></td>
                 <td th:text="${b.totalCount}"></td>
                 <td th:text="${b.roomNo}"></td>

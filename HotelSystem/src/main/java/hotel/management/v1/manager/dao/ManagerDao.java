@@ -48,6 +48,12 @@ public interface ManagerDao {
     public void changeRoomStatus(Integer roomNo);
 
     public ManagerDto.userDetail memberDetail(String name);
+
+    public void blackBtn(String name);
+
+    public void vipBtn(String name);
+
+    public void ableBtn(String name);
     
     
 }

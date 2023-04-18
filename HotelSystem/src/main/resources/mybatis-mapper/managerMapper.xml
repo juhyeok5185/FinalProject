@@ -80,4 +80,23 @@
     <select id="memberDetail" resultType="hotel.management.v1.manager.dto.ManagerDto$userDetail">
         select username , name , tel , email , personalId , disabled , userLevel ,bookCnt,black,vip from users where name = #{name}
     </select>
+
+    <update id="blackBtn">
+        update users
+        set black = case when black = 1 then 0 else 1 end
+        where name = #{name}
+    </update>
+
+    <update id="vipBtn">
+        update users
+        set vip = case when vip = 1 then 0 else 1 end
+        where name = #{name}
+    </update>
+
+    <update id="ableBtn">
+        update users
+        set disabled = case when disabled = 1 then 0 else 1 end
+        where name = #{name}
+    </update>
+
 </mapper>

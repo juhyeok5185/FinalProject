@@ -55,7 +55,24 @@ public class ManagerRestController {
     @PostMapping("/manager/checkIn")
     public ResponseEntity<?> checkIn(String roomNo , String name){ 
         service.checkIn(roomNo , name);
+        return ResponseEntity.ok("");
+    }
 
+    @PostMapping("/manager/blackBtn")
+    public ResponseEntity<?> blackBtn(String name){
+        service.blackBtn(name);
+        return ResponseEntity.ok("");
+    }
+
+    @PostMapping("/manager/vipBtn")
+    public ResponseEntity<?> vipBtn(String name){
+        service.vipBtn(name);
+        return ResponseEntity.ok("");
+    }
+
+    @PostMapping("/manager/ableBtn")
+    public ResponseEntity<?> ableBtn(String name){
+        service.ableBtn(name);
         return ResponseEntity.ok("");
     }
 

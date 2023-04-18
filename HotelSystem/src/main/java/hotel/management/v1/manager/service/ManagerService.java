@@ -68,4 +68,16 @@ public class ManagerService {
         return dao.memberDetail(name);
     }
 
+    public void blackBtn(String name) {
+        dao.blackBtn(name);
+    }
+
+    public void vipBtn(String name) {
+        dao.vipBtn(name);
+    }
+
+    public void ableBtn(String name) {
+        dao.ableBtn(name);
+    }
+
 }

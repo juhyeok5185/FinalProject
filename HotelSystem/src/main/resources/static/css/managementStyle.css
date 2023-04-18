@@ -105,3 +105,14 @@ tbody tr td {
 }
 
 /* detailpage */
+
+#detailPage {
+  width: 100%;
+  height: 1000px;
+}
+#detailUserInfo {
+  text-align: center;
+}
+#detailTable {
+  /* margin-left: 31.5%; */
+}

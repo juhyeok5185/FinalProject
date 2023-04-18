@@ -1,7 +1,6 @@
 
 $(document).ready(function() {
   
-   
   $('#searchBtn').on('click' , async function(){
     let stayCheckBox = $('#stayCheckBox').is(':checked');
     let restaurantCheckBox = $('#restaurantCheckBox').is(':checked');
@@ -127,4 +126,46 @@ $(document).ready(function() {
       alert('이미 배정이 완료된 방입니다.');
     }
   });
+
+  $('#blackBtn').on('click' , async function(){
+    var booker = $(this).find('input').val();
+    try {
+      const blackBtn = await $.ajax({
+      url: '/hotel/manager/blackBtn?name='+ booker ,
+      method: 'post'
+      });
+      alert('변경이 완료되었습니다');
+      location.reload();
+    } catch(err) {
+
+    }
+  })
+
+  $('#vipBtn').on('click' , async function(){
+    var booker = $(this).find('input').val();
+    try {
+      const blackBtn = await $.ajax({
+      url: '/hotel/manager/vipBtn?name='+ booker ,
+      method: 'post'
+      });
+      alert('변경이 완료되었습니다');
+      location.reload();
+    } catch(err) {
+
+    }
+  })
+  
+  $('#ableBtn').on('click' , async function(){
+    var booker = $(this).find('input').val();
+    try {
+      const blackBtn = await $.ajax({
+      url: '/hotel/manager/ableBtn?name='+ booker ,
+      method: 'post'
+      });
+      alert('변경이 완료되었습니다');
+      location.reload();
+    } catch(err) {
+
+    }
+  })
 });
