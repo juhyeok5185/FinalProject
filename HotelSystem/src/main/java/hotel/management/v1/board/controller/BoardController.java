@@ -41,7 +41,8 @@ public class BoardController {
 				.addObject("prev",	list.getPrev())
 				.addObject("start",  list.getStart())
 				.addObject("end",	list.getEnd())
-				.addObject("next",	list.getNext());
+				.addObject("next",	list.getNext())
+				.addObject("pageno", pageno);
 	}
 
 	@GetMapping("/hotel/board/read")
