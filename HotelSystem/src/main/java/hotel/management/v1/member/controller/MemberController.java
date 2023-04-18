@@ -56,4 +56,10 @@ public class MemberController {
 		return result? ResponseEntity.ok(null) :ResponseEntity.status(HttpStatus.CONFLICT).body(null);
 	}
 	
+	@PreAuthorize("isAuthenticated()")
+	@GetMapping("/member/myPage")
+	public void myPage() {
+		
+	}
+	
 }
