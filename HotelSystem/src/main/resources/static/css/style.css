@@ -154,7 +154,7 @@
   left: 1.5vw;
   font-size: 0.6vw;
 }
-.dropdown-menu {
+.dropdown- {
   background-color: gray;
   font-weight: bold;
   font-size: 0.7vw;
@@ -781,6 +781,15 @@
   bottom: 10px;
 }
 
+#myPagetool {
+  font-size: 12px;
+  width: 10vw;
+  position: relative;
+  left: 40.5vw;
+  color: black;
+  bottom: 10px;
+}
+
 #aside{
   width: 15vw;
   height: 25vh;
@@ -833,6 +842,31 @@
   padding-left: 0.1vw;
 }
 
+#myPageaside{
+  width: 15vw;
+  height: 30vh;
+  background-color:#f1e3c4; 
+  float: left;
+  position: absolute;
+  left: 15vw;
+  top: 19vh;
+}
+
+#myPageinmenu {
+  width: 10vw;
+  background-color:#f1e3c4;
+  margin: auto;
+  padding-top: 3vh;
+  padding-left: 0.1vw;
+  text-align: left;
+  height: 20vh;
+  color: #555;
+}
+
+#myPagemenu {
+  padding-left: 0.1vw;
+}
+
 /* section */
 #internalFacilities_page {
   width: 100vw;
@@ -878,7 +912,7 @@
 /* 여기 까지 내부시설 */
 
 /* 호텔 개요 */
-#hotel_introduce {
+#hotel_ce {
   color: #392f26;
 }
 
