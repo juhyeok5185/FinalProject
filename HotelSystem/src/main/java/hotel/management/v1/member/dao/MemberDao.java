@@ -21,8 +21,11 @@ public interface MemberDao {
 	@Select("select * from users where name=#{name} and email=#{email} and rownum=1")
 	public  Optional<Member> findByEmail(String name, String email);
 
+	@Select("select * from users where username=#{username} and rownum=1")
+	public Optional<Member> findByUsername(String username);
+	
 	@Select("select * from users where name=#{name} and username=#{username} and email=#{email} and rownum=1")
-	public Optional<Member> findByUsername(String name, String username, String email);
+	public Optional<Member> findByPassword(String name, String username, String email);
 
 	@Update("update users set loginFailCount=0 where username=#{username} and rownum=1")
 	public Integer resetLoginCnt(String username);

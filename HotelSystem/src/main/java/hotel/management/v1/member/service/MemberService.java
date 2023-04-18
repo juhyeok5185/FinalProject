@@ -63,7 +63,7 @@ public class MemberService {
 
 	public void resetPassword(String name, String username, String email) {
 		try {
-			Member member = dao.findByUsername(name, username, email).get();
+			Member member = dao.findByPassword(name, username, email).get();
 			System.out.println(member.getEmail());
 			String newPassword = RandomStringUtils.randomAlphanumeric(20);
 			String newEncodedPassword = encoder.encode(newPassword);
