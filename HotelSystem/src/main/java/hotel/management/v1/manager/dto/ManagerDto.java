@@ -69,4 +69,20 @@ public class ManagerDto {
         private String gradeName;
         private String roomStatus;
     }
+
+    @Data
+    @ToString
+    @Builder
+	public static class userDetail {
+        private String userName;
+        private String name;
+        private String tel;
+        private String email;
+        private String personalId;
+        private Boolean disabled;
+        private String userLevel;
+        private Integer bookCount;
+        private Boolean black;
+        private Boolean vip;
+    }
 }

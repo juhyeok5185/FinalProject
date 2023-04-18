@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Select;
 
 import hotel.management.v1.manager.dto.ManagerDto;
 import hotel.management.v1.manager.dto.ManagerDto.roomList;
+import hotel.management.v1.manager.dto.ManagerDto.userDetail;
 
 @Mapper
 public interface ManagerDao {
@@ -45,5 +46,8 @@ public interface ManagerDao {
     public void changeBookStatus(Integer bookNo);
 
     public void changeRoomStatus(Integer roomNo);
+
+    public ManagerDto.userDetail memberDetail(String name);
+    
     
 }

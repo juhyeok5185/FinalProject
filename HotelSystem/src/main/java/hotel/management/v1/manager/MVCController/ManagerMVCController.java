@@ -28,7 +28,8 @@ public class ManagerMVCController {
     public void memberSearch(){}
     
     @GetMapping("/manager/memberDetail")
-    public void memberDetail(String name){
-        // service.findUserByName(name);
+    public ModelAndView memberDetail(String name){
+        ManagerDto.userDetail detail = service.memberDetail(name);
+        return new ModelAndView("/hotel/manager/memberDetail").addObject("member", detail);
     }
 }

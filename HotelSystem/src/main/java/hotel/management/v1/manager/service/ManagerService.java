@@ -64,4 +64,8 @@ public class ManagerService {
         dao.changeBookStatus(bookNo);
     }
 
+    public ManagerDto.userDetail memberDetail(String name) {
+        return dao.memberDetail(name);
+    }
+
 }
