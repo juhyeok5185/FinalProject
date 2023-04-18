@@ -14,7 +14,6 @@ public class bookService {
 	private bookDao dao;
 	
 	public List<bookDto.findRoom> findRoom(String from, String to) {
-		System.out.println("서비스호출");
 		List<bookDto.findRoom> list =  dao.findRoomFromAndTo(from,to);
 		
 		return list;

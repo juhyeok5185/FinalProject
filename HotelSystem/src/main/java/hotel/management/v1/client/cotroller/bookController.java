@@ -28,9 +28,12 @@ public class bookController {
 	@PostMapping(value="/client/roombook", produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<findRoom>> roomBook(String from, String to) {
 		System.out.println(from+"+"+to);
-		System.out.println("컨트롤러호출");
-		List<bookDto.findRoom> dto =   service.findRoom(from,to);
-		
+		List<bookDto.findRoom> dto = null;
+		if (from.equals("")||to.equals("")) {
+			
+		}else {
+			dto =  service.findRoom(from,to);
+		}
 		return ResponseEntity.ok(dto);
 	}
 		
