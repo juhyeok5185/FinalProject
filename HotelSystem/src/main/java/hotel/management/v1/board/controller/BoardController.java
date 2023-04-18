@@ -1,12 +1,14 @@
 package hotel.management.v1.board.controller;
 
 import java.security.Principal;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -48,7 +50,6 @@ public class BoardController {
 	@GetMapping("/hotel/board/read")
 	public void read(Integer boardNo, Model model) {
 		Board board = boardService.findByNo(boardNo);
-		System.out.println(board);
 		model.addAttribute("board", boardService.findByNo(boardNo));
 	}
 
@@ -57,5 +58,13 @@ public class BoardController {
 		boardService.replyUpdate(boardNo, replyContent);
 		return new ModelAndView("redirect:/hotel/board/read?boardNo=" + boardNo);
 	}
+	
 
+	@PostMapping("/hotel/board/delete")
+	public ModelAndView deleteBoard(String boardNo) {
+	    boardService.delete(boardNo);
+	        return new ModelAndView("redirect:/hotel/board/list");
+	}
+	
+	
 }
