@@ -22,16 +22,14 @@
   <title>J.H.H.L</title>
 </head>
 <body>
-  <!--명품관-->
   <div class="hotel">
+  	<!-- 내브 -->
     <div th:replace="~{/fragment/nav.html}"></div>
+    <!-- 700이상 -->
     <div id="luxury_page"> 
       <div id= "aside"> 
         <div id="inmenu">
           <h3 id="tit">명품관</h3>
-	          <ul id="menu">
-	              <li id="internal_outline"><a href="/hotel/mall/itemCart" id="subh">장바구니</a></li>
-	          </ul>
         </div>
       </div>
       <div id="luxuryarticle">
@@ -101,6 +99,34 @@
         </div>
       </div>
     </div>
+    <!-- 요금합계 -->
+    <div id="totalCharge">
+    	<div id="totalChargeInner">
+    		<div id="totalBill">
+    			<div id="totalBox">
+    				<div id="totalText">
+    					<div id="VAT">
+	    					<span>요금합계</span><br>
+	    					<p>부가가치세 포함</p>    					
+    					</div>
+    					<div id="totalPrice">
+    						<span>25,000,000 원</span>
+    					</div>
+    				</div>
+    				<div id="totalButton">
+    					<div id="chooseButton">
+    						<a href="#"><img alt="선택" src="/img/선택버튼.png"> </a>
+    					</div>
+    				</div>
+    				<a href="#none" id="chargeInquiry"></a>
+    			</div>
+    		</div>
+    		<div id="totalBillDetail">
+    			
+    		</div>
+    	</div>
+    </div>
+    <!-- 반응형 -->
     <div id="luxury_page-1">
 	    <div id="luxuryarticle-1">
 	    	<div id="headtit-1"> 
@@ -161,6 +187,7 @@
 	       	</div>
 	    </div>
     </div>
+    <!-- 풋터 -->
     <div th:replace="~{/fragment/footer.html}"></div>
   </div>
 </body>
