@@ -1834,6 +1834,13 @@ div #logintoolbar > a {
 	padding: 0;
 }
 
+#item-btn {
+	position: relative;
+	left: 17.5vh;
+	bottom: 2vh;
+}
+
+
 #totalCharge {
 	border-top: 2px solid #856f56;
 	width: 100vw;
@@ -1910,6 +1917,7 @@ div #logintoolbar > a {
 	left: 49.52%;
 	bottom: 29vh;
 }
+/*여기까지*/
 
 
 /*다크모드*/
@@ -2231,7 +2239,6 @@ div #logintoolbar > a {
     #luxuryarticle {
     	display: none;
     }
-
     
   }
   /*700이하부터 보일곳*/
@@ -2558,12 +2565,12 @@ div #logintoolbar > a {
 /*명품관*/
 #luxury_page-1 {
 	width: 100vw;
-	height: 340vh;
+	height: 400vh;
 }
 
 #luxuryarticle-1 {
 	width: 80vw;
-	height: 340vh;
+	height: 400vh;
 	margin: auto;
 	margin-top: 2vh;
 }
@@ -2584,6 +2591,12 @@ div #logintoolbar > a {
 
 #itemPrice {
 	color: black;
+}
+
+#item-btn-1 {
+	position: relative;
+	left: 41.5vh;
+	bottom: 1.5vh;
 }
 
 

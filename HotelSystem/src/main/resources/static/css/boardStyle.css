@@ -762,15 +762,22 @@
 	left:6vw;
 }
 
-#readbutton{
+#replybutton{
 	position:relative;
-	top:3vh;
-	left:32vw;
+	bottom:2vh; 
 }
-#writebutton{
+#clickbutton{
+	
+}
+
+#listbutton{
 	position:relative;
-	left:39.5vw;	
-	top:1.5vh;
+}
+#updatebutton{
+	position:relative;
+}
+#deletebutton{
+	position:relative;
 }
 
 /*요기까지*/

@@ -72,18 +72,23 @@
             <tr>
                 <td class="col1"><span id="notnull"></span>답변</td>
                 <td class="col2">
-               <form action="/hotel/board/read" method="post">
+				
+                <form action="/hotel/board/read" method="post">
 				<input type="hidden" name="boardNo" th:field="*{board.boardNo}">
 				<textarea id="replyContent" name="replyContent" cols="80" rows="5"></textarea>
-				<div id="readbutton">
-				<button class="btn btn-outline-dark">답변</button>
-				 <a type="button" class="btn btn-outline-dark" href="/hotel/board/list">목록</a>
-				<button id="update" class="btn btn-outline-dark">수정</button>
-				<button id="delete" class="btn btn-outline-dark">삭제</button>
+				<button id="replybutton" class="btn btn-outline-dark">답변</button>
+				<div id="clickbutton">
+				 <a id="listbutton" type="button" class="btn btn-outline-dark" href="/hotel/board/list">목록</a>
+				<button id="updatebutton" class="btn btn-outline-dark">수정</button>
+				</form>
+				<form action="/hotel/board/delete" method="post">
+  					<input type="hidden" name="boardNo" th:field="*{board.boardNo}">
+  					<button id="deletebutton" type="submit" class="btn btn-outline-dark">삭제하기</button>
+				</form>
 				</div>
-				</form>	
+				
                 </td>
-            </tr>
+         	   </tr>	
           </table>
        </div>
      </div>

@@ -63,4 +63,11 @@ public class BoardService {
 			boardDao.update(boardNo , replyContent);
 	}
 	
+	public void delete(String boardNo) {
+		int intBoardNo = Integer.parseInt(boardNo);
+		Board board = boardDao.findByNo(intBoardNo);
+		if(board.getBoardNo().equals(intBoardNo))
+			boardDao.delete(intBoardNo);
+	}
+	
 }
