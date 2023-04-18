@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import hotel.management.v1.manager.dto.ManagerDto;
+import hotel.management.v1.manager.dto.ManagerDto.roomList;
 
 @Mapper
 public interface ManagerDao {
@@ -18,6 +19,7 @@ public interface ManagerDao {
     public Integer bookCancel(String tel);
 
     public String findTelByName(String name);
+
 
     public void checkOut(String name);
 
@@ -33,5 +35,15 @@ public interface ManagerDao {
 
     @Select("select * from dinner where resNo = #{resNo}")
     public Integer searchRes(Integer resNo);
+
+    public List<ManagerDto.roomList> roomList(String roomGrade);
+
+    public void setRoom(Integer roomNo , Integer bookNo);
+
+    public Integer findBookNoByName(String name);
+
+    public void changeBookStatus(Integer bookNo);
+
+    public void changeRoomStatus(Integer roomNo);
     
 }

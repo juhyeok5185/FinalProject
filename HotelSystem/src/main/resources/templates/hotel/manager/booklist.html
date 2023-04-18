@@ -60,7 +60,7 @@
           <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" id="dropdownBtn">
             ALL
           </button>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu searchToggle">
             <li><a class="dropdown-item active" href="#" data-index="1">All</a></li>
             <li><a class="dropdown-item" href="#" data-index="2">Check In 대기중</a></li>
             <li><a class="dropdown-item" href="#" data-index="3">투숙중</a></li>
@@ -108,7 +108,12 @@
                 <td th:text="${b.bookStatus}"></td>
                 <td>
                   <span th:if="${b.bookStatus == '체크인대기'}">
-                    <button type="button" class="btn btn-primary dropdown-toggle">체크인</button>
+                    <span class="dropdown">
+                      <button type="button" class="btn btn-primary dropdown-toggle checkInBtn" data-bs-toggle="dropdown">체크인</button>
+                      <ul class="dropdown-menu checkInDropDown">
+                        <li></li>
+                      </ul>
+                    </span>
                     <button type="button" class="btn btn-primary bookCancel">예약취소 <input type="hidden" th:value="${b.bookTel}"></button>
                   </span>
                   <span th:if="${b.bookStatus == '체크인완료'}">

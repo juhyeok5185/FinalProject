@@ -56,6 +56,14 @@
       }
       
     $(document).ready(function(){
+      $('#searchName').on('keyup', function(event) {
+      // 엔터키가 눌리면
+      if (event.keyCode === 13) {
+        // 검색 버튼 클릭과 동일한 이벤트 발생
+        $('#nameSearchBtn').click();
+      }
+    });
+
     $('#nameSearchBtn').on('click' ,async function(){
       const name = $('#searchName').val();
       try {

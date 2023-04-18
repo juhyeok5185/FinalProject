@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import hotel.management.v1.client.book.entity.book;
 import hotel.management.v1.manager.dao.ManagerDao;
 import hotel.management.v1.manager.dto.ManagerDto;
 
@@ -25,11 +26,12 @@ public class ManagerService {
     }
 
     public Integer bookCancel(String tel) {
-       
         return dao.bookCancel(tel);
     }
 
-    public void checkOut(String tel) {
+    public void checkOut(String tel, String roomNo) {
+        Integer intRoomNo = Integer.parseInt(roomNo);
+        dao.changeRoomStatus(intRoomNo);
         dao.checkOut(tel);
     }
 
@@ -48,6 +50,18 @@ public class ManagerService {
         } else {
             dao.cancelDinner(bookNoCount.getBookNo());
         }
+    }
+
+    public List<ManagerDto.roomList> roomList(String roomGrade) {
+        List<ManagerDto.roomList> list = dao.roomList(roomGrade);
+        return list;
+    }
+
+    public void checkIn(String roomNo , String name ) {
+        Integer bookNo = dao.findBookNoByName(name);
+        Integer intRoomNo = Integer.parseInt(roomNo);
+        dao.setRoom(intRoomNo , bookNo);
+        dao.changeBookStatus(bookNo);
     }
 
 }
