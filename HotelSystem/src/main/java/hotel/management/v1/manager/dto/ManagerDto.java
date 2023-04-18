@@ -60,4 +60,13 @@ public class ManagerDto {
         private Integer bookNo;
         private Integer totalCount;
     }
+
+    @Data
+    @ToString
+    @Builder
+	public static class roomList {
+        private Integer roomNo;
+        private String gradeName;
+        private String roomStatus;
+    }
 }
