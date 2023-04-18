@@ -20,6 +20,18 @@
 	if(msg!=null)
 		alert(msg);
   </script>
+  <script>
+  	$(document).ready(function() {
+  		$('#findidcheckbut').click(async function() {
+  			try {
+  				const username = await $.ajax('/hotel/member/find_id?name=' + $('#find_id_name').val() +'&email=' +  $('#find_id_email').val());
+  				alert("당신의 아이디 : " + username);
+  			} catch(err) {
+  				alert("사용자를 찾지 못했습니다.");
+  			}
+  		})
+  	});
+  </script>
   <title>J.H.H.L</title>
   
 </head>
@@ -82,7 +94,7 @@
             				<p>성명</p>
             			</div>
             			<div id="findidbox2_4">
-            				<input type="text" id="username" name="username" style="width: 17.5vw;">
+            				<input type="text" id="find_id_name" style="width: 17.5vw;">
             			</div>
             		</div>
             		<div id="findidbox2_2">
@@ -90,7 +102,7 @@
             				<p>이메일</p>
             			</div>
             			<div id="findidbox2_4">
-            				<input type="text" id="email" name="email" style="width: 17.5vw;">
+            				<input type="text" id="find_id_email" style="width: 17.5vw;">
             			</div>
             		</div>
             	</div>

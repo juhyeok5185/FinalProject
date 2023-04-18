@@ -56,4 +56,17 @@ public class MemberController {
 		return result? ResponseEntity.ok(null) :ResponseEntity.status(HttpStatus.CONFLICT).body(null);
 	}
 	
+	@PreAuthorize("isAuthenticated()")
+	@GetMapping("/member/myPage")
+	public void myPage() {
+		
+	}
+	
+	@PreAuthorize("isAnonymous()")
+	@GetMapping("/member/find_id")
+	public ResponseEntity<String> findId(String name, String email) {
+		System.out.println(name + email);
+		return ResponseEntity.ok(service.findUsername(name,email));
+	}
+	
 }
