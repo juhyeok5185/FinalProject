@@ -758,18 +758,21 @@
 
 #reportwrite{
 	position:relative;
-	bottom: 6.8vh;
-	right: 40vw; 
+	bottom: 6vh;
+	left:6vw;
 }
 
-#replybutton{
+#readbutton{
 	position:relative;
-	bottom: 1.4vh;
+	top:3vh;
+	left:32vw;
 }
-#listbutton{
+#writebutton{
 	position:relative;
-	top:7vh; 
+	left:39.5vw;	
+	top:1.5vh;
 }
+
 /*요기까지*/
 
 

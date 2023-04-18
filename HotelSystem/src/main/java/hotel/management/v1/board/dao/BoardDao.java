@@ -1,8 +1,8 @@
 package hotel.management.v1.board.dao;
 
-
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -38,4 +38,6 @@ public interface BoardDao {
 	@Select("SELECT * FROM (  SELECT rownum as rnum, b.*   FROM (SELECT boardNo, username, writeDay, title FROM board ORDER BY boardNo DESC) b WHERE rownum <= #{endRownum}) WHERE rnum >= #{startRownum}")
 	public List<BoardDto.FindAll> findAll(Integer startRownum, Integer endRownum);
 	
+	@Delete("delete from board where boardNo=#{boardNo}")
+	public Integer delete(Integer boardNo);
 	}

@@ -75,8 +75,12 @@
                <form action="/hotel/board/read" method="post">
 				<input type="hidden" name="boardNo" th:field="*{board.boardNo}">
 				<textarea id="replyContent" name="replyContent" cols="80" rows="5"></textarea>
-				<button id="replybutton" class="btn btn-outline-dark">답변</button>
-				 <a id="listbutton" type="button" class="btn btn-outline-dark" href="/hotel/board/list">목록</a>
+				<div id="readbutton">
+				<button class="btn btn-outline-dark">답변</button>
+				 <a type="button" class="btn btn-outline-dark" href="/hotel/board/list">목록</a>
+				<button id="update" class="btn btn-outline-dark">수정</button>
+				<button id="delete" class="btn btn-outline-dark">삭제</button>
+				</div>
 				</form>	
                 </td>
             </tr>
