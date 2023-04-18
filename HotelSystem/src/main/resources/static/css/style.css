@@ -1478,6 +1478,10 @@ div #logintoolbar > a {
   color: #faf1d0;
 }
 
+#findpasswordcheckbut:hover {
+	cursor: pointer;
+}
+
 #findpasswordcheckbar {
   display: flex;
   width: 23.9vw;

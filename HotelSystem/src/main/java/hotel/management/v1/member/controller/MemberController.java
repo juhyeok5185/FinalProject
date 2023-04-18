@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -67,6 +68,13 @@ public class MemberController {
 	public ResponseEntity<String> findId(String name, String email) {
 		System.out.println(name + email);
 		return ResponseEntity.ok(service.findUsername(name,email));
+	}
+	
+	@PreAuthorize("isAnonymous()")
+	@PatchMapping("/member/find_password")
+	public ResponseEntity<String> findPassword(String name, String username, String email) {
+		service.resetPassword(name, username, email);
+		return ResponseEntity.ok("임시비밀번호를 이메일로 보냈습니다");
 	}
 	
 }
