@@ -62,4 +62,11 @@ public class MemberController {
 		
 	}
 	
+	@PreAuthorize("isAnonymous()")
+	@GetMapping("/member/find_id")
+	public ResponseEntity<String> findId(String name, String email) {
+		System.out.println(name + email);
+		return ResponseEntity.ok(service.findUsername(name,email));
+	}
+	
 }

@@ -1,5 +1,7 @@
 package hotel.management.v1.member.service;
 
+import java.util.NoSuchElementException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -28,5 +30,13 @@ public class MemberService {
 
 	public Boolean checkEmail(String email) {
 		return !dao.existsByEmail(email);
+	}
+
+	public String findUsername(String name, String email) {
+		try {
+			return dao.findByEmail(name, email).get().getUsername();
+		} catch(NoSuchElementException e) {
+			throw e;
+		}
 	}
 }
