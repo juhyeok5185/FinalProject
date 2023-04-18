@@ -7,8 +7,7 @@ public class bookDto {
 	@Data
 	@ToString
 	public static class findRoom{
-		Integer roomno;
-		String gradename;
-		String roomstatus;
+		String gradeName;
+		Boolean reservableOrNot;
 	}
 }

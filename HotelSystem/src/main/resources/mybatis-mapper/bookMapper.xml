@@ -3,6 +3,12 @@
 <mapper namespace="hotel.management.v1.client.book.dao.bookDao">
 	
 	<select id="findRoomFromAndTo" resultType="hotel.management.v1.client.book.dto.bookDto$findRoom">
-		select * from room
+		SELECT r.gradename, COUNT(*) - (
+  SELECT COUNT(*)
+  FROM roombooking
+  WHERE bookroomgrade = r.gradename and (roombooking.checkin &lt; to_date(#{from},'MM/DD/YYYY') and roombooking.checkout &gt; to_date(#{to},'MM/DD/YYYY'))
+) AS reservableornot
+FROM room r
+GROUP BY r.gradename
 	</select>
 </mapper>

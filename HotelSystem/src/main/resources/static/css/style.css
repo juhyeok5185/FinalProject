@@ -1258,6 +1258,7 @@ div #logintoolbar > a {
   position: fixed;
   bottom: 0.01vh;
   right: 0.01vw;
+  z-index: 6;
 }
 #Box{
   width: 26.5vw;
@@ -1268,6 +1269,7 @@ div #logintoolbar > a {
   top: 33vh;
   opacity: 1;
   margin: auto;
+  z-index: 6;
 }
 #newdim1{
   width: 100vw;
@@ -1277,6 +1279,7 @@ div #logintoolbar > a {
   position: fixed;
   bottom: 0.01vh;
   right: 0.01vw;
+  z-index: 6;
 }
 #Box1{
   width: 26.5vw;
@@ -1287,6 +1290,7 @@ div #logintoolbar > a {
   top: 23vh;
   opacity: 1;
   margin: auto;
+  z-index: 6;
 }
 #newdim2{
   width: 100vw;
@@ -1296,6 +1300,7 @@ div #logintoolbar > a {
   position: fixed;
   bottom: 0.01vh;
   right: 0.01vw;
+  z-index: 6;
 }
 
 
