@@ -35,75 +35,8 @@
        <div id="headtit"> 
           <h3>문의하기</h3>
           <div id="toolbar">
-            <i class="fa-solid fa-house"></i> > 고객문의 ><a href="/hotel/report" id="subh"> 문의하기</a>
+            <i class="fa-solid fa-house"></i> > 고객문의 ><a href="/hotel/report" id="subh">문의하기</a>
           </div>
-        </div>
-        <div class="insert" id="reportinsert">
-          <table id="reporttable">
-            <tr>
-                <td class="col1"><span id="notnull">* </span>구분</td>
-                <td class="col2">
-                  <input type="radio">J.H호텔
-                </td>
-            </tr>
-            <tr>
-                <td class="col1"><span id="notnull">* </span>관련문의</td>
-                <td class="col2">
-                    <select name="" id="">
-                        <option value="">객실/패키지문의</option>
-                        <option value="">다이닝문의</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td class="col1"> 예약번호</td>
-                <td class="col2">
-                  <input type="text" style="width:250px;">
-                </td>
-            </tr>
-            <tr>
-                <td class="col1"><span id="notnull">* </span>제목</td>
-                <td class="col2">
-                  <input type="text" style="width:400px;">
-                </td>
-            </tr>
-            <tr>
-                <td class="col1"><span id="notnull">* </span>내용</td>
-                <td class="col2">
-                  <textarea name="" id="" cols="80" rows="5"></textarea>
-                </td>
-            </tr>
-            <tr>
-                <td class="col1"><span id="notnull">* </span>성명</td>
-                <td class="col2">
-                  <input type="text">
-                </td>
-            </tr>
-            <tr>
-              <td class="col1"><span id="notnull">* </span>이메일</td>
-              <td class="col2">
-              <input type="text" name="mailid">
-              <span class="a">@</span>
-              <input type="text" name="email">
-              <select name="mailslc">
-                    <option value="self" selected>직접입력</option>
-                    <option value="naver">naver.com</option>
-                    <option value="gm">gmail.com</option>
-                    <option value="da">daum.com</option>
-                    <option value="yah">yahoo.com</option>
-              </select>
-              </td>
-            </tr>
-            <tr>
-                <td class="col1"><span id="notnull">* </span>자동입력방지</td>
-                <td class="col2">
-                  <form method="post" action="join_ok.php">
-                    <span id="passwordname">juhyuck</span>
-                  <input type="text" placeholder="좌측에 보이는 문자(숫자)를 그대로 입력해주세요." style="width:400px;">
-                </form>
-                </td>
-            </tr>
-          </table>
         </div>
         <!--문의게시판목록-->
           <hr>
@@ -128,15 +61,21 @@
             </tbody>
           </table>
           <div id="reportpagination">
- 			<ul>
-	  		<li id="pnclick"><a id="" th:href="@{'/hotel/board/list?pageno='+${prev}}">prev</a> </li>
-	  		<li id="listclick" th:each="i: ${#numbers.sequence(start, end)}">
-	  	 	<a id="listclick" th:href="@{'/hotel/board/list?pageno=' + ${i}}" th:text="${i}"></a>
-	  		</li>
-	  		<li id="pnclick"><a id="" th:href="@{'/hotel/board/list?pageno='+${next}}">next</a></li>
+		    <ul class="pagination">
+  			<li class="page-item"><a class="page-link" th:href="@{'/hotel/board/list?pageno='+${prev}}">이전</a></li>
+  			
+  			<li class="page-item" th:each="i: ${#numbers.sequence(start, end)}">
+  				<span th:if="${pageno eq i}">
+  				  <a class="page-link active" th:href="@{'/hotel/board/list?pageno=' + ${i}}" th:text="${i}"></a>
+  				</span>
+  				<span th:if="${pageno != i}">
+    		      <a class="page-link" th:href="@{'/hotel/board/list?pageno=' + ${i}}" th:text="${i}"></a>
+  				</span>
+			</li>
+  			<li class="page-item"><a class="page-link" th:href="@{'/hotel/board/list?pageno='+${next}}">다음</a></li>
 			</ul>
+               	<a id="reportwrite" href="/hotel/board/write" type="button" class="btn btn-outline-dark">글쓰기</a>
           </div>
-			 <button id="writeclick"><a id="" href="/hotel/board/write"><strong> 글쓰기</strong></a></button>
         </div>
        </div>
       </div>

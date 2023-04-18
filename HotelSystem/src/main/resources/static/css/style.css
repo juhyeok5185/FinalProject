@@ -172,9 +172,6 @@
 #colorchange {
   color: #0000008C;
 }
-#liLine {
-  border-right:2px solid #0000008C;
-}
 
 #map-area {
   position: relative;
@@ -1464,6 +1461,10 @@ div #logintoolbar > a {
   color: #faf1d0;
 }
 
+#findidcheckbut:hover {
+	cursor: pointer;
+}
+
 #findpasswordcheckbut {
   width: 10vw;
   height: 3vh;
@@ -1475,6 +1476,10 @@ div #logintoolbar > a {
   background-color: #3a3125;
   border: 1px solid #cccccc;
   color: #faf1d0;
+}
+
+#findpasswordcheckbut:hover {
+	cursor: pointer;
 }
 
 #findpasswordcheckbar {
@@ -1650,6 +1655,9 @@ div #logintoolbar > a {
 	right: 0.01vw;
 	z-index: 6;
 }
+#reservation-sitebook{
+	display: flex;
+}
 
 #bookBox {
 	width: 40vw;
@@ -1821,6 +1829,82 @@ div #logintoolbar > a {
 	padding: 0;
 }
 
+#totalCharge {
+	border-top: 2px solid #856f56;
+	width: 100vw;
+	height: 10.5vh;
+}
+
+#totalChargeInner {
+	width: 80vw;
+	height: 10.5vh;
+	margin: 0 auto;
+}
+
+#totalBill {
+	width: 71.2vw;
+    height: 10.5vh;
+    padding:24px 0;
+}
+
+#totalBox {
+	border-left: 1px solid #D8D8D8;
+	float: right;
+	width: 30vw;
+	height: 6vh;	
+	margin-right:1.3vw;
+}
+
+#totalText {
+	float: left;
+	width: 18vw;
+	height: 3vh;
+}
+
+#VAT {
+	width: 8vw;
+	float: left;
+	padding-top: 1vh;
+	margin: 0;
+	padding-left: 1vw;
+}
+
+#totalText span {
+	font-size: 15px;
+	font-weight: bold;
+	color: #362311;
+}
+
+#totalText p {
+	font-size: 8px;
+	margin: 0 auto;
+	color: #A4A4A4;
+}
+
+#totalPrice {
+	float: right;
+	color: #362311;
+	width: 10vw;
+	float: right;
+	text-align: right;
+	margin-top: 2vh;
+}
+
+#totalButton {
+	float: right;
+	width: 10vw;
+	height: 5vh;
+	text-align: center;
+}
+
+#chargeInquiry {
+	position: absolute;
+	background: url("/img/btn_estcharge_toggle2.png") 0 0 no-repeat;
+	width: 3.2vw;
+	height: 3.3vh;
+	left: 49.52%;
+	bottom: 29vh;
+}
 
 
 /*다크모드*/
