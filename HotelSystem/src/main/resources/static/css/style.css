@@ -172,9 +172,6 @@
 #colorchange {
   color: #0000008C;
 }
-#liLine {
-  border-right:2px solid #0000008C;
-}
 
 #map-area {
   position: relative;
@@ -1464,6 +1461,10 @@ div #logintoolbar > a {
   color: #faf1d0;
 }
 
+#findidcheckbut:hover {
+	cursor: pointer;
+}
+
 #findpasswordcheckbut {
   width: 10vw;
   height: 3vh;
@@ -1475,6 +1476,10 @@ div #logintoolbar > a {
   background-color: #3a3125;
   border: 1px solid #cccccc;
   color: #faf1d0;
+}
+
+#findpasswordcheckbut:hover {
+	cursor: pointer;
 }
 
 #findpasswordcheckbar {
