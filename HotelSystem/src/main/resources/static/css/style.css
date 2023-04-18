@@ -1829,6 +1829,80 @@ div #logintoolbar > a {
 	padding: 0;
 }
 
+#totalCharge {
+	border-top: 2px solid #856f56;
+	width: 1920px;
+	height: 100px;
+}
+
+#totalChargeInner {
+	width: 1200px;
+	height: 98px;
+	margin: 0 auto;
+}
+
+#totalBill {
+	width: 100%;
+    height: 98px;
+    padding: 24px 0;
+}
+
+#totalBox {
+	border-left: 1px solid #D8D8D8;
+	float: right;
+	width: 600px;
+	height: 50px;
+	padding-left: 10px;	
+}
+
+#totalText {
+	float: left;
+	width: 350px;
+	height: 50px;
+}
+
+#VAT {
+	width: 100px;
+	float: left;
+	padding-top: 3px;
+	margin: 0;
+}
+
+#totalText span {
+	font-size: 15px;
+	font-weight: bold;
+	color: #362311;
+}
+
+#totalText p {
+	font-size: 8px;
+	margin: 0 auto;
+	color: #A4A4A4;
+}
+
+#totalPrice {
+	float: right;
+	color: #362311;
+	width: 200px;
+	float: right;
+	text-align: right;
+	margin-top: 12px;
+}
+
+#totalButton {
+	float: right;
+	width: 200px;
+	height: 50px;
+	text-align: center;
+}
+
+#chargeInquiry {
+	position: absolute;
+	background: url("/img/btn_estcharge_toggle2.png") 0 0 no-repeat;
+	width: 32px;
+	height: 32px;
+}
+
 
 
 /*다크모드*/
