@@ -22,7 +22,6 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 	
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-		System.out.println("성공");
 		response.sendRedirect("/hotel/main");
 		// 로그인에 성공하면 로그인 실패횟수 리셋
 		memberDao.resetLoginCnt(authentication.getName());
