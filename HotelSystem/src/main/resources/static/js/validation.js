@@ -108,6 +108,16 @@ $(document).ready(function() {
 			console.log(err);
 			alert("아이디나 이메일이 사용 중입니다");
 		}
-		
 	});
+	
+		$('#changepasswordbtn').click(function() {
+			const changeresult = passwordCheck() && password2Check();
+			console.log(changeresult);
+			if(changeresult==false) {
+				alert('비밀번호를 확인해주세요.');
+				return false;
+			}
+				alert('비밀번호가 변경되었습니다.');
+				$('#change_password').submit();
+		});
 })

@@ -16,6 +16,15 @@
   <link href='https://unpkg.com/css.gg@2.0.0/icons/css/facebook.css' rel='stylesheet'>
   <link rel="stylesheet" href="/css/style.css">
   <title>J.H.H.L</title>
+  <script>
+  	$('#deletebtn').click(function() {
+  		const choice = confirm('정말 탈퇴하시겠습니까?');
+  		if(choice==false) {
+  			return false;
+  		}
+  		$('<form>').attr('action','/hotel/member/delete').attr('method','post').appendTo('body').submit();
+  	});
+  </script>
 </head>
 <body>
     <div th:replace="~{/fragment/nav.html}"></div>

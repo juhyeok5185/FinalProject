@@ -1,18 +1,26 @@
 package hotel.management.v1.member.controller;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import hotel.management.v1.member.dto.MemberDto;
 import hotel.management.v1.member.service.MemberService;
-import jakarta.validation.Valid;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/hotel")
@@ -82,16 +90,36 @@ public class MemberController {
 		
 	}
 	
-	@PreAuthorize("isAuthenticated()")
-	@GetMapping("/member/changepassword")
-	public void changePassword() {
-		
-	}
 	
 	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/member/delete")
 	public void delete() {
 		
+	}
+	
+	@PreAuthorize("isAuthenticated()")
+	@GetMapping("/member/changepassword")
+	public void changePassword(HttpSession session, Model model) {
+		if (session.getAttribute("msg")!=null) {
+			model.addAttribute("msg", session.getAttribute("msg"));
+			session.removeAttribute("msg");
+		}
+	}
+	
+	@PreAuthorize("isAuthenticated()")
+	@PostMapping("/member/changepassword")
+	public String changePassword(String newpassword, Principal principal) {
+		service.changePassword(newpassword, principal.getName());
+		return "redirect:/hotel/member/myPage";
+	}
+	
+	@PreAuthorize("isAuthenticated()")
+	@PostMapping("/member/delete")
+	public String delete(SecurityContextLogoutHandler handler, HttpServletRequest req, HttpServletResponse res, Authentication auth, RedirectAttributes ra) {
+		service.delete(auth.getName());
+		handler.logout(req, res, auth);
+		ra.addFlashAttribute("msg", "감사합니다. 꼭 다시 한번 뵙고 싶습니다.");
+		return "redirect:/hotel/main";
 	}
 	
 }

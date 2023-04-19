@@ -2,6 +2,7 @@ package hotel.management.v1.member.dao;
 
 import java.util.Optional;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -36,7 +37,10 @@ public interface MemberDao {
 	@Update("update users set enabled=0 where username=#{username} and rownum=1")
 	public Integer disabled(String username);
 	
-	@Update("update users set password=#{password} where username=#{username} and rownum=1")
-	public Integer changePassword(String password, String username);
+	@Update("update users set password=#{newpassword} where username=#{username} and rownum=1")
+	public Integer changePassword(String newpassword, String username);
+	
+	@Delete("delete from users where username=#{username} and rownum=1")
+	public Integer delete(String username);
 	
 }

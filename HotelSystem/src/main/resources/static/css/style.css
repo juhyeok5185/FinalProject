@@ -790,6 +790,15 @@
   bottom: 10px;
 }
 
+#changepasswordtool {
+  font-size: 12px;
+  width: 13vw;
+  position: relative;
+  left: 36.7vw;
+  color: black;
+  bottom: 10px;
+}
+
 #deletetool {
   font-size: 12px;
   width: 12vw;
@@ -1108,7 +1117,7 @@
 }
 
 #changepasswordtable {
-  height: 13vh;
+  height: 5vh;
   width: 49vw;
   border-top: 1px solid #a1886f;
   border-bottom: 1px solid #a1886f;
