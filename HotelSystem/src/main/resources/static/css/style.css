@@ -912,7 +912,7 @@
 }
 
 #internalFacilities_article {
-  height: 170vh;
+  height: 160vh;
   width: 50vw;
   position: absolute;
   left: 35vw;
@@ -1806,6 +1806,108 @@ div #logintoolbar > a {
 	border-bottom: 2px solid #eeebe8;
 }
 
+#gradeintro1 {
+	width: 49vw;
+	height:140vh;
+	border: 1px solid red;
+	display: flex;
+}
+
+#gradeintro1_1 {
+	width: 16.3vw;
+	height:140vh;
+	
+}
+
+#gradeintro1_2 {
+	width: 16.3vw;
+	height:140vh;
+}
+
+#gradeintro1_3 {
+	width: 16.3vw;
+	height:140vh;
+}
+
+#gradeintrobar {
+	width:16.3vw;
+	height:20vh;
+}
+
+#bronzebar {
+	width:14.3vw;
+	height: 7vh;
+	border: 1px solid #8f6349;
+	margin-top: 13vh;
+	margin-left: 1vw;
+	background-color: #8f6349;
+	color: #dedcd9;
+	text-align: center;
+	line-height: 7vh;
+}
+
+#silverbar {
+	width:14.3vw;
+	height: 12vh;
+	border: 1px solid #a8a9ad;
+	margin-top: 8vh;
+	margin-left: 1vw;
+	background-color: #a8a9ad;
+	color: #dedcd9;
+	text-align: center;
+	line-height: 12vh;
+}
+
+#goldbar {
+	width:14.3vw;
+	height: 17vh;
+	border: 1px solid #9a8872;
+	margin-top: 3vh;
+	margin-left: 1vw;
+	background-color: #9a8872;
+	color: #dedcd9;
+	text-align: center;
+	line-height: 17vh;
+}
+
+#bronzebox {
+	margin-top: 3vh;
+	width:12.3vw;
+	height: 10vh;
+	border-bottom: 2px solid #8f6349;
+}
+
+#bronzebox1 {
+	margin-top: 3vh;
+	margin-left: 2vw;
+	width:14.3vw;
+	height: 80vh;
+	border-right: 2px solid #f3f0ed;
+}
+
+
+#silverbox {
+	margin-top: 3vh;
+	width:12.3vw;
+	height: 10vh;
+	border-bottom: 2px solid #a8a9ad;
+}
+
+#silverbox1 {
+	margin-top: 3vh;
+	margin-left: 2vw;
+	width:14.3vw;
+	height: 80vh;
+	border-right: 2px solid #f3f0ed;
+}
+
+#goldbox {
+	margin-top: 3vh;
+	margin-left: 2vw;
+	width:12.3vw;
+	height: 10vh;
+	border-bottom: 2px solid #9a8872;
+}
 
 
 
