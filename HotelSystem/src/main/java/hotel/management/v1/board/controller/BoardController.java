@@ -25,14 +25,14 @@ public class BoardController {
 	private BoardService boardService;
 
 	@GetMapping("/hotel/board/write")
-	public void write() {
-
+	public ModelAndView write(Principal principal) {
+		return new ModelAndView("/hotel/board/write").addObject("name",principal.getName());
 	}
 
 	@PostMapping("/hotel/board/write")
-	public void write(BoardDto.Write dto ,Principal principal) {
-		//username 추가 해야함
-		boardService.write(dto);
+	public ModelAndView write(BoardDto.Write dto ,Principal principal) {
+		boardService.write(dto, principal.getName());
+		 return new ModelAndView("redirect:/hotel/board/list");
 	}
 
 	@GetMapping("/hotel/board/list")

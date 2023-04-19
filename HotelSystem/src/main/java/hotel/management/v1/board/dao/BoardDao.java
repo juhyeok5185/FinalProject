@@ -18,8 +18,8 @@ import hotel.management.v1.board.entity.Board;
 public interface BoardDao {
 	
 	//게시물 작성 dao
-	@Insert("insert into board(boardNo, username, writeDay, title, content) values(BOARD_SEQ_BOARDNO.nextval, 'spring1' , sysdate , #{title}, #{content})")
-	public void write(Write dto);
+	@Insert("insert into board(boardNo, username, writeDay, title, content) values(BOARD_SEQ_BOARDNO.nextval, #{username} , sysdate , #{title}, #{content})")
+	public void write(Board board);
 	
 	//게시물 리스트 dao
 	@Select("select * from board order by boardNo desc")

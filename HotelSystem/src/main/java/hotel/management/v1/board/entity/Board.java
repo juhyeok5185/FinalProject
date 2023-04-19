@@ -3,8 +3,11 @@ package hotel.management.v1.board.entity;
 
 import java.time.LocalDate;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import hotel.management.v1.member.entity.Member;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -19,6 +22,7 @@ import lombok.ToString;
 @ToString
 @Builder
 public class Board {
+	
 	private Integer boardNo;
 	private String username;
 	@JsonFormat(pattern = "yy/MM/dd")
