@@ -726,7 +726,7 @@
 
 /* 내부시설 */
 
-/* aside */
+/*  */
 #page{
   width: 100%;
   height:120vh;
@@ -781,6 +781,33 @@
   bottom: 10px;
 }
 
+#myPagetool {
+  font-size: 12px;
+  width: 13vw;
+  position: relative;
+  left: 40.5vw;
+  color: black;
+  bottom: 10px;
+}
+
+#deletetool {
+  font-size: 12px;
+  width: 12vw;
+  position: relative;
+  left: 38.4vw;
+  color: black;
+  bottom: 10px;
+}
+
+#profileupdatetool {
+  font-size: 12px;
+  width: 12vw;
+  position: relative;
+  left: 37.7vw;
+  color: black;
+  bottom: 10px;
+}
+
 #aside{
   width: 15vw;
   height: 25vh;
@@ -807,12 +834,12 @@
   border-bottom: 0.3rem solid #a1886f; 
 }
 
-#internal_outline {
+#_outline {
   margin-top: 2vh;
   list-style: none;
 }
 
-#internal_outline1 {
+#_outline1 {
   text-decoration: none;
   color: #555;
   list-style: none;
@@ -831,6 +858,46 @@
 
 #menu {
   padding-left: 0.1vw;
+  list-style: none;
+}
+
+#myPageaside{
+  width: 15vw;
+  height: 43vh;
+  background-color:#f1e3c4; 
+  float: left;
+  position: absolute;
+  left: 15vw;
+  top: 19vh;
+}
+
+#myPage {
+  width: 10vw;
+  background-color:#f1e3c4;
+  margin: auto;
+  padding-top: 3vh;
+  padding-left: 0.1vw;
+  text-align: left;
+  height: 33vh;
+  color: #555;
+}
+
+#myPageinmenu{
+  width: 10vw;
+  background-color:#f1e3c4;
+  margin: auto;
+  padding-top: 3vh;
+  padding-left: 0.1vw;
+  text-align: left;
+  height: 15vh;
+  color: #555;
+}
+
+
+#myPagemenu {
+  padding-top: 0.8vh;
+  padding-left: 0.1vw;
+  list-style: none;
 }
 
 /* section */
@@ -841,11 +908,47 @@
   overflow: hidden;
   margin:0 auto;
   padding: 0 auto;
-  
+}
+
+#myPage_page {
+  width: 100vw;
+  height:150vh;
+  background-color: white;
+  overflow: hidden;
+  margin:0 auto;
+  padding: 0 auto;
 }
 
 #internalFacilities_article {
-  height: 170vh;
+  height: 160vh;
+  width: 50vw;
+  position: absolute;
+  left: 35vw;
+  margin-top: 10vh;
+  overflow: hidden;
+  
+}
+
+#myPage_article {
+  height: 140vh;
+  width: 50vw;
+  position: absolute;
+  left: 35vw;
+  margin-top: 10vh;
+  overflow: hidden;
+}
+
+#changepassword_page {
+  width: 100vw;
+  height:70vh;
+  background-color: white;
+  overflow: hidden;
+  margin:0 auto;
+  padding: 0 auto;
+}
+
+#changepassword_article {
+  height: 60vh;
   width: 50vw;
   position: absolute;
   left: 35vw;
@@ -878,7 +981,7 @@
 /* 여기 까지 내부시설 */
 
 /* 호텔 개요 */
-#hotel_introduce {
+#hotel_ce {
   color: #392f26;
 }
 
@@ -1004,6 +1107,30 @@
   margin-top: 2vh;
 }
 
+#changepasswordtable {
+  height: 13vh;
+  width: 49vw;
+  border-top: 1px solid #a1886f;
+  border-bottom: 1px solid #a1886f;
+  margin-right: auto;
+}
+
+#deletetable {
+  height: 4vh;
+  width: 49vw;
+  border-top: 1px solid #a1886f;
+  border-bottom: 1px solid #a1886f;
+  margin-right: auto;
+}
+
+#profileupdatetable {
+  height: 4vh;
+  width: 49vw;
+  border-top: 1px solid #a1886f;
+  border-bottom: 1px solid #a1886f;
+  margin-right: auto;
+}
+
 #jointable1 {
   height: 15vh;
   width: 47vw;
@@ -1089,6 +1216,36 @@ margin-left: 2vw;
   background-color: #b9b9b9;
   color: #a1886f;
   border: 1px solid #a1886f;
+}
+
+#changepasswordbtn {
+  width: 7vw;
+  height: 4vh;
+  margin-top: 3vh;
+  margin-left: 20.5vw;
+  background-color: #3a3125;
+  border: 2px solid black;
+  color: #d5ccb0;
+}
+
+#deletebtn {
+  width: 7vw;
+  height: 4vh;
+  margin-top: 4.3vh;
+  margin-left: 20.5vw;
+  background-color: #3a3125;
+  border: 2px solid black;
+  color: #d5ccb0;
+}
+
+#profileupdatebtn {
+  width: 7vw;
+  height: 4vh;
+  margin-top: 4.3vh;
+  margin-left: 20.5vw;
+  background-color: #3a3125;
+  border: 2px solid black;
+  color: #d5ccb0;
 }
 
 div.joincreate{
@@ -1233,12 +1390,16 @@ div #logintoolbar > a {
   height: 10vh;
 }
 
+#changepasswordtable td {
+	border-bottom: 1px solid #a1886f;
+}
+
 #jointable td {
-	border-bottom: 1px dotted black;
+	border-bottom: 1px solid #a1886f;
 }
 
 #jointable1 td {
-	border-bottom: 1px dotted black;
+	border-bottom: 1px solid #a1886f;
 }
 
 #loginarticle {
@@ -1584,8 +1745,26 @@ div #logintoolbar > a {
 	font-size: 0.75em
 }
 
+#changepasswordintro {
+	width:49vw;
+	height: 10vh;
+	line-height: 10vh;
+	font-size: 0.8em;
+}
 
+#deleteintro {
+	width:49vw;
+	height: 10vh;
+	line-height: 10vh;
+	font-size: 0.8em;
+}
 
+#profileupdateintro {
+	width:49vw;
+	height: 10vh;
+	line-height: 10vh;
+	font-size: 0.8em;
+}
 
 
 
@@ -1638,6 +1817,119 @@ div #logintoolbar > a {
   color: #555;
 }
 
+#gradeintro {
+	width: 49vw;
+	height: 10vh;
+	border-bottom: 2px solid #eeebe8;
+}
+
+#gradeintro1 {
+	width: 49vw;
+	height:100vh;
+	display: flex;
+}
+
+#gradeintro1_1 {
+	width: 16.3vw;
+	height:103vh;
+	
+}
+
+#gradeintro1_2 {
+	width: 16.3vw;
+	height:103vh;
+}
+
+#gradeintro1_3 {
+	width: 16.3vw;
+	height:103vh;
+}
+
+#gradeintrobar {
+	width:16.3vw;
+	height:20vh;
+}
+
+#bronzebar {
+	width:14.3vw;
+	height: 7vh;
+	border: 1px solid #8f6349;
+	margin-top: 13vh;
+	margin-left: 1vw;
+	background-color: #8f6349;
+	color: #dedcd9;
+	text-align: center;
+	line-height: 7vh;
+}
+
+#silverbar {
+	width:14.3vw;
+	height: 12vh;
+	border: 1px solid #a8a9ad;
+	margin-top: 8vh;
+	margin-left: 1vw;
+	background-color: #a8a9ad;
+	color: #dedcd9;
+	text-align: center;
+	line-height: 12vh;
+}
+
+#goldbar {
+	width:14.3vw;
+	height: 17vh;
+	border: 1px solid #9a8872;
+	margin-top: 3vh;
+	margin-left: 1vw;
+	background-color: #9a8872;
+	color: #dedcd9;
+	text-align: center;
+	line-height: 17vh;
+}
+
+#bronzebox {
+	margin-top: 3vh;
+	width:12.3vw;
+	height: 10vh;
+	border-bottom: 2px solid #8f6349;
+}
+
+#bronzebox1 {
+	margin-top: 3vh;
+	margin-left: 2vw;
+	width:14.3vw;
+	height: 80vh;
+	border-right: 2px solid #f3f0ed;
+}
+
+
+#silverbox {
+	margin-top: 3vh;
+	width:12.3vw;
+	height: 10vh;
+	border-bottom: 2px solid #a8a9ad;
+}
+
+#silverbox1 {
+	margin-top: 3vh;
+	margin-left: 2vw;
+	width:14.3vw;
+	height: 80vh;
+	border-right: 2px solid #f3f0ed;
+}
+
+#goldbox {
+	margin-top: 3vh;
+	width:12.3vw;
+	height: 10vh;
+	border-bottom: 2px solid #9a8872;
+}
+
+#goldbox1 {
+	margin-top: 3vh;
+	margin-left: 2vw;
+	width:14.3vw;
+	height: 80vh;
+}
 
 
 
@@ -2088,7 +2380,7 @@ div #logintoolbar > a {
   color: white;
   font-weight: bold;
 }
-.dark-mode #aside, .dark-mode #inmenu{
+.dark-mode,.dark-mode {
   background-color: gray;
   color: white;
   font-weight: bold;
@@ -2161,13 +2453,13 @@ div #logintoolbar > a {
   }
   /*700 이상 보일곳*/
   @media screen and (max-width: 700px) {
-  .hd,#nav1,#nav2 ,.reservation-area,#section3,#aside,#outline_page{
+  .hd,#nav1,#nav2 ,.reservation-area,#section3,#outline_page{
     display: none;
   }
   #internalFacilities_article {
     display: none;
   }
-  #internalFacilities_page {
+  #Facilities_page {
     display: none;
   }
   #section2 {
@@ -2273,10 +2565,10 @@ div #logintoolbar > a {
     #dropdownbar{
     	display:none;
     }
-    #internalFacilities_article-1 {
+    #Facilities_article-1 {
       display: none;
     }
-    #internalFacilities_page-1 {
+    #Facilities_page-1 {
       display: none;
     }
     #toolbar-1{
@@ -2302,7 +2594,7 @@ div #logintoolbar > a {
 
 /*반응형 존*/
 
-  .media-dropdown {
+  .media- {
     margin-right: 4vw;
   }
   .reservation-ton {
@@ -2509,14 +2801,14 @@ div #logintoolbar > a {
 }
 /*요기까지*/
 
-#internalFacilities_article-1 {
+#Facilities_article-1 {
   height: 170vh;
   width: 80vw;
   margin: auto;
   margin-top: 2vh;
   overflow: hidden;
 }
-#internalFacilities_page-1 {
+#Facilities_page-1 {
   width: 100vw;
   height:170vh;
   background-color: white;

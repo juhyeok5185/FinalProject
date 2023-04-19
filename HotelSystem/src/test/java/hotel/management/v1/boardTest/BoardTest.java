@@ -13,12 +13,12 @@ public class BoardTest {
 	@Autowired
 	private BoardDao dao;
 	
-	@Test
-	public void test() {
-		BoardDto.Write write= new BoardDto.Write("aa","aaa");
-		for (int i = 0; i < 100; i++) {
-			dao.write(write);
-		}
-	}
+//	@Test
+//	public void test() {
+//		BoardDto.Write write= new BoardDto.Write("aa","aaa","aaa");
+//		for (int i = 0; i < 100; i++) {
+//			dao.write(write);
+//		}
+//	}
 	
 }

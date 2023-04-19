@@ -76,4 +76,22 @@ public class MemberController {
 		return ResponseEntity.ok("임시비밀번호를 이메일로 보냈습니다");
 	}
 	
+	@PreAuthorize("isAuthenticated()")
+	@GetMapping("/member/profileupdate")
+	public void profileUpdate() {
+		
+	}
+	
+	@PreAuthorize("isAuthenticated()")
+	@GetMapping("/member/changepassword")
+	public void changePassword() {
+		
+	}
+	
+	@PreAuthorize("isAuthenticated()")
+	@GetMapping("/member/delete")
+	public void delete() {
+		
+	}
+	
 }
