@@ -41,7 +41,7 @@ public class BoardService {
 		pageno = Math.abs(pageno);
 		if(pageno>boardPageCnt)
 			pageno = boardPageCnt;
-		Integer startRownum = (pageno-1) * PAGESIZE + 1;
+		Integer startRownum = (pageno-1) * PAGESIZE;
 		Integer endRownum = startRownum + PAGESIZE - 1; 
 		List<BoardDto.FindAll> board = boardDao.findAll(startRownum, endRownum);
 		Integer prev = (pageno - 1) / BLOCKSIZE * BLOCKSIZE;
