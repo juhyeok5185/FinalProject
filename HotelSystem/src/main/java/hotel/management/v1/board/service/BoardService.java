@@ -1,6 +1,5 @@
 package hotel.management.v1.board.service;
 
-import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import hotel.management.v1.board.dao.BoardDao;
 import hotel.management.v1.board.dto.BoardDto;
-import hotel.management.v1.board.dto.BoardDto.FindAll;
 import hotel.management.v1.board.entity.Board;
 
 //관리자 = 김동욱

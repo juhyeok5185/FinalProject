@@ -1,13 +1,11 @@
 package hotel.management.v1.board.dto;
 
-import java.security.Principal;
 import java.time.LocalDate;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import hotel.management.v1.board.entity.Board;
-import hotel.management.v1.member.dto.MemberDto;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
