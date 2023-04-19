@@ -15,6 +15,8 @@
   <link href='https://unpkg.com/css.gg@2.0.0/icons/css/instagram.css' rel='stylesheet'>
   <link href='https://unpkg.com/css.gg@2.0.0/icons/css/facebook.css' rel='stylesheet'>
   <link rel="stylesheet" href="/css/boardStyle.css">
+  <link rel="stylesheet" href="/css/board2Style.css">
+  <link rel="stylesheet" href="/css/style.css">
   <title>J.H.H.L</title>
 </head>
 <body>
@@ -67,25 +69,31 @@
             <tr>
 			  	<td class="col1"><span id="notnull"></span>답변</td>
                 <td class="col2">
-				<span th:text="${board.replyContent}"></span> </td>
+				<span th:text="${board.replyContent}"></span></td>
             </tr>
             <tr>
                 <td class="col1"><span id="notnull"></span>답변</td>
                 <td class="col2">
-				
+                
+               
                 <form action="/hotel/board/read" method="post">
-				<input type="hidden" name="boardNo" th:field="*{board.boardNo}">
-				<textarea id="replyContent" name="replyContent" cols="80" rows="5"></textarea>
-				<button id="replybutton" class="btn btn-outline-dark">답변</button>
-				<div id="clickbutton">
-				 <a id="listbutton" type="button" class="btn btn-outline-dark" href="/hotel/board/list">목록</a>
-				<button id="updatebutton" class="btn btn-outline-dark">수정</button>
+				  <input type="hidden" name="boardNo" th:field="*{board.boardNo}">
+				  <textarea id="replyContent" name="replyContent" cols="80" rows="5"></textarea>
+			
+				  <!-- 목록 -->
+				  <span id="listbutton" ><a id="listbutton" type="button" class="btn btn-outline-dark" href="/hotel/board/list">목록</a></span>
+			
+				  <!-- 답변 -->
+				  <span id="replybutton"><button id="replybutton" class="btn btn-outline-dark">답변</button></span>
 				</form>
-				<form action="/hotel/board/delete" method="post">
-  					<input type="hidden" name="boardNo" th:field="*{board.boardNo}">
-  					<button id="deletebutton" type="submit" class="btn btn-outline-dark">삭제하기</button>
-				</form>
+				  <!-- 삭제 -->
+				<div id="deletebutton">
+				  <form action="/hotel/board/delete" method="post">
+  				    <input type="hidden" name="boardNo" th:field="*{board.boardNo}">
+  				    <button id="deletebutton" type="submit" class="btn btn-outline-dark">글삭제</button>
+				  </form>
 				</div>
+				
 				
                 </td>
          	   </tr>	
