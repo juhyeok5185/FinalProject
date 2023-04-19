@@ -76,7 +76,8 @@
 			</li>
   			<li class="page-item"><a class="page-link" th:href="@{'/hotel/board/list?pageno='+${next}}">다음</a></li>
 			</ul>
-               	<a id="reportwrite" href="/hotel/board/write" type="button" class="btn btn-outline-dark">글쓰기</a>
+               	<a id="reportwrite" href="/hotel/board/write" type="button" 
+               	   class="btn btn-outline-dark" sec:authorize="hasRole('USER')">글쓰기</a>
           </div>
         </div>
        </div>
