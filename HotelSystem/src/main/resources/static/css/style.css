@@ -785,7 +785,7 @@
   font-size: 12px;
   width: 13vw;
   position: relative;
-  left: 37.1vw;
+  left: 40.5vw;
   color: black;
   bottom: 10px;
 }
@@ -908,7 +908,15 @@
   overflow: hidden;
   margin:0 auto;
   padding: 0 auto;
-  
+}
+
+#myPage_page {
+  width: 100vw;
+  height:150vh;
+  background-color: white;
+  overflow: hidden;
+  margin:0 auto;
+  padding: 0 auto;
 }
 
 #internalFacilities_article {
@@ -919,6 +927,15 @@
   margin-top: 10vh;
   overflow: hidden;
   
+}
+
+#myPage_article {
+  height: 140vh;
+  width: 50vw;
+  position: absolute;
+  left: 35vw;
+  margin-top: 10vh;
+  overflow: hidden;
 }
 
 #changepassword_page {
@@ -1808,24 +1825,24 @@ div #logintoolbar > a {
 
 #gradeintro1 {
 	width: 49vw;
-	height:140vh;
+	height:100vh;
 	display: flex;
 }
 
 #gradeintro1_1 {
 	width: 16.3vw;
-	height:140vh;
+	height:103vh;
 	
 }
 
 #gradeintro1_2 {
 	width: 16.3vw;
-	height:140vh;
+	height:103vh;
 }
 
 #gradeintro1_3 {
 	width: 16.3vw;
-	height:140vh;
+	height:103vh;
 }
 
 #gradeintrobar {
@@ -1902,10 +1919,16 @@ div #logintoolbar > a {
 
 #goldbox {
 	margin-top: 3vh;
-	margin-left: 2vw;
 	width:12.3vw;
 	height: 10vh;
 	border-bottom: 2px solid #9a8872;
+}
+
+#goldbox1 {
+	margin-top: 3vh;
+	margin-left: 2vw;
+	width:14.3vw;
+	height: 80vh;
 }
 
 
