@@ -1,0 +1,16 @@
+/*관리자 : 김동욱*/
+
+#listbutton{
+	position:relative;
+	top:10vh;
+}
+#replybutton{
+	position:relative;
+	top:10vh;
+	right:10vw; 
+	
+}
+#deletebutton{
+	position:relative;
+	top:0vh;
+}

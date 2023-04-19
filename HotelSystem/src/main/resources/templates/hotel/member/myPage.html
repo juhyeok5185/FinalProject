@@ -20,141 +20,133 @@
 <body>
     <div th:replace="~{/fragment/nav.html}"></div>
     <!--고객 문의 게시판-->
-	<div id="internalFacilities_page"> 
-      <div id= "aside"> 
-        <div id="inmenu">
-          <h3 id="tit">호텔소개</h3>
-            <ul id="menu">
-              <li id="internal_outline"><a href="/hotel/hotelintroduce" id="subh">개요</a></li><br> 
-              <li id="internal_outline1"><a href="/hotel/hotelstay" id="subh">React 스테이</a></li><br>
-              <li id="internal_outline1"><a href="/hotel/internalfacilities" id="subh">부대시설 소개</a></li>
+	<div id="myPage_page"> 
+      <div id= "myPageaside"> 
+        <div id="myPageinmenu">
+          <h3 id="tit">마이페이지</h3>
+            <ul id="myPagemenu">
+              <li id="internal_outline"><a href="/hotel/member/myPage" id="subh" style="color: #644012;">React 등급</a></li><hr> 
+              <li id="internal_outline1"><span id="subh" style="color: #644012;">예약.주문</span>
+              	<ul style="list-style:none;">
+              		<li class="mb-1" style="margin-left: -1.7vw; font-size: 0.8em;">객실</li>
+              		<li class="mb-1" style="margin-left: -1.7vw; font-size: 0.8em;">다이닝</li>
+              		<li class="mb-1" style="margin-left: -1.7vw; font-size: 0.8em;">명품관</li>
+              	</ul>
+               </li><hr>
+               <li id="internal_outline1"><span id="subh" style="color: #644012;">내정보</span>
+              	<ul style="list-style:none;">
+              		<li class="mb-1" id="internal_outline1"><a href="/hotel/member/profileupdate" id="subh" style="margin-left: -1.7vw; font-size: 0.8em;">프로필 수정</a></li>
+              		<li class="mb-1"id="internal_outline1"><a href="/hotel/member/changepassword" id="subh" style="margin-left: -1.7vw; font-size: 0.8em;">비밀번호 변경</a></li>
+              		<li id="internal_outline1"><a href="/hotel/member/delete" id="subh" style="margin-left: -1.7vw; font-size: 0.8em;">탈회 요청</a></li>
+              	</ul>
+               </li>
             </ul>  
         </div>
       </div>
-      <div id="internalFacilities_article">
+      <div id="myPage_article">
         <div id="headtit"> 
-          <h3>개요</h3>
-          <div id="introducetool">
-            <i class="fa-solid fa-house"></i> > 호텔소개><a href="/hotel/hotelintroduce" id="subh"> 개요</a>
+          <h3>React 등급</h3>
+          <div id="myPagetool">
+            <i class="fa-solid fa-house"></i> > 마이페이지><a href="myPage" id="subh"> React 등급</a>
           </div>
         </div>
-        <div class="mb-3 mt-3">
-          <img src="/img/hotelDesk.jpg" alt="호텔소개" width="941vw" height="270vh">
+        <div id="gradeintro">
+         	<div style="margin-top: 3.5vh; text-align: center;">
+         		<div style="display:flex; text-align: center; margin-left: 16.5vw;">
+	         		<div>
+		         		<span style="font-size: 1.3em; color: #4c453d; padding-right:1vw;">R E A C T</span>
+	         		</div>
+	         		<div>
+		         		<span style="font-size: 1.3em; color: #4c453d; padding-left:1vw;">R E W A R D S</span>
+	         		</div>
+         		</div>
+         	</div>
+         	<div style="text-align: center;">
+         		<span style="font-size: 0.75em; color: #979797;">객실 및 식음업장 이용 실적에 따라 등급이 부여되며, 등급별로 추가 혜택을 받으실 수 있습니다.</span>
+         	</div>
         </div>
-          <div id="outline_page" class="mb-3 mt-3">
-            <h4 id="hotel_introduce">
-              Samsung Group Affiliate
-            </h4>
-            <div class="mb-3 mt-3">
-              <p id="mission_font">React Hotel은 국빈 방문과 국제 행사를 치러내며 'React 그룹을 대표하는 얼굴'이자 '한국을 대표하는 호텔'로서 자부심과 책임감을 가지고 우리나라 서비스 산업을 선도하고 있습니다.</p>
-            </div>
-            <div>
-              <p id="mission_font">React Hotel은 천년 역사 속 가장 찬란한 문화 예술을 꽃피웠던 신라왕조의 이름에서 유래 하였으며, 삼성그룹 이병철 초대 회장의 뜻에 따라 1979년 3월 개관하였습니다.</p>
-            </div><br>
-            <div class="mb-3 mt-3">
-              <h4 id="hotel_introduce">
-                The Best Hospitality Company
-              </h4>
-              <div class="mb-3 mt-3">
-                <p id="mission_font">React Hotel은 '최고의 호스피탈리티 기업'을 목표로 오랫동안 품위와 전통을 유지하며 고객의 마음을 사로잡아 왔습니다.
-                LHW 가입을 통해 세계 최고의 럭셔리 호텔들과 어깨를 나란히 하고, 전통 위에 현대적인 디자인 요소를 가미하여 삶에 여유와 품격을
-                더하는 프리미엄 라이프스타일 공간으로 변화를 거듭해 왔습니다.</p>
-              </div>
-              <div class="mb-3 mt-3">
-                <p id="mission_font">React Hotel은 앞으로도 끊임없는 창조적  혁신과 도전을 바탕으로 차별화된 최상의 가치를 선사하는 글로벌 호스피탈리티 명문 기업으로 나아갈
-                것입니다.</p>
-              </div><br>
-              <div class="mb-3 mt-3">
-                <h4 id="hotel_introduce">
-                  Vision
-                </h4>
-                <div class="mb-3 mt-3">
-                  <p style="font-size: 0.85em;">Premium Lifestyle Leading Company</p>
-                  <p id="mission_font">최고의 품격과 신뢰를 바탕으로 고객이 꿈꾸는 라이프스타일을 제공하는 글로벌 선도기업</p>
-                </div>
-              </div><br>
-              <div class="mb-3 mt-3">
-                <h4 id="hotel_introduce">
-                  Mission
-                </h4>
-                <p id="mission_font">우리는 최고의 라이프 스타일 전문가로서 더 많은 인류에게 품격과 자부심을 경험케 한다.</p>
-              </div>
-              <div class="mb-3 mt-3">
-                <h4 id="hotel_introduce">
-                  Core Value Pride of The Shilla
-                </h4><br>
-                <div>
-                  <ul>
-                    <li id="mission_font">모든 사업에 최고를 지향합니다.</li>
-                    <li id="mission_font">모든 업무에서 혁신을 추구합니다.</li>
-                    <li id="mission_font">모든 고객에게 정성을 다합니다.</li>
-                    <li id="mission_font">모든 신라인은 서로를 존중합니다.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>  
-    </div>
-    <div id="internalFacilities_page-1"> 
-      <div id="internalFacilities_article-1">
-        <div id="headtit-1"> 
-          <h3>개요</h3>
-          <div id="toolbar">
-            <i class="fa-solid fa-house"></i> > 호텔소개><a href="/LuxuryHall.html" id="subh"> 개요</a>
-          </div>
+        <div id="gradeintro1">
+        	<div id="gradeintro1_1">
+        		<div id="gradeintrobar">
+        			<div id="bronzebar">
+        				<span>신규 가입</span>
+        			</div>
+        			<div id="bronzebox1">
+	        			<div id="bronzebox">
+	        				<span style="color: #8f6349; font-size: 1.4em;">Bronze</span><br>
+	        				<span style="color: #6a6a6a; font-size: 0.75em;">회원 가입 시</span>
+	        			</div>
+	        			<div style="margin-top: 2vh;">
+	        				<img alt="객실패키지" src="/img/package.png" style="width: 1vw; height: 1.5vh;"><span style="font-size: 0.8em;"> 회원 전용 패키지</span>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        	<div id="gradeintro1_2">
+        		<div id="gradeintrobar">
+        			<div id="silverbar">
+        				<img alt="숙박" src="/img/moon.png" style="width: 1vw; height: 1.5vh;"><span>연간 10박 숙박</span>
+        			</div>
+        			<div id="silverbox1">
+	        			<div id="silverbox">
+	        				<span style="color: #a8a9ad; font-size: 1.4em;">Silver</span><br>
+	        				<span style="color: #6a6a6a; font-size: 0.75em;">연간 10박 숙박</span>
+	        			</div>
+	        			<div style="margin-top: 2vh;">
+	        				<img alt="객실패키지" src="/img/package.png" style="width: 1vw; height: 1.5vh;"><span style="font-size: 0.8em;"> 회원 전용 패키지</span>
+	        			</div>
+	        			<div style="margin-top: 2vh;">
+	        				<img alt="할인" src="/img/discount.png" style="width: 1vw; height: 1.5vh;"><span style="font-size: 0.8em;"> 할인</span>
+	        				<ul>
+	        					<li class="mb-3 mt-3" style="font-size: 0.7em; margin-left: -0.7vw;">객실 할인 5%</li>
+	        					<li style="font-size: 0.7em; margin-left: -0.7vw;">식음 할인 5%</li>
+	        				</ul>
+	        			</div>
+	        			<div style="margin-top: 2vh;">
+	        				<img alt="기타" src="/img/기타.png" style="width: 1vw; height: 1.5vh;"><span style="font-size: 0.8em;"> 기타</span>
+	        				<ul>
+	        					<li class="mb-3 mt-3" style="font-size: 0.7em; margin-left: -0.7vw;">투숙 중 무료 세탁 서비스</li>
+	        					<li class="mb-3 mt-3" style="font-size: 0.7em; margin-left: -0.7vw;">생일 케이크 제공 서비스</li>
+	        					<li style="font-size: 0.7em; margin-left: -0.7vw;">72시간 예약 개런티<br>*호텔 예약 상황에 따라 다름</li>
+	        				</ul>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
+        	<div id="gradeintro1_3">
+        		<div id="gradeintrobar">
+        			<div id="goldbar">
+        				<img alt="숙박" src="/img/moon.png" style="width: 1vw; height: 1.5vh;"><span>연간 20박 숙박</span>
+        			</div>
+        			<div id="goldbox1">
+	        			<div id="goldbox">
+	        				<span style="color: #9a8872; font-size: 1.4em;">Gold</span><br>
+	        				<span style="color: #6a6a6a; font-size: 0.75em;">연간 20박 숙박</span>
+	        			</div>
+	        			<div style="margin-top: 2vh;">
+		        				<img alt="객실패키지" src="/img/package.png" style="width: 1vw; height: 1.5vh;"><span style="font-size: 0.8em;"> 회원 전용 패키지</span>
+		        		</div>
+		        		<div style="margin-top: 2vh;">
+	        				<img alt="할인" src="/img/discount.png" style="width: 1vw; height: 1.5vh;"><span style="font-size: 0.8em;" > 할인</span>
+	        				<ul>
+	        					<li class="mb-3 mt-3" style="font-size: 0.7em; margin-left: -0.7vw;">객실 할인 10%</li>
+	        					<li style="font-size: 0.7em; margin-left: -0.7vw;">식음 할인 10%</li>
+	        				</ul>
+	        			</div>
+		        		<div style="margin-top: 2vh;">
+	        				<img alt="기타" src="/img/기타.png" style="width: 1vw; height: 1.5vh;"><span style="font-size: 0.8em;"> 기타</span>
+	        				<ul>
+	        					<li class="mb-3 mt-3" style="font-size: 0.7em; margin-left: -0.7vw;">투숙 중 무료 세탁 서비스</li>
+	        					<li class="mb-3 mt-3" style="font-size: 0.7em; margin-left: -0.7vw;">생일 케이크 제공 서비스</li>
+	        					<li class="mb-3 mt-3" style="font-size: 0.7em; margin-left: -0.7vw;">라운지 무료 이용<br>(회원 포함 최대 2인)<br>*호텔 예약 상황에 따라 다름</li>
+	        					<li class="mb-3 mt-3" style="font-size: 0.7em; margin-left: -0.7vw;">객실 업그레이드<br>(등급 유효기간 내 5회)<br>-5회 중 1회는 스위트 객실 제공</li>
+	        					<li style="font-size: 0.7em; margin-left: -0.7vw;">초과 숙박 실적 이월</li>
+	        				</ul>
+	        			</div>
+        			</div>
+        		</div>
+        	</div>
         </div>
-        <div class="mb-3 mt-3">
-          <img src="/hotelImage/hotelDesk.jpg" alt="호텔소개" width="941vw" height="270vh">
-        </div>
-          <div id="outline_page-1" class="mb-3 mt-3">
-            <h4 id="hotel_introduce">
-              Samsung Group Affiliate
-            </h4>
-            <div class="mb-3 mt-3">
-              <p id="mission_font">React Hotel은 국빈 방문과 국제 행사를 치러내며 'React 그룹을 대표하는 얼굴'이자 '한국을 대표하는 호텔'로서 자부심과 책임감을 가지고 우리나라 서비스 산업을 선도하고 있습니다.</p>
-            </div>
-            <div>
-              <p id="mission_font">React Hotel은 천년 역사 속 가장 찬란한 문화 예술을 꽃피웠던 신라왕조의 이름에서 유래 하였으며, 삼성그룹 이병철 초대 회장의 뜻에 따라 1979년 3월 개관하였습니다.</p>
-            </div><br>
-            <div class="mb-3 mt-3">
-              <h4 id="hotel_introduce">
-                The Best Hospitality Company
-              </h4>
-              <div class="mb-3 mt-3">
-                <p id="mission_font">React Hotel은 '최고의 호스피탈리티 기업'을 목표로 오랫동안 품위와 전통을 유지하며 고객의 마음을 사로잡아 왔습니다.
-                LHW 가입을 통해 세계 최고의 럭셔리 호텔들과 어깨를 나란히 하고, 전통 위에 현대적인 디자인 요소를 가미하여 삶에 여유와 품격을
-                더하는 프리미엄 라이프스타일 공간으로 변화를 거듭해 왔습니다.</p>
-              </div>
-              <div class="mb-3 mt-3">
-                <p id="mission_font">React Hotel은 앞으로도 끊임없는 창조적  혁신과 도전을 바탕으로 차별화된 최상의 가치를 선사하는 글로벌 호스피탈리티 명문 기업으로 나아갈
-                것입니다.</p>
-              </div><br>
-              <div class="mb-3 mt-3">
-                <h4 id="hotel_introduce">
-                  Vision
-                </h4>
-                <div class="mb-3 mt-3">
-                  <p style="font-size: 0.85em;">Premium Lifestyle Leading Company</p>
-                  <p id="mission_font">최고의 품격과 신뢰를 바탕으로 고객이 꿈꾸는 라이프스타일을 제공하는 글로벌 선도기업</p>
-                </div>
-              </div><br>
-              
-              <div class="mb-3 mt-3">
-                <h4 id="hotel_introduce">
-                  Core Value Pride of The Shilla
-                </h4><br>
-                <div>
-                  <ul>
-                    <li id="mission_font">모든 사업에 최고를 지향합니다.</li>
-                    <li id="mission_font">모든 업무에서 혁신을 추구합니다.</li>
-                    <li id="mission_font">모든 고객에게 정성을 다합니다.</li>
-                    <li id="mission_font">모든 신라인은 서로를 존중합니다.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
       </div>  
     </div>
     <!--풋터-->

@@ -11,6 +11,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <script src="/js/Hotel.js"></script>
+  <script src="/js/mall.js"></script>
   <script src="https://kit.fontawesome.com/7fe498c607.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
   <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72764d4407eae4771ae834fbbe85f476"></script>
@@ -43,51 +44,51 @@
         	<ul>
         		<li id="luxurytem-1">
         			<span><img alt="래서판더" src="/img/래서팬더.jpg" width="400vw;" height="300vh;"></span><br>
-        				<span>
-				       		<span id="itemName">래서팬더</span><br>
-				       		<span id="itemPrice">25,000,000</span>        				
-        				</span>
-        				<span id="item-btn"><img alt="선택버튼" src="/img/선택버튼.png"></span>
+        			<span>
+				      	<span class="itemName" data-index="1">래서팬더</span><br>
+				       	<span class="itemPrice" data-index="1">25,000,000</span>        				
+        			</span>
+        			<span class="item-btn" data-index="1"><img alt="선택버튼" src="/img/선택버튼.png"></span>
         		</li>
         		<li id="luxurytem-2">
-        				<span><img alt="해달" src="/img/해달.jpg" width="400vw;" height="300vh;"></span><br>
-        				<span>
-				       		<span id="itemName">해달</span><br>
-				       		<span id="itemPrice">25,000,000</span>        				
-        				</span>
-        				<span id="item-btn"><img alt="선택버튼" src="/img/선택버튼.png"></span>
+        			<span><img alt="해달" src="/img/해달.jpg" width="400vw;" height="300vh;"></span><br>
+        			<span>
+				    	<span class="itemName" data-index="2">해달</span><br>
+				       	<span class="itemPrice" data-index="2">25,000,000</span>        				
+        			</span>
+        			<span class="item-btn" data-index="2"><img alt="선택버튼" src="/img/선택버튼.png"></span>
         		</li>
         		<li id="luxurytem-3">
-        				<span><img alt="강아지" src="/img/강아지.png" width="400vw;" height="300vh;"></span><br>
-        				<span>
-				       		<span id="itemName">강아지</span><br>
-				       		<span id="itemPrice">25,000,000</span>
-        				</span>
-        				<span id="item-btn"><img alt="선택버튼" src="/img/선택버튼.png"></span>
+        			<span><img alt="강아지" src="/img/강아지.png" width="400vw;" height="300vh;"></span><br>
+        			<span>
+				      	<span class="itemName" data-index="3">강아지</span><br>
+				       	<span class="itemPrice" data-index="3">25,000,000</span>
+        			</span>
+        			<span class="item-btn" data-index="3"><img alt="선택버튼" src="/img/선택버튼.png"></span>
         		</li>
         		<li id="luxurytem-4">
-        				<span><img alt="사막여우" src="/img/사막여우.jpg" width="400vw;" height="300vh;"></span><br>
-        				<span>
-				       		<span id="itemName">래서팬더</span><br>
-				       		<span id="itemPrice">25,000,000</span>
-        				</span>
-        				<span id="item-btn"><img alt="선택버튼" src="/img/선택버튼.png"></span>
+        			<span><img alt="사막여우" src="/img/사막여우.jpg" width="400vw;" height="300vh;"></span><br>
+        			<span>
+				       	<span class="itemName" data-index="4">래서팬더</span><br>
+				       	<span class="itemPrice" data-index="4">25,000,000</span>
+        			</span>
+        			<span class="item-btn" data-index="4"><img alt="선택버튼" src="/img/선택버튼.png"></span>
         		</li>
         		<li id="luxurytem-5">
-        				<span><img alt="북극여우" src="/img/북극여우.jpg" width="400vw;" height="300vh;"></span><br>
-        				<span>
-				       		<span id="itemName">북극여우</span><br>
-				       		<span id="itemPrice">25,000,000</span>
-        				</span>
-        				<span id="item-btn"><img alt="선택버튼" src="/img/선택버튼.png"></span>
+        			<span><img alt="북극여우" src="/img/북극여우.jpg" width="400vw;" height="300vh;"></span><br>
+        			<span>
+				       	<span class="itemName" data-index="5">북극여우</span><br>
+				      	<span class="itemPrice" data-index="5">25,000,000</span>
+        			</span>
+        			<span class="item-btn" data-index="5"><img alt="선택버튼" src="/img/선택버튼.png"></span>
         		</li>
         		<li id="luxurytem-6">
-        				<span><img alt="다람쥐" src="/img/다람쥐.jpg" width="400vw;" height="300vh;"></span><br>
-        				<span>
-				       		<span id="itemName">람쥐썬더</span><br>
-				       		<span id="itemPrice">25,000,000</span>
-        				</span>
-        				<span id="item-btn"><img alt="선택버튼" src="/img/선택버튼.png"></span>
+        			<span><img alt="다람쥐" src="/img/다람쥐.jpg" width="400vw;" height="300vh;"></span><br>
+        			<span>
+				       	<span class="itemName" data-index="6">람쥐썬더</span><br>
+				       	<span class="itemPrice" data-index="6">25,000,000</span>
+        			</span>
+        			<span class="item-btn" data-index="6"><img alt="선택버튼" src="/img/선택버튼.png"></span>
         		</li>
         	</ul>
         </div>
@@ -104,20 +105,91 @@
 	    					<span>요금합계</span><br>
 	    					<p>부가가치세 포함</p>    					
     					</div>
-    					<div id="totalPrice">
-    						<span>25,000,000 원</span>
+    					<div id="totalPriceBox">
+    						<span id="totalPrice"></span>
     					</div>
     				</div>
     				<div id="totalButton">
     					<div id="chooseButton">
-    						<a href="#"><img alt="선택" src="/img/선택버튼.png"> </a>
+    						<span id="mallPaymentBtn"><img alt="선택" src="/img/선택버튼.png"></span>
     					</div>
     				</div>
-    				<a href="#none" id="chargeInquiry"></a> <!-- 동그라미 -->
+    				
+    				<div id="paymentPopup" style="display: none;"></div>
+    				<div id="paymentPopup-box" style="display: none;">
+    					<div id="paymentPopup-headerbar">
+    						<span>결제</span>
+    						<div id="paymentPopup-cancle">
+    							<a href="#none" id="paymentPopup-btn"><span id="paymentPopup-canclex">x</span></a>
+    						</div>
+    					</div>
+    					<div id="choosePayment">
+    						<div id="choosePayment-box1">
+    							<img alt="카카오페이" src="/img/kakaopay.png" width="120vw;" height="60vh;" id="kakaopay-payment">
+    						</div>
+    						<div id="choosePayment-box2">
+    							<img alt="토스" src="/img/toss.png" width="120vw;" height="60vh;" id="toss-payment">
+    						</div>
+    					</div>
+    				</div>
+    				<a href="#none" id="chargeInquiry" style="z-index: 3"></a> <!-- 동그라미 -->
     			</div>
     		</div>
     		<div id="totalBillDetail">
-    			
+    			<div id="totalBillDetailInner">
+    				<div id="innerBox">
+    					<div id="innerTextBox">
+    						<div id="textBox-title">
+    							<span>요금상세</span>
+    						</div>
+    						<div id="textBox-content">
+    							<table class="table table-hover">
+    								<thead>
+    									<tr>
+    										<th>상품명</th>
+    										<th>수량</th>
+    										<th>가격</th>
+    										<th></th>
+    									</tr>
+    								</thead>
+    								<tbody id="item-tbody">
+    									
+    									<tr>
+    										<td>래서팬더</td>
+    										<td><button>-</button>1<button>+</button></td>
+    										<td>25,000,000</td>
+    										<td><button>X</button></td>
+    									</tr>
+    									<tr>
+    										<td>래서팬더</td>
+    										<td><button>-</button>1<button>+</button></td>
+    										<td>25,000,000</td>
+    										<td><button>X</button></td>
+    									</tr>
+    									<tr>
+    										<td>래서팬더</td>
+    										<td><button>-</button>1<button>+</button></td>
+    										<td>25,000,000</td>
+    										<td><button>X</button></td>
+    									</tr>
+    									<tr>
+    										<td>래서팬더</td>
+    										<td><button>-</button>1<button>+</button></td>
+    										<td>25,000,000</td>
+    										<td><button>X</button></td>
+    									</tr>
+    									<tr>
+    										<td>래서팬더</td>
+    										<td><button>-</button>1<button>+</button></td>
+    										<td>25,000,000</td>
+    										<td><button>X</button></td>
+    									</tr>
+    								</tbody>
+    							</table>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
     		</div>
     	</div>
     </div>

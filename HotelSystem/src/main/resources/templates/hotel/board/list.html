@@ -14,7 +14,9 @@
   <link href='https://unpkg.com/css.gg@2.0.0/icons/css/youtube.css' rel='stylesheet'>
   <link href='https://unpkg.com/css.gg@2.0.0/icons/css/instagram.css' rel='stylesheet'>
   <link href='https://unpkg.com/css.gg@2.0.0/icons/css/facebook.css' rel='stylesheet'>
+  <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/boardStyle.css">
+  <link rel="stylesheet" href="/css/board2Style.css">
   <title>J.H.H.L</title>
 </head>
 <body>
@@ -27,7 +29,7 @@
           <h3 id="tit">고객문의</h3><br>
           <ul id="menu">
             <li id="m1first"><a href="/hotel/contact" id="subh">연락처</a></li> <br> 
-            <li id="m2last"><a href="/hotel/report" id="subh">문의하기</a></li>
+            <li id="m2last"><a href="/hotel/board/list" id="subh">문의하기</a></li>
           </ul>   
         </div>
       </div>
@@ -35,7 +37,7 @@
        <div id="headtit"> 
           <h3>문의하기</h3>
           <div id="toolbar">
-            <i class="fa-solid fa-house"></i> > 고객문의 ><a href="/hotel/report" id="subh">문의하기</a>
+            <i class="fa-solid fa-house"></i> > 고객문의 ><a href="/hotel/board/list" id="subh">문의하기</a>
           </div>
         </div>
         <!--문의게시판목록-->
@@ -55,7 +57,7 @@
 				<tr th:each="b : ${board}">
 				<td th:text=${b.boardNo}></td>
 				<td><a id="titleclick" th:href="@{/hotel/board/read(boardNo=${b.boardNo})}" th:text=${b.title}></a></td>
-				<td>spring1</td>
+				<td  th:text="${b.username}"></td>
 				<td th:text=${b.writeDay}></td>
 				</tr>
             </tbody>
@@ -74,7 +76,8 @@
 			</li>
   			<li class="page-item"><a class="page-link" th:href="@{'/hotel/board/list?pageno='+${next}}">다음</a></li>
 			</ul>
-               	<a id="reportwrite" href="/hotel/board/write" type="button" class="btn btn-outline-dark">글쓰기</a>
+               	<a id="reportwrite" href="/hotel/board/write" type="button" 
+               	   class="btn btn-outline-dark" sec:authorize="hasRole('USER')">글쓰기</a>
           </div>
         </div>
        </div>

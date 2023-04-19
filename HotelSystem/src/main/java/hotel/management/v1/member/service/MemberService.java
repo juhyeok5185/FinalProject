@@ -72,4 +72,17 @@ public class MemberService {
 			throw e;
 		}
 	}
+
+	public void delete(String username) {
+		try {
+			dao.delete(username);
+		} catch(NoSuchElementException e) {
+			throw e;
+		}
+	}
+
+	public void changePassword(String newpassword, String username) {
+		String encodedPassword = encoder.encode(newpassword);
+		dao.changePassword(encodedPassword, username);
+	}
 }

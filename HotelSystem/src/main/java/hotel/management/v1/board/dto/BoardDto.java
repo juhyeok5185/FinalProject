@@ -23,9 +23,10 @@ public class BoardDto {
 	public static class Write {
 		private String title;
 		private String content;
+		private String username;
 		
-		public Board toEntity(String title, String content) {
-			return Board.builder().title(title).content(content).build();
+		public Board toEntity(String title, String content, String username) {
+			return Board.builder().title(title).content(content).username(username).build();
 		}
 	}
 	

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import hotel.management.v1.board.dao.BoardDao;
 import hotel.management.v1.board.dto.BoardDto;
-import hotel.management.v1.board.dto.BoardDto.FindAll;
 import hotel.management.v1.board.entity.Board;
 
 //관리자 = 김동욱
@@ -21,9 +20,9 @@ public class BoardService {
 	private final static Integer BLOCKSIZE = 5;
 	
 
-	public void write(BoardDto.Write dto) {
-		Board board = dto.toEntity(dto.getTitle(),dto.getContent());
-		boardDao.write(dto);
+	public void write(BoardDto.Write dto, String username) {
+		Board board = dto.toEntity(dto.getTitle(),dto.getContent(), username);
+		boardDao.write(board);
 	}
 
 	public List<Board> list() {
@@ -42,8 +41,8 @@ public class BoardService {
 		pageno = Math.abs(pageno);
 		if(pageno>boardPageCnt)
 			pageno = boardPageCnt;
-		Integer startRownum = (pageno-1) * PAGESIZE + 1;
-		Integer endRownum = startRownum + PAGESIZE - 1; 
+		Integer startRownum = (pageno-1) * PAGESIZE;
+		Integer endRownum = startRownum + PAGESIZE + 1; 
 		List<BoardDto.FindAll> board = boardDao.findAll(startRownum, endRownum);
 		Integer prev = (pageno - 1) / BLOCKSIZE * BLOCKSIZE;
 		Integer start = prev + 1;

@@ -172,9 +172,6 @@
 #colorchange {
   color: #0000008C;
 }
-#liLine {
-  border-right:2px solid #0000008C;
-}
 
 #map-area {
   position: relative;
@@ -749,11 +746,10 @@
 }
 
 #titleclick{
-	list-style: none;
-	background-color:transparent;
 	border: none;
 	border-color: none;
-	color: black;
+	color: #7a7a7a;
+	text-decoration: none;
 }
 
 #reportwrite{
@@ -762,22 +758,21 @@
 	left:6vw;
 }
 
-#replybutton{
-	position:relative;
-	bottom:2vh; 
-}
-#clickbutton{
-	
-}
-
 #listbutton{
 	position:relative;
+	top:5vh;
+	right:19.4vw;
 }
-#updatebutton{
+#replybutton{
 	position:relative;
+	bottom:0.7vh;
+	right:1.5vw; 
+	
 }
 #deletebutton{
 	position:relative;
+	top:2.99vh;
+	left:1.8vw;
 }
 
 /*요기까지*/
@@ -2004,9 +1999,6 @@ div #logintoolbar > a {
 
 .dark-mode #colorchange {
   color: white;
-}
-.dark-mode #liLine {
-  border-right: 0.1rem solid white;
 }
 .dark-mode #footerLogo {
   width: 20vw;
