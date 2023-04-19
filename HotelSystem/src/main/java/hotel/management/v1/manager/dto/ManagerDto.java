@@ -44,14 +44,17 @@ public class ManagerDto {
     @ToString
     @Builder
 	public static class bookSearchCondition {
-        private Boolean isStay;
-        private Boolean isRestaurant;
-        private String fromDate;
-        private String toDate;
-        private Integer roomNum;
-        private String name;
-        private Integer listType;
+        private Boolean isStay; //roombooking (bookroomgrade null)
+        private Boolean isRestaurant; //dinner
+        private String fromDate; //roombooking
+        private String toDate; //roombooking
+        private Integer roomNum; //roombooking
+        private String name; //book -> booker
+        private Integer listType; //           
+		
     }
+
+    
 
     @Data
     @ToString

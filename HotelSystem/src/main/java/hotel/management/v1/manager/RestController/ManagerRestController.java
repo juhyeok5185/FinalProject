@@ -18,8 +18,9 @@ public class ManagerRestController {
     ManagerService service;
 
     @PostMapping("/manager/bookSearch")
-    public ResponseEntity<String> bookSearch(ManagerDto.bookSearchCondition dto) {
-        return ResponseEntity.ok("dd");
+    public ResponseEntity<List<ManagerDto.findBookList>> bookSearch(ManagerDto.bookSearchCondition dto) {
+        List<ManagerDto.findBookList> list = service.bookSearch(dto);
+        return ResponseEntity.ok(list);
     }
 
     @PostMapping("/manager/memberSearch")
