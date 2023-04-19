@@ -790,6 +790,15 @@
   bottom: 10px;
 }
 
+#deletetool {
+  font-size: 12px;
+  width: 10vw;
+  position: relative;
+  left: 40.7vw;
+  color: black;
+  bottom: 10px;
+}
+
 #aside{
   width: 15vw;
   height: 25vh;
@@ -1062,7 +1071,15 @@
 
 #changepasswordtable {
   height: 13vh;
-  width: 47vw;
+  width: 49vw;
+  border-top: 1px solid #a1886f;
+  border-bottom: 1px solid #a1886f;
+  margin-right: auto;
+}
+
+#deletetable {
+  height: 4vh;
+  width: 49vw;
   border-top: 1px solid #a1886f;
   border-bottom: 1px solid #a1886f;
   margin-right: auto;
@@ -1159,7 +1176,17 @@ margin-left: 2vw;
   width: 7vw;
   height: 4vh;
   margin-top: 3vh;
-  margin-left: 20vw;
+  margin-left: 20.5vw;
+  background-color: #3a3125;
+  border: 2px solid black;
+  color: #d5ccb0;
+}
+
+#deletebtn {
+  width: 7vw;
+  height: 4vh;
+  margin-top: 4.3vh;
+  margin-left: 20.5vw;
   background-color: #3a3125;
   border: 2px solid black;
   color: #d5ccb0;
@@ -1669,6 +1696,12 @@ div #logintoolbar > a {
 	font-size: 0.8em;
 }
 
+#deleteintro {
+	width:49vw;
+	height: 10vh;
+	line-height: 10vh;
+	font-size: 0.8em;
+}
 
 
 

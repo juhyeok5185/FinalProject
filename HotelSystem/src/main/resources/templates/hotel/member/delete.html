@@ -20,7 +20,7 @@
 <body>
     <div th:replace="~{/fragment/nav.html}"></div>
     <!--고객 문의 게시판-->
-	<div id="internalFacilities_page"> 
+	<div id="changepassword_page"> 
       <div id= "myPageaside"> 
         <div id="myPageinmenu">
           <h3 id="tit">마이페이지</h3>
@@ -32,13 +32,27 @@
             </ul>  
         </div>
       </div>
-      <div id="internalFacilities_article">
+      <div id="changepassword_article">
         <div id="headtit"> 
           <h3>탈회 요청</h3>
-          <div id="myPagetool">
-            <i class="fa-solid fa-house"></i> > 마이페이지><a href="myPage" id="subh"> 탈회 요청</a>
+          <div id="deletetool">
+            <i class="fa-solid fa-house"></i> > 마이페이지><a href="delete" id="subh"> 탈회 요청</a>
           </div>
         </div>
+        <div id="deleteintro">
+        	<span>고객님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인합니다.</span>
+        </div>
+        <table id="deletetable">
+	     <tr>
+	      <td class="col1">비밀번호</td>
+	      <td class="col2">
+	       <input type="password" id="password" name="password" maxlength="16">
+	      </td>
+	    </tr>
+	   </table>
+	   <div>
+	    <button type="button" id="deletebtn">확인</button>
+	   </div>
       </div>  
     </div>
     <!--풋터-->
