@@ -1809,7 +1809,6 @@ div #logintoolbar > a {
 #gradeintro1 {
 	width: 49vw;
 	height:140vh;
-	border: 1px solid red;
 	display: flex;
 }
 
