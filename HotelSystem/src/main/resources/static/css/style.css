@@ -726,7 +726,7 @@
 
 /* 내부시설 */
 
-/* aside */
+/*  */
 #page{
   width: 100%;
   height:120vh;
@@ -816,12 +816,12 @@
   border-bottom: 0.3rem solid #a1886f; 
 }
 
-#internal_outline {
+#_outline {
   margin-top: 2vh;
   list-style: none;
 }
 
-#internal_outline1 {
+#_outline1 {
   text-decoration: none;
   color: #555;
   list-style: none;
@@ -861,10 +861,12 @@
   text-align: left;
   height: 20vh;
   color: #555;
+  
 }
 
 #myPagemenu {
   padding-left: 0.1vw;
+  list-style: none;
 }
 
 /* section */
@@ -880,6 +882,25 @@
 
 #internalFacilities_article {
   height: 170vh;
+  width: 50vw;
+  position: absolute;
+  left: 35vw;
+  margin-top: 10vh;
+  overflow: hidden;
+  
+}
+
+#changepassword_page {
+  width: 100vw;
+  height:70vh;
+  background-color: white;
+  overflow: hidden;
+  margin:0 auto;
+  padding: 0 auto;
+}
+
+#changepassword_article {
+  height: 60vh;
   width: 50vw;
   position: absolute;
   left: 35vw;
@@ -1038,6 +1059,14 @@
   margin-top: 2vh;
 }
 
+#changepasswordtable {
+  height: 13vh;
+  width: 47vw;
+  border-top: 1px solid #a1886f;
+  border-bottom: 1px solid #a1886f;
+  margin-right: auto;
+}
+
 #jointable1 {
   height: 15vh;
   width: 47vw;
@@ -1123,6 +1152,16 @@ margin-left: 2vw;
   background-color: #b9b9b9;
   color: #a1886f;
   border: 1px solid #a1886f;
+}
+
+#changepasswordbtn {
+  width: 7vw;
+  height: 4vh;
+  margin-top: 3vh;
+  margin-left: 20vw;
+  background-color: #3a3125;
+  border: 2px solid black;
+  color: #d5ccb0;
 }
 
 div.joincreate{
@@ -1267,12 +1306,16 @@ div #logintoolbar > a {
   height: 10vh;
 }
 
+#changepasswordtable td {
+	border-bottom: 1px solid #a1886f;
+}
+
 #jointable td {
-	border-bottom: 1px dotted black;
+	border-bottom: 1px solid #a1886f;
 }
 
 #jointable1 td {
-	border-bottom: 1px dotted black;
+	border-bottom: 1px solid #a1886f;
 }
 
 #loginarticle {
@@ -1618,7 +1661,12 @@ div #logintoolbar > a {
 	font-size: 0.75em
 }
 
-
+#changepasswordintro {
+	width:49vw;
+	height: 10vh;
+	line-height: 10vh;
+	font-size: 0.8em;
+}
 
 
 
@@ -2122,7 +2170,7 @@ div #logintoolbar > a {
   color: white;
   font-weight: bold;
 }
-.dark-mode #aside, .dark-mode #inmenu{
+.dark-mode #, .dark-mode #inmenu{
   background-color: gray;
   color: white;
   font-weight: bold;
@@ -2195,13 +2243,13 @@ div #logintoolbar > a {
   }
   /*700 이상 보일곳*/
   @media screen and (max-width: 700px) {
-  .hd,#nav1,#nav2 ,.reservation-area,#section3,#aside,#outline_page{
+  .hd,#nav1,#nav2 ,.reservation-area,#section3,#,#outline_page{
     display: none;
   }
   #internalFacilities_article {
     display: none;
   }
-  #internalFacilities_page {
+  #Facilities_page {
     display: none;
   }
   #section2 {
@@ -2307,10 +2355,10 @@ div #logintoolbar > a {
     #dropdownbar{
     	display:none;
     }
-    #internalFacilities_article-1 {
+    #Facilities_article-1 {
       display: none;
     }
-    #internalFacilities_page-1 {
+    #Facilities_page-1 {
       display: none;
     }
     #toolbar-1{
@@ -2543,14 +2591,14 @@ div #logintoolbar > a {
 }
 /*요기까지*/
 
-#internalFacilities_article-1 {
+#Facilities_article-1 {
   height: 170vh;
   width: 80vw;
   margin: auto;
   margin-top: 2vh;
   overflow: hidden;
 }
-#internalFacilities_page-1 {
+#Facilities_page-1 {
   width: 100vw;
   height:170vh;
   background-color: white;
