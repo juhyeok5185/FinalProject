@@ -785,7 +785,7 @@
   font-size: 12px;
   width: 10vw;
   position: relative;
-  left: 39.6vw;
+  left: 40.5vw;
   color: black;
   bottom: 10px;
 }
@@ -863,7 +863,7 @@
 
 #myPageaside{
   width: 15vw;
-  height: 30vh;
+  height: 43vh;
   background-color:#f1e3c4; 
   float: left;
   position: absolute;
@@ -871,19 +871,31 @@
   top: 19vh;
 }
 
-#myPageinmenu {
+#myPage {
   width: 10vw;
   background-color:#f1e3c4;
   margin: auto;
   padding-top: 3vh;
   padding-left: 0.1vw;
   text-align: left;
-  height: 20vh;
+  height: 33vh;
   color: #555;
-  
 }
 
+#myPageinmenu{
+  width: 10vw;
+  background-color:#f1e3c4;
+  margin: auto;
+  padding-top: 3vh;
+  padding-left: 0.1vw;
+  text-align: left;
+  height: 15vh;
+  color: #555;
+}
+
+
 #myPagemenu {
+  padding-top: 0.8vh;
   padding-left: 0.1vw;
   list-style: none;
 }
@@ -1788,6 +1800,18 @@ div #logintoolbar > a {
   color: #555;
 }
 
+#gradebar {
+	width: 49vw;
+	height: 14vh;
+	border: 1px solid red;
+}
+
+#gradeintro {
+	width: 49vw;
+	height: 14vh;
+	border: 1px solid red;
+}
+
 
 
 
@@ -2238,7 +2262,7 @@ div #logintoolbar > a {
   color: white;
   font-weight: bold;
 }
-.dark-mode,.dark-mode #inmenu{
+.dark-mode,.dark-mode {
   background-color: gray;
   color: white;
   font-weight: bold;
