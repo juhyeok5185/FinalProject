@@ -785,7 +785,7 @@
   font-size: 12px;
   width: 10vw;
   position: relative;
-  left: 40.5vw;
+  left: 39.6vw;
   color: black;
   bottom: 10px;
 }
@@ -840,6 +840,7 @@
 
 #menu {
   padding-left: 0.1vw;
+  list-style: none;
 }
 
 #myPageaside{
