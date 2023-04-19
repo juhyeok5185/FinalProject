@@ -1,11 +1,13 @@
 package hotel.management.v1.board.dto;
 
+import java.security.Principal;
 import java.time.LocalDate;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import hotel.management.v1.board.entity.Board;
+import hotel.management.v1.member.dto.MemberDto;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -23,9 +25,10 @@ public class BoardDto {
 	public static class Write {
 		private String title;
 		private String content;
+		private String username;
 		
-		public Board toEntity(String title, String content) {
-			return Board.builder().title(title).content(content).build();
+		public Board toEntity(String title, String content, String username) {
+			return Board.builder().title(title).content(content).username(username).build();
 		}
 	}
 	

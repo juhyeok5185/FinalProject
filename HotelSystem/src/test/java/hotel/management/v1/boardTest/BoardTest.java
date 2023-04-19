@@ -15,7 +15,7 @@ public class BoardTest {
 	
 	@Test
 	public void test() {
-		BoardDto.Write write= new BoardDto.Write("aa","aaa");
+		BoardDto.Write write= new BoardDto.Write("aa","aaa","aaa");
 		for (int i = 0; i < 100; i++) {
 			dao.write(write);
 		}
