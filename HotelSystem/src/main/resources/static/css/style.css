@@ -799,6 +799,15 @@
   bottom: 10px;
 }
 
+#profileupdatetool {
+  font-size: 12px;
+  width: 10vw;
+  position: relative;
+  left: 40.2vw;
+  color: black;
+  bottom: 10px;
+}
+
 #aside{
   width: 15vw;
   height: 25vh;
@@ -1085,6 +1094,14 @@
   margin-right: auto;
 }
 
+#profileupdatetable {
+  height: 4vh;
+  width: 49vw;
+  border-top: 1px solid #a1886f;
+  border-bottom: 1px solid #a1886f;
+  margin-right: auto;
+}
+
 #jointable1 {
   height: 15vh;
   width: 47vw;
@@ -1183,6 +1200,16 @@ margin-left: 2vw;
 }
 
 #deletebtn {
+  width: 7vw;
+  height: 4vh;
+  margin-top: 4.3vh;
+  margin-left: 20.5vw;
+  background-color: #3a3125;
+  border: 2px solid black;
+  color: #d5ccb0;
+}
+
+#profileupdatebtn {
   width: 7vw;
   height: 4vh;
   margin-top: 4.3vh;
@@ -1697,6 +1724,13 @@ div #logintoolbar > a {
 }
 
 #deleteintro {
+	width:49vw;
+	height: 10vh;
+	line-height: 10vh;
+	font-size: 0.8em;
+}
+
+#profileupdateintro {
 	width:49vw;
 	height: 10vh;
 	line-height: 10vh;
