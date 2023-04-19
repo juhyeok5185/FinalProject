@@ -14,9 +14,9 @@
   <link href='https://unpkg.com/css.gg@2.0.0/icons/css/youtube.css' rel='stylesheet'>
   <link href='https://unpkg.com/css.gg@2.0.0/icons/css/instagram.css' rel='stylesheet'>
   <link href='https://unpkg.com/css.gg@2.0.0/icons/css/facebook.css' rel='stylesheet'>
-  <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/boardStyle.css">
   <link rel="stylesheet" href="/css/board2Style.css">
+  <link rel="stylesheet" href="/css/style.css">
   <title>J.H.H.L</title>
 </head>
 <body>
@@ -43,48 +43,47 @@
               <div class="insert" id="reportinsert">
           <table id="reporttable">
             <tr>
-                <td class="col1">작성일</td>
+                <td class="col1">작성일<hr></td>
                 <td class="col2">
                  <div th:text="${board.writeDay}"></div> 
-                </td>
+                <hr></td>
             </tr>
             <tr>
-                <td class="col1"><span id="notnull"> </span>작성자</td>
+                <td class="col1"><span id="notnull"> </span>작성자<hr></td>
                 <td class="col2">
                <div>spring1</div>
-                </td>
+                <hr></td>
             </tr>
             <tr>
-                <td class="col1"><span id="notnull"></span>제목</td>
+                <td class="col1"><span id="notnull"></span>제목<hr></td>
                 <td class="col2">
                 <div th:text="${board.title}"></div>
-                </td>
+                <hr></td>
             </tr>
             <tr>
-                <td class="col1"><span id="notnull"></span>내용</td>
+                <td class="col1"><span id="notnull"></span>내용<hr></td>
                 <td class="col2">
                 <div th:text="${board.content}"></div>
-                </td>
+                <hr></td>
             </tr>
             <tr>
-			  	<td class="col1"><span id="notnull"></span>답변</td>
+			  	<td class="col1"><span id="notnull"></span>답변<hr></td>
                 <td class="col2">
 				<span th:text="${board.replyContent}"></span></td>
             </tr>
             <tr>
                 <td class="col1"><span id="notnull"></span>답변</td>
                 <td class="col2">
-                
-               
                 <form action="/hotel/board/read" method="post">
 				  <input type="hidden" name="boardNo" th:field="*{board.boardNo}">
-				  <textarea id="replyContent" name="replyContent" cols="80" rows="5"></textarea>
+				  <textarea id="replyContent" name="replyContent" cols="80" rows="4"></textarea>
 			
 				  <!-- 목록 -->
 				  <span id="listbutton" ><a id="listbutton" type="button" class="btn btn-outline-dark" href="/hotel/board/list">목록</a></span>
 			
 				  <!-- 답변 -->
-				  <span id="replybutton"><button id="replybutton" class="btn btn-outline-dark">답변</button></span>
+				  <span id="replybutton"><button id="replybutton" class="btn btn-outline-dark" 
+				  		sec:authorize="hasRole('ADMIN')">답변</button></span>
 				</form>
 				  <!-- 삭제 -->
 				<div id="deletebutton">
@@ -93,8 +92,6 @@
   				    <button id="deletebutton" type="submit" class="btn btn-outline-dark">글삭제</button>
 				  </form>
 				</div>
-				
-				
                 </td>
          	   </tr>	
           </table>

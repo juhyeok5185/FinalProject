@@ -172,9 +172,6 @@
 #colorchange {
   color: #0000008C;
 }
-#liLine {
-  border-right:2px solid #0000008C;
-}
 
 #map-area {
   position: relative;
@@ -749,11 +746,10 @@
 }
 
 #titleclick{
-	list-style: none;
-	background-color:transparent;
 	border: none;
 	border-color: none;
-	color: black;
+	color: #7a7a7a;
+	text-decoration: none;
 }
 
 #reportwrite{
@@ -2003,9 +1999,6 @@ div #logintoolbar > a {
 
 .dark-mode #colorchange {
   color: white;
-}
-.dark-mode #liLine {
-  border-right: 0.1rem solid white;
 }
 .dark-mode #footerLogo {
   width: 20vw;
