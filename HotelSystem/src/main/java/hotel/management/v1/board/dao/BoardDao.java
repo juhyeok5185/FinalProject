@@ -34,7 +34,6 @@ public interface BoardDao {
 	@Update("update board b set b.replycontent = #{replyContent}, replywriteday = sysdate where b.boardno=#{boardNo}")
 	public void update(Integer boardNo, String replyContent);
 	
-//  @Select("select * from (select rownum as rnum, b.* from (select boardNo, username, writeDay, title from board) b where rownum<=#{endRownum}) where rnum>=#{startRownum}")
 	@Select("SELECT * FROM (  SELECT rownum as rnum, b.*   FROM (SELECT boardNo, username, writeDay, title FROM board ORDER BY boardNo DESC) b WHERE rownum <= #{endRownum}) WHERE rnum >= #{startRownum}")
 	public List<BoardDto.FindAll> findAll(Integer startRownum, Integer endRownum);
 	
