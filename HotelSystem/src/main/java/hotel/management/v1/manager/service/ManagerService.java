@@ -1,13 +1,18 @@
 package hotel.management.v1.manager.service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import hotel.management.v1.client.book.entity.book;
 import hotel.management.v1.manager.dao.ManagerDao;
 import hotel.management.v1.manager.dto.ManagerDto;
+import hotel.management.v1.manager.dto.ManagerDto.bookSearchCondition;
 
 
 @Service
@@ -57,8 +62,10 @@ public class ManagerService {
         return list;
     }
 
-    public void checkIn(String roomNo , String name ) {
-        Integer bookNo = dao.findBookNoByName(name);
+    public void checkIn(String roomNo , String tel ) {
+        tel = StringUtils.strip(tel);
+        Integer bookNo = dao.findBookNoByTel(tel);
+        System.out.println(bookNo);
         Integer intRoomNo = Integer.parseInt(roomNo);
         dao.setRoom(intRoomNo , bookNo);
         dao.changeBookStatus(bookNo);
@@ -78,6 +85,29 @@ public class ManagerService {
 
     public void ableBtn(String name) {
         dao.ableBtn(name);
+    }
+
+    public List<ManagerDto.findBookList> bookSearch(ManagerDto.bookSearchCondition dto) {
+        SimpleDateFormat originalFormat = new SimpleDateFormat("MM/dd/yyyy");
+        SimpleDateFormat targetFormat = new SimpleDateFormat("yy/MM/dd");
+        try {
+            if(dto.getFromDate() != ""){
+                Date fromDateof = originalFormat.parse(dto.getFromDate());
+                String fromDate = targetFormat.format(fromDateof);
+                dto.setFromDate(fromDate);
+            }
+            if(dto.getToDate() != ""){
+                Date toDateof = originalFormat.parse(dto.getToDate());
+                String toDate = targetFormat.format(toDateof);
+                dto.setToDate(toDate);
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        
+        System.out.println(dto);
+        System.out.println(dao.bookSearch(dto));
+        return dao.bookSearch(dto);
     }
 
 }

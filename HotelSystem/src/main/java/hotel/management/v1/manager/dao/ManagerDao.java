@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import hotel.management.v1.manager.dto.ManagerDto;
+import hotel.management.v1.manager.dto.ManagerDto.bookSearchCondition;
 import hotel.management.v1.manager.dto.ManagerDto.roomList;
 import hotel.management.v1.manager.dto.ManagerDto.userDetail;
 
@@ -41,7 +42,7 @@ public interface ManagerDao {
 
     public void setRoom(Integer roomNo , Integer bookNo);
 
-    public Integer findBookNoByName(String name);
+    public Integer findBookNoByTel(String tel);
 
     public void changeBookStatus(Integer bookNo);
 
@@ -54,6 +55,8 @@ public interface ManagerDao {
     public void vipBtn(String name);
 
     public void ableBtn(String name);
+
+    public List<ManagerDto.findBookList> bookSearch(ManagerDto.bookSearchCondition dto);
     
     
 }

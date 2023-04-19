@@ -16,9 +16,8 @@
         WHERE bookTel = #{tel}
     </update>
 
-    <select id="findTelByName" resultType="string">
-        select bookTel from book where booker = #{name}
-
+    <select id="findBookNoByTel" resultType="int">
+        select bookNo from book where booktel = #{tel} and bookStatus='체크인대기'
     </select>
 
     <update id="checkOut">
@@ -53,10 +52,6 @@
 
     <select id="roomList" resultType="hotel.management.v1.manager.dto.ManagerDto$roomList">
         select * from room where gradeName = #{roomGrade}
-    </select>
-
-    <select id="findBookNoByName" resultType="int">
-        select bookNo from book where booker = #{name}
     </select>
 
     <update id="setRoom">
@@ -99,4 +94,306 @@
         where name = #{name}
     </update>
 
+    <select id="bookSearch" resultType="hotel.management.v1.manager.dto.ManagerDto$findBookList">
+        SELECT DISTINCT b.booker, b.booktel, b.totalCount , rb.roomno, b.bookdate, rb.bookroomgrade, rb.checkin, rb.checkout, rb.breakfast, d.resno, b.bookstatus
+        FROM book b
+        LEFT JOIN dinner d ON d.resno = b.bookno
+        LEFT JOIN roombooking rb ON rb.bookno = b.bookno
+        <where>
+            <if test="isStay == true and isRestaurant == true">
+                <if test="fromDate ==''">
+                    <if test="roomNum == 0 and name == ''">
+                        <choose>
+                            <when test="listType==1"></when>
+                            <when test="listType==2"></when>
+                            <when test="listType==3"></when>
+                            <when test="listType==4"></when>
+                            <when test="listType==5"></when>
+                            <when test="listType==6"></when>
+                        </choose>
+                    </if>
+                    <if test="roomNum != 0 and name == ''">
+                        <choose>
+                            <when test="listType==1"></when>
+                            <when test="listType==2"></when>
+                            <when test="listType==3"></when>
+                            <when test="listType==4"></when>
+                            <when test="listType==5"></when>
+                            <when test="listType==6"></when>
+                        </choose>
+                    </if>
+                    <if test="roomNum == 0 and name != ''">
+                        <choose>
+                            <when test="listType==1"></when>
+                            <when test="listType==2"></when>
+                            <when test="listType==3"></when>
+                            <when test="listType==4"></when>
+                            <when test="listType==5"></when>
+                            <when test="listType==6"></when>
+                        </choose>
+                    </if>
+                </if>
+                <if test="fromDate != '' and toDate == ''">
+                    <if test="roomNum == 0 and name == ''">
+                        <choose>
+                            <when test="listType==1"></when>
+                            <when test="listType==2"></when>
+                            <when test="listType==3"></when>
+                            <when test="listType==4"></when>
+                            <when test="listType==5"></when>
+                            <when test="listType==6"></when>
+                        </choose>
+                    </if>
+                    <if test="roomNum != 0 and name == ''">
+                        <choose>
+                            <when test="listType==1"></when>
+                            <when test="listType==2"></when>
+                            <when test="listType==3"></when>
+                            <when test="listType==4"></when>
+                            <when test="listType==5"></when>
+                            <when test="listType==6"></when>
+                        </choose>
+                    </if>
+                    <if test="roomNum == 0 and name != ''">
+                        <choose>
+                            <when test="listType==1"></when>
+                            <when test="listType==2"></when>
+                            <when test="listType==3"></when>
+                            <when test="listType==4"></when>
+                            <when test="listType==5"></when>
+                            <when test="listType==6"></when>
+                        </choose>
+                    </if>
+                </if>
+                <if test="fromDate != '' and toDate != ''">
+                    <if test="roomNum == 0 and name == ''">
+                        <choose>
+                            <when test="listType==1"></when>
+                            <when test="listType==2"></when>
+                            <when test="listType==3"></when>
+                            <when test="listType==4"></when>
+                            <when test="listType==5"></when>
+                            <when test="listType==6"></when>
+                        </choose>
+                    </if>
+                    <if test="roomNum != 0 and name == ''">
+                        <choose>
+                            <when test="listType==1"></when>
+                            <when test="listType==2"></when>
+                            <when test="listType==3"></when>
+                            <when test="listType==4"></when>
+                            <when test="listType==5"></when>
+                            <when test="listType==6"></when>
+                        </choose>
+                    </if>
+                    <if test="roomNum == 0 and name != ''">
+                        <choose>
+                            <when test="listType==1"></when>
+                            <when test="listType==2"></when>
+                            <when test="listType==3"></when>
+                            <when test="listType==4"></when>
+                            <when test="listType==5"></when>
+                            <when test="listType==6"></when>
+                        </choose>
+                    </if>
+                </if>
+            </if>
+            <if test="isStay == false and isRestaurant == true">
+                <if test="fromDate ==''">
+                    <if test="roomNum == 0 and name == ''">
+                        <choose>
+                            <when test="listType==1"></when>
+                            <when test="listType==2"></when>
+                            <when test="listType==3"></when>
+                            <when test="listType==4"></when>
+                            <when test="listType==5"></when>
+                            <when test="listType==6"></when>
+                        </choose>
+                    </if>
+                    <if test="roomNum != 0 and name == ''">
+                        <choose>
+                            <when test="listType==1"></when>
+                            <when test="listType==2"></when>
+                            <when test="listType==3"></when>
+                            <when test="listType==4"></when>
+                            <when test="listType==5"></when>
+                            <when test="listType==6"></when>
+                        </choose>
+                    </if>
+                    <if test="roomNum == 0 and name != ''">
+                        <choose>
+                            <when test="listType==1"></when>
+                            <when test="listType==2"></when>
+                            <when test="listType==3"></when>
+                            <when test="listType==4"></when>
+                            <when test="listType==5"></when>
+                            <when test="listType==6"></when>
+                        </choose>
+                    </if>
+                </if>
+                <if test="fromDate != '' and toDate == ''">
+                    <if test="roomNum == 0 and name == ''">
+                        <choose>
+                            <when test="listType==1"></when>
+                            <when test="listType==2"></when>
+                            <when test="listType==3"></when>
+                            <when test="listType==4"></when>
+                            <when test="listType==5"></when>
+                            <when test="listType==6"></when>
+                        </choose>
+                    </if>
+                    <if test="roomNum != 0 and name == ''">
+                        <choose>
+                            <when test="listType==1"></when>
+                            <when test="listType==2"></when>
+                            <when test="listType==3"></when>
+                            <when test="listType==4"></when>
+                            <when test="listType==5"></when>
+                            <when test="listType==6"></when>
+                        </choose>
+                    </if>
+                    <if test="roomNum == 0 and name != ''">
+                        <choose>
+                            <when test="listType==1"></when>
+                            <when test="listType==2"></when>
+                            <when test="listType==3"></when>
+                            <when test="listType==4"></when>
+                            <when test="listType==5"></when>
+                            <when test="listType==6"></when>
+                        </choose>
+                    </if>
+                </if>
+                <if test="fromDate != '' and toDate != ''">
+                    <if test="roomNum == 0 and name == ''">
+                        <choose>
+                            <when test="listType==1"></when>
+                            <when test="listType==2"></when>
+                            <when test="listType==3"></when>
+                            <when test="listType==4"></when>
+                            <when test="listType==5"></when>
+                            <when test="listType==6"></when>
+                        </choose>
+                    </if>
+                    <if test="roomNum != 0 and name == ''">
+                        <choose>
+                            <when test="listType==1"></when>
+                            <when test="listType==2"></when>
+                            <when test="listType==3"></when>
+                            <when test="listType==4"></when>
+                            <when test="listType==5"></when>
+                            <when test="listType==6"></when>
+                        </choose>
+                    </if>
+                    <if test="roomNum == 0 and name != ''">
+                        <choose>
+                            <when test="listType==1"></when>
+                            <when test="listType==2"></when>
+                            <when test="listType==3"></when>
+                            <when test="listType==4"></when>
+                            <when test="listType==5"></when>
+                            <when test="listType==6"></when>
+                        </choose>
+                    </if>
+                </if>
+            </if>
+            <if test="isStay == true and isRestaurant == false">
+                <if test="fromDate ==''">
+                    <if test="roomNum == 0 and name == ''">
+                        <choose>
+                            <when test="listType==1"></when>
+                            <when test="listType==2"></when>
+                            <when test="listType==3"></when>
+                            <when test="listType==4"></when>
+                            <when test="listType==5"></when>
+                            <when test="listType==6"></when>
+                        </choose>
+                    </if>
+                    <if test="roomNum != 0 and name == ''">
+                        <choose>
+                            <when test="listType==1"></when>
+                            <when test="listType==2"></when>
+                            <when test="listType==3"></when>
+                            <when test="listType==4"></when>
+                            <when test="listType==5"></when>
+                            <when test="listType==6"></when>
+                        </choose>
+                    </if>
+                    <if test="roomNum == 0 and name != ''">
+                        <choose>
+                            <when test="listType==1"></when>
+                            <when test="listType==2"></when>
+                            <when test="listType==3"></when>
+                            <when test="listType==4"></when>
+                            <when test="listType==5"></when>
+                            <when test="listType==6"></when>
+                        </choose>
+                    </if>
+                </if>
+                <if test="fromDate != '' and toDate == ''">
+                    <if test="roomNum == 0 and name == ''">
+                        <choose>
+                            <when test="listType==1"></when>
+                            <when test="listType==2"></when>
+                            <when test="listType==3"></when>
+                            <when test="listType==4"></when>
+                            <when test="listType==5"></when>
+                            <when test="listType==6"></when>
+                        </choose>
+                    </if>
+                    <if test="roomNum != 0 and name == ''">
+                        <choose>
+                            <when test="listType==1"></when>
+                            <when test="listType==2"></when>
+                            <when test="listType==3"></when>
+                            <when test="listType==4"></when>
+                            <when test="listType==5"></when>
+                            <when test="listType==6"></when>
+                        </choose>
+                    </if>
+                    <if test="roomNum == 0 and name != ''">
+                        <choose>
+                            <when test="listType==1"></when>
+                            <when test="listType==2"></when>
+                            <when test="listType==3"></when>
+                            <when test="listType==4"></when>
+                            <when test="listType==5"></when>
+                            <when test="listType==6"></when>
+                        </choose>
+                    </if>
+                </if>
+                <if test="fromDate != '' and toDate != ''">
+                    <if test="roomNum == 0 and name == ''">
+                        <choose>
+                            <when test="listType==1"></when>
+                            <when test="listType==2"></when>
+                            <when test="listType==3"></when>
+                            <when test="listType==4"></when>
+                            <when test="listType==5"></when>
+                            <when test="listType==6"></when>
+                        </choose>
+                    </if>
+                    <if test="roomNum != 0 and name == ''">
+                        <choose>
+                            <when test="listType==1"></when>
+                            <when test="listType==2"></when>
+                            <when test="listType==3"></when>
+                            <when test="listType==4"></when>
+                            <when test="listType==5"></when>
+                            <when test="listType==6"></when>
+                        </choose>
+                    </if>
+                    <if test="roomNum == 0 and name != ''">
+                        <choose>
+                            <when test="listType==1"></when>
+                            <when test="listType==2"></when>
+                            <when test="listType==3"></when>
+                            <when test="listType==4"></when>
+                            <when test="listType==5"></when>
+                            <when test="listType==6"></when>
+                        </choose>
+                    </if>
+                </if>
+            </if>
+        </where>
+    </select>
 </mapper>

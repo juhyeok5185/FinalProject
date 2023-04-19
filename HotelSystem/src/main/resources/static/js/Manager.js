@@ -18,7 +18,7 @@ $(document).ready(function() {
       listType: $('.dropdown-menu a.active').data('index')
     }
     try {
-          const searchCondition = await $.ajax({
+          const bookSearch = await $.ajax({
           url: '/hotel/manager/bookSearch',
           method: 'post',
           data: param
@@ -95,7 +95,6 @@ $(document).ready(function() {
       method: 'post'
       });
       const checkInDropDown = $('.checkInDropDown > li');
-      //여기부터
       checkInDropDown.empty();
       for(const r of roomList) {
         const dropdownMenu = `
@@ -110,7 +109,8 @@ $(document).ready(function() {
     const clickedMenuText = $(this).text();
     const [roomNo, roomStatus] = clickedMenuText.split("(");
     const parsedRoomStatus = roomStatus.replace(")", "");
-    const bookerName = $("td:nth-child(1)", $(this).closest("tr")).text();
+    const bookerName = $("td:nth-child(2)", $(this).closest("tr")).text();
+    console.log(ty);
     if(parsedRoomStatus == "비어있음"){
       try {
         const searchCondition = await $.ajax({
