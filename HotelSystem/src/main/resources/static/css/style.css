@@ -154,7 +154,7 @@
   left: 1.5vw;
   font-size: 0.6vw;
 }
-.dropdown- {
+.dropdown-menu {
   background-color: gray;
   font-weight: bold;
   font-size: 0.7vw;
@@ -2204,7 +2204,7 @@ div #logintoolbar > a {
   color: white;
   font-weight: bold;
 }
-.dark-mode #, .dark-mode #inmenu{
+.dark-mode,.dark-mode #inmenu{
   background-color: gray;
   color: white;
   font-weight: bold;
@@ -2277,7 +2277,7 @@ div #logintoolbar > a {
   }
   /*700 이상 보일곳*/
   @media screen and (max-width: 700px) {
-  .hd,#nav1,#nav2 ,.reservation-area,#section3,#,#outline_page{
+  .hd,#nav1,#nav2 ,.reservation-area,#section3,#outline_page{
     display: none;
   }
   #internalFacilities_article {
@@ -2418,7 +2418,7 @@ div #logintoolbar > a {
 
 /*반응형 존*/
 
-  .media-dropdown {
+  .media- {
     margin-right: 4vw;
   }
   .reservation-ton {
