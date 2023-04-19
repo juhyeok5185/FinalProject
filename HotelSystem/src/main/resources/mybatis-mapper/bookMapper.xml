@@ -11,4 +11,10 @@
 FROM room r
 GROUP BY r.gradename
 	</select>
+	<insert id="addBook">
+			insert into book values(BOOK_SEQ_BOOKNO.nextval,#{username},#{totalcnt},to_date(#{from},'MM/DD/YYYY'),#{booktel},#{booker},'체크인대기')	
+	</insert>
+	<insert id = "addRoomBooking">
+			insert into roombooking select b.bookno,b.bookdate,to_date(#{checkOut},'MM/DD/YYYY'),#{bfcheckbox},null,#{gradename} from book b where b.username = #{username}
+	</insert>
 </mapper>
