@@ -1,8 +1,6 @@
 //관리자 : 주성
 package hotel.management.v1.member.entity;
 
-import java.time.format.DateTimeFormatter;
-
 import hotel.management.v1.member.dto.MemberDto;
 import hotel.management.v1.member.dto.MemberDto.Read;
 import lombok.AllArgsConstructor;

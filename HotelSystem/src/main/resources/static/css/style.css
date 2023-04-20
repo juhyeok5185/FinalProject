@@ -1970,6 +1970,18 @@ div #logintoolbar > a {
 	margin: auto;
 }
 
+#myenum {
+	margin-top: 5.5vh;
+	width:49vw;
+	height: 10vh;
+	border-top: 2px solid #eeebe8;
+	text-align: center;
+}
+
+#enumtable {
+	width: 49vw;
+	margin-top: 5vh;
+}
 
 
 

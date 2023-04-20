@@ -69,9 +69,8 @@ public class MemberController {
 	
 	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/member/myPage")
-	public void myPage() {
-		
-	}
+		public void myPage() {
+		}
 	
 	@PreAuthorize("isAnonymous()")
 	@GetMapping("/member/find_id")
