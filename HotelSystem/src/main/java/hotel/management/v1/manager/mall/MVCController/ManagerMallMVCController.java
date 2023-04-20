@@ -13,10 +13,9 @@ import hotel.management.v1.manager.mall.Service.ManagerMallService;
 // 관리자 : 김동욱
 @Controller
 public class ManagerMallMVCController {
-//	@Autowired
-//	private ManagerMallService managermallservcie;
-	
-	
+	@Autowired
+	private ManagerMallService managermallservcie;
+			
 //	@GetMapping("manager/managerMallList")
 //	 public ModelAndView managerMallList(){
 //        List<ManagerMallDto.findManagerMallList> managerMallList = managermallservcie.findManagerMallList();
