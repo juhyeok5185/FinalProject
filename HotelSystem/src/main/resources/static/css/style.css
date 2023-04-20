@@ -799,14 +799,6 @@
   bottom: 10px;
 }
 
-#deletetool {
-  font-size: 12px;
-  width: 12vw;
-  position: relative;
-  left: 38.2vw;
-  color: black;
-  bottom: 10px;
-}
 
 #profileupdatetool {
   font-size: 12px;
@@ -963,8 +955,26 @@
   left: 35vw;
   margin-top: 10vh;
   overflow: hidden;
-  
 }
+
+#read_page {
+  width: 100vw;
+  height:100vh;
+  background-color: white;
+  overflow: hidden;
+  margin:0 auto;
+  padding: 0 auto;
+}
+
+#read_article {
+  height: 90vh;
+  width: 80vw;
+  position: absolute;
+  left: 35vw;
+  margin-top: 10vh;
+  overflow: hidden;
+}
+
 
 #internalFacilities_tem {
   margin: auto;
@@ -1124,13 +1134,14 @@
   margin-right: auto;
 }
 
-#deletetable {
-  height: 4vh;
+#readtable {
+  height: 5vh;
   width: 49vw;
   border-top: 1px solid #a1886f;
   border-bottom: 1px solid #a1886f;
   margin-right: auto;
 }
+
 
 #profileupdatetable {
   height: 4vh;
@@ -1397,6 +1408,10 @@ div #logintoolbar > a {
 #loginbarbut {
   width: 8vw;
   height: 10vh;
+}
+
+#readtable td {
+	border-bottom: 1px solid #a1886f;
 }
 
 #changepasswordtable td {
@@ -1761,14 +1776,14 @@ div #logintoolbar > a {
 	font-size: 0.8em;
 }
 
-#deleteintro {
+#profileupdateintro {
 	width:49vw;
 	height: 10vh;
 	line-height: 10vh;
 	font-size: 0.8em;
 }
 
-#profileupdateintro {
+#readintro {
 	width:49vw;
 	height: 10vh;
 	line-height: 10vh;

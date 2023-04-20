@@ -9,6 +9,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <script src="/js/Hotel.js"></script>
+  <script src="/js/validation.js"></script>
   <script src="https://kit.fontawesome.com/7fe498c607.js" crossorigin="anonymous"></script>
   <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72764d4407eae4771ae834fbbe85f476"></script>
   <link href='https://unpkg.com/css.gg@2.0.0/icons/css/youtube.css' rel='stylesheet'>
@@ -17,20 +18,23 @@
   <link rel="stylesheet" href="/css/style.css">
   <title>J.H.H.L</title>
   <script>
-  	$('#deletebtn').click(function() {
+  $(document).ready(function() {
+	  $('#deletebtn').click(function() {
   		const choice = confirm('정말 탈퇴하시겠습니까?');
-  		if(choice==false) {
-  			return false;
-  		}
-  		$('<form>').attr('action','/hotel/member/delete').attr('method','post').appendTo('body').submit();
-  	});
+			if(choice==false) {
+				return false;
+			};
+		$('<form>').attr('action','/hotel/member/delete').attr('method','post').appendTo('body').submit();
+		alert('탈퇴가 완료되었습니다. 감사합니다.');
+	  });
+  });
   </script>
 </head>
 <body>
     <div th:replace="~{/fragment/nav.html}"></div>
     <!--고객 문의 게시판-->
-	<div id="changepassword_page"> 
-      <div id= "myPageaside"> 
+	<div id="read_page"> 
+      <div id="myPageaside"> 
         <div id="myPageinmenu">
           <h3 id="tit">마이페이지</h3>
             <ul id="myPagemenu">
@@ -38,7 +42,7 @@
               <li id="internal_outline1"><span id="subh" style="color: #644012;">예약.주문</span>
               	<ul style="list-style:none;">
               		<li class="mb-1" style="margin-left: -1.7vw; font-size: 0.8em;">객실</li>
-              		<li class="mb-1" style="margin-left: -1.7vw; font-size: 0.8em;">다이닝</li>
+              		<li class="mb-1"style="margin-left: -1.7vw; font-size: 0.8em;">다이닝</li>
               		<li class="mb-1" style="margin-left: -1.7vw; font-size: 0.8em;">명품관</li>
               	</ul>
                </li><hr>
@@ -52,27 +56,50 @@
             </ul>  
         </div>
       </div>
-      <div id="changepassword_article">
+      <div id="read_article">
         <div id="headtit"> 
-          <h3>탈회 요청</h3>
-          <div id="deletetool">
-            <i class="fa-solid fa-house"></i> > 마이페이지> 내정보 > <a href="delete" id="subh"> 탈회 요청</a>
+          <h3>프로필 수정</h3>
+          <div id="profileupdatetool">
+            <i class="fa-solid fa-house"></i> > 마이페이지 > 내정보 ><a href="profileupdate" id="subh"> 프로필 수정</a>
           </div>
         </div>
-        <div id="deleteintro">
-        	<span>고객님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인합니다.</span>
+        <div id="readintro">
+        	<span>고객님의 정보를 언제든지 확인, 변경하실 수 있습니다.</span>
         </div>
-        <table id="deletetable">
-	     <tr>
-	      <td class="col1">비밀번호</td>
-	      <td class="col2">
-	       <input type="password" id="password" name="password" maxlength="16">
-	      </td>
-	    </tr>
-	   </table>
-	   <div>
-	    <button type="button" id="deletebtn">확인</button>
-	   </div>
+         <table id="readtable">
+	                  <tr>
+	                    <td class="col1">이름</td>
+	                    <td class="col2">
+	                    	<input type="text" id="name" name="name" maxlength="5">
+	                    </td>
+	                  </tr>
+	                  <tr>
+	                  	<td class="col1">아이디</td>
+	                  	<td class="col2">
+	                  	  <input type="text" id="personalId" name="personalId" maxlength="6">
+	                  	  <span>-</span>
+	                  	  <input type="password" id="personalId2" name="personalId2" maxlength="7">
+	                  	</td>
+	                  </tr>
+	                  
+	                  <tr>
+	                    <td class="col1">이메일</td>
+	                    <td class="col2">
+	                      <input type="text" id="email" name="email">
+	                    </td>
+	                  </tr>
+	                  <tr>
+	                    <td class="col1">휴대전화</td>
+	                    <td class="col2">
+	                      <input type="text" id="tel" name="tel" maxlength="11">
+	                    </td>
+	                  </tr>
+	    		</table>
+	    <form id="delete" action="/hotel/member/delete" method="post">
+	         <div>
+	    		<button id="deletebtn">회원탈퇴</button>
+	   		</div>
+	   	</form>
       </div>  
     </div>
     <!--풋터-->

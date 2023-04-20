@@ -119,4 +119,4 @@ $(document).ready(function() {
 				alert('비밀번호가 변경되었습니다.');
 				$('#change_password').submit();
 		});
-})
+	});

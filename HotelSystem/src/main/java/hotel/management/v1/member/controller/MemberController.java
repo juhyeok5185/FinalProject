@@ -90,13 +90,6 @@ public class MemberController {
 		
 	}
 	
-	
-	@PreAuthorize("isAuthenticated()")
-	@GetMapping("/member/delete")
-	public void delete() {
-		
-	}
-	
 	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/member/changepassword")
 	public void changePassword(HttpSession session, Model model) {
@@ -116,10 +109,18 @@ public class MemberController {
 	@PreAuthorize("isAuthenticated()")
 	@PostMapping("/member/delete")
 	public String delete(SecurityContextLogoutHandler handler, HttpServletRequest req, HttpServletResponse res, Authentication auth, RedirectAttributes ra) {
-		service.delete(auth.getName());
-		handler.logout(req, res, auth);
-		ra.addFlashAttribute("msg", "감사합니다. 꼭 다시 한번 뵙고 싶습니다.");
-		return "redirect:/hotel/main";
+			service.delete(auth.getName());
+			handler.logout(req, res, auth);
+			ra.addFlashAttribute("msg", "감사합니다. 꼭 다시 한번 뵙고 싶습니다.");
+			return "redirect:/hotel/main";
 	}
+	
+	@PreAuthorize("isAuthenticated()")
+	@GetMapping("/member/read")
+	public void read() {
+		
+	}
+	
+	
 	
 }

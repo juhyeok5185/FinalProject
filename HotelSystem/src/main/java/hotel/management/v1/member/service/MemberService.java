@@ -85,4 +85,13 @@ public class MemberService {
 		String encodedPassword = encoder.encode(newpassword);
 		dao.changePassword(encodedPassword, username);
 	}
+
+	public Boolean checkPassword(String password, String username) {
+		try {
+			Member member = dao.findByUsername(username).get();
+			return encoder.matches(password, member.getPassword());
+		} catch(NoSuchElementException e) {
+			return false;
+		}
+	}
 }
