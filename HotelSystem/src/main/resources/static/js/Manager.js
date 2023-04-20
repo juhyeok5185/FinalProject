@@ -24,26 +24,26 @@ $(document).ready(function() {
           const bookListTable = $('#bookListTable');
           bookListTable.empty();
           if(list.length == 0){
-        const tableContent = 
-        `
-          <tr>
-            <td rowspan="12">검색결과가 없습니다.</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        `;
-        bookListTable.append(tableContent);
-      }
-      else{
+             const tableContent = 
+                `
+              <tr>
+                <td rowspan="12">검색결과가 없습니다.</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              `;
+             bookListTable.append(tableContent);
+           }
+           else{
         for(const l of list) {
           let breakfastContent = ``;
           let resNoContent = ``;
@@ -122,7 +122,7 @@ $(document).ready(function() {
             `
           bookListTable.append(tableContent);
         }
-      }
+          }
 
         } catch(err) {
       console.log(err);
