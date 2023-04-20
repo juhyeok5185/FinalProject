@@ -51,7 +51,7 @@
             <tr>
                 <td class="col1"><span id="notnull"> </span>작성자<hr></td>
                 <td class="col2">
-               <div>spring1</div>
+                <div  th:text="${board.username}"></div>
                 <hr></td>
             </tr>
             <tr>
@@ -82,14 +82,13 @@
 				  <span id="listbutton" ><a id="listbutton" type="button" class="btn btn-outline-dark" href="/hotel/board/list">목록</a></span>
 			
 				  <!-- 답변 -->
-				  <span id="replybutton"><button id="replybutton" class="btn btn-outline-dark" 
-				  		sec:authorize="hasRole('ADMIN')">답변</button></span>
+				  <span id="replybutton"><button id="replybutton" class="btn btn-outline-dark" sec:authorize="hasRole('ADMIN')">답변</button></span>
 				</form>
 				  <!-- 삭제 -->
 				<div id="deletebutton">
 				  <form action="/hotel/board/delete" method="post">
   				    <input type="hidden" name="boardNo" th:field="*{board.boardNo}">
-  				    <button id="deletebutton" type="submit" class="btn btn-outline-dark">글삭제</button>
+  				    <button id="deletebutton" type="submit" class="btn btn-outline-dark" sec:authorize="hasRole('USER')">글삭제</button>
 				  </form>
 				</div>
                 </td>
@@ -98,7 +97,6 @@
        </div>
      </div>
    </div>
-          
     <!--풋터-->
     <div th:replace="~{/fragment/footer.html}"></div>
 </body>
