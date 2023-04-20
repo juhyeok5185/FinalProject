@@ -46,7 +46,9 @@ public interface ManagerDao {
 
     public void changeBookStatus(Integer bookNo);
 
-    public void changeRoomStatus(Integer roomNo);
+    public void changeRoomStatusCheckIn(Integer roomNo);
+
+    public void changeRoomStatusEmpty(Integer roomNo);
 
     public ManagerDto.userDetail memberDetail(String name);
 

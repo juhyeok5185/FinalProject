@@ -88,8 +88,8 @@
                 <th>비고</th>
               </tr>
             </thead>
-            <tbody>
-              <tr th:each="b : ${bookList}">
+            <tbody id="bookListTable">
+              <tr th:each="b : ${bookList}" >
                 <td>
                   <a th:href="@{/hotel/manager/memberDetail(name=${b.booker})}" th:text="${b.booker}" target="_blank"></a>
                 </td>
