@@ -19,6 +19,39 @@
   <title>J.H.H.L</title>
   <script>
   $(document).ready(function() {
+	  
+	  $('#selectEmail').change(function(e) {
+			const select = e.target.value;
+			if(select=="직접 입력") {
+				$('#email2').prop('disabled',false).focus();
+			} else {
+				$("#email2").val(select).prop('disabled',true);
+			}
+		});
+		
+		$('#updatebtn').click(function() {
+			const formData = new FormData();
+			formData.append('email', $('#email1').val() + '@' + $('#email2').val());
+			formData.append('tel',$('#tel').val());
+			for(let key of formData.keys()) {
+				console.log(key + ":" + formData.get(key));
+			}
+			
+			try {
+				$.ajax({
+					url: "/hotel/member/update", 
+					method:'post',
+					data: formData,
+					processData:false, 
+					contentType:false
+				});
+				alert("변경 성공");
+				location.reload();
+			} catch(err) {
+				alert("변경 실패");
+			}
+		});
+		
 	  $('#deletebtn').click(function() {
   		const choice = confirm('정말 탈퇴하시겠습니까?');
 			if(choice==false) {
@@ -50,7 +83,6 @@
               	<ul style="list-style:none;">
               		<li class="mb-1" id="internal_outline1"><a href="/hotel/member/profileupdate" id="subh" style="margin-left: -1.7vw; font-size: 0.8em;">프로필 수정</a></li>
               		<li class="mb-1" id="internal_outline1"><a href="/hotel/member/changepassword" id="subh" style="margin-left: -1.7vw; font-size: 0.8em;">비밀번호 변경</a></li>
-              		<li id="internal_outline1"><a href="/hotel/member/delete" id="subh" style="margin-left: -1.7vw; font-size: 0.8em;">탈회 요청</a></li>
               	</ul>
                </li>
             </ul>  
@@ -69,37 +101,45 @@
          <table id="readtable">
 	                  <tr>
 	                    <td class="col1">이름</td>
-	                    <td class="col2">
-	                    	<input type="text" id="name" name="name" maxlength="5">
-	                    </td>
+	                    <td class="col2" th:text="${member.name}"></td>
 	                  </tr>
 	                  <tr>
 	                  	<td class="col1">아이디</td>
-	                  	<td class="col2">
-	                  	  <input type="text" id="personalId" name="personalId" maxlength="6">
-	                  	  <span>-</span>
-	                  	  <input type="password" id="personalId2" name="personalId2" maxlength="7">
-	                  	</td>
+	                  	<td class="col2" th:text="${member.username}"></td>
 	                  </tr>
 	                  
 	                  <tr>
 	                    <td class="col1">이메일</td>
 	                    <td class="col2">
-	                      <input type="text" id="email" name="email">
+	                      <input type="text" name="email1" id="email1" th:value="${member.email1}">
+							&nbsp;@&nbsp;
+							<input type="text" name="email2" id="email2" th:value="${member.email2}">
+							&nbsp;
+	                      <select id="selectEmail">
+								<option>직접 입력</option>
+								<option>naver.com</option>
+								<option>daum.net</option>
+								<option>gmail.com</option>
+							</select>
 	                    </td>
 	                  </tr>
 	                  <tr>
 	                    <td class="col1">휴대전화</td>
 	                    <td class="col2">
-	                      <input type="text" id="tel" name="tel" maxlength="11">
+	                      <input type="text" id="tel" name="tel" th:value="${member.tel}">
 	                    </td>
 	                  </tr>
 	    		</table>
+	    		<div id="deleteupdate">
 	    <form id="delete" action="/hotel/member/delete" method="post">
 	         <div>
 	    		<button id="deletebtn">회원탈퇴</button>
 	   		</div>
 	   	</form>
+	   		<div>
+	    		<button id="updatebtn">변경</button>
+	   		</div>
+	    		</div>
       </div>  
     </div>
     <!--풋터-->

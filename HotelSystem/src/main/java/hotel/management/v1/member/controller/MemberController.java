@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import hotel.management.v1.member.dto.MemberDto;
@@ -67,9 +69,8 @@ public class MemberController {
 	
 	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/member/myPage")
-	public void myPage() {
-		
-	}
+		public void myPage() {
+		}
 	
 	@PreAuthorize("isAnonymous()")
 	@GetMapping("/member/find_id")
@@ -82,12 +83,6 @@ public class MemberController {
 	public ResponseEntity<String> findPassword(String name, String username, String email) {
 		service.resetPassword(name, username, email);
 		return ResponseEntity.ok("임시비밀번호를 이메일로 보냈습니다");
-	}
-	
-	@PreAuthorize("isAuthenticated()")
-	@GetMapping("/member/profileupdate")
-	public void profileUpdate() {
-		
 	}
 	
 	@PreAuthorize("isAuthenticated()")
@@ -115,10 +110,45 @@ public class MemberController {
 			return "redirect:/hotel/main";
 	}
 	
+		@PreAuthorize("isAuthenticated()")
+		@GetMapping("/member/profileupdate")
+		public ModelAndView checkPassword(HttpSession session) {
+			if(session.getAttribute("isPasswordCheck")!=null)
+				return new ModelAndView("redirect:/hotel/member/read");
+			return new ModelAndView("/hotel/member/profileupdate");
+		}
+		
+		@PreAuthorize("isAuthenticated()")
+		@PostMapping("/member/profileupdate")
+		public String checkPassword(String password, Principal principal, HttpSession session, RedirectAttributes ra) {
+			if(session.getAttribute("isPasswordCheck")!=null)
+				return "redirect:/hotel/member/read";
+			Boolean result = service.checkPassword(password, principal.getName());
+			if(result==true) {
+				session.setAttribute("isPasswordCheck", true);
+				return "redirect:/hotel/member/read";
+			} else {
+				ra.addFlashAttribute("msg", "비밀번호를 잘못 입력하셨습니다.");
+				return "redirect:/hotel/member/profileupdate";
+			}
+		}
+	
 	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/member/read")
-	public void read() {
-		
+	public ModelAndView read(Principal principal, HttpSession session) {
+		if (session.getAttribute("isPasswordCheck")==null) {
+			return new ModelAndView("redirect:/hotel/member/profileupdate");
+		}
+		MemberDto.Read dto = service.read(principal.getName());
+		return new ModelAndView("/hotel/member/read").addObject("member", dto);
+	}
+	
+	@PreAuthorize("isAuthenticated()")
+	@PostMapping("/member/update")
+	public ResponseEntity<Void> update(String email, String tel, Principal principal) {
+		Boolean result = service.update(email, tel, principal.getName());
+		return result? ResponseEntity.ok(null):
+			ResponseEntity.status(HttpStatus.CONFLICT).body(null);
 	}
 	
 	

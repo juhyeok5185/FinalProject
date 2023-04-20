@@ -42,5 +42,7 @@ public interface MemberDao {
 	
 	@Delete("delete from users where username=#{username} and rownum=1")
 	public Integer delete(String username);
+
+	public Integer update(String email, String tel, String username);
 	
 }

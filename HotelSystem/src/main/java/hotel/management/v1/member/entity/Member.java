@@ -1,6 +1,8 @@
 //관리자 : 주성
 package hotel.management.v1.member.entity;
 
+import hotel.management.v1.member.dto.MemberDto;
+import hotel.management.v1.member.dto.MemberDto.Read;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -27,6 +29,13 @@ public class Member {
 	private Integer bookcnt;
 	private Boolean black;
 	private Boolean vip;
+	
+	public Read toReadDto() {
+		String[] emails = this.email.split("@");
+		String email1 = emails[0];
+		String email2 = emails[1];
+		return new MemberDto.Read(name, username, email1, email2, tel, userLevel.getKorean());
+	}
 }
 	
 	

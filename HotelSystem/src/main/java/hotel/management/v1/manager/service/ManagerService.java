@@ -36,7 +36,7 @@ public class ManagerService {
 
     public void checkOut(String tel, String roomNo) {
         Integer intRoomNo = Integer.parseInt(roomNo);
-        dao.changeRoomStatus(intRoomNo);
+        dao.changeRoomStatusEmpty(intRoomNo);
         dao.checkOut(tel);
     }
 
@@ -65,10 +65,10 @@ public class ManagerService {
     public void checkIn(String roomNo , String tel ) {
         tel = StringUtils.strip(tel);
         Integer bookNo = dao.findBookNoByTel(tel);
-        System.out.println(bookNo);
         Integer intRoomNo = Integer.parseInt(roomNo);
         dao.setRoom(intRoomNo , bookNo);
         dao.changeBookStatus(bookNo);
+        dao.changeRoomStatusCheckIn(intRoomNo);
     }
 
     public ManagerDto.userDetail memberDetail(String name) {

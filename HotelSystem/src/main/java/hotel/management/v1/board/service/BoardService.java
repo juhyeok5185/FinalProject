@@ -3,11 +3,15 @@ package hotel.management.v1.board.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import hotel.management.v1.board.dao.BoardDao;
 import hotel.management.v1.board.dto.BoardDto;
 import hotel.management.v1.board.entity.Board;
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
 
 //관리자 = 김동욱
 
@@ -15,6 +19,9 @@ import hotel.management.v1.board.entity.Board;
 public class BoardService {
 	@Autowired
 	private BoardDao boardDao;
+	
+	@Autowired
+	private JavaMailSender mailSender;
 	
 	private final static Integer PAGESIZE = 10;
 	private final static Integer BLOCKSIZE = 5;
@@ -60,6 +67,7 @@ public class BoardService {
 
 	public void replyUpdate(Integer boardNo, String replyContent) {
 			boardDao.update(boardNo , replyContent);
+			sendMail("admin@zmall.com","kkk963963@naver.com","회원님의 문의사항 답변이 달렸습니다.","홈페이지를 통해 확인해주세요.");
 	}
 	
 	public void delete(String boardNo) {
@@ -69,4 +77,18 @@ public class BoardService {
 			boardDao.delete(intBoardNo);
 	}
 	
+	private void sendMail(String from, String to, String title, String text) {
+		MimeMessage message = mailSender.createMimeMessage();
+		try {
+			MimeMessageHelper helper = new MimeMessageHelper(message, false, "utf-8");
+			helper.setFrom(from);
+			helper.setTo(to);
+			helper.setSubject(title);
+			// false면 글자로 날아가고, true면 html로 날아간다
+			helper.setText(text, true);
+			mailSender.send(message);
+		} catch (MessagingException e) {
+			e.printStackTrace();
+		}
+	}
 }
