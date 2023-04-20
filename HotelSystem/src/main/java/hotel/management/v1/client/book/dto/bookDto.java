@@ -1,5 +1,9 @@
 package hotel.management.v1.client.book.dto;
 
+import java.time.LocalDate;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.ToString;
@@ -29,7 +33,6 @@ public class bookDto {
 	@Data
 	@ToString
 	public static class book {
-		String username;
 		String from;
 		String to;
 		Integer totalcnt;
@@ -39,6 +42,14 @@ public class bookDto {
 		String booktel;
 		
 	}
+	@Data
+	@ToString
+	public static class dinnerbook{
+		String bookdate;
+		String booktel;
+		Integer bookpeople;
+		String booker;
+	}
 	
 	@Data
 	@ToString
@@ -46,4 +57,14 @@ public class bookDto {
 		String gradeName;
 		Boolean reservableOrNot;
 	}
+
+	@Data
+	@AllArgsConstructor
+	public static class dinner{
+		String username;
+		Integer totalcnt;
+		String bookdate;
+		String booktel;
+		String booker;
+	};
 }

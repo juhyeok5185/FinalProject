@@ -28,7 +28,6 @@ function printRoomList($roomlist, $footer) {
 
 $(document).ready(function() {
 	const $footer = $('#bookfooter');
-
 	$('#bookfooter').on('click', '#test', function() {
 		const gradeName = $(this).siblings('#gradename').val();
 		const $from = $('#from').val();
@@ -37,33 +36,31 @@ $(document).ready(function() {
 		const $booker = $('#booker').val();
 		const $booktel = $('#booktel').val();
 		const $totalcnt = $('#totalcnt').val();
-		console.log($booktel);
 		const param = {
-			username: 'spring1',
+
 			from: $from,
 			to: $to,
-			totalcnt : $totalcnt,
+			totalcnt: $totalcnt,
 			gradename: gradeName,
-			bfcheckbox :$bfcheckbox,
-			booker:$booker,
-			booktel:$booktel
+			bfcheckbox: $bfcheckbox,
+			booker: $booker,
+			booktel: $booktel
 		}
-		if($booker==""||$booktel==""){
+		if ($booker == "" || $booktel == "") {
 			alert("예약자와 연락처는 필수 입력 사항입니다")
-		}else{
-			
-		$.ajax({
-			url: "/hotel/client/chekin",
-			data: param,
-			dataType: 'json',
-			method: 'post',
-		})
+		} else {
+
+			$.ajax({
+				url: "/hotel/client/chekin",
+				data: param,
+				dataType: 'json',
+				method: 'post',
+			})
 		}
 	})
 	$('#reservation-btn').click(async function() {
 		const $foote2 = $('#bookfooter').html();
 		if ($foote2.length == 0) {
-
 			const $from = $('#from').val();
 			const $to = $('#to').val();
 			const param = {
@@ -89,6 +86,27 @@ $(document).ready(function() {
 			alert('이미 선택 하셧습니다')
 		}
 	})
+	$('#dinnerbook').click(async function() {
+		const $bookdate = $('#from').val();
+		const $booktel = $('#booktel').val();
+		const $bookpeople = $('#bookpeople').val();
+		const $booker = $('#booker').val();
+		const param2 = {
+			bookdate: $bookdate,
+			booktel: $booktel,
+			bookpeople: $bookpeople,
+			booker: $booker
+		}
+		try {
+			await $.ajax({
+				url: "/hotel/client/dinnerbook",
+				data: param2,
+				dataType: 'json',
+				method: 'post',
+			})
+		} catch (err) { console.log(err) }
+	})
+
 })
 
 
