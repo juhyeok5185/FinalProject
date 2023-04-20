@@ -94,7 +94,7 @@
   <!-- 삭제 --><div id="deletebutton">
 				<form action="/hotel/board/delete" method="post">
   				<input type="hidden" name="boardNo" th:field="*{board.boardNo}">
-  				<button id="deletebutton" type="submit" class="btn btn-outline-dark" sec:authorize="hasRole('USER')">글삭제</button>
+  				<button id="deletebutton" type="submit" class="btn btn-outline-dark" sec:authorize="hasRole('ADMIN')">글삭제</button>
 				</form>
 			  </div>
 			 </td>
