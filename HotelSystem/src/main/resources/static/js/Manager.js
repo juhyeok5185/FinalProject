@@ -69,15 +69,31 @@ $(document).ready(function() {
           }
 
           if(l.bookStatus == '체크인대기'){
-            buttonContent = `
-             <span class="dropdown">
-                <button type="button" class="btn btn-primary dropdown-toggle checkInBtn" data-bs-toggle="dropdown">체크인</button>
-                <ul class="dropdown-menu checkInDropDown">
-                  <li></li>
-                </ul>
-             </span>
-             <button type="button" class="btn btn-primary bookCancel">예약취소 <input type="hidden" value="${l.bookTel}"></button>
+            const today = new Date();
+            const year = today.getFullYear().toString();
+            const month = (today.getMonth() + 1).toString().padStart(2, '0');
+            const day = today.getDate().toString().padStart(2, '0');
+            const formattedDate = `${year}-${month}-${day}`;
+            if(l.bookDate == formattedDate){
+              buttonContent = `
+               <span class="dropdown">
+                  <button type="button" class="btn btn-primary dropdown-toggle checkInBtn" data-bs-toggle="dropdown">체크인</button>
+                  <ul class="dropdown-menu checkInDropDown">
+                    <li></li>
+                  </ul>
+               </span>
+               <button type="button" class="btn btn-primary bookCancel">예약취소 <input type="hidden" value="${l.bookTel}"></button>
+                `;
+            } else {
+              buttonContent = `
+              <button type="button" class="btn btn-primary dropdown-toggle checkInBtn" data-bs-toggle="dropdown" disabled>체크인</button>
+                 <ul class="dropdown-menu checkInDropDown">
+                    <li></li>
+                 </ul>
+                </span>
+                <button type="button" class="btn btn-primary bookCancel">예약취소 <input type="hidden" value="${l.bookTel}"></button>
               `;
+            }
           } else if(l.bookStatus == '체크인완료'){
             buttonContent =  `
               <button type="button" class="btn btn-danger checkOutBtn">체크아웃 <input type="hidden" value="${l.bookTel}"></button>
