@@ -85,7 +85,7 @@ $(document).ready(function() {
 		
 	})
 	$('#bookrestbox').click(function(){
-		alert('다이닝예약')
+		location.href='/hotel/client/dinnerbook';
 	})
 
 
