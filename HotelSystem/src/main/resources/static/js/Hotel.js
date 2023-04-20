@@ -108,20 +108,23 @@ $(document).ready(function() {
 			.datepicker({
 				defaultDate: "+1w",
 				changeMonth: true,
-				numberOfMonths: 2,
+				numberOfMonths: 1,
+				minDate: 0 
+				
 			})
 			.on("change", function() {
 				to.datepicker("option", "minDate", getDate(this));
+				to.datepicker("option", "maxDate", getDate(this) + 14); 
 				const $to = $('#to');
 				$to.prop("disabled", false);
 			}),
 		to = $("#to").datepicker({
 			defaultDate: "+1w",
 			changeMonth: true,
-			numberOfMonths: 2
+			numberOfMonths: 1			
 		})
 			.on("change", function() {
-				from.datepicker("option", "maxDate", getDate(this));
+            from.datepicker("option", "maxDate", getDate(this));
 				const splitFrom = from.val().split('/');
 				const fromYear = splitFrom[2];
 				const fromMonth = splitFrom[0] - 1;
