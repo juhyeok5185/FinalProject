@@ -5,4 +5,13 @@
 		insert into users(username,name,tel,password,email,personalId,userLevel,role,black,vip)
 		values(#{username},#{name},#{tel},#{password},#{email},#{personalId},#{userLevel},#{role},0,0)
 	</insert>
+	
+	<update id="update">
+		update users
+		<trim prefix="set" suffixOverrides=",">
+			<if test="email!=null">email = #{email},</if>
+			<if test="tel!=null">tel = #{tel},</if>
+		</trim>
+		where username=#{username} and rownum=1
+	</update>
 </mapper>

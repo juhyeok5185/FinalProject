@@ -1252,10 +1252,20 @@ margin-left: 2vw;
   width: 7vw;
   height: 4vh;
   margin-top: 4.3vh;
-  margin-left: 20.5vw;
+  margin-left: 15.5vw;
   background-color: #3a3125;
   border: 2px solid black;
   color: #d5ccb0;
+}
+
+#updatebtn {
+  width: 7vw;
+  height: 4vh;
+  margin-top: 4.3vh;
+  background-color: #3a3125;
+  border: 2px solid black;
+  color: #d5ccb0;
+  margin-left: 2.5vw;
 }
 
 #profileupdatebtn {
@@ -1953,6 +1963,11 @@ div #logintoolbar > a {
 	margin-left: 2vw;
 	width:14.3vw;
 	height: 80vh;
+}
+
+#deleteupdate {
+	display: flex;
+	margin: auto;
 }
 
 

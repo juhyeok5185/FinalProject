@@ -94,4 +94,13 @@ public class MemberService {
 			return false;
 		}
 	}
+
+	public MemberDto.Read read(String username) {
+		Member member = dao.findByUsername(username).get();
+		return member.toReadDto();
+	}
+
+	public Boolean update(String email, String tel, String username) {
+		return dao.update(email, tel, username)==1;
+	}
 }
