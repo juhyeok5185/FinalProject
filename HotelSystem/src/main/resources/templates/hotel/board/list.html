@@ -54,30 +54,28 @@
               </tr>
             </thead>
             <tbody>
-				<tr th:each="b : ${board}">
-				<td th:text=${b.boardNo}></td>
-				<td><a id="titleclick" th:href="@{/hotel/board/read(boardNo=${b.boardNo})}" th:text=${b.title}></a></td>
-				<td  th:text="${b.username}"></td>
-				<td th:text=${b.writeDay}></td>
-				</tr>
+		    	<tr th:each="b : ${board}">
+		    	<td th:text=${b.boardNo}></td>
+		    	<td><a id="titleclick" th:href="@{/hotel/board/read(boardNo=${b.boardNo})}" th:text=${b.title}></a></td>
+		    	<td  th:text="${b.username}"></td>
+		    	<td th:text=${b.writeDay}></td>
+		    	</tr>
             </tbody>
           </table>
           <div id="reportpagination">
 		    <ul class="pagination">
   			<li class="page-item"><a class="page-link" th:href="@{'/hotel/board/list?pageno='+${prev}}">이전</a></li>
-  			
   			<li class="page-item" th:each="i: ${#numbers.sequence(start, end)}">
-  				<span th:if="${pageno eq i}">
-  				  <a class="page-link active" th:href="@{'/hotel/board/list?pageno=' + ${i}}" th:text="${i}"></a>
-  				</span>
-  				<span th:if="${pageno != i}">
-    		      <a class="page-link" th:href="@{'/hotel/board/list?pageno=' + ${i}}" th:text="${i}"></a>
-  				</span>
+  			  <span th:if="${pageno eq i}">  
+  			   <a class="page-link active" th:href="@{'/hotel/board/list?pageno=' + ${i}}" th:text="${i}"></a>
+  			  </span>
+  			  <span th:if="${pageno != i}">
+    		   <a class="page-link" th:href="@{'/hotel/board/list?pageno=' + ${i}}" th:text="${i}"></a>
+  			  </span>
 			</li>
   			<li class="page-item"><a class="page-link" th:href="@{'/hotel/board/list?pageno='+${next}}">다음</a></li>
 			</ul>
-               	<a id="reportwrite" href="/hotel/board/write" type="button" 
-               	   class="btn btn-outline-dark" sec:authorize="hasRole('USER')">글쓰기</a>
+               <a id="reportwrite" href="/hotel/board/write" type="button" class="btn btn-outline-dark" sec:authorize="hasRole('USER')">글쓰기</a>
           </div>
         </div>
        </div>
