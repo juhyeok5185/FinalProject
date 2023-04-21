@@ -103,7 +103,8 @@
  
     <select id="bookSearch" resultType="hotel.management.v1.manager.dto.ManagerDto$findBookList">
     select *
-    from (select *
+    from (
+select *
         from (select *
             from (select *
                  from (select * from bookList) 
@@ -119,12 +120,15 @@
                          </if>
                     </where>)
             <where>
-                <if test="fromDate ==''">
+                <if test="todayCheckBox == true">
+                    TRUNC(bookDate) = TRUNC(sysdate)
                 </if>
-                <if test="fromDate != '' and toDate == ''">
+                <if test="fromDate =='' and todayCheckBox == false">
+                </if>
+                <if test="fromDate != '' and toDate == '' and todayCheckBox == false">
                     bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD')
                 </if>
-                <if test="fromDate != '' and toDate != ''">
+                <if test="fromDate != '' and toDate != '' and todayCheckBox == false">
                     bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD')
                 </if>
             </where>)

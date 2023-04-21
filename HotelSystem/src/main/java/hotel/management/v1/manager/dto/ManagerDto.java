@@ -50,6 +50,7 @@ public class ManagerDto {
         private Boolean isRestaurant; //dinner
         private String fromDate; //roombooking
         private String toDate; //roombooking
+        private Boolean todayCheckBox;
         private Integer roomNum; //roombooking
         private String name; //book -> booker
         private Integer listType; //           
