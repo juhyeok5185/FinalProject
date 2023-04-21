@@ -113,11 +113,13 @@ $(document).ready(function () {
   $(document).on("click", "#searchBtn", async function () {
     let stayCheckBox = $("#stayCheckBox").is(":checked");
     let restaurantCheckBox = $("#restaurantCheckBox").is(":checked");
+    let todayCheckBox = $("#todayCheckBox").is(":checked");
     const param = {
       isStay: stayCheckBox,
       isRestaurant: restaurantCheckBox,
       fromDate: $("#from").val(),
       toDate: $("#to").val(),
+      todayCheckBox: todayCheckBox,
       roomNum: Number($("#searchRoomNumber").val()),
       name: $("#searchName").val(),
       listType: $(".dropdown-menu a.active").data("index"),
@@ -345,7 +347,16 @@ $(document).ready(function () {
         ".dropdown-item[data-index='" + currentIndex + "']"
       );
     }
-
+    $("#from").attr("disabled", true);
+    $("#to").attr("disabled", true);
     $selectedItem.addClass("active");
+  });
+
+  $(document).on("change", "#todayCheckBox", function () {
+    if ($("#todayCheckBox").is(":checked") == false) {
+      $("#from").attr("disabled", false);
+    } else {
+      $("#from").attr("disabled", true);
+    }
   });
 });
