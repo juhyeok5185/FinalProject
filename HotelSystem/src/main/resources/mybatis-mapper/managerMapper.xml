@@ -120,7 +120,6 @@
                     </where>)
             <where>
                 <if test="fromDate ==''">
-                    TRUNC(bookDate) = TRUNC(sysdate)
                 </if>
                 <if test="fromDate != '' and toDate == ''">
                     bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD')
