@@ -1,6 +1,9 @@
 package hotel.management.v1.security;
 
+import java.io.Console;
 import java.io.IOException;
+
+import javax.management.relation.Role;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -22,6 +25,14 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 	
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
+
+		if(authentication.getAuthorities().stream()
+		.anyMatch(auth -> auth.getAuthority().equals("ROLE_ADMIN"))){
+			String redirectUrl = request.getContextPath() + "/hotel/manager/bookList";
+   			response.sendRedirect(redirectUrl);
+    		return;
+		}
+
 		response.sendRedirect("/hotel/main");
 		// 로그인에 성공하면 로그인 실패횟수 리셋
 		memberDao.resetLoginCnt(authentication.getName());

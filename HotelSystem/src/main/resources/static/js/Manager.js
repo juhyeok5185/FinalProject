@@ -2,8 +2,7 @@ function openPopup(url) {
   window.open(url, 'memberDetail', 'width=800, height=700, scrollbars=1, toolbar=1, menubar=yes, left=300px, top=100px');
 }
 $(document).ready(function() {
-  
-  $('#searchBtn').on('click' , async function(){
+  $(document).on('click', '#searchBtn', async function(){
     let stayCheckBox = $('#stayCheckBox').is(':checked');
     let restaurantCheckBox = $('#restaurantCheckBox').is(':checked');
     const param = {
@@ -129,14 +128,56 @@ $(document).ready(function() {
     }
   });
 
- $('.searchToggle a').on('click',function() {
+  $(document).on('click', '.searchToggle a', async function(){
       $('.dropdown-menu a').removeClass('active');
       $(this).addClass('active');
       let text = $(this).text();
       $('#dropdownBtn').text(text);
   });
 
-  $(".checkInDropDown").on("click", "a", async function(event) {
+  $(document).on('click', '#blackBtn', async function(){
+    var booker = $(this).find('input').val();
+    try {
+      const blackBtn = await $.ajax({
+      url: '/hotel/manager/blackBtn?name='+ booker ,
+      method: 'post'
+      });
+      alert('변경이 완료되었습니다');
+      location.reload();
+    } catch(err) {
+
+    }
+  })
+
+  $(document).on('click', '#vipBtn', async function(){
+    var booker = $(this).find('input').val();
+    try {
+      const blackBtn = await $.ajax({
+      url: '/hotel/manager/vipBtn?name='+ booker ,
+      method: 'post'
+      });
+      alert('변경이 완료되었습니다');
+      location.reload();
+    } catch(err) {
+
+    }
+  })
+  
+  $(document).on('click', '#ableBtn', async function(){
+    var booker = $(this).find('input').val();
+    try {
+      const blackBtn = await $.ajax({
+      url: '/hotel/manager/ableBtn?name='+ booker ,
+      method: 'post'
+      });
+      alert('변경이 완료되었습니다');
+      location.reload();
+    } catch(err) {
+
+    }
+  })
+
+  $(document).on("click", ".checkInDropDown a", async function(event) {
     const clickedMenuText = $(this).text();
     const [roomNo, roomStatus] = clickedMenuText.split("(");
     const parsedRoomStatus = roomStatus.replace(")", "");
@@ -158,52 +199,8 @@ $(document).ready(function() {
     }
   });
 
-  $('#blackBtn').on('click' , async function(){
-    var booker = $(this).find('input').val();
-    try {
-      const blackBtn = await $.ajax({
-      url: '/hotel/manager/blackBtn?name='+ booker ,
-      method: 'post'
-      });
-      alert('변경이 완료되었습니다');
-      location.reload();
-    } catch(err) {
-
-    }
-  })
-
-  $('#vipBtn').on('click' , async function(){
-    var booker = $(this).find('input').val();
-    try {
-      const blackBtn = await $.ajax({
-      url: '/hotel/manager/vipBtn?name='+ booker ,
-      method: 'post'
-      });
-      alert('변경이 완료되었습니다');
-      location.reload();
-    } catch(err) {
-
-    }
-  })
-  
-  $('#ableBtn').on('click' , async function(){
-    var booker = $(this).find('input').val();
-    try {
-      const blackBtn = await $.ajax({
-      url: '/hotel/manager/ableBtn?name='+ booker ,
-      method: 'post'
-      });
-      alert('변경이 완료되었습니다');
-      location.reload();
-    } catch(err) {
-
-    }
-  })
-
-
   $(document).on('click', '.checkInBtn', async function() {
     //등급 불러오기
-    console.log('ddddddd');
     const roomGrade = $(this).closest('tr').find('td:nth-child(6)').text();
     try {
       const roomList = await $.ajax({
@@ -272,4 +269,4 @@ $(document).ready(function() {
   console.log(err);
 }
   })
-  });
+});
