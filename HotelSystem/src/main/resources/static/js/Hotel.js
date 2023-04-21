@@ -104,47 +104,44 @@ $(document).ready(function() {
 
 	//주혁
 	let dateFormat = "mm/dd/yy",
-		from = $("#from")
-			.datepicker({
-				defaultDate: "+1w",
-				changeMonth: true,
-				numberOfMonths: 1,
-				minDate: 0 
-				
-			})
-			.on("change", function() {
-				to.datepicker("option", "minDate", getDate(this));
-				to.datepicker("option", "maxDate", getDate(this) + 14); 
-				const $to = $('#to');
-				$to.prop("disabled", false);
-			}),
-		to = $("#to").datepicker({
-			defaultDate: "+1w",
-			changeMonth: true,
-			numberOfMonths: 1
-					
-		})
-			.on("change", function() {
-            from.datepicker("option", "maxDate", getDate(this));
-				const splitFrom = from.val().split('/');
-				const fromYear = splitFrom[2];
-				const fromMonth = splitFrom[0] - 1;
-				const fromDay = splitFrom[1];
-				const intFrom = new Date(fromYear, fromMonth, fromDay);
-				const splitTo = to.val().split('/');
-				const toYear = splitTo[2];
-				const toMonth = splitTo[0] - 1;
-				const toDay = splitTo[1];
-				const intTo = new Date(toYear, toMonth, toDay);
-				const diffInMilliseconds = intFrom - intTo;
-				const diffInSeconds = diffInMilliseconds / 1000;
-				const diffInMinutes = diffInSeconds / 60;
-				const diffInHours = diffInMinutes / 60;
-				const diffInDays = diffInHours / 24;
-				let night = -diffInDays;
+      from = $( "#from" )
+        .datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 2,
+        })
+        .on( "change", function() {
+          to.datepicker( "option", "minDate", getDate( this ) );
+          const $to = $('#to');
+          $to.prop("disabled" , false);
+        }),
+      to = $( "#to" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 2
+      })
+      .on( "change", function() {
+        from.datepicker( "option", "maxDate", getDate( this ) );
+        const splitFrom = from.val().split('/'); 
+        const fromYear = splitFrom[2];
+        const fromMonth = splitFrom[0] - 1; 
+        const fromDay = splitFrom[1];
+        const intFrom = new Date(fromYear, fromMonth, fromDay);
+        const splitTo = to.val().split('/');
+        const toYear = splitTo[2];
+        const toMonth = splitTo[0] - 1;
+        const toDay = splitTo[1];
+        const intTo = new Date(toYear,toMonth,toDay);
+        const diffInMilliseconds = intFrom - intTo; 
+        const diffInSeconds = diffInMilliseconds / 1000; 
+        const diffInMinutes = diffInSeconds / 60; 
+        const diffInHours = diffInMinutes / 60; 
+        const diffInDays = diffInHours / 24; 
+        let night = -diffInDays;
 
-				$('.night').text(night + "박");
-			});
+        $('.night').text(night + "박");
+      });
+ 
 
 	function getDate(element) {
 		let date;

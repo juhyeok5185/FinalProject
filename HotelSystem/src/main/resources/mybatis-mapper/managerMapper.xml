@@ -100,404 +100,59 @@
         where name = #{name}
     </update>
 
+ 
     <select id="bookSearch" resultType="hotel.management.v1.manager.dto.ManagerDto$findBookList">
-        SELECT DISTINCT b.booker, b.booktel, b.totalCount , rb.roomno, b.bookdate, rb.bookroomgrade, rb.checkin, rb.checkout, rb.breakfast, d.resno, b.bookstatus
-        FROM book b
-        LEFT JOIN dinner d ON d.resno = b.bookno
-        LEFT JOIN roombooking rb ON rb.bookno = b.bookno
+    select *
+    from (
+        select *
+        from (select *
+            from (select *
+                 from (select * from bookList) 
+                    <where>
+                         <if test="isStay == true and isRestaurant == false">
+                            bookNo = rbBookNo
+                         </if>
+                         <if test="isStay == false and isRestaurant == true">
+                            resNo is not null
+                         </if>
+                         <if test="isStay == true and isRestaurant == true">
+                             bookNo = rbBookNo and resNo is not null
+                         </if>
+                    </where>)
+            <where>
+                <if test="fromDate ==''">
+                    TRUNC(bookDate) = TRUNC(sysdate)
+                </if>
+                <if test="fromDate != '' and toDate == ''">
+                    bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD')
+                </if>
+                <if test="fromDate != '' and toDate != ''">
+                    bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD')
+                </if>
+            </where>)
         <where>
-            <if test="isStay == false and isRestaurant == false">
-                <if test="fromDate ==''">
-                    <if test="roomNum == 0 and name == ''">
-                        <choose>
-                            <when test="listType==1">TRUNC(b.bookDate) = TRUNC(sysdate) </when>
-                            <when test="listType==2">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크인대기'</when>
-                            <when test="listType==3">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크인완료'</when>
-                            <when test="listType==4">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크아웃완료'</when>
-                            <when test="listType==5">TRUNC(b.bookDate) = TRUNC(sysdate) and rb.breakfast = 1</when>
-                            <when test="listType==6">TRUNC(b.bookDate) = TRUNC(sysdate) and d.resno is not null</when>
-                        </choose>
-                    </if>
-                    <if test="roomNum != 0 and name == ''">
-                        <choose>
-                            <when test="listType==1">TRUNC(b.bookDate) = TRUNC(sysdate) and rb.roomNo = #{roomNum} </when>
-                            <when test="listType==2">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크인대기' and rb.roomNo = #{roomNum}</when>
-                            <when test="listType==3">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크인완료' and rb.roomNo = #{roomNum}</when>
-                            <when test="listType==4">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크아웃완료' and rb.roomNo = #{roomNum}</when>
-                            <when test="listType==5">TRUNC(b.bookDate) = TRUNC(sysdate) and rb.breakfast = 1 and rb.roomNo = #{roomNum}</when>
-                            <when test="listType==6">TRUNC(b.bookDate) = TRUNC(sysdate) and d.resno is not null and rb.roomNo = #{roomNo}</when>
-                        </choose>
-                    </if>
-                    <if test="roomNum == 0 and name != ''">
-                        <choose>
-                            <when test="listType==1">TRUNC(b.bookDate) = TRUNC(sysdate) and b.booker = #{name} </when>
-                            <when test="listType==2">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크인대기' and b.booker = #{name}</when>
-                            <when test="listType==3">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크인완료' and b.booker = #{name}</when>
-                            <when test="listType==4">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크아웃완료' and b.booker = #{name}</when>
-                            <when test="listType==5">TRUNC(b.bookDate) = TRUNC(sysdate) and rb.breakfast = 1 and b.booker = #{name}</when>
-                            <when test="listType==6">TRUNC(b.bookDate) = TRUNC(sysdate) and d.resno is not null and b.booker = #{name}</when>
-                        </choose>
-                    </if>
-                </if>
-                <if test="fromDate != '' and toDate == ''">
-                    <if test="roomNum == 0 and name == ''">
-                        <choose>
-                            <when test="listType==1">b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') </when>
-                            <when test="listType==2">b.bookStatus = '체크인대기' and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD')</when>
-                            <when test="listType==3">b.bookStatus = '체크인완료' and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD')</when>
-                            <when test="listType==4">b.bookStatus = '체크아웃완료' and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD')</when>
-                            <when test="listType==5">rb.breakfast = 1 and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD')</when>
-                            <when test="listType==6">d.resno is not null and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD')</when>
-                        </choose>
-                    </if>
-                    <if test="roomNum != 0 and name == ''">
-                        <choose>
-                            <when test="listType==1">rb.roomNo = #{roomNum} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') </when>
-                            <when test="listType==2">b.bookStatus = '체크인대기' and rb.roomNo = #{roomNum} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD')</when>
-                            <when test="listType==3">b.bookStatus = '체크인완료' and rb.roomNo = #{roomNum} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD')</when>
-                            <when test="listType==4">b.bookStatus = '체크아웃완료' and rb.roomNo = #{roomNum} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD')</when>
-                            <when test="listType==5">rb.breakfast = 1 and rb.roomNo = #{roomNum} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD')</when>
-                            <when test="listType==6">d.resno is not null and rb.roomNo = #{roomNo} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD')</when>
-                        </choose>
-                    </if>
-                    <if test="roomNum == 0 and name != ''">
-                        <choose>
-                            <when test="listType==1">b.booker = #{name} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') </when>
-                            <when test="listType==2">b.bookStatus = '체크인대기' and b.booker = #{name} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD')</when>
-                            <when test="listType==3">b.bookStatus = '체크인완료' and b.booker = #{name} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD')</when>
-                            <when test="listType==4">b.bookStatus = '체크아웃완료' and b.booker = #{name} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD')</when>
-                            <when test="listType==5">rb.breakfast = 1 and b.booker = #{name} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD')</when>
-                            <when test="listType==6">d.resno is not null and b.booker = #{name} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD')</when>
-                        </choose>
-                    </if>
-                </if>
-                <if test="fromDate != '' and toDate != ''">
-                    <if test="roomNum == 0 and name == ''">
-                        <choose>
-                            <when test="listType==1">b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') </when>
-                            <when test="listType==2">b.bookStatus = '체크인대기' and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD')</when>
-                            <when test="listType==3">b.bookStatus = '체크인완료' and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD')</when>
-                            <when test="listType==4">b.bookStatus = '체크아웃완료' and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD')</when>
-                            <when test="listType==5">rb.breakfast = 1 and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD')</when>
-                            <when test="listType==6">d.resno is not null and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD')</when>
-                        </choose>
-                    </if>
-                    <if test="roomNum != 0 and name == ''">
-                        <choose>
-                            <when test="listType==1">rb.roomNo = #{roomNum} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') </when>
-                            <when test="listType==2">b.bookStatus = '체크인대기' and rb.roomNo = #{roomNum} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD')</when>
-                            <when test="listType==3">b.bookStatus = '체크인완료' and rb.roomNo = #{roomNum} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD')</when>
-                            <when test="listType==4">b.bookStatus = '체크아웃완료' and rb.roomNo = #{roomNum} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD')</when>
-                            <when test="listType==5">rb.breakfast = 1 and rb.roomNo = #{roomNum} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD')</when>
-                            <when test="listType==6">d.resno is not null and rb.roomNo = #{roomNo} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD')</when>
-                        </choose>
-                    </if>
-                    <if test="roomNum == 0 and name != ''">
-                        <choose>
-                            <when test="listType==1">b.booker = #{name} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') </when>
-                            <when test="listType==2">b.bookStatus = '체크인대기' and b.booker = #{name} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD')</when>
-                            <when test="listType==3">b.bookStatus = '체크인완료' and b.booker = #{name} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD')</when>
-                            <when test="listType==4">b.bookStatus = '체크아웃완료' and b.booker = #{name} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD')</when>
-                            <when test="listType==5">rb.breakfast = 1 and b.booker = #{name} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD')</when>
-                            <when test="listType==6">d.resno is not null and b.booker = #{name} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD')</when>
-                        </choose>
-                    </if>
-                </if>
+            <if test="roomNum == 0 and name == ''">
             </if>
-            <if test="isStay == false and isRestaurant == true">
-                <if test="fromDate ==''">
-                    <if test="roomNum == 0 and name == ''">
-                        <choose>
-                            <when test="listType==1">TRUNC(b.bookDate) = TRUNC(sysdate) and d.resno is not null </when>
-                            <when test="listType==2">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크인대기' and d.resno is not null</when>
-                            <when test="listType==3">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크인완료' and d.resno is not null</when>
-                            <when test="listType==4">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크아웃완료' and d.resno is not null</when>
-                            <when test="listType==5">TRUNC(b.bookDate) = TRUNC(sysdate) and rb.breakfast = 1 and d.resno is not null</when>
-                            <when test="listType==6">TRUNC(b.bookDate) = TRUNC(sysdate) and d.resno is not null</when>
-                        </choose>
-                    </if>
-                    <if test="roomNum != 0 and name == ''">
-                        <choose>
-                            <when test="listType==1">TRUNC(b.bookDate) = TRUNC(sysdate) and rb.roomNo = #{roomNum} and d.resno is not null</when>
-                            <when test="listType==2">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크인대기' and rb.roomNo = #{roomNum} and d.resno is not null</when>
-                            <when test="listType==3">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크인완료' and rb.roomNo = #{roomNum} and d.resno is not null</when>
-                            <when test="listType==4">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크아웃완료' and rb.roomNo = #{roomNum} and d.resno is not null</when>
-                            <when test="listType==5">TRUNC(b.bookDate) = TRUNC(sysdate) and rb.breakfast = 1 and rb.roomNo = #{roomNum} and d.resno is not null</when>
-                            <when test="listType==6">TRUNC(b.bookDate) = TRUNC(sysdate) and d.resno is not null and rb.roomNo = #{roomNo}</when>
-                        </choose>
-                    </if>
-                    <if test="roomNum == 0 and name != ''">
-                        <choose>
-                            <when test="listType==1">TRUNC(b.bookDate) = TRUNC(sysdate) and b.booker = #{name} and d.resno is not null </when>
-                            <when test="listType==2">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크인대기' and b.booker = #{name} and d.resno is not null</when>
-                            <when test="listType==3">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크인완료' and b.booker = #{name} and d.resno is not null</when>
-                            <when test="listType==4">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크아웃완료' and b.booker = #{name} and d.resno is not null</when>
-                            <when test="listType==5">TRUNC(b.bookDate) = TRUNC(sysdate) and rb.breakfast = 1 and b.booker = #{name} and d.resno is not null</when>
-                            <when test="listType==6">TRUNC(b.bookDate) = TRUNC(sysdate) and d.resno is not null and b.booker = #{name}</when>
-                        </choose>
-                    </if>
-                </if>
-                <if test="fromDate != '' and toDate == ''">
-                    <if test="roomNum == 0 and name == ''">
-                        <choose>
-                            <when test="listType==1">b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and d.resno is not null</when>
-                            <when test="listType==2">b.bookStatus = '체크인대기' and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and d.resno is not null</when>
-                            <when test="listType==3">b.bookStatus = '체크인완료' and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and d.resno is not null</when>
-                            <when test="listType==4">b.bookStatus = '체크아웃완료' and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and d.resno is not null</when>
-                            <when test="listType==5">rb.breakfast = 1 and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and d.resno is not null</when>
-                            <when test="listType==6">d.resno is not null and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD')</when>
-                        </choose>
-                    </if>
-                    <if test="roomNum != 0 and name == ''">
-                        <choose>
-                            <when test="listType==1">rb.roomNo = #{roomNum} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and d.resno is not null</when>
-                            <when test="listType==2">b.bookStatus = '체크인대기' and rb.roomNo = #{roomNum} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and d.resno is not null</when>
-                            <when test="listType==3">b.bookStatus = '체크인완료' and rb.roomNo = #{roomNum} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and d.resno is not null</when>
-                            <when test="listType==4">b.bookStatus = '체크아웃완료' and rb.roomNo = #{roomNum} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and d.resno is not null</when>
-                            <when test="listType==5">rb.breakfast = 1 and rb.roomNo = #{roomNum} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and d.resno is not null</when>
-                            <when test="listType==6">d.resno is not null and rb.roomNo = #{roomNo} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD')</when>
-                        </choose>
-                    </if>
-                    <if test="roomNum == 0 and name != ''">
-                        <choose>
-                            <when test="listType==1">b.booker = #{name} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and d.resno is not null </when>
-                            <when test="listType==2">b.bookStatus = '체크인대기' and b.booker = #{name} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and d.resno is not null</when>
-                            <when test="listType==3">b.bookStatus = '체크인완료' and b.booker = #{name} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and d.resno is not null</when>
-                            <when test="listType==4">b.bookStatus = '체크아웃완료' and b.booker = #{name} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and d.resno is not null</when>
-                            <when test="listType==5">rb.breakfast = 1 and b.booker = #{name} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and d.resno is not null</when>
-                            <when test="listType==6">d.resno is not null and b.booker = #{name} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD')</when>
-                        </choose>
-                    </if>
-                </if>
-                <if test="fromDate != '' and toDate != ''">
-                    <if test="roomNum == 0 and name == ''">
-                        <choose>
-                            <when test="listType==1">b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and d.resno is not null</when>
-                            <when test="listType==2">b.bookStatus = '체크인대기' and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and d.resno is not null</when>
-                            <when test="listType==3">b.bookStatus = '체크인완료' and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and d.resno is not null</when>
-                            <when test="listType==4">b.bookStatus = '체크아웃완료' and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and d.resno is not null</when>
-                            <when test="listType==5">rb.breakfast = 1 and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and d.resno is not null</when>
-                            <when test="listType==6">d.resno is not null and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD')</when>
-                        </choose>
-                    </if>
-                    <if test="roomNum != 0 and name == ''">
-                        <choose>
-                            <when test="listType==1">rb.roomNo = #{roomNum} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and d.resno is not null</when>
-                            <when test="listType==2">b.bookStatus = '체크인대기' and rb.roomNo = #{roomNum} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and d.resno is not null</when>
-                            <when test="listType==3">b.bookStatus = '체크인완료' and rb.roomNo = #{roomNum} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and d.resno is not null</when>
-                            <when test="listType==4">b.bookStatus = '체크아웃완료' and rb.roomNo = #{roomNum} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and d.resno is not null</when>
-                            <when test="listType==5">rb.breakfast = 1 and rb.roomNo = #{roomNum} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and d.resno is not null</when>
-                            <when test="listType==6">d.resno is not null and rb.roomNo = #{roomNo} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD')</when>
-                        </choose>
-                    </if>
-                    <if test="roomNum == 0 and name != ''">
-                        <choose>
-                            <when test="listType==1">b.booker = #{name} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and d.resno is not null</when>
-                            <when test="listType==2">b.bookStatus = '체크인대기' and b.booker = #{name} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and d.resno is not null</when>
-                            <when test="listType==3">b.bookStatus = '체크인완료' and b.booker = #{name} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and d.resno is not null</when>
-                            <when test="listType==4">b.bookStatus = '체크아웃완료' and b.booker = #{name} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and d.resno is not null</when>
-                            <when test="listType==5">rb.breakfast = 1 and b.booker = #{name} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and d.resno is not null</when>
-                            <when test="listType==6">d.resno is not null and b.booker = #{name} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD')</when>
-                        </choose>
-                    </if>
-                </if>
+            <if test="roomNum != 0 and name == ''">
+                roomNo = #{roomNum}
             </if>
-            <if test="isStay == true and isRestaurant == false">
-                <if test="fromDate ==''">
-                    <if test="roomNum == 0 and name == ''">
-                        <choose>
-                            <when test="listType==1">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookNo is not null </when>
-                            <when test="listType==2">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크인대기' and b.bookNo is not null</when>
-                            <when test="listType==3">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크인완료' and b.bookNo is not null</when>
-                            <when test="listType==4">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크아웃완료' and b.bookNo is not null</when>
-                            <when test="listType==5">TRUNC(b.bookDate) = TRUNC(sysdate) and rb.breakfast = 1 and b.bookNo is not null</when>
-                            <when test="listType==6">TRUNC(b.bookDate) = TRUNC(sysdate) and d.resno is not null and b.bookNo is not null</when>
-                        </choose>
-                    </if>
-                    <if test="roomNum != 0 and name == ''">
-                        <choose>
-                            <when test="listType==1">TRUNC(b.bookDate) = TRUNC(sysdate) and rb.roomNo = #{roomNum} and b.bookNo is not null</when>
-                            <when test="listType==2">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크인대기' and rb.roomNo = #{roomNum} and b.bookNo is not null</when>
-                            <when test="listType==3">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크인완료' and rb.roomNo = #{roomNum} and b.bookNo is not null</when>
-                            <when test="listType==4">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크아웃완료' and rb.roomNo = #{roomNum} and b.bookNo is not null</when>
-                            <when test="listType==5">TRUNC(b.bookDate) = TRUNC(sysdate) and rb.breakfast = 1 and rb.roomNo = #{roomNum} and b.bookNo is not null</when>
-                            <when test="listType==6">TRUNC(b.bookDate) = TRUNC(sysdate) and d.resno is not null and rb.roomNo = #{roomNo} and b.bookNo is not null</when>
-                        </choose>
-                    </if>
-                    <if test="roomNum == 0 and name != ''">
-                        <choose>
-                            <when test="listType==1">TRUNC(b.bookDate) = TRUNC(sysdate) and b.booker = #{name} and b.bookNo is not null </when>
-                            <when test="listType==2">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크인대기' and b.booker = #{name} and b.bookNo is not null</when>
-                            <when test="listType==3">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크인완료' and b.booker = #{name} and b.bookNo is not null</when>
-                            <when test="listType==4">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크아웃완료' and b.booker = #{name} and b.bookNo is not null</when>
-                            <when test="listType==5">TRUNC(b.bookDate) = TRUNC(sysdate) and rb.breakfast = 1 and b.booker = #{name} and b.bookNo is not null</when>
-                            <when test="listType==6">TRUNC(b.bookDate) = TRUNC(sysdate) and d.resno is not null and b.booker = #{name} and b.bookNo is not null</when>
-                        </choose>
-                    </if>
-                </if>
-                <if test="fromDate != '' and toDate == ''">
-                    <if test="roomNum == 0 and name == ''">
-                        <choose>
-                            <when test="listType==1">b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                            <when test="listType==2">b.bookStatus = '체크인대기' and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                            <when test="listType==3">b.bookStatus = '체크인완료' and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                            <when test="listType==4">b.bookStatus = '체크아웃완료' and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                            <when test="listType==5">rb.breakfast = 1 and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                            <when test="listType==6">d.resno is not null and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                        </choose>
-                    </if>
-                    <if test="roomNum != 0 and name == ''">
-                        <choose>
-                            <when test="listType==1">rb.roomNo = #{roomNum} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                            <when test="listType==2">b.bookStatus = '체크인대기' and rb.roomNo = #{roomNum} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                            <when test="listType==3">b.bookStatus = '체크인완료' and rb.roomNo = #{roomNum} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                            <when test="listType==4">b.bookStatus = '체크아웃완료' and rb.roomNo = #{roomNum} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                            <when test="listType==5">rb.breakfast = 1 and rb.roomNo = #{roomNum} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                            <when test="listType==6">d.resno is not null and rb.roomNo = #{roomNo} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                        </choose>
-                    </if>
-                    <if test="roomNum == 0 and name != ''">
-                        <choose>
-                            <when test="listType==1">b.booker = #{name} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null </when>
-                            <when test="listType==2">b.bookStatus = '체크인대기' and b.booker = #{name} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                            <when test="listType==3">b.bookStatus = '체크인완료' and b.booker = #{name} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                            <when test="listType==4">b.bookStatus = '체크아웃완료' and b.booker = #{name} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                            <when test="listType==5">rb.breakfast = 1 and b.booker = #{name} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                            <when test="listType==6">d.resno is not null and b.booker = #{name} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                        </choose>
-                    </if>
-                </if>
-                <if test="fromDate != '' and toDate != ''">
-                    <if test="roomNum == 0 and name == ''">
-                        <choose>
-                            <when test="listType==1">b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                            <when test="listType==2">b.bookStatus = '체크인대기' and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                            <when test="listType==3">b.bookStatus = '체크인완료' and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                            <when test="listType==4">b.bookStatus = '체크아웃완료' and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                            <when test="listType==5">rb.breakfast = 1 and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                            <when test="listType==6">d.resno is not null and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                        </choose>
-                    </if>
-                    <if test="roomNum != 0 and name == ''">
-                        <choose>
-                            <when test="listType==1">rb.roomNo = #{roomNum} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                            <when test="listType==2">b.bookStatus = '체크인대기' and rb.roomNo = #{roomNum} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                            <when test="listType==3">b.bookStatus = '체크인완료' and rb.roomNo = #{roomNum} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                            <when test="listType==4">b.bookStatus = '체크아웃완료' and rb.roomNo = #{roomNum} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                            <when test="listType==5">rb.breakfast = 1 and rb.roomNo = #{roomNum} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                            <when test="listType==6">d.resno is not null and rb.roomNo = #{roomNo} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                        </choose>
-                    </if>
-                    <if test="roomNum == 0 and name != ''">
-                        <choose>
-                            <when test="listType==1">TRUNC(b.bookDate) = TRUNC(sysdate) and b.booker = #{name} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                            <when test="listType==2">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크인대기' and b.booker = #{name} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                            <when test="listType==3">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크인완료' and b.booker = #{name} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                            <when test="listType==4">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크아웃완료' and b.booker = #{name} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                            <when test="listType==5">TRUNC(b.bookDate) = TRUNC(sysdate) and rb.breakfast = 1 and b.booker = #{name} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                            <when test="listType==6">TRUNC(b.bookDate) = TRUNC(sysdate) and d.resno is not null and b.booker = #{name} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                        </choose>
-                    </if>
-                </if>
+            <if test="roomNum == 0 and name != ''">
+                booker = #{name}
             </if>
-            <if test="isStay == true and isRestaurant == true">
-                <if test="fromDate ==''">
-                    <if test="roomNum == 0 and name == ''">
-                        <choose>
-                            <when test="listType==1">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookNo is not null and d.resno is not null </when>
-                            <when test="listType==2">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크인대기' and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==3">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크인완료' and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==4">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크아웃완료' and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==5">TRUNC(b.bookDate) = TRUNC(sysdate) and rb.breakfast = 1 and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==6">TRUNC(b.bookDate) = TRUNC(sysdate) and d.resno is not null and b.bookNo is not null</when>
-                        </choose>
-                    </if>
-                    <if test="roomNum != 0 and name == ''">
-                        <choose>
-                            <when test="listType==1">TRUNC(b.bookDate) = TRUNC(sysdate) and rb.roomNo = #{roomNum} and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==2">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크인대기' and rb.roomNo = #{roomNum} and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==3">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크인완료' and rb.roomNo = #{roomNum} and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==4">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크아웃완료' and rb.roomNo = #{roomNum} and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==5">TRUNC(b.bookDate) = TRUNC(sysdate) and rb.breakfast = 1 and rb.roomNo = #{roomNum} and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==6">TRUNC(b.bookDate) = TRUNC(sysdate) and d.resno is not null and rb.roomNo = #{roomNo} and b.bookNo is not null</when>
-                        </choose>
-                    </if>
-                    <if test="roomNum == 0 and name != ''">
-                        <choose>
-                            <when test="listType==1">TRUNC(b.bookDate) = TRUNC(sysdate) and b.booker = #{name} and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==2">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크인대기' and b.booker = #{name} and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==3">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크인완료' and b.booker = #{name} and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==4">TRUNC(b.bookDate) = TRUNC(sysdate) and b.bookStatus = '체크아웃완료' and b.booker = #{name} and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==5">TRUNC(b.bookDate) = TRUNC(sysdate) and rb.breakfast = 1 and b.booker = #{name} and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==6">TRUNC(b.bookDate) = TRUNC(sysdate) and d.resno is not null and b.booker = #{name} and b.bookNo is not null</when>
-                        </choose>
-                    </if>
-                </if>
-                <if test="fromDate != '' and toDate == ''">
-                    <if test="roomNum == 0 and name == ''">
-                        <choose>
-                            <when test="listType==1">b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==2">b.bookStatus = '체크인대기' and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==3">b.bookStatus = '체크인완료' and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==4">b.bookStatus = '체크아웃완료' and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==5">rb.breakfast = 1 and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==6">d.resno is not null and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                        </choose>
-                    </if>
-                    <if test="roomNum != 0 and name == ''">
-                        <choose>
-                            <when test="listType==1">rb.roomNo = #{roomNum} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==2">b.bookStatus = '체크인대기' and rb.roomNo = #{roomNum} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==3">b.bookStatus = '체크인완료' and rb.roomNo = #{roomNum} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==4">b.bookStatus = '체크아웃완료' and rb.roomNo = #{roomNum} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==5">rb.breakfast = 1 and rb.roomNo = #{roomNum} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==6">d.resno is not null and rb.roomNo = #{roomNo} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                        </choose>
-                    </if>
-                    <if test="roomNum == 0 and name != ''">
-                        <choose>
-                            <when test="listType==1">b.booker = #{name} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==2">b.bookStatus = '체크인대기' and b.booker = #{name} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==3">b.bookStatus = '체크인완료' and b.booker = #{name} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==4">b.bookStatus = '체크아웃완료' and b.booker = #{name} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==5">rb.breakfast = 1 and b.booker = #{name} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==6">d.resno is not null and b.booker = #{name} and b.bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                        </choose>
-                    </if>
-                </if>
-                <if test="fromDate != '' and toDate != ''">
-                    <if test="roomNum == 0 and name == ''">
-                        <choose>
-                            <when test="listType==1">b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==2">b.bookStatus = '체크인대기' and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==3">b.bookStatus = '체크인완료' and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==4">b.bookStatus = '체크아웃완료' and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==5">rb.breakfast = 1 and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==6">d.resno is not null and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                        </choose>
-                    </if>
-                    <if test="roomNum != 0 and name == ''">
-                        <choose>
-                            <when test="listType==1">rb.roomNo = #{roomNum} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==2">b.bookStatus = '체크인대기' and rb.roomNo = #{roomNum} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==3">b.bookStatus = '체크인완료' and rb.roomNo = #{roomNum} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==4">b.bookStatus = '체크아웃완료' and rb.roomNo = #{roomNum} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==5">rb.breakfast = 1 and rb.roomNo = #{roomNum} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==6">d.resno is not null and rb.roomNo = #{roomNo} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                        </choose>
-                    </if>
-                    <if test="roomNum == 0 and name != ''">
-                        <choose>
-                            <when test="listType==1">b.booker = #{name} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==2">b.bookStatus = '체크인대기' and b.booker = #{name} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==3">b.bookStatus = '체크인완료' and b.booker = #{name} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==4">b.bookStatus = '체크아웃완료' and b.booker = #{name} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==5">rb.breakfast = 1 and b.booker = #{name} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null and d.resno is not null</when>
-                            <when test="listType==6">d.resno is not null and b.booker = #{name} and b.bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD') and b.bookNo is not null</when>
-                        </choose>
-                    </if>
-                </if>
+            <if test="roomNum != 0 and name != ''">
+                booker = #{name} and roomNo = #{roomNum}
             </if>
         </where>
+        )
+    <where>
+        <choose>
+            <when test="listType==1"></when>
+            <when test="listType==2">bookStatus = '체크인대기'</when>
+            <when test="listType==3">bookStatus = '체크인완료'</when>
+            <when test="listType==4">bookStatus = '체크아웃완료'</when>
+            <when test="listType==5">breakfast = 1</when>
+            <when test="listType==6">resno is not null</when>
+        </choose>
+    </where>
     </select>
 </mapper>

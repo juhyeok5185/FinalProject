@@ -15,6 +15,8 @@ public class ManagerDto {
     @ToString
     @Builder
 	public static class findBookList {
+        private Integer bookNo;
+        private Integer rbBookNo;
         private String booker;
         private String bookTel;
         private Integer totalCount;
