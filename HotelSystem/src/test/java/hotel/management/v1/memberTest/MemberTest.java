@@ -21,7 +21,7 @@ public class MemberTest {
     @Test
     public void test() {
     	String password = "1234";
-    	Member member = new Member("admin","관리자","01066805185",encoder.encode(password),"juhyeok.park@gmail.com","781203",0,false,Level.BRONZE,Role.ADMIN,0,false,false);
+    	Member member = new Member("admin","관리자","01066805185",encoder.encode(password),"admin@naver.com","781203",0,false,Level.BRONZE,Role.ADMIN,0,false,false);
     	dao.save(member);
     }
 }
