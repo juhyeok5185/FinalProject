@@ -1,3 +1,5 @@
+<!-- 관리자 :  김동욱 -->
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -13,70 +15,12 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://kit.fontawesome.com/7fe498c607.js" crossorigin="anonymous"></script>
   <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72764d4407eae4771ae834fbbe85f476"></script>
+  <link rel="stylesheet" href="/css/mallStyle.css">
   <link rel="stylesheet" href="/css/managementStyle.css">
   <link rel="stylesheet" href="/css/style.css">
+  
   <title>관리자</title>
   <script>
-    function openPopup(url) {  
-      window.open(url, 'memberDetail', 'width=800, height=700, scrollbars=1, toolbar=1, menubar=yes, left=300px, top=100px');
-    }
-
-    function addList(list){
-      const $listBody = $('#listBody');
-      $listBody.empty();
-      if(list.length == 0){
-        const tableContent = 
-        `
-          <tr>
-            <td rowspan="6">검색결과가 없습니다.</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        `;
-        $listBody.append(tableContent);
-      }
-      else{
-        for(const l of list) {
-          const tableContent = `
-          <tr>
-            <td><a href="#" onclick="openPopup('/hotel/manager/memberDetail?name=${l.name}')">${l.name}</a></td>
-            <td>${l.tel}</td>
-            <td>${l.email}</td>
-            <td>${l.username}</td>
-            <td>${l.black}</td>
-            <td>${l.vip}</td>
-          </tr>
-            `
-          $listBody.append(tableContent);
-        }
-      }
-      }
-      
-    $(document).ready(function(){
-      $('#searchName').on('keyup', function(event) {
-      // 엔터키가 눌리면
-      if (event.keyCode === 13) {
-        // 검색 버튼 클릭과 동일한 이벤트 발생
-        $('#nameSearchBtn').click();
-      }
-    });
-
-    $('#nameSearchBtn').on('click' ,async function(){
-      const name = $('#searchName').val();
-      try {
-        const list = await $.ajax({
-          url: '/hotel/manager/memberSearch?name='+name,
-          method: 'post'
-      });
-      addList(list);
-      } catch(err) {
-         console.log(err);
-     }
-    })
-  })
   </script>
 </head>
 <body id="body">
@@ -98,7 +42,7 @@
           <li><a href="/hotel/manager/bookList" id="textcolor">예약조회</a></li>
           <li><a href="/hotel/manager/memberSearch" id="textcolor">회원조회</a></li>
           <li><a href="/hotel/manager/book" id="textcolor">예약</a></li>
-          <li><a href="/hotel/mall/list" id="textcolor">명품관</a></li>
+          <li><a href="/hotel/manager/managerMallList" id="textcolor">명품관</a></li>
           <li><a href="#" id="textcolor">문의게시판</a></li>
         </ul>
       </div>
@@ -126,24 +70,18 @@
             </colgroup>
             <thead id = "listthead">
               <tr>
-                <th>이름</th>
-                <th>연락처</th>
-                <th>이메일</th>
-                <th>아이디</th>
-                <th>블랙리스트</th>
-                <th>VIP</th>
+                <th>상품명</th>
+                <th>수량</th>
+                <th>가격</th>
               </tr>
             </thead>
             <tbody id="listBody">
             </tbody>
           </table>
         </div>
+      </div>
     </div>
-
   </div>
-
-</div>
-
 
 <div id="managerFooter">
   <div id="managerFooterLogo">

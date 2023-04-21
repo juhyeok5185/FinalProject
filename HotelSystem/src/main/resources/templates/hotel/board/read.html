@@ -40,64 +40,70 @@
           </div>
         </div>
         <hr>
-              <div class="insert" id="reportinsert">
+         <div class="insert" id="reportinsert">
           <table id="reporttable">
             <tr>
-                <td class="col1">작성일<hr></td>
-                <td class="col2">
-                 <div th:text="${board.writeDay}"></div> 
-                <hr></td>
+              <td class="col1">작성일<hr></td>
+              <td class="col2">
+              <div th:text="${board.writeDay}"></div> 
+              <hr>
+              </td>
+              </tr>
+            <tr>
+              <td class="col1"><span id="notnull"> </span>작성자<hr></td>
+              <td class="col2">
+              <div  th:text="${board.username}"></div>
+              <hr></td>
             </tr>
             <tr>
-                <td class="col1"><span id="notnull"> </span>작성자<hr></td>
-                <td class="col2">
-                <div  th:text="${board.username}"></div>
-                <hr></td>
+              <td class="col1"><span id="notnull"></span>제목<hr></td>
+              <td class="col2">
+              <div th:text="${board.title}"></div>
+              <hr></td>
             </tr>
             <tr>
-                <td class="col1"><span id="notnull"></span>제목<hr></td>
-                <td class="col2">
-                <div th:text="${board.title}"></div>
-                <hr></td>
-            </tr>
-            <tr>
-                <td class="col1"><span id="notnull"></span>내용<hr></td>
-                <td class="col2">
+              <td class="col1"><span id="notnull"></span>내용<hr></td>
+              <td class="col2">
                 <div th:text="${board.content}"></div>
-                <hr></td>
+              <hr></td>
             </tr>
             <tr>
-			  	<td class="col1"><span id="notnull"></span>답변<hr></td>
-                <td class="col2">
-				<span th:text="${board.replyContent}"></span></td>
+			  <td class="col1" sec:authorize="hasRole('ADMIN')"><span id="notnull"></span>답변<hr></td>
+              <td class="col2" sec:authorize="hasRole('ADMIN')">
+		        <span th:text="${board.replyContent}"></span></td>
+			  <!--
+			  <td class="col1"><span id="notnull"></span>답변<hr></td>
+              <td class="col2">
+              -->
             </tr>
-            <tr>
-                <td class="col1"><span id="notnull"></span>답변</td>
-                <td class="col2">
-                <form action="/hotel/board/read" method="post">
-				  <input type="hidden" name="boardNo" th:field="*{board.boardNo}">
-				  <textarea id="replyContent" name="replyContent" cols="80" rows="4"></textarea>
-			
-				  <!-- 목록 -->
-				  <span id="listbutton" ><a id="listbutton" type="button" class="btn btn-outline-dark" href="/hotel/board/list">목록</a></span>
-			
-				  <!-- 답변 -->
-				  <span id="replybutton"><button id="replybutton" class="btn btn-outline-dark" sec:authorize="hasRole('ADMIN')">답변</button></span>
+   			<!-- 답변 -->	 
+			<tr>
+              <td class="col1" sec:authorize="hasRole('ADMIN')"><span id="notnull"></span>답변</td>
+              <td class="col2" sec:authorize="hasRole('ADMIN')">
+	          <!-- 
+              <td class="col1"><span id="notnull"></span>답변</td>
+              <td class="col2">
+			  -->
+	          <form action="/hotel/board/read" method="post"><input type="hidden" name="boardNo" th:field="*{board.boardNo}"><textarea id="replyContent" name="replyContent" cols="80" rows="4"></textarea>
+			  <span id="replybutton"><button id="replybutton" class="btn btn-outline-dark">답변</button></span>
+		      </form>
+		    </tr>
+		    <tr>
+		 	 <td>
+  <!-- 목록 --><div><a id="listbutton" type="button" class="btn btn-outline-dark" href="/hotel/board/list">목록</a></div> 
+  <!-- 삭제 --><div id="deletebutton">
+				<form action="/hotel/board/delete" method="post">
+  				<input type="hidden" name="boardNo" th:field="*{board.boardNo}">
+  				<button id="deletebutton" type="submit" class="btn btn-outline-dark" sec:authorize="hasRole('ADMIN')">글삭제</button>
 				</form>
-				  <!-- 삭제 -->
-				<div id="deletebutton">
-				  <form action="/hotel/board/delete" method="post">
-  				    <input type="hidden" name="boardNo" th:field="*{board.boardNo}">
-  				    <button id="deletebutton" type="submit" class="btn btn-outline-dark" sec:authorize="hasRole('USER')">글삭제</button>
-				  </form>
-				</div>
-                </td>
-         	   </tr>	
+			  </div>
+			 </td>
+			</tr>
           </table>
        </div>
      </div>
    </div>
     <!--풋터-->
-    <div th:replace="~{/fragment/footer.html}"></div>
+ <div th:replace="~{/fragment/footer.html}"></div>
 </body>
 </html>
