@@ -36,6 +36,7 @@ public class Member {
 		String email2 = emails[1];
 		return new MemberDto.Read(name, username, email1, email2, tel, userLevel.getKorean());
 	}
+
 }
 	
 	
