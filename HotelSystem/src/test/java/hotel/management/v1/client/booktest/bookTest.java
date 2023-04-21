@@ -19,6 +19,7 @@ public class bookTest {
 
 	@Test
 	public void name() {
+		System.out.println(username.length);
 		for (int i = 0; i < username.length; i++) {
 			bookDto.addbook book = new addbook(username[i], "2" + i + "/04/2023", 5, booktel[i], booker[i]);
 			System.out.println(book.toString());
