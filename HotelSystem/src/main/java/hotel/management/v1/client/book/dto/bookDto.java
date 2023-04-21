@@ -1,9 +1,5 @@
 package hotel.management.v1.client.book.dto;
 
-import java.time.LocalDate;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.ToString;

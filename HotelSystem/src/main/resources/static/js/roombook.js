@@ -5,6 +5,8 @@ function printRoomList($roomlist, $footer) {
 							<input type = "number" id = "totalcnt" max="4" min="1">
 							<input type="checkbox" id = "bfcheckbox">
 							<span>조식여부</span>
+							<input type="checkbox" id = "dicheckbox">
+							<span>석식여부</span>
 							<input type="text" id = "booker">
 							<span>예약자</span>
 							<input type="text" id = "booktel">
@@ -36,6 +38,7 @@ $(document).ready(function() {
 		const $booker = $('#booker').val();
 		const $booktel = $('#booktel').val();
 		const $totalcnt = $('#totalcnt').val();
+		const $dicheckbox = $('#dicheckbox').val()
 		const param = {
 
 			from: $from,
@@ -43,8 +46,10 @@ $(document).ready(function() {
 			totalcnt: $totalcnt,
 			gradename: gradeName,
 			bfcheckbox: $bfcheckbox,
+			dicheckbox : $dicheckbox,
 			booker: $booker,
 			booktel: $booktel
+			
 		}
 		if ($booker == "" || $booktel == "") {
 			alert("예약자와 연락처는 필수 입력 사항입니다")
