@@ -9,7 +9,6 @@ import hotel.management.v1.member.dao.MemberDao;
 import hotel.management.v1.member.entity.Level;
 import hotel.management.v1.member.entity.Member;
 import hotel.management.v1.member.entity.Role;
-import lombok.Builder;
 
 @SpringBootTest
 public class MemberTest {
