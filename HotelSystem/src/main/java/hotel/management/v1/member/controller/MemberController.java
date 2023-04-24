@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import hotel.management.v1.member.dto.MemberDto;
+import hotel.management.v1.member.entity.Member;
 import hotel.management.v1.member.service.MemberService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -44,8 +45,13 @@ public class MemberController {
     }
     
     @PreAuthorize("isAnonymous()")
-    @GetMapping("/member/login")
-    public void login() {}
+	@GetMapping("/member/login")
+	public void login(HttpSession session,Model model) {
+		if(session.getAttribute("msg")!=null) {
+			model.addAttribute("msg",session.getAttribute("msg"));
+			session.removeAttribute("msg");
+		}
+	}
     
     
     @GetMapping("/member/joincomplete")
@@ -69,7 +75,10 @@ public class MemberController {
 	
 	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/member/myPage")
-		public void myPage() {
+		public ModelAndView myPage(Principal principal) {
+		MemberDto.Read dto = service.read(principal.getName());
+		System.out.println(dto);
+		return new ModelAndView("/hotel/member/myPage").addObject("member", dto);
 		}
 	
 	@PreAuthorize("isAnonymous()")

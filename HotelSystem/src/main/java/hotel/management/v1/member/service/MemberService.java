@@ -99,7 +99,7 @@ public class MemberService {
 		Member member = dao.findByUsername(username).get();
 		return member.toReadDto();
 	}
-
+	
 	public Boolean update(String email, String tel, String username) {
 		return dao.update(email, tel, username)==1;
 	}
