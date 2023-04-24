@@ -43,7 +43,7 @@ function telCheck() {
 function usernameCheck() {
 	const value = $("#username").val();
 	$('#username').val(value);
-	return check(value,/^[a-zA-Z0-9]{7,10}$/, "아이디는 문자, 숫자의 조합 7~10자입니다",$('#username_msg'));
+	return check(value,/^[a-z0-9]{7,10}$/, "아이디는 문자, 숫자의 조합 7~10자입니다",$('#username_msg'));
 }
 
 function passwordCheck() {

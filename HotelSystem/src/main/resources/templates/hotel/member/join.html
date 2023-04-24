@@ -21,6 +21,17 @@
 	if(msg!=null)
 		alert(msg);
   </script>
+  <script>
+	  $(document).ready(function() {
+	  		$('#username').keyup(function(e) {
+	  			e.preventDefault();
+				e.stopPropagation();
+				let str= e.target.value;
+				str=str.toLowerCase();
+				e.target.value=str;
+	  		});
+	  });
+  </script>
   <title>J.H.H.L</title>
 </head>
 <body>
