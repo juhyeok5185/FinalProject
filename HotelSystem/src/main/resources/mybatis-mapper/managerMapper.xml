@@ -126,6 +126,7 @@ select *
                     TRUNC(bookDate) = TRUNC(sysdate)
                 </if>
                 <if test="fromDate =='' and todayCheckBox == false">
+                    TRUNC(bookDate) = TRUNC(sysdate)
                 </if>
                 <if test="fromDate != '' and toDate == '' and todayCheckBox == false">
                     bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD')
@@ -134,7 +135,19 @@ select *
                     bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD')
                 </if>
             </where>)
-        <where>
+         <where>
+             <choose>
+                    <when test="listType==1"></when>
+                    <when test="listType==2">bookStatus = '체크인대기'</when>
+                    <when test="listType==3">bookStatus = '체크인완료'</when>
+                    <when test="listType==4">bookStatus = '체크아웃완료'</when>
+                    <when test="listType==5">breakfast = 1</when>
+                    <when test="listType==6">resno is not null</when>
+             </choose>
+            </where>
+        )
+
+    <where>
             <if test="roomNum == 0 and name == ''">
             </if>
             <if test="roomNum != 0 and name == ''">
@@ -146,17 +159,6 @@ select *
             <if test="roomNum != 0 and name != ''">
                 booker = #{name} and roomNo = #{roomNum}
             </if>
-        </where>
-        )
-    <where>
-        <choose>
-            <when test="listType==1"></when>
-            <when test="listType==2">bookStatus = '체크인대기'</when>
-            <when test="listType==3">bookStatus = '체크인완료'</when>
-            <when test="listType==4">bookStatus = '체크아웃완료'</when>
-            <when test="listType==5">breakfast = 1</when>
-            <when test="listType==6">resno is not null</when>
-        </choose>
     </where>
     </select>
 </mapper>

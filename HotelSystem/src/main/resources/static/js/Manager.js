@@ -152,11 +152,14 @@ $(document).ready(function () {
 
     let stayCheckBox = $("#stayCheckBox").is(":checked");
     let restaurantCheckBox = $("#restaurantCheckBox").is(":checked");
+    let todayCheckBox = $("#todayCheckBox").is(":checked");
+
     const param = {
       isStay: stayCheckBox,
       isRestaurant: restaurantCheckBox,
       fromDate: $("#from").val(),
       toDate: $("#to").val(),
+      todayCheckBox: todayCheckBox,
       roomNum: Number($("#searchRoomNumber").val()),
       name: $("#searchName").val(),
       listType: $(".dropdown-menu a.active").data("index"),
@@ -215,7 +218,6 @@ $(document).ready(function () {
     const [roomNo, roomStatus] = clickedMenuText.split("(");
     const parsedRoomStatus = roomStatus.replace(")", "");
     const bookerName = $("td:nth-child(2)", $(this).closest("tr")).text();
-    console.log(bookerName);
     if (parsedRoomStatus == "비어있음") {
       try {
         const searchCondition = await $.ajax({
