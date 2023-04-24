@@ -18,8 +18,10 @@
   <link rel="stylesheet" href="/css/style.css">
   <script th:inline="javascript">
 	const msg=[[${msg}]];
-	if(msg!=null)
+		console.log(msg);
+	if(msg!=null) {
 		alert(msg);
+	}
   </script>
   <script>
   	$(document).ready(function() {
