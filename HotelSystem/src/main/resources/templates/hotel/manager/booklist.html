@@ -16,9 +16,13 @@
   <link rel="stylesheet" href="/css/managementStyle.css">
   <link rel="stylesheet" href="/css/style.css">
   <title>관리자</title>
-  
+  <script th:inline="javascript">
+      var listarea = $("#listarea");
+      var currentHeight = listarea.height();
+      listarea.height(currentHeight + [[${bookList}]].length * 46);
+  </script>
 </head>
-<body id="body">
+<body id="managerBody">
 <div class="managment">
   <div id="headerAndnav" class="navbar navbar-expand-sm">
     <div id="div_logo">
@@ -130,7 +134,6 @@
                   <span th:if="${b.bookStatus == '예약취소'}"></span>
                 </td>
               </tr>
-
             </tbody>
           </table>
         </div>
