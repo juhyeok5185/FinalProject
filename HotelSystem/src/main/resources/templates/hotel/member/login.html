@@ -25,6 +25,13 @@
   </script>
   <script>
   	$(document).ready(function() {
+  		$('#username').keyup(function(e) {
+  			e.preventDefault();
+			e.stopPropagation();
+			let str= e.target.value;
+			str=str.toLowerCase();
+			e.target.value=str;
+  		});
   		$('#findidcheckbut').click(async function() {
   			try {
   				const username = await $.ajax('/hotel/member/find_id?name=' + $('#find_id_name').val() +'&email=' +  $('#find_id_email').val());
