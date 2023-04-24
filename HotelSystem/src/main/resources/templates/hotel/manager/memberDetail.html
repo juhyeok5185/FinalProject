@@ -66,13 +66,13 @@
                     <td th:text="${member.vip}"></td>
                 </tr>
             </table>
-            <button id="blackBtn">블랙리스트 변경
+            <button id="blackBtn" class="btn btn-primary">블랙리스트 변경
                 <input type="hidden" th:field="*{member.name}">
             </button>
-            <button id="vipBtn">VIP 변경				
+            <button id="vipBtn" class="btn btn-primary">VIP 변경				
                 <input type="hidden" th:field="*{member.name}">
             </button>
-            <button id="ableBtn">아이디 활성화				
+            <button id="ableBtn" class="btn btn-primary">아이디 활성화				
                 <input type="hidden" th:field="*{member.name}">
             </button>
         </div>

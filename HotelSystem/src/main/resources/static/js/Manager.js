@@ -112,7 +112,7 @@ function searchData(list) {
 function heightController(list) {
   var listAreaHeight = $("#listarea").height();
   var newPageHeight = listAreaHeight + list.length * 46;
-  $("#managerPage").height(newPageHeight);
+  $("#listarea").height(newPageHeight);
 }
 
 $(document).ready(function () {

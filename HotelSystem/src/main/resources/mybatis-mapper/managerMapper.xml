@@ -151,13 +151,13 @@ select *
             <if test="roomNum == 0 and name == ''">
             </if>
             <if test="roomNum != 0 and name == ''">
-                roomNo = #{roomNum}
+                roomNo = #{roomNum} and bookStaus = '체크인완료'
             </if>
             <if test="roomNum == 0 and name != ''">
-                booker = #{name}
+                booker LIKE '%' || #{name} || '%'
             </if>
             <if test="roomNum != 0 and name != ''">
-                booker = #{name} and roomNo = #{roomNum}
+                booker LIKE '%' || #{name} || '%' and roomNo = #{roomNum}
             </if>
     </where>
     </select>
