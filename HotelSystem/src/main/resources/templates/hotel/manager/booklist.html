@@ -17,9 +17,10 @@
   <link rel="stylesheet" href="/css/style.css">
   <title>관리자</title>
   <script th:inline="javascript">
-      var listarea = $("#listarea");
-      var currentHeight = listarea.height();
-      listarea.height(currentHeight + [[${bookList}]].length * 46);
+    $(document).ready(function () {
+      var currentHeight = $("#listarea").height();
+      $("#listarea").height(currentHeight + [[${bookList}]].length * 46);
+    })
   </script>
 </head>
 <body id="managerBody">
