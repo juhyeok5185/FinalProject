@@ -31,7 +31,7 @@ public class LoginFailHandler extends SimpleUrlAuthenticationFailureHandler {
 				Member member = memberDao.findByUsername(username).get();			
 				if(member.getLoginFailCount() <4) {
 					memberDao.increaseLoginFailCnt(username);
-					String msg = "로그인에 " + (member.getLoginFailCount()+1) 
+					String msg = "비밀번호를 잘못 입력하셨습니다. 로그인에 " + (member.getLoginFailCount()+1) 
 						+ "회 실패했습니다. 5회 실패 시 계정이 비활성화됩니다";
 					session.setAttribute("msg", msg);
 				} else {
