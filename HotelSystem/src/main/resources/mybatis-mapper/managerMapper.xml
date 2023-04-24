@@ -2,7 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="hotel.management.v1.manager.dao.ManagerDao">
     <select id="findBookList" resultType="hotel.management.v1.manager.dto.ManagerDto$findBookList">
-        select * from booklist WHERE TRUNC(checkin) = TRUNC(sysdate) OR TRUNC(checkout) = TRUNC(sysdate)
+        select * 
+        from booklist 
+        WHERE TRUNC(checkout) = TRUNC(sysdate) or TRUNC(bookDate) = TRUNC(sysdate)
     </select>
 
 
@@ -124,6 +126,7 @@ select *
                     TRUNC(bookDate) = TRUNC(sysdate)
                 </if>
                 <if test="fromDate =='' and todayCheckBox == false">
+                    TRUNC(bookDate) = TRUNC(sysdate)
                 </if>
                 <if test="fromDate != '' and toDate == '' and todayCheckBox == false">
                     bookdate = TO_DATE(#{fromDate}, 'YY/MM/DD')
@@ -132,7 +135,19 @@ select *
                     bookdate between TO_DATE(#{fromDate}, 'YY/MM/DD') and TO_DATE(#{toDate}, 'YY/MM/DD')
                 </if>
             </where>)
-        <where>
+         <where>
+             <choose>
+                    <when test="listType==1"></when>
+                    <when test="listType==2">bookStatus = '체크인대기'</when>
+                    <when test="listType==3">bookStatus = '체크인완료'</when>
+                    <when test="listType==4">bookStatus = '체크아웃완료'</when>
+                    <when test="listType==5">breakfast = 1</when>
+                    <when test="listType==6">resno is not null</when>
+             </choose>
+            </where>
+        )
+
+    <where>
             <if test="roomNum == 0 and name == ''">
             </if>
             <if test="roomNum != 0 and name == ''">
@@ -144,17 +159,6 @@ select *
             <if test="roomNum != 0 and name != ''">
                 booker = #{name} and roomNo = #{roomNum}
             </if>
-        </where>
-        )
-    <where>
-        <choose>
-            <when test="listType==1"></when>
-            <when test="listType==2">bookStatus = '체크인대기'</when>
-            <when test="listType==3">bookStatus = '체크인완료'</when>
-            <when test="listType==4">bookStatus = '체크아웃완료'</when>
-            <when test="listType==5">breakfast = 1</when>
-            <when test="listType==6">resno is not null</when>
-        </choose>
     </where>
     </select>
 </mapper>
