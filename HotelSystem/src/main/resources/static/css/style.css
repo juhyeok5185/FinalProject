@@ -2839,6 +2839,12 @@ div #logintoolbar > a {
     #internalFacilities_article-1 {
     	display: none;
     }
+    #internalFacilities_staypage-1 {
+    	display: none;
+    }
+    #internalFacilities_stayarticle-1 {
+    	display: none;
+    }
     
     
     
@@ -3053,7 +3059,6 @@ div #logintoolbar > a {
   right: 0.05vw;
 }
 /*요기까지*/
- /* 개요 */
     #internalFacilities_page-1 {
 		width: 100vw;
 	    height:150vh;
@@ -3061,6 +3066,13 @@ div #logintoolbar > a {
 		overflow: hidden;
 		margin:0 auto;
 		padding: 0 auto;
+	}
+	
+    #internalFacilities_staypage-1 {
+		width: 90vw;
+	    height:130vh;
+	    background-color: white;
+		overflow: hidden;
 		
 	}
 
@@ -3070,6 +3082,11 @@ div #logintoolbar > a {
 		padding: 0 auto;
 	}
 	
+	#internalFacilities_stayarticle-1 {
+		width: 100vw;
+		height:130vh;
+	}
+	
 	#hotelintroduceimage {
 		margin-left: 10vw;
 		margin-top: 3vh;
@@ -3077,6 +3094,45 @@ div #logintoolbar > a {
 		height: 27vh;
 	}
 	
+	#stayImage-1 {
+		margin-left: 10vw;
+		margin-top: 3vh;
+		width: 300vw;
+		height: 27vh;
+	}
+	
+	#stayContent-1 {
+	   width: 80vw;
+	   height: 85vh;
+	   margin-top: 3vh;
+	   margin-left: 10vw;
+	   border: 3px solid #cebda5;
+	}
+	
+	#totalStay-1 {
+	  width: 90vw;
+ 	  height:121.5vh;
+  	  background-color: white;
+ 	  overflow: hidden;
+  	  margin-top: 2vh;
+	}
+	
+	#stayContent11 {
+	 width: 80vw;
+     height: 25vh;
+	}
+	
+	#stayContent-11 {
+	 width: 80vw;
+     height: 25vh;
+     margin-top: 3vh;
+     margin-left: 10vw;
+	}
+	
+	#stayContent22 {
+	 width: 80vw;
+     height: 25vh;
+	}
 
 #Facilities_article-1 {
   height: 170vh;
@@ -3100,6 +3156,16 @@ div #logintoolbar > a {
   color: black;
   bottom: 10px;	
 }
+
+#staytoolbar-1 {
+  font-size: 12px;
+  width: 25vw;
+  position: relative;
+  left: 56vw;
+  color: black;
+  bottom: 10px;	
+}
+
 
 #headtit-1 {
   width: 80vw;
