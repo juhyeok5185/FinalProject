@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import hotel.management.v1.client.book.dto.bookDto;
 import hotel.management.v1.client.book.dto.bookDto.findRoom;
 import hotel.management.v1.client.service.bookService;
+import oracle.jdbc.proxy.annotation.Post;
 
 @Controller
 @RequestMapping("/hotel")
@@ -43,12 +44,20 @@ public class bookController {
 		} else {
 			dto = service.findRoom(from, to);
 		}
+
 		return ResponseEntity.ok(dto);
 	}
 
 	@PostMapping(value = "/client/dinnerbook", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> dinnerbook(bookDto.dinnerbook book, Principal pal) {
-		System.out.println(service.addDinner(book, pal.getName()));
+
+		service.addDinner(book,pal.getName());
+		return ResponseEntity.ok(null);
+	}
+
+	@PostMapping(value = "/client/ckinfo", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> ckinfo(Principal pal) {
+		service.findByusername(pal.getName());
 		return ResponseEntity.ok(null);
 	}
 

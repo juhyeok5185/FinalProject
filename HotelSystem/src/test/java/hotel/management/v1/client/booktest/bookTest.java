@@ -19,12 +19,12 @@ public class bookTest {
 
 	@Test
 	public void name() {
-		System.out.println(username.length);
+		
 		for (int i = 0; i < username.length; i++) {
-			bookDto.addbook book = new addbook(username[i], "2" + i + "/04/2023", 5, booktel[i], booker[i]);
+			bookDto.addbook book = new addbook(username[i], "04/2"+i+"/2023", 5, booktel[i], booker[i]);
 			System.out.println(book.toString());
 			dao.addBook(book);
-			bookDto.addRoomBook rb = new addRoomBook("2" + (i + 5) + "/04/2023", true, "스탠다드", book.getUsername());
+			bookDto.addRoomBook rb = new addRoomBook("04/2"+(i+5)+"/2023", true, "스탠다드", book.getUsername());
 			System.out.println(rb.toString());
 			dao.addRoomBooking(rb);
 		}

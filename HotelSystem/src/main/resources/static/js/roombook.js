@@ -30,7 +30,13 @@ function printRoomList($roomlist, $footer) {
 
 $(document).ready(function() {
 	const $footer = $('#bookfooter');
+	
+	
 	$('#bookfooter').on('click', '#test', function() {
+		
+	})
+	
+	/*$('#bookfooter').on('click', '#test', function() {
 		const gradeName = $(this).siblings('#gradename').val();
 		const $from = $('#from').val();
 		const $to = $('#to').val();
@@ -39,6 +45,7 @@ $(document).ready(function() {
 		const $booktel = $('#booktel').val();
 		const $totalcnt = $('#totalcnt').val();
 		const $dicheckbox = $('#dicheckbox').val()
+		console.log($dicheckbox)
 		const param = {
 
 			from: $from,
@@ -55,14 +62,16 @@ $(document).ready(function() {
 			alert("예약자와 연락처는 필수 입력 사항입니다")
 		} else {
 
-			$.ajax({
+		 $.ajax({
 				url: "/hotel/client/chekin",
 				data: param,
 				dataType: 'json',
 				method: 'post',
 			})
+			
 		}
-	})
+		
+	})*/
 	$('#reservation-btn').click(async function() {
 		const $foote2 = $('#bookfooter').html();
 		if ($foote2.length == 0) {
