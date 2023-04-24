@@ -109,6 +109,12 @@ function searchData(list) {
   }
 }
 
+function heightController(list) {
+  var listAreaHeight = $("#listarea").height();
+  var newPageHeight = listAreaHeight + list.length * 46;
+  $("#managerPage").height(newPageHeight);
+}
+
 $(document).ready(function () {
   $(document).on("click", "#searchBtn", async function () {
     let stayCheckBox = $("#stayCheckBox").is(":checked");
@@ -132,6 +138,7 @@ $(document).ready(function () {
       });
 
       searchData(list);
+      heightController(list);
     } catch (err) {
       console.log(err);
     }
