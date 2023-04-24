@@ -18,12 +18,15 @@ GROUP BY r.gradename
 			insert into roombooking select b.bookno,b.bookdate,to_date(#{checkOut},'MM/DD/YYYY'),#{bfcheckbox},null,#{gradename} from book b where b.username = #{username}
 	</insert>
 	<insert id="addDinner">
-			insert into book values(BOOK_SEQ_BOOKNO.nextval,#{username},#{totalcnt},to_date(#{bookdate},'MM/DD/YYYY'),#{booktel},#{booker},'체크인대기')
+			insert into dinner select b.bookno,b.totalcount,150000 from book b where username=#{username}and b.bookno=#{bookno}
 	</insert>
 	<insert id="addDinnerbook">
 		insert into dinner select b.bookno,b.totalcount,120000 from book b where b.username = #{username} and b.bookno = #{resno}
 	</insert>
 	<select id = "findByUsernameAndBookdate" resultType="int">
 		select b.bookno from book b where username = #{username} and  bookdate = to_date(#{bookdate},'MM/DD/YYYY')
+	</select>
+	<select id="findBookdata" resultType="hotel.management.v1.client.book.dto.bookDto$data">
+		select b.bookno,b.username from book b where b.username = #{username} and b.booktel = #{booktel} and b.booker = #{booker} and b.bookstatus = '체크인대기'
 	</select>
 </mapper>

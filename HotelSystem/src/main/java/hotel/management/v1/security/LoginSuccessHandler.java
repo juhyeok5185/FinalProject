@@ -1,9 +1,6 @@
 package hotel.management.v1.security;
 
-import java.io.Console;
 import java.io.IOException;
-
-import javax.management.relation.Role;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
