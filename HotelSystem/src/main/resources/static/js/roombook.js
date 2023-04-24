@@ -30,13 +30,11 @@ function printRoomList($roomlist, $footer) {
 
 $(document).ready(function() {
 	const $footer = $('#bookfooter');
-	
-	
+
+
+
+
 	$('#bookfooter').on('click', '#test', function() {
-		
-	})
-	
-	/*$('#bookfooter').on('click', '#test', function() {
 		const gradeName = $(this).siblings('#gradename').val();
 		const $from = $('#from').val();
 		const $to = $('#to').val();
@@ -53,25 +51,41 @@ $(document).ready(function() {
 			totalcnt: $totalcnt,
 			gradename: gradeName,
 			bfcheckbox: $bfcheckbox,
-			dicheckbox : $dicheckbox,
+			dicheckbox: $dicheckbox,
 			booker: $booker,
 			booktel: $booktel
-			
+
 		}
 		if ($booker == "" || $booktel == "") {
 			alert("예약자와 연락처는 필수 입력 사항입니다")
 		} else {
 
-		 $.ajax({
+			$.ajax({
 				url: "/hotel/client/chekin",
 				data: param,
 				dataType: 'json',
 				method: 'post',
+				success: $.ajax({
+					type: 'get',
+					url: '/pay/start',
+					data: {
+						item_name: "iphone14", //상품명
+						quantity: "1",
+						total_amount: "1400000",
+						tax_free_amount: "0"
+					},
+					success: function(res) {
+						location.href = res.next_redirect_pc_url;
+					},
+					error: function(error) {
+						alert(error);
+					}
+				})
 			})
-			
+
 		}
-		
-	})*/
+
+	})
 	$('#reservation-btn').click(async function() {
 		const $foote2 = $('#bookfooter').html();
 		if ($foote2.length == 0) {

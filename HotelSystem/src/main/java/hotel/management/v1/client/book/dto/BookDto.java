@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-public class bookDto {
+public class BookDto {
 	
 	
 	@Data
