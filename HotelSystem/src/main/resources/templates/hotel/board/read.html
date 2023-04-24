@@ -68,13 +68,14 @@
               <hr></td>
             </tr>
             <tr>
-			  <td class="col1" sec:authorize="hasRole('ADMIN')"><span id="notnull"></span>답변<hr></td>
+			  <td class="col1" ><span id="notnull"></span>답변<hr></td>
+			  <td class="col2" ><span id="notnull"></span>&nbsp;<hr></td>
+            </tr>
+            
+            <tr>
+              <td class="col1" sec:authorize="hasRole('ADMIN')"><span id="notnull"></span>관리자 답변<hr></td>
               <td class="col2" sec:authorize="hasRole('ADMIN')">
 		        <span th:text="${board.replyContent}"></span></td>
-			  <!--
-			  <td class="col1"><span id="notnull"></span>답변<hr></td>
-              <td class="col2">
-              -->
             </tr>
    			<!-- 답변 -->	 
 			<tr>

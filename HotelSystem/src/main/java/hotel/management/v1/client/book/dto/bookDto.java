@@ -2,10 +2,28 @@ package hotel.management.v1.client.book.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 public class bookDto {
 	
+	
+	@Data
+	@AllArgsConstructor
+	public static class whtyouname {
+		String username;
+		String booktel;
+		String booker;
+		String from;
+		String to;
+	}
+	@Data
+	@AllArgsConstructor
+	@NoArgsConstructor
+	public static class data {
+		String username;
+		Integer bookno;
+	}
 	@Data
 	@AllArgsConstructor
 	public static class addRoomBook {
@@ -34,6 +52,7 @@ public class bookDto {
 		Integer totalcnt;
 		String gradename;
 		Boolean bfcheckbox;
+		Boolean dicheckbox;
 		String booker;
 		String booktel;
 		

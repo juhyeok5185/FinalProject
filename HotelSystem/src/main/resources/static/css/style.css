@@ -913,7 +913,7 @@
 
 #myPage_page {
   width: 100vw;
-  height:150vh;
+  height:140vh;
   background-color: white;
   overflow: hidden;
   margin:0 auto;
@@ -931,7 +931,7 @@
 }
 
 #myPage_article {
-  height: 140vh;
+  height: 130vh;
   width: 50vw;
   position: absolute;
   left: 35vw;
@@ -1800,50 +1800,8 @@ div #logintoolbar > a {
 	font-size: 0.8em;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #radio-check {
   margin-left: 2vw;
-}
-
-
-
-
-.container {
-  position: relative;
-  top: 10vh;
-  right: 4vw;
-  width: 40vw;
-}
-
-#luxurytem {
-  margin: auto;
-  margin-top: 5vh;
-  padding-right: 1vw;
-  text-align: center;
-}
-
-#p_content{
-  position: relative;
-  top:3vh;
-  color: #555;
 }
 
 #subh{
@@ -1859,24 +1817,24 @@ div #logintoolbar > a {
 
 #gradeintro1 {
 	width: 49vw;
-	height:100vh;
+	height:109.5vh;
 	display: flex;
 }
 
 #gradeintro1_1 {
 	width: 16.3vw;
-	height:103vh;
+	height:93vh;
 	
 }
 
 #gradeintro1_2 {
 	width: 16.3vw;
-	height:103vh;
+	height:93vh;
 }
 
 #gradeintro1_3 {
 	width: 16.3vw;
-	height:103vh;
+	height:93vh;
 }
 
 #gradeintrobar {
@@ -1931,7 +1889,7 @@ div #logintoolbar > a {
 	margin-top: 3vh;
 	margin-left: 2vw;
 	width:14.3vw;
-	height: 80vh;
+	height: 70vh;
 	border-right: 2px solid #f3f0ed;
 }
 
@@ -1947,7 +1905,7 @@ div #logintoolbar > a {
 	margin-top: 3vh;
 	margin-left: 2vw;
 	width:14.3vw;
-	height: 80vh;
+	height: 70vh;
 	border-right: 2px solid #f3f0ed;
 }
 
@@ -1962,7 +1920,7 @@ div #logintoolbar > a {
 	margin-top: 3vh;
 	margin-left: 2vw;
 	width:14.3vw;
-	height: 80vh;
+	height: 70vh;
 }
 
 #deleteupdate {
@@ -1971,17 +1929,53 @@ div #logintoolbar > a {
 }
 
 #myenum {
-	margin-top: 5.5vh;
 	width:49vw;
-	height: 10vh;
-	border-top: 2px solid #eeebe8;
+	height: 6.7vh;
 	text-align: center;
 }
 
-#enumtable {
-	width: 49vw;
-	margin-top: 5vh;
+#enumdiv {
+	width: 7vw;
+	height: 3vh;
+	line-height: 3vh;
+	text-align: center;
+	font-size: 0.9em;
+	margin-top: -0.5vh;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#luxurytem {
+  margin: auto;
+  margin-top: 5vh;
+  padding-right: 1vw;
+  text-align: center;
+}
+
+#p_content{
+  position: relative;
+  top:3vh;
+  color: #555;
+}
+
+
 
 
 

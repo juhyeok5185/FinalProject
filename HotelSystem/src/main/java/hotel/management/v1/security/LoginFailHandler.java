@@ -29,8 +29,6 @@ public class LoginFailHandler extends SimpleUrlAuthenticationFailureHandler {
 			String username = request.getParameter("username");
 			try {
 				Member member = memberDao.findByUsername(username).get();			
-				// 로그인 실패횟수가 3회이하라면 실패횟수를 1증가
-				// 로그인 실패횟수가 4회이상이라면 실패횟수를 증가하고 비활성화한다
 				if(member.getLoginFailCount() <4) {
 					memberDao.increaseLoginFailCnt(username);
 					String msg = "로그인에 " + (member.getLoginFailCount()+1) 
@@ -48,7 +46,7 @@ public class LoginFailHandler extends SimpleUrlAuthenticationFailureHandler {
 		} else if(e instanceof DisabledException) {
 			session.setAttribute("msg", "비활성화된 계정입니다. 관리자에게 문의하세요");
 		}
-		response.sendRedirect("/hotel/main");
+		response.sendRedirect("/hotel/member/login");
 	}
 }
 

@@ -60,8 +60,19 @@
 	         		</div>
          		</div>
          	</div>
-         	<div style="text-align: center;">
-         		<span style="font-size: 0.75em; color: #979797;">객실 및 식음업장 이용 실적에 따라 등급이 부여되며, 등급별로 추가 혜택을 받으실 수 있습니다.</span>
+         	<div id="myenum">
+	         	<div style="text-align: center;">
+	         		<span style="font-size: 0.75em; color: #979797;">객실 및 식음업장 이용 실적에 따라 등급이 부여되며, 등급별로 추가 혜택을 받으실 수 있습니다.</span>
+	         	</div>
+	         	<div id="enumdiv" th:if="${member.userLevel == 'BRONZE'}">
+	        		<span>나의 등급: <span style="color: #8f6349;" th:text="${member.userLevel}"></span></span>
+	        	</div>
+	        	<div id="enumdiv" th:if="${member.userLevel == 'SILVER'}">
+	        		<span>나의 등급: <span style="color: #8f6349;" th:text="${member.userLevel}"></span></span>
+	        	</div>
+	        	<div id="enumdiv" th:if="${member.userLevel == 'GOLD'}">
+	        		<span>나의 등급: <span style="color: #8f6349;" th:text="${member.userLevel}"></span></span>
+        	</div>
          	</div>
         </div>
         <div id="gradeintro1">
@@ -145,17 +156,6 @@
         			</div>
         		</div>
         	</div>
-        </div>
-        <div id="myenum">
-        	<table id="enumtable">
-        		<tr>
-        			<td>
-        				나의 등급 : 
-        			</td>
-        			<td>
-        			</td>
-        		</tr>
-        	</table>
         </div>
       </div>
       <div>

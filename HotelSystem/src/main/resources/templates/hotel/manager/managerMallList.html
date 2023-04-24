@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-  <script src="/js/Manager.js"></script>
+  <script src="/js/managerMallList.js"></script>
   <script src="/js/Hotel.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
@@ -15,13 +15,17 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://kit.fontawesome.com/7fe498c607.js" crossorigin="anonymous"></script>
   <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72764d4407eae4771ae834fbbe85f476"></script>
-  <link rel="stylesheet" href="/css/mallStyle.css">
   <link rel="stylesheet" href="/css/managementStyle.css">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/mallStyle.css">
+  
+  <!-- 
+  취소버튼 추가 
+  검색버튼 추가 : 이름 연락처 주문번호 검색가능하여야함
+  -->
   
   <title>관리자</title>
-  <script>
-  </script>
+
 </head>
 <body id="body">
 <div class="managment">
@@ -47,47 +51,43 @@
         </ul>
       </div>
     </div>
-
     <div id="list">
-
         <div id = "searcharea">
           <div id="search">
-              <input type="text" id = "searchName" placeholder="이름 입력" height="2px;">
-              <button class="btn btn-secondary" style="width: 70px;" id="nameSearchBtn">검색</button>
+              <input type="text" id = "name" placeholder="이름 입력" height="2px;">
+              <input type="text" id = "tel" placeholder="연락처 입력" height="2px;">
+              <input type="text" id = "orderNo" placeholder="주문번호 입력" height="2px;">
+              <button class="btn btn-secondary" style="width: 70px;" id="nameSearchBtn" >검색</button>
           </div>
         </div>
-
-
-        <div id = "listarea">
+        <div>
           <table class = "table table-hover">
             <colgroup>
-              <col style="width: 15%">
-              <col style="width: 15%">
               <col style="width: 20%">
               <col style="width: 20%">
-              <col style="width: 15%">
-              <col style="width: 15%">
+              <col style="width: 30%">
+              <col style="width: 30%">
             </colgroup>
-            <thead id = "listthead">
+            <thead>
               <tr>
-                <th>상품명</th>
-                <th>수량</th>
-                <th>가격</th>
+                <th>주문번호</th>
+                <th>이름</th>
+                <th>연락처</th>
+                <th>비고</th>
               </tr>
             </thead>
-            <tbody id="listBody">
+            <tbody id="mallListArea">
+            	
             </tbody>
           </table>
         </div>
       </div>
     </div>
   </div>
-
 <div id="managerFooter">
   <div id="managerFooterLogo">
     <img src="/img/logo.png" alt="로꼬" width="200vw;">
   </div>
 </div>
-
 </body>
 </html>

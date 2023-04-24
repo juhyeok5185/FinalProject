@@ -1,9 +1,6 @@
 package hotel.management.v1.security;
 
-import java.io.Console;
 import java.io.IOException;
-
-import javax.management.relation.Role;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -34,12 +31,8 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 		}
 
 		response.sendRedirect("/hotel/main");
-		// 로그인에 성공하면 로그인 실패횟수 리셋
 		memberDao.resetLoginCnt(authentication.getName());
 		
-		// 가려던 곳이 있는 경우 그곳을 얻어오자
-		// write를 선택해서 로그인 화면이 나타났다면 로그인 후 /write로 이동해야한다
-		// 이동해야 할 주소를 가지는 객체가 savedRequest
 		String redirectUrl = "/";
 		
 		SavedRequest sr = new HttpSessionRequestCache().getRequest(request, response);
