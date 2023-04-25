@@ -2819,6 +2819,9 @@ div #logintoolbar > a {
     #changepassword_page {
     	display: none;
     }
+    #changepassword_page {
+    	display: none;
+    }
     
     
   }
@@ -2895,6 +2898,9 @@ div #logintoolbar > a {
     
     /* 700이상에서 안보이게 함 */
     #myPage_page-1 {
+    	display: none;
+    }
+    #changepassword_page-1 {
     	display: none;
     }
     #changepassword_page-1 {
@@ -3219,21 +3225,6 @@ div #logintoolbar > a {
   color: black;
   bottom: 10px;	
 }
-
-
-#myPageheadtit {
-  width: 49vw;
-  position: relative;
-  border-bottom: 0.4rem solid #a1886f;
-  color: #555;
-}
-
-#myPageheadtit-1 {
-  width: 49vw;
-  position: relative;
-  border-bottom: 0.4rem solid #a1886f;
-  color: #555;
-}
  
 #headtit-1 {
   width: 80vw;
@@ -3464,11 +3455,38 @@ div #logintoolbar > a {
 	font-size: 0.8em;
 }
 
-#profileupdatebtn-1 {
+#profileupdatebtn {
 	width: 30vw;
     height: 3vh;
     margin-top: 4.3vh;
     margin-left: 25.5vw;
+    background-color: #3a3125;
+    border: 2px solid black;
+    color: #d5ccb0;
+}
+
+/* 반응형 비밀번호 변경*/
+#changepasswordintro-1 {
+	width:80vw;
+	height: 10vh;
+	line-height: 10vh;
+	font-size: 0.8em;
+}
+#changepasswordtable-1 td {
+	border-bottom: 1px solid #a1886f;
+}
+#changepasswordtable-1 {
+	height: 5vh;
+    width: 80vw;
+    border-top: 1px solid #a1886f;
+    border-bottom: 1px solid #a1886f;
+    margin-right: auto;
+}
+#changepasswordbtn-1 {
+	width: 35vw;
+    height: 3vh;
+    margin-top: 3vh;
+    margin-left: 22.5vw;
     background-color: #3a3125;
     border: 2px solid black;
     color: #d5ccb0;
