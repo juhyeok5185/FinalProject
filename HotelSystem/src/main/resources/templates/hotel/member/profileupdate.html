@@ -19,7 +19,6 @@
 </head>
 <body>
     <div th:replace="~{/fragment/nav.html}"></div>
-    <!--고객 문의 게시판-->
 	<div id="changepassword_page"> 
       <!-- aside -->
 		<div id= "myPageaside"> 
@@ -66,6 +65,34 @@
 	   </table>
 	   <div>
 	    <button id="profileupdatebtn">확인</button>
+	   </div>
+	   </form>
+      </div>  
+    </div>
+    
+    <!-- 반응형 -->
+    <div id="changepassword_page-1"> 
+      <div id="changepassword_article-1">
+        <div id="headtit"> 
+          <h3>프로필 수정</h3>
+          <div id="profileupdatetool">
+            <i class="fa-solid fa-house"></i> > 마이페이지 > 내정보 ><a href="profileupdate" id="subh"> 프로필 수정</a>
+          </div>
+        </div>
+        <div id="profileupdateintro-1">
+        	<span>고객님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인합니다.</span>
+        </div>
+        <form action="/hotel/member/profileupdate" method="post">
+        <table id="profileupdatetable-1">
+	     <tr>
+	      <td class="col1">비밀번호</td>
+	      <td class="col2">
+	       <input type="password" id="password" name="password" maxlength="16">
+	      </td>
+	    </tr>
+	   </table>
+	   <div>
+	    <button id="profileupdatebtn-1">확인</button>
 	   </div>
 	   </form>
       </div>  
