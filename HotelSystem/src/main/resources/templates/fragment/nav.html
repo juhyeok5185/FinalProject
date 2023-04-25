@@ -84,7 +84,9 @@
 				<li><a class="dropdown-item" href="/hotel/member/login" sec:authorize="isAnonymous()">로그인</a></li>
 				<li><a class="dropdown-item" href="/hotel/member/join" sec:authorize="isAnonymous()">회원가입</a></li>
 				<li><a class="dropdown-item" href="/hotel/member/logout" sec:authorize="hasAuthority('ROLE_USER')">로그아웃</a></li>
-				<li><a class="dropdown-item" href="/hotel/member/myPage" sec:authorize="hasAuthority('ROLE_USER')">마이페이지</a></li>
+				<li><a class="dropdown-item" href="/hotel/member/myPage" sec:authorize="hasAuthority('ROLE_USER')">나의 등급</a></li>
+				<li><a class="dropdown-item" href="/hotel/member/profileupdate" sec:authorize="hasAuthority('ROLE_USER')">프로필 수정</a></li>
+				<li><a class="dropdown-item" href="/hotel/member/changepassword" sec:authorize="hasAuthority('ROLE_USER')">비밀번호 변경</a></li>
 				<hr>
 				<li id="aboutfont">예약</li>
 				<li><a class="dropdown-item" href="#">예약</a></li>

@@ -790,6 +790,13 @@
   bottom: 10px;
 }
 
+#myPageheadtit {
+  width: 49vw;
+  position: relative;
+  border-bottom: 0.4rem solid #a1886f;
+  color: #555;	
+}
+
 #reservationtool {
   font-size: 12px;
   width: 13vw;
@@ -1124,8 +1131,6 @@
 	margin-top: 3vh;
 	font-size: 0.8em;
 }
-
-
 
 /* 회원가입 */
 
@@ -2807,6 +2812,10 @@ div #logintoolbar > a {
     	display: none;
     }
     
+    /* 700이상에서 안보이게 함 */
+    #myPage_page {
+    	display: none;
+    }
     
     
   }
@@ -2881,6 +2890,10 @@ div #logintoolbar > a {
     	display: none;
     }
     
+    /* 700이상에서 안보이게 함 */
+    #myPage_page-1 {
+    	display: none;
+    }
     
     
   }
@@ -3202,6 +3215,20 @@ div #logintoolbar > a {
 }
 
 
+#myPageheadtit {
+  width: 49vw;
+  position: relative;
+  border-bottom: 0.4rem solid #a1886f;
+  color: #555;
+}
+
+#myPageheadtit-1 {
+  width: 49vw;
+  position: relative;
+  border-bottom: 0.4rem solid #a1886f;
+  color: #555;
+}
+ 
 #headtit-1 {
   width: 80vw;
   position: relative;
@@ -3245,6 +3272,8 @@ div #logintoolbar > a {
   font-size: 0.6em;
 }
 
+/* 나의등급 */
+
 /*명품관*/
 #luxury_page-1 {
 	width: 100vw;
@@ -3273,5 +3302,124 @@ div #logintoolbar > a {
 	bottom: 1.5vh;
 }
 
-
-
+/* 반응형 나의 등급*/
+#myPage_page-1 {
+	width: 80vw;
+	height: 110vh;
+	margin: 0 auto;
+}
+#myPage_article-1 {
+	width: 80vw;
+	height:110vh;
+}
+#gradeintro-1 {
+	width: 80vw;
+	height: 10vh;
+	border-bottom: 2px solid #eeebe8;
+}
+#myenum-1 {
+	width:80vw;
+	height: 6.7vh;
+	text-align: center;
+}
+#enumdiv-1 {
+	margin: 0 auto;
+	width: 20vw;
+	height: 3vh;
+	line-height: 3vh;
+	text-align: center;
+	font-size: 0.9em;
+}
+#gradeIntroTit {
+	display:flex; 
+	text-align: center; 
+	margin-left: 20vw;
+}
+#gradeintro1-1 {
+	width: 80vw;
+	height:100vh;
+	display: flex;
+}
+#gradeintro1_1b {
+	width: 26.3vw;
+	height:90.5vh;
+}
+#gradeintro1_2s {
+	width: 26.3vw;
+	height:90.5vh;
+}
+#gradeintro1_3g {
+	width: 26.3vw;
+	height:90.5vh;
+}
+#bronzebox1-1 {
+	margin-top: 3vh;
+	margin-left: 1vw;
+	width:25.8vw;
+	height: 70vh;
+	border-right: 2px solid #f3f0ed;
+}
+#silverbox1-1 {
+	margin-top: 3vh;
+	margin-left: 1vw;
+	width:25.8vw;
+	height: 70vh;
+	border-right: 2px solid #f3f0ed;
+}
+#goldbox1-1 {
+	margin-top: 3vh;
+	margin-left: 1vw;
+	width:26.8vw;
+	height: 70vh;
+}
+#bronzebar-1 {
+	width:25.3vw;
+	height: 7vh;
+	border: 1px solid #8f6349;
+	margin-top: 13vh;
+	margin-left: 1vw;
+	background-color: #8f6349;
+	color: #dedcd9;
+	text-align: center;
+	line-height: 7vh;
+}
+#silverbar-1 {
+	width:25.3vw;
+	height: 12vh;
+	border: 1px solid #a8a9ad;
+	margin-top: 8vh;
+	margin-left: 1vw;
+	background-color: #a8a9ad;
+	color: #dedcd9;
+	text-align: center;
+	line-height: 12vh;
+}
+#goldbar-1 {
+	width:25.3vw;
+	height: 17vh;
+	border: 1px solid #9a8872;
+	margin-top: 3vh;
+	margin-left: 1vw;
+	background-color: #9a8872;
+	color: #dedcd9;
+	text-align: center;
+	line-height: 17vh;
+}
+#bronzebox-1 {
+	margin-top: 3vh;
+	width:25.1vw;
+	height: 10vh;
+	border-bottom: 2px solid #8f6349;
+}
+#silverbox-1 {
+	margin-top: 3vh;
+	width:25.2vw;
+	height: 10vh;
+	border-bottom: 2px solid #a8a9ad;
+}
+#goldbox-1 {
+	margin-top: 3vh;
+	width:24.3vw;
+	height: 10vh;
+	border-bottom: 2px solid #9a8872;
+}
