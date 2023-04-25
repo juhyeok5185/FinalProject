@@ -765,6 +765,7 @@
 #deletebutton{
 	position:relative;
 	left:2vw;
+	bottom: 0.13vh;
 }
 #replybutton{
 	position:relative;
