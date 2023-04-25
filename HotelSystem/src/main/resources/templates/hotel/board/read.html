@@ -68,8 +68,8 @@
               <hr></td>
             </tr>
             <tr>
-			  <td class="col1" ><span id="notnull"></span>답변<hr></td>
-			  <td class="col2" ><span id="notnull"></span>&nbsp;<hr></td>
+			  <td class="col1" sec:authorize="hasRole('USER')"><span id="notnull"></span>답변<hr></td>
+			  <td class="col2" sec:authorize="hasRole('USER')"><span id="notnull"></span>&nbsp;<hr></td>
             </tr>
             
             <tr>
@@ -79,7 +79,7 @@
             </tr>
    			<!-- 답변 -->	 
 			<tr>
-              <td class="col1" sec:authorize="hasRole('ADMIN')"><span id="notnull"></span>답변</td>
+              <td class="col1" sec:authorize="hasRole('USER')"><span id="notnull"></span>답변</td>
               <td class="col2" sec:authorize="hasRole('ADMIN')">
 	          <!-- 
               <td class="col1"><span id="notnull"></span>답변</td>

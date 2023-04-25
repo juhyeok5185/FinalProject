@@ -18,7 +18,11 @@ public class ManagerMallListRestController {
 	@PostMapping("/hotel/manager/mallList")
 	public ResponseEntity<List<ManagerMallListDto.MallListSearch>> mallList(ManagerMallListDto.FindMallList dto){
 		List<ManagerMallListDto.MallListSearch> list = mallservice.mallsearch(dto);
-		System.out.println(dto);
+		dto = ManagerMallListDto.FindMallList.builder()
+				.name(dto.getName())
+				.tel(dto.getTel())
+				.orderNo(dto.getOrderNo())
+				.build();
 		return ResponseEntity.ok(list);
 	}
 }

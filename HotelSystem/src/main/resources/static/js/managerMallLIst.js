@@ -8,16 +8,16 @@ $(document).ready(function(){
   	
   	try {
       const mallList = await $.ajax({
-      url: '/hotel/manager/mallList?name='+ name+'&tel='+ tel+'&orderNo='+ orderNo,
+      url: '/hotel/manager/mallList?name='+ name + '&tel=' + tel +'&orderNo=' + orderNo,
       method:'post'
       });
       for (m of mallList){		  
       const mallListArea = $('#mallListArea');
       const template = `
       			<tr>
+            	<th>${m.orderNo}</th>
             	<th>${m.name}</th>
             	<th>${m.tel}</th>
-            	<th>${m.orderNo}</th>
             	<th>
             	<button class="btn btn-secondary" style="width: 100px;" id="nameSearchBtn">주문상세</button>
             	<button class="btn btn-secondary" style="width: 100px;" id="nameSearchBtn">주문취소</button>

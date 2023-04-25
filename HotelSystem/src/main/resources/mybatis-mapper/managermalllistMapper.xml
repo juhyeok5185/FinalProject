@@ -4,12 +4,23 @@
 	
 	<!-- 관리자 : 김동욱 -->
 	
-
 	<select id="mallsearch" resultType="hotel.management.v1.manager.mall.Dto.ManagerMallListDto$MallListSearch">
-		select o.username, u.tel, u.name ,od.orderNo, od.orderDate, od.contactDate, od.orderPrice, od.orderEa 
-		from orderdetail od
-		left join orders o on o.orderNo = od.orderNo
-		left join users u on u.username = o.username
+		select od.username , us.tel , us.name , od.orderno , ord.orderdate , ord.contactdate , 
+			   ord.orderprice , ord.orderea 
+		from orders od 
+		left join orderdetail ord on od.orderno = ord.orderno
+		left join users us on od.username = us.username
+      <where>
+        <if test="name != null and name != ''">
+            AND name = #{name}
+        </if>
+        <if test="tel != null and tel != ''">
+            AND tel = #{tel}
+        </if>
+        <if test="orderNo != null and orderNo != ''">
+            AND od.orderNo = #{orderNo}
+        </if>
+      </where>
 	</select>
 	
 </mapper>
