@@ -3235,6 +3235,16 @@ div #logintoolbar > a {
   font-size: 1.8vw;
 }
 
+
+
+
+/* 부대시설 */
+#internal_common-1 {
+  list-style: none;
+  text-align: left;
+  font-size: 0.6em;
+}
+
 /*명품관*/
 #luxury_page-1 {
 	width: 100vw;
