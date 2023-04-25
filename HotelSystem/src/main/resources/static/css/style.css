@@ -790,6 +790,15 @@
   bottom: 10px;
 }
 
+#reservationtool {
+  font-size: 12px;
+  width: 13vw;
+  position: relative;
+  left: 37.7vw;
+  color: black;
+  bottom: 10px;
+}
+
 #changepasswordtool {
   font-size: 12px;
   width: 13vw;
@@ -864,7 +873,7 @@
 
 #myPageaside{
   width: 15vw;
-  height: 43vh;
+  height: 40vh;
   background-color:#f1e3c4; 
   float: left;
   position: absolute;
@@ -931,6 +940,15 @@
 }
 
 #myPage_article {
+  height: 130vh;
+  width: 50vw;
+  position: absolute;
+  left: 35vw;
+  margin-top: 10vh;
+  overflow: hidden;
+}
+
+#reservation_article {
   height: 130vh;
   width: 50vw;
   position: absolute;
@@ -1090,6 +1108,23 @@
   font-size: 0.95em;
   color: #383122;
 }
+
+#reservation_contents {
+	width:49vw;
+	height: 90vh;
+	border: 1px solid red;
+	margin-top: 3vh;
+}
+
+#reservation_intro1 {
+	width:49vw;
+	height: 5vh;
+	line-height: 5vh;
+	border: 1px solid red;
+	margin-top: 3vh;
+	font-size: 0.8em;
+}
+
 
 
 /* 회원가입 */

@@ -160,6 +160,11 @@ public class MemberController {
 			ResponseEntity.status(HttpStatus.CONFLICT).body(null);
 	}
 	
+	@PreAuthorize("isAuthenticated()")
+	@GetMapping("/member/reservation")
+	public void reservation() {
+		
+	}
 	
 	
 }
