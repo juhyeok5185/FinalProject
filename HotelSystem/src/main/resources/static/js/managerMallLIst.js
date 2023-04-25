@@ -14,7 +14,7 @@ $(document).ready(function(){
       for (m of mallList){		  
       const mallListArea = $('#mallListArea');
       const template = `
-      <tr>
+      			<tr>
             	<th>${m.name}</th>
             	<th>${m.tel}</th>
             	<th>${m.orderNo}</th>
