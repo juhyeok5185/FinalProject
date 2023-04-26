@@ -2169,8 +2169,11 @@ div #logintoolbar > a {
 	height: 300vh;
 	padding-top: 8vh;
 }
-#bookbox{
-	
+.reservation-text6{
+	padding-top: 7vh;
+}
+#mainbookbtn{
+	cursor: pointer;
 }
 #bookformbox{
 	height: 62.6vh;
