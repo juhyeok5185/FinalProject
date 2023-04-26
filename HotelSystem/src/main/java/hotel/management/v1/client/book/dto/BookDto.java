@@ -84,4 +84,9 @@ public class BookDto {
 		String booktel;
 		String booker;
 	};
+	@Data
+	public static class finduser {
+		String username;
+		String userlevel;
+	}
 }

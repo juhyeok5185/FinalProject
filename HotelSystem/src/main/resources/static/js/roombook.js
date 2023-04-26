@@ -1,14 +1,13 @@
 function printtotalprice(gradeName, gradeprice) {
+	console.log(typeof (gradeprice));
+	console.log(gradeprice);
 	let totalprice = parseInt(gradeprice);
-	console.log($('#bfcheckbox').is(":checked"))
-	console.log($('#dicheckbox').is(":checked"))
-	console.log(totalprice);
 	if ($('#bfcheckbox').is(":checked")) {
 		totalprice += parseInt($('#breakfastprice').text());
 
 		console.log(totalprice);
 	}
-	if ($('#dicheckbox').is(":checked")){
+	if ($('#dicheckbox').is(":checked")) {
 		totalprice += 150000;
 		console.log(totalprice);
 	}
@@ -20,7 +19,6 @@ function printtotalprice(gradeName, gradeprice) {
 	console.log(paytotalprice);
 	$('#roominfo').empty();
 	$('#roomname').empty();
-	
 	$('#roominfo').append(paytotalprice);
 	$('#roomname').append(gradeName);
 
@@ -28,38 +26,44 @@ function printtotalprice(gradeName, gradeprice) {
 function printRoomList($roomlist, $footer) {
 
 	const html2 = `<div>
-							<input type = "number" id = "totalcnt" max="4" min="1">
+							<span>인원수</span>
+							<input type = "number" id = "totalcnt" max="4" min="1" value = "1">
 							<input type="checkbox" id = "bfcheckbox">
 							<span>조식여부(50,000)</span>
 							<input type="checkbox" id = "dicheckbox">
 							<span>석식여부(150,000)</span>
-							<input type="text" id = "booker">
 							<span>예약자</span>
-							<input type="text" id = "booktel">
+							<input type="text" id = "booker">
 							<span>예약자 연락처</span>
-				  </div>`;
+							<input type="text" id = "booktel">
+				  </div><hr>`
+		;
 	$footer.append(html2);
 	console.log($roomlist);
+	let index = 1;
 	for (const b of $roomlist) {
 		const html = `
-	<div>
-		<input type="text" value="${b.gradeName}" id = "gradename">
-		<a>${b.gradeName}</a>
-		<a id = "breakfastprice">${b.breakfastprice}</a>
-		<a id = "gradeprice">${b.gradeprice}</a>
-		<button type = "button" id = "test">너어딧니</button>
+	<div id = "roomlist">
+		<input type="hidden" value="${b.gradeName}" id = "gradename">
+		<div id = "roomlistimg">
+		<img src = "/img/방이미지${index}.jpg" id = "roomimg"></div>
+		<div id = "roomlistinfo"><span>${b.gradeName}</span>
+		<span id = "breakfastprice" style="display: none;" >${b.breakfastprice}</span>
+		<span id = "gradeprice">${b.gradeprice}</span></div>
+		<div id = "roomlistbtn"><img id = "booklistbtn" src = "/img/선택버튼.png"></div>
 		<br>
-	</div>`;
+	</div><hr>`
+			;
 		if (b.reservableOrNot) {
 			$footer.append(html);
 		}
+		index++;
 	}
 
 }
 
 
 function kakaojs(result) {
-	console.log(result)
 
 	$.ajax({
 		type: 'get',
@@ -74,23 +78,49 @@ function kakaojs(result) {
 			location.href = res.next_redirect_pc_url;
 		},
 		error: function(error) {
-			alert(error);
+
 		}
 	})
 
 }
 
 $(document).ready(function() {
+	
 	var clientKey = 'test_ck_D5GePWvyJnrK0W0k6q8gLzN97Eoq';
-	 var tossPayments = TossPayments(clientKey)
+	var tossPayments = TossPayments(clientKey)
 
 	$('#paybookbtn').click(function() {
-
 		$('#paymentPopup').attr('style', 'display:block;');
 		$('#paymentPopup-box').attr('style', 'display:block');
 		$('html').attr('style', 'overflow: hidden');
 		$('#chargeInquiry').attr("style", "z-index:1; pointer-events: none;");
+		const gradeName = $(this).siblings('#gradename').val();
+		const $from = $('#from').val();
+		const $to = $('#to').val();
+		const $bfcheckbox = $('#bfcheckbox').val();
+		const $booker = $('#booker').val();
+		const $booktel = $('#booktel').val();
+		const $totalcnt = $('#totalcnt').val();
+		const $dicheckbox = $('#dicheckbox').val();
 
+		const param = {
+
+			from: $from,
+			to: $to,
+			totalcnt: $totalcnt,
+			gradename: gradeName,
+			bfcheckbox: $bfcheckbox,
+			dicheckbox: $dicheckbox,
+			booker: $booker,
+			booktel: $booktel
+
+		}
+		$.ajax({
+			url: "/hotel/client/chekin",
+			data: param,
+			dataType: 'json',
+			method: 'post',
+		})
 	});
 	$('#choosePayment-box1').click(function() {
 		const totalprice = $('#roominfo').text();
@@ -136,54 +166,19 @@ $(document).ready(function() {
 
 
 
-	$('#bookfooter').on('click', '#test', function() {
-		if ($('#booker') == "" || $('#booktel') == "") {
+	$('#bookfooter').on('click', '#booklistbtn', function() {
+		if ($('#booker').val() == "" || $('#booktel').val() == "") {
 			alert("예약자와 연락처는 필수 입력 사항입니다")
 		} else {
-			const gradeName = $(this).siblings('#gradename').val();
-			const gradeprice = $(this).siblings('#gradeprice').text();
+			const gradeName = $(this).parent().prev().prev().prev().val();
+			const gradeprice = $(this).parent().prev().children('#gradeprice').text();
+			console.log(gradeprice);
 			printtotalprice(gradeName, gradeprice);
 
 
 
 		}
-		$('#choosePayment-box1').click(function() {
-			const gradeName = $(this).siblings('#gradename').val();
-			const $from = $('#from').val();
-			const $to = $('#to').val();
-			const $bfcheckbox = $('#bfcheckbox').val();
-			const $booker = $('#booker').val();
-			const $booktel = $('#booktel').val();
-			const $totalcnt = $('#totalcnt').val();
-			const $dicheckbox = $('#dicheckbox').val();
 
-			const param = {
-
-				from: $from,
-				to: $to,
-				totalcnt: $totalcnt,
-				gradename: gradeName,
-				bfcheckbox: $bfcheckbox,
-				dicheckbox: $dicheckbox,
-				booker: $booker,
-				booktel: $booktel
-
-			}
-			$.ajax({
-				url: "/hotel/client/chekin",
-				data: param,
-				dataType: 'json',
-				method: 'post',
-				success(result) {
-					kakaojs(result);
-				},
-				error(err) {
-					console.log(err);
-				}
-			})
-
-			/*kakaojs(kakaoparam)*/
-		})
 
 
 

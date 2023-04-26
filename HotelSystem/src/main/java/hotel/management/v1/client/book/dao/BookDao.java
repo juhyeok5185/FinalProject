@@ -25,7 +25,7 @@ public interface BookDao {
 
 	public Integer findByUsernameAndBookdate(String username, String bookdate);
 
-	public Integer findByusername(String name);
+	public BookDto.finduser findByusername(String name);
 
 	public data findBookdata(whtyouname name);
 	

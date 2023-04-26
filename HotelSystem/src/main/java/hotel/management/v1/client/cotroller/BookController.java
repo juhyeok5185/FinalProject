@@ -7,13 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import hotel.management.v1.client.book.dto.BookDto;
 import hotel.management.v1.client.book.dto.BookDto.findRoom;
 import hotel.management.v1.client.service.BookService;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/hotel")
@@ -22,8 +26,16 @@ public class BookController {
 	private BookService service;
 
 	@GetMapping("/client/roombook")
-	public void bookPage() {
+	public String bookPage(Principal pal,RedirectAttributes ra,Model model) {
+		if(pal==null) {
+			ra.addFlashAttribute("msg", "앙 기모띠");
+			return "redirect:/hotel/member/login";
+		}
+		BookDto.finduser user= service.findByusername(pal.getName());
+		model.addAttribute("user", user);
+		return "/hotel/client/roombook";
 	}
+	
 
 	@GetMapping("/client/dinnerbook")
 	public void dinnerPage() {
