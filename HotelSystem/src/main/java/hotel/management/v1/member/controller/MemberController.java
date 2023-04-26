@@ -77,7 +77,6 @@ public class MemberController {
 	@GetMapping("/member/myPage")
 		public ModelAndView myPage(Principal principal) {
 		MemberDto.Read dto = service.read(principal.getName());
-		System.out.println(dto);
 		return new ModelAndView("/hotel/member/myPage").addObject("member", dto);
 		}
 	
