@@ -23,4 +23,15 @@
       </where>
 	</select>
 	
+	<select id="contactmallList" resultType="hotel.management.v1.manager.mall.Dto.ManagerMallListDto$MallListSearch">
+        select * 
+        from orders 
+        <where>
+        <if test="orderNo != null and orderNo != '' and name != null and name != '' and tel != null and tel != ''">
+            AND TRUNC(contactDate) = TRUNC(sysdate)
+        </if> 
+        </where>
+    </select>
+	 
+	
 </mapper>

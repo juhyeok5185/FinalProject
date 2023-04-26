@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import hotel.management.v1.manager.mall.Dao.ManagerMallListDao;
 import hotel.management.v1.manager.mall.Dto.ManagerMallListDto;
+import hotel.management.v1.manager.mall.Dto.ManagerMallListDto.MallListSearch;
 
 @Service
 public class ManagerMallListService {
@@ -17,9 +18,12 @@ public class ManagerMallListService {
 	public List<ManagerMallListDto.MallListSearch> mallsearch (ManagerMallListDto.FindMallList dto) {
 		   List<ManagerMallListDto.MallListSearch> list = malllistdao.mallsearch(dto);
 		   return list;
-		   
-//		   List<ManagerMallListDto.MallListSearch> list = malllistdao.mallsearch(dto);
-//		   return list;
 		}
+
+	public List<ManagerMallListDto.MallListSearch> contactmallList() {
+		   List<ManagerMallListDto.MallListSearch> list = malllistdao.contactmallList();
+		   return list;
+		}
+	
 	
 }

@@ -27,20 +27,6 @@ public class ManagerMallListDto {
 		LocalDate contactDate;
 		Integer orderPrice; 
 		Integer orderEa;
-		
-		public MallListSearch toEntity(String usernaem, String tel, Integer orderNo) {
-			return MallListSearch.builder().username(username).tel(tel).orderNo(orderNo).build();
-		}
-		
-//		String username; 
-//		String tel;
-//		String name;
-//		Integer orderNo; 
-//		LocalDate orderDate; 
-//		LocalDate contactDate;
-//		Integer orderPrice; 
-//		Integer orderEa;
-		
 	}
 	
 	@Data

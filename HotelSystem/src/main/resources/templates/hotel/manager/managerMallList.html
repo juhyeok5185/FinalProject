@@ -51,7 +51,7 @@
         </ul>
       </div>
     </div>
-    <div id="list" style="height: 1000px;">
+    <div id="list" style="height: 1200px;">
         <div id = "searcharea">
           <div id="search">
               <input type="text" id = "name" placeholder="이름 입력" height="2px;">
@@ -77,7 +77,15 @@
               </tr>
             </thead>
             <tbody id="mallListArea">
-            	
+                <tr th:each="m : ${mallListArea}">
+            	<th th:text="${m.orderNo}"></th>
+            	<th th:text="${m.name}"></th>
+            	<th th:text="${m.tel}"></th>
+            	<th>
+            	<button class="btn btn-secondary" style="width: 100px;" id="nameSearchBtn">주문상세</button>
+            	<button class="btn btn-secondary" style="width: 100px;" id="nameSearchBtn">주문취소</button>
+            	</th>
+            	</tr>
             </tbody>
           </table>
         </div>
