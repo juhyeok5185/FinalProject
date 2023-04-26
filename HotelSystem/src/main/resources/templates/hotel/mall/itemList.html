@@ -28,75 +28,27 @@
     <div th:replace="~{/fragment/nav.html}"></div>
     <!-- 700이상 -->
     <div id="luxury_page"> 
-      <div id= "aside"> 
-        <div id="inmenu">
-          <h3 id="tit">명품관</h3>
-        </div>
-      </div>
-      <div id="luxuryarticle">
-        <div id="headtit"> 
-          <h3>명품관</h3>
-          <div id="toolbar">
-            <i class="fa-solid fa-house"></i> > 명품관 ><a href="/hotel/mall/itemList" id="subh"> 명품관</a>
-          </div>
-        </div>
-        <div id="luxurytem">
-        	<ul>
-        		<li id="luxurytem-1">
-        			<span><img alt="래서판더" src="/img/래서팬더.jpg" width="400vw;" height="300vh;"></span><br>
-        			<span>
-				      	<span class="itemName" data-index="1">래서팬더</span><br>
-				       	<span class="itemPrice" data-index="1">25,000,000</span>        				
-        			</span>
-        			<span class="item-btn" data-index="1"><img alt="선택버튼" src="/img/선택버튼.png"></span>
-        		</li>
-        		<li id="luxurytem-2">
-        			<span><img alt="해달" src="/img/해달.jpg" width="400vw;" height="300vh;"></span><br>
-        			<span>
-				    	<span class="itemName" data-index="2">해달</span><br>
-				       	<span class="itemPrice" data-index="2">25,000,000</span>        				
-        			</span>
-        			<span class="item-btn" data-index="2"><img alt="선택버튼" src="/img/선택버튼.png"></span>
-        		</li>
-        		<li id="luxurytem-3">
-        			<span><img alt="강아지" src="/img/강아지.png" width="400vw;" height="300vh;"></span><br>
-        			<span>
-				      	<span class="itemName" data-index="3">강아지</span><br>
-				       	<span class="itemPrice" data-index="3">25,000,000</span>
-        			</span>
-        			<span class="item-btn" data-index="3"><img alt="선택버튼" src="/img/선택버튼.png"></span>
-        		</li>
-        		<li id="luxurytem-4">
-        			<span><img alt="사막여우" src="/img/사막여우.jpg" width="400vw;" height="300vh;"></span><br>
-        			<span>
-				       	<span class="itemName" data-index="4">래서팬더</span><br>
-				       	<span class="itemPrice" data-index="4">25,000,000</span>
-        			</span>
-        			<span class="item-btn" data-index="4"><img alt="선택버튼" src="/img/선택버튼.png"></span>
-        		</li>
-        		<li id="luxurytem-5">
-        			<span><img alt="북극여우" src="/img/북극여우.jpg" width="400vw;" height="300vh;"></span><br>
-        			<span>
-				       	<span class="itemName" data-index="5">북극여우</span><br>
-				      	<span class="itemPrice" data-index="5">25,000,000</span>
-        			</span>
-        			<span class="item-btn" data-index="5"><img alt="선택버튼" src="/img/선택버튼.png"></span>
-        		</li>
-        		<li id="luxurytem-6">
-        			<span><img alt="다람쥐" src="/img/다람쥐.jpg" width="400vw;" height="300vh;"></span><br>
-        			<span>
-				       	<span class="itemName" data-index="6">람쥐썬더</span><br>
-				       	<span class="itemPrice" data-index="6">25,000,000</span>
-        			</span>
-        			<span class="item-btn" data-index="6"><img alt="선택버튼" src="/img/선택버튼.png"></span>
-        		</li>
-        	</ul>
-        </div>
-      </div>
-    </div>
-    <!-- 요금합계 -->
-    <div></div>
+     <!-- 요금합계 -->
+    <div id="bg-popup" style="display: none;"></div>
     <div id="totalCharge">
+        <script>
+	        window.addEventListener('scroll', function() {
+	            var totalCharge = document.getElementById('totalCharge');
+	            var luxuryarticle = document.getElementById('luxuryarticle');
+	            var sticky = totalCharge.offsetTop;
+	            
+	            if (window.pageYOffset > sticky) {
+	              totalCharge.classList.add('sticky');
+	              luxuryarticle.classList.add('add');
+	              chargeInquiry.classList.add('fix');
+	            } else {
+	              totalCharge.classList.remove('sticky');
+	              luxuryarticle.classList.remove('add');
+	              chargeInquiry.classList.remove('fix');
+	            }
+	          });
+    	</script>
+
     	<div id="totalChargeInner">
     		<div id="totalBill">
     			<div id="totalBox">
@@ -132,66 +84,102 @@
     						</div>
     					</div>
     				</div>
-    				<a href="#none" id="chargeInquiry" style="z-index: 3"></a> <!-- 동그라미 -->
     			</div>
     		</div>
-    		<div id="totalBillDetail">
-    			<div id="totalBillDetailInner">
-    				<div id="innerBox">
-    					<div id="innerTextBox">
-    						<div id="textBox-title">
-    							<span>요금상세</span>
-    						</div>
-    						<div id="textBox-content">
-    							<table class="table table-hover">
-    								<thead>
-    									<tr>
-    										<th>상품명</th>
-    										<th>수량</th>
-    										<th>가격</th>
-    										<th></th>
-    									</tr>
-    								</thead>
-    								<tbody id="item-tbody">
-    									
-    									<tr>
-    										<td>래서팬더</td>
-    										<td><button>-</button>1<button>+</button></td>
-    										<td>25,000,000</td>
-    										<td><button>X</button></td>
-    									</tr>
-    									<tr>
-    										<td>래서팬더</td>
-    										<td><button>-</button>1<button>+</button></td>
-    										<td>25,000,000</td>
-    										<td><button>X</button></td>
-    									</tr>
-    									<tr>
-    										<td>래서팬더</td>
-    										<td><button>-</button>1<button>+</button></td>
-    										<td>25,000,000</td>
-    										<td><button>X</button></td>
-    									</tr>
-    									<tr>
-    										<td>래서팬더</td>
-    										<td><button>-</button>1<button>+</button></td>
-    										<td>25,000,000</td>
-    										<td><button>X</button></td>
-    									</tr>
-    									<tr>
-    										<td>래서팬더</td>
-    										<td><button>-</button>1<button>+</button></td>
-    										<td>25,000,000</td>
-    										<td><button>X</button></td>
-    									</tr>
-    								</tbody>
-    							</table>
-    						</div>
-    					</div>
+    	</div>
+    	<div id="totalBillDetailInner" class="totalBillDetail-collapsed">
+    		<div id="innerBox">
+    			<div id="innerTextBox">
+    				<div id="textBox-title">
+    					<span>요금상세</span>
+    				</div>
+    				<div id="textBox-content">
+    					<table class="table table-hover">
+	    					<colgroup>
+	    						<col width="30%"><col width="30%"><col width="30%"><col width="10%">
+	    					</colgroup>
+    						<thead>
+    							<tr>
+	    							<th>상품명</th>
+	    							<th>수량</th>
+	    							<th>가격</th>
+	    							<th></th>
+    							</tr>
+    						</thead>
+    						<tbody id="tbody">
+    						</tbody>
+    					</table>
     				</div>
     			</div>
     		</div>
     	</div>
+    </div>
+	<a href="#none" id="chargeInquiry"></a> <!-- 동그라미 -->
+	<div id= "mall-aside"> 
+        <div id="inmenu">
+          <h3 id="tit">명품관</h3>
+        </div>
+    </div>
+    <div id="luxuryarticle">
+        <div id="headtit"> 
+          <h3>명품관</h3>
+          <div id="toolbar">
+            <i class="fa-solid fa-house"></i> > 명품관 ><a href="/hotel/mall/itemList" id="subh"> 명품관</a>
+          </div>
+        </div>
+        <div id="luxurytem">
+        	<ul>
+        		<li id="luxurytem-1">
+        			<span><img alt="매트리스" src="/img/래서팬더.jpg" width="400vw;" height="300vh;"></span><br>
+        			<span>
+				      	<span class="itemName" data-index="1">MATTRESS</span><br>
+				       	<span class="itemPrice" data-index="1">1,000,000</span>   
+        			</span>
+        			<span class="item-btn" data-index="1"><img alt="선택버튼" src="/img/선택버튼.png"></span>
+        		</li>
+        		<li id="luxurytem-2">
+        			<span><img alt="해달" src="/img/해달.jpg" width="400vw;" height="300vh;"></span><br>
+        			<span>
+				    	<span class="itemName" data-index="2">MATTRESS COVER</span><br>
+				       	<span class="itemPrice" data-index="2">200,000</span>        				
+        			</span>
+        			<span class="item-btn" data-index="2"><img alt="선택버튼" src="/img/선택버튼.png"></span>
+        		</li>
+        		<li id="luxurytem-3">
+        			<span><img alt="베개" src="/img/배개.jpg" width="400vw;" height="300vh;"></span><br>
+        			<span>
+				      	<span class="itemName" data-index="3">PILLOW</span><br>
+				       	<span class="itemPrice" data-index="3">400,000</span>
+        			</span>
+        			<span class="item-btn" data-index="3"><img alt="선택버튼" src="/img/선택버튼.png"></span>
+        		</li>
+        		<li id="luxurytem-4">
+        			<span><img alt="사막여우" src="/img/사막여우.jpg" width="400vw;" height="300vh;"></span><br>
+        			<span>
+				       	<span class="itemName" data-index="4"></span><br>
+				       	<span class="itemPrice" data-index="4">25,000,000</span>
+        			</span>
+        			<span class="item-btn" data-index="4"><img alt="선택버튼" src="/img/선택버튼.png"></span>
+        		</li>
+        		<li id="luxurytem-5">
+        			<span><img alt="북극여우" src="/img/북극여우.jpg" width="400vw;" height="300vh;"></span><br>
+        			<span>
+				       	<span class="itemName" data-index="5">DUVET</span><br>
+				      	<span class="itemPrice" data-index="5">25,000,000</span>
+        			</span>
+        			<span class="item-btn" data-index="5"><img alt="선택버튼" src="/img/선택버튼.png"></span>
+        		</li>
+        		<li id="luxurytem-6">
+        			<span><img alt="다람쥐" src="/img/다람쥐.jpg" width="400vw;" height="300vh;"></span><br>
+        			<span>
+				       	<span class="itemName" data-index="6">여름 이불</span><br>
+				       	<span class="itemPrice" data-index="6">25,000,000</span>
+        			</span>
+        			<span class="item-btn" data-index="6"><img alt="선택버튼" src="/img/선택버튼.png"></span>
+        		</li>
+        	</ul>
+        </div>
+      </div>
     </div>
     <!-- 반응형 -->
     <div id="luxury_page-1">
