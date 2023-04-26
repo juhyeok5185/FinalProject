@@ -762,16 +762,29 @@
 	position:relative;
 	top:4vh;
 }
+
 #deletebutton{
 	position:relative;
 	left:2vw;
 	bottom: 0.13vh;
 }
+
 #replybutton{
 	position:relative;
 	bottom:0.8vh;
 	left:0.5vw; 
-		
+}
+
+#reporttitle{
+ 	resize: none;
+}
+
+#reportcontent{
+	resize: none;
+}
+
+#replyContent{
+	resize: none;
 }
 
 /*요기까지*/
