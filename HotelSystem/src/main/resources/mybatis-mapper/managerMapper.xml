@@ -111,14 +111,11 @@ select *
             from (select *
                  from (select * from bookList) 
                     <where>
-                         <if test="isStay == true and isRestaurant == false">
+                         <if test="isStay == true">
                             bookNo = rbBookNo
                          </if>
-                         <if test="isStay == false and isRestaurant == true">
+                         <if test="isRestaurant == true">
                             resNo is not null
-                         </if>
-                         <if test="isStay == true and isRestaurant == true">
-                             bookNo = rbBookNo and resNo is not null
                          </if>
                     </where>)
             <where>
@@ -151,7 +148,7 @@ select *
             <if test="roomNum == 0 and name == ''">
             </if>
             <if test="roomNum != 0 and name == ''">
-                roomNo = #{roomNum} and bookStaus = '체크인완료'
+                roomNo = #{roomNum}
             </if>
             <if test="roomNum == 0 and name != ''">
                 booker LIKE '%' || #{name} || '%'

@@ -136,7 +136,6 @@ $(document).ready(function () {
         method: "post",
         data: param,
       });
-
       searchData(list);
       heightController(list);
     } catch (err) {
