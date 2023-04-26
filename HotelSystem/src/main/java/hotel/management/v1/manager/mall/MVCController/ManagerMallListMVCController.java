@@ -14,15 +14,11 @@ import hotel.management.v1.manager.mall.Service.ManagerMallListService;
 public class ManagerMallListMVCController {
 	@Autowired
 	private ManagerMallListService service;
-
-		@GetMapping("/hotel/manager/managerMallList")
-		public void mallList() {
-		}
-	
 		
+		@GetMapping("/hotel/manager/managerMallList")
 		public ModelAndView contactmallList() {
 			List<ManagerMallListDto.MallListSearch> list = service.contactmallList();
-			return new ModelAndView("/hotel/manager/managerMallList").addObject("list",list);
+			return new ModelAndView("/hotel/manager/managerMallList").addObject("mallListArea",list);
 		}
 	
 }

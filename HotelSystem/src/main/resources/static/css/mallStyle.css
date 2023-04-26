@@ -8,9 +8,15 @@
 	position:relative;
 	top:10vh;
 	right:10vw; 
-	
 }
 #deletebutton{
 	position:relative;
 	top:0vh;
+}
+#mallListpagination{
+	margin: auto;
+	position: relative;
+	left: 16.5vw;
+	top: 2vh;
+	
 }

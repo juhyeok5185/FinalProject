@@ -1,3 +1,33 @@
 #paybookbtn{
 	cursor: pointer;
 }
+.bookpage{
+	margin-left: 20%
+}
+#reservation-btn{
+	margin-top :4.1vh;
+	cursor: pointer;
+}
+#roomimg{
+	width: 20vw;
+	height: 20vh;
+}
+#roomlist{
+	display: flex;
+	padding: 0 5vw;
+	
+}
+#roomlistimg{
+	flex: 1;
+}
+#roomlistinfo{
+	line-height :20vh;
+	flex: 1;
+}
+#roomlistbtn{
+	line-height :20vh;
+	flex: 1;
+}
+#booklistbtn{
+	cursor: pointer;
+}

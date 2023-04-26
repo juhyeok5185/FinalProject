@@ -70,6 +70,11 @@ $(document).ready(function () {
   chackDarkMode();
 
   //동현
+  $('#mainbookbtn').click(function(){
+	  $.ajax({
+		  
+	  })
+  })
   $(".bookbtn").click(function () {
     $("#booknewdim").attr("style", "display:block;");
     $("#bookBox").attr("style", "display:block");

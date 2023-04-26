@@ -30,6 +30,9 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
     		return;
 		}
 
+		
+		
+		
 		response.sendRedirect("/hotel/main");
 		memberDao.resetLoginCnt(authentication.getName());
 		

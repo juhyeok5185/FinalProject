@@ -25,6 +25,7 @@
 <script
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72764d4407eae4771ae834fbbe85f476"></script>
 <script src="/js/roombook.js"></script>
+<script src="https://js.tosspayments.com/v1/payment"></script>
 <link href='https://unpkg.com/css.gg@2.0.0/icons/css/youtube.css'
 	rel='stylesheet'>
 <link href='https://unpkg.com/css.gg@2.0.0/icons/css/instagram.css'
@@ -146,7 +147,11 @@
 	border: 3px solid #856f56;
 }
 </style>
-
+<script th:inline="javascript">
+	const msg = [[${msg}]];
+	if(msg!=null)
+		alert(msg);
+</script>
 </head>
 
 <body>
@@ -162,19 +167,7 @@
 					<div id="bookbox">
 						<div id="bookhaed"></div>
 						<div id="bookbady">
-							<div class="reservation-sitebook">
-								<div class="bookreservation-text1">
-									<div class="reservation-color" id="reservation-hotelinfo">호텔
-										또는 도시</div>
-									<div class="reservation-color" id="reservation-hotelinfo">리엑트
-										호텔</div>
-								</div>
-								<div class="reservation-text2">
-									<div id="reservation-hotelinfo"></div>
-									<div id="reservation-hotelinfo">
-										<i class="fa-solid fa-magnifying-glass"></i>
-									</div>
-								</div>
+							<div class="reservation-site bookpage">
 								<div class="reservation-text3">
 									<div class="reservation-color" id="reservation-hotelinfo">체크인</div>
 									<!-- 달력 라이브러리 -->
@@ -196,7 +189,9 @@
 									</div>
 								</div>
 								<div class="reservation-text6">
-									<button id="reservation-btn" type="button">예약</button>
+									<div id="reservation-btn">
+										<img src="/img/예약.jpg">
+									</div>
 								</div>
 							</div>
 							<div id="paymentPopup" style="display: none;"></div>
@@ -224,6 +219,7 @@
 						<hr id="bookhr">
 						<div id="bookfooter"></div>
 						<div id="payarea">
+							내 등급: <sapn th:text="${user.userlevel}"></sapn>
 							<span id="roomname"></span> <span id="roominfo"></span> <img
 								src="/img/선택버튼.png" id="paybookbtn">
 						</div>
