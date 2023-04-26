@@ -51,7 +51,7 @@ public class ManagerMallListDto {
 		private Integer start;
 		private Integer end;
 		private Integer next;
-		private List<ManagerMallListDto.FindMallList> mallList;
+		private List<FindMallList> mallList;
 	}
 	
 

@@ -37,7 +37,7 @@
 	
 	<select id="pagination" resultType="hotel.management.v1.manager.mall.Dto.ManagerMallListDto$FindMallList">
 		select * from (select rownum as rnum , 
-		od.* from (select orderNo, name, tel FROM orderdetail order by orderNo desc) 
+		od.* from (select orderNo, name, tel from orderdetail order by orderNo desc) 
 		od where rownum &lt; #{endRownum}) where rnum &gt; #{startRownum}
 	</select>
 </mapper>
