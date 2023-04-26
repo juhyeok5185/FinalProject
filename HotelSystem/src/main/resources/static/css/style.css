@@ -2822,6 +2822,9 @@ div #logintoolbar > a {
     #changepassword_page {
     	display: none;
     }
+    #read_page {
+    	display: none;
+    }
     
     
   }
@@ -2906,14 +2909,16 @@ div #logintoolbar > a {
     #changepassword_page-1 {
     	display: none;
     }
+    #read_page-1 {
+    	display: none;
+    }
     
     
   }
 
 /*반응형 존*/
-
-  .media- {
-    margin-right: 4vw;
+  #drop_icon {
+    margin-right: 2vw;
   }
   .reservation-ton {
     margin: auto;
@@ -3299,7 +3304,7 @@ div #logintoolbar > a {
 	bottom: 1.5vh;
 }
 
-/* 반응형 나의 등급 */
+/* 반응형 나의 등급 주성 */
 #myPage_page-1 {
 	width: 80vw;
 	height: 110vh;
@@ -3421,7 +3426,7 @@ div #logintoolbar > a {
 	border-bottom: 2px solid #9a8872;
 }
 
-/* 반응형 프로필 수정 */
+/* 반응형 프로필 수정 주성 */
 #changepassword_page-1 {
 	width: 100vw;
     height:70vh;
@@ -3465,7 +3470,7 @@ div #logintoolbar > a {
     color: #d5ccb0;
 }
 
-/* 반응형 비밀번호 변경*/
+/* 반응형 비밀번호 변경 주성 */
 #changepasswordintro-1 {
 	width:80vw;
 	height: 10vh;
@@ -3487,6 +3492,53 @@ div #logintoolbar > a {
     height: 3vh;
     margin-top: 3vh;
     margin-left: 22.5vw;
+    background-color: #3a3125;
+    border: 2px solid black;
+    color: #d5ccb0;
+}
+
+/* 반응형 비밀번호 확인 후 프로필 수정 주성 */
+#read_page-1 {
+	width: 100vw;
+    height:70vh;
+    background-color: white;
+    overflow: hidden;
+    margin:0 auto;
+    padding: 0 auto;
+}
+
+#read_article-1 {
+	height: 60vh;
+    width: 80vw;
+    position: absolute;
+    left: 10vw;
+    margin-top: 10vh;
+    overflow: hidden;
+}
+#readtable-1 {
+	height: 5vh;
+    width: 80vw;
+    border-top: 1px solid #a1886f;
+    border-bottom: 1px solid #a1886f;
+    margin-right: auto;
+}
+#readtable-1 td {
+	border-bottom: 1px solid #a1886f;
+}
+#updatebtn-1 {
+	width: 23vw;
+    height: 3vh;
+    margin-top: 4.3vh;
+    background-color: #3a3125;
+    border: 2px solid black;
+    color: #d5ccb0;
+    margin-left: 2.5vw;
+}
+#deletebtn-1 {
+	width: 23vw;
+    height: 3vh;
+    margin-top: 4.3vh;
+    margin-left: 15.5vw;
     background-color: #3a3125;
     border: 2px solid black;
     color: #d5ccb0;
