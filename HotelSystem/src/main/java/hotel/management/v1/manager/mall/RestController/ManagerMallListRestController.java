@@ -15,10 +15,9 @@ public class ManagerMallListRestController {
 	@Autowired
 	private ManagerMallListService mallservice;
 
-	@PostMapping("/hotel/manager/mallList")
+	@PostMapping("/hotel/manager/managerMallList")
 	public ResponseEntity<List<ManagerMallListDto.MallListSearch>> mallList(ManagerMallListDto.FindMallList dto){
 		List<ManagerMallListDto.MallListSearch> list = mallservice.mallsearch(dto);
-		
 		return ResponseEntity.ok(list);
 	}
 }

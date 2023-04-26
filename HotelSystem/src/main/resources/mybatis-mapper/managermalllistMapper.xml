@@ -24,14 +24,20 @@
 	</select>
 	
 	<select id="contactmallList" resultType="hotel.management.v1.manager.mall.Dto.ManagerMallListDto$MallListSearch">
-        select * 
-        from orders 
-        <where>
-        <if test="orderNo != null and orderNo != '' and name != null and name != '' and tel != null and tel != ''">
-            AND TRUNC(contactDate) = TRUNC(sysdate)
-        </if> 
-        </where>
+    	select od.username , us.tel , us.name , od.orderno , ord.orderdate , ord.contactdate , ord.orderprice , ord.orderea 
+		from orders od 
+		left join orderdetail ord on od.orderno = ord.orderno
+		left join users us on od.username = us.username
+		where contactdate is not null
     </select>
 	 
+	<select id="count" resultType="Integer">
+		select count(*) from ManagerMallListDto.FindMallList
+	</select>
 	
+	<select id="pagination" resultType="hotel.management.v1.manager.mall.Dto.ManagerMallListDto$FindMallList">
+		select * from (select rownum as rnum , 
+		od.* from (select orderNo, name, tel FROM orderdetail order by orderNo desc) 
+		od where rownum &lt; #{endRownum}) where rnum &gt; #{startRownum}
+	</select>
 </mapper>

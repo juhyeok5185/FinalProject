@@ -13,5 +13,8 @@ public interface ManagerMallListDao {
 	public List<ManagerMallListDto.MallListSearch> mallsearch (ManagerMallListDto.FindMallList dto);
 	
 	public List<ManagerMallListDto.MallListSearch> contactmallList ();
+	
+	public List<ManagerMallListDto.FindMallList> pagination(Integer startRownum, Integer endRownum);
 
+	public Integer count();
 }

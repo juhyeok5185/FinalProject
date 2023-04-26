@@ -8,7 +8,7 @@ $(document).ready(function(){
   	
   	try {
       const mallList = await $.ajax({
-      url: '/hotel/manager/mallList?name='+ name + '&tel=' + tel +'&orderNo=' + orderNo,
+      url: '/hotel/manager/managerMallList?name='+ name + '&tel=' + tel +'&orderNo=' + orderNo,
       method:'post'
       });
       const mallListArea = $('#mallListArea');

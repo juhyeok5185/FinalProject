@@ -1,7 +1,7 @@
 <!-- 관리자 :  김동욱 -->
 
 <!DOCTYPE html>
-<html lang="ko">
+<html  lang="ko" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -78,16 +78,30 @@
             </thead>
             <tbody id="mallListArea">
                 <tr th:each="m : ${mallListArea}">
-            	<th th:text="${m.orderNo}"></th>
-            	<th th:text="${m.name}"></th>
-            	<th th:text="${m.tel}"></th>
-            	<th>
+            	<td th:text="${m.orderNo}"></td>
+            	<td th:text="${m.name}"></td>
+            	<td th:text="${m.tel}"></td>
+            	<td>
             	<button class="btn btn-secondary" style="width: 100px;" id="nameSearchBtn">주문상세</button>
             	<button class="btn btn-secondary" style="width: 100px;" id="nameSearchBtn">주문취소</button>
-            	</th>
+            	</td>
             	</tr>
             </tbody>
           </table>
+            <div id="mallListpagination">
+		    <ul class="pagination">
+  			<li class="page-item"><a class="page-link" th:href="@{'/hotel/manager/managerMallList?pageno='+${prev}}">이전</a></li>
+  			<li class="page-item" th:each="i: ${#numbers.sequence(start, end)}">
+  			  <span th:if="${pageno eq i}">  
+  			   <a class="page-link active" th:href="@{'/hotel/manager/managerMallList?pageno=' + ${i}}" th:text="${i}"></a>
+  			  </span>
+  			  <span th:if="${pageno != i}">
+    		   <a class="page-link" th:href="@{'/hotel/manager/managerMallList?pageno=' + ${i}}" th:text="${i}"></a>
+  			  </span>
+			</li>
+  			<li class="page-item"><a class="page-link" th:href="@{'/hotel/manager/managerMallList?pageno='+${next}}">다음</a></li>
+			</ul>
+          </div>
         </div>
       </div>
     </div>
