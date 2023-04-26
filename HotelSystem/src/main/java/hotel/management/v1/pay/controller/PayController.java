@@ -5,13 +5,16 @@ import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import hotel.management.v1.pay.entity.KakaoPayApproveVO;
 import hotel.management.v1.pay.entity.KakaoPayReadyVo;
+import hotel.management.v1.pay.entity.TossPayVo;
 import hotel.management.v1.pay.service.PayService;
 import jakarta.servlet.http.HttpSession;
 
@@ -41,7 +44,15 @@ public class PayController {
 		session.removeAttribute("partner_order_id");
 		return "/pay/success";
 	}
-
+	
+	@GetMapping("/pay/toss_success")
+	public String tosssuccess(@RequestParam("orderId") String orderId,@RequestParam("paymentKey") String paymentKey,@RequestParam("amount") Integer amount,Principal principal) {
+		payService.tossPayApprove(orderId,paymentKey,amount,principal.getName());
+		
+		return "/pay/toss_success";
+	}
+	
+	
 	@GetMapping("/pay/cancel")
 	public String Cancel() {
 		return "redirect:/pay";

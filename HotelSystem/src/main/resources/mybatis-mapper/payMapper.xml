@@ -4,5 +4,8 @@
 	<insert id="bookadd">
 		insert into kakaopay(tid,partner_order_id,bookno) values(#{tid},#{uuid},(select bookno from book where username = #{username} and bookstatus = '체크인대기'))
 	</insert>
-
+	
+	<insert id="tossbookAdd">
+		insert into tosspay(paymentKey,orderId,bookno) values(#{paymentKey},#{orderId},(select bookno from book where username = #{username} and bookstatus = '체크인대기'))
+	</insert>
 </mapper>

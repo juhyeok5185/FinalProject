@@ -13,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 import hotel.management.v1.pay.dao.PayDao;
 import hotel.management.v1.pay.entity.KakaoPayApproveVO;
 import hotel.management.v1.pay.entity.KakaoPayReadyVo;
+import hotel.management.v1.pay.entity.TossPayVo;
 import jakarta.servlet.http.HttpSession;
 
 @Service
@@ -72,4 +73,10 @@ public class PayService {
 		return res;
 	}
 
+	public void tossPayApprove(String orderId, String paymentKey, Integer amount, String username) {
+		TossPayVo tp = new TossPayVo(orderId,paymentKey,amount,username);
+		dao.tossbookAdd(tp);
+	}
+
+	
 }

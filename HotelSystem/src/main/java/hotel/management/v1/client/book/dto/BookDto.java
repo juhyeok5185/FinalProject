@@ -71,6 +71,8 @@ public class BookDto {
 	public static class findRoom{
 		String gradeName;
 		Boolean reservableOrNot;
+		Integer breakfastprice;
+		Integer gradeprice;
 	}
 
 	@Data
