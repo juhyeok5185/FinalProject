@@ -104,9 +104,6 @@ public class ManagerService {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        
-        System.out.println(dto);
-        System.out.println(dao.bookSearch(dto));
         return dao.bookSearch(dto);
     }
 

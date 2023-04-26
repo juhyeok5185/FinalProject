@@ -170,8 +170,8 @@ $(document).ready(function () {
         method: "post",
         data: param,
       });
-
       searchData(list);
+      heightController(list);
     } catch (err) {
       console.log(err);
     }
@@ -236,7 +236,6 @@ $(document).ready(function () {
   });
 
   $(document).on("click", ".checkInBtn", async function () {
-    //등급 불러오기
     const roomGrade = $(this).closest("tr").find("td:nth-child(6)").text();
     try {
       const roomList = await $.ajax({
@@ -261,6 +260,7 @@ $(document).ready(function () {
         url: "/hotel/manager/bookCancel?bookTel=" + booker,
         method: "post",
       });
+      alert("예약이 정상적으로 취소되었습니다.");
       location.href = "/hotel/manager/bookList";
     } catch (err) {
       console.log(err);
@@ -275,6 +275,7 @@ $(document).ready(function () {
         url: "/hotel/manager/checkOut?bookTel=" + booker + "&roomNo=" + roomNo,
         method: "post",
       });
+      alert("체크아웃이 완료되었습니다");
       location.href = "/hotel/manager/bookList";
     } catch (err) {
       console.log(err);
