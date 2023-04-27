@@ -1,8 +1,9 @@
 function openPopup(url) {
+  //회원 detail 클릭시 popup 창 띄우는 코드
   window.open(
     url,
     "memberDetail",
-    "width=800, height=700, scrollbars=1, toolbar=1, menubar=yes, left=300px, top=100px"
+    "width=800, height=700, scrollbars=1, toolbar=1, menubar=yes, left=300px, top=100px" //창의 크기 설정
   );
 }
 
@@ -110,6 +111,7 @@ function searchData(list) {
 }
 
 function heightController(list) {
+  //list의 크기에따라 article의 높이를 조정
   var listAreaHeight = $("#listarea").height();
   var newPageHeight = listAreaHeight + list.length * 46;
   $("#listarea").height(newPageHeight);
@@ -117,32 +119,34 @@ function heightController(list) {
 
 $(document).ready(function () {
   $(document).on("click", "#searchBtn", async function () {
-    let stayCheckBox = $("#stayCheckBox").is(":checked");
-    let restaurantCheckBox = $("#restaurantCheckBox").is(":checked");
-    let todayCheckBox = $("#todayCheckBox").is(":checked");
+    //검색시 조건들을 param 변수를 담는다
     const param = {
-      isStay: stayCheckBox,
-      isRestaurant: restaurantCheckBox,
+      isStay: $("#stayCheckBox").is(":checked"),
+      isRestaurant: $("#restaurantCheckBox").is(":checked"),
       fromDate: $("#from").val(),
       toDate: $("#to").val(),
-      todayCheckBox: todayCheckBox,
+      todayCheckBox: $("#todayCheckBox").is(":checked"),
       roomNum: Number($("#searchRoomNumber").val()),
       name: $("#searchName").val(),
       listType: $(".dropdown-menu a.active").data("index"),
     };
+
+    //ajax data 형식으로 param을 전달한다.
     try {
       const list = await $.ajax({
         url: "/hotel/manager/bookSearch",
         method: "post",
         data: param,
       });
+      //동적으로 생성된 데이터를 테이블 포맷으로 맞춰준다.
       searchData(list);
+      //동적으로 생성된 테이블 갯수에 따라 높이를 변경해준다.
       heightController(list);
     } catch (err) {
       console.log(err);
     }
   });
-
+  //검색 토글 이벤트 처리
   $(document).on("click", ".searchToggle a", async function () {
     $(".dropdown-menu a").removeClass("active");
     $(this).addClass("active");

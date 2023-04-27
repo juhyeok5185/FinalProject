@@ -69,8 +69,7 @@ public class BookController {
 	}
 
 	@PostMapping(value = "/client/dinnerbook", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<?> dinnerbook(BookDto.dinnerbook book, Principal pal) {
-
+	public ResponseEntity<?> dinnerbook(BookDto.addbookfromDinner book, Principal pal) {
 		service.addDinner(book, pal.getName());
 		return ResponseEntity.ok(null);
 	}

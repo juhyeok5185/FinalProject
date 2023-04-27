@@ -37,7 +37,7 @@ public class LoginFailHandler extends SimpleUrlAuthenticationFailureHandler {
 				} else {
 					memberDao.increaseLoginFailCnt(username);
 					memberDao.disabled(username);
-					session.setAttribute("msg", "로그인에 5회 실패해 계정이 비활성화되었습니다. 관리자에게 문의하세요");
+					session.setAttribute("msg", "로그인에 5회 실패해 계정이 비활성화되었습니다. 관리자에게 문의해주세요.");
 				}
 			} catch(NoSuchElementException e1) {
 				session.setAttribute("msg", "아이디 또는 비밀번호를 잘못 입력했습니다");

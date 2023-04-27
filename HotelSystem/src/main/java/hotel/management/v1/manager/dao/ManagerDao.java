@@ -35,7 +35,6 @@ public interface ManagerDao {
 
     public void cancelDinner(Integer bookNo);
 
-    @Select("select * from dinner where resNo = #{resNo}")
     public Integer searchRes(Integer resNo);
 
     public List<ManagerDto.roomList> roomList(String roomGrade);

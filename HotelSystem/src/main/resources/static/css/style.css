@@ -2728,6 +2728,41 @@ div #logintoolbar > a {
 .dark-mode .reservation-area, .dark-mode .reservation-site, .dark-mode .hotel {
   background-color: rgb(20, 20, 20);
 }
+/* 다크모드 주성 */
+.dark-mode #internalFacilities_page {
+	background-color: rgb(20, 20, 20);
+	width: 100vw;
+    height:170vh;
+    overflow: hidden;
+    margin:0 auto;
+    padding: 0 auto;
+}
+.dark-mode #outline_page {
+	background-color: rgb(20, 20, 20);
+}
+.dark-mode #aside, .dark-mode #inmenu {
+	background-color: #212529;
+}
+.dark-mode #introducetool {
+	color: white;
+}
+.dark-mode #introducetool a {
+	color: white;
+}
+.dark-mode #totalStay {
+    width: 49vw;
+    height:95vh;
+    background-color: rgb(20, 20, 20);
+    overflow: hidden;
+    margin-top: 2vh;
+    color: white;
+}
+.dark-mode #stayContentfonttit, .dark-mode #stayContentfont{
+  color: white;
+}
+
+
+
 
 
 #nothing{
@@ -2777,13 +2812,6 @@ div #logintoolbar > a {
   .hd,#nav1,#nav2 ,.reservation-area,#section3,#outline_page{
     display: none;
   }
-  #internalFacilities_article {
-    display: none;
-  }
-  #internalFacilities_page {
-    display: none;
-  }
-  
   #Facilities_page {
     display: none;
   }
@@ -2879,6 +2907,12 @@ div #logintoolbar > a {
     #joinpage {
     	display: none;
     } 
+    #internalFacilities_article {
+    	display: none;
+  	}
+  	#internalFacilities_page {
+    	display: none;
+  	}
     
     
   }
@@ -2939,21 +2973,14 @@ div #logintoolbar > a {
     	display: none;
     }
     
-    /* 개요 */
-    #internalFacilities_page-1 {
-    	display: none;
-    }
-    #internalFacilities_article-1 {
-    	display: none;
-    }
+    
+    /* 700이상에서 안보이게 함 */
     #internalFacilities_staypage-1 {
     	display: none;
     }
     #internalFacilities_stayarticle-1 {
     	display: none;
     }
-    
-    /* 700이상에서 안보이게 함 */
     #myPage_page-1 {
     	display: none;
     }
@@ -2975,6 +3002,15 @@ div #logintoolbar > a {
     #joinpage-res {
     	display: none;
     }
+    #internalFacilities_page-res {
+    	display: none;
+    }
+    #internalFacilities_article-res {
+    	display: none;
+    }
+    #internalFacilities_page-1 {
+		display: none;
+	}
     
     
 }
@@ -3550,7 +3586,7 @@ div #logintoolbar > a {
     border-bottom: 1px solid #a1886f;
     margin-right: auto;
 }
-#changepasswordbtn-1 {
+#changepasswordbtn-res {
 	width: 35vw;
     height: 3vh;
     margin-top: 3vh;
@@ -3559,7 +3595,6 @@ div #logintoolbar > a {
     border: 2px solid black;
     color: #d5ccb0;
 }
-
 /* 반응형 비밀번호 확인 후 프로필 수정 주성 */
 #read_page-1 {
 	width: 100vw;

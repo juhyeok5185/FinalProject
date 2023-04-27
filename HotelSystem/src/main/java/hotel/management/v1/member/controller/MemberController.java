@@ -102,7 +102,6 @@ public class MemberController {
 	@PreAuthorize("isAuthenticated()")
 	@PostMapping("/member/changepassword")
 	public String changePassword(HttpSession session, String newpassword, Principal principal) {
-		System.out.println(session.getAttribute("isPasswordCheck"));
 		service.changePassword(newpassword, principal.getName());
 		return "redirect:/hotel/member/myPage";
 	}
