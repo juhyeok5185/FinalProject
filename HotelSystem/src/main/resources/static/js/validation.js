@@ -147,6 +147,8 @@ function newpassword2Check() {
 		$('#newpassword2_msg').text("비밀번호가 일치하지 않습니다.").attr("class","fail");
 		return false;
 	}
+		const pattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+		return check($('#newpassword').val(), pattern, "비밀번호는 문자, 숫자, 특수문자의 조합 최소 8자리입니다.", $("#newpassword_msg"));
 }
 
 $(document).ready(function() {
@@ -240,13 +242,24 @@ $(document).ready(function() {
 	$('#nowpassword').blur(nowpasswordCheck);
 	$('#newpassword').blur(newpasswordCheck);
 	$('#newpassword2').blur(newpassword2Check);
-	$('#changepasswordbtn').click(function() {
-	const changeresult = newpasswordCheck() && newpassword2Check();
-		if(changeresult==false) {
-			alert('비밀번호를 다시 입력해주세요.');
-			return false;
-		}
-			alert('비밀번호가 변경되었습니다.');
-			$('#change_password').submit();
-	});
+	$("#changepasswordbtn").click(async function() {
+  		const nowpassword = $('#nowpassword').val();
+  		const changeresult = newpasswordCheck() && newpassword2Check();
+  		try {
+  			const check = await $.ajax({
+  				url: '/hotel/member/checkNowPassword?nowpassword='+ nowpassword,
+  		    	method:'post'
+  			    });
+  			if(check == true){
+					if(changeresult==true) {
+						$('#change_password').submit();
+					}
+	  				}else if(check == false){  	
+					alert("비밀번호를 다시 입력해주세요");
+	  				}
+			} catch (err) {
+				alert("사용자를 찾지 못했습니다.");
+			}
+  		});
+
 });
