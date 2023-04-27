@@ -33,36 +33,6 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 		response.sendRedirect("/hotel/main");
 		memberDao.resetLoginCnt(authentication.getName());
 		
-		String redirectUrl = "/";
-		
-		SavedRequest sr = new HttpSessionRequestCache().getRequest(request, response);
-		HttpSession session = request.getSession();
-	
-		// 임시비밀번호인 경우 비밀번호 변경으로 보내자
-//		if (sr!=null) {
-//			redirectUrl = sr.getRedirectUrl();
-//		} else if(session.getAttribute("referer")!=null) {
-//			redirectUrl = (String)session.getAttribute("referer");
-//			session.removeAttribute("referer");
-//		}
-//		
-//		String password = request.getParameter("password");
-//		if (password.length()<=10) {
-//			response.sendRedirect(redirectUrl);
-//		} else {
-//			session.setAttribute("msg", "임시비밀번호로 로그인했습니다. 비밀번호를 변경하세요");
-//			response.sendRedirect("/member/change_password");
-//		}
-//		if(password.length()<=10) {
-//			if(sr!=null) 
-//				response.sendRedirect(sr.getRedirectUrl());
-//			else
-//				response.sendRedirect("/");
-//		} else {
-//			HttpSession session = request.getSession();
-//			session.setAttribute("msg", "임시비밀번호로 로그인했습니다. 비밀번호를 변경하세요");
-//			response.sendRedirect("/member/change_password");
-//		}
 	}
 }
 

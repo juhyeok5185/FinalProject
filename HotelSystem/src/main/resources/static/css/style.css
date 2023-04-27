@@ -2774,13 +2774,6 @@ div #logintoolbar > a {
   .hd,#nav1,#nav2 ,.reservation-area,#section3,#outline_page{
     display: none;
   }
-  #internalFacilities_article {
-    display: none;
-  }
-  #internalFacilities_page {
-    display: none;
-  }
-  
   #Facilities_page {
     display: none;
   }
@@ -2876,6 +2869,12 @@ div #logintoolbar > a {
     #joinpage {
     	display: none;
     } 
+    #internalFacilities_article {
+    	display: none;
+  	}
+  	#internalFacilities_page {
+    	display: none;
+  	}
     
     
   }
@@ -2937,12 +2936,6 @@ div #logintoolbar > a {
     }
     
     /* 개요 */
-    #internalFacilities_page-1 {
-    	display: none;
-    }
-    #internalFacilities_article-1 {
-    	display: none;
-    }
     #internalFacilities_staypage-1 {
     	display: none;
     }
@@ -2970,6 +2963,12 @@ div #logintoolbar > a {
     	display: none;
     }
     #joinpage-res {
+    	display: none;
+    }
+    #internalFacilities_page-res {
+    	display: none;
+    }
+    #internalFacilities_article-res {
     	display: none;
     }
     
@@ -3547,7 +3546,7 @@ div #logintoolbar > a {
     border-bottom: 1px solid #a1886f;
     margin-right: auto;
 }
-#changepasswordbtn-1 {
+#changepasswordbtn-res {
 	width: 35vw;
     height: 3vh;
     margin-top: 3vh;
@@ -3556,7 +3555,6 @@ div #logintoolbar > a {
     border: 2px solid black;
     color: #d5ccb0;
 }
-
 /* 반응형 비밀번호 확인 후 프로필 수정 주성 */
 #read_page-1 {
 	width: 100vw;

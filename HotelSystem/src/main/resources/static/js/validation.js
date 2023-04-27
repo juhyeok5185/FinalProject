@@ -120,6 +120,14 @@ function nowpasswordCheck() {
 		return false;
 	}
 }
+function resnowpasswordCheck() {
+	$('#nowpassword_msg-res').text("");
+	const value = $('#nowpassword-res').val();
+	if(value=="")	{
+		$('#nowpassword_msg-res').text("필수입력입니다").attr("class","fail");
+		return false;
+	}
+}
 
 function newpasswordCheck() {
 	$('#newpassword_msg').text("");
@@ -135,6 +143,20 @@ function newpasswordCheck() {
 	const pattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 	return check($('#newpassword').val(), pattern, "비밀번호는 문자, 숫자, 특수문자의 조합 최소 8자리입니다.", $("#newpassword_msg"));
 }
+function resnewpasswordCheck() {
+	$('#newpassword_msg-res').text("");
+	const value = $('#newpassword-res').val();
+	if(value=="") {
+		$('#newpassword_msg-res').text("필수입력입니다").attr("class","fail");
+		return false;
+	}
+	if(value==$('#nowpassword-res').val()) {
+		$('#newpassword_msg-res').text("현재 비밀번호와 동일한 비밀번호는 사용할 수 없습니다.").attr("class","fail");
+		return false;
+	}
+	const pattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+	return check($('#newpassword-res').val(), pattern, "비밀번호는 문자, 숫자, 특수문자의 조합 최소 8자리입니다.", $("#newpassword_msg-res"));
+}
 
 function newpassword2Check() {
 	$('#newpassword2_msg').text("");
@@ -149,6 +171,20 @@ function newpassword2Check() {
 	}
 		const pattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 		return check($('#newpassword').val(), pattern, "비밀번호는 문자, 숫자, 특수문자의 조합 최소 8자리입니다.", $("#newpassword_msg"));
+}
+function resnewpassword2Check() {
+	$('#newpassword2_msg-res').text("");
+	const value =$('#newpassword2-res').val();
+	if(value=="")	{
+		$('#newpassword2_msg-res').text("필수입력입니다").attr("class","fail");
+		return false;
+	}
+	if(value!=$('#newpassword-res').val()) {
+		$('#newpassword2_msg-res').text("비밀번호가 일치하지 않습니다.").attr("class","fail");
+		return false;
+	}
+		const pattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+		return check($('#newpassword-res').val(), pattern, "비밀번호는 문자, 숫자, 특수문자의 조합 최소 8자리입니다.", $("#newpassword_msg-res"));
 }
 
 $(document).ready(function() {
@@ -252,10 +288,35 @@ $(document).ready(function() {
   			    });
   			if(check == true){
 					if(changeresult==true) {
+						alert("비밀번호가 변경 되었습니다.");
 						$('#change_password').submit();
 					}
 	  				}else if(check == false){  	
-					alert("비밀번호를 다시 입력해주세요");
+					alert("현재비밀번호를 다시 입력해주세요.");
+	  				}
+			} catch (err) {
+				alert("사용자를 찾지 못했습니다.");
+			}
+  		});
+  		
+	$('#nowpassword-res').blur(resnowpasswordCheck);
+	$('#newpassword-res').blur(resnewpasswordCheck);
+	$('#newpassword2-res').blur(resnewpassword2Check);
+	$("#changepasswordbtn-res").click(async function() {
+  		const resnowpassword = $('#nowpassword-res').val();
+  		const reschangeresult = resnewpasswordCheck() && resnewpassword2Check();
+  		try {
+  			const check = await $.ajax({
+  				url: '/hotel/member/checkNowPassword?nowpassword='+ resnowpassword,
+  		    	method:'post'
+  			    });
+  			if(check == true){
+					if(reschangeresult==true) {
+						alert("비밀번호가 변경 되었습니다.");
+						$('#change_password-res').submit();
+					}
+	  				}else if(check == false){  	
+					alert("현재비밀번호를 다시 입력해주세요.");
 	  				}
 			} catch (err) {
 				alert("사용자를 찾지 못했습니다.");
