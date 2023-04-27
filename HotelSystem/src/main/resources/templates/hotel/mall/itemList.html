@@ -15,6 +15,7 @@
   <script src="https://kit.fontawesome.com/7fe498c607.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
   <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72764d4407eae4771ae834fbbe85f476"></script>
+  <script src="https://js.tosspayments.com/v1/payment"></script>
   <link href='https://unpkg.com/css.gg@2.0.0/icons/css/youtube.css' rel='stylesheet'>
   <link href='https://unpkg.com/css.gg@2.0.0/icons/css/instagram.css' rel='stylesheet'>
   <link href='https://unpkg.com/css.gg@2.0.0/icons/css/facebook.css' rel='stylesheet'>
@@ -48,7 +49,6 @@
 	            }
 	          });
     	</script>
-
     	<div id="totalChargeInner">
     		<div id="totalBill">
     			<div id="totalBox">
@@ -66,7 +66,7 @@
     						<span id="mallPaymentBtn"><img alt="선택" src="/img/선택버튼.png"></span>
     					</div>
     				</div>
-    				
+
     				<div id="paymentPopup" style="display: none;"></div>
     				<div id="paymentPopup-box" style="display: none;">
     					<div id="paymentPopup-headerbar">
@@ -76,6 +76,9 @@
     						</div>
     					</div>
     					<div id="choosePayment">
+    						<div class = "pickup-box">
+    							<input type="text" id="from" name="from" placeholder="상품픽업 날짜를 고르세요">
+    						</div>
     						<div id="choosePayment-box1">
     							<img alt="카카오페이" src="/img/kakaopay.png" width="120vw;" height="60vh;" id="kakaopay-payment">
     						</div>
@@ -85,6 +88,7 @@
     					</div>
     				</div>
     			</div>
+    			
     		</div>
     	</div>
     	<div id="totalBillDetailInner" class="totalBillDetail-collapsed">
@@ -165,7 +169,7 @@
         			<span><img alt="룸스프레이" src="/img/룸스프레이.jpg" width="400vw;" height="300vh;"></span><br>
         			<span>
 				       	<span class="itemName" data-index="5">ROOM SPRAY</span><br>
-				      	<span class="itemPrice" data-index="5">93,000</span>
+				      	<span class="itemPrice" data-index="5">180,000</span>
         			</span>
         			<span class="item-btn" data-index="5"><img alt="선택버튼" src="/img/선택버튼.png"></span>
         		</li>
