@@ -2236,7 +2236,7 @@ div #logintoolbar > a {
 .item-btn {
 	cursor: pointer;
 	position: relative;
-	left: 17.5vh;
+	left: 18.6vh;
 	bottom: 2vh;
 }					
 
@@ -2251,15 +2251,13 @@ div #logintoolbar > a {
 	z-index: 3;
 	margin: auto;
 	display: block;
-	
-
 }
 
 #chargeInquiry.fix {
 	position: fixed;
 	z-index: 3;
-	top: -76.3vh;
-	left: 49.6%;
+	top: -76vh;
+    left: 49.1%;
 }
 
 #chargeInquiry.click {
@@ -2268,7 +2266,6 @@ div #logintoolbar > a {
 	bottom: 88vh;
 	left: 49vw;
 }
-
 
 #totalCharge {
 	border-bottom:4px solid #856f56;
@@ -2484,6 +2481,12 @@ div #logintoolbar > a {
 	width: 40vw;
 	height: 24vh;
 	background-color: white;
+}
+
+.pickup {
+	position: relative;
+	left: 28vw;
+    top: 1.5vh;
 }
 
 #kakaopay-payment {
