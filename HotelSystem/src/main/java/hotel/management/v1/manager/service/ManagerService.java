@@ -49,6 +49,7 @@ public class ManagerService {
         }
         Integer searchRes = dao.searchRes(bookNoCount.getBookNo());
         if (dinner == true){
+            System.out.println(searchRes);
             if(searchRes == null){
                 dao.updateDinner(bookNoCount.getBookNo() , bookNoCount.getTotalCount());
             }

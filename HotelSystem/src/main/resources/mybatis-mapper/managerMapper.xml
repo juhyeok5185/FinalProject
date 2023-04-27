@@ -111,11 +111,14 @@ select *
             from (select *
                  from (select * from bookList) 
                     <where>
-                         <if test="isStay == true">
+                         <if test="isStay == true and isRestaurant == false">
                             bookNo = rbBookNo
                          </if>
-                         <if test="isRestaurant == true">
+                         <if test="isStay == false and isRestaurant == true">
                             resNo is not null
+                         </if>
+                         <if test="isStay == true and isRestaurant == true">
+                            bookNo = rbBookNo or resNo is not null
                          </if>
                     </where>)
             <where>
