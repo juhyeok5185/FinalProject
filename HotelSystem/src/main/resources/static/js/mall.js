@@ -10,7 +10,6 @@ $(document).ready(function() {
 	let count = 1;
 	let click = 0;
 	const stock = 3;
-	let clickCnt = 0;
 	
 	// 상품담기	
 	$('.item-btn').click(function() {
@@ -77,7 +76,7 @@ $(document).ready(function() {
 		const $count = $(this).parent().find('span');
  		let count = parseInt($count.text());
 		if(count <= 1) {
-			alert('1개 이상부터 구매가 가능합니다.');
+			alert('상품은 1개 이상부터 구매가 가능합니다.');
 			return;
 		}
 		$count.text(--count);		
