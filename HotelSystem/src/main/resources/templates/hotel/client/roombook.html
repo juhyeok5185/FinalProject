@@ -1,157 +1,144 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml"
-	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-<script
-	src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<script src="/js/Hotel.js"></script>
-<script src="https://kit.fontawesome.com/7fe498c607.js"
-	crossorigin="anonymous"></script>
-<script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
-<script
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72764d4407eae4771ae834fbbe85f476"></script>
-<script src="/js/roombook.js"></script>
-<script src="https://js.tosspayments.com/v1/payment"></script>
-<link href='https://unpkg.com/css.gg@2.0.0/icons/css/youtube.css'
-	rel='stylesheet'>
-<link href='https://unpkg.com/css.gg@2.0.0/icons/css/instagram.css'
-	rel='stylesheet'>
-<link href='https://unpkg.com/css.gg@2.0.0/icons/css/facebook.css'
-	rel='stylesheet'>
-<link href='https://unpkg.com/css.gg@2.0.0/icons/css/shopping-bag.css'
-	rel='stylesheet'>
-<link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/css/bookStyle.css">
-<title>가은호텔</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	<script src="/js/Hotel.js"></script>
+	<script src="https://kit.fontawesome.com/7fe498c607.js" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
+	<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72764d4407eae4771ae834fbbe85f476"></script>
+	<script src="/js/roombook.js"></script>
+	<script src="https://js.tosspayments.com/v1/payment"></script>
+	<link href='https://unpkg.com/css.gg@2.0.0/icons/css/youtube.css' rel='stylesheet'>
+	<link href='https://unpkg.com/css.gg@2.0.0/icons/css/instagram.css' rel='stylesheet'>
+	<link href='https://unpkg.com/css.gg@2.0.0/icons/css/facebook.css' rel='stylesheet'>
+	<link href='https://unpkg.com/css.gg@2.0.0/icons/css/shopping-bag.css' rel='stylesheet'>
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/bookStyle.css">
+	<title>가은호텔</title>
 
-<style>
-#mallPaymentBtn {
-	cursor: pointer;
-}
+	<style>
+		#mallPaymentBtn {
+			cursor: pointer;
+		}
 
-#paymentPopup {
-	width: 100vw;
-	height: 100vh;
-	background-color: gray;
-	opacity: 0.7;
-	position: fixed;
-	bottom: 0.01vh;
-	right: 0.01vw;
-	z-index: 999;
-}
+		#paymentPopup {
+			width: 100vw;
+			height: 100vh;
+			background-color: gray;
+			opacity: 0.7;
+			position: fixed;
+			bottom: 0.01vh;
+			right: 0.01vw;
+			z-index: 999;
+		}
 
-#paymentPopup-box {
-	width: 40vw;
-	height: 29vh;
-	background-color: white;
-	position: fixed;
-	left: 30vw;
-	top: 33vh;
-	opacity: 1;
-	margin: auto;
-	z-index: 999;
-}
+		#paymentPopup-box {
+			width: 40vw;
+			height: 29vh;
+			background-color: white;
+			position: fixed;
+			left: 30vw;
+			top: 33vh;
+			opacity: 1;
+			margin: auto;
+			z-index: 999;
+		}
 
-#paymentPopup-headerbar {
-	height: 8vh;
-	background-color: #cccccc;
-}
+		#paymentPopup-headerbar {
+			height: 8vh;
+			background-color: #cccccc;
+		}
 
-#paymentPopup-headerbar>span {
-	position: absolute;
-	left: 1vw;
-	bottom: 23vh;
-	font-size: 20px;
-}
+		#paymentPopup-headerbar>span {
+			position: absolute;
+			left: 1vw;
+			bottom: 23vh;
+			font-size: 20px;
+		}
 
-#paymentPopup-cancle {
-	margin: 0;
-	position: relative;
-	left: 37.5vw;
-	top: 1.5vh;
-	width: 3vw;
-	height: 3vh;
-}
+		#paymentPopup-cancle {
+			margin: 0;
+			position: relative;
+			left: 37.5vw;
+			top: 1.5vh;
+			width: 3vw;
+			height: 3vh;
+		}
 
-#paymentPopup-cancle>a {
-	text-decoration: none;
-	color: black;
-}
+		#paymentPopup-cancle>a {
+			text-decoration: none;
+			color: black;
+		}
 
-#paymentPopup-canclex {
-	color: #ffffff
-}
+		#paymentPopup-canclex {
+			color: #ffffff
+		}
 
-#paymentPopup-btn>span {
-	font-size: 30px;
-}
+		#paymentPopup-btn>span {
+			font-size: 30px;
+		}
 
-#choosePayment {
-	display: flex;
-	width: 40vw;
-	height: 24vh;
-	background-color: white;
-}
+		#choosePayment {
+			display: flex;
+			width: 40vw;
+			height: 24vh;
+			background-color: white;
+		}
 
-#kakaopay-payment {
-	position: absolute;
-	top: 1.5vh;
-	left: 4.1vw;
-}
+		#kakaopay-payment {
+			position: absolute;
+			top: 1.5vh;
+			left: 4.1vw;
+		}
 
-#toss-payment {
-	position: absolute;
-	top: 1.5vh;
-	left: 4.1vw;
-}
+		#toss-payment {
+			position: absolute;
+			top: 1.5vh;
+			left: 4.1vw;
+		}
 
-#choosePayment-box1 {
-	cursor: pointer;
-	width: 15vw;
-	height: 10vh;
-	border: 3px solid #eaeaea;
-	position: absolute;
-	left: 4.6vw;
-	top: 15vh;
-}
+		#choosePayment-box1 {
+			cursor: pointer;
+			width: 15vw;
+			height: 10vh;
+			border: 3px solid #eaeaea;
+			position: absolute;
+			left: 4.6vw;
+			top: 15vh;
+		}
 
-#choosePayment-box2 {
-	cursor: pointer;
-	width: 15vw;
-	height: 10vh;
-	border: 3px solid #eaeaea;
-	position: absolute;
-	left: 20.4vw;
-	top: 15vh;
-}
+		#choosePayment-box2 {
+			cursor: pointer;
+			width: 15vw;
+			height: 10vh;
+			border: 3px solid #eaeaea;
+			position: absolute;
+			left: 20.4vw;
+			top: 15vh;
+		}
 
-#choosePayment-box1:hover {
-	border: 3px solid #856f56;
-}
+		#choosePayment-box1:hover {
+			border: 3px solid #856f56;
+		}
 
-#choosePayment-box2:hover {
-	border: 3px solid #856f56;
-}
-</style>
-<script th:inline="javascript">
-	const msg = [[${msg}]];
-	if(msg!=null)
-		alert(msg);
-</script>
+		#choosePayment-box2:hover {
+			border: 3px solid #856f56;
+		}
+	</style>
+	<script th:inline="javascript">
+		const msg = [[${msg}]];
+		if (msg != null)
+			alert(msg);
+	</script>
 </head>
 
 <body>
@@ -172,8 +159,7 @@
 									<div class="reservation-color" id="reservation-hotelinfo">체크인</div>
 									<!-- 달력 라이브러리 -->
 									<div id="reservation-hotelinfo">
-										<input type="text" id="from" name="from"
-											placeholder="체크인 날짜를 고르세요">
+										<input type="text" id="from" name="from" placeholder="체크인 날짜를 고르세요">
 									</div>
 								</div>
 								<div class="reservation-text4">
@@ -184,8 +170,7 @@
 									<div class="reservation-color" id="reservation-hotelinfo">체크아웃</div>
 									<!-- 달력 라이브러리 -->
 									<div id="reservation-hotelinfo">
-										<input type="text" id="to" name="to"
-											placeholder="체크아웃 날짜를 고르세요" disabled>
+										<input type="text" id="to" name="to" placeholder="체크아웃 날짜를 고르세요" disabled>
 									</div>
 								</div>
 								<div class="reservation-text6">
@@ -200,17 +185,17 @@
 									<span>결제</span>
 									<div id="paymentPopup-cancle">
 										<a href="#none" id="paymentPopup-btn"><span
-											id="paymentPopup-canclex">x</span></a>
+												id="paymentPopup-canclex">x</span></a>
 									</div>
 								</div>
 								<div id="choosePayment">
 									<div id="choosePayment-box1">
-										<img alt="카카오페이" src="/img/kakaopay.png" width="120vw;"
-											height="60vh;" id="kakaopay-payment">
+										<img alt="카카오페이" src="/img/kakaopay.png" width="120vw;" height="60vh;"
+											id="kakaopay-payment">
 									</div>
 									<div id="choosePayment-box2">
-										<img alt="토스" src="/img/toss.png" width="120vw;"
-											height="60vh;" id="toss-payment">
+										<img alt="토스" src="/img/toss.png" width="120vw;" height="60vh;"
+											id="toss-payment">
 									</div>
 								</div>
 							</div>
@@ -219,9 +204,19 @@
 						<hr id="bookhr">
 						<div id="bookfooter"></div>
 						<div id="payarea">
-							내 등급: <sapn th:text="${user.userlevel}"></sapn>
-							<span id="roomname"></span> <span id="roominfo"></span> <img
-								src="/img/선택버튼.png" id="paybookbtn">
+							<div id="userlevelinfo">
+								<span>내 등급:</span>
+								<sapn th:text="${user.userlevel}"></sapn>
+							</div>
+							<div id="roomnameinfo">
+								<label for="roomname">방등급 : </label> <span id="roomname"></span>
+							</div>
+							<div id="roomtotalpayinfo">
+								<label for="roominfo">총액 : </label> <span id="roominfo"></span>
+							</div>
+							<div id="paybtninfo">
+								<img src="/img/선택버튼.png" id="paybookbtn">
+							</div>
 						</div>
 
 					</div>

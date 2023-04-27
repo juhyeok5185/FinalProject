@@ -71,9 +71,14 @@ $(document).ready(function () {
 
   //동현
   $('#mainbookbtn').click(function(){
-	  $.ajax({
-		  
-	  })
+	  const from = $('#from').val();
+	  const to = $('#to').val();
+	  const day = $('.night').text();
+	  sessionStorage.setItem('from', from);
+	  sessionStorage.setItem('day', day);
+	  sessionStorage.setItem('to', to);
+	  location.href = "/hotel/client/roombook";
+	
   })
   $(".bookbtn").click(function () {
     $("#booknewdim").attr("style", "display:block;");

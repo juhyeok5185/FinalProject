@@ -29,13 +29,13 @@ public class BookService {
 		BookDto.addbook ab = new BookDto.addbook(pal, book.getFrom(), book.getTotalcnt(), book.getBooktel(),
 				book.getBooker());
 
-//		dao.addBook(ab);
-//		dao.addRoomBooking(rb);
+		dao.addBook(ab);
+		dao.addRoomBooking(rb);
 		BookDto.whtyouname name = new BookDto.whtyouname(pal, book.getBooktel(), book.getBooker(), book.getFrom(),
 				book.getTo());
 		BookDto.data data = dao.findBookdata(name);
 		if (book.getDicheckbox()) {
-//			dao.addDinner(data);
+			dao.addDinner(data);
 		}
 	}
 

@@ -55,7 +55,7 @@ public class PayController {
 	
 	@GetMapping("/pay/cancel")
 	public String Cancel() {
-		return "redirect:/pay";
+		return "redirect:/hotel/main";
 	}
 
 	@GetMapping("/pay/fail")

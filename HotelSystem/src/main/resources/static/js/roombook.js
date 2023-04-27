@@ -64,7 +64,6 @@ function printRoomList($roomlist, $footer) {
 
 
 function kakaojs(result) {
-
 	$.ajax({
 		type: 'get',
 		url: '/pay/start',
@@ -84,10 +83,36 @@ function kakaojs(result) {
 
 }
 
-$(document).ready(function() {
-	
+$(document).ready(async function() {
+	const $footer = $('#bookfooter');
 	var clientKey = 'test_ck_D5GePWvyJnrK0W0k6q8gLzN97Eoq';
 	var tossPayments = TossPayments(clientKey)
+
+	if (sessionStorage.getItem("from") != null && sessionStorage.getItem("to") != null) {
+		const $from = sessionStorage.getItem("from");
+		const $to = sessionStorage.getItem("to");
+		const $day = sessionStorage.getItem("day");
+		const param = {
+			from: $from,
+			to: $to
+		}
+		const $roomlist = await $.ajax({
+			url: "/hotel/client/roombook",
+			data: param,
+			dataType: 'json',
+			method: 'post',
+
+		})
+		$('#from').val($from);
+		$('#to').val($to);
+		$('.night').text($day);
+		printRoomList($roomlist, $footer);
+		sessionStorage.removeItem('from');
+		sessionStorage.removeItem('to');
+		sessionStorage.removeItem('day');
+		
+
+	}
 
 	$('#paybookbtn').click(function() {
 		$('#paymentPopup').attr('style', 'display:block;');
@@ -126,7 +151,7 @@ $(document).ready(function() {
 		const totalprice = $('#roominfo').text();
 		const gradename = $('#roomname').text();
 		parseInt(totalprice);
-		kakaojs({ totalprice, gradename });
+		kakaojs({totalprice, gradename});
 	})
 	$('#choosePayment-box2').click(function() {
 		const totalprice = $('#roominfo').text();
@@ -161,7 +186,6 @@ $(document).ready(function() {
 
 
 
-	const $footer = $('#bookfooter');
 
 
 
@@ -172,7 +196,6 @@ $(document).ready(function() {
 		} else {
 			const gradeName = $(this).parent().prev().prev().prev().val();
 			const gradeprice = $(this).parent().prev().children('#gradeprice').text();
-			console.log(gradeprice);
 			printtotalprice(gradeName, gradeprice);
 
 
@@ -231,7 +254,7 @@ $(document).ready(function() {
 				dataType: 'json',
 				method: 'post',
 			})
-		} catch (err) { console.log(err) }
+		} catch (err) {console.log(err)}
 	})
 
 })

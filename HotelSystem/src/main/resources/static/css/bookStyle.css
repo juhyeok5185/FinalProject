@@ -5,7 +5,6 @@
 	margin-left: 20%
 }
 #reservation-btn{
-	margin-top :4.1vh;
 	cursor: pointer;
 }
 #roomimg{
@@ -30,4 +29,34 @@
 }
 #booklistbtn{
 	cursor: pointer;
+}
+#payarea{
+	width : 40vw;
+	display: flex;
+	float: right;
+	margin-bottom: 1.5vh
+}
+#userlevelinfo{
+	flex: 1;
+	line-height: 5vh;
+}
+#roomnameinfo{
+	flex: 1;
+	line-height: 5vh;
+}
+#roomtotalpayinfo{
+	flex: 1;
+	line-height: 5vh;
+}
+#paybtninfo{
+	flex: 1;
+	margin-right: 7vw;
+	margin-left: 2vw;
+}
+#bookpage{
+	overflow : hidden;
+	background-color: white;
+	width: 100vw;
+	min-height: 71vh;
+	padding-top: 8vh;
 }
