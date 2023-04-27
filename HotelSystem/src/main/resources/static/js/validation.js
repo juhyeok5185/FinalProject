@@ -130,6 +130,7 @@ function newpasswordCheck() {
 	}
 	if(value==$('#nowpassword').val()) {
 		$('#newpassword_msg').text("현재 비밀번호와 동일한 비밀번호는 사용할 수 없습니다.").attr("class","fail");
+		return false;
 	}
 	const pattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 	return check($('#newpassword').val(), pattern, "비밀번호는 문자, 숫자, 특수문자의 조합 최소 8자리입니다.", $("#newpassword_msg"));
@@ -242,7 +243,7 @@ $(document).ready(function() {
 	$('#changepasswordbtn').click(function() {
 	const changeresult = newpasswordCheck() && newpassword2Check();
 		if(changeresult==false) {
-			alert('비밀번호를 확인해주세요.');
+			alert('비밀번호를 다시 입력해주세요.');
 			return false;
 		}
 			alert('비밀번호가 변경되었습니다.');
