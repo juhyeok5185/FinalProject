@@ -242,9 +242,9 @@ $(document).ready(async function() {
 		const $bookpeople = $('#bookpeople').val();
 		const $booker = $('#booker').val();
 		const param2 = {
-			bookdate: $bookdate,
+			from: $bookdate,
 			booktel: $booktel,
-			bookpeople: $bookpeople,
+			totalcnt: $bookpeople,
 			booker: $booker
 		}
 		try {

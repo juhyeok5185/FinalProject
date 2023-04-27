@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import hotel.management.v1.client.book.dto.BookDto.addRoomBook;
 import hotel.management.v1.client.book.dto.BookDto.addbook;
 import hotel.management.v1.client.book.dto.BookDto.data;
+import hotel.management.v1.client.book.dto.BookDto.dinner;
 import hotel.management.v1.client.book.dto.BookDto.whtyouname;
 import hotel.management.v1.client.book.dto.BookDto;
 
@@ -19,7 +20,7 @@ public interface BookDao {
 	
 	public Integer addRoomBooking(addRoomBook rb);
 
-	public Integer addDinner(data data);
+	public Integer addDinner(dinner dinner);
 
 	public Integer addDinnerbook(String username, Integer resno);
 
@@ -28,6 +29,8 @@ public interface BookDao {
 	public BookDto.finduser findByusername(String name);
 
 	public data findBookdata(whtyouname name);
+
+	public Integer findBooknoByusername(String name);
 	
 
 

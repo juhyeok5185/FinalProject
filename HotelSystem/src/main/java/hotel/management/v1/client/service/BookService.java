@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import hotel.management.v1.client.book.dao.BookDao;
 import hotel.management.v1.client.book.dto.BookDto;
+import hotel.management.v1.client.book.dto.BookDto.addbook;
 import hotel.management.v1.client.book.dto.BookDto.book;
 import hotel.management.v1.client.book.dto.BookDto.dinner;
 import hotel.management.v1.client.book.dto.BookDto.dinnerbook;
@@ -29,26 +30,29 @@ public class BookService {
 		BookDto.addbook ab = new BookDto.addbook(pal, book.getFrom(), book.getTotalcnt(), book.getBooktel(),
 				book.getBooker());
 
-		dao.addBook(ab);
-		dao.addRoomBooking(rb);
+//		dao.addBook(ab);
+//		dao.addRoomBooking(rb);
 		BookDto.whtyouname name = new BookDto.whtyouname(pal, book.getBooktel(), book.getBooker(), book.getFrom(),
 				book.getTo());
 		BookDto.data data = dao.findBookdata(name);
 		if (book.getDicheckbox()) {
-			dao.addDinner(data);
+//			dao.addDinner(data);
 		}
 	}
 
-	public Integer addDinner(dinnerbook book, String name) {
+	public Integer addDinner(BookDto.addbookfromDinner book, String name) {
 		// 여기서 다른 dto로 합쳐서 보낸다? book테이블 dinner테이블 두게에 보내야 한다 그럼 dto를 합쳐서 다시 갈라치기를 한다?
-		BookDto.dinner dinner = new dinner(name, book.getBookpeople(), book.getBookdate(), book.getBooktel(),
-				book.getBooker());
-		Integer resno = dao.findByUsernameAndBookdate(dinner.getUsername(), dinner.getBookdate());
-
-//		dao.addDinner(dinner);
-
-//		dao.addDinnerbook(dinner.getUsername(),resno);
-		return resno;
+//		Integer bookno = dao.findBooknoByusername(name);
+//		if (bookno>1 ||bookno ==null) {
+////			return 생각
+//			System.out.println("널");
+//		}
+		BookDto.addbook bo = new addbook(name,book.getFrom(),book.getTotalcnt(),book.getBooktel(),book.getBooker());
+		System.out.println(bo.toString());
+		dao.addBook(bo);
+		BookDto.dinner din = new dinner(name,dao.findBooknoByusername(name));
+		dao.addDinner(din);
+		return null;
 	}
 
 	public finduser findByusername(String name) {

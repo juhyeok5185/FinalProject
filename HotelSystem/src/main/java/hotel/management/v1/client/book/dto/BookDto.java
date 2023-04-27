@@ -6,8 +6,20 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 public class BookDto {
-	
-	
+	@Data
+	 public static class addbookfromDinner {
+		Integer totalcnt;
+		String from;
+		String booktel;
+		String booker;
+	}
+	@Data
+	@AllArgsConstructor
+	public static class adddinner{
+		Integer resno;
+		Integer rescnt;
+		Integer resprice;
+	}
 	@Data
 	@AllArgsConstructor
 	public static class whtyouname {
@@ -79,10 +91,7 @@ public class BookDto {
 	@AllArgsConstructor
 	public static class dinner{
 		String username;
-		Integer totalcnt;
-		String bookdate;
-		String booktel;
-		String booker;
+		Integer bookno;
 	};
 	@Data
 	public static class finduser {
