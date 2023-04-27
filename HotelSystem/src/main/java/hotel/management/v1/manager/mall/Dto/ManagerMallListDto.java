@@ -10,26 +10,28 @@ import io.micrometer.common.lang.NonNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.ToString;
 
 public class ManagerMallListDto {
 
 	@Data
 	@AllArgsConstructor
+	@Getter
 	@Builder
 	@ToString
 	public static class MallListSearch {
-		String username; 
+		private String username; 
 		@NonNull
-		String tel;
+		private String tel;
 		@NonNull
-		String name;
+		private String name;
 		@NonNull
-		Integer orderNo; 
-		LocalDate orderDate; 
-		LocalDate contactDate;
-		Integer orderPrice; 
-		Integer orderEa;
+		private Integer orderNo; 
+		private LocalDate orderDate; 
+		private LocalDate contactDate;
+		private Integer orderPrice; 
+		private Integer orderEa;
 	}
 	
 	@Data
@@ -37,22 +39,9 @@ public class ManagerMallListDto {
 	@Builder
 	@ToString
 	public static class FindMallList{
-		String name; 
-		String tel;
-		Integer orderNo; 
+		private String name; 
+		private String tel;
+		private Integer orderNo; 
 	}
 	
-	@Data
-	@Builder
-	@AllArgsConstructor
-	@ToString
-	public static class Pagination{
-		private Integer prev; 
-		private Integer start;
-		private Integer end;
-		private Integer next;
-		private List<FindMallList> mallList;
-	}
-	
-
 }
