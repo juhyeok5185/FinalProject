@@ -2725,6 +2725,41 @@ div #logintoolbar > a {
 .dark-mode .reservation-area, .dark-mode .reservation-site, .dark-mode .hotel {
   background-color: rgb(20, 20, 20);
 }
+/* 다크모드 주성 */
+.dark-mode #internalFacilities_page {
+	background-color: rgb(20, 20, 20);
+	width: 100vw;
+    height:170vh;
+    overflow: hidden;
+    margin:0 auto;
+    padding: 0 auto;
+}
+.dark-mode #outline_page {
+	background-color: rgb(20, 20, 20);
+}
+.dark-mode #aside, .dark-mode #inmenu {
+	background-color: #212529;
+}
+.dark-mode #introducetool {
+	color: white;
+}
+.dark-mode #introducetool a {
+	color: white;
+}
+.dark-mode #totalStay {
+    width: 49vw;
+    height:95vh;
+    background-color: rgb(20, 20, 20);
+    overflow: hidden;
+    margin-top: 2vh;
+    color: white;
+}
+.dark-mode #stayContentfonttit, .dark-mode #stayContentfont{
+  color: white;
+}
+
+
+
 
 
 #nothing{
@@ -2935,15 +2970,14 @@ div #logintoolbar > a {
     	display: none;
     }
     
-    /* 개요 */
+    
+    /* 700이상에서 안보이게 함 */
     #internalFacilities_staypage-1 {
     	display: none;
     }
     #internalFacilities_stayarticle-1 {
     	display: none;
     }
-    
-    /* 700이상에서 안보이게 함 */
     #myPage_page-1 {
     	display: none;
     }
@@ -2971,6 +3005,9 @@ div #logintoolbar > a {
     #internalFacilities_article-res {
     	display: none;
     }
+    #internalFacilities_page-1 {
+		display: none;
+	}
     
     
 }
