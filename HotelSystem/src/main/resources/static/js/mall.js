@@ -1,15 +1,41 @@
 let tPrice = 0;
+// 요금합계	
 function totalPrice($input) {
 	const totalPrice = $('#totalPrice');
 	tPrice += $input
 	totalPrice.text(tPrice.toLocaleString() + ' 원');
 };
 
+// 카카오JS
+function kakaojs(result) {
+	console.log(result);
+	$.ajax({
+		type: 'get',
+		url: '/pay/start',
+		data: {
+			item_name: `${result.itemName}`, //상품명
+			quantity: "1", // 나는 고정
+			total_amount: `${result.itemPrice}`, //받아와야 하고
+			tax_free_amount: "0" //필수라 넣어야됨
+		},
+		success: function(res) {
+			location.href = res.next_redirect_pc_url;
+		},
+		error: function(error) {
+				console.log(error)				
+		}
+	})
+
+}
+
+
 $(document).ready(function() {
 	let checkBtn = false;
 	let count = 1;
 	let click = 0;
 	const stock = 3;
+	var clientKey = 'test_ck_D5GePWvyJnrK0W0k6q8gLzN97Eoq';
+	var tossPayments = TossPayments(clientKey);
 	
 	// 상품담기	
 	$('.item-btn').click(function() {
@@ -123,17 +149,6 @@ $(document).ready(function() {
 		$tr.remove();
 	});
 	
-	// 선택버튼 클릭횟수
-	$('.item-btn').on('click', function() {
-		let index = $(this).data('index');
-		
-		
-		
-		
-		
-		
-	});
-	
 	// 결제 상세정보
 	$('#chargeInquiry').on('click', function() {
 		var content = document.getElementById("totalBillDetailInner");
@@ -173,4 +188,27 @@ $(document).ready(function() {
 		$('#paymentPopup-box').attr('style', 'display:none');
 		$('html').attr('style', 'overflow:none');
 	});
+	
+	// 결제하기
+	$('#choosePayment-box1').click(function() {
+		let itemPrice = parseInt($(`#totalPrice`).text().replace(/,/g, ""));
+		let itemName = $(`#tbodyName`).text();
+		
+		kakaojs({ itemPrice, itemName });
+		
+
+	})
+	$('#choosePayment-box2').click(function() {
+		let itemPrice = parseInt($(`#totalPrice`).text().replace(/,/g, ""));
+		let itemName = $(`#tbodyName`).text();
+		let uuid = self.crypto.randomUUID();
+		tossPayments.requestPayment('TOSSPAY', {
+			amount: itemPrice,
+			orderId: uuid,
+			orderName: itemName,
+			successUrl: 'http://localhost:8081/pay/toss_success',
+			failUrl: 'http://127.0.0.1:5500//fail.html'
+		})
+	})
+	
 });

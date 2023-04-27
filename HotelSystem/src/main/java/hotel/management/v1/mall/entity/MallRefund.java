@@ -5,12 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
-public class OrderDetail {
+@AllArgsConstructor
+public class MallRefund {
 	private Integer orderNo;
-	private String orderDate;
-	private String contactDate;
-	private Integer orderPrice;
-	private Integer orderEA;
+	private String refundReason;
 }
