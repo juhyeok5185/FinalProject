@@ -6,16 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/hotel")
-public class mallController {
-	
-	
+public class MallController {
 	@GetMapping("/mall/itemList")
 	public void item() {
 		
 	}
-	@GetMapping("/mall/itemCart")
-	public void itemCart() {
-		
-		
-	}
+
+
+	
 }
