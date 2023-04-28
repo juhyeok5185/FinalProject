@@ -1,20 +1,16 @@
 package hotel.management.v1.security;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
-import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
-import org.springframework.security.web.savedrequest.SavedRequest;
 import org.springframework.stereotype.Component;
 
 import hotel.management.v1.member.dao.MemberDao;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 @Component
 public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
@@ -29,7 +25,6 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
                 response.sendRedirect(redirectUrl);
             } else { // 700px 이하인 경우
                 response.setContentType("text/html;charset=UTF-8");
-                PrintWriter out = response.getWriter();
             }
             return;
         }
@@ -38,7 +33,6 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
             response.sendRedirect("/hotel/main");
         } else { // 700px 이하인 경우
             response.setContentType("text/html;charset=UTF-8");
-            PrintWriter out = response.getWriter();
         }
         memberDao.resetLoginCnt(authentication.getName());
     }

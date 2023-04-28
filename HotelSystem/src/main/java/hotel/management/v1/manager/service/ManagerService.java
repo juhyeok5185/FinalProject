@@ -86,15 +86,19 @@ public class ManagerService {
         dao.ableBtn(name);
     }
 
+    //검색 조건들을 dto로 받는 메소드
     public List<ManagerDto.findBookList> bookSearch(ManagerDto.bookSearchCondition dto) {
+        //dto로 받은 값들의 날짜 데이터를 db의 형식과 맞춰준다.
         SimpleDateFormat originalFormat = new SimpleDateFormat("MM/dd/yyyy");
         SimpleDateFormat targetFormat = new SimpleDateFormat("yy/MM/dd");
         try {
+            // fromDate값을 받았으면 그값의 format을 변경해주고 dto에 값을 추가해준다.
             if(dto.getFromDate() != ""){
                 Date fromDateof = originalFormat.parse(dto.getFromDate());
                 String fromDate = targetFormat.format(fromDateof);
                 dto.setFromDate(fromDate);
             }
+            // toDate값을 받았으면 그값의 format을 변경해주고 dto에 값을 추가해준다.
             if(dto.getToDate() != ""){
                 Date toDateof = originalFormat.parse(dto.getToDate());
                 String toDate = targetFormat.format(toDateof);
@@ -103,6 +107,7 @@ public class ManagerService {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        // set된 dto의 조건들을 dao에 연결해준다.
         return dao.bookSearch(dto);
     }
 
