@@ -1,4 +1,10 @@
-function mallData(){}
+  function openPopup(url) {
+	  window.open(
+	    url,
+	    "managerorderDetail",
+	    "width=500, height=350, scrollbars=1, toolbar=1, menubar=yes, left=300px, top=100px,text-align: center;" 
+	  );
+	}
 
 function searchmallData(mallList) {
   const mallListArea = $('#mallListArea');
@@ -50,10 +56,14 @@ $(document).ready(function(){
             	<td>${m.name}</td>
             	<td>${m.tel}</td>
             	<td>${nullresult}</td>
+
             	<td>
-            	<button class="btn btn-secondary" style="width: 100px;" id="nameSearchBtn">주문상세</button>
+            	<button class="btn btn-secondary" style="width: 100px;" id="nameSearchBtn">
+            	     <a href="#" onclick="openPopup('/hotel/manager/managerorderDetail')">주문상세</a>
+            	</button>
             	<button class="btn btn-secondary" style="width: 100px;" id="cencelBtn">주문취소</button>
             	</td>
+
             	</tr>
      				   `;
       $('.table').addClass('table-hover');				   
@@ -70,27 +80,20 @@ $(document).ready(function(){
     	}
 	})
 	
-	$(document).on('click',"#cencelBtn", function(){
+	$(document).on('click',"#cencelBtn", async function(){
 		const orderNo = $(this).closest('tr').children('td:first').text().trim();
-		/*
-		   $.ajax({
-        url: '/hotel/manager/managerMallList',
-        type: 'DELETE',
-        data: { orderNo: orderNo },
-        success: function(result){
-            // 삭제 성공 시 동작할 코드 작성
-            console.log(result);
-        },
-        error: function(err){
-            // 삭제 실패 시 동작할 코드 작성
-            console.log(err);
-        }
-    });
-    */
+    try {
+      const response = await $.ajax({
+        url: "/hotel/manager/delete?orderNo=" + orderNo,
+        method: "post",
+      });
+      alert("주문이 취소되었습니다.");
+      location.href = "/hotel/manager/managerMallList";
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+  });
+    
 	})
 	
-	
-})
-
-
-

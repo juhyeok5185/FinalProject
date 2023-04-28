@@ -44,4 +44,16 @@ public class ManagerMallListDto {
 		private Integer orderNo; 
 	}
 	
+	@Data
+	@AllArgsConstructor
+	@Builder
+	@ToString
+	public static class orderDetail{
+		private String name; 
+		private String tel;
+		private Integer orderNo; 
+	}
+	
+	
+	
 }

@@ -32,8 +32,8 @@
 		where contactdate is not null
     </select>
 	 
-	 <delete id="delete">
-		delete from orderdetail where orderno = #{orderno}
+	 <delete id="restdelete">
+		delete from orders where orderno = #{orderNo}
 	</delete>
 	
 	<select id="findByNo" resultType="hotel.management.v1.manager.mall.Dto.ManagerMallListDto$MallListSearch">

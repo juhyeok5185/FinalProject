@@ -8,27 +8,25 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import hotel.management.v1.manager.mall.Dao.ManagerMallListDao;
 import hotel.management.v1.manager.mall.Dto.ManagerMallListDto;
 import hotel.management.v1.manager.mall.Service.ManagerMallListService;
 
 @RestController
 public class ManagerMallListRestController {
 	@Autowired
-	private ManagerMallListService mallservice;
+	private ManagerMallListService service;
 	
 
 	@PostMapping("/hotel/manager/managerMallList")
 	public ResponseEntity<List<ManagerMallListDto.MallListSearch>> mallList(ManagerMallListDto.FindMallList dto){
-		List<ManagerMallListDto.MallListSearch> list = mallservice.mallsearch(dto);
+		List<ManagerMallListDto.MallListSearch> list = service.mallsearch(dto);
 		return ResponseEntity.ok(list);
 	}
 	
 	@PostMapping("/hotel/manager/delete")
-	public ResponseEntity<?> delete(Integer orderNo){
-		System.out.println(orderNo);
+	public ResponseEntity<?> restdelete(Integer orderNo){
+		Integer orderdelete = service.restdelete(orderNo);
 		return ResponseEntity.ok("");
-		
-	
 	}
+	
 }
