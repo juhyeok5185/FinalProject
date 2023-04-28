@@ -49,9 +49,9 @@ public class BookService {
 //		}
 		BookDto.addbook bo = new addbook(name,book.getFrom(),book.getTotalcnt(),book.getBooktel(),book.getBooker());
 		System.out.println(bo.toString());
-		dao.addBook(bo);
+//		dao.addBook(bo);
 		BookDto.dinner din = new dinner(name,dao.findBooknoByusername(name));
-		dao.addDinner(din);
+//		dao.addDinner(din);
 		return null;
 	}
 

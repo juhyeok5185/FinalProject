@@ -60,3 +60,13 @@
 	min-height: 71vh;
 	padding-top: 8vh;
 }
+#dinnerbook{
+	cursor: pointer;
+}
+#bookpeople{
+	width: 3vw;
+}
+#reservation-hotelinfo input{
+	text-align: right;
+}
+
