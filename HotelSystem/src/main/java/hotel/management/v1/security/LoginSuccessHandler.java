@@ -30,7 +30,6 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
             } else { // 700px 이하인 경우
                 response.setContentType("text/html;charset=UTF-8");
                 PrintWriter out = response.getWriter();
-                out.println("<script>alert('로그인 되었습니다.');window.opener=null;window.close();</script>");
             }
             return;
         }
@@ -40,7 +39,6 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
         } else { // 700px 이하인 경우
             response.setContentType("text/html;charset=UTF-8");
             PrintWriter out = response.getWriter();
-            out.println("<script>alert('로그인 되었습니다.');window.opener=null;window.close();</script>");
         }
         memberDao.resetLoginCnt(authentication.getName());
     }
