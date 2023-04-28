@@ -29,7 +29,7 @@ public class PayService {
 
 		payParams.add("cid", "TC0ONETIME");
 		payParams.add("partner_order_id", uuid);
-		payParams.add("partner_user_id", "kakaopayTest");
+		payParams.add("partner_user_id", username);
 		payParams.add("item_name", params.get("item_name"));
 		payParams.add("quantity", params.get("quantity"));
 		payParams.add("total_amount", params.get("total_amount"));

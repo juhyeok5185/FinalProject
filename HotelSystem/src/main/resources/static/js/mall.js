@@ -26,6 +26,13 @@ function kakaojs(result) {
 	})
 };
 
+function detailPopup() {
+	window.open(
+		"/hotel/mall/orderDetail",
+		"orderDetail-name",
+		"scrollbar=no, width=600, height=700, top=150, left=600"
+	);
+};
 
 $(document).ready(function() {
 	let checkBtn = false;
@@ -35,6 +42,12 @@ $(document).ready(function() {
 	let trCount = 0;
 	var clientKey = 'test_ck_D5GePWvyJnrK0W0k6q8gLzN97Eoq';
 	var tossPayments = TossPayments(clientKey);
+	
+	$('.btn111').click(function() {
+		
+	});
+	
+	
 	
 	// 상품담기	
 	$('.item-btn').click(function() {
@@ -94,7 +107,6 @@ $(document).ready(function() {
 		const totalPrice = $('#totalPrice');
 		tPrice += price;
 		totalPrice.text(tPrice.toLocaleString() + ' 원');
-
 	});
 	
 	// 상품개수 감소
@@ -116,7 +128,6 @@ $(document).ready(function() {
 		var $input = parseInt($(this).find('input[type="hidden"]').val());
 		console.log($input);
 		totalPrice(-$input);
-		
 	});
 	
 	// 상품개수 증가
@@ -138,7 +149,6 @@ $(document).ready(function() {
 		
 		var $input = parseInt($(this).find('input[type="hidden"]').val());
 		totalPrice($input);
-		
 	});
 	
 	// 상품삭제
@@ -212,5 +222,7 @@ $(document).ready(function() {
 			failUrl: 'http://127.0.0.1:5500//fail.html'
 		})
 	})
+	
+	
 	
 });

@@ -1,5 +1,20 @@
 package hotel.management.v1.mall.dto;
 
-public class OrdersDto {
+import java.util.List;
 
+import lombok.Data;
+
+public class OrdersDto {
+	@Data
+	public static class OrderList {
+		List<Integer> list;
+	}
+	
+	@Data
+	public static class Read {
+		private String username;
+	}
+	
+	
+	
 }
