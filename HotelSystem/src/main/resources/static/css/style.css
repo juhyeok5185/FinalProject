@@ -181,7 +181,7 @@
   width: 5vw;
   height: 4vh;
   position: relative;
-  left: 40vw;
+  left: 49vw;
   bottom: 1.7vh;
   padding: 0 2vw;
 }
@@ -810,7 +810,7 @@
   font-size: 12px;
   width: 13vw;
   position: relative;
-  left: 36.7vw;
+  margin-left: 36.6vw;
   color: black;
   bottom: 10px;
 }
@@ -820,7 +820,7 @@
   font-size: 12px;
   width: 12vw;
   position: relative;
-  left: 37.3vw;
+  margin-left: 37.3vw;
   color: black;
   bottom: 10px;
 }
@@ -993,7 +993,7 @@
 
 #read_article {
   height: 90vh;
-  width: 80vw;
+  width: 50vw;
   position: absolute;
   left: 35vw;
   margin-top: 10vh;
@@ -1131,6 +1131,22 @@
 	margin-top: 3vh;
 	font-size: 0.8em;
 }
+#gradeSubh {
+	color: #6a6a6a; 
+	font-size: 0.75em;
+}
+#gradeSubh-bronze {
+	color: #8f6349; 
+	font-size: 1.4em
+}
+#gradeSubh-silver {
+	color: #a8a9ad; 
+	font-size: 1.4em
+}
+#gradeSubh-gold {
+	color: #9a8872; 
+	font-size: 1.4em
+}
 
 /* 회원가입 */
 
@@ -1182,6 +1198,10 @@
   margin-right: auto;
 }
 
+#myenummenu {
+  font-size: 0.75em; 
+  color: #979797;
+}
 
 #profileupdatetable {
   height: 4vh;
@@ -1378,6 +1398,9 @@ div.joincreate{
   background-color: #f1ebd6;
   margin-top: 6.5vh;
 }
+.needinput {
+  color: red;
+}
 
 #loginblock2_2{
   width: 30vw;
@@ -1453,6 +1476,18 @@ div #logintoolbar > a {
   margin: 5px;
   border: 1px solid black;
   padding: 5 auto;
+} 
+
+#myPageTit {
+	font-size: 1.3em; 
+	color: #4c453d;
+	padding-right:1vw
+}
+
+#myPageTit1 {
+	font-size: 1.3em; 
+	color: #4c453d;
+	padding-left:1vw;
 }
 
 #loginbarbut {
@@ -2563,6 +2598,10 @@ div #logintoolbar > a {
   width: 100vw;
   height: 9vh;
   background-color: #212529;
+  color: #d5ccb0;
+}
+.dark-mode #headerAndnav a{
+  color: #d5ccb0;
 }
 
 .dark-mode #r-b {
@@ -2688,13 +2727,10 @@ div #logintoolbar > a {
 .dark-mode #colorchange {
   color: white;
 }
-.dark-mode #liLine {
-  border-right: 0.1rem solid white;
-}
 .dark-mode #footerLogo {
   width: 20vw;
   line-height: 20vh;
-  border-right: 0.1rem solid white;
+  border-right: 0.1rem solid #d5ccb0;
 }
 .dark-mode #page {
   background-color: rgb(20, 20, 20);
@@ -2707,7 +2743,7 @@ div #logintoolbar > a {
   font-weight: bold;
 }
 .dark-mode #article,.dark-mode p, .dark-mode #toolbar, .dark-mode #toolbar a, .dark-mode #menu a{
-  color: white;
+  color: #d5ccb0;
   font-weight: bold;
 }
 .dark-mode {
@@ -2744,10 +2780,10 @@ div #logintoolbar > a {
 	background-color: #212529;
 }
 .dark-mode #introducetool {
-	color: white;
+	color: #d5ccb0;
 }
 .dark-mode #introducetool a {
-	color: white;
+	color: #d5ccb0;
 }
 .dark-mode #totalStay {
     width: 49vw;
@@ -2766,19 +2802,67 @@ div #logintoolbar > a {
     background-color: rgb(20, 20, 20);
 }
 .dark-mode #jointable .col1 {
+	color: #d5ccb0;
     background-color: #212529;
 }
 .dark-mode #jointable1 .col1 {
     background-color: #212529;
+    color: #d5ccb0;
 }
 .dark-mode #jointool, .dark-mode #jointool a {
-    color: white;
+    color: #d5ccb0;
+}
+.dark-mode #myenummenu {
+    color: #d5ccb0;
+}
+.dark-mode #myenum {
+	border-bottom: 2px solid #d5ccb0;
+}
+.dark-mode #gradeSubh {
+	color: #d5ccb0; 
+	font-size: 0.75em;
+}
+.dark-mode #bronzebar {
+	border: 1px solid #d5ccb0;
+}
+.dark-mode #bronzebar span {
+    color: #d5ccb0;
+}
+.dark-mode #bronzebox1 {
+    border-right: 2px solid #d5ccb0;
+}
+.dark-mode #bronzebox1 div {
+    color: #d5ccb0;
+}
+.dark-mode #silverbar {
+	border: 1px solid #d5ccb0;
+}
+.dark-mode #silverbar span {
+    color: #d5ccb0;
+}
+.dark-mode #silverbox1 {
+    border-right: 2px solid #d5ccb0;
+}
+.dark-mode #silverbox1 div {
+    color: #d5ccb0;
+}
+.dark-mode #goldbar {
+	border: 1px solid #d5ccb0;
+}
+.dark-mode #goldbar span {
+    color: #d5ccb0;
+}
+.dark-mode #goldbox1 div {
+    color: #d5ccb0;
 }
 .dark-mode #joincompletebox3_1 {
 	background-color: #212529;
+	border: 1px solid #d5ccb0;
+	color: #d5ccb0;
 }
 .dark-mode #todologin {
-	background-color: #212529;
+	background-color: #3a3125;
+    border: 1px solid #d5ccb0;
 }
 .dark-mode #loginpage {
 	background-color: rgb(20, 20, 20);
@@ -2789,8 +2873,11 @@ div #logintoolbar > a {
 .dark-mode #loginblocknav {
 	background-color: #212529;
 }
+.dark-mode #loginblocknav p {
+	color: #d5ccb0;
+}
 .dark-mode #logintool, .dark-mode #logintool a {
-    color: white;
+    color: #d5ccb0;
 }
 .dark-mode #myPage_page {
 	background-color: rgb(20, 20, 20);
@@ -2801,13 +2888,250 @@ div #logintoolbar > a {
 .dark-mode #myPageinmenu {
 	background-color: #212529;
 }
-.dark-mode #myPagetool, .dark-mode #myPagetool a {
-	color: white;
+.dark-mode #myPageTit {
+	color: #d5ccb0;
 }
-.dark-mode #myPagetool, .dark-mode #myPagetool a {
-	color: white;
+.dark-mode #myPageTit1 {
+	color: #d5ccb0;
+}
+.dark-mode #changepassword_page {
+	background-color: rgb(20, 20, 20);
+}
+.dark-mode #profileupdatetable .col1 {
+	background-color: #212529;
+	color: #d5ccb0;
+}
+.dark-mode #profileupdatebtn {
+	background-color: #3a3125;
+	border: 1px solid #d5ccb0;
+}
+.dark-mode #profileupdatetool, .dark-mode #profileupdatetool a {
+	color: #d5ccb0;
+}
+.dark-mode #internal_outline a{
+    text-decoration: none;
+    color: #d5ccb0;
+}
+.dark-mode #internal_outline1 a, .dark-mode #internal_outline1 span {
+	text-decoration: none;
+    color: #d5ccb0;
+}
+.dark-mode #tit {
+	color: #d5ccb0;
+	border-bottom: 3px solid #d5ccb0;
+}
+.dark-mode #subh {
+	color: #d5ccb0;
+}
+.dark-mode #headtit > h3 {
+	color: #d5ccb0;
+}
+.dark-mode #headtit {
+	border-bottom: 5px solid #d5ccb0;
+}
+.dark-mode #profileupdateintro {
+	color: #d5ccb0;
+}
+.dark-mode hr {
+	color: #d5ccb0;
+}
+.dark-mode #changepasswordintro {
+	color: #d5ccb0;
+}
+.dark-mode #changepasswordtool {
+	color: #d5ccb0;
+}
+.dark-mode #changepasswordtable .col1 {
+	background-color: #212529;
+	color: #d5ccb0;
+}
+.dark-mode #readtable .col1 {
+	background-color: #212529;
+	color: #d5ccb0;
+}
+.dark-mode #myPagetool {
+	color: #d5ccb0;
+}
+.dark-mode #myPagetool a{
+	color: #d5ccb0;
+}
+.dark-mode #gradeintro {
+	color: #d5ccb0;
+}
+.dark-mode #readtable .col2 {
+	color: #d5ccb0;
+}
+.dark-mode #nowpassword {
+	background-color: #d5ccb0;
+}
+.dark-mode #newpassword {
+	background-color: #d5ccb0;
+}
+.dark-mode #newpassword2 {
+	background-color: #d5ccb0;
+}
+.dark-mode #changepasswordbtn {
+	background-color: #3a3125;
+	border: 1px solid #d5ccb0;
+}
+.dark-mode #intropassword {
+	color: #d5ccb0;
+}
+.dark-mode #password {
+	background-color: #d5ccb0;
+	border: 1px solid #d5ccb0;
+}
+.dark-mode #username {
+	background-color: #d5ccb0;
+	border: 1px solid #d5ccb0;
+}
+.dark-mode #name {
+	background-color: #d5ccb0;
+	border: 1px solid #d5ccb0;
+}
+.dark-mode #personalId {
+	background-color: #d5ccb0;
+	border: 1px solid #d5ccb0;
+}
+.dark-mode #personalId2 {
+	background-color: #d5ccb0;
+	border: 1px solid #d5ccb0;
+}
+.dark-mode #email {
+	background-color: #d5ccb0;
+	border: 1px solid #d5ccb0;
+}
+.dark-mode #email1 {
+	background-color: #d5ccb0;
+	border: 1px solid #d5ccb0;
+}
+.dark-mode #email2 {
+	background-color: #d5ccb0;
+	border: 1px solid #d5ccb0;
+}
+.dark-mode #selectEmail {
+	background-color: #d5ccb0;
+	border: 1px solid #d5ccb0;
+}
+.dark-mode #tel {
+	background-color: #d5ccb0;
+	border: 1px solid #d5ccb0;
+}
+.dark-mode #password2 {
+	background-color: #d5ccb0;
+	border: 1px solid #d5ccb0;
+}
+.dark-mode #loginblock1_1 {
+	color: #d5ccb0;
+}
+.dark-mode #loginblock1_2 p {
+	color: #d5ccb0;
+}
+.dark-mode #loginblock1_3 p {
+	color: #d5ccb0;
+}
+.dark-mode #footerInfo_contact {
+	color: #d5ccb0;
+}
+.dark-mode #footerInfo_under {
+	color: #d5ccb0;
+}
+.dark-mode #footerInfo_under span {
+	color: #d5ccb0;
+}
+.dark-mode #loginblock2_2 {
+	border: 1px solid #d5ccb0;
+}
+.dark-mode #loginblock2_2 p {
+	color: #d5ccb0;
+}
+.dark-mode #loginbut {
+	border: 1px solid #d5ccb0; 
+}
+.dark-mode #find_id {
+	border: 1px solid #d5ccb0; 
+}
+.dark-mode #find_password {
+	border: 1px solid #d5ccb0; 
+}
+.dark-mode #join-btn1 {
+	border: 1px solid #d5ccb0; 
+}
+.dark-mode #joinintro {
+	color: #d5ccb0; 
+}
+.dark-mode #joinintro3 {
+	color: #d5ccb0; 
+}
+.dark-mode .fail {
+	color: #d5ccb0; 
+}
+.dark-mode .success {
+	color: #d5ccb0; 
+}
+.dark-mode .but3 {
+    background-color: #3a3125;
+    border: 1px solid #d5ccb0;
+    color: #d5ccb0;
+    height: 35px;
+	width: 150px;
+	margin-left: 12vw;
+}
+.dark-mode .but4 {
+    background-color: #3a3125;
+    border: 1px solid #d5ccb0;
+    color: #d5ccb0;
+    height: 35px;
+	width: 150px;
+	margin-left: 2vw;
+}
+.dark-mode #deletebtn {
+	background-color: #3a3125;
+    border: 1px solid #d5ccb0;
+}
+.dark-mode #updatebtn {
+	background-color: #3a3125;
+    border: 1px solid #d5ccb0;
+}
+.dark-mode .needinput {
+  	color: white;
+}
+.dark-mode #outline_page h4 {
+	color: #d5ccb0;
+}
+.dark-mode #outline_page p {
+	color: #d5ccb0;
+}
+.dark-mode #outline_page li {
+	color: #d5ccb0;
+}
+.dark-mode #stayContent1 h4 {
+	color: #d5ccb0;
+}
+.dark-mode #stayContent1 p {
+	color: #d5ccb0;
+}
+.dark-mode #stayContent2 h4 {
+	color: #d5ccb0;
+}
+.dark-mode #stayContent2 p {
+	color: #d5ccb0;
+}
+.dark-mode #internal_common {
+	color: #d5ccb0;
+}
+.dark-mode #read_page {
+	background-color: rgb(20, 20, 20);
+}
+.dark-mode #readintro {
+	color: #d5ccb0;
+}
+.dark-mode #newdim {
+	background-color: #212529;
 }
 
+
+/* 여기까지 */
 
 #nothing{
   width: 100vw;
