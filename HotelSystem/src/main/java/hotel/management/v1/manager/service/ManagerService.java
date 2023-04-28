@@ -72,8 +72,8 @@ public class ManagerService {
         dao.changeRoomStatusCheckIn(intRoomNo);
     }
 
-    public ManagerDto.userDetail memberDetail(String name) {
-        return dao.memberDetail(name);
+    public ManagerDto.userDetail memberDetail(String name,String tel) {
+        return dao.memberDetail(name,tel);
     }
 
     public void blackBtn(String name) {
