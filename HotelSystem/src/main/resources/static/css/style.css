@@ -906,7 +906,7 @@
   padding-top: 3vh;
   padding-left: 0.1vw;
   text-align: left;
-  height: 15vh;
+  height: 40vh;
   color: #555;
 }
 
@@ -2758,11 +2758,55 @@ div #logintoolbar > a {
     color: white;
 }
 .dark-mode #stayContentfonttit, .dark-mode #stayContentfont{
-  color: white;
+    color: white;
 }
-
-
-
+.dark-mode #joinpage {
+    width: 100%;
+    height:120vh;
+    background-color: rgb(20, 20, 20);
+}
+.dark-mode #jointable .col1 {
+    background-color: #212529;
+}
+.dark-mode #jointable1 .col1 {
+    background-color: #212529;
+}
+.dark-mode #jointool, .dark-mode #jointool a {
+    color: white;
+}
+.dark-mode #joincompletebox3_1 {
+	background-color: #212529;
+}
+.dark-mode #todologin {
+	background-color: #212529;
+}
+.dark-mode #loginpage {
+	background-color: rgb(20, 20, 20);
+}
+.dark-mode #loginblock2_1, .dark-mode #loginblock2_2 {
+	background-color: #212529;
+}
+.dark-mode #loginblocknav {
+	background-color: #212529;
+}
+.dark-mode #logintool, .dark-mode #logintool a {
+    color: white;
+}
+.dark-mode #myPage_page {
+	background-color: rgb(20, 20, 20);
+}
+.dark-mode #myPageaside {
+	background-color: #212529;
+}
+.dark-mode #myPageinmenu {
+	background-color: #212529;
+}
+.dark-mode #myPagetool, .dark-mode #myPagetool a {
+	color: white;
+}
+.dark-mode #myPagetool, .dark-mode #myPagetool a {
+	color: white;
+}
 
 
 #nothing{
@@ -3011,7 +3055,9 @@ div #logintoolbar > a {
     #internalFacilities_page-1 {
 		display: none;
 	}
-    
+    #joincompletepage-res {
+    	display: none;
+    }
     
 }
 
