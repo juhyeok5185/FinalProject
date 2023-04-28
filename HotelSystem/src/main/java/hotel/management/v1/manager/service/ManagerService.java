@@ -4,15 +4,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import hotel.management.v1.client.book.entity.book;
 import hotel.management.v1.manager.dao.ManagerDao;
 import hotel.management.v1.manager.dto.ManagerDto;
-import hotel.management.v1.manager.dto.ManagerDto.bookSearchCondition;
 
 
 @Service
@@ -42,14 +38,16 @@ public class ManagerService {
 
     public void changeBook(boolean breakfast, boolean dinner, String tel) {
         ManagerDto.findBookNoCount bookNoCount = dao.findBookNoCountByTel(tel);
+
         if(breakfast == true){
             dao.updateBreakfast(bookNoCount.getBookNo() , tel);
         } else {
             dao.cancelBreakfast(bookNoCount.getBookNo());
         }
+
         Integer searchRes = dao.searchRes(bookNoCount.getBookNo());
+        
         if (dinner == true){
-            System.out.println(searchRes);
             if(searchRes == null){
                 dao.updateDinner(bookNoCount.getBookNo() , bookNoCount.getTotalCount());
             }

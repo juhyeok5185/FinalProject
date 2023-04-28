@@ -1,5 +1,6 @@
+//팝업오픈
 function openPopup(url) {
-  //회원 detail 클릭시 popup 창 띄우는 코드
+  //url을 받아서 그 값으로 새로운 html을 열어준다.
   window.open(
     url,
     "memberDetail",
@@ -7,9 +8,11 @@ function openPopup(url) {
   );
 }
 
+//짧게 만들자
 function searchData(list) {
   const bookListTable = $("#bookListTable");
   bookListTable.empty();
+  //검색결과가 없을시 list의 길이를 조건으로 준다.
   if (list.length == 0) {
     const tableContent = `
         <tr>
@@ -29,30 +32,24 @@ function searchData(list) {
         `;
     bookListTable.append(tableContent);
   } else {
+    //검색결과가 있을시 html에 추가하는곳
     for (const l of list) {
       let breakfastContent = ``;
       let resNoContent = ``;
       let buttonContent = ``;
       let roomNoContent = ``;
 
-      if (l.roomNo == null) {
-        roomNoContent = ``;
-      } else if (l.roomNo != null) {
-        roomNoContent = `${l.roomNo}`;
-      }
+      l.roomNo == null ? (roomNoContent = ``) : (roomNoContent = `${l.roomNo}`);
 
-      if (l.breakfast != 0) {
-        breakfastContent = `<input type="checkbox" checked></input>`;
-      } else if (l.breakfast == 0) {
-        breakfastContent = `<input type="checkbox"></input>`;
-      }
+      l.breakfast != 0
+        ? (breakfastContent = `<input type="checkbox" checked></input>`)
+        : (breakfastContent = `<input type="checkbox"></input>`);
 
-      if (l.resNo != null) {
-        resNoContent = `<input type="checkbox" checked></input>`;
-      } else if (l.resNo == null) {
-        resNoContent = `<input type="checkbox"></input>`;
-      }
+      l.resNo != null
+        ? (resNoContent = `<input type="checkbox" checked></input>`)
+        : (resNoContent = `<input type="checkbox"></input>`);
 
+      // 버튼 생성시 오늘 날짜가 아니면 체크인이 안되게끔 만드는 코드
       if (l.bookStatus == "체크인대기") {
         const today = new Date();
         const year = today.getFullYear().toString();
@@ -110,6 +107,7 @@ function searchData(list) {
   }
 }
 
+//리스트 생성시 리스트 길이에따라 높이 변경
 function heightController(list) {
   //list의 크기에따라 article의 높이를 조정
   var listAreaHeight = $("#listarea").height();
@@ -117,19 +115,25 @@ function heightController(list) {
   $("#listarea").height(newPageHeight);
 }
 
+//search버튼 클릭스 검색 조건들 체크해주는 메소드
+function searchConditionCheck() {
+  return (param = {
+    isStay: $("#stayCheckBox").is(":checked"),
+    isRestaurant: $("#restaurantCheckBox").is(":checked"),
+    fromDate: $("#from").val(),
+    toDate: $("#to").val(),
+    todayCheckBox: $("#todayCheckBox").is(":checked"),
+    roomNum: Number($("#searchRoomNumber").val()),
+    name: $("#searchName").val(),
+    listType: $(".dropdown-menu a.active").data("index"),
+  });
+}
+
 $(document).ready(function () {
+  //검색버튼 클릭시 이벤트
   $(document).on("click", "#searchBtn", async function () {
     //검색시 조건들을 param 변수를 담는다
-    const param = {
-      isStay: $("#stayCheckBox").is(":checked"),
-      isRestaurant: $("#restaurantCheckBox").is(":checked"),
-      fromDate: $("#from").val(),
-      toDate: $("#to").val(),
-      todayCheckBox: $("#todayCheckBox").is(":checked"),
-      roomNum: Number($("#searchRoomNumber").val()),
-      name: $("#searchName").val(),
-      listType: $(".dropdown-menu a.active").data("index"),
-    };
+    const param = searchConditionCheck();
 
     //ajax data 형식으로 param을 전달한다.
     try {
@@ -146,27 +150,21 @@ $(document).ready(function () {
       console.log(err);
     }
   });
-  //검색 토글 이벤트 처리
+
+  //검색 토글 변경시 이벤트처리
   $(document).on("click", ".searchToggle a", async function () {
+    //전에 active되어있던 토글의 active를 제거해준다
     $(".dropdown-menu a").removeClass("active");
+    //선택된 this를 active 해준다
     $(this).addClass("active");
+    //해당 this에 있는 text를 btn text에 넣어준다.
     let text = $(this).text();
     $("#dropdownBtn").text(text);
 
-    let stayCheckBox = $("#stayCheckBox").is(":checked");
-    let restaurantCheckBox = $("#restaurantCheckBox").is(":checked");
-    let todayCheckBox = $("#todayCheckBox").is(":checked");
+    //검색 조건 체크이후 ajax를 보내준다.
 
-    const param = {
-      isStay: stayCheckBox,
-      isRestaurant: restaurantCheckBox,
-      fromDate: $("#from").val(),
-      toDate: $("#to").val(),
-      todayCheckBox: todayCheckBox,
-      roomNum: Number($("#searchRoomNumber").val()),
-      name: $("#searchName").val(),
-      listType: $(".dropdown-menu a.active").data("index"),
-    };
+    const param = searchConditionCheck();
+
     try {
       const list = await $.ajax({
         url: "/hotel/manager/bookSearch",
@@ -180,73 +178,20 @@ $(document).ready(function () {
     }
   });
 
-  $(document).on("click", "#blackBtn", async function () {
-    var booker = $(this).find("input").val();
-    try {
-      const blackBtn = await $.ajax({
-        url: "/hotel/manager/blackBtn?name=" + booker,
-        method: "post",
-      });
-      alert("변경이 완료되었습니다");
-      location.reload();
-    } catch (err) {}
-  });
-
-  $(document).on("click", "#vipBtn", async function () {
-    var booker = $(this).find("input").val();
-    try {
-      const blackBtn = await $.ajax({
-        url: "/hotel/manager/vipBtn?name=" + booker,
-        method: "post",
-      });
-      alert("변경이 완료되었습니다");
-      location.reload();
-    } catch (err) {}
-  });
-
-  $(document).on("click", "#ableBtn", async function () {
-    var booker = $(this).find("input").val();
-    try {
-      const blackBtn = await $.ajax({
-        url: "/hotel/manager/ableBtn?name=" + booker,
-        method: "post",
-      });
-      alert("변경이 완료되었습니다");
-      location.reload();
-    } catch (err) {}
-  });
-
-  $(document).on("click", ".checkInDropDown a", async function (event) {
-    const clickedMenuText = $(this).text();
-    const [roomNo, roomStatus] = clickedMenuText.split("(");
-    const parsedRoomStatus = roomStatus.replace(")", "");
-    const bookerName = $("td:nth-child(2)", $(this).closest("tr")).text();
-    if (parsedRoomStatus == "비어있음") {
-      try {
-        const searchCondition = await $.ajax({
-          url:
-            "/hotel/manager/checkIn?roomNo=" + roomNo + "&name=" + bookerName,
-          method: "post",
-        });
-        alert("방이 배정되었습니다.");
-        location.href = "/hotel/manager/bookList";
-      } catch (err) {
-        console.log(err);
-      }
-    } else {
-      alert("이미 배정이 완료된 방입니다.");
-    }
-  });
-
+  //체크인버튼 클릭시 이벤트
   $(document).on("click", ".checkInBtn", async function () {
+    //해당줄에 있는 roomGrade를 찾아온다(this를 기준으로 tr을 찾고 6번째 자식의 text)
     const roomGrade = $(this).closest("tr").find("td:nth-child(6)").text();
     try {
+      //url로 방등급을 보낸다.
       const roomList = await $.ajax({
         url: "/hotel/manager/checkBtn?roomGrade=" + roomGrade,
         method: "post",
       });
       const checkInDropDown = $(".checkInDropDown > li");
+      //기존의 li를 비워주고
       checkInDropDown.empty();
+      //해당 roomgrade에 맞는 방의 정보들을 룸번호와 상태를 나열해준다
       for (const r of roomList) {
         const dropdownMenu = `
         <li><a class="dropdown-item" href="#">${r.roomNo}(${r.roomStatus})</a></li>
@@ -256,10 +201,42 @@ $(document).ready(function () {
     } catch (err) {}
   });
 
+  //나열된 방을 클릭했을때의 이벤트
+  $(document).on("click", ".checkInDropDown a", async function (event) {
+    //방의 text를 받아와서 ()를 잘라준다
+    const clickedMenuText = $(this).text();
+    const [roomNo, roomStatus] = clickedMenuText.split("(");
+    const parsedRoomStatus = roomStatus.replace(")", "");
+    //방배정에 필요한 예약자 이름을 찾아온다.
+    const bookerName = $("td:nth-child(2)", $(this).closest("tr")).text();
+
+    //방배정은 룸의 상태가 비어있음일시 배정을 할수있다.
+    if (parsedRoomStatus == "비어있음") {
+      try {
+        const searchCondition = await $.ajax({
+          //url로 roomNo와 bookerName을 보낸다.
+          url:
+            "/hotel/manager/checkIn?roomNo=" + roomNo + "&name=" + bookerName,
+          method: "post",
+        });
+        alert("방이 배정되었습니다.");
+        location.href = "/hotel/manager/bookList";
+      } catch (err) {
+        console.log(err);
+      }
+      //비어있음이 아닐시
+    } else {
+      alert("이미 배정이 완료된 방입니다.");
+    }
+  });
+
+  //예약취소
   $(document).on("click", ".bookCancel", async function () {
+    //예약자를 input hidden으로 숨겨두고 그값을 찾아온다.
     var booker = $(this).find("input").val();
     try {
       const searchCondition = await $.ajax({
+        //url로 예약자를 보낸다.
         url: "/hotel/manager/bookCancel?bookTel=" + booker,
         method: "post",
       });
@@ -270,10 +247,14 @@ $(document).ready(function () {
     }
   });
 
+  //체크아웃취소
   $(document).on("click", ".checkOutBtn", async function () {
+    //hidden으로 숨겨둔 input에 예약자명을 숨겨두고 그 값을 찾아온다.
     const booker = $(this).find("input").val();
+    //해당줄에 있는 roomNo를 찾아온다.
     const roomNo = $("td:nth-child(4)", $(this).closest("tr")).text();
     try {
+      //url로 예약자와 방번호를 보낸다.
       const searchCondition = await $.ajax({
         url: "/hotel/manager/checkOut?bookTel=" + booker + "&roomNo=" + roomNo,
         method: "post",
@@ -285,16 +266,16 @@ $(document).ready(function () {
     }
   });
 
+  //예약변경
   $(document).on("click", ".changeBook", async function () {
     const row = $(this).closest("tr");
+    var booktel = $(this).children("input").val();
     const breakfastChecked = row
       .find('td:nth-child(9) input[type="checkbox"]')
       .prop("checked");
     const resNoChecked = row
       .find('td:nth-child(10) input[type="checkbox"]')
       .prop("checked");
-
-    var booktel = $(this).children("input").val();
 
     const param = {
       breakfast: breakfastChecked,
@@ -314,62 +295,82 @@ $(document).ready(function () {
     }
   });
 
+  //엔터 클릭시 검색
   $(document).on("keyup", function (event) {
     // 엔터키가 눌리면
     if (event.keyCode === 13) {
-      // 검색 버튼 클릭과 동일한 이벤트 발생
+      // 검색 click이벤트 발생시키기
       $("#searchBtn").click();
     }
   });
 
+  //검색설정 초기화
   $(document).on("click", "#initBtn", function () {
-    if ($("#stayCheckBox").is(":checked") == true) {
-      $("#stayCheckBox").prop("checked", false);
-    }
-    if ($("#restaurantCheckBox").is(":checked") == true) {
-      $("#restaurantCheckBox").prop("checked", false);
-    }
-    if ($("#todayCheckBox").is(":checked") == false) {
-      $("#todayCheckBox").prop("checked", true);
-    }
-    if ($("#from").val() != "") {
-      $("#from").val("");
-    }
-    if ($("#to").val() != "") {
-      $("#to").val("");
-    }
-    if ($("#searchRoomNumber").val() != "") {
-      $("#searchRoomNumber").val("");
-    }
-    if ($("#searchName").val() != "") {
-      $("#searchName").val("");
-    }
-
-    var currentIndex = $(".dropdown-item.active").data("index");
-
-    // 이전에 active 클래스가 지정된 요소에서 active 클래스를 제거함
+    //초기상태로 전부 변경해준다.
+    $("#stayCheckBox").prop("checked", false);
+    $("#restaurantCheckBox").prop("checked", false);
+    $("#todayCheckBox").prop("checked", true);
+    $("#from").val("");
+    $("#to").val("");
+    $("#searchRoomNumber").val("");
+    $("#searchName").val("");
     $(".dropdown-item.active").removeClass("active");
-
-    // 현재 선택된 요소를 찾아서 active 클래스를 추가함
-    if (currentIndex != 1) {
-      var $selectedItem = $(".dropdown-item[data-index='1']");
-      let text = $selectedItem.text();
-      $("#dropdownBtn").text(text);
-    } else {
-      var $selectedItem = $(
-        ".dropdown-item[data-index='" + currentIndex + "']"
-      );
-    }
+    $(".dropdown-item[data-index='1']").addClass("active");
+    $("#dropdownBtn").text($(".dropdown-item[data-index='1']").text());
     $("#from").attr("disabled", true);
     $("#to").attr("disabled", true);
-    $selectedItem.addClass("active");
   });
 
+  //todayCheck박스 이벤트
   $(document).on("change", "#todayCheckBox", function () {
-    if ($("#todayCheckBox").is(":checked") == false) {
-      $("#from").attr("disabled", false);
-    } else {
-      $("#from").attr("disabled", true);
-    }
+    $("#todayCheckBox").is(":checked") == false
+      ? $("#from").attr("disabled", false)
+      : $("#from").attr("disabled", true);
+  });
+
+  //memberDetail 코드
+  //blackList설정
+  $(document).on("click", "#blackBtn", async function () {
+    //예약자 정보 받아오기
+    var booker = $(this).find("input").val();
+    try {
+      const blackBtn = await $.ajax({
+        //url로 예약자 전송
+        url: "/hotel/manager/blackBtn?name=" + booker,
+        method: "post",
+      });
+      alert("변경이 완료되었습니다");
+      location.reload();
+    } catch (err) {}
+  });
+
+  //vip설정
+  $(document).on("click", "#vipBtn", async function () {
+    //예약자 받기
+    var booker = $(this).find("input").val();
+    try {
+      //url로 전송
+      const blackBtn = await $.ajax({
+        url: "/hotel/manager/vipBtn?name=" + booker,
+        method: "post",
+      });
+      alert("변경이 완료되었습니다");
+      location.reload();
+    } catch (err) {}
+  });
+
+  //아이디 활성화 버튼
+  $(document).on("click", "#ableBtn", async function () {
+    //예약자 받기
+    var booker = $(this).find("input").val();
+    try {
+      //url전송
+      const blackBtn = await $.ajax({
+        url: "/hotel/manager/ableBtn?name=" + booker,
+        method: "post",
+      });
+      alert("변경이 완료되었습니다");
+      location.reload();
+    } catch (err) {}
   });
 });
