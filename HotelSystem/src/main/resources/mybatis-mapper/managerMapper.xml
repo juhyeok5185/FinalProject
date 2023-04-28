@@ -81,7 +81,7 @@
     </update>
 
     <select id="memberDetail" resultType="hotel.management.v1.manager.dto.ManagerDto$userDetail">
-        select username , name , tel , email , personalId , disabled , userLevel ,bookCnt,black,vip from users where name = #{name}
+        select username , name , tel , email , personalId , disabled , userLevel ,bookCnt,black,vip from users where name = #{name} and tel = #{tel}
     </select>
 
     <update id="blackBtn">
