@@ -236,7 +236,12 @@ $(document).ready(async function() {
 			alert('이미 선택 하셧습니다')
 		}
 	})
+	
 	$('#dinnerbook').click(async function() {
+		$('#paymentPopup').attr('style', 'display:block;');
+		$('#paymentPopup-box').attr('style', 'display:block');
+		$('html').attr('style', 'overflow: hidden');
+		$('#chargeInquiry').attr("style", "z-index:1; pointer-events: none;");
 		const $bookdate = $('#from').val();
 		const $booktel = $('#booktel').val();
 		const $bookpeople = $('#bookpeople').val();
@@ -247,6 +252,11 @@ $(document).ready(async function() {
 			totalcnt: $bookpeople,
 			booker: $booker
 		}
+		if($booker==""&&$booktel==""){
+			alert('필수 입력사항을 확인하세요')
+			return
+		}else{
+			
 		try {
 			await $.ajax({
 				url: "/hotel/client/dinnerbook",
@@ -255,6 +265,7 @@ $(document).ready(async function() {
 				method: 'post',
 			})
 		} catch (err) {console.log(err)}
+		}
 	})
 
 })

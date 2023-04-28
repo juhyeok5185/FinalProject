@@ -22,6 +22,7 @@
 	<link href='https://unpkg.com/css.gg@2.0.0/icons/css/facebook.css' rel='stylesheet'>
 	<link href='https://unpkg.com/css.gg@2.0.0/icons/css/shopping-bag.css' rel='stylesheet'>
 	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/bookStyle.css">
 	<title>J.H.H.L</title>
 </head>
 
@@ -41,15 +42,40 @@
 							<div class="reservation-color" id="reservation-hotelinfo">체크인</div>
 							<!-- 달력 라이브러리 -->
 							<div id="reservation-hotelinfo"> <input type="text" id="from" name="from"
-									placeholder="체크인 날짜를 고르세요">
+									placeholder="체크인 날짜를 고르세요" style="text-align: left;">
+							<label for="booktel">연락처</label>
 							<input type="text" id="booktel">
-							<input type="number" id="bookpeople">
+							<label for="bookpeople">인원수</label>
+							<input type="number" id="bookpeople"max = 4 min = 1 value=1>
+							<label for="booker">예약자</label>
 							<input type="text" id="booker">
-							<button class="btn btn-primary" type="button" id="dinnerbook">예약</button>
+							<img src = "/img/선택버튼.png" id = "dinnerbook">
+							</div>
+							<div id="paymentPopup" style="display: none;"></div>
+							<div id="paymentPopup-box" style="display: none;">
+								<div id="paymentPopup-headerbar">
+									<span>결제</span>
+									<div id="paymentPopup-cancle">
+										<a href="#none" id="paymentPopup-btn"><span
+												id="paymentPopup-canclex">x</span></a>
+									</div>
+								</div>
+								<div id="choosePayment">
+									<div id="choosePayment-box1">
+										<img alt="카카오페이" src="/img/kakaopay.png" width="120vw;" height="60vh;"
+											id="kakaopay-payment">
+									</div>
+									<div id="choosePayment-box2">
+										<img alt="토스" src="/img/toss.png" width="120vw;" height="60vh;"
+											id="toss-payment">
+									</div>
+								</div>
 							</div>
 						</div>
 						<hr id="bookhr">
-						<div id="bookfooter"></div>
+						<div id="bookfooter">
+						
+						</div>
 
 					</div>
 				</form>

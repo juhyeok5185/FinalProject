@@ -11,38 +11,39 @@ import hotel.management.v1.member.entity.Member;
 
 @Mapper
 public interface MemberDao {
-	@Select("select count(*) from users where username=#{username} and rownum=1")
-	public Boolean existsByUsername(String username);
-	
-	@Select("select count(*) from users where email=#{email} and rownum=1")
-	public Boolean existsByEmail(String email);
-	
+	// 회원가입
 	public Integer save(Member member);
 	
-	@Select("select * from users where name=#{name} and email=#{email} and rownum=1")
-	public  Optional<Member> findByEmail(String name, String email);
-
-	@Select("select * from users where username=#{username} and rownum=1")
+	// 아이디 존재 여부 확인
+	public Boolean existsByUsername(String username);
+	
+	// 이메일 존재 여부 확인
+	public Boolean existsByEmail(String email);
+	
+	// 아이디찾기
+	public Optional<Member> findByEmail(String name, String email);
+	
+	// 내정보를 출력시키기 위해 아이디로 내정보 검색
 	public Optional<Member> findByUsername(String username);
 	
-	@Select("select * from users where name=#{name} and username=#{username} and email=#{email} and rownum=1")
+	// 임시비밀번호 발급
 	public Optional<Member> findByPassword(String name, String username, String email);
-
-	@Update("update users set loginFailCount=0 where username=#{username} and rownum=1")
+	
+	// 로그인에 성공하면 로그인 실패횟수를 초기화 시킨다
 	public Integer resetLoginCnt(String username);
 	
-	@Update("update users set loginFailCount=loginFailCount+1 where username=#{username} and rownum=1")
+	// 비밀번호를 잘못입력해서 로그인 실패시 로그인실패횟수를 1씩 올린다
 	public Integer increaseLoginFailCnt(String username);
 	
-	@Update("update users set disabled=1 where username=#{username} and rownum=1")
+	// 로그인실패횟수가 5가 되면 계정 비활성화 시킨다
 	public Integer disabled(String username);
 	
-	@Update("update users set password=#{newpassword} where username=#{username} and rownum=1")
+	// 회원탈퇴
+	public Integer delete(String username);
+	
+	// 비밀번호 변경
 	public Integer changePassword(String newpassword, String username);
 	
-	@Delete("delete from users where username=#{username} and rownum=1")
-	public Integer delete(String username);
-
+	// 전화번호와 이메일 변경
 	public Integer update(String email, String tel, String username);
-	
 }
