@@ -42,7 +42,7 @@
         for(const l of list) {
           const tableContent = `
           <tr>
-            <td><a href="#" onclick="openPopup('/hotel/manager/memberDetail?name=${l.name}')">${l.name}</a></td>
+            <td><a href="#" onclick="openPopup('/hotel/manager/memberDetail?name=${l.name}&tel=${l.tel}')">${l.name}</a></td>
             <td>${l.tel}</td>
             <td>${l.email}</td>
             <td>${l.username}</td>

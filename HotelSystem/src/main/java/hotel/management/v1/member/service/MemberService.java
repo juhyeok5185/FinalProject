@@ -25,6 +25,7 @@ public class MemberService {
 	@Autowired
 	private JavaMailSender mailSender;
 	
+	// 메일을 발송해주기 위한 메소드
 	private void sendMail(String from, String to, String title, String text) {
 		MimeMessage message = mailSender.createMimeMessage();
 		try {
@@ -39,20 +40,24 @@ public class MemberService {
 		}
 	}
 	
+	// 회원가입 정보를 입력하면 users 테이블에 회원가입 정보들을 저장
 	public void join(MemberDto.Join dto) {
 		String encodedPassword = encoder.encode(dto.getPassword());
 		Member member = dto.toEntity(encodedPassword);
 		dao.save(member);
 	}
-
+	
+	// 아이디 존재 여부를 확인하기 위한 메소드
 	public Boolean checkUsername(String username) {
 		return !dao.existsByUsername(username);
 	}
-
+	
+	// 이메일 존재 여부를 확인하기 위한 메소드
 	public Boolean checkEmail(String email) {
 		return !dao.existsByEmail(email);
 	}
-
+	
+	// 이름과 이메일을 받아와서 이름과 이메일이 존재하는지 확인하는 메소드
 	public String findUsername(String name, String email) {
 		try {
 			return dao.findByEmail(name, email).get().getUsername();
@@ -60,7 +65,8 @@ public class MemberService {
 			throw e;
 		}
 	}
-
+	
+	// 이름과 아이디,이메일을 받아와서 존재한다면 임시비밀번호를 이메일로 발송해주는 메소드
 	public void resetPassword(String name, String username, String email) {
 		try {
 			Member member = dao.findByPassword(name, username, email).get();
@@ -72,7 +78,8 @@ public class MemberService {
 			throw e;
 		}
 	}
-
+	
+	// 회원탈퇴를 하는 메소드
 	public void delete(String username) {
 		try {
 			dao.delete(username);
@@ -80,12 +87,14 @@ public class MemberService {
 			throw e;
 		}
 	}
-
+	
+	// 새 비밀번호를 받아와서 암호화 시킨 다음 비밀번호를 변경시켜주는 메소드
 	public void changePassword(String newpassword, String username) {
 		String encodedPassword = encoder.encode(newpassword);
 		dao.changePassword(encodedPassword, username);
 	}
-
+	
+	// 비밀번호와 아이디를 받아와서 비밀번호가 일치하는지 비교하는 메소드
 	public Boolean checkPassword(String password, String username) {
 		try {
 			Member member = dao.findByUsername(username).get();
@@ -94,12 +103,14 @@ public class MemberService {
 			return false;
 		}
 	}
-
+	
+	// 프로필변경(비밀번호 확인 후) 페이지에서 나의 정보를 출력시키기 위한 메소드
 	public MemberDto.Read read(String username) {
 		Member member = dao.findByUsername(username).get();
 		return member.toReadDto();
 	}
 	
+	// 이메일과 전화번호를 변경시키기 위한 메소드
 	public Boolean update(String email, String tel, String username) {
 		return dao.update(email, tel, username)==1;
 	}
