@@ -1,4 +1,4 @@
-package hotel.management.v1.member.controller;
+package hotel.management.v1.member.MVCController;
 
 import java.security.Principal;
 
@@ -25,51 +25,44 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/hotel")
-public class MemberController {
+public class MemberMVCController {
 	@Autowired
 	private MemberService service;
-
+	
+	// 회원가입 페이지 불러오는 메소드
 	@PreAuthorize("isAnonymous()")
 	@GetMapping("/member/join")
 	public void join() {
 
 	}
-
+	
+	// 회원가입을 처리하고 회원가입 완료페이지로 보내주는 메소드
 	@PreAuthorize("isAnonymous()")
 	@PostMapping("/member/join")
 	public String join(MemberDto.Join dto) {
 		service.join(dto);
 		return "redirect:/hotel/member/joincomplete";
 	}
-
+	
+	// 로그인 페이지 불러오는 메소드
 	@PreAuthorize("isAnonymous()")
 	@GetMapping("/member/login")
 	public void login(HttpSession session, Model model) {
+		// 로그인 페이지에서 알림을 띄우기 위해 사용
 		if (session.getAttribute("msg") != null) {
 			model.addAttribute("msg", session.getAttribute("msg"));
 			session.removeAttribute("msg");
 		}
 	}
-
+	
+	// 회원가입 완료 페이지 불러오는 메소드
+	@PreAuthorize("isAnonymous()")
 	@GetMapping("/member/joincomplete")
 	public void joinComplete() {
 
 	}
 
-	@PreAuthorize("isAnonymous()")
-	@GetMapping("/member/check/username")
-	public ResponseEntity<Void> checkUsername(String username) {
-		Boolean result = service.checkUsername(username);
-		return result ? ResponseEntity.ok(null) : ResponseEntity.status(HttpStatus.CONFLICT).body(null);
-	}
-
-	@PreAuthorize("isAnonymous()")
-	@GetMapping("/member/check/email")
-	public ResponseEntity<Void> emailUsername(String email) {
-		Boolean result = service.checkEmail(email);
-		return result ? ResponseEntity.ok(null) : ResponseEntity.status(HttpStatus.CONFLICT).body(null);
-	}
-
+	// 로그인이 되어있을 때 마이페이지(나의 등급) 불러오는 메소드
 	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/member/myPage")
 	public ModelAndView myPage(Principal principal) {
@@ -77,35 +70,28 @@ public class MemberController {
 		return new ModelAndView("/hotel/member/myPage").addObject("member", dto);
 	}
 
-	@PreAuthorize("isAnonymous()")
-	@GetMapping("/member/find_id")
-	public ResponseEntity<String> findId(String name, String email) {
-		return ResponseEntity.ok(service.findUsername(name, email));
-	}
-
-	@PreAuthorize("isAnonymous()")
-	@PatchMapping("/member/find_password")
-	public ResponseEntity<String> findPassword(String name, String username, String email) {
-		service.resetPassword(name, username, email);
-		return ResponseEntity.ok("임시비밀번호를 이메일로 보냈습니다");
-	}
-
+	
+	// 비밀번호 변경 페이지를 불러오는 메소드
 	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/member/changepassword")
 	public void changePassword(HttpSession session, Model model) {
+		// 비밀번호 변경 페이지에서 알림을 띄우기 위해 사용
 		if (session.getAttribute("msg") != null) {
 			model.addAttribute("msg", session.getAttribute("msg"));
 			session.removeAttribute("msg");
 		}
 	}
-
+	
+	// 비밀번호를 변경시켜주는 메소드
 	@PreAuthorize("isAuthenticated()")
 	@PostMapping("/member/changepassword")
 	public String changePassword(HttpSession session, String newpassword, Principal principal) {
 		service.changePassword(newpassword, principal.getName());
 		return "redirect:/hotel/member/myPage";
 	}
-
+	
+	
+	// 회원 탈퇴를 시켜주는 메소드
 	@PreAuthorize("isAuthenticated()")
 	@PostMapping("/member/delete")
 	public String delete(SecurityContextLogoutHandler handler, HttpServletRequest req, HttpServletResponse res,
@@ -116,6 +102,7 @@ public class MemberController {
 		return "redirect:/hotel/main";
 	}
 
+	// 비밀번호가 세션에 들어와있으면 프로필 변경 페이지로 보내주고 비밀번호가 들어와있지 않으면 프로필 변경(비밀번호 입력 페이지)으로 보내주는 메소드
 	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/member/profileupdate")
 	public ModelAndView checkPassword(HttpSession session) {
@@ -123,7 +110,8 @@ public class MemberController {
 			return new ModelAndView("redirect:/hotel/member/read");
 		return new ModelAndView("/hotel/member/profileupdate");
 	}
-
+	
+	// 프로필 변경 페이지에서 비밀번호를 입력하면 내 비밀번호와 비교한 후 일치하면 프로필변경 페이지로 이동 일치하지 않으면 비밀번호를 잘못 입력하셨습니다.라는 메세지를 띄우고 프로필변경(비밀번호 입력 페이지)로 보내준다.
 	@PreAuthorize("isAuthenticated()")
 	@PostMapping("/member/profileupdate")
 	public String checkPassword(String password, Principal principal, HttpSession session, RedirectAttributes ra) {
@@ -138,39 +126,17 @@ public class MemberController {
 			return "redirect:/hotel/member/profileupdate";
 		}
 	}
-
+	
+	// 프로필 변경(비밀번호 입력 후의 페이지)페이지를 불러오는 메소드
 	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/member/read")
 	public ModelAndView read(Principal principal, HttpSession session) {
 		if (session.getAttribute("isPasswordCheck") == null) {
 			return new ModelAndView("redirect:/hotel/member/profileupdate");
 		}
+		// dto에서 정보를 읽어와서 html 프로필변경(비밀번호 확인 후 페이지)에서 th:text="${member.username}"으로 읽은 정보를 불러오기 위해 사용
 		MemberDto.Read dto = service.read(principal.getName());
 		return new ModelAndView("/hotel/member/read").addObject("member", dto);
-	}
-
-	@PreAuthorize("isAuthenticated()")
-	@PostMapping("/member/update")
-	public ResponseEntity<Void> update(String email, String tel, Principal principal) {
-		Boolean result = service.update(email, tel, principal.getName());
-		return result ? ResponseEntity.ok(null) : ResponseEntity.status(HttpStatus.CONFLICT).body(null);
-	}
-
-	@PreAuthorize("isAuthenticated()")
-	@GetMapping("/member/reservation")
-	public void reservation() {
-
-	}
-	
-	@PreAuthorize("isAuthenticated()")
-	@PostMapping("/member/checkNowPassword")
-	public ResponseEntity<Boolean> checkNowPassword(String nowpassword , Principal principal) {
-		Boolean result = service.checkPassword(nowpassword, principal.getName());
-		if (result == true) {
-			return ResponseEntity.ok(true);
-		} else {
-			return ResponseEntity.ok(false);
-		}
 	}
 
 }
