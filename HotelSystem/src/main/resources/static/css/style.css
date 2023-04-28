@@ -906,7 +906,7 @@
   padding-top: 3vh;
   padding-left: 0.1vw;
   text-align: left;
-  height: 15vh;
+  height: 40vh;
   color: #555;
 }
 
@@ -2563,6 +2563,10 @@ div #logintoolbar > a {
   width: 100vw;
   height: 9vh;
   background-color: #212529;
+  color: #d5ccb0;
+}
+.dark-mode #headerAndnav a{
+  color: #d5ccb0;
 }
 
 .dark-mode #r-b {
@@ -2694,7 +2698,7 @@ div #logintoolbar > a {
 .dark-mode #footerLogo {
   width: 20vw;
   line-height: 20vh;
-  border-right: 0.1rem solid white;
+  border-right: 0.1rem solid #d5ccb0;
 }
 .dark-mode #page {
   background-color: rgb(20, 20, 20);
@@ -2758,12 +2762,171 @@ div #logintoolbar > a {
     color: white;
 }
 .dark-mode #stayContentfonttit, .dark-mode #stayContentfont{
-  color: white;
+    color: white;
+}
+.dark-mode #joinpage {
+    width: 100%;
+    height:120vh;
+    background-color: rgb(20, 20, 20);
+}
+.dark-mode #jointable .col1 {
+    background-color: #212529;
+}
+.dark-mode #jointable1 .col1 {
+    background-color: #212529;
+}
+.dark-mode #jointool, .dark-mode #jointool a {
+    color: white;
+}
+.dark-mode #joincompletebox3_1 {
+	background-color: #212529;
+}
+.dark-mode #todologin {
+	background-color: #212529;
+}
+.dark-mode #loginpage {
+	background-color: rgb(20, 20, 20);
+}
+.dark-mode #loginblock2_1, .dark-mode #loginblock2_2 {
+	background-color: #212529;
+}
+.dark-mode #loginblocknav {
+	background-color: #212529;
+}
+.dark-mode #loginblocknav p {
+	color: #d5ccb0;
+}
+.dark-mode #logintool, .dark-mode #logintool a {
+    color: #d5ccb0;
+}
+.dark-mode #myPage_page {
+	background-color: rgb(20, 20, 20);
+}
+.dark-mode #myPageaside {
+	background-color: #212529;
+}
+.dark-mode #myPageinmenu {
+	background-color: #212529;
+}
+.dark-mode #myPagetool, .dark-mode #myPagetool a {
+	color: white;
+}
+.dark-mode #myPagetool, .dark-mode #myPagetool a {
+	color: white;
+}
+.dark-mode #changepassword_page {
+	background-color: rgb(20, 20, 20);
+}
+.dark-mode #profileupdatetable .col1 {
+	background-color: #212529;
+	color: #d5ccb0;
+}
+.dark-mode #profileupdatebtn {
+	background-color: #212529;
+	border: 1px solid #d5ccb0;
+}
+.dark-mode #profileupdatetool, .dark-mode #profileupdatetool a {
+	color: #d5ccb0;
+}
+.dark-mode #internal_outline a{
+    text-decoration: none;
+    color: #d5ccb0;
+}
+.dark-mode #internal_outline1 a, .dark-mode #internal_outline1 span {
+	text-decoration: none;
+    color: #d5ccb0;
+}
+.dark-mode #tit {
+	color: #d5ccb0;
+	border-bottom: 3px solid #d5ccb0;
+}
+.dark-mode #subh {
+	color: #d5ccb0;
+}
+.dark-mode #headtit > h3 {
+	color: #d5ccb0;
+}
+.dark-mode #headtit {
+	border-bottom: 5px solid #d5ccb0;
+}
+.dark-mode #profileupdateintro {
+	color: #d5ccb0;
+}
+.dark-mode hr {
+	color: #d5ccb0;
+}
+.dark-mode #changepasswordintro {
+	color: #d5ccb0;
+}
+.dark-mode #changepasswordtool {
+	color: #d5ccb0;
+}
+.dark-mode #changepasswordtable .col1 {
+	background-color: #212529;
+	color: #d5ccb0;
+}
+.dark-mode #nowpassword {
+	background-color: #d5ccb0;
+}
+.dark-mode #newpassword {
+	background-color: #d5ccb0;
+}
+.dark-mode #newpassword2 {
+	background-color: #d5ccb0;
+}
+.dark-mode #changepasswordbtn {
+	background-color: #212529;
+	border: 1px solid #d5ccb0;
+}
+.dark-mode #intropassword {
+	color: #d5ccb0;
+}
+.dark-mode #password {
+	background-color: #d5ccb0;
+	border: 1px solid #d5ccb0;
+}
+.dark-mode #username {
+	background-color: #d5ccb0;
+	border: 1px solid #d5ccb0;
+}
+.dark-mode #loginblock1_1 {
+	color: #d5ccb0;
+}
+.dark-mode #loginblock1_2 p {
+	color: #d5ccb0;
+}
+.dark-mode #loginblock1_3 p {
+	color: #d5ccb0;
+}
+.dark-mode #footerInfo_contact {
+	color: #d5ccb0;
+}
+.dark-mode #footerInfo_under {
+	color: #d5ccb0;
+}
+.dark-mode #footerInfo_under span {
+	color: #d5ccb0;
+}
+.dark-mode #loginblock2_2 {
+	border: 1px solid #d5ccb0;
+}
+.dark-mode #loginblock2_2 p {
+	color: #d5ccb0;
+}
+.dark-mode #loginbut {
+	border: 1px solid #d5ccb0; 
+}
+.dark-mode #find_id {
+	border: 1px solid #d5ccb0; 
+}
+.dark-mode #find_password {
+	border: 1px solid #d5ccb0; 
+}
+.dark-mode #join-btn1 {
+	border: 1px solid #d5ccb0; 
 }
 
-
-
-
+/* 여기까지 */
 
 #nothing{
   width: 100vw;
@@ -3011,7 +3174,9 @@ div #logintoolbar > a {
     #internalFacilities_page-1 {
 		display: none;
 	}
-    
+    #joincompletepage-res {
+    	display: none;
+    }
     
 }
 

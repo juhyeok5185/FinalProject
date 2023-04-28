@@ -49,7 +49,7 @@ public interface ManagerDao {
 
     public void changeRoomStatusEmpty(Integer roomNo);
 
-    public ManagerDto.userDetail memberDetail(String name);
+    public ManagerDto.userDetail memberDetail(String name , String tel);
 
     public void blackBtn(String name);
 
