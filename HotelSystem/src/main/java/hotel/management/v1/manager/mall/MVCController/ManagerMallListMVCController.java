@@ -16,7 +16,7 @@ public class ManagerMallListMVCController {
 	private ManagerMallListService service;
 		
 		@GetMapping("/hotel/manager/managerMallList")
-		public ModelAndView contactmallList() {
+		public ModelAndView contactmallList(Integer pageno) {
 			List<ManagerMallListDto.MallListSearch> list = service.contactmallList();
 			return new ModelAndView("/hotel/manager/managerMallList").addObject("mallListArea",list);
 		}
