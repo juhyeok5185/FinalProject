@@ -8,7 +8,6 @@ function totalPrice($input) {
 
 // 카카오JS
 function kakaojs(result) {
-	console.log(result);
 	$.ajax({
 		type: 'get',
 		url: '/pay/start',
@@ -25,8 +24,7 @@ function kakaojs(result) {
 				console.log(error)				
 		}
 	})
-
-}
+};
 
 
 $(document).ready(function() {
@@ -34,6 +32,7 @@ $(document).ready(function() {
 	let count = 1;
 	let click = 0;
 	const stock = 3;
+	let trCount = 0;
 	var clientKey = 'test_ck_D5GePWvyJnrK0W0k6q8gLzN97Eoq';
 	var tossPayments = TossPayments(clientKey);
 	
@@ -90,6 +89,7 @@ $(document).ready(function() {
 	                <td style="line-height:50px"><button class="btn btn-outline-dark delete" data-index=${index}>X</button></td>
 	            </tr>`;
 			$tbody.append(tpl);
+			trCount++;
 		}
 		const totalPrice = $('#totalPrice');
 		tPrice += price;
@@ -97,7 +97,7 @@ $(document).ready(function() {
 
 	});
 	
-	// 개수 감소
+	// 상품개수 감소
 	$(document).on('click', '.minus', function() {
 		const $count = $(this).parent().find('span');
  		let count = parseInt($count.text());
@@ -119,7 +119,7 @@ $(document).ready(function() {
 		
 	});
 	
-	// 개수 증가
+	// 상품개수 증가
 	$('#tbody').on('click', '.plus', function() {
 		const $count = $(this).parent().find('span');
 		let count = parseInt($count.text());
@@ -141,12 +141,13 @@ $(document).ready(function() {
 		
 	});
 	
-	// 삭제
+	// 상품삭제
 	$('#tbody').on('click', '.delete', function() {
 		const $tr = $(this).parent().parent();
 		const $input = parseInt($(this).parent().prev().text());
 		totalPrice(-$input);
 		$tr.remove();
+		trCount--;
 	});
 	
 	// 결제 상세정보
@@ -176,7 +177,11 @@ $(document).ready(function() {
 	});
 
 	// 결제 팝업창
-	$('#mallPaymentBtn').click(function() {
+	$(document).on('click','#mallPaymentBtn', function() {
+		if($('.pickup').val()=="" || $(`#totalPrice`).text()=="") {
+			alert('픽업날짜 및 상품 선택은 필수입니다.');
+			return;
+		}
 		checkBtn = true;
 		$('#paymentPopup').attr('style', 'display:block;');
 		$('#paymentPopup-box').attr('style', 'display:block');
@@ -192,15 +197,12 @@ $(document).ready(function() {
 	// 결제하기
 	$('#choosePayment-box1').click(function() {
 		let itemPrice = parseInt($(`#totalPrice`).text().replace(/,/g, ""));
-		let itemName = $(`#tbodyName`).text();
-		
+		let itemName = `${trCount-1}`==0?$(`#tbodyName`).text():$(`#tbodyName`).text()+` 외${trCount-1}건`;
 		kakaojs({ itemPrice, itemName });
-		
-
 	})
 	$('#choosePayment-box2').click(function() {
 		let itemPrice = parseInt($(`#totalPrice`).text().replace(/,/g, ""));
-		let itemName = $(`#tbodyName`).text();
+		let itemName = `${trCount-1}`==0?$(`#tbodyName`).text():$(`#tbodyName`).text()+` 외${trCount-1}건`;
 		let uuid = self.crypto.randomUUID();
 		tossPayments.requestPayment('TOSSPAY', {
 			amount: itemPrice,

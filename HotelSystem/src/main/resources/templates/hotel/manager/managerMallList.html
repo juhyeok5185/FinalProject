@@ -25,9 +25,8 @@
   -->
   
   <title>관리자</title>
-
 </head>
-<body id="body">
+<body>
 <div class="managment">
   <div id="headerAndnav" class="navbar navbar-expand-sm">
     <div id="div_logo">
@@ -51,7 +50,7 @@
         </ul>
       </div>
     </div>
-    <div id="list" style="height: 1200px;">
+    <div id="malllist">
         <div id = "searcharea">
           <div id="search">
               <input type="text" id = "name" placeholder="이름 입력" height="2px;">
@@ -65,14 +64,16 @@
             <colgroup>
               <col style="width: 20%">
               <col style="width: 20%">
-              <col style="width: 30%">
-              <col style="width: 30%">
+              <col style="width: 20%">
+              <col style="width: 20%">
+              <col style="width: 20%">
             </colgroup>
             <thead>
               <tr>
                 <th>주문번호</th>
                 <th>이름</th>
                 <th>연락처</th>
+                <th>픽업날짜</th>
                 <th>비고</th>
               </tr>
             </thead>
@@ -81,34 +82,19 @@
             	<td th:text="${m.orderNo}"></td>
             	<td th:text="${m.name}"></td>
             	<td th:text="${m.tel}"></td>
+            	<td th:text="${m.contactDate}"></td>
             	<td>
             	<button class="btn btn-secondary" style="width: 100px;" id="nameSearchBtn">주문상세</button>
-            	<button class="btn btn-secondary" style="width: 100px;" id="nameSearchBtn">주문취소</button>
+            	<button class="btn btn-secondary" style="width: 100px;" id="cencelBtn">주문취소</button>
             	</td>
             	</tr>
             </tbody>
           </table>
-          <!-- 
-            <div id="mallListpagination">
-		    <ul class="pagination">
-  			<li class="page-item"><a class="page-link" th:href="@{'/hotel/manager/managerMallList?pageno='+${prev}}">이전</a></li>
-  			<li class="page-item" th:each="i: ${#numbers.sequence(start, end)}">
-  			  <span th:if="${pageno eq i}">  
-  			   <a class="page-link active" th:href="@{'/hotel/manager/managerMallList?pageno=' + ${i}}" th:text="${i}"></a>
-  			  </span>
-  			  <span th:if="${pageno != i}">
-    		   <a class="page-link" th:href="@{'/hotel/manager/managerMallList?pageno=' + ${i}}" th:text="${i}"></a>
-  			  </span>
-			</li>
-  			<li class="page-item"><a class="page-link" th:href="@{'/hotel/manager/managerMallList?pageno='+${next}}">다음</a></li>
-			</ul>
-          </div>
-           -->
         </div>
       </div>
     </div>
   </div>
-<div id="managerFooter">
+<div id="mallFooter">
   <div id="managerFooterLogo">
     <img src="/img/logo.png" alt="로꼬" width="200vw;">
   </div>
