@@ -57,16 +57,16 @@
          	<div style="margin-top: 3.5vh; text-align: center;">
          		<div style="display:flex; text-align: center; margin-left: 16.5vw;">
 	         		<div>
-		         		<span style="font-size: 1.3em; color: #4c453d; padding-right:1vw;">R E A C T</span>
+		         		<span id="myPageTit">R E A C T</span>
 	         		</div>
 	         		<div>
-		         		<span style="font-size: 1.3em; color: #4c453d; padding-left:1vw;">R E W A R D S</span>
+		         		<span id="myPageTit1">R E W A R D S</span>
 	         		</div>
          		</div>
          	</div>
          	<div id="myenum">
 	         	<div style="text-align: center;">
-	         		<span style="font-size: 0.75em; color: #979797;">객실 및 식음업장 이용 실적에 따라 등급이 부여되며, 등급별로 추가 혜택을 받으실 수 있습니다.</span>
+	         		<span id="myenummenu">객실 및 식음업장 이용 실적에 따라 등급이 부여되며, 등급별로 추가 혜택을 받으실 수 있습니다.</span>
 	         	</div>
 	         	<div id="enumdiv" th:if="${member.userLevel == 'BRONZE'}">
 	        		<span>나의 등급: <span style="color: #8f6349;" th:text="${member.userLevel}"></span></span>
@@ -87,8 +87,8 @@
         			</div>
         			<div id="bronzebox1">
 	        			<div id="bronzebox">
-	        				<span style="color: #8f6349; font-size: 1.4em;">Bronze</span><br>
-	        				<span style="color: #6a6a6a; font-size: 0.75em;">회원 가입 시</span>
+	        				<span id="gradeSubh-bronze">Bronze</span><br>
+	        				<span id="gradeSubh">회원 가입 시</span>
 	        			</div>
 	        			<div style="margin-top: 2vh;">
 	        				<img alt="객실패키지" src="/img/package.png" style="width: 1vw; height: 1.5vh;"><span style="font-size: 0.8em;"> 회원 전용 패키지</span>
@@ -103,8 +103,8 @@
         			</div>
         			<div id="silverbox1">
 	        			<div id="silverbox">
-	        				<span style="color: #a8a9ad; font-size: 1.4em;">Silver</span><br>
-	        				<span style="color: #6a6a6a; font-size: 0.75em;">연간 10박 숙박</span>
+	        				<span id="gradeSubh-silver">Silver</span><br>
+	        				<span id="gradeSubh">연간 10박 숙박</span>
 	        			</div>
 	        			<div style="margin-top: 2vh;">
 	        				<img alt="객실패키지" src="/img/package.png" style="width: 1vw; height: 1.5vh;"><span style="font-size: 0.8em;"> 회원 전용 패키지</span>
@@ -134,8 +134,8 @@
         			</div>
         			<div id="goldbox1">
 	        			<div id="goldbox">
-	        				<span style="color: #9a8872; font-size: 1.4em;">Gold</span><br>
-	        				<span style="color: #6a6a6a; font-size: 0.75em;">연간 20박 숙박</span>
+	        				<span id="gradeSubh-gold">Gold</span><br>
+	        				<span id="gradeSubh">연간 20박 숙박</span>
 	        			</div>
 	        			<div style="margin-top: 2vh;">
 		        				<img alt="객실패키지" src="/img/package.png" style="width: 1vw; height: 1.5vh;"><span style="font-size: 0.8em;"> 회원 전용 패키지</span>
