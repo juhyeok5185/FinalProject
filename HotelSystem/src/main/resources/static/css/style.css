@@ -1378,6 +1378,9 @@ div.joincreate{
   background-color: #f1ebd6;
   margin-top: 6.5vh;
 }
+.needinput {
+  color: red;
+}
 
 #loginblock2_2{
   width: 30vw;
@@ -2770,19 +2773,24 @@ div #logintoolbar > a {
     background-color: rgb(20, 20, 20);
 }
 .dark-mode #jointable .col1 {
+	color: #d5ccb0;
     background-color: #212529;
 }
 .dark-mode #jointable1 .col1 {
     background-color: #212529;
+    color: #d5ccb0;
 }
 .dark-mode #jointool, .dark-mode #jointool a {
-    color: white;
+    color: #d5ccb0;
 }
 .dark-mode #joincompletebox3_1 {
 	background-color: #212529;
+	border: 1px solid #d5ccb0;
+	color: #d5ccb0;
 }
 .dark-mode #todologin {
-	background-color: #212529;
+	background-color: #3a3125;
+    border: 1px solid #d5ccb0;
 }
 .dark-mode #loginpage {
 	background-color: rgb(20, 20, 20);
@@ -2822,7 +2830,7 @@ div #logintoolbar > a {
 	color: #d5ccb0;
 }
 .dark-mode #profileupdatebtn {
-	background-color: #212529;
+	background-color: #3a3125;
 	border: 1px solid #d5ccb0;
 }
 .dark-mode #profileupdatetool, .dark-mode #profileupdatetool a {
@@ -2875,7 +2883,7 @@ div #logintoolbar > a {
 	background-color: #d5ccb0;
 }
 .dark-mode #changepasswordbtn {
-	background-color: #212529;
+	background-color: #3a3125;
 	border: 1px solid #d5ccb0;
 }
 .dark-mode #intropassword {
@@ -2886,6 +2894,30 @@ div #logintoolbar > a {
 	border: 1px solid #d5ccb0;
 }
 .dark-mode #username {
+	background-color: #d5ccb0;
+	border: 1px solid #d5ccb0;
+}
+.dark-mode #name {
+	background-color: #d5ccb0;
+	border: 1px solid #d5ccb0;
+}
+.dark-mode #personalId {
+	background-color: #d5ccb0;
+	border: 1px solid #d5ccb0;
+}
+.dark-mode #personalId2 {
+	background-color: #d5ccb0;
+	border: 1px solid #d5ccb0;
+}
+.dark-mode #email {
+	background-color: #d5ccb0;
+	border: 1px solid #d5ccb0;
+}
+.dark-mode #tel {
+	background-color: #d5ccb0;
+	border: 1px solid #d5ccb0;
+}
+.dark-mode #password2 {
 	background-color: #d5ccb0;
 	border: 1px solid #d5ccb0;
 }
@@ -2925,6 +2957,38 @@ div #logintoolbar > a {
 .dark-mode #join-btn1 {
 	border: 1px solid #d5ccb0; 
 }
+.dark-mode #joinintro {
+	color: #d5ccb0; 
+}
+.dark-mode #joinintro3 {
+	color: #d5ccb0; 
+}
+.dark-mode .fail {
+	color: #d5ccb0; 
+}
+.dark-mode .success {
+	color: #d5ccb0; 
+}
+.dark-mode .but3 {
+    background-color: #3a3125;
+    border: 1px solid #d5ccb0;
+    color: #d5ccb0;
+    height: 35px;
+	width: 150px;
+	margin-left: 12vw;
+}
+.dark-mode .but4 {
+    background-color: #3a3125;
+    border: 1px solid #d5ccb0;
+    color: #d5ccb0;
+    height: 35px;
+	width: 150px;
+	margin-left: 2vw;
+}
+.dark-mode .needinput {
+  color: white;
+}
+
 
 /* 여기까지 */
 
