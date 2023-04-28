@@ -38,7 +38,7 @@ public interface MemberDao {
 	// 로그인실패횟수가 5가 되면 계정 비활성화 시킨다
 	public Integer disabled(String username);
 	
-	@Delete("delete from users where username=#{username} and rownum=1")
+	// 회원탈퇴
 	public Integer delete(String username);
 	
 	// 비밀번호 변경

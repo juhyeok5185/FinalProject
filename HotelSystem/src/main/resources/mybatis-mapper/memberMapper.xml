@@ -78,6 +78,10 @@
 		select * from users where username=#{username}
 	</select>
 	
+	<!-- 회원탈퇴 -->
+	<delete id="delete">
+		delete from users where username=#{username}
+	</delete>
 	
 	
 </mapper>
