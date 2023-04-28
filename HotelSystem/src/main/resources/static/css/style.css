@@ -906,7 +906,7 @@
   padding-top: 3vh;
   padding-left: 0.1vw;
   text-align: left;
-  height: 15vh;
+  height: 40vh;
   color: #555;
 }
 
@@ -2792,10 +2792,21 @@ div #logintoolbar > a {
 .dark-mode #logintool, .dark-mode #logintool a {
     color: white;
 }
-.dark-mode
-.dark-mode
-.dark-mode
-
+.dark-mode #myPage_page {
+	background-color: rgb(20, 20, 20);
+}
+.dark-mode #myPageaside {
+	background-color: #212529;
+}
+.dark-mode #myPageinmenu {
+	background-color: #212529;
+}
+.dark-mode #myPagetool, .dark-mode #myPagetool a {
+	color: white;
+}
+.dark-mode #myPagetool, .dark-mode #myPagetool a {
+	color: white;
+}
 
 
 #nothing{
