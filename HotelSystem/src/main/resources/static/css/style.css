@@ -3542,7 +3542,11 @@ div #logintoolbar > a {
   box-shadow: 0 0 0 2px;
   border-radius:
       15px 15px 15px 15px /
-      45px 45px 45px 45px
+      45px 45px 45px 45px;
+  margin-left: 17vw;
+  margin-top: 7vh;
+  background-color: red;
+  color: red;
 }
 
 .gg-youtube-1::before {
@@ -3554,7 +3558,8 @@ div #logintoolbar > a {
   top: 1.5vh;
   border-left: 40px solid currentColor;
   border-top: 30px solid transparent;
-  border-bottom: 30px solid transparent
+  border-bottom: 30px solid transparent;
+  color: white;
 }
 /*요기까지*/
 
@@ -3567,9 +3572,14 @@ div #logintoolbar > a {
   border: 2vh solid transparent;
   box-shadow: 0 0 0 0.1vw;
   border-radius: 0.3rem;
-  width: 15vw;
+  width: 14vw;
   height: 10vh;
   box-shadow: 0 0 0 2px;
+  margin-left: 17vw;
+  margin-top: 7vh;
+  background: linear-gradient(to bottom, #ffb401, #e103e1, #ffb401, #e103e1);
+  background: linear-gradient(to bottom, #000000, #ffffff);
+  color: white;
 }
 
 .gg-instagram-1::after {
@@ -3584,6 +3594,7 @@ div #logintoolbar > a {
   display: block;
   box-sizing: border-box;
   position: absolute;
+  
 }
 
 .gg-instagram-1::after {
@@ -3592,16 +3603,21 @@ div #logintoolbar > a {
   height: 5vh;
   border-radius: 100rem;
   position: absolute;
-  left: 2vw;
-  top: 1.2vw;
+  left: 1.4vw;
+  top: 0.9vw;
+  color: white;
+  background: white;
+  
+  
 }
 
 .gg-instagram-1::before {
-  border-radius: 10rem;
-  width: 0.6vw;
-  height: 0.6vh;
-  background: currentColor;
-  right: 0.05vw;
+  border-radius: 7rem;
+  width: 1.4vw;
+  height: 1vh;
+  background: white;
+  margin-left: 8.5vw;
+  margin-top: -0.7vh;
 }
 /*요기까지*/
     #internalFacilities_page-1 {
