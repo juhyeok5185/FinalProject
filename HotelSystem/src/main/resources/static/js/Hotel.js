@@ -15,11 +15,13 @@ function chackDarkMode() {
   let $body = $("body");
   let $checkbox = $("#dark-checkbox");
   let darkModeEnabled = localStorage.getItem("dark-mode-enabled");
-  let $logoImg = $("#logoImg");
+  let $logoImg = $("#logoImg-1");
+  let $footerLogoImg = $("#footerLogoImg");
 
   if (darkModeEnabled === "true") {
     $body.addClass("dark-mode");
     $logoImg.attr("src", "/img/logo_darkmode.png");
+    $footerLogoImg.attr("src", "/img/logo_darkmode.png");
     $checkbox.prop("checked", true);
 
     $("#img1").attr("src", "/img/res3.jpg");
@@ -28,6 +30,7 @@ function chackDarkMode() {
   } else {
     $body.removeClass("dark-mode");
     $logoImg.attr("src", "/img/logo.png");
+    $footerLogoImg.attr("src", "/img/logo.png");
     $checkbox.prop("checked", false);
 
     $("#img1").attr("src", "/img/pool6.jpg");
@@ -38,6 +41,7 @@ function chackDarkMode() {
   $checkbox.on("change", function () {
     if ($checkbox.prop("checked")) {
       $logoImg.attr("src", "/img/logo_darkmode.png");
+      $footerLogoImg.attr("src", "/img/logo_darkmode.png");
       $body.addClass("dark-mode");
       localStorage.setItem("dark-mode-enabled", "true");
       $("#img1").attr("src", "/img/res3.jpg");
@@ -46,6 +50,7 @@ function chackDarkMode() {
     } else {
       $body.removeClass("dark-mode");
       $logoImg.attr("src", "/img/logo.png");
+      $footerLogoImg.attr("src", "/img/logo.png");
       localStorage.setItem("dark-mode-enabled", "false");
       $("#img1").attr("src", "/img/pool6.jpg");
       $("#img2").attr("src", "/img/pool4.jpg");

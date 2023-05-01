@@ -1147,6 +1147,10 @@
 	font-size: 1.4em
 }
 
+#logoImg-1 {
+	width: 10vw;
+	height: 9vh;
+}
 /* 회원가입 */
 
 #joinpage {
@@ -1480,7 +1484,7 @@ div #logintoolbar > a {
 #myPageTit {
 	font-size: 1.3em; 
 	color: #4c453d;
-	padding-right:1vw
+	padding-right:1vw;
 }
 
 #myPageTit1 {
@@ -1501,6 +1505,7 @@ div #logintoolbar > a {
 #changepasswordtable td {
 	border-bottom: 1px solid #a1886f;
 }
+
 
 #jointable td {
 	border-bottom: 1px solid #a1886f;
@@ -2593,12 +2598,6 @@ div #logintoolbar > a {
   height: 100vh;
 }
 
-.dark-mode #headerAndnav{
-  width: 100vw;
-  height: 9vh;
-  background-color: #212529;
-  color: #d5ccb0;
-}
 .dark-mode #headerAndnav a{
   color: #d5ccb0;
 }
@@ -2692,19 +2691,7 @@ div #logintoolbar > a {
   overflow: hidden;
 }
 
-.dark-mode #footer-1 {
-  background-color: #212529;
-  height: 20vh;
-  width: 100vw;
-  display: flex;
-  text-align: center;
-  overflow: hidden;
-}
 
-.dark-mode #footerimg-1 {
-  text-align: center;
-  margin: auto;
-}
 
 .dark-mode #textcolor{
   color: white;
@@ -2742,7 +2729,7 @@ div #logintoolbar > a {
   font-weight: bold;
 }
 .dark-mode #article,.dark-mode p, .dark-mode #toolbar, .dark-mode #toolbar a, .dark-mode #menu a{
-  color: #d5ccb0;
+  color: white;
   font-weight: bold;
 }
 .dark-mode {
@@ -2976,50 +2963,6 @@ div #logintoolbar > a {
 .dark-mode #intropassword {
 	color: #d5ccb0;
 }
-.dark-mode #password {
-	background-color: #d5ccb0;
-	border: 1px solid #d5ccb0;
-}
-.dark-mode #username {
-	background-color: #d5ccb0;
-	border: 1px solid #d5ccb0;
-}
-.dark-mode #name {
-	background-color: #d5ccb0;
-	border: 1px solid #d5ccb0;
-}
-.dark-mode #personalId {
-	background-color: #d5ccb0;
-	border: 1px solid #d5ccb0;
-}
-.dark-mode #personalId2 {
-	background-color: #d5ccb0;
-	border: 1px solid #d5ccb0;
-}
-.dark-mode #email {
-	background-color: #d5ccb0;
-	border: 1px solid #d5ccb0;
-}
-.dark-mode #email1 {
-	background-color: #d5ccb0;
-	border: 1px solid #d5ccb0;
-}
-.dark-mode #email2 {
-	background-color: #d5ccb0;
-	border: 1px solid #d5ccb0;
-}
-.dark-mode #selectEmail {
-	background-color: #d5ccb0;
-	border: 1px solid #d5ccb0;
-}
-.dark-mode #tel {
-	background-color: #d5ccb0;
-	border: 1px solid #d5ccb0;
-}
-.dark-mode #password2 {
-	background-color: #d5ccb0;
-	border: 1px solid #d5ccb0;
-}
 .dark-mode #loginblock1_1 {
 	color: #d5ccb0;
 }
@@ -3122,11 +3065,6 @@ div #logintoolbar > a {
 .dark-mode #read_page {
 	background-color: rgb(20, 20, 20);
 }
-.dark-mode #readintro {
-	color: #d5ccb0;
-}
-
-
 
 /* 여기까지 */
 
@@ -3278,6 +3216,10 @@ div #logintoolbar > a {
   	#internalFacilities_page {
     	display: none;
   	}
+  	.dark-mode #logoImg-1{
+    	width: 20vw;
+    	height: 9vh;
+    }
     
     
   }
@@ -3377,6 +3319,9 @@ div #logintoolbar > a {
 		display: none;
 	}
     #joincompletepage-res {
+    	display: none;
+    }
+    #footer-1 {
     	display: none;
     }
     
@@ -3773,12 +3718,12 @@ div #logintoolbar > a {
 
 /* 반응형 나의 등급 주성 */
 #myPage_page-1 {
-	width: 80vw;
+	width: 100%;
 	height: 110vh;
 	margin: 0 auto;
 }
 #myPage_article-1 {
-	width: 80vw;
+	width: 80%;
 	height:110vh;
 }
 #gradeintro-1 {
@@ -3963,9 +3908,13 @@ div #logintoolbar > a {
     border: 2px solid black;
     color: #d5ccb0;
 }
+#changePasswordTit {
+	color: #633e10;
+}
+
 /* 반응형 비밀번호 확인 후 프로필 수정 주성 */
 #read_page-1 {
-	width: 100vw;
+	width: 100%;
     height:70vh;
     background-color: white;
     overflow: hidden;
@@ -4517,6 +4466,8 @@ div #logintoolbar > a {
     font-size: 0.8em;
 }
 
+
+
 /* 반응형 다크모드 주성 */
 .dark-mode #internalFacilities_page-1 {
 	background-color: rgb(20, 20, 20);
@@ -4589,4 +4540,157 @@ div #logintoolbar > a {
     position: relative;
     color: #d5ccb0;
     bottom: 10px;	
+}
+/* 반응형 다크모드 비밀번호 변경 */
+.dark-mode #changepassword_page-1 {
+	background-color: rgb(20, 20, 20);
+	height: 71vh;
+}
+.dark-mode #changepassword_article-1 {
+	margin-top: 15vh;
+	height: 56vh;
+	left: 9vw;
+}
+.dark-mode #changepasswordtable-1 .col1 {
+	background-color: #212529;
+}
+.dark-mode #changepasswordtable-1 {
+	
+	border-top: 1px solid white;
+}
+.dark-mode #changepasswordtable-1 td {
+	border-bottom: 1px solid white;
+}
+.dark-mode #changepasswordbtn-res {
+	background-color: #2c2d30;
+	color: white;
+}
+.dark-mode #footerLogoImg {
+	width: 20vw;
+	height: 20vh;
+}
+.dark-mode #logoImg {
+	width: 20vw;
+	height: 9vh;
+}
+.dark-mode #footerimg-1 {
+    text-align: center;
+    margin: auto;
+    height: 20vh;
+}
+.dark-mode #footer-1 {
+    background-color: #212529;
+    height: 20vh;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+.dark-mode #headerAndnav{
+    width: 100%;
+    height: 9vh;
+    background-color: #212529;
+    color: white;
+}
+.dark-mode #read_page-1 {
+	height:71vh;
+	background-color: rgb(20, 20, 20);
+}
+.dark-mode #readtable-1 .col1 {
+	background-color: #212529;
+}
+.dark-mode #deletebtn-1 {
+	background-color: #2c2d30;
+	color: white;
+}
+.dark-mode #updatebtn-1 {
+	background-color: #2c2d30;
+	color: white;
+}
+.dark-mode #readtable-1 td {
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+}
+.dark-mode #read_article-1 {
+	height: 57vh;
+    width: 80%;
+    left: 10vw;
+    margin-top: 14vh;
+}
+.dark-mode #changePasswordTit h3 {
+	color: white;
+}
+.dark-mode #profileupdatetable-1 .col1 {
+	background-color: #212529;
+}
+.dark-mode #profileupdatetable-1 td {
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+}
+.dark-mode #profileupdatebtn-1 {
+	background-color: #2c2d30;
+	color: white;
+}
+.dark-mode #myPage_page-1 {
+	width: 100%;
+	height: 100%;
+	background-color: rgb(20, 20, 20);
+}
+.dark-mode #myPage_article-1 {
+	margin-left: 8vw;
+}
+.dark-mode #gradeIntroTit div span {
+	color: white;
+}
+.dark-mode #gradeintro-1 {
+	padding-top: 1vh;
+}
+.dark-mode #myPageTit-1 {
+	font-size: 1.3em; 
+	color: white;
+	padding-right:1vw;
+}
+.dark-mode #myPageTit1-1 {
+	font-size: 1.3em; 
+	color: white;
+	padding-left:1vw;
+}
+.dark-mode #loginpage-2 {
+	background-color: rgb(20, 20, 20);
+}
+.dark-mode #loginblock2_20 {
+	background-color: #212529;
+}
+.dark-mode #loginblock2_10 {
+	background-color: #212529;
+}
+.dark-mode #loginbut-1 {
+	background-color: #2c2d30;
+	color: white;
+}
+.dark-mode #join_id-1 {
+	background-color: #2c2d30;
+	color: white;
+}
+.dark-mode #find_id-1 {
+	background-color: #2c2d30;
+	color: white;
+}
+.dark-mode #find_password-1 {
+	background-color: #2c2d30;
+	color: white;
+}
+.dark-mode #loginblocknav-1 p {
+	background-color: #2c2d30;
+	color: white;
+	border-bottom: 1px solid white;
+}
+.dark-mode #loginblock1_10 h3 {
+	color: white;
+}
+.dark-mode #loginarticle-1 {
+	margin-top: 11vh;
+	height: 69vh;
+}
+.dark-mode #loginblock2_100 {
+	height: 50vh;
 }
