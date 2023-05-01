@@ -15,6 +15,12 @@ public class OrdersDto {
 		private String username;
 	}
 	
-	
+	@Data
+	public static class order {
+		private String pickupDay;
+		private Integer itemPrice;
+		private String itemName;
+	}
 	
 }
+
