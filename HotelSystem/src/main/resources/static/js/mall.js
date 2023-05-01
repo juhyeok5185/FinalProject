@@ -212,6 +212,8 @@ $(document).ready(function() {
 		let pickupDay = $('.pickup').val();
 		let itemPrice = parseInt($(`#totalPrice`).text().replace(/,/g, ""));
 		let itemName = `${trCount-1}`==0?$(`#tbodyName`).text():$(`#tbodyName`).text()+` 외${trCount-1}건`;
+		
+		
 		kakaojs({ itemPrice, itemName });
 		order({pickupDay, itemPrice, itemName});
 	})
