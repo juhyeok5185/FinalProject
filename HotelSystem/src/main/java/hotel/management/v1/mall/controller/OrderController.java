@@ -1,5 +1,7 @@
 package hotel.management.v1.mall.controller;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 //import org.springframework.security.access.annotation.Secured;
@@ -25,9 +27,9 @@ public class OrderController {
 	}
 	
 	@PostMapping("/mall/order")
-	public ResponseEntity<?> order(OrdersDto.order order) {
+	public ResponseEntity<?> order(OrdersDto.order order, Principal principal) {
 		System.out.println(order.toString());
-		orderService.order(order);
+		orderService.order(order,principal.getName());
 		return ResponseEntity.ok(null);
 	}
 	

@@ -8,8 +8,8 @@ import hotel.management.v1.mall.dto.OrdersDto.order;
 import hotel.management.v1.mall.entity.Item;
 
 @Mapper
-public interface MallDao {
+public interface OrderDao {
 	public List<Item> findByUsername(String username);
 
-	public Integer order(order order);
+	public Integer order(String itemname,String username);
 }
