@@ -3,11 +3,12 @@
   padding: 0;
   text-decoration: none;
   font-weight: bold;
+  
 }
 .hotel {
   overflow: hidden;
   background-color: white;
-  width: 100vw;
+  width: 100%;
 }
 #nav1 {
   margin: auto;
@@ -41,7 +42,7 @@
 }
 #headerAndnav {
   background-color: #f1e3c4;
-  width: 100vw;
+  width: 100%;
   height: 9vh;
 }
 #div_logo{
@@ -115,7 +116,7 @@
 #footer {
   background-color: #f1e3c4;
   height: 20vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   text-align: center;
   overflow: hidden;
@@ -143,10 +144,9 @@
 
 .hd {
   position: absolute;
-  left: 84vw;
+  left: 83vw;
   bottom: 5vh;
   font-size: 0.7vw;
-  min-width: 300px;
 }
 #headerAndnav span {
   position: absolute;
@@ -749,7 +749,7 @@
   font-size: 12px;
   width: 10vw;
   position: relative;
-  left: 39.4vw;
+  margin-left: 40.4vw;
   color: black;
   bottom: 10px;
 }
@@ -776,7 +776,7 @@
   font-size: 12px;
   width: 10vw;
   position: relative;
-  left: 42.8vw;
+  margin-left: 42.8vw;
   color: black;
   bottom: 10px;
 }
@@ -826,7 +826,7 @@
 }
 
 #aside{
-  width: 15vw;
+  width: 15%;
   height: 25vh;
   background-color:#f1e3c4; 
   float: left;
@@ -836,7 +836,7 @@
 }
 
 #inmenu{
-  width: 10vw;
+  width: 50%;
   background-color:#f1e3c4;
   margin: auto;
   padding-top: 3vh;
@@ -919,7 +919,7 @@
 
 /* section */
 #internalFacilities_page {
-  width: 100vw;
+  width: 100%;
   height:170vh;
   background-color: white;
   overflow: hidden;
@@ -928,7 +928,7 @@
 }
 
 #myPage_page {
-  width: 100vw;
+  width: 100%;
   height:140vh;
   background-color: white;
   overflow: hidden;
@@ -938,12 +938,11 @@
 
 #internalFacilities_article {
   height: 160vh;
-  width: 50vw;
+  width: 50%;
   position: absolute;
   left: 35vw;
   margin-top: 10vh;
   overflow: hidden;
-  
 }
 
 #myPage_article {
@@ -965,8 +964,8 @@
 }
 
 #changepassword_page {
-  width: 100vw;
-  height:70vh;
+  width: 100%;
+  height:71vh;
   background-color: white;
   overflow: hidden;
   margin:0 auto;
@@ -974,7 +973,7 @@
 }
 
 #changepassword_article {
-  height: 60vh;
+  height: 61vh;
   width: 50vw;
   position: absolute;
   left: 35vw;
@@ -1067,7 +1066,7 @@
 }
 
 #outline_page {
-  width: 49vw;
+  width: 100%;
   height:110vh;
   background-color: white;
   overflow: hidden;
@@ -3128,6 +3127,7 @@ div #logintoolbar > a {
 }
 
 
+
 /* 여기까지 */
 
 #nothing{
@@ -3597,6 +3597,7 @@ div #logintoolbar > a {
 		overflow: hidden;
 		margin:0 auto;
 		padding: 0 auto;
+		
 	}
 	
     #internalFacilities_staypage-1 {
@@ -4514,4 +4515,78 @@ div #logintoolbar > a {
     border-bottom: 1px solid #a1886f;
     display: flex;
     font-size: 0.8em;
+}
+
+/* 반응형 다크모드 주성 */
+.dark-mode #internalFacilities_page-1 {
+	background-color: rgb(20, 20, 20);
+	height: 150vh;
+}
+.dark-mode #internalFacilities_article-1 {
+	background-color: rgb(20, 20, 20);
+	height: 150vh;
+}
+.dark-mode #outline_page-1 {
+	background-color: rgb(20, 20, 20);
+	height: 108vh;
+}
+.dark-mode #outline_page-1 h4 {
+	color: #d5ccb0;
+}
+.dark-mode #mission_font {
+	color: #d5ccb0;
+}
+.dark-mode #headtit-1 {
+	border-bottom: 5px solid #d5ccb0;
+}
+.dark-mode #headtit-1 h3 {
+	color: #d5ccb0;
+}
+.dark-mode #toolbar-1 {
+	color: #d5ccb0;
+}
+.dark-mode #toolbar {
+	margin-right: 30vw;
+}
+.dark-mode #internalFacilities_stayarticle-1 {
+	width: 100vw;
+	height:130vh;
+	background-color: rgb(20, 20, 20);
+}
+.dark-mode #internalFacilities_page {
+    width: 100vw;
+    height:170vh;
+    background-color: rgb(20, 20, 20);
+    overflow: hidden;
+    margin:0 auto;
+    padding: 0 auto;
+}
+.dark-mode #totalStay-1 {
+	width: 100vw;
+ 	height:121.5vh;
+  	background-color: rgb(20, 20, 20);
+ 	overflow: hidden;
+  	margin-top: 2vh;
+}
+.dark-mode #internalFacilities_staypage-1 {
+	width: 100vw;
+	height:130vh;
+	background-color: rgb(20, 20, 20);
+    overflow: hidden;
+}
+.dark-mode #stayContent11 h4, .dark-mode #stayContentfont{
+	color: #d5ccb0;
+}
+.dark-mode #stayContent22 h4 {
+	color: #d5ccb0;
+}
+.dark-mode #stayImage-1 {
+	width: 80vw;
+}
+.dark-mode #staytoolbar-1 {
+	font-size: 12px;
+    width: 25vw;
+    position: relative;
+    color: #d5ccb0;
+    bottom: 10px;	
 }

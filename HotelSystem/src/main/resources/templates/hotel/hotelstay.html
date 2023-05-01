@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html  lang="ko" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html  lang="ko" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" style="overflow-x: hidden;">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,7 +19,6 @@
 </head>
 <body>
     <div th:replace="~{/fragment/nav.html}"></div>
-    <!--고객 문의 게시판-->
     <div id="internalFacilities_page"> 
       <div id= "aside"> 
         <div id="inmenu">
@@ -59,6 +58,7 @@
         </div>
       </div>
     </div>
+    <!-- 반응형 -->
     <div id="internalFacilities_staypage-1"> 
       <div id="internalFacilities_stayarticle-1">
         <div id="headtit-1"> 
@@ -68,7 +68,7 @@
           </div>
         </div>
         <div id="totalStay-1">
-            <img src="/img/hotelStay.jpg" alt="호텔스테이" id="stayImage-1">
+            <img src="/img/hotelStay.jpg" alt="호텔스테이" id="stayImage-1" width="80vw">
           <div id="stayContent-11">
             <div id="stayContent11">
               <h4 id="stayContentfonttit">Smarter Stay</h4>
