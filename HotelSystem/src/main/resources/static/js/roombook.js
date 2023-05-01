@@ -77,7 +77,7 @@ function kakaojs(result) {
 			location.href = res.next_redirect_pc_url;
 		},
 		error: function(error) {
-
+			alert(error);
 		}
 	})
 
@@ -233,7 +233,7 @@ $(document).ready(async function() {
 		}
 
 		else {
-			alert('이미 선택 하셧습니다')
+			alert('이미 선택 하셨습니다')
 		}
 	})
 	
@@ -244,12 +244,12 @@ $(document).ready(async function() {
 		$('#chargeInquiry').attr("style", "z-index:1; pointer-events: none;");
 		const $bookdate = $('#from').val();
 		const $booktel = $('#booktel').val();
-		const $bookpeople = $('#bookpeople').val();
+		const $totalcnt = $('#totalcnt').val();
 		const $booker = $('#booker').val();
 		const param2 = {
 			from: $bookdate,
 			booktel: $booktel,
-			totalcnt: $bookpeople,
+			totalcnt: $totalcnt,
 			booker: $booker
 		}
 		if($booker==""&&$booktel==""){

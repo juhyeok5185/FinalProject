@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import hotel.management.v1.client.book.dto.BookDto;
@@ -79,7 +80,13 @@ public class BookController {
 		service.findByusername(pal.getName());
 		return ResponseEntity.ok(null);
 	}
-	
+	@GetMapping("/client/mydinnerbook")
+	public ModelAndView mydinnerbook(Principal pal,ModelAndView mav) {
+		List<BookDto.mypagedinner> list = service.findMydinnerByusername(pal.getName());
+		return new ModelAndView().addObject("list", list);
+	}
+	@GetMapping("/client/myroombook")
+	public void myroombook() {}
 	
 
 }

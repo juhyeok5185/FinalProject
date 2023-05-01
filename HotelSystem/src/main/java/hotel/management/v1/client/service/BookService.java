@@ -12,6 +12,7 @@ import hotel.management.v1.client.book.dto.BookDto.book;
 import hotel.management.v1.client.book.dto.BookDto.dinner;
 import hotel.management.v1.client.book.dto.BookDto.dinnerbook;
 import hotel.management.v1.client.book.dto.BookDto.finduser;
+import hotel.management.v1.client.book.dto.BookDto.mypagedinner;
 
 @Service
 public class BookService {
@@ -58,6 +59,11 @@ public class BookService {
 	public finduser findByusername(String name) {
 		// TODO Auto-generated method stub
 		return dao.findByusername(name);
+	}
+
+	public List<mypagedinner> findMydinnerByusername(String name) {
+		// TODO Auto-generated method stub
+		return dao.findMydinnerByusername(name);
 	}
 
 }
