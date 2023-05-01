@@ -40,4 +40,7 @@
 		#{username} and b.booktel = #{booktel} and b.booker = #{booker} and
 		b.bookstatus = '체크인대기'
 	</select>
-</mapper>
+	<select id = "findMydinnerByusername" resultType="hotel.management.v1.client.book.dto.BookDto$mypagedinner">
+		select rb.checkin,rb.checkout,bk.booker,bk.booktel,rb.bookroomgrade from roombooking rb ,book bk where rb.bookno = bk.bookno and username = #{username}
+	</select>
+	</mapper>

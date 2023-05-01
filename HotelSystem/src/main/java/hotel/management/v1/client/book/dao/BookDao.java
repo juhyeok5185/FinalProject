@@ -8,6 +8,7 @@ import hotel.management.v1.client.book.dto.BookDto.addRoomBook;
 import hotel.management.v1.client.book.dto.BookDto.addbook;
 import hotel.management.v1.client.book.dto.BookDto.data;
 import hotel.management.v1.client.book.dto.BookDto.dinner;
+import hotel.management.v1.client.book.dto.BookDto.mypagedinner;
 import hotel.management.v1.client.book.dto.BookDto.whtyouname;
 import hotel.management.v1.client.book.dto.BookDto;
 
@@ -31,6 +32,8 @@ public interface BookDao {
 	public data findBookdata(whtyouname name);
 
 	public Integer findBooknoByusername(String name);
+
+	public List<mypagedinner> findMydinnerByusername(String name);
 	
 
 

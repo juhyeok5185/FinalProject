@@ -1,5 +1,7 @@
 package hotel.management.v1.client.book.dto;
 
+import java.time.LocalDateTime;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -74,7 +76,7 @@ public class BookDto {
 	public static class dinnerbook{
 		String bookdate;
 		String booktel;
-		Integer bookpeople;
+		Integer totalcnt;
 		String booker;
 	}
 	
@@ -97,5 +99,13 @@ public class BookDto {
 	public static class finduser {
 		String username;
 		String userlevel;
+	}
+	@Data
+	 public static class mypagedinner {
+		LocalDateTime checkin;
+		LocalDateTime checkout;
+		String booker;
+		String booktel;
+		String bookroomgrade;
 	}
 }

@@ -1,72 +1,99 @@
-#paybookbtn{
+#paybookbtn {
 	cursor: pointer;
 }
-.bookpage{
+
+.bookpage {
 	margin-left: 20%
 }
-#reservation-btn{
+
+#reservation-btn {
 	cursor: pointer;
 }
-#roomimg{
+
+#roomimg {
 	width: 20vw;
 	height: 20vh;
 }
-#roomlist{
+
+#roomlist {
 	display: flex;
 	padding: 0 5vw;
-	
 }
-#roomlistimg{
+
+#roomlistimg {
 	flex: 1;
 }
-#roomlistinfo{
-	line-height :20vh;
+
+#roomlistinfo {
+	line-height: 20vh;
 	flex: 1;
 }
-#roomlistbtn{
-	line-height :20vh;
+
+#roomlistbtn {
+	line-height: 20vh;
 	flex: 1;
 }
-#booklistbtn{
+
+#booklistbtn {
 	cursor: pointer;
 }
-#payarea{
-	width : 40vw;
+
+#payarea {
+	width: 40vw;
 	display: flex;
 	float: right;
 	margin-bottom: 1.5vh
 }
-#userlevelinfo{
+
+#userlevelinfo {
 	flex: 1;
 	line-height: 5vh;
 }
-#roomnameinfo{
+
+#roomnameinfo {
 	flex: 1;
 	line-height: 5vh;
 }
-#roomtotalpayinfo{
+
+#roomtotalpayinfo {
 	flex: 1;
 	line-height: 5vh;
 }
-#paybtninfo{
+
+#paybtninfo {
 	flex: 1;
 	margin-right: 7vw;
 	margin-left: 2vw;
 }
-#bookpage{
-	overflow : hidden;
+
+#bookpage {
+	overflow: hidden;
 	background-color: white;
 	width: 100vw;
 	min-height: 71vh;
 	padding-top: 8vh;
 }
-#dinnerbook{
+
+#dinnerbook {
 	cursor: pointer;
 }
-#bookpeople{
+
+#bookpeople {
 	width: 3vw;
 }
-#reservation-hotelinfo input{
+
+#booker, #booktel {
 	text-align: right;
 }
 
+#mypage_dinnerbook {
+	height: 130vh;
+	width: 50vw;
+	position: absolute;
+	left: 35vw;
+	margin-top: 10vh;
+	overflow: hidden;
+}
+#dinnerbookmain{
+	height: 120vh;
+}
