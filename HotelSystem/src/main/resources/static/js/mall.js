@@ -14,7 +14,6 @@ function order(param) {
 	})
 };
 
-
 // 카카오JS
 function kakaojs(result) {
 	$.ajax({
@@ -35,12 +34,13 @@ function kakaojs(result) {
 	})
 };
 
+// 주문리스트 팝업
 function detailPopup() {
 	window.open(
 		"/hotel/mall/orderDetail",
 		"orderDetail-name",
 		"scrollbar=no, width=600, height=700, top=150, left=600"
-	);
+	)
 };
 
 $(document).ready(function() {
@@ -211,16 +211,14 @@ $(document).ready(function() {
 	$('#choosePayment-box1').click(function() {
 		let pickupDay = $('.pickup').val();
 		let itemPrice = parseInt($(`#totalPrice`).text().replace(/,/g, ""));
-		let itemName = `${trCount-1}`==0?$(`#tbodyName`).text():$(`#tbodyName`).text()+` 외${trCount-1}건`;
-		
-		
+		let itemName = `${trCount-1}`==0?$(`#tbodyName`).text().replace(/ /g, ""):$(`#tbodyName`).text().replace(/ /g, "")+` 외${trCount-1}건`;
 		kakaojs({ itemPrice, itemName });
 		order({pickupDay, itemPrice, itemName});
 	})
 	$('#choosePayment-box2').click(function() {
 		let pickupDay = $('.pickup').val();
 		let itemPrice = parseInt($(`#totalPrice`).text().replace(/,/g, ""));
-		let itemName = `${trCount-1}`==0?$(`#tbodyName`).text():$(`#tbodyName`).text()+` 외${trCount-1}건`;
+		let itemName = `${trCount-1}`==0?$(`#tbodyName`).text().replace(/ /g, ""):$(`#tbodyName`).text().replace(/ /g, "")+` 외${trCount-1}건`;
 		let uuid = self.crypto.randomUUID();
 		tossPayments.requestPayment('TOSSPAY', {
 			amount: itemPrice,
@@ -233,5 +231,6 @@ $(document).ready(function() {
 	})
 	
 	
+
 	
 });

@@ -16,7 +16,7 @@ public class OrdersDto {
 	}
 	
 	@Data
-	public static class order {
+	public static class Order {
 		private String pickupDay;
 		private Integer itemPrice;
 		private String itemName;

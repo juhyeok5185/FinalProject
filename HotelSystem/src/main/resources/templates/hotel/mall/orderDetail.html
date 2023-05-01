@@ -21,46 +21,13 @@
   <link href='https://unpkg.com/css.gg@2.0.0/icons/css/facebook.css' rel='stylesheet'>
   <link href='https://unpkg.com/css.gg@2.0.0/icons/css/shopping-bag.css' rel='stylesheet'>
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/orderStyle.css">
   <title>J.H.H.L</title>
   <!-- <script th:inline="javascript">
   	const msg = [[${msg}]];
 	if (msg != null)
 		alert(msg);
-  </script>  -->
- <style>
- 	.orderDetail {
- 		height: 699px;
- 	}
- 	
- 	.orderDetail-page {
- 		height: 618px;
- 	}
- 	
- 	.orderDetail-title {
- 		height: 50px;	
- 		border-bottom: 1px solid #D8D8D8;
- 	}
- 	
- 	.orderDetail-title h5 {
- 		text-align: center;
- 		position: relative;
-    	top: 13px;
-    	margin: 0;
- 	}
- 	
- 	#orderDetail-footer {
- 		background-color: #f1e3c4;
-  		width: 100vw;
-  		height: 80px;
- 	}
- 	
-	.orderDetail-logo img {
-		width: 100px;
-		height: 80px;
-	}
- 
-  	
- </style>
+  </script>-->
 </head>
 <body>
  <div class="orderDetail">
@@ -68,13 +35,53 @@
     <div class="orderDetail-page"> 
     	<div id="orderDetail-article">
 			<div class="orderDetail-title">
-				<h5>주문상품 상세</h5> 
+				<span>주문상품 상세</span> 
 			</div>
-			<div>
-				<div>Haven</div>
-				명품관이름
-주문번호 / 결제상태 / 결제일 / 상품이미지 / 상품이름 / 상품 금액(총가격) / 주문수량 / 픽업일
-픽업을 하지 않았어 그럼 환불요청 클릭
+			<div class="detailOrder">
+				<div class="detail-title">
+					<span>Haven</span>
+				</div>
+				<div class="detail-content">
+					<div class="orderItem-img">
+						<img alt="매트리스" src="/img/매트리스.jpg" width="400px" height="162px">
+					</div>		
+					<table class="table table-hover">
+						<colgroup>
+							<col width="40%"><col width="60%">
+						</colgroup>
+						<tr style="border-top:1px solid #DBDBDB;">
+							<th>주문번호</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>상품이름</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>상품금액</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>주문수량</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>결제날짜</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>픽업날짜</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>결제상태</th>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+				<div class="ordercancle">
+					<button type="button" class="btn btn-outline-secondary">주문취소</button>
+				</div>
 			</div>
     	</div>
 	</div>

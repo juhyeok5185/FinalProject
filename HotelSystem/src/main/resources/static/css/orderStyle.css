@@ -1,0 +1,64 @@
+/*명품관 상품 주문*/
+
+/*orderList*/
+.td-height {
+	line-height: 33px;
+}
+
+.td-height a{
+	color: black;
+}
+
+/*orderDetail*/
+.orderDetail {
+	height: 699px;
+}
+ 	
+.orderDetail-page {
+	height: 618px;
+}
+ 	
+.detailOrder {
+ 	position: relative;
+ 	top: 10px;
+}
+ 	
+.orderDetail-title {
+ 	height: 50px;	
+ 	border-bottom: 1px solid #D8D8D8;
+}
+ 	
+.orderDetail-title span {
+	font-size: 25px;
+    position: relative;
+    left: 220px;
+    line-height: 50px;
+}
+ 	
+#orderDetail-footer {
+	background-color: #f1e3c4;
+	width: 100%;
+	height: 80px;
+}
+ 	
+.orderDetail-logo img {
+	width: 100px;
+	height: 80px;
+}
+ 	
+.detail-title span{
+ 	position: relative;
+ 	left: 5px;
+ 	font-size: 20px;
+}
+ 	
+.ordercancle button{
+ 	position: relative;	
+ 	width: 100px;
+ 	left: 480px;
+}
+ 	
+.orderItem-img {
+    text-align: center;
+    margin: 5px auto;
+}
