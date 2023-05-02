@@ -14,6 +14,12 @@ function order(param) {
 	})
 };
 
+function orderList(list) {
+	$.ajax({
+		
+	})
+}
+
 // 카카오JS
 function kakaojs(result) {
 	$.ajax({
@@ -212,8 +218,11 @@ $(document).ready(function() {
 		let pickupDay = $('.pickup').val();
 		let itemPrice = parseInt($(`#totalPrice`).text().replace(/,/g, ""));
 		let itemName = `${trCount-1}`==0?$(`#tbodyName`).text().replace(/ /g, ""):$(`#tbodyName`).text().replace(/ /g, "")+` 외${trCount-1}건`;
+		
+		
 		kakaojs({ itemPrice, itemName });
 		order({pickupDay, itemPrice, itemName});
+		
 	})
 	$('#choosePayment-box2').click(function() {
 		let pickupDay = $('.pickup').val();
