@@ -3564,60 +3564,11 @@ div #logintoolbar > a {
 /*요기까지*/
 
 /*인스타아이콘*/
-.gg-instagram-1 {
-  box-sizing: border-box;
-  position: relative;
-  display: block;
-  transform: scale(var(--ggs,1));
-  border: 2vh solid transparent;
-  box-shadow: 0 0 0 0.1vw;
-  border-radius: 0.3rem;
-  width: 14vw;
-  height: 10vh;
-  box-shadow: 0 0 0 2px;
-  margin-left: 17vw;
-  margin-top: 7vh;
-  background: linear-gradient(to bottom, #ffb401, #e103e1, #ffb401, #e103e1);
-  background: linear-gradient(to bottom, #000000, #ffffff);
-  color: white;
-}
-
-.gg-instagram-1::after {
-  content: "";
-  display: block;
-  box-sizing: border-box;
-  position: absolute;
-  padding: 1vh 0;
-}
-.gg-instagram-1::before {
-  content: "";
-  display: block;
-  box-sizing: border-box;
-  position: absolute;
-  
-}
-
-.gg-instagram-1::after {
-  border: 0.15rem solid;
-  width: 6.5vw;
-  height: 5vh;
-  border-radius: 100rem;
-  position: absolute;
-  left: 1.4vw;
-  top: 0.9vw;
-  color: white;
-  background: white;
-  
-  
-}
-
-.gg-instagram-1::before {
-  border-radius: 7rem;
-  width: 1.4vw;
-  height: 1vh;
-  background: white;
-  margin-left: 8.5vw;
-  margin-top: -0.7vh;
+#insta-img {
+	margin-left: 15vw;
+	margin-top: 7vh;
+	width: 16vw;
+	height: 10vh;
 }
 /*요기까지*/
     #internalFacilities_page-1 {
