@@ -1,4 +1,5 @@
   function openPopup(url) {
+	  console.log(url);
 	  window.open(
 	    url,
 	    "managerorderDetail",
@@ -32,7 +33,7 @@ $(document).ready(function(){
   	
   	try {
       const mallList = await $.ajax({
-      url: '/hotel/manager/managerMallList?name='+ name + '&tel=' + tel +'&orderNo=' + orderNo+'&contactDate=' + contactDate,
+      url: '/hotel/manager/managerMallList?name='+ name + '&tel=' + tel +'&orderNo=' + orderNo +'&contactDate=' + contactDate,
       method:'post' });
       const mallListArea = $('#mallListArea');
       mallListArea.empty();
@@ -56,16 +57,14 @@ $(document).ready(function(){
             	<td>${m.name}</td>
             	<td>${m.tel}</td>
             	<td>${nullresult}</td>
-
             	<td>
             	<button class="btn btn-secondary" style="width: 100px;" id="nameSearchBtn">
-            	     <a href="#" onclick="openPopup('/hotel/manager/managerorderDetail')">주문상세</a>
+            	     <a href="#" onclick="openPopup('/hotel/manager/managerorderDetail?orderNo=${m.orderNo}')">주문상세</a>
             	</button>
             	<button class="btn btn-secondary" style="width: 100px;" id="cencelBtn">주문취소</button>
             	</td>
-
             	</tr>
-     				   `;
+     				  `;
       $('.table').addClass('table-hover');				   
       mallListArea.append(template);
      
