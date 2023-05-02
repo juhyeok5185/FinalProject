@@ -28,36 +28,35 @@
             <table class="table table-bordered table-sm" id="detailTable">
                 <tr>
                     <td>이름</td>
-                    <td>김치킨</td>
+                    <td th:text="${detail.name}"></td>
                 </tr>
                 <tr>
                     <td>연락처</td>
-                    <td>010-2323-3322</td>
+                    <td th:text="${detail.tel}"></td>
                 </tr>
                 <tr>
                     <td>상품번호</td>
-                    <td>001</td>
-                </tr>
-                <tr>
-                    <td>상품이름</td>
-                    <td>김치전</td>
+                    <td th:text="${detail.itemNo}"></td>
                 </tr>
                 <tr>
                     <td>구매번호</td>
-                    <td>003</td>
+                    <td th:text="${detail.orderNo}"></td>
+                </tr>
+                <tr>
+                    <td>상품이름</td>
+                    <td th:text="${detail.itemName}"></td>
                 </tr>
                 <tr>
                     <td>상품가격</td>
-                    <td>10000</td>
+                    <td th:text="${detail.orderPrice}"></td>
                 </tr>
                 <tr>
                     <td>상품수량</td>
-             		<td>230</td>
+             		<td th:text="${detail.orderEa}"></td>
                 </tr>
             </table>
 	            <div style="text-align: center;">
-                <button id="blackBtn" class="btn btn-primary">주문취소
-                <input type="hidden">
+                <button id="cencelBtn" class="btn btn-primary">주문취소
             	</button>
     	        </div>
         </div>

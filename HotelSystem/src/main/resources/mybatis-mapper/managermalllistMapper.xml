@@ -5,8 +5,8 @@
 	<!-- 관리자 : 김동욱 -->
 	
 	<select id="mallsearch" resultType="hotel.management.v1.manager.mall.Dto.ManagerMallListDto$MallListSearch">
-		select od.username , us.tel , us.name , od.orderno , ord.orderdate , ord.contactdate , 
-			   ord.orderprice , ord.orderea 
+		select od.username , us.tel , us.name , od.orderno , ord.orderdate , 
+			   ord.contactdate , ord.orderprice , ord.orderea 
 		from orders od 
 		left join orderdetail ord on od.orderno = ord.orderno
 		left join users us on od.username = us.username
@@ -32,12 +32,26 @@
 		where contactdate is not null
     </select>
 	 
-	 <delete id="restdelete">
+	<delete id="orderdetaildelete">
+		delete from orderdetail where orderno = #{orderNo}
+	</delete>
+	
+	<delete id="restdelete">
 		delete from orders where orderno = #{orderNo}
 	</delete>
 	
 	<select id="findByNo" resultType="hotel.management.v1.manager.mall.Dto.ManagerMallListDto$MallListSearch">
-		select * from orderdetail where orderno = #{orderno}
+		select * from orderdetail where orderno = #{orderNo}
+	</select>
+ 
+	<select id="orderDetail" resultType="hotel.management.v1.manager.mall.Dto.ManagerMallListDto$orderDetail">
+		
+		select ord.orderno, u.name, u.tel, it.itemno, it.itemname, ord.orderprice, ord.orderea
+        from orders od
+        join orderdetail ord on od.orderno = ord.orderno
+        join item it on od.itemno = it.itemno
+        join users u on od.username = u.username
+        where od.orderno = #{orderNo}	
 	</select>
 	
 </mapper>

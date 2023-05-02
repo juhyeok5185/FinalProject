@@ -49,9 +49,13 @@ public class ManagerMallListDto {
 	@Builder
 	@ToString
 	public static class orderDetail{
+		private Integer orderNo; 
 		private String name; 
 		private String tel;
-		private Integer orderNo; 
+		private Integer itemNo;
+		private String itemName; 
+		private Integer orderPrice; 
+		private Integer orderEa; 
 	}
 	
 	

@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import hotel.management.v1.manager.dto.ManagerDto;
 import hotel.management.v1.manager.mall.Dto.ManagerMallListDto;
+import hotel.management.v1.manager.mall.Dto.ManagerMallListDto.orderDetail;
 
 @Mapper
 public interface ManagerMallListDao {
@@ -16,6 +16,10 @@ public interface ManagerMallListDao {
 
 	public ManagerMallListDto.MallListSearch findByNo(Integer orderNo);
 
-	public Integer restdelete(Integer orderNo);
+	public Integer orderdetaildelete(Integer orderNo);
+	
+	public Integer restdelete(Integer orderNo);	
+
+	public ManagerMallListDto.orderDetail orderDetail(Integer orderNo);
 
 }

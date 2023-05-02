@@ -25,7 +25,8 @@ public class ManagerMallListRestController {
 	
 	@PostMapping("/hotel/manager/delete")
 	public ResponseEntity<?> restdelete(Integer orderNo){
-		Integer orderdelete = service.restdelete(orderNo);
+		Integer orderdelete = service.orderdetaildelete(orderNo);
+		Integer orderdelete2 = service.restdelete(orderNo);
 		return ResponseEntity.ok("");
 	}
 	
