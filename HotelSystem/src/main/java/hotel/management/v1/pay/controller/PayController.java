@@ -42,6 +42,10 @@ public class PayController {
 		KakaoPayApproveVO res = payService.kakaoPayApprove(pgToken, session,principal.getName());
 		session.removeAttribute("tid");
 		session.removeAttribute("partner_order_id");
+
+		System.out.println("구매한 물품: " + res.getPartner_order_id());
+		System.out.println("결제한 금액: " + res.getApproved_at());
+
 		return "/pay/success";
 	}
 	
