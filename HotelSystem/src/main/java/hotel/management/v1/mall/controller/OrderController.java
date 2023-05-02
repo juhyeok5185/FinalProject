@@ -14,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import hotel.management.v1.mall.dto.OrdersDto;
 import hotel.management.v1.mall.service.OrderService;
+import jakarta.servlet.http.HttpSession;
 
 @RequestMapping("/hotel")
 @Controller
@@ -22,9 +23,10 @@ public class OrderController {
 	private OrderService orderService;
 	
 	@PostMapping("/mall/order")
-	public ResponseEntity<?> order(OrdersDto.Order order, Principal principal) {
-		System.out.println(order.toString());
-		orderService.order(order,principal.getName());
+	public ResponseEntity<?> order(OrdersDto.Order order, Principal principal, HttpSession session) {
+		session.setAttribute("tbodyArray", order.getTbodyArray());
+		session.setAttribute("pickupDay", order.getPickupDay());
+
 		return ResponseEntity.ok(null);
 	}
 	

@@ -1,24 +1,35 @@
-let tPrice = 0;
 // 요금합계	
+let tPrice = 0;
 function totalPrice($input) {
 	const totalPrice = $('#totalPrice');
 	tPrice += $input
 	totalPrice.text(tPrice.toLocaleString() + ' 원');
 };
 
-function order(param) {
+class item {
+	constructor(name, count, price) {
+		this.name = name;
+		this.count = count;
+		this.price = price;
+	}
+};
+
+function order(pickupDay, tbodyArray) {
+	const param = {
+		pickupDay : pickupDay,
+		tbodyArray : JSON.stringify(tbodyArray) 
+	}
 	$.ajax({
 		type: 'post',
 		url: '/hotel/mall/order',
-		data: param
+		data: param,
+		success: function(result) {
+			console.log("성공");
+		}, error: function(error){
+			console.log("실패");
+		}
 	})
 };
-
-function orderList(list) {
-	$.ajax({
-		
-	})
-}
 
 // 카카오JS
 function kakaojs(result) {
@@ -101,7 +112,7 @@ $(document).ready(function() {
 		} else {
 			const tpl = `
 	            <tr>
-	                <td id="tbodyName" style="line-height:50px">${name}</td>
+	                <td class="tbodyName" id="tbodyName" style="line-height:50px">${name}</td>
 	                <td style="line-height:50px">
 	                    <button class="btn btn-outline-dark minus" data-index=${index}>-<input type="hidden" value="${price}"></button>
 	                    <span id="count">${count}</span>
@@ -204,7 +215,17 @@ $(document).ready(function() {
 		checkBtn = true;
 		$('#paymentPopup').attr('style', 'display:block;');
 		$('#paymentPopup-box').attr('style', 'display:block');
-		$('html').attr('style', 'overflow: hidden');
+		$('html').attr('style', 'overflow: hidden');	
+		
+		/*let pickupDay = $('.pickup').val();
+		const tbodyArray = []; 
+		
+		$('td.tbodyName').each(function() { 
+		   tbodyArray.push(new item($(this).text().replace(/ /g, ""), $(this).parent().find('span').text(), $(this).next().next().text())); 
+		});	
+		order(pickupDay, tbodyArray);*/
+		
+		
 	});
 	$('#paymentPopup-btn').click(function() {
 		checkBtn = false;
@@ -218,10 +239,13 @@ $(document).ready(function() {
 		let pickupDay = $('.pickup').val();
 		let itemPrice = parseInt($(`#totalPrice`).text().replace(/,/g, ""));
 		let itemName = `${trCount-1}`==0?$(`#tbodyName`).text().replace(/ /g, ""):$(`#tbodyName`).text().replace(/ /g, "")+` 외${trCount-1}건`;
+		const tbodyArray = []; 
 		
-		
+		$('td.tbodyName').each(function() { 
+		   tbodyArray.push(new item($(this).text().replace(/ /g, ""), $(this).parent().find('span').text(), $(this).next().next().text())); 
+		});	
+		order(pickupDay, tbodyArray);
 		kakaojs({ itemPrice, itemName });
-		order({pickupDay, itemPrice, itemName});
 		
 	})
 	$('#choosePayment-box2').click(function() {
@@ -229,6 +253,13 @@ $(document).ready(function() {
 		let itemPrice = parseInt($(`#totalPrice`).text().replace(/,/g, ""));
 		let itemName = `${trCount-1}`==0?$(`#tbodyName`).text().replace(/ /g, ""):$(`#tbodyName`).text().replace(/ /g, "")+` 외${trCount-1}건`;
 		let uuid = self.crypto.randomUUID();
+		const tbodyArray = []; 
+		
+		$('td.tbodyName').each(function() { 
+		   tbodyArray.push(new item($(this).text().replace(/ /g, ""), $(this).parent().find('span').text(), $(this).next().next().text())); 
+		});
+		order({pickupDay,tbodyArray});
+		
 		tossPayments.requestPayment('TOSSPAY', {
 			amount: itemPrice,
 			orderId: uuid,
@@ -236,7 +267,8 @@ $(document).ready(function() {
 			successUrl: 'http://localhost:8081/pay/toss_success',
 			failUrl: 'http://127.0.0.1:5500//fail.html'
 		})
-		order({pickupDay, itemPrice, itemName});
+		
+
 	})
 	
 	

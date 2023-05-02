@@ -5,6 +5,6 @@
 		INSERT INTO orders VALUES (ORDERS_SEQ_ORDERSNO.nextval,#{username},(select itemno from item where itemname = #{itemName}))
 	</insert>
 	<insert id="addOrderDetail">
-		INSERT INTO orderdetail VALUES (ORDERS_SEQ_ORDERSNO.currval, sysdate, to_date(#{pickupDay},'MM/DD/YYYY'), #{itemPrice},1)
+		INSERT INTO orderdetail VALUES (ORDERS_SEQ_ORDERSNO.currval, sysdate, to_date(#{pickupDay},'MM/DD/YYYY'), #{itemPrice}, #{count})
 	</insert>
 </mapper>

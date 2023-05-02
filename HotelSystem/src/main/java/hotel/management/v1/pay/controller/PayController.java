@@ -5,16 +5,15 @@ import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import hotel.management.v1.mall.service.OrderService;
 import hotel.management.v1.pay.entity.KakaoPayApproveVO;
 import hotel.management.v1.pay.entity.KakaoPayReadyVo;
-import hotel.management.v1.pay.entity.TossPayVo;
 import hotel.management.v1.pay.service.PayService;
 import jakarta.servlet.http.HttpSession;
 
@@ -22,7 +21,10 @@ import jakarta.servlet.http.HttpSession;
 public class PayController {
 	@Autowired
 	private PayService payService;
-
+	
+	@Autowired
+	private OrderService orderService;
+	
 	@GetMapping("/pay")
 	public String ready() {
 		return "pay/ready";
@@ -36,16 +38,17 @@ public class PayController {
 		session.setAttribute("tid", res.getTid());
 		return res;
 	}
-
-	@GetMapping("/pay/success")
+	
+	
+	@GetMapping(value="/pay/success",produces = MediaType.APPLICATION_JSON_VALUE)
 	public String Success(@RequestParam("pg_token") String pgToken, HttpSession session,Principal principal) {
+		String pickupDay = (String) session.getAttribute("pickupDay");
+		String[] tbodyArray = (String[])session.getAttribute("tbodyArray");
+		orderService.mallOrder(tbodyArray, pickupDay, principal.getName());
+		
 		KakaoPayApproveVO res = payService.kakaoPayApprove(pgToken, session,principal.getName());
 		session.removeAttribute("tid");
 		session.removeAttribute("partner_order_id");
-
-		System.out.println("구매한 물품: " + res.getPartner_order_id());
-		System.out.println("결제한 금액: " + res.getApproved_at());
-
 		return "/pay/success";
 	}
 	
