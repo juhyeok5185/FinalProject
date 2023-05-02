@@ -38,8 +38,8 @@ public class PayController {
 	}
 
 	@GetMapping("/pay/success")
-	public String Success(@RequestParam("pg_token") String pgToken, HttpSession session) {
-		KakaoPayApproveVO res = payService.kakaoPayApprove(pgToken, session);
+	public String Success(@RequestParam("pg_token") String pgToken, HttpSession session,Principal principal) {
+		KakaoPayApproveVO res = payService.kakaoPayApprove(pgToken, session,principal.getName());
 		session.removeAttribute("tid");
 		session.removeAttribute("partner_order_id");
 		return "/pay/success";
