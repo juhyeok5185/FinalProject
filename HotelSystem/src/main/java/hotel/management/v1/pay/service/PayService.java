@@ -48,7 +48,7 @@ public class PayService {
 		return res;
 	}
 
-	public KakaoPayApproveVO kakaoPayApprove(String pgToken, HttpSession session) {
+	public KakaoPayApproveVO kakaoPayApprove(String pgToken, HttpSession session, String username) {
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization", "KakaoAK a9f2ff79213b981cd3e1ade179808e25");
 		headers.set("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
@@ -58,7 +58,7 @@ public class PayService {
 		payParams.add("cid", "TC0ONETIME");
 		payParams.add("tid", session.getAttribute("tid"));
 		payParams.add("partner_order_id", session.getAttribute("partner_order_id"));
-		payParams.add("partner_user_id", "kakaopayTest");
+		payParams.add("partner_user_id", username);
 		payParams.add("pg_token", pgToken);
 
 		HttpEntity<Map> request = new HttpEntity<Map>(payParams, headers);

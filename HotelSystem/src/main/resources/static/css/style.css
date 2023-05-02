@@ -826,7 +826,7 @@
 }
 
 #aside{
-  width: 15%;
+  width: 15vw;
   height: 25vh;
   background-color:#f1e3c4; 
   float: left;
@@ -836,7 +836,7 @@
 }
 
 #inmenu{
-  width: 50%;
+  width: 10vw;
   background-color:#f1e3c4;
   margin: auto;
   padding-top: 3vh;

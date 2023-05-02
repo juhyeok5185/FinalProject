@@ -3,6 +3,7 @@ package hotel.management.v1.mall.dto;
 import java.util.List;
 
 import lombok.Data;
+import lombok.ToString;
 
 public class OrdersDto {
 	@Data
@@ -16,10 +17,12 @@ public class OrdersDto {
 	}
 	
 	@Data
-	public static class order {
+	@ToString
+	public static class Order {
 		private String pickupDay;
-		private Integer itemPrice;
-		private String itemName;
+		private String[] tbodyArray;
+
+
 	}
 	
 }

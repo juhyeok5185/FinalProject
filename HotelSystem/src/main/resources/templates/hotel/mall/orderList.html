@@ -21,11 +21,8 @@
   <link href='https://unpkg.com/css.gg@2.0.0/icons/css/facebook.css' rel='stylesheet'>
   <link href='https://unpkg.com/css.gg@2.0.0/icons/css/shopping-bag.css' rel='stylesheet'>
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/orderStyle.css">
   <title>J.H.H.L</title>
-	<script>
-
-
-	</script>
 </head>
 <body>
   <div class="hotel">
@@ -44,11 +41,11 @@
 						<ul style="list-style:none;">
 							<li class="mb-1.5" id="internal_outline1"><a href="/hotel/member/profileupdate" id="subh" style="margin-left: -1.7vw; font-size: 0.8em;">객실</a></li>
 							<li id="internal_outline1"><a href="/hotel/member/changepassword" id="subh" style="margin-left: -1.7vw; font-size: 0.8em;">다이닝</a></li>
-							<li id="internal_outline1"><a href="/hotel/member/changepassword" id="subh" style="margin-left: -1.7vw; font-size: 0.8em;">주문내역</a></li>
+							<li id="internal_outline1"><a href="/hotel/mall/orderList" id="subh" style="margin-left: -1.7vw; font-size: 0.8em;">주문내역</a></li>
 						</ul>
 					</li>
 					<hr>
-					<li id="internal_outline1"><span id="subh" style="color: #644012;" >내정보</span>
+					<li id="internal_outline1"><span id="subh" style="color: #644012;">내정보</span>
 						<ul style="list-style:none;">
 							<li class="mb-1.5" id="internal_outline1"><a href="/hotel/member/profileupdate" id="subh" style="margin-left: -1.7vw; font-size: 0.8em;">프로필 수정</a></li>
 							<li id="internal_outline1"><a href="/hotel/member/changepassword" id="subh" style="margin-left: -1.7vw; font-size: 0.8em;">비밀번호 변경</a></li>
@@ -61,26 +58,28 @@
         <div id="headtit"> 
           <h3>주문내역</h3>
           <div id="changepasswordtool">
-            <i class="fa-solid fa-house"></i> > 마이페이지 > 내정보 ><a href="changepassword" id="subh"> 주문내역</a>
+            <i class="fa-solid fa-house"></i> > 마이페이지 > 내정보 ><a href="/hotel/mall/orderList" id="subh"> 주문내역</a>
           </div>
         </div>
-        <div>ggg</div>
         <div>
         	<table class="table table-hover">
+        		<colgroup>
+        			<col width="30%"><col width="25%"><col width="25%"><col width="20%">
+        		</colgroup>
         		<thead>
         			<tr>
-        				<th></th>
         				<th>상품명</th>
         				<th>결제날짜</th>
         				<th>결제상태</th>
+        				<th></th>
         			</tr>
         		</thead>
         		<tbody>
         			<tr>
-        				<td>image</td>
-        				<td><a href="#" onclick="detailPopup()">상품이름</a></td>
-        				<td></td>
-        				<td>4</td>
+        				<td class="td-height"><a href="#" onclick="detailPopup()">상품이름</a></td>
+        				<td class="td-height">232323</td>
+        				<td class="td-height">결제진행중</td>
+        				<td><button type="button" class="btn btn-outline-secondary">주문취소</button></td>
         			</tr>
         		</tbody>
         	</table>
