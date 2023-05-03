@@ -3145,6 +3145,30 @@ div #logintoolbar > a {
 .dark-mode .itemName, .dark-mode .itemPrice {
 	color: white;
 }
+.dark-mode #totalCharge {
+	background-color: #2c2d30;
+}
+.dark-mode #totalCharge {
+	border-bottom: 4px solid white;
+}
+.dark-mode #totalBillDetailInner {
+	background-color: #2c2d30;
+}
+.dark-mode #innerTextBox {
+	background-color: #2c2d30;
+}
+.dark-mode #innerTextBox span, th, td {
+	color: white;
+}
+.dark-mode #totalPriceBox span {
+	color: white;
+}
+.dark-mode #VAT span, p {
+	color: white;
+}
+.dark-mode #VAT p {
+	color: white;
+}
 /* 여기까지 */
 
 #nothing{
