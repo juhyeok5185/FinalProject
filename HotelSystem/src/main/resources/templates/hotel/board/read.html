@@ -85,17 +85,14 @@
    			<!-- 답변 -->	 
 			<tr>
               <td class="col1" sec:authorize="hasRole('ADMIN')"><span id="notnull"></span>답변</td>
-              <td class="col2" sec:authorize="hasRole('ADMIN')"></td>
-	          <!-- 
-              <td class="col1"><span id="notnull"></span>답변</td>
-              <td class="col2">
-			  -->
+              <td class="col2" sec:authorize="hasRole('ADMIN')">
 	          <form action="/hotel/board/read" method="post">
 	          <input type="hidden" name="username" th:field="*{board.username}">
 	          <input type="hidden" name="boardNo"  th:field="*{board.boardNo}">
 	          <textarea id="replyContent" name="replyContent" cols="80" rows="4"></textarea>
 			  <span id="replybutton"><button id="replybutton" class="btn btn-outline-dark">답변</button></span>
 		      </form>
+              </td>
 		    </tr>
 		    <tr>
 		 	 <td>

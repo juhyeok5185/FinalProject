@@ -24,9 +24,11 @@ public class ManagerMallListRestController {
 	}
 	
 	@PostMapping("/hotel/manager/delete")
-	public ResponseEntity<?> delete(Integer orderNo){
-		Integer orderdelete = service.orderdetaildelete(orderNo);
-		Integer orderdelete2 = service.delete(orderNo);
+	public ResponseEntity<?> delete(String orderNo){
+		Integer orderno = Integer.parseInt(orderNo);
+		System.out.println(orderno);
+		Integer orderdelete = service.orderdetaildelete(orderno);
+		Integer orderdelete2 = service.delete(orderno);
 		return ResponseEntity.ok("");
 	}
 	

@@ -94,4 +94,25 @@ $(document).ready(function(){
     }
   });
   
+    $(document).on('click',"#orderdetailcencelBtn", async function(){
+  	try {
+		const orderNo = $('#hiddenvalue').val();
+		console.log(typeof orderNo);
+	    const response = await $.ajax({
+	      url: "/hotel/manager/delete",
+	      method: "post",
+	      data:{
+		      orderNo:orderNo		  
+		  }
+	    });
+	    alert("주문이 취소되었습니다.");
+	    window.opener.location.reload();
+	    window.close();
+	    console.log(response);
+	  } catch (err) {
+	    console.log(err);
+	  }
+});
+  
 	})
+	

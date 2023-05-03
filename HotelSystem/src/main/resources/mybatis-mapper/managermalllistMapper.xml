@@ -53,12 +53,4 @@
         where od.orderno = #{orderNo}	
 	</select>
 	
-	<delete id="orderdetaildelete2">
-		delete from orderdetail where orderno = #{orderNo}
-	</delete>
-	
-	<delete id="delete2">
-		delete from orders where orderno = #{orderNo}
-	</delete>
-	
 </mapper>
