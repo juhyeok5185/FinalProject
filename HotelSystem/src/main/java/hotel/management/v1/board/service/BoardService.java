@@ -1,6 +1,7 @@
 package hotel.management.v1.board.service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -32,19 +33,21 @@ public class BoardService {
 		dao.write(board);
 	}
 
+	//NoSuchElementException
 	public List<Board> list() {
 		List<Board> list = dao.list();
 		return list;
 	}
-
+	//게시물을 읽기 위해 번호를 찾기 위한 메소드
 	public Board findByNo(Integer boardNo) {
-		return dao.findByNo(boardNo);
+			return dao.findByNo(boardNo);
 	}
 	
+	//NoSuchElementException
 	public BoardDto.Pagination pagination(Integer pageno) {
 		Integer boardCnt = dao.count();
 		Integer boardPageCnt = (boardCnt - 1) / PAGESIZE + 1;
-		
+		try {
 		pageno = Math.abs(pageno);
 		if(pageno>boardPageCnt)
 			pageno = boardPageCnt;
@@ -59,12 +62,15 @@ public class BoardService {
 			end = boardPageCnt;
 			next = 0;
 		}
-		
 		prev = prev == 0 ? start : prev;
 		next = next == 0 ? end : next;
 		return new BoardDto.Pagination(prev, start, end, next, board);
+		} catch (NoSuchElementException e) {
+			throw e;
+		}
 	}
 
+	//관리자의 답변을 달기 위한 메소드
 	public void replyUpdate(Integer boardNo, String replyContent, String username) {
 		String email = dao.findMail(username);
 		System.out.println(email);
@@ -72,14 +78,15 @@ public class BoardService {
 		sendMail("admin@zmall.com",email,"회원님의 문의사항 답변이 달렸습니다.","홈페이지를 통해 확인해주세요.");
 	}
 	
-	
+	//게시물을 삭제하는 메소드
 	public void delete(String boardNo) {
 		int intBoardNo = Integer.parseInt(boardNo);
 		Board board = dao.findByNo(intBoardNo);
 		if(board.getBoardNo().equals(intBoardNo))
 			dao.delete(intBoardNo);
-	}
+		}
 	
+	// 이메일을 발송하기 위한 메소드
 	private void sendMail(String from, String to, String title, String text) {
 		MimeMessage message = mailSender.createMimeMessage();
 		try {
@@ -87,7 +94,6 @@ public class BoardService {
 			helper.setFrom(from);
 			helper.setTo(to);
 			helper.setSubject(title);
-			// false면 글자로 날아가고, true면 html로 날아간다
 			helper.setText(text, true);
 			mailSender.send(message);
 		} catch (MessagingException e) {
