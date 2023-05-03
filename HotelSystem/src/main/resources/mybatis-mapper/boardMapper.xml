@@ -8,8 +8,12 @@
 		insert into board(boardNo, username, writeDay, title, content)values(BOARD_SEQ_BOARDNO.nextval, #{username} , sysdate , #{title}, #{content})
 	</insert>
 
-	<select id="list" resultType="hotel.management.v1.board.entity.Board">
+	<select id="list" resultType="hotel.management.v1.board.entity.Board">  
 		select * from board order by boardNo desc
+	</select>
+
+	<select id="findMail" resultType="String">
+        select email from users where username = #{username}
 	</select>
 	
 	<select id="findByNo" resultType="hotel.management.v1.board.entity.Board">
@@ -21,7 +25,9 @@
 	</select>
 
 	<update id="update">
-		update board b set b.replycontent = #{replyContent}, replywriteday = sysdate where b.boardno=#{boardNo}
+		update board b 
+		set b.replycontent = #{replyContent}, replywriteday = sysdate 
+		where b.boardno=#{boardNo}
 	</update>	
 
 	<select id="findAll" resultType="hotel.management.v1.board.dto.BoardDto$FindAll">

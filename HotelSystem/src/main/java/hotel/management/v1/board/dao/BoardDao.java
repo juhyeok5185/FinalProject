@@ -21,6 +21,8 @@ public interface BoardDao {
 	
 	public List<Board> list();
 
+	public String findMail(String username);
+	
 	public Board findByNo(Integer boardNo);
 	
 	public Integer count();

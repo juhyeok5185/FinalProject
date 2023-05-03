@@ -18,7 +18,7 @@ import jakarta.mail.internet.MimeMessage;
 @Service
 public class BoardService {
 	@Autowired
-	private BoardDao boardDao;
+	private BoardDao dao;
 	
 	@Autowired
 	private JavaMailSender mailSender;
@@ -29,20 +29,20 @@ public class BoardService {
 
 	public void write(BoardDto.Write dto, String username) {
 		Board board = dto.toEntity(dto.getTitle(),dto.getContent(), username);
-		boardDao.write(board);
+		dao.write(board);
 	}
 
 	public List<Board> list() {
-		List<Board> list = boardDao.list();
+		List<Board> list = dao.list();
 		return list;
 	}
 
 	public Board findByNo(Integer boardNo) {
-		return boardDao.findByNo(boardNo);
+		return dao.findByNo(boardNo);
 	}
 	
 	public BoardDto.Pagination pagination(Integer pageno) {
-		Integer boardCnt = boardDao.count();
+		Integer boardCnt = dao.count();
 		Integer boardPageCnt = (boardCnt - 1) / PAGESIZE + 1;
 		
 		pageno = Math.abs(pageno);
@@ -50,7 +50,7 @@ public class BoardService {
 			pageno = boardPageCnt;
 		Integer startRownum = (pageno-1) * PAGESIZE;
 		Integer endRownum = startRownum + PAGESIZE + 1; 
-		List<BoardDto.FindAll> board = boardDao.findAll(startRownum, endRownum);
+		List<BoardDto.FindAll> board = dao.findAll(startRownum, endRownum);
 		Integer prev = (pageno - 1) / BLOCKSIZE * BLOCKSIZE;
 		Integer start = prev + 1;
 		Integer end = prev + BLOCKSIZE;
@@ -65,16 +65,19 @@ public class BoardService {
 		return new BoardDto.Pagination(prev, start, end, next, board);
 	}
 
-	public void replyUpdate(Integer boardNo, String replyContent) {
-			boardDao.update(boardNo , replyContent);
-			sendMail("admin@zmall.com","kkk963963@naver.com","회원님의 문의사항 답변이 달렸습니다.","홈페이지를 통해 확인해주세요.");
+	public void replyUpdate(Integer boardNo, String replyContent, String username) {
+		String email = dao.findMail(username);
+		System.out.println(email);
+		dao.update(boardNo , replyContent);
+		sendMail("admin@zmall.com",email,"회원님의 문의사항 답변이 달렸습니다.","홈페이지를 통해 확인해주세요.");
 	}
+	
 	
 	public void delete(String boardNo) {
 		int intBoardNo = Integer.parseInt(boardNo);
-		Board board = boardDao.findByNo(intBoardNo);
+		Board board = dao.findByNo(intBoardNo);
 		if(board.getBoardNo().equals(intBoardNo))
-			boardDao.delete(intBoardNo);
+			dao.delete(intBoardNo);
 	}
 	
 	private void sendMail(String from, String to, String title, String text) {
