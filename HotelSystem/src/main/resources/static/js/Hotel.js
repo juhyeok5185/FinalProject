@@ -24,6 +24,13 @@ function chackDarkMode() {
   let $packageImg2 = $("#packageImg2");
   let $discountImg2 = $("#discountImg2");
   let $boxImg2 = $("#boxImg2");
+  let $darkPackageImg = $("#darkPackageImg");
+  let $darkPackageImg1 = $("#darkPackageImg1");
+  let $darkDiscountImg1 = $("#darkDiscountImg1");
+  let $darkBoxImg1 = $("#darkBoxImg1");
+  let $darkPackageImg2 = $("#darkPackageImg2");
+  let $darkDiscountImg2 = $("#darkDiscountImg2");
+  let $darkBoxImg2 = $("#darkBoxImg2");
 
   if (darkModeEnabled === "true") {
     $body.addClass("dark-mode");
@@ -36,6 +43,13 @@ function chackDarkMode() {
     $packageImg2.attr("src","/img/whitepackage.png");
     $discountImg2.attr("src","/img/whitediscount.png");
     $boxImg2.attr("src","/img/white기타.png");
+    $darkPackageImg.attr("src","/img/whitepackage.png");
+    $darkPackageImg1.attr("src","/img/whitepackage.png");
+    $darkDiscountImg1.attr("src","/img/whitediscount.png");
+    $darkBoxImg1.attr("src","/img/white기타.png");
+    $darkPackageImg2.attr("src","/img/whitepackage.png");
+    $darkDiscountImg2.attr("src","/img/whitediscount.png");
+    $darkBoxImg2.attr("src","/img/white기타.png");
     $checkbox.prop("checked", true);
 
     $("#img1").attr("src", "/img/res3.jpg");
@@ -48,6 +62,14 @@ function chackDarkMode() {
     $("#packageImg2").attr("src", "/img/whitepackage.png");
     $("#discountImg2").attr("src", "/img/whitediscount.png");
     $("#boxImg2").attr("src", "/img/white기타.png");
+    
+    $("#darkPackageImg").attr("src", "/img/whitepackage.png");
+    $("#darkPackageImg1").attr("src", "/img/whitepackage.png");
+    $("#darkDiscountImg1").attr("src", "/img/whitediscount.png");
+    $("#darkBoxImg1").attr("src", "/img/white기타.png");
+    $("#darkPackageImg2").attr("src", "/img/whitepackage.png");
+    $("#darkDiscountImg2").attr("src", "/img/whitediscount.png");
+    $("#darkBoxImg2").attr("src", "/img/white기타.png");
   } else {
     $body.removeClass("dark-mode");
     $logoImg.attr("src", "/img/logo.png");
@@ -59,6 +81,13 @@ function chackDarkMode() {
     $packageImg2.attr("src","/img/package.png");
     $discountImg2.attr("src","/img/discount.png");
     $boxImg2.attr("src","/img/기타.png");
+    $darkPackageImg.attr("src","/img/package.png");
+    $darkPackageImg1.attr("src","/img/package.png");
+    $darkDiscountImg1.attr("src","/img/discount.png");
+    $darkBoxImg1.attr("src","/img/기타.png");
+    $darkPackageImg2.attr("src","/img/package.png");
+    $darkDiscountImg2.attr("src","/img/discount.png");
+    $darkBoxImg2.attr("src","/img/기타.png");
     $checkbox.prop("checked", false);
 
     $("#img1").attr("src", "/img/pool6.jpg");
@@ -71,6 +100,13 @@ function chackDarkMode() {
     $("#packageImg2").attr("src", "/img/package.png");
     $("#discountImg2").attr("src", "/img/discount.png");
     $("#boxImg2").attr("src", "/img/기타.png");
+    $("#darkPackageImg").attr("src", "/img/package.png");
+    $("#darkPackageImg1").attr("src", "/img/package.png");
+    $("#darkDiscountImg1").attr("src", "/img/discount.png");
+    $("#darkBoxImg1").attr("src", "/img/기타.png");
+    $("#darkPackageImg2").attr("src", "/img/package.png");
+    $("#darkDiscountImg2").attr("src", "/img/discount.png");
+    $("#darkBoxImg2").attr("src", "/img/기타.png");
   }
 
   $checkbox.on("change", function () {
@@ -78,6 +114,19 @@ function chackDarkMode() {
       $logoImg.attr("src", "/img/logo_darkmode.png");
       $footerLogoImg.attr("src", "/img/logo_darkmode.png");
       $packageImg.attr("src","/img/whitepackage.png");
+      $packageImg1.attr("src","/img/whitepackage.png");
+      $discountImg1.attr("src","/img/whitediscount.png");
+      $boxImg1.attr("src","/img/white기타.png");
+      $packageImg2.attr("src","/img/whitepackage.png");
+      $discountImg2.attr("src","/img/whitediscount.png");
+      $boxImg2.attr("src","/img/white기타.png");
+      $darkPackageImg.attr("src","/img/whitepackage.png");
+      $darkPackageImg1.attr("src","/img/whitepackage.png");
+      $darkDiscountImg1.attr("src","/img/whitediscount.png");
+      $darkBoxImg1.attr("src","/img/white기타.png");
+      $darkPackageImg2.attr("src","/img/whitepackage.png");
+      $darkDiscountImg2.attr("src","/img/whitediscount.png");
+      $darkBoxImg2.attr("src","/img/white기타.png");
       $body.addClass("dark-mode");
       localStorage.setItem("dark-mode-enabled", "true");
       $("#img1").attr("src", "/img/res3.jpg");
@@ -90,11 +139,31 @@ function chackDarkMode() {
       $("#packageImg2").attr("src", "/img/whitepackage.png");
       $("#discountImg2").attr("src", "/img/whitediscount.png");
       $("#boxImg2").attr("src", "/img/white기타.png");
+      $("#darkPackageImg").attr("src", "/img/whitepackage.png");
+      $("#darkPackageImg1").attr("src", "/img/whitepackage.png");
+      $("#darkDiscountImg1").attr("src", "/img/whitediscount.png");
+      $("#darkBoxImg1").attr("src", "/img/white기타.png");
+      $("#darkPackageImg2").attr("src", "/img/whitepackage.png");
+      $("#darkDiscountImg2").attr("src", "/img/whitediscount.png");
+      $("darkBoxImg2").attr("src", "/img/white기타.png");
     } else {
       $body.removeClass("dark-mode");
       $logoImg.attr("src", "/img/logo.png");
       $footerLogoImg.attr("src", "/img/logo.png");
       $packageImg.attr("src","/img/package.png");
+      $packageImg1.attr("src","/img/package.png");
+      $discountImg1.attr("src","/img/discount.png");
+      $boxImg1.attr("src","/img/기타.png");
+      $packageImg2.attr("src","/img/package.png");
+      $discountImg2.attr("src","/img/discount.png");
+      $boxImg2.attr("src","/img/기타.png");
+      $darkPackageImg.attr("src","/img/package.png");
+      $darkPackageImg1.attr("src","/img/package.png");
+      $darkDiscountImg1.attr("src","/img/discount.png");
+      $darkBoxImg1.attr("src","/img/기타.png");
+      $darkPackageImg2.attr("src","/img/package.png");
+      $darkDiscountImg2.attr("src","/img/discount.png");
+      $darkBoxImg2.attr("src","/img/기타.png");
       localStorage.setItem("dark-mode-enabled", "false");
       $("#img1").attr("src", "/img/pool6.jpg");
       $("#img2").attr("src", "/img/pool4.jpg");
@@ -106,6 +175,13 @@ function chackDarkMode() {
       $("#packageImg2").attr("src", "/img/package.png");
       $("#discountImg2").attr("src", "/img/discount.png");
       $("#boxImg2").attr("src", "/img/기타.png");
+      $("#darkPackageImg").attr("src", "/img/package.png");
+      $("#darkPackageImg1").attr("src", "/img/package.png");
+      $("#darkDiscountImg1").attr("src", "/img/discount.png");
+      $("#darkBoxImg1").attr("src", "/img/기타.png");
+      $("#darkPackageImg2").attr("src", "/img/package.png");
+      $("#darkDiscountImg2").attr("src", "/img/discount.png");
+      $("#darkBoxImg2").attr("src", "/img/기타.png");
     }
   });
 }
