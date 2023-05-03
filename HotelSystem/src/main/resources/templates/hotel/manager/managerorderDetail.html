@@ -56,7 +56,9 @@
                 </tr>
             </table>
 	            <div style="text-align: center;">
-                <button id="cencelBtn" class="btn btn-primary">주문취소
+      	  	    <button class="btn btn-secondary" style="width: 100px;" id="cencelBtn" type="submit">
+      	  	      <input type="hidden" th:field="${detail.orderNo}">
+                 주문취소
             	</button>
     	        </div>
         </div>

@@ -777,14 +777,18 @@
 
 #reporttitle{
  	resize: none;
+ 	text-indent:3px;
+
 }
 
 #reportcontent{
 	resize: none;
+	text-indent:3px;
 }
 
 #replyContent{
 	resize: none;
+	text-indent:3px;
 }
 
 /*요기까지*/
