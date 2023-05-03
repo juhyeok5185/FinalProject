@@ -1,6 +1,7 @@
 package hotel.management.v1.manager.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -13,9 +14,8 @@ import hotel.management.v1.manager.dto.ManagerDto.userDetail;
 @Mapper
 public interface ManagerDao {
 
-    public List<ManagerDto.findBookList> findBookList();
+    public Optional<List<ManagerDto.findBookList>> findBookList();
 
-    //주말동안한거
     public List<ManagerDto.findUserList> findUserList(String name);
 
     public Integer bookCancel(String tel);
@@ -49,7 +49,7 @@ public interface ManagerDao {
 
     public void changeRoomStatusEmpty(Integer roomNo);
 
-    public ManagerDto.userDetail memberDetail(String name , String tel);
+    public Optional<ManagerDto.userDetail> memberDetail(String name , String tel);
 
     public void blackBtn(String name);
 

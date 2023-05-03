@@ -4,7 +4,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.NoSuchElementException;
+
 import org.apache.commons.lang3.StringUtils;
+import org.mybatis.spring.MyBatisSystemException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import hotel.management.v1.manager.dao.ManagerDao;
@@ -17,8 +20,13 @@ public class ManagerService {
    ManagerDao dao;
 
     public List<ManagerDto.findBookList> findBookList(){
-        List<ManagerDto.findBookList> list = dao.findBookList();
-        return list;
+        try {
+            List<ManagerDto.findBookList> list = dao.findBookList().get();
+            return list;
+        } catch (NoSuchElementException e) {
+            return null;
+        }
+        
     }
 
     public List<ManagerDto.findUserList> userSearch(String name) {
@@ -71,7 +79,24 @@ public class ManagerService {
     }
 
     public ManagerDto.userDetail memberDetail(String name,String tel) {
-        return dao.memberDetail(name,tel);
+        try {
+            ManagerDto.userDetail userDetail = dao.memberDetail(name,tel).get();
+            return userDetail;
+        } catch (NoSuchElementException e) {
+            System.out.println(1);
+            System.out.println(1);
+            System.out.println(1);
+            System.out.println(1);
+            System.out.println(1);
+            return null;
+        } catch (MyBatisSystemException m){
+            System.out.println(2);
+            System.out.println(2);
+            System.out.println(2);
+            System.out.println(2);
+            System.out.println(2);
+            return null;
+        }
     }
 
     public void blackBtn(String name) {

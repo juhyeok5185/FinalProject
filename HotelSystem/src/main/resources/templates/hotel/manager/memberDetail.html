@@ -20,62 +20,66 @@
   <link rel="stylesheet" href="/css/style.css">
     <title>Document</title>
 </head>
-
 <body>
-    <div id="detailPage">
-        <div id="detailUserInfo">
-            <table class="table table-bordered table-sm" id="detailTable">
-                <tr>
-                    <td>이름</td>
-                    <td th:text="${member.name}"></td>
-                </tr>
-                <tr>
-                    <td>아이디</td>
-                    <td th:text="${member.userName}"></td>
-                </tr>
-                <tr>
-                    <td>연락처</td>
-                    <td th:text="${member.tel}"></td>
-                </tr>
-                <tr>
-                    <td>이메일</td>
-                    <td th:text="${member.email}"></td>
-                </tr>
-                <tr>
-                    <td>주민번호</td>
-                    <td th:text="${member.personalId}"></td>
-                </tr>
-                <tr>
-                    <td>아이디잠금</td>
-                    <td th:text="${member.disabled}"></td>
-                </tr>
-                <tr>
-                    <td>유저레벨</td>
-                    <td th:text="${member.userLevel}"></td>
-                </tr>
-                <tr>
-                    <td>bookCount</td>
-                    <td th:text="${member.bookCount}"></td>
-                </tr>
-                <tr>
-                    <td>BlackList</td>
-                    <td th:text="${member.black}"></td>
-                </tr>
-                <tr>
-                    <td>VIP</td>
-                    <td th:text="${member.vip}"></td>
-                </tr>
-            </table>
-            <button id="blackBtn" class="btn btn-primary">블랙리스트 변경
-                <input type="hidden" th:field="*{member.name}">
-            </button>
-            <button id="vipBtn" class="btn btn-primary">VIP 변경				
-                <input type="hidden" th:field="*{member.name}">
-            </button>
-            <button id="ableBtn" class="btn btn-primary">아이디 활성화				
-                <input type="hidden" th:field="*{member.name}">
-            </button>
+    <span th:if="${msg!=null}">
+        <div th:text="${msg}"></div>
+    </span>
+    <span th:if="${msg==null}">
+        <div id="detailPage">
+            <div id="detailUserInfo">
+                <table class="table table-bordered table-sm" id="detailTable">
+                    <tr>
+                        <td>이름</td>
+                        <td th:text="${member.name}"></td>
+                    </tr>
+                    <tr>
+                        <td>아이디</td>
+                        <td th:text="${member.userName}"></td>
+                    </tr>
+                    <tr>
+                        <td>연락처</td>
+                        <td th:text="${member.tel}"></td>
+                    </tr>
+                    <tr>
+                        <td>이메일</td>
+                        <td th:text="${member.email}"></td>
+                    </tr>
+                    <tr>
+                        <td>주민번호</td>
+                        <td th:text="${member.personalId}"></td>
+                    </tr>
+                    <tr>
+                        <td>아이디잠금</td>
+                        <td th:text="${member.disabled}"></td>
+                    </tr>
+                    <tr>
+                        <td>유저레벨</td>
+                        <td th:text="${member.userLevel}"></td>
+                    </tr>
+                    <tr>
+                        <td>bookCount</td>
+                        <td th:text="${member.bookCount}"></td>
+                    </tr>
+                    <tr>
+                        <td>BlackList</td>
+                        <td th:text="${member.black}"></td>
+                    </tr>
+                    <tr>
+                        <td>VIP</td>
+                        <td th:text="${member.vip}"></td>
+                    </tr>
+                </table>
+                <button id="blackBtn" class="btn btn-primary">블랙리스트 변경
+                    <input type="hidden" th:field="*{member.name}">
+                </button>
+                <button id="vipBtn" class="btn btn-primary">VIP 변경				
+                    <input type="hidden" th:field="*{member.name}">
+                </button>
+                <button id="ableBtn" class="btn btn-primary">아이디 활성화				
+                    <input type="hidden" th:field="*{member.name}">
+                </button>
+            </div>
         </div>
-    </div>
+    </span>
 </body>
 </html>

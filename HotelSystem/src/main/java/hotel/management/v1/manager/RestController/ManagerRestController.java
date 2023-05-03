@@ -1,7 +1,6 @@
 package hotel.management.v1.manager.RestController;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,13 +20,14 @@ public class ManagerRestController {
     @PostMapping("/manager/bookSearch")
     public ResponseEntity<List<ManagerDto.findBookList>> bookSearch(ManagerDto.bookSearchCondition dto) {
         List<ManagerDto.findBookList> list = service.bookSearch(dto);
+
         return ResponseEntity.ok(list);
     }
 
     //고객의 이름을 받아서 이름에 해당하는 list를 return하는 메소드
     @PostMapping("/manager/memberSearch")
     public ResponseEntity<List> userSearch(String name) {
-        List<ManagerDto.findUserList> list = service.userSearch(name);
+        List<ManagerDto.findUserList> list = service.userSearch(name); //이름이 없을경우 exception 관리
         return ResponseEntity.ok(list);
     }
 
@@ -86,5 +86,8 @@ public class ManagerRestController {
         service.ableBtn(name);
         return ResponseEntity.ok("");
     }
+
+  
+	
 
 }

@@ -22,6 +22,9 @@ public class ManagerMVCController {
     @GetMapping("/manager/bookList")
     public ModelAndView booklist(){
         List<ManagerDto.findBookList> bookList = service.findBookList();
+        if(bookList == null){
+            return new ModelAndView("hotel/manager/bookList").addObject("msg", "검색결과가 없습니다.");
+        }
         return new ModelAndView("hotel/manager/bookList").addObject("bookList", bookList);
     }
 
@@ -32,8 +35,10 @@ public class ManagerMVCController {
     //고객의 상세 정보 페이지를 불러오면서 url 받은값을 통해 정보를 함께 보내주는 메소드
     @GetMapping("/manager/memberDetail")
     public ModelAndView memberDetail(String name , String tel){
-        System.out.println(tel);
         ManagerDto.userDetail detail = service.memberDetail(name,tel);
+        if(detail == null){
+            return new ModelAndView("/hotel/manager/memberDetail").addObject("msg", "없는 회원입니다.");
+        }
         return new ModelAndView("/hotel/manager/memberDetail").addObject("member", detail);
     }
 }
