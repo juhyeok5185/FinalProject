@@ -15,20 +15,22 @@ class item {
 };
 
 function order(pickupDay, tbodyArray) {
-	const param = {
-		pickupDay : pickupDay,
-		tbodyArray : JSON.stringify(tbodyArray) 
+	for(const tbodyArr of tbodyArray) {
+		$.ajax({
+			type: 'post',
+			url: '/hotel/mall/order',
+			data: {
+				pickupDay,tbodyArr 
+			},
+			dataType: 'json',
+			success: function(result) {
+				console.log("성공");
+				console.log(tbodyArr);
+			}, error: function(error){
+				console.log("실패");
+			}
+		})
 	}
-	$.ajax({
-		type: 'post',
-		url: '/hotel/mall/order',
-		data: param,
-		success: function(result) {
-			console.log("성공");
-		}, error: function(error){
-			console.log("실패");
-		}
-	})
 };
 
 // 카카오JS
@@ -114,12 +116,12 @@ $(document).ready(function() {
 	            <tr>
 	                <td class="tbodyName" id="tbodyName" style="line-height:50px">${name}</td>
 	                <td style="line-height:50px">
-	                    <button class="btn btn-outline-dark minus" data-index=${index}>-<input type="hidden" value="${price}"></button>
+	                    <button class="btn btn-outline-secondary  minus" data-index=${index}>-<input type="hidden" value="${price}"></button>
 	                    <span id="count">${count}</span>
-	                    <button class="btn btn-outline-dark plus" data-index=${index}>+<input type="hidden" value="${price}"></button>
+	                    <button class="btn btn-outline-secondary plus" data-index=${index}>+<input type="hidden" value="${price}"></button>
 	                </td>
 	                <td id="price" style="line-height:50px">${price}</td>
-	                <td style="line-height:50px"><button class="btn btn-outline-dark delete" data-index=${index}>X</button></td>
+	                <td style="line-height:50px"><button class="btn btn-outline-secondary" delete" data-index=${index}>X</button></td>
 	            </tr>`;
 			$tbody.append(tpl);
 			trCount++;
@@ -217,13 +219,13 @@ $(document).ready(function() {
 		$('#paymentPopup-box').attr('style', 'display:block');
 		$('html').attr('style', 'overflow: hidden');	
 		
-		/*let pickupDay = $('.pickup').val();
+		let pickupDay = $('.pickup').val();
 		const tbodyArray = []; 
 		
 		$('td.tbodyName').each(function() { 
 		   tbodyArray.push(new item($(this).text().replace(/ /g, ""), $(this).parent().find('span').text(), $(this).next().next().text())); 
 		});	
-		order(pickupDay, tbodyArray);*/
+		order(pickupDay, tbodyArray);
 		
 		
 	});
@@ -246,7 +248,6 @@ $(document).ready(function() {
 		});	
 		order(pickupDay, tbodyArray);
 		kakaojs({ itemPrice, itemName });
-		
 	})
 	$('#choosePayment-box2').click(function() {
 		let pickupDay = $('.pickup').val();

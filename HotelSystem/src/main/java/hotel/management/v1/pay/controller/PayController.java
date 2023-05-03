@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.Gson;
+
+import hotel.management.v1.mall.dto.OrdersDto;
 import hotel.management.v1.mall.service.OrderService;
 import hotel.management.v1.pay.entity.KakaoPayApproveVO;
 import hotel.management.v1.pay.entity.KakaoPayReadyVo;
@@ -43,7 +46,8 @@ public class PayController {
 	@GetMapping(value="/pay/success",produces = MediaType.APPLICATION_JSON_VALUE)
 	public String Success(@RequestParam("pg_token") String pgToken, HttpSession session,Principal principal) {
 		String pickupDay = (String) session.getAttribute("pickupDay");
-		String[] tbodyArray = (String[])session.getAttribute("tbodyArray");
+		String[] tbodyArray = (String[]) session.getAttribute("tbodyArr");
+		
 		orderService.mallOrder(tbodyArray, pickupDay, principal.getName());
 		
 		KakaoPayApproveVO res = payService.kakaoPayApprove(pgToken, session,principal.getName());

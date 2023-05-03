@@ -21,8 +21,7 @@ public class OrdersDto {
 	public static class Order {
 		private String pickupDay;
 		private String[] tbodyArray;
-
-
+		
 	}
 	
 }

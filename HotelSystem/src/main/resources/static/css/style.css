@@ -1070,6 +1070,9 @@
   background-color: white;
   overflow: hidden;
 }
+#outline_page p {
+  color: black;
+}
 
 /* React Stay */
 #totalStay {
@@ -1413,6 +1416,9 @@ div.joincreate{
   background-color: #fbfbfb;
   border: 1px solid #e9e9e9;
   margin-top: 3vh;
+  color: #666666;
+}
+#loginblock2_2 p{
   color: #666666;
 }
 
@@ -2433,7 +2439,6 @@ div #logintoolbar > a {
 	top:2vh;
 	left:10vw;
 }
-
 #textBox-title {
 	font-size: 25px;
 	color: #101010;
@@ -3158,7 +3163,10 @@ div #logintoolbar > a {
 	background-color: #2c2d30;
 }
 .dark-mode #innerTextBox span, th, td {
-	color: white;
+	color: gray;
+}
+.dark-mode #innerTextBox:hover span, th, td {
+	color: gray;
 }
 .dark-mode #totalPriceBox span {
 	color: white;
@@ -4177,6 +4185,9 @@ div #logintoolbar > a {
     bottom: 0.01vh;
     right: 0.01vw;
     z-index: 6;
+}
+#loginblocknav p {
+	color: #9b7f5b;
 }
 #loginBox {
 	width: 60vw;
