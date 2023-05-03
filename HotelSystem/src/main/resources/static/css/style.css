@@ -3177,6 +3177,7 @@ div #logintoolbar > a {
 .dark-mode #VAT p {
 	color: white;
 }
+
 /* 여기까지 */
 
 #nothing{
@@ -3395,6 +3396,7 @@ div #logintoolbar > a {
     }
     
     
+    
     /* 700이상에서 안보이게 함 */
     #internalFacilities_staypage-1 {
     	display: none;
@@ -3450,7 +3452,7 @@ div #logintoolbar > a {
     height: 6vh;
   } 
   #r-b {
-    width: 100vw;
+    width: 100%;
   } 
   #section2-1 {
     width: 100vw;
@@ -4847,4 +4849,7 @@ div #logintoolbar > a {
 }
 .dark-mode #internal_common-1 h6 {
 	color: #d5ccb0;
+}
+.dark-mode #you-1 {
+	border-right: 1px solid white;
 }
