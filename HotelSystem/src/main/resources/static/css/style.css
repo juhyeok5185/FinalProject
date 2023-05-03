@@ -842,7 +842,7 @@
   padding-top: 3vh;
   padding-left: 0.1vw;
   text-align: left;
-  height: 15vh;
+  height: 25vh;
   color: #555;
 }
 
@@ -2768,6 +2768,7 @@ div #logintoolbar > a {
 }
 .dark-mode #aside, .dark-mode #inmenu {
 	background-color: #212529;
+	height: 25vh;
 }
 .dark-mode #introducetool {
 	color: white;
@@ -3135,7 +3136,15 @@ div #logintoolbar > a {
 .dark-mode #find_id1 {
 	background-color: black;
 }
-
+.dark-mode #luxury_page {
+	background-color: rgb(20, 20, 20);
+}
+.dark-mode #mall-aside {
+	background-color: #212529;
+}
+.dark-mode .itemName, .dark-mode .itemPrice {
+	color: white;
+}
 /* 여기까지 */
 
 #nothing{
