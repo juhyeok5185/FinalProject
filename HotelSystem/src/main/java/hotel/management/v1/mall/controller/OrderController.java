@@ -24,15 +24,11 @@ public class OrderController {
 	
 	@PostMapping("/mall/order")
 	public ResponseEntity<?> order(OrdersDto.Order order, Principal principal, HttpSession session) {
+		session.setAttribute("tbodyArray", order.getTbodyArray());
 		session.setAttribute("pickupDay", order.getPickupDay());
-		session.setAttribute("tbodyArr", order.getTbodyArray());
-		System.out.println("===============================================");
-		for(int i=0; i<=order.getTbodyArray().length; i++)
-			System.out.println(order.getTbodyArray().toString());
-		System.out.println("===============================================");
 		return ResponseEntity.ok(null);
 	}
-	
+
 	@GetMapping("/mall/orderDetail")
 	public void orderDetail() {
 

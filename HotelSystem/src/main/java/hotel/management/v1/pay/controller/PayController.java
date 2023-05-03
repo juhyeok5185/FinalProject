@@ -7,11 +7,10 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.google.gson.Gson;
 
 import hotel.management.v1.mall.dto.OrdersDto;
 import hotel.management.v1.mall.service.OrderService;
@@ -46,19 +45,29 @@ public class PayController {
 	@GetMapping(value="/pay/success",produces = MediaType.APPLICATION_JSON_VALUE)
 	public String Success(@RequestParam("pg_token") String pgToken, HttpSession session,Principal principal) {
 		String pickupDay = (String) session.getAttribute("pickupDay");
-		String[] tbodyArray = (String[]) session.getAttribute("tbodyArr");
-		
+		String[] tbodyArray = (String[])session.getAttribute("tbodyArray");
 		orderService.mallOrder(tbodyArray, pickupDay, principal.getName());
 		
 		KakaoPayApproveVO res = payService.kakaoPayApprove(pgToken, session,principal.getName());
 		session.removeAttribute("tid");
 		session.removeAttribute("partner_order_id");
+
+		session.removeAttribute("pickupDay");
+		session.removeAttribute("tbodyArray");
+		
 		return "/pay/success";
 	}
 	
 	@GetMapping("/pay/toss_success")
-	public String tosssuccess(@RequestParam("orderId") String orderId,@RequestParam("paymentKey") String paymentKey,@RequestParam("amount") Integer amount,Principal principal) {
+	public String tosssuccess(@RequestParam("orderId") String orderId,@RequestParam("paymentKey") String paymentKey,@RequestParam("amount") Integer amount,Principal principal, HttpSession session) {
+		String pickupDay = (String) session.getAttribute("pickupDay");
+		String[] tbodyArray = (String[])session.getAttribute("tbodyArray");
+		orderService.mallOrder(tbodyArray, pickupDay, principal.getName());
+		
 		payService.tossPayApprove(orderId,paymentKey,amount,principal.getName());
+		
+		session.removeAttribute("pickupDay");
+		session.removeAttribute("tbodyArray");
 		
 		return "/pay/toss_success";
 	}

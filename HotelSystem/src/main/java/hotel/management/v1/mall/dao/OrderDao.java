@@ -10,6 +10,6 @@ import hotel.management.v1.mall.entity.Item;
 public interface OrderDao {
 	public List<Item> findByUsername(String username);
 	public Integer addOrder(String name, String username);
-	public Integer addOrderDetail(String price, String pickupDay, String count);
+	public Integer addOrderDetail(Integer price, String pickupDay, Integer count);
 
 }

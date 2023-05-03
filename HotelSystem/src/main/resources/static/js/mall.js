@@ -15,22 +15,20 @@ class item {
 };
 
 function order(pickupDay, tbodyArray) {
-	for(const tbodyArr of tbodyArray) {
 		$.ajax({
 			type: 'post',
 			url: '/hotel/mall/order',
 			data: {
-				pickupDay,tbodyArr 
+				pickupDay : pickupDay,
+				tbodyArray : JSON.stringify(tbodyArray)
 			},
-			dataType: 'json',
 			success: function(result) {
 				console.log("성공");
-				console.log(tbodyArr);
+				console.log(tbodyArray);
 			}, error: function(error){
 				console.log("실패");
 			}
 		})
-	}
 };
 
 // 카카오JS
@@ -218,16 +216,6 @@ $(document).ready(function() {
 		$('#paymentPopup').attr('style', 'display:block;');
 		$('#paymentPopup-box').attr('style', 'display:block');
 		$('html').attr('style', 'overflow: hidden');	
-		
-		let pickupDay = $('.pickup').val();
-		const tbodyArray = []; 
-		
-		$('td.tbodyName').each(function() { 
-		   tbodyArray.push(new item($(this).text().replace(/ /g, ""), $(this).parent().find('span').text(), $(this).next().next().text())); 
-		});	
-		order(pickupDay, tbodyArray);
-		
-		
 	});
 	$('#paymentPopup-btn').click(function() {
 		checkBtn = false;
@@ -259,8 +247,9 @@ $(document).ready(function() {
 		$('td.tbodyName').each(function() { 
 		   tbodyArray.push(new item($(this).text().replace(/ /g, ""), $(this).parent().find('span').text(), $(this).next().next().text())); 
 		});
-		order({pickupDay,tbodyArray});
 		
+		order({pickupDay,tbodyArray});
+		console.log(tbodyArray);
 		tossPayments.requestPayment('TOSSPAY', {
 			amount: itemPrice,
 			orderId: uuid,
