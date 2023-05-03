@@ -36,7 +36,7 @@
 		delete from orderdetail where orderno = #{orderNo}
 	</delete>
 	
-	<delete id="restdelete">
+	<delete id="delete">
 		delete from orders where orderno = #{orderNo}
 	</delete>
 	
@@ -45,7 +45,6 @@
 	</select>
  
 	<select id="orderDetail" resultType="hotel.management.v1.manager.mall.Dto.ManagerMallListDto$orderDetail">
-		
 		select ord.orderno, u.name, u.tel, it.itemno, it.itemname, ord.orderprice, ord.orderea
         from orders od
         join orderdetail ord on od.orderno = ord.orderno

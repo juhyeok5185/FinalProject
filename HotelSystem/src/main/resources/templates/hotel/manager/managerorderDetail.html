@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="/css/mallStyle.css">
   <title>관리자</title>
   <script>
+
   </script>
   </head>
 <body>
@@ -56,7 +57,9 @@
                 </tr>
             </table>
 	            <div style="text-align: center;">
-                <button id="cencelBtn" class="btn btn-primary">주문취소
+      	  	    <button class="btn btn-secondary" style="width: 100px;" id="orderdetailcencelBtn" type="submit">
+      	  	      <input type="hidden" th:value="${detail.orderNo}" id="hiddenvalue">
+                 주문취소
             	</button>
     	        </div>
         </div>

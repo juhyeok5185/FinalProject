@@ -1,3 +1,4 @@
+
   function openPopup(url) {
 	  console.log(url);
 	  window.open(
@@ -40,8 +41,6 @@ $(document).ready(function(){
 	  searchmallData(mallList);
 	  let nullresult = '';
 	  
-	  
-	  
       for (m of mallList){
 	  
 	  if(m.contactDate==null){
@@ -58,8 +57,8 @@ $(document).ready(function(){
             	<td>${m.tel}</td>
             	<td>${nullresult}</td>
             	<td>
-            	<button class="btn btn-secondary" style="width: 100px;" id="nameSearchBtn">
-            	     <a href="#" onclick="openPopup('/hotel/manager/managerorderDetail?orderNo=${m.orderNo}')">주문상세</a>
+            	<button class="btn btn-secondary" style="width: 100px;" id="nameSearchBtn" onclick="openPopup('/hotel/manager/managerorderDetail?orderNo=${m.orderNo}')">
+            	  주문상세
             	</button>
             	<button class="btn btn-secondary" style="width: 100px;" id="cencelBtn">주문취소</button>
             	</td>
@@ -81,6 +80,7 @@ $(document).ready(function(){
 	
 	$(document).on('click',"#cencelBtn", async function(){
 		const orderNo = $(this).closest('tr').children('td:first').text().trim();
+      console.log(orderNo);
     try {
       const response = await $.ajax({
         url: "/hotel/manager/delete?orderNo=" + orderNo,
@@ -93,6 +93,26 @@ $(document).ready(function(){
       console.log(err);
     }
   });
-    
+  
+    $(document).on('click',"#orderdetailcencelBtn", async function(){
+  	try {
+		const orderNo = $('#hiddenvalue').val();
+		console.log(typeof orderNo);
+	    const response = await $.ajax({
+	      url: "/hotel/manager/delete",
+	      method: "post",
+	      data:{
+		      orderNo:orderNo		  
+		  }
+	    });
+	    alert("주문이 취소되었습니다.");
+	    window.opener.location.reload();
+	    window.close();
+	    console.log(response);
+	  } catch (err) {
+	    console.log(err);
+	  }
+});
+  
 	})
 	

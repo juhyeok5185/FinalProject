@@ -18,7 +18,15 @@
   <link rel="stylesheet" href="/css/board2Style.css">
   <link rel="stylesheet" href="/css/style.css">
   <title>J.H.H.L</title>
+<script>
+
+	function showAlert() {
+		alert("게시물을 성공적으로 삭제했습니다.");
+	}
+</script>
 </head>
+
+
 <body>
     <div th:replace="~{/fragment/nav.html}"></div>
     <!--고객 문의 게시판-->
@@ -78,14 +86,13 @@
 			<tr>
               <td class="col1" sec:authorize="hasRole('ADMIN')"><span id="notnull"></span>답변</td>
               <td class="col2" sec:authorize="hasRole('ADMIN')">
-	          <!-- 
-              <td class="col1"><span id="notnull"></span>답변</td>
-              <td class="col2">
-			  -->
-	          <form action="/hotel/board/read" method="post"><input type="hidden" name="boardNo" th:field="*{board.boardNo}">
+	          <form action="/hotel/board/read" method="post">
+	          <input type="hidden" name="username" th:field="*{board.username}">
+	          <input type="hidden" name="boardNo"  th:field="*{board.boardNo}">
 	          <textarea id="replyContent" name="replyContent" cols="80" rows="4"></textarea>
 			  <span id="replybutton"><button id="replybutton" class="btn btn-outline-dark">답변</button></span>
 		      </form>
+              </td>
 		    </tr>
 		    <tr>
 		 	 <td>
@@ -93,7 +100,7 @@
   <!-- 삭제 --><div id="deletebutton">
 				<form action="/hotel/board/delete" method="post">
   				<input type="hidden" name="boardNo" th:field="*{board.boardNo}">
-  				<button id="deletebutton" type="submit" class="btn btn-outline-dark" sec:authorize="hasRole('ADMIN')">글삭제</button>
+  				<button id="deletebutton" type="submit" class="btn btn-outline-dark" sec:authorize="hasRole('USER')" onclick="showAlert()">글삭제</button>
 				</form>
 			  </div>
 			 </td>

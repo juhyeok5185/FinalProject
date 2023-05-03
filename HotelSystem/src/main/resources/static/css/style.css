@@ -842,7 +842,7 @@
   padding-top: 3vh;
   padding-left: 0.1vw;
   text-align: left;
-  height: 15vh;
+  height: 25vh;
   color: #555;
 }
 
@@ -1070,6 +1070,9 @@
   background-color: white;
   overflow: hidden;
 }
+#outline_page p {
+  color: black;
+}
 
 /* React Stay */
 #totalStay {
@@ -1146,9 +1149,9 @@
 	font-size: 1.4em
 }
 
-#logoImg-1 {
-	width: 10vw;
-	height: 9vh;
+#logoImg-1 img {
+	width: 20vw;
+    height: 9vh;
 }
 /* 회원가입 */
 
@@ -1413,6 +1416,9 @@ div.joincreate{
   background-color: #fbfbfb;
   border: 1px solid #e9e9e9;
   margin-top: 3vh;
+  color: #666666;
+}
+#loginblock2_2 p{
   color: #666666;
 }
 
@@ -2433,7 +2439,6 @@ div #logintoolbar > a {
 	top:2vh;
 	left:10vw;
 }
-
 #textBox-title {
 	font-size: 25px;
 	color: #101010;
@@ -2768,6 +2773,7 @@ div #logintoolbar > a {
 }
 .dark-mode #aside, .dark-mode #inmenu {
 	background-color: #212529;
+	height: 25vh;
 }
 .dark-mode #introducetool {
 	color: white;
@@ -3135,7 +3141,42 @@ div #logintoolbar > a {
 .dark-mode #find_id1 {
 	background-color: black;
 }
-
+.dark-mode #luxury_page {
+	background-color: rgb(20, 20, 20);
+}
+.dark-mode #mall-aside {
+	background-color: #212529;
+}
+.dark-mode .itemName, .dark-mode .itemPrice {
+	color: white;
+}
+.dark-mode #totalCharge {
+	background-color: #2c2d30;
+}
+.dark-mode #totalCharge {
+	border-bottom: 4px solid white;
+}
+.dark-mode #totalBillDetailInner {
+	background-color: #2c2d30;
+}
+.dark-mode #innerTextBox {
+	background-color: #2c2d30;
+}
+.dark-mode #innerTextBox span, th, td {
+	color: gray;
+}
+.dark-mode #innerTextBox:hover span, th, td {
+	color: gray;
+}
+.dark-mode #totalPriceBox span {
+	color: white;
+}
+.dark-mode #VAT span, p {
+	color: white;
+}
+.dark-mode #VAT p {
+	color: white;
+}
 /* 여기까지 */
 
 #nothing{
@@ -3290,7 +3331,10 @@ div #logintoolbar > a {
     	width: 20vw;
     	height: 9vh;
     }
-    
+    #logo img {
+    	width: 20vw;
+    	height: 9vh;
+	}
     
   }
   /*700이하부터 보일곳*/
@@ -3761,11 +3805,13 @@ div #logintoolbar > a {
 #myPage_article-1 {
 	width: 80%;
 	height:110vh;
+	margin-left: 9vw;
 }
 #gradeintro-1 {
 	width: 80vw;
 	height: 10vh;
 	border-bottom: 2px solid #eeebe8;
+	padding-top: 1vh;
 }
 #myenum-1 {
 	width:80vw;
@@ -3784,6 +3830,16 @@ div #logintoolbar > a {
 	display:flex; 
 	text-align: center; 
 	margin-left: 20vw;
+}
+#myPageTit-1 {
+	font-size: 1.3em; 
+	color: black;
+	padding-right:1vw;
+}
+#myPageTit1-1 {
+	font-size: 1.3em; 
+	color: black;
+	padding-left:1vw;
 }
 #gradeintro1-1 {
 	width: 80vw;
@@ -4144,6 +4200,9 @@ div #logintoolbar > a {
     bottom: 0.01vh;
     right: 0.01vw;
     z-index: 6;
+}
+#loginblocknav p {
+	color: #9b7f5b;
 }
 #loginBox {
 	width: 60vw;

@@ -65,5 +65,4 @@ public class BoardDto {
 		private LocalDate writeDay;
 		private String title; 
 	}
-	
 }

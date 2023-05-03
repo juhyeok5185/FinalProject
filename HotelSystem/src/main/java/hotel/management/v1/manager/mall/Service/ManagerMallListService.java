@@ -29,8 +29,8 @@ public class ManagerMallListService {
 		return dao.orderdetaildelete(orderNo);
 	}
 	
-	public Integer restdelete(Integer orderNo) {
-		return dao.restdelete(orderNo);
+	public Integer delete(Integer orderNo) {
+		return dao.delete(orderNo);
 		}
 
 	public ManagerMallListDto.orderDetail orderDetail(Integer orderNo) {

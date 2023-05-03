@@ -82,13 +82,11 @@
             	<td th:text="${m.tel}"></td>
             	<td th:text="${m.contactDate}"></td>
             	<td>
-				<button class="btn btn-secondary" style="width: 100px;" 
-						th:onclick="|openPopup('/hotel/manager/managerorderDetail?orderNo=${m.orderNo}')|">주문상세
+				<button class="btn btn-secondary" style="width: 100px;"	th:onclick="|openPopup('/hotel/manager/managerorderDetail?orderNo=${m.orderNo}')|">
+				 주문상세
             	</button>
-            	
-            	<button class="btn btn-secondary" style="width: 100px;" th:onclick="|openPopup('/hotel/manager/managerorderDetail?orderNo=${m.orderNo}')|">주문상세</button>
-            	
-      	  	    <button class="btn btn-secondary" style="width: 100px;" id="cencelBtn" type="submit">주문취소
+      	  	    <button class="btn btn-secondary" style="width: 100px;" id="cencelBtn" type="submit">
+      	  	     주문취소
       	  	    </button>
             	</td>
             	</tr>
