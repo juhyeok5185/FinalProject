@@ -83,18 +83,8 @@ public class ManagerService {
             ManagerDto.userDetail userDetail = dao.memberDetail(name,tel).get();
             return userDetail;
         } catch (NoSuchElementException e) {
-            System.out.println(1);
-            System.out.println(1);
-            System.out.println(1);
-            System.out.println(1);
-            System.out.println(1);
             return null;
         } catch (MyBatisSystemException m){
-            System.out.println(2);
-            System.out.println(2);
-            System.out.println(2);
-            System.out.println(2);
-            System.out.println(2);
             return null;
         }
     }
