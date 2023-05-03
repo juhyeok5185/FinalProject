@@ -47,7 +47,7 @@ public class BoardService {
 	public BoardDto.Pagination pagination(Integer pageno) {
 		Integer boardCnt = dao.count();
 		Integer boardPageCnt = (boardCnt - 1) / PAGESIZE + 1;
-		
+		try {
 		pageno = Math.abs(pageno);
 		if(pageno>boardPageCnt)
 			pageno = boardPageCnt;
@@ -62,10 +62,12 @@ public class BoardService {
 			end = boardPageCnt;
 			next = 0;
 		}
-		
 		prev = prev == 0 ? start : prev;
 		next = next == 0 ? end : next;
 		return new BoardDto.Pagination(prev, start, end, next, board);
+		} catch (NoSuchElementException e) {
+			throw e;
+		}
 	}
 
 	//관리자의 답변을 달기 위한 메소드
