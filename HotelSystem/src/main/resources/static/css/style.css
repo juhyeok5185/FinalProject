@@ -2032,11 +2032,44 @@ div #logintoolbar > a {
 	padding-top: 3vh;
 }
 
+#reservationCompletePage {
+	width: 100%;
+    height:120vh;
+    background-color: white;
+    display: flex;
+}
+#reservationCompleteArticle {
+	height: 110vh;
+    width: 50%;
+    position: absolute;
+    left: 25vw;
+    margin-top: 10vh;
+}
+#reservationbut {
+	width: 16vw;
+    height: 3vh;
+    margin-top: 2vh;
+    margin-left: 16vw;
+    background-color: #3a3125;
+    border: 2px solid black;
+    color: #d5ccb0;
+}
 
-
-
-
-
+#findidbox2_3 p {
+	color: black;
+}
+#findpasswordbox2_3 p {
+	color: black;
+}
+#orderListCheckBut {
+	width: 16vw;
+    height: 3vh;
+    margin-top: 2vh;
+    margin-left: 16vw;
+    background-color: #3a3125;
+    border: 2px solid black;
+    color: #d5ccb0;
+}
 
 
 
@@ -2239,7 +2272,7 @@ div #logintoolbar > a {
 }
 
 #luxury_page {
-  width: 100vw;
+  width: 100%;
   height:180vh;
   background-color: white;
   overflow: hidden;
@@ -2248,7 +2281,7 @@ div #logintoolbar > a {
 }
 
 #mall-aside{
-  width: 15vw;
+  width: 15%;
   height: 25vh;
   background-color:#f1e3c4; 
   float: left;
@@ -2285,9 +2318,22 @@ div #logintoolbar > a {
 .item-btn {
 	cursor: pointer;
 	position: relative;
-	left: 18.6vh;
+	left: 9.4vw;
 	bottom: 2vh;
-}					
+}		
+
+.item-btn1 {
+	cursor: pointer;
+	position: relative;
+	left: 10.1vw;
+	bottom: 2vh;
+}			
+.item-btn2 {
+	cursor: pointer;
+	position: relative;
+	left: 10.6vw;
+	bottom: 2vh;
+}			
 
 #chargeInquiry {
 	background: url("/img/btn_estcharge_toggle2.png") 0 0 no-repeat;
@@ -2305,7 +2351,7 @@ div #logintoolbar > a {
 #chargeInquiry.fix {
 	position: fixed;
 	z-index: 3;
-	top: -76vh;
+	top:-77.5vh;
     left: 49.1%;
 }
 
@@ -2318,7 +2364,7 @@ div #logintoolbar > a {
 
 #totalCharge {
 	border-bottom:4px solid #856f56;
-	width: 100vw;
+	width: 100%;
 	height: 10.5vh;
 	background: white;
 	position: relative;
@@ -3177,6 +3223,7 @@ div #logintoolbar > a {
 .dark-mode #VAT p {
 	color: white;
 }
+
 /* 여기까지 */
 
 #nothing{
@@ -3395,6 +3442,7 @@ div #logintoolbar > a {
     }
     
     
+    
     /* 700이상에서 안보이게 함 */
     #internalFacilities_staypage-1 {
     	display: none;
@@ -3450,7 +3498,7 @@ div #logintoolbar > a {
     height: 6vh;
   } 
   #r-b {
-    width: 100vw;
+    width: 100%;
   } 
   #section2-1 {
     width: 100vw;
@@ -4847,4 +4895,7 @@ div #logintoolbar > a {
 }
 .dark-mode #internal_common-1 h6 {
 	color: #d5ccb0;
+}
+.dark-mode #you-1 {
+	border-right: 1px solid white;
 }

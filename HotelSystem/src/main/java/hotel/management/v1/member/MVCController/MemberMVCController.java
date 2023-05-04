@@ -138,5 +138,7 @@ public class MemberMVCController {
 		MemberDto.Read dto = service.read(principal.getName());
 		return new ModelAndView("/hotel/member/read").addObject("member", dto);
 	}
+	
+	
 
 }

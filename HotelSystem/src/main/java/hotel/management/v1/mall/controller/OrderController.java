@@ -27,7 +27,7 @@ public class OrderController {
 		session.setAttribute("tbodyArray", order.getTbodyArray());
 		session.setAttribute("pickupDay", order.getPickupDay());
 		return ResponseEntity.ok(null);
-	}
+	} //가은아 이거 restcontroller로 빼라
 
 	@GetMapping("/mall/orderDetail")
 	public void orderDetail() {
@@ -40,6 +40,7 @@ public class OrderController {
 			re.addFlashAttribute("msg","회원전용 페이지입니다. 로그인을 해주세요.");
 			return "redirect:/hotel/member/login";
 		}
+		model.addAttribute("orderlist", orderService.findAllOrder(principal.getName()));
 		return "/hotel/mall/orderList";
 	}
 }
