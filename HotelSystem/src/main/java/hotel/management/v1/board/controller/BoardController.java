@@ -21,12 +21,15 @@ public class BoardController {
 	private BoardService service;
 
 	@GetMapping("/hotel/board/write")
-	public ModelAndView write(Principal principal) {
-		return new ModelAndView("/hotel/board/write").addObject("name", principal.getName());
+	public ModelAndView write(Principal principal, String msg) {
+		return new ModelAndView("/hotel/board/write").addObject("name", principal.getName()).addObject("msg" , msg);
 	}
 
 	@PostMapping("/hotel/board/write")
 	public ModelAndView write(BoardDto.Write dto, Principal principal) {
+		if(dto.getTitle()=="" || dto.getContent()=="") {	
+			return new ModelAndView("redirect:/hotel/board/write").addObject("msg","제목과 내용을 작성해주세요");
+		}
 		service.write(dto, principal.getName());
 		return new ModelAndView("redirect:/hotel/board/list");
 	}
