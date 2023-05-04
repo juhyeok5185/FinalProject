@@ -51,15 +51,6 @@ function kakaojs(result) {
 	})
 };
 
-// 주문리스트 팝업
-function detailPopup() {
-	window.open(
-		"/hotel/mall/orderDetail",
-		"orderDetail-name",
-		"scrollbar=no, width=600, height=700, top=150, left=600"
-	)
-};
-
 $(document).ready(function() {
 	let checkBtn = false;
 	let count = 1;
@@ -119,7 +110,7 @@ $(document).ready(function() {
 	                    <button class="btn btn-outline-secondary plus" data-index=${index}>+<input type="hidden" value="${price}"></button>
 	                </td>
 	                <td id="price" style="line-height:50px">${price}</td>
-	                <td style="line-height:50px"><button class="btn btn-outline-secondary" delete" data-index=${index}>X</button></td>
+	                <td style="line-height:50px"><button class="btn btn-outline-secondary delete" data-index=${index}>X</button></td>
 	            </tr>`;
 			$tbody.append(tpl);
 			trCount++;
@@ -174,6 +165,7 @@ $(document).ready(function() {
 	// 상품삭제
 	$('#tbody').on('click', '.delete', function() {
 		const $tr = $(this).parent().parent();
+		
 		const $input = parseInt($(this).parent().prev().text());
 		totalPrice(-$input);
 		$tr.remove();

@@ -2239,7 +2239,7 @@ div #logintoolbar > a {
 }
 
 #luxury_page {
-  width: 100vw;
+  width: 100%;
   height:180vh;
   background-color: white;
   overflow: hidden;
@@ -2248,7 +2248,7 @@ div #logintoolbar > a {
 }
 
 #mall-aside{
-  width: 15vw;
+  width: 15%;
   height: 25vh;
   background-color:#f1e3c4; 
   float: left;
@@ -2285,9 +2285,22 @@ div #logintoolbar > a {
 .item-btn {
 	cursor: pointer;
 	position: relative;
-	left: 18.6vh;
+	left: 9.4vw;
 	bottom: 2vh;
-}					
+}		
+
+.item-btn1 {
+	cursor: pointer;
+	position: relative;
+	left: 10.1vw;
+	bottom: 2vh;
+}			
+.item-btn2 {
+	cursor: pointer;
+	position: relative;
+	left: 10.6vw;
+	bottom: 2vh;
+}			
 
 #chargeInquiry {
 	background: url("/img/btn_estcharge_toggle2.png") 0 0 no-repeat;
@@ -2305,7 +2318,7 @@ div #logintoolbar > a {
 #chargeInquiry.fix {
 	position: fixed;
 	z-index: 3;
-	top: -76vh;
+	top:-77.5vh;
     left: 49.1%;
 }
 
@@ -2318,7 +2331,7 @@ div #logintoolbar > a {
 
 #totalCharge {
 	border-bottom:4px solid #856f56;
-	width: 100vw;
+	width: 100%;
 	height: 10.5vh;
 	background: white;
 	position: relative;
