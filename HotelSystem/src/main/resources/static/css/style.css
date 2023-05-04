@@ -874,6 +874,7 @@
 }
 
 #menu {
+  padding-top: 1vh;
   padding-left: 0.1vw;
   list-style: none;
 }
