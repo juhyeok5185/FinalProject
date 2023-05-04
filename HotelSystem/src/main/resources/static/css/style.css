@@ -1388,11 +1388,19 @@ div.joincreate{
   text-align: center;
 }
 
+#loginblock1_2 p {
+	color: #666666;
+}
+
 #loginblock1_3{
   width: 50.5vw;
   height: 3vh;
   margin: 0 auto;
   text-align: center;
+}
+
+#loginblock1_3 p {
+	color: #666666;
 }
 
 #loginblock2_1{
