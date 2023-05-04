@@ -43,35 +43,35 @@
 				</div>
 				<div class="detail-content">
 					<div class="orderItem-img">
-						<img alt="매트리스" src="/img/매트리스.jpg" width="450px" height="210px">
+						<img alt="매트리스" th:src="${orderDetail.itemImage}" width="450px" height="210px">
 					</div>		
 					<table class="table table-hover">
 						<colgroup>
 							<col width="40%"><col width="60%">
 						</colgroup>
-						<tr style="border-top:1px solid #DBDBDB;">
+						<tr class="orderDetail-tr" style="border-top:1px solid #DBDBDB;">
 							<th>주문번호</th>
-							<td></td>
+							<td th:text="${orderDetail.orderNo}"></td>
 						</tr>
-						<tr>
+						<tr class="orderDetail-tr">
 							<th>상품이름</th>
-							<td></td>
+							<td th:text="${orderDetail.itemName}"></td>
 						</tr>
-						<tr>
+						<tr class="orderDetail-tr">
 							<th>주문수량</th>
-							<td></td>
+							<td th:text="${orderDetail.orderEA}"></td>
 						</tr>
-						<tr>
+						<tr class="orderDetail-tr">
 							<th>결제금액</th>
-							<td></td>
+							<td th:text="${orderDetail.orderPrice}"></td>
 						</tr>
-						<tr>
+						<tr class="orderDetail-tr">
 							<th>결제날짜</th>
-							<td></td>
+							<td th:text="${orderDetail.orderDate}"></td>
 						</tr>
-						<tr>
+						<tr class="orderDetail-tr">
 							<th>픽업날짜</th>
-							<td></td>
+							<td th:text="${orderDetail.pickupDay}"></td>
 						</tr>
 					</table>
 				</div>

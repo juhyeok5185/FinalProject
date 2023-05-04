@@ -1,3 +1,4 @@
+//예약 검색에서 값을 찾지 못했을때
 function notFoundBookList(err) {
   const bookListTable = $("#bookListTable");
   bookListTable.empty();
@@ -31,7 +32,7 @@ function openPopup(url) {
   );
 }
 
-//짧게 만들자
+//bookList를 출력해주는 코드
 function searchData(list) {
   const bookListTable = $("#bookListTable");
   bookListTable.empty();
@@ -175,7 +176,7 @@ $(document).ready(function () {
       searchData(list);
       heightController(list);
     } catch (err) {
-      console.log(err);
+      notFoundBookList(err);
     }
   });
 
@@ -340,7 +341,7 @@ $(document).ready(function () {
         url: "/hotel/manager/blackBtn?name=" + booker,
         method: "post",
       });
-      alert("변경이 완료되었습니다");
+      alert(blackBtn);
       location.reload();
     } catch (err) {}
   });

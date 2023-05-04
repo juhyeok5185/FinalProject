@@ -1,6 +1,8 @@
 package hotel.management.v1.mall.dto;
 
-import java.util.List;
+import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;
 import lombok.ToString;
@@ -10,12 +12,21 @@ public class OrdersDto {
 	public static class OrderList {
 		private Integer orderNo;
 		private String itemName;
-		private String orderDate;
+		@JsonFormat(pattern = "yyyy-MM-dd")
+		private LocalDate orderDate;
 	}
 	
 	@Data
-	public static class Read {
-		private String username;
+	public static class OrderDetail {
+		private String itemImage;
+		private Integer orderNo;
+		private String itemName;
+		private Integer orderEA;
+		private Integer orderPrice;
+		@JsonFormat(pattern = "yyyy-MM-dd")
+		private LocalDate orderDate;
+		@JsonFormat(pattern = "yyyy-MM-dd")
+		private LocalDate pickupDay;
 	}
 	
 	@Data
@@ -23,7 +34,6 @@ public class OrdersDto {
 	public static class Order {
 		private String pickupDay;
 		private String[] tbodyArray;
-		
 	}
 	
 }

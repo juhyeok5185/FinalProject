@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.ibatis.javassist.expr.Instanceof;
 import org.mybatis.spring.MyBatisSystemException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -54,9 +55,9 @@ public class ManagerService {
 
     public void changeBook(boolean breakfast, boolean dinner, String tel) {
         ManagerDto.findBookNoCount bookNoCount = dao.findBookNoCountByTel(tel);
-
+        
         if(breakfast == true){
-            dao.updateBreakfast(bookNoCount.getBookNo() , tel);
+            dao.updateBreakfast(bookNoCount.getBookNo());
         } else {
             dao.cancelBreakfast(bookNoCount.getBookNo());
         }
@@ -86,6 +87,7 @@ public class ManagerService {
         dao.changeRoomStatusCheckIn(intRoomNo);
     }
 
+    //member이름 클릭시 정보 받아오는 로직
     public ManagerDto.userDetail memberDetail(String name,String tel) {
         try {
             ManagerDto.userDetail userDetail = dao.memberDetail(name,tel).get();
@@ -118,7 +120,7 @@ public class ManagerService {
         //set된 dto의 조건들을 dao에 연결해준다.
         List<ManagerDto.findBookList> list = dao.bookSearch(dto);
         if(list.size() == 0){
-            throw new NotFoundBookListException("검색결과가 없습니다.");
+            throw new NotFoundBookListException("검색정보가 없습니다.");
         }
         return list;  
     }

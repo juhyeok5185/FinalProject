@@ -3,7 +3,6 @@ package hotel.management.v1.util;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 import hotel.management.v1.manager.dto.ManagerDto;
 

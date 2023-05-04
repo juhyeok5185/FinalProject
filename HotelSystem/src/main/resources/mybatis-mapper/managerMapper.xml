@@ -38,6 +38,10 @@
         select bookNo , totalCount from book where bookTel = #{tel}
     </select>
 
+    <select id="searchRes" resultType="int">
+        select count(*) from dinner where resNo = #{resNo}
+    </select>
+
 <!-- breakfast를 추가해주는 쿼리 (roombooking안에 breakfast가 있어 update를 이용) -->
     <update id="updateBreakfast">
         UPDATE roombooking
@@ -104,21 +108,21 @@
     <update id="blackBtn">
         update users
         set black = case when black = 1 then 0 else 1 end
-        where name = #{name}
+        where username = #{name}
     </update>
 
 <!-- VIP를 활성화 해주는 쿼리(set case when then else) 절을 이용해서 1이면 0, 0이면 1로 변경) -->
     <update id="vipBtn">
         update users
         set vip = case when vip = 1 then 0 else 1 end
-        where name = #{name}
+        where username = #{name}
     </update>
 
 <!-- 아이디 활성화를 해주는 쿼리(set case when then else) 절을 이용해서 1이면 0, 0이면 1로 변경) -->
     <update id="ableBtn">
         update users
         set disabled = case when disabled = 1 then 0 else 1 end
-        where name = #{name}
+        where username = #{name}
     </update>
 
  

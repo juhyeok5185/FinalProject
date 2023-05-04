@@ -25,7 +25,7 @@ public interface ManagerDao {
 
     public void checkOut(String name);
 
-	public void updateBreakfast(Integer bookNo , String tel);
+	public void updateBreakfast(Integer bookNo);
 
     public void updateDinner(Integer bookNo , Integer totalCount);
 

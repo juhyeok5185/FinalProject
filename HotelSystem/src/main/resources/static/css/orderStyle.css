@@ -3,13 +3,22 @@
 /*orderList*/
 .td-height {
 	line-height: 40px;
+	color: black;
 }
 
 .td-height a{
 	color: black;
 }
 
+.orderList-thead tr th{
+	color: black;
+}
+
 /*orderDetail*/
+.orderDetail-tr th, td {
+	color: black;
+}
+
 .orderDetail {
 	height: 699px;
 }
