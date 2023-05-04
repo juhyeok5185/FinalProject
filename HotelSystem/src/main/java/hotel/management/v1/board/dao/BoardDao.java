@@ -2,14 +2,9 @@ package hotel.management.v1.board.dao;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
 
 import hotel.management.v1.board.dto.BoardDto;
-import hotel.management.v1.board.dto.BoardDto.Write;
 import hotel.management.v1.board.entity.Board;
 
 	// 관리자 = 김동욱

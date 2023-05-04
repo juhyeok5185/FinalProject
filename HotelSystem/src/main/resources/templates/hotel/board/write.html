@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html  lang="ko" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html  lang="ko" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" style="overflow-x: hidden;">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,8 +17,17 @@
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/boardStyle.css">
   <link rel="stylesheet" href="/css/board2Style.css">
+<script th:inline="javascript">
+$(document).ready(function(){	
+	const msg = [[${msg}]];
+	if(msg!=null){
+		alert(msg);
+	}
+})
+</script>
   <title>J.H.H.L</title>
 </head>
+
 <body>
     <div th:replace="~{/fragment/nav.html}"></div>
     <!--고객 문의 게시판-->

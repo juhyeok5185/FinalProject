@@ -73,18 +73,20 @@ public class BoardService {
 	//관리자의 답변을 달기 위한 메소드
 	public void replyUpdate(Integer boardNo, String replyContent, String username) {
 		String email = dao.findMail(username);
-		System.out.println(email);
 		dao.update(boardNo , replyContent);
 		sendMail("admin@zmall.com",email,"회원님의 문의사항 답변이 달렸습니다.","홈페이지를 통해 확인해주세요.");
 	}
 	
 	//게시물을 삭제하는 메소드
-	public void delete(String boardNo) {
+	public Integer delete(String boardNo) {
 		int intBoardNo = Integer.parseInt(boardNo);
-		Board board = dao.findByNo(intBoardNo);
-		if(board.getBoardNo().equals(intBoardNo))
-			dao.delete(intBoardNo);
+			Board board = dao.findByNo(intBoardNo);
+			if(board.getBoardNo().equals(intBoardNo)) {
+				dao.delete(intBoardNo);
+			}
+			return intBoardNo;
 		}
+	
 	
 	// 이메일을 발송하기 위한 메소드
 	private void sendMail(String from, String to, String title, String text) {

@@ -11,6 +11,17 @@
 		select o.orderno,i.itemname,od.orderdate 
 		from (orders o join item i on o.itemno = i.itemno) 
 		join orderdetail od on od.orderno = o.orderno where o.username=#{username} 
-		order by orderdate desc
+		order by orderno desc
 	</select>
+	<select id="findByOrderNo" resultType="hotel.management.v1.mall.dto.OrdersDto$OrderDetail">
+		select i.itemimage, o.orderno, i.itemname, od.orderea, od.orderprice, od.orderdate, od.contactdate as pickupDay
+		from orders o, orderdetail od, item i 
+		where o.orderno=od.orderno and o.itemno=i.itemno and od.orderno=#{orderNo}
+	</select>
+	<delete id="orderDelete">
+		delete from orders where orderno=#{orderNo}
+	</delete>
+	<delete id="orderDetailDelete">
+		delete from orderdetail where orderno=#{orderNo}
+	</delete>
 </mapper>

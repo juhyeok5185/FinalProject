@@ -18,12 +18,7 @@
   <link rel="stylesheet" href="/css/board2Style.css">
   <link rel="stylesheet" href="/css/style.css">
   <title>J.H.H.L</title>
-<script>
 
-	function showAlert() {
-		alert("게시물을 성공적으로 삭제했습니다.");
-	}
-</script>
 </head>
 
 
@@ -57,6 +52,7 @@
               <hr>
               </td>
               </tr>
+              
             <tr>
               <td class="col1"><span id="notnull"> </span>작성자<hr></td>
               <td class="col2">
@@ -100,7 +96,10 @@
   <!-- 삭제 --><div id="deletebutton">
 				<form action="/hotel/board/delete" method="post">
   				<input type="hidden" name="boardNo" th:field="*{board.boardNo}">
-  				<button id="deletebutton" type="submit" class="btn btn-outline-dark" sec:authorize="hasRole('USER')" onclick="showAlert()">글삭제</button>
+  				<input type="hidden" name="username" th:field="*{board.username}">
+         	  <span th:if="${board.username == #authentication.principal.username}"> 
+  				<button id="deletebutton" type="submit" class="btn btn-outline-dark" sec:authorize="hasRole('USER')" onclick="showAlert()">글삭제</button>  				
+        	   </span>
 				</form>
 			  </div>
 			 </td>
