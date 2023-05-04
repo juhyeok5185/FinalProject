@@ -2055,8 +2055,21 @@ div #logintoolbar > a {
     color: #d5ccb0;
 }
 
-
-
+#findidbox2_3 p {
+	color: black;
+}
+#findpasswordbox2_3 p {
+	color: black;
+}
+#orderListCheckBut {
+	width: 16vw;
+    height: 3vh;
+    margin-top: 2vh;
+    margin-left: 16vw;
+    background-color: #3a3125;
+    border: 2px solid black;
+    color: #d5ccb0;
+}
 
 
 
