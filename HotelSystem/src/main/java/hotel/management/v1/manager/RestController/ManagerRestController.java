@@ -73,7 +73,7 @@ public class ManagerRestController {
     @PostMapping("/manager/blackBtn")
     public ResponseEntity<?> blackBtn(String name){
         service.blackBtn(name);
-        return ResponseEntity.ok("");
+        return ResponseEntity.ok("변경이 완료되었습니다.");
     }
 
     //vipBtn 클릭시 이름으로 고객을 검색해서 블랙리스트를 활성화 해준다. 이미 블랙리스트로 지정되었을때는 반대로 변경
@@ -97,6 +97,7 @@ public class ManagerRestController {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(message);
     }
 	
+    //예약 검색시 없을 경우 발생하는 Exception
     @ExceptionHandler(NotFoundBookListException.class)
     public ResponseEntity<String> handleNotFoundBookListException(NotFoundBookListException ex) {
         String message = ex.getMessage();
