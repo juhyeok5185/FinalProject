@@ -24,23 +24,8 @@
     function addList(list){
       const $listBody = $('#listBody');
       $listBody.empty();
-      if(list.length == 0){
-        const tableContent = 
-        `
-          <tr>
-            <td rowspan="6">검색결과가 없습니다.</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        `;
-        $listBody.append(tableContent);
-      }
-      else{
-        for(const l of list) {
-          const tableContent = `
+      for(const l of list) {
+        const tableContent = `
           <tr>
             <td><a href="#" onclick="openPopup('/hotel/manager/memberDetail?name=${l.name}&tel=${l.tel}')">${l.name}</a></td>
             <td>${l.tel}</td>
@@ -52,7 +37,7 @@
             `
           $listBody.append(tableContent);
         }
-      }
+      
       }
       
     $(document).ready(function(){
@@ -73,8 +58,22 @@
       });
       addList(list);
       } catch(err) {
-         console.log(err);
-     }
+         const $listBody = $('#listBody');
+         $listBody.empty();
+           const tableContent = 
+        `
+          <tr>
+            <td rowspan="6">${err.responseText}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        `;
+        $listBody.append(tableContent);
+      }
+     
     })
   })
   </script>

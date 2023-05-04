@@ -1,3 +1,26 @@
+function notFoundBookList(err) {
+  const bookListTable = $("#bookListTable");
+  bookListTable.empty();
+  //검색결과가 없을시 list의 길이를 조건으로 준다.
+  const tableContent = `
+            <tr>
+              <td rowspan="12">${err.responseText}</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            `;
+  bookListTable.append(tableContent);
+}
+
 //팝업오픈
 function openPopup(url) {
   //url을 받아서 그 값으로 새로운 html을 열어준다.
@@ -12,52 +35,32 @@ function openPopup(url) {
 function searchData(list) {
   const bookListTable = $("#bookListTable");
   bookListTable.empty();
-  //검색결과가 없을시 list의 길이를 조건으로 준다.
-  if (list.length == 0) {
-    const tableContent = `
-        <tr>
-          <td rowspan="12">검색결과가 없습니다.</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        `;
-    bookListTable.append(tableContent);
-  } else {
-    //검색결과가 있을시 html에 추가하는곳
-    for (const l of list) {
-      let breakfastContent = ``;
-      let resNoContent = ``;
-      let buttonContent = ``;
-      let roomNoContent = ``;
+  //검색결과가 있을시 html에 추가하는곳
+  for (const l of list) {
+    let breakfastContent = ``;
+    let resNoContent = ``;
+    let buttonContent = ``;
+    let roomNoContent = ``;
 
-      l.roomNo == null ? (roomNoContent = ``) : (roomNoContent = `${l.roomNo}`);
+    l.roomNo == null ? (roomNoContent = ``) : (roomNoContent = `${l.roomNo}`);
 
-      l.breakfast != 0
-        ? (breakfastContent = `<input type="checkbox" checked></input>`)
-        : (breakfastContent = `<input type="checkbox"></input>`);
+    l.breakfast != 0
+      ? (breakfastContent = `<input type="checkbox" checked></input>`)
+      : (breakfastContent = `<input type="checkbox"></input>`);
 
-      l.resNo != null
-        ? (resNoContent = `<input type="checkbox" checked></input>`)
-        : (resNoContent = `<input type="checkbox"></input>`);
+    l.resNo != null
+      ? (resNoContent = `<input type="checkbox" checked></input>`)
+      : (resNoContent = `<input type="checkbox"></input>`);
 
-      // 버튼 생성시 오늘 날짜가 아니면 체크인이 안되게끔 만드는 코드
-      if (l.bookStatus == "체크인대기") {
-        const today = new Date();
-        const year = today.getFullYear().toString();
-        const month = (today.getMonth() + 1).toString().padStart(2, "0");
-        const day = today.getDate().toString().padStart(2, "0");
-        const formattedDate = `${year}-${month}-${day}`;
-        if (l.bookDate == formattedDate) {
-          buttonContent = `
+    // 버튼 생성시 오늘 날짜가 아니면 체크인이 안되게끔 만드는 코드
+    if (l.bookStatus == "체크인대기") {
+      const today = new Date();
+      const year = today.getFullYear().toString();
+      const month = (today.getMonth() + 1).toString().padStart(2, "0");
+      const day = today.getDate().toString().padStart(2, "0");
+      const formattedDate = `${year}-${month}-${day}`;
+      if (l.bookDate == formattedDate) {
+        buttonContent = `
          <span class="dropdown">
             <button type="button" class="btn btn-primary dropdown-toggle checkInBtn" data-bs-toggle="dropdown">체크인</button>
             <ul class="dropdown-menu checkInDropDown">
@@ -66,8 +69,8 @@ function searchData(list) {
          </span>
          <button type="button" class="btn btn-primary bookCancel">예약취소 <input type="hidden" value="${l.bookTel}"></button>
           `;
-        } else {
-          buttonContent = `
+      } else {
+        buttonContent = `
         <button type="button" class="btn btn-primary dropdown-toggle checkInBtn" data-bs-toggle="dropdown" disabled>체크인</button>
            <ul class="dropdown-menu checkInDropDown">
               <li></li>
@@ -75,19 +78,19 @@ function searchData(list) {
           </span>
           <button type="button" class="btn btn-primary bookCancel">예약취소 <input type="hidden" value="${l.bookTel}"></button>
         `;
-        }
-      } else if (l.bookStatus == "체크인완료") {
-        buttonContent = `
+      }
+    } else if (l.bookStatus == "체크인완료") {
+      buttonContent = `
         <button type="button" class="btn btn-danger checkOutBtn">체크아웃 <input type="hidden" value="${l.bookTel}"></button>
         <button type="button" class="btn btn-success changeBook">예약변경 <input type="hidden" value="${l.bookTel}"></button>
       `;
-      } else if (l.bookStatus == "체크아웃완료") {
-        buttonContent = ``;
-      } else if (l.bookStatus == "예약취소") {
-        buttonContent = ``;
-      }
+    } else if (l.bookStatus == "체크아웃완료") {
+      buttonContent = ``;
+    } else if (l.bookStatus == "예약취소") {
+      buttonContent = ``;
+    }
 
-      const tableContent = `
+    const tableContent = `
     <tr>
     <td><a href="#" onclick="openPopup('/hotel/manager/memberDetail?name=${l.booker}')">${l.booker}</a></td>
     <td>${l.bookTel}</td>
@@ -102,8 +105,7 @@ function searchData(list) {
     <td>${l.bookStatus}</td>
     <td>${buttonContent}</td>
       `;
-      bookListTable.append(tableContent);
-    }
+    bookListTable.append(tableContent);
   }
 }
 
@@ -134,7 +136,6 @@ $(document).ready(function () {
   $(document).on("click", "#searchBtn", async function () {
     //검색시 조건들을 param 변수를 담는다
     const param = searchConditionCheck();
-
     //ajax data 형식으로 param을 전달한다.
     try {
       const list = await $.ajax({
@@ -147,7 +148,7 @@ $(document).ready(function () {
       //동적으로 생성된 테이블 갯수에 따라 높이를 변경해준다.
       heightController(list);
     } catch (err) {
-      console.log(err);
+      notFoundBookList(err);
     }
   });
 

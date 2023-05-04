@@ -2,11 +2,15 @@ package hotel.management.v1.manager.RestController;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import hotel.management.v1.exception.NotFoundBookListException;
+import hotel.management.v1.exception.NotFoundUserListException;
 import hotel.management.v1.manager.dto.ManagerDto;
 import hotel.management.v1.manager.service.ManagerService;
 
@@ -23,10 +27,10 @@ public class ManagerRestController {
         return ResponseEntity.ok(list);
     }
 
-    //고객의 이름을 받아서 이름에 해당하는 list를 return하는 메소드
+    //고객의 이름을 받아서 이름에 해당하는 list를 return하는 메소드 (Exception 처리 완료)
     @PostMapping("/manager/memberSearch")
     public ResponseEntity<List> userSearch(String name) {
-        List<ManagerDto.findUserList> list = service.userSearch(name); //이름이 없을경우 exception 관리
+        List<ManagerDto.findUserList> list = service.userSearch(name);
         return ResponseEntity.ok(list);
     }
 
@@ -34,7 +38,7 @@ public class ManagerRestController {
     @PostMapping("/manager/bookCancel")
     public ResponseEntity<?> bookCancel(String bookTel) {
         Integer bookCancel = service.bookCancel(bookTel);
-        return ResponseEntity.ok("");
+        return ResponseEntity.ok("예약취소가 완료되었습니다.");
     }
 
     //체크아웃 버튼 클릭시 Post(bookTel 사용하는지 확인 필요)
@@ -86,7 +90,16 @@ public class ManagerRestController {
         return ResponseEntity.ok("");
     }
 
-  
+    //고객 이름 검색시 없을경우 발생하는 Exception
+    @ExceptionHandler(NotFoundUserListException.class)
+    public ResponseEntity<String> handleNotFoundUserListException(NotFoundUserListException ex) {
+        String message = ex.getMessage();
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(message);
+    }
 	
-
+    @ExceptionHandler(NotFoundBookListException.class)
+    public ResponseEntity<String> handleNotFoundBookListException(NotFoundBookListException ex) {
+        String message = ex.getMessage();
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(message);
+    }
 }
