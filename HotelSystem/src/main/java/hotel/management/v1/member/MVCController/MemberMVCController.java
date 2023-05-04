@@ -138,5 +138,12 @@ public class MemberMVCController {
 		MemberDto.Read dto = service.read(principal.getName());
 		return new ModelAndView("/hotel/member/read").addObject("member", dto);
 	}
+	
+	// 예약완료 페이지 불러오는 메소드
+		@PreAuthorize("isAuthenticated()")
+		@GetMapping("/member/reservationcomplete")
+		public void reservationComplete() {
+
+		}
 
 }

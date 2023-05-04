@@ -2032,8 +2032,28 @@ div #logintoolbar > a {
 	padding-top: 3vh;
 }
 
-
-
+#reservationCompletePage {
+	width: 100%;
+    height:120vh;
+    background-color: white;
+    display: flex;
+}
+#reservationCompleteArticle {
+	height: 110vh;
+    width: 50%;
+    position: absolute;
+    left: 25vw;
+    margin-top: 10vh;
+}
+#reservationbut {
+	width: 16vw;
+    height: 3vh;
+    margin-top: 2vh;
+    margin-left: 16vw;
+    background-color: #3a3125;
+    border: 2px solid black;
+    color: #d5ccb0;
+}
 
 
 
@@ -3190,6 +3210,7 @@ div #logintoolbar > a {
 .dark-mode #VAT p {
 	color: white;
 }
+
 /* 여기까지 */
 
 #nothing{
@@ -3408,6 +3429,7 @@ div #logintoolbar > a {
     }
     
     
+    
     /* 700이상에서 안보이게 함 */
     #internalFacilities_staypage-1 {
     	display: none;
@@ -3463,7 +3485,7 @@ div #logintoolbar > a {
     height: 6vh;
   } 
   #r-b {
-    width: 100vw;
+    width: 100%;
   } 
   #section2-1 {
     width: 100vw;
@@ -4860,4 +4882,7 @@ div #logintoolbar > a {
 }
 .dark-mode #internal_common-1 h6 {
 	color: #d5ccb0;
+}
+.dark-mode #you-1 {
+	border-right: 1px solid white;
 }
