@@ -7,4 +7,10 @@
 	<insert id="addOrderDetail">
 		INSERT INTO orderdetail VALUES (ORDERS_SEQ_ORDERSNO.currval, sysdate, to_date(#{pickupDay},'MM/DD/YYYY'), #{price}, #{count})
 	</insert>
+	<select id="findAllOrder" resultType="hotel.management.v1.mall.dto.OrdersDto$OrderList">
+		select o.orderno,i.itemname,od.orderdate 
+		from (orders o join item i on o.itemno = i.itemno) 
+		join orderdetail od on od.orderno = o.orderno where o.username=#{username} 
+		order by orderdate desc
+	</select>
 </mapper>

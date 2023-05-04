@@ -8,7 +8,9 @@ import lombok.ToString;
 public class OrdersDto {
 	@Data
 	public static class OrderList {
-		List<Integer> list;
+		private Integer orderNo;
+		private String itemName;
+		private String orderDate;
 	}
 	
 	@Data

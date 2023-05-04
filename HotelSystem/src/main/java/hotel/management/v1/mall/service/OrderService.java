@@ -1,10 +1,14 @@
 package hotel.management.v1.mall.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import hotel.management.v1.mall.dao.OrderDao;
-import jakarta.servlet.http.HttpSession;
+import hotel.management.v1.mall.dto.OrdersDto;
+import hotel.management.v1.mall.dto.OrdersDto.OrderList;
 
 @Service
 public class OrderService {
@@ -32,5 +36,9 @@ public class OrderService {
 		}
 
 		
+	}
+
+	public List<OrdersDto.OrderList> findAllOrder(String username) {
+		return orderDao.findAllOrder(username);
 	}
 }

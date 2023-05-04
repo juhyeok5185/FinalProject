@@ -66,8 +66,7 @@ public class PayController {
 		
 		payService.tossPayApprove(orderId,paymentKey,amount,principal.getName());
 		
-		session.removeAttribute("pickupDay");
-		session.removeAttribute("tbodyArray");
+		
 		
 		return "/pay/toss_success";
 	}
