@@ -17,7 +17,6 @@ import hotel.management.v1.exception.NotFoundUserListException;
 import hotel.management.v1.manager.dao.ManagerDao;
 import hotel.management.v1.manager.dto.ManagerDto;
 import hotel.management.v1.util.ManagerUtil;
-import hotel.management.v1.util.managerUtil;
 
 
 @Service
