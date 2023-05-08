@@ -19,6 +19,7 @@ function searchmallData(mallList) {
           <td></td>
           <td></td>
           <td></td>
+          <td></td>
         </tr>
         `;
     mallListArea.append(tableContent);
