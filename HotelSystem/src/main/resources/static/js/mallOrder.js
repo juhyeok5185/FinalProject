@@ -7,14 +7,12 @@ function detailPopup(url) {
 	)
 };
 
+// 주문취소
 $(document).ready(function() {
 	$(document).on('click', '.orderDetailCancel-btn', function() {
 		const $orderNo = parseInt($('#order-no').val());
 		const $itemName = $('#item-name').val();
 		const $orderEA = parseInt($('#order-EA').val());
-		console.log($orderNo);
-		console.log($itemName);
-		console.log(typeof $orderEA);
 		let orderCancel = confirm('정말 취소하시겠습니까?');
 		if(orderCancel) {
 			alert('주문이 취소되었습니다.');
@@ -31,21 +29,18 @@ $(document).ready(function() {
 			} catch(err) {
 				console.log(err);
 			}
-			window.close();
-			location.reload();
 		} else {
 			return
 		}
+		window.close();
+		window.opener.location.reload();
 	})
 
 	$(document).on('click', '.orderCancel-btn', function() {
-
 		const $orderNo = parseInt($(this).closest('tr').find('.order-No').val());
 		const $itemName =  $(this).closest('tr').find('.item-Name').val();
 		const $orderEA = parseInt($(this).closest('tr').find('.order-EA').val());
-		console.log($orderNo);
-		console.log($itemName);
-		console.log($orderEA);
+
 		let orderCancel = confirm('정말 취소하시겠습니까?');
 		if(orderCancel) {
 			alert('주문이 취소되었습니다.');

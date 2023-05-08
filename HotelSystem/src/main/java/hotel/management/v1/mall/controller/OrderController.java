@@ -33,7 +33,6 @@ public class OrderController {
 
 	@GetMapping("/mall/orderDetail")
 	public ModelAndView orderDetail(Integer orderNo) {
-		System.out.println(orderNo);
 		return new ModelAndView( "/hotel//mall/orderDetail").addObject("orderDetail", orderService.findByOrderNo(orderNo));
 	}
 		
@@ -49,10 +48,9 @@ public class OrderController {
 	
 	@DeleteMapping("/mall/orderDelete")
 	public ResponseEntity<?> orderDelete(Integer orderNo, String itemName, Integer orderEA) {
-		System.out.println(itemName);
-		System.out.println(orderEA);
 		orderService.orderDelete(orderNo, itemName, orderEA);
 		return ResponseEntity.ok(null);
 	}
+
 
 }

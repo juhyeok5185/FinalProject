@@ -23,7 +23,7 @@ public interface OrderDao {
 
 	public Integer minusEA(String itemName, Integer orderEA);
 
-    public Integer plusEA(String itmeName, Integer orderEA);
+    public Integer plusEA(String itemName, Integer orderEA);
 	
 
 }

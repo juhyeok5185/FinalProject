@@ -38,11 +38,7 @@ public class OrderService {
 	}
 
 	public List<OrdersDto.OrderList> findAllOrder(String username) {
-
 		List<OrdersDto.OrderList> list  = orderDao.findAllOrder(username);
-		for (OrderList o : list) {
-			System.out.println(o.getOrderEA());
-		}
 		return list;
 	}
 

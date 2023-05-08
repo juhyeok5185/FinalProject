@@ -29,7 +29,7 @@
   	<!-- 내브 -->
     <div th:replace="~{/fragment/nav.html}"></div>
     <!-- 700이상 -->
-	<div id="myPage_page"> 
+	<div class="orderList_page"> 
       <!-- aside -->
 		<div id="myPageaside"> 
 			<div id="myPageinmenu">
@@ -54,7 +54,7 @@
 				</ul>  
 			</div>
 		</div>
-      <div id="myPage_article">
+      <div class="orderList_article">
         <div id="headtit"> 
           <h3>주문내역</h3>
           <div id="changepasswordtool">
@@ -74,10 +74,10 @@
         				<th></th>
         			</tr>
         		</thead>
-        		<tbody>
+        		<tbody id="orderTbody">
         			<tr th:each="o : ${orderlist}">
         				<td class="td-height" th:text=${o.orderNo}></td>
-        				<td class="td-height" ><a href="#" th:onclick="|detailPopup('/hotel/mall/orderDetail?orderNo=${o.orderNo}')|" th:text=${o.itemName} class="orderItemName" type="button">
+        				<td class="td-height" ><a href="#none" th:onclick="|detailPopup('/hotel/mall/orderDetail?orderNo=${o.orderNo}')|" th:text=${o.itemName} class="orderItemName" type="button">
         				</a></td>
         				<td class="td-height" th:text=${o.orderDate}></td>
         				<td>
