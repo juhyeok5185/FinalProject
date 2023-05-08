@@ -24,4 +24,9 @@
 	<delete id="orderDetailDelete">
 		delete from orderdetail where orderno=#{orderNo}
 	</delete>
+	<update id="minusEA">
+		update item i set i.itemea = i.itemea-#{count} where itemname=#{name}
+	</update>
+
+
 </mapper>

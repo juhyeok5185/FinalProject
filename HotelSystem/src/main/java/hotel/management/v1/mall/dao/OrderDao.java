@@ -3,13 +3,8 @@ package hotel.management.v1.mall.dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Update;
-import org.springframework.transaction.annotation.Transactional;
-
 import hotel.management.v1.mall.dto.OrdersDto;
-import hotel.management.v1.mall.dto.OrdersDto.OrderDetail;
 import hotel.management.v1.mall.dto.OrdersDto.OrderList;
-import hotel.management.v1.mall.entity.Item;
 
 @Mapper
 public interface OrderDao {
@@ -25,6 +20,8 @@ public interface OrderDao {
 	public Boolean orderDelete(Integer orderNo);
 	
 	public Boolean orderDetailDelete(Integer orderNo);
+
+	public void minusEA(String name, int count);
 	
 
 }

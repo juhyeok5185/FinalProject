@@ -29,10 +29,11 @@ public class OrderService {
 				price = Integer.parseInt(tbodyArray[i].substring(arrayIdx).trim().replaceAll("\"|[{}\\[\\]]", ""));
 				orderDao.addOrder(name, username);
 				orderDao.addOrderDetail(price, pickupDay, count);
+				orderDao.minusEA(name, count);
 			}
 		}
 
-		
+	
 	}
 
 	public List<OrdersDto.OrderList> findAllOrder(String username) {
@@ -43,9 +44,10 @@ public class OrderService {
 		return orderDao.findByOrderNo(orderNo);
 	}
 
-	public Integer orderDelete(Integer orderNo) {
+	public Integer orderDelete(Integer orderNo, String itmeName, Integer ) {
 		orderDao.orderDetailDelete(orderNo);
 		orderDao.orderDelete(orderNo);
+		orderDao.plusEA(itmeName);
 		return 1;
 	}
 	

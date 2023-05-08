@@ -52,15 +52,5 @@ public class OrderController {
 		orderService.orderDelete(orderNo);
 		return ResponseEntity.ok(null);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }

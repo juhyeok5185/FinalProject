@@ -46,14 +46,20 @@ public class PayController {
 	public String Success(@RequestParam("pg_token") String pgToken, HttpSession session,Principal principal) {
 		String pickupDay = (String) session.getAttribute("pickupDay");
 		String[] tbodyArray = (String[])session.getAttribute("tbodyArray");
-		orderService.mallOrder(tbodyArray, pickupDay, principal.getName());
 		
 		KakaoPayApproveVO res = payService.kakaoPayApprove(pgToken, session,principal.getName());
 		session.removeAttribute("tid");
 		session.removeAttribute("partner_order_id");
 
+
+		if(tbodyArray!=null) {
+			orderService.mallOrder(tbodyArray, pickupDay, principal.getName());
+			return "/hotel/luxurymallcomplete";
+		}
+
 		session.removeAttribute("pickupDay");
 		session.removeAttribute("tbodyArray");
+		
 		
 		return "/pay/success";
 	}
@@ -66,7 +72,10 @@ public class PayController {
 		
 		payService.tossPayApprove(orderId,paymentKey,amount,principal.getName());
 		
-		
+		if(tbodyArray!=null) {
+			orderService.mallOrder(tbodyArray, pickupDay, principal.getName());
+			return "/hotel/luxurymallcomplete";
+		}
 		
 		return "/pay/toss_success";
 	}
