@@ -76,7 +76,10 @@
 					</table>
 				</div>
 				<div class="ordercancle">
-					<button type="button" class="btn btn-outline-secondary orderCancel-btn">주문취소</button>
+					<button type="button" class="btn btn-outline-secondary orderDetailCancel-btn">주문취소</button>
+					<input type="hidden" th:value="${orderDetail.orderEA}" id="order-EA">
+					<input type="hidden" th:value="${orderDetail.itemName}" id="item-name">
+					<input type="hidden" th:value="${orderDetail.orderNo}" id="order-no">
 				</div>
 			</div>
     	</div>

@@ -9,9 +9,9 @@ import hotel.management.v1.mall.dto.OrdersDto.OrderList;
 @Mapper
 public interface OrderDao {
 	
-	public Integer addOrder(String name, String username);
+	public Integer addOrder(String itemName, String username);
 	
-	public Integer addOrderDetail(Integer price, String pickupDay, Integer count);
+	public Integer addOrderDetail(Integer price, String pickupDay, Integer orderEA);
 
 	public List<OrderList> findAllOrder(String username);
 
@@ -21,7 +21,9 @@ public interface OrderDao {
 	
 	public Boolean orderDetailDelete(Integer orderNo);
 
-	public void minusEA(String name, int count);
+	public Integer minusEA(String itemName, Integer orderEA);
+
+    public Integer plusEA(String itmeName, Integer orderEA);
 	
 
 }

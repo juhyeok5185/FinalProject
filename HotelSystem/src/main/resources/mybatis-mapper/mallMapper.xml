@@ -8,7 +8,7 @@
 		INSERT INTO orderdetail VALUES (ORDERS_SEQ_ORDERSNO.currval, sysdate, to_date(#{pickupDay},'MM/DD/YYYY'), #{price}, #{count})
 	</insert>
 	<select id="findAllOrder" resultType="hotel.management.v1.mall.dto.OrdersDto$OrderList">
-		select o.orderno,i.itemname,od.orderdate 
+		select o.orderno,i.itemname,od.orderdate, od.orderEA
 		from (orders o join item i on o.itemno = i.itemno) 
 		join orderdetail od on od.orderno = o.orderno where o.username=#{username} 
 		order by orderno desc
@@ -25,8 +25,10 @@
 		delete from orderdetail where orderno=#{orderNo}
 	</delete>
 	<update id="minusEA">
-		update item i set i.itemea = i.itemea-#{count} where itemname=#{name}
+		update item i set i.itemea = i.itemea-#{orderEA} where itemname=#{itemName}
 	</update>
-
+	<update id="plusEA">
+		update item i set i.itemea = i.itemea+#{orderEA} where itemname=#{itemName}
+	</update>
 
 </mapper>

@@ -80,7 +80,12 @@
         				<td class="td-height" ><a href="#" th:onclick="|detailPopup('/hotel/mall/orderDetail?orderNo=${o.orderNo}')|" th:text=${o.itemName} class="orderItemName" type="button">
         				</a></td>
         				<td class="td-height" th:text=${o.orderDate}></td>
-        				<td><button type="button" class="btn btn-outline-secondary orderCancel-btn">주문취소</button></td>
+        				<td>
+							<button type="button" class="btn btn-outline-secondary orderCancel-btn">주문취소</button>
+							<input type="hidden" th:value="${o.orderNo}" class="order-No">
+							<input type="hidden" th:value="${o.itemName}" class="item-Name">
+							<input type="hidden" th:value="${o.orderEA}" class="order-EA">
+						</td>
         			</tr>
         		</tbody>
         	</table>

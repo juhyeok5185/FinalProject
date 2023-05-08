@@ -48,8 +48,10 @@ public class OrderController {
 	}
 	
 	@DeleteMapping("/mall/orderDelete")
-	public ResponseEntity<?> orderDelete(Integer orderNo) {
-		orderService.orderDelete(orderNo);
+	public ResponseEntity<?> orderDelete(Integer orderNo, String itemName, Integer orderEA) {
+		System.out.println(itemName);
+		System.out.println(orderEA);
+		orderService.orderDelete(orderNo, itemName, orderEA);
 		return ResponseEntity.ok(null);
 	}
 

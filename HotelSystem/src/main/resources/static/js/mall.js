@@ -7,9 +7,9 @@ function totalPrice($input) {
 };
 
 class item {
-	constructor(name, count, price) {
-		this.name = name;
-		this.count = count;
+	constructor(itemName, orderEA, price) {
+		this.itemName = itemName;
+		this.orderEA = orderEA;
 		this.price = price;
 	}
 };
