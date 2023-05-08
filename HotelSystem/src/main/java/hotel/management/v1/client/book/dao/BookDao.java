@@ -4,21 +4,21 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import hotel.management.v1.client.book.dto.BookDto;
 import hotel.management.v1.client.book.dto.BookDto.addRoomBook;
 import hotel.management.v1.client.book.dto.BookDto.addbook;
-import hotel.management.v1.client.book.dto.BookDto.data;
 import hotel.management.v1.client.book.dto.BookDto.dinner;
+import hotel.management.v1.client.book.dto.BookDto.myInFo;
 import hotel.management.v1.client.book.dto.BookDto.mypagedinner;
 import hotel.management.v1.client.book.dto.BookDto.whtyouname;
-import hotel.management.v1.client.book.dto.BookDto;
 
 @Mapper
 public interface BookDao {
-	
+
 	public List<BookDto.findRoom> findRoomFromAndTo(String from, String to);
 
 	public Integer addBook(addbook ab);
-	
+
 	public Integer addRoomBooking(addRoomBook rb);
 
 	public Integer addDinner(dinner dinner);
@@ -34,9 +34,9 @@ public interface BookDao {
 	public Integer findBooknoByusername(String name);
 
 	public List<mypagedinner> findMydinnerByusername(String name);
-	
 
+	public Integer chekbook(String username, String from, String to);
 
-
+	public myInFo findUsersByUsername(String name);
 
 }

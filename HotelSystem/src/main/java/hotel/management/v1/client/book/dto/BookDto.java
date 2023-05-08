@@ -45,6 +45,7 @@ public class BookDto {
 		Boolean bfcheckbox;
 		String gradename;
 		String username;
+		String checkin;
 	}
 	
 	@Data
@@ -94,7 +95,7 @@ public class BookDto {
 	public static class dinner{
 		String username;
 		Integer bookno;
-	};
+	}
 	@Data
 	public static class finduser {
 		String username;
@@ -108,4 +109,12 @@ public class BookDto {
 		String booktel;
 		String bookroomgrade;
 	}
+	
+	@Data
+	public static class myInFo {
+		String name;
+		String tel;
+	}
+	
+	
 }

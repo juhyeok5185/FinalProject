@@ -17,25 +17,31 @@
 		values(BOOK_SEQ_BOOKNO.nextval,#{username},#{totalcnt},to_date(#{from},'MM/DD/YYYY'),#{booktel},#{booker},'체크인대기')
 	</insert>
 	<insert id="addRoomBooking">
-		insert into roombooking select
-		b.bookno,b.bookdate,to_date(#{checkOut},'MM/DD/YYYY'),#{bfcheckbox},null,#{gradename}
-		from book b where b.username = #{username}
+	insert into roombooking 
+select b.bookno, b.bookdate, to_date(#{checkOut},'MM/DD/YYYY'), #{bfcheckbox},null, #{gradename}
+from (
+  select bookno, bookdate
+  from book
+  where username = #{username} and bookdate = to_date(#{checkin},'MM/DD/YYYY')
+  order by bookno desc
+  fetch first 1 row only
+) b
 	</insert>
 	<insert id="addDinner">
 		insert into dinner select b.bookno,b.totalcount,150000 from book b where
-		username=#{username}and b.bookno=#{bookno} and b.bookstatus = '체크인대기'
+		username=#{username} and b.bookno=#{bookno} and b.bookstatus = '체크인대기' order by 1 desc FETCH FIRST 1 ROW ONLY0
 	</insert>
 	<insert id="addDinnerbook">
 		insert into dinner select
 		b.bookno,b.totalcount,120000 from book b where b.username =
-		#{username} and b.bookno = #{resno}
+		#{username} and b.bookno = #{resno} and rownum =1 order by 1 desc
 	</insert>
 	<select id="findByUsernameAndBookdate" resultType="int">
 		select
 		b.bookno from book b where username = #{username} and bookdate =
 		to_date(#{bookdate},'MM/DD/YYYY')
 	</select>
-	<select id="findBookdata" resultType="hotel.management.v1.client.book.dto.BookDto$data">
+	<select id="findBookdata" resultType="hotel.management.v1.client.book.dto.BookDto$dinner">
 		select b.bookno,b.username from book b where b.username =
 		#{username} and b.booktel = #{booktel} and b.booker = #{booker} and
 		b.bookstatus = '체크인대기'
@@ -43,4 +49,17 @@
 	<select id = "findMydinnerByusername" resultType="hotel.management.v1.client.book.dto.BookDto$mypagedinner">
 		select rb.checkin,rb.checkout,bk.booker,bk.booktel,rb.bookroomgrade from roombooking rb ,book bk where rb.bookno = bk.bookno and username = #{username}
 	</select>
+	<select id = "chekbook" resultType="int">
+		SELECT b.bookno 
+FROM book b, roombooking rb 
+WHERE b.bookno = rb.bookno 
+AND username = #{username} 
+AND b.bookdate &gt;= TO_DATE(#{from}, 'MM/DD/YYYY') 
+AND rb.checkout &lt;= TO_DATE(#{to}, 'MM/DD/YYYY')
+	</select>
+	<select id = "findUsersByUsername" resultType="hotel.management.v1.client.book.dto.BookDto$myInFo">
+		select u.name,u.tel from users u where username = #{name}
+	</select>
+	
+	
 	</mapper>
