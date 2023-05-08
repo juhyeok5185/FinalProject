@@ -25,12 +25,11 @@ public class ManagerService {
    ManagerDao dao;
 
     public List<ManagerDto.findBookList> findBookList(){
-        try {
-            List<ManagerDto.findBookList> list = dao.findBookList().get();
+            System.out.println("ddd");
+            List<ManagerDto.findBookList> list = dao.findBookList();
+            System.out.println("ddd");
             return list;
-        } catch (NoSuchElementException e) {
-            return null;
-        }
+     
         
     }
 

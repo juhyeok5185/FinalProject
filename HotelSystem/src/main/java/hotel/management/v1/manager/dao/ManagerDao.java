@@ -14,7 +14,7 @@ import hotel.management.v1.manager.dto.ManagerDto.userDetail;
 @Mapper
 public interface ManagerDao {
 
-    public Optional<List<ManagerDto.findBookList>> findBookList();
+    public List<ManagerDto.findBookList> findBookList();
 
     public List<ManagerDto.findUserList> findUserList(String name);
 
