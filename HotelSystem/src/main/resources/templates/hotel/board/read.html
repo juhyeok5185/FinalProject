@@ -18,10 +18,30 @@
   <link rel="stylesheet" href="/css/board2Style.css">
   <link rel="stylesheet" href="/css/style.css">
   <title>J.H.H.L</title>
-
+<script th:inline="javascript">
+    $(document).ready(function(){    	
+    var user = /*[[${#authentication.principal}]]*/ null;
+    const test = $("#test").text();
+	if(user.username==test){
+		const btn = $("#deletebtn2");
+		btn.css("display" , "block");		
+	}
+    })
+    
+    function showAlert() {
+    	alert("게시물을 성공적으로 삭제했습니다.");
+    }	
+    
+</script>
+<script th:inline="javascript">
+$(document).ready(function(){	
+	const msg = [[${msg}]];
+	if(msg!=null){
+		alert(msg);
+	}
+})
+</script>
 </head>
-
-
 <body>
     <div th:replace="~{/fragment/nav.html}"></div>
     <!--고객 문의 게시판-->
@@ -48,22 +68,21 @@
             <tr>
               <td class="col1">작성일<hr></td>
               <td class="col2">
-              <div th:text="${board.writeDay}"></div> 
-              <hr>
+               <div th:text="${board.writeDay}"></div> 
+               <hr>
               </td>
               </tr>
-              
             <tr>
               <td class="col1"><span id="notnull"> </span>작성자<hr></td>
               <td class="col2">
-              <div  th:text="${board.username}"></div>
-              <hr></td>
+               <div id="test" th:text="${board.username}"></div>
+               <hr></td>
             </tr>
             <tr>
               <td class="col1"><span id="notnull"></span>제목<hr></td>
               <td class="col2">
-              <div th:text="${board.title}"></div>
-              <hr></td>
+               <div th:text="${board.title}"></div>
+               <hr></td>
             </tr>
             <tr>
               <td class="col1"><span id="notnull"></span>내용<hr></td>
@@ -71,23 +90,20 @@
                 <div th:text="${board.content}"></div>
               <hr></td>
             </tr>
-         
-            
             <tr>
               <td class="col1" ><span id="notnull"></span>답변<hr></td>
               <td class="col2" >
 		        <span th:text="${board.replyContent}"></span>&nbsp;<hr></td>
             </tr>
-   			<!-- 답변 -->	 
-			<tr>
+<!-- 답변 --><tr>
               <td class="col1" sec:authorize="hasRole('ADMIN')"><span id="notnull"></span>답변</td>
               <td class="col2" sec:authorize="hasRole('ADMIN')">
-	          <form action="/hotel/board/read" method="post">
-	          <input type="hidden" name="username" th:field="*{board.username}">
-	          <input type="hidden" name="boardNo"  th:field="*{board.boardNo}">
-	          <textarea id="replyContent" name="replyContent" cols="80" rows="4"></textarea>
-			  <span id="replybutton"><button id="replybutton" class="btn btn-outline-dark">답변</button></span>
-		      </form>
+	            <form action="/hotel/board/read" method="post">
+	              <input type="hidden" name="username" th:field="*{board.username}">
+	              <input type="hidden" name="boardNo"  th:field="*{board.boardNo}">
+	              <textarea id="replyContent" name="replyContent" cols="80" rows="4"></textarea>
+			      <span id="replybutton"><button id="replybutton" class="btn btn-outline-dark">답변</button></span>
+		        </form>
               </td>
 		    </tr>
 		    <tr>
@@ -97,9 +113,7 @@
 				<form action="/hotel/board/delete" method="post">
   				<input type="hidden" name="boardNo" th:field="*{board.boardNo}">
   				<input type="hidden" name="username" th:field="*{board.username}">
-         	  <span th:if="${board.username == #authentication.principal.username}"> 
-  				<button id="deletebutton" type="submit" class="btn btn-outline-dark" sec:authorize="hasRole('USER')" onclick="showAlert()">글삭제</button>  				
-        	   </span>
+   			    <button id="deletebtn2" type="submit" class="btn btn-outline-dark" style="display:none" onclick="showAlert()">글삭제</button>  				
 				</form>
 			  </div>
 			 </td>
@@ -108,7 +122,7 @@
        </div>
      </div>
    </div>
-    <!--풋터-->
+ <!--풋터-->
  <div th:replace="~{/fragment/footer.html}"></div>
 </body>
 </html>

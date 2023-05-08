@@ -7,9 +7,9 @@ function totalPrice($input) {
 };
 
 class item {
-	constructor(name, count, price) {
-		this.name = name;
-		this.count = count;
+	constructor(itemName, orderEA, price) {
+		this.itemName = itemName;
+		this.orderEA = orderEA;
 		this.price = price;
 	}
 };
@@ -23,8 +23,6 @@ function order(pickupDay, tbodyArray) {
 				tbodyArray : JSON.stringify(tbodyArray)
 			},
 			success: function(result) {
-				console.log("성공");
-				console.log(tbodyArray);
 			}, error: function(error){
 				console.log("실패");
 			}
@@ -136,8 +134,7 @@ $(document).ready(function() {
 		let price = parseInt($price.text());	
 		price = price-itemPrice;
 		$price.text(price);
-		var $input = parseInt($(this).find('input[type="hidden"]').val());
-		console.log($input);
+		let $input = parseInt($(this).find('input[type="hidden"]').val());
 		totalPrice(-$input);
 	});
 	

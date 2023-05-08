@@ -10,8 +10,8 @@ import hotel.management.v1.client.book.dto.BookDto;
 import hotel.management.v1.client.book.dto.BookDto.addbook;
 import hotel.management.v1.client.book.dto.BookDto.book;
 import hotel.management.v1.client.book.dto.BookDto.dinner;
-import hotel.management.v1.client.book.dto.BookDto.dinnerbook;
 import hotel.management.v1.client.book.dto.BookDto.finduser;
+import hotel.management.v1.client.book.dto.BookDto.myInFo;
 import hotel.management.v1.client.book.dto.BookDto.mypagedinner;
 
 @Service
@@ -27,18 +27,18 @@ public class BookService {
 
 	public void add(book book, String pal) {
 		// TODO Auto-generated method stub
-		BookDto.addRoomBook rb = new BookDto.addRoomBook(book.getTo(), book.getBfcheckbox(), book.getGradename(), pal);
-		BookDto.addbook ab = new BookDto.addbook(pal, book.getFrom(), book.getTotalcnt(), book.getBooktel(),book.getBooker());
-		System.out.println(rb.toString());
-		System.out.println(ab.toString());
-		
+
+		BookDto.addRoomBook rb = new BookDto.addRoomBook(book.getTo(), book.getBfcheckbox(), book.getGradename(), pal,book.getFrom());
+		BookDto.addbook ab = new BookDto.addbook(pal, book.getFrom(), book.getTotalcnt(), book.getBooktel(),
+				book.getBooker());
+
 		dao.addBook(ab);
 		dao.addRoomBooking(rb);
 		BookDto.whtyouname name = new BookDto.whtyouname(pal, book.getBooktel(), book.getBooker(), book.getFrom(),
 				book.getTo());
-		BookDto.dinner data = dao.findBookdata(name);
+		BookDto.dinner data = new dinner(name.getUsername(), dao.findBooknoByusername(name.getUsername()));
 		if (book.getDicheckbox()) {
-//			dao.addDinner(data);
+			dao.addDinner(data);
 		}
 	}
 
@@ -49,10 +49,10 @@ public class BookService {
 ////			return 생각
 //			System.out.println("널");
 //		}
-		BookDto.addbook bo = new addbook(name,book.getFrom(),book.getTotalcnt(),book.getBooktel(),book.getBooker());
+		BookDto.addbook bo = new addbook(name, book.getFrom(), book.getTotalcnt(), book.getBooktel(), book.getBooker());
 		System.out.println(bo.toString());
 //		dao.addBook(bo);
-		BookDto.dinner din = new dinner(name,dao.findBooknoByusername(name));
+		BookDto.dinner din = new dinner(name, dao.findBooknoByusername(name));
 //		dao.addDinner(din);
 		return null;
 	}
@@ -66,5 +66,16 @@ public class BookService {
 		// TODO Auto-generated method stub
 		return dao.findMydinnerByusername(name);
 	}
+
+	public Integer chekbook(String username, String from, String to) {
+		// TODO Auto-generated method stub
+		return dao.chekbook(username, from, to);
+	}
+
+	public myInFo myinfoByUsername(String name) {
+		// TODO Auto-generated method stub
+		return dao.findUsersByUsername(name);
+	}
+
 
 }

@@ -759,7 +759,14 @@
 
 #deletebutton{
 	position:relative;
-	left:2vw;
+	right:0vw;
+	bottom: 4.4vh;
+}
+
+#deletebtn2{
+	position:relative;
+	left:3.5vw;
+	top:4.3vh;
 	bottom: 0.13vh;
 }
 
@@ -784,6 +791,8 @@
 	resize: none;
 	text-indent:3px;
 }
+
+
 
 /*요기까지*/
 

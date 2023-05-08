@@ -14,6 +14,7 @@ public class OrdersDto {
 		private String itemName;
 		@JsonFormat(pattern = "yyyy-MM-dd")
 		private LocalDate orderDate;
+		private Integer orderEA;
 	}
 	
 	@Data

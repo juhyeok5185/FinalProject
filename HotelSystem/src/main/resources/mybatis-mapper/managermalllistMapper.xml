@@ -9,8 +9,7 @@
 			   ord.contactdate , ord.orderprice , ord.orderea 
 		from orders od 
 		left join orderdetail ord on od.orderno = ord.orderno
-		left join users us on od.username = us.username
-	
+		left join users us on od.username = us.username 
       <where>
         <if test="name != null and name != ''">
             AND name like '%'||#{name}||'%'
@@ -29,7 +28,7 @@
 		from orders od 
 		left join orderdetail ord on od.orderno = ord.orderno
 		left join users us on od.username = us.username
-		where contactdate is not null
+		where contactdate is not null order by od.orderno desc
     </select>
 	 
 	<delete id="orderdetaildelete">
