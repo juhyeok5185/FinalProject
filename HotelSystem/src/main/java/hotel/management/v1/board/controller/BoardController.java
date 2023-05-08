@@ -1,6 +1,7 @@
 package hotel.management.v1.board.controller;
 
 import java.security.Principal;
+import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,9 +10,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import hotel.management.v1.board.dto.BoardDto;
+import hotel.management.v1.board.entity.Board;
 import hotel.management.v1.board.service.BoardService;
+import hotel.management.v1.exception.NotFoundUserListException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 // 관리자 = 김동욱
 
@@ -42,22 +48,27 @@ public class BoardController {
 				.addObject("next", list.getNext()).addObject("pageno", pageno);
 	}
 
+	
 	@GetMapping("/hotel/board/read")
 	public void read(Integer boardNo, Model model) {
 		service.findByNo(boardNo);
 		model.addAttribute("board", service.findByNo(boardNo));
+		
 	}
 
 	@PostMapping("/hotel/board/read")
-	public ModelAndView reply(Integer boardNo, String replyContent, String username) {
+	public ModelAndView reply(Integer boardNo, String replyContent, String username , RedirectAttributes ra) {
+		if(replyContent.equals("")) {
+			ra.addFlashAttribute("msg", "답변을 작성해주세요");
+			return new ModelAndView("redirect:/hotel/board/read?boardNo=" + boardNo);
+		}
 		service.replyUpdate(boardNo, replyContent, username);
 		return new ModelAndView("redirect:/hotel/board/read?boardNo=" + boardNo);
 	}
 
 	@PostMapping("/hotel/board/delete")
-	public ModelAndView delete(String boardNo, String username, Principal principal) {
-		String pusername = principal.getName();
+	public ModelAndView delete(String boardNo) {
 		service.delete(boardNo);
-		return new ModelAndView("redirect:/hotel/board/list").addObject("msg","삭제가 완료되었습니다.");
+		return new ModelAndView("redirect:/hotel/board/list");
 	}
 }

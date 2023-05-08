@@ -27,7 +27,7 @@ public class BoardService {
 	private final static Integer PAGESIZE = 10;
 	private final static Integer BLOCKSIZE = 5;
 	
-
+	//게시물을 작성하기 위한 메소드
 	public void write(BoardDto.Write dto, String username) {
 		Board board = dto.toEntity(dto.getTitle(),dto.getContent(), username);
 		dao.write(board);
@@ -43,11 +43,11 @@ public class BoardService {
 			return dao.findByNo(boardNo);
 	}
 	
+	//리스트에서 페이징네이션처리를 하기 위한 메소드
 	//NoSuchElementException
 	public BoardDto.Pagination pagination(Integer pageno) {
 		Integer boardCnt = dao.count();
 		Integer boardPageCnt = (boardCnt - 1) / PAGESIZE + 1;
-		try {
 		pageno = Math.abs(pageno);
 		if(pageno>boardPageCnt)
 			pageno = boardPageCnt;
@@ -65,10 +65,7 @@ public class BoardService {
 		prev = prev == 0 ? start : prev;
 		next = next == 0 ? end : next;
 		return new BoardDto.Pagination(prev, start, end, next, board);
-		} catch (NoSuchElementException e) {
-			throw e;
 		}
-	}
 
 	//관리자의 답변을 달기 위한 메소드
 	public void replyUpdate(Integer boardNo, String replyContent, String username) {
