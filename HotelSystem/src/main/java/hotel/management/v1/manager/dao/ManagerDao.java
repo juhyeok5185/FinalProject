@@ -21,8 +21,7 @@ public interface ManagerDao {
     public Integer bookCancel(String tel);
 
     public String findTelByName(String name);
-
-
+ 
     public void checkOut(String name);
 
 	public void updateBreakfast(Integer bookNo);
