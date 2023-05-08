@@ -23,16 +23,16 @@ function printtotalprice(gradeName, gradeprice) {
   $("#roomname").append(gradeName);
 }
 function printRoomList($roomlist, $footer) {
-  const html2 = `<div>
+  const html2 = `<div id = "inputdiv">
 							<span>인원수</span>
 							<input type = "number" id = "totalcnt" max="4" min="1" value = "1">
 							<input type="checkbox" id = "bfcheckbox">
 							<span>조식여부(50,000)</span>
 							<input type="checkbox" id = "dicheckbox">
 							<span>석식여부(150,000)</span>
-							<span>예약자</span>
+							<span>예약자 :</span>
 							<input type="text" id = "booker">
-							<span>예약자 연락처</span>
+							<span>예약자 연락처 :</span>
 							<input type="text" id = "booktel">
 				  </div><hr>`;
   $footer.append(html2);
@@ -75,8 +75,22 @@ function kakaojs(result) {
     },
   });
 }
-
+//----------------------------------------------------------------------------------------------------------
 $(document).ready(async function () {
+	$('#totalcnt').click(function(){
+		const $totalcnt = $('#totalcnt').val();
+		if($totalcnt>=4){
+			alert('최대 4명까지 가능합니다.');
+		}
+		if($totalcnt<=1){
+			alert('최소 인원은 1명입니다');
+			return
+		}
+	});
+	
+	
+	
+	
   const $footer = $("#bookfooter");
   var clientKey = "test_ck_D5GePWvyJnrK0W0k6q8gLzN97Eoq";
   var tossPayments = TossPayments(clientKey);
@@ -112,7 +126,7 @@ $(document).ready(async function () {
     $("#paymentPopup-box").attr("style", "display:block");
     $("html").attr("style", "overflow: hidden");
     $("#chargeInquiry").attr("style", "z-index:1; pointer-events: none;");
-    const gradeName = $(this).siblings("#gradename").val();
+    const gradeName = $('#roomname').text();
     const $from = $("#from").val();
     const $to = $("#to").val();
     const $bfcheckbox = $("#bfcheckbox").val();
@@ -229,5 +243,7 @@ $(document).ready(async function () {
         console.log(err);
       }
     }
+  location.href = "/reservationcomplete"
+  
   });
 });

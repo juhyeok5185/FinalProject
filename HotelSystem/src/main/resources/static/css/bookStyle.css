@@ -97,3 +97,9 @@
 #dinnerbookmain{
 	height: 120vh;
 }
+#inputdiv *{
+	margin-left: 10px;
+}
+#reservation-hotelinfo *{
+	margin-left: 10px;
+}

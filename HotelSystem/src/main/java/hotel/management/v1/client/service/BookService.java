@@ -28,14 +28,15 @@ public class BookService {
 	public void add(book book, String pal) {
 		// TODO Auto-generated method stub
 		BookDto.addRoomBook rb = new BookDto.addRoomBook(book.getTo(), book.getBfcheckbox(), book.getGradename(), pal);
-		BookDto.addbook ab = new BookDto.addbook(pal, book.getFrom(), book.getTotalcnt(), book.getBooktel(),
-				book.getBooker());
-
-//		dao.addBook(ab);
-//		dao.addRoomBooking(rb);
+		BookDto.addbook ab = new BookDto.addbook(pal, book.getFrom(), book.getTotalcnt(), book.getBooktel(),book.getBooker());
+		System.out.println(rb.toString());
+		System.out.println(ab.toString());
+		
+		dao.addBook(ab);
+		dao.addRoomBooking(rb);
 		BookDto.whtyouname name = new BookDto.whtyouname(pal, book.getBooktel(), book.getBooker(), book.getFrom(),
 				book.getTo());
-		BookDto.data data = dao.findBookdata(name);
+		BookDto.dinner data = dao.findBookdata(name);
 		if (book.getDicheckbox()) {
 //			dao.addDinner(data);
 		}

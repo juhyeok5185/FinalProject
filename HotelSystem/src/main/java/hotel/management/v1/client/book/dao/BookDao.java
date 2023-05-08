@@ -29,7 +29,7 @@ public interface BookDao {
 
 	public BookDto.finduser findByusername(String name);
 
-	public data findBookdata(whtyouname name);
+	public dinner findBookdata(whtyouname name);
 
 	public Integer findBooknoByusername(String name);
 
