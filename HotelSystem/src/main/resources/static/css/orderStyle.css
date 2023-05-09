@@ -34,15 +34,15 @@
 
 .orderList_page-1 {
 	width: 100%;
-	min-height: 100vh;
+	min-height: 180vh;
 	height: 100%;
 }
 
 .orderListToolbar-1 {
-    font-size: 12px;
-    width: 26vw;
+	font-size: 12px;
+    width: 30.5vw;
     position: relative;
-    left: 52vw;
+    left: 48vw;
     color: black;
     bottom: 10px;
 }
