@@ -88,9 +88,6 @@ public class BookController {
 
 	@PostMapping(value = "/client/dinnerbook", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> dinnerbook(BookDto.addbookfromDinner book, Principal pal) {
-		
-		
-		
 		service.addDinner(book, pal.getName());
 		return ResponseEntity.ok(null);
 	}
@@ -104,14 +101,26 @@ public class BookController {
 
 	@PostMapping(value = "/manager/checkroom", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> checkroom(BookDto.managercheckroom room){
-		System.out.println(room.toString()); 
 		List<BookDto.findRoom> roomlist = service.findRoom(room.getFrom(), room.getTo());
 		 
 		return roomlist!=null? ResponseEntity.ok(roomlist):ResponseEntity.status(HttpStatus.CONFLICT).body(null);
 
 	}
+	@GetMapping("/client/roomdetail")
+	public ModelAndView roomdetail(String grandname,Integer price,String from,String to) {
+		
+		return new ModelAndView().addObject("gradename", grandname).addObject("totalprice", price)
+				.addObject("from", from).addObject("to",to);
+	}
 	
-	
+	@PostMapping("/manager/checkbookbyusername")
+	public ResponseEntity<?> checkbookbyusername(BookDto.checkbookbyusername check){
+		System.out.println(check.toString());
+		if (service.chekbook(check.getUsername(),check.getFrom(),check.getTo())!=null) {
+			return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
+		}
+		return ResponseEntity.ok(null);
+	}
 	
 	@PostMapping(value = "/client/myinfo",produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> test(Principal pal) {

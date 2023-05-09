@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import hotel.management.v1.client.book.dto.BookDto;
 import hotel.management.v1.client.book.dto.BookDto.addRoomBook;
 import hotel.management.v1.client.book.dto.BookDto.addbook;
+import hotel.management.v1.client.book.dto.BookDto.checkbookbyusername;
 import hotel.management.v1.client.book.dto.BookDto.dinner;
 import hotel.management.v1.client.book.dto.BookDto.myInFo;
 import hotel.management.v1.client.book.dto.BookDto.mypagedinner;
@@ -38,5 +39,6 @@ public interface BookDao {
 	public Integer chekbook(String username, String from, String to);
 
 	public myInFo findUsersByUsername(String name);
+
 
 }

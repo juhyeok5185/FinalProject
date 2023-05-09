@@ -98,7 +98,44 @@ function printManagerRoomList(roomlist) {
 }
 //----------------------------------------------------------------------------------------------------------
 $(document).ready(async function() {
+	$('#checkbook').click(function() {
+		const username = $('#username').val();
+		const from = $('#ajaxfrom').val();
+		const to = $('#ajaxto').val();
+		const param = {
+			from,
+			to,
+			username
+		}
 
+		$.ajax({
+			url: '/hotel/manager/checkbookbyusername',
+			method: 'post',
+			data: param,
+			dataType: "json",
+			statusCode: {
+				200: function() {
+					$('#bookckresult').val(1);
+				},
+				409:function(){
+					$('#bookckresult').val(3);
+				}
+			}
+		})
+	})
+
+
+	$('#managerbookbtn').click(function() {
+		const result = $('#bookckresult').val();
+		if (result == 0) {
+			alert('예약확인을 해야 합니다.')
+			return
+		}
+		if(result==3){
+			alert('이미 예약이 존재합니다')
+			return
+		}
+	})
 
 
 	$('#resradio').click(function() {
@@ -120,8 +157,6 @@ $(document).ready(async function() {
               <input type="date" id = "from" placeholder="체크인날짜 입력" height="2px;">
                 <input type="date" id = "to" placeholder="체크아웃날짜 입력" height="2px;">
               <button class="btn btn-secondary" style="width: 70px;" id="managerbook">예약</button>
-              <span>총액 :</span>
-              <span id = "pricemanager"></span>
               <span>숙박일 :</span>
               <span id = "daymanager"></span>
               `;
@@ -131,24 +166,18 @@ $(document).ready(async function() {
 	$('#managerroomlistdiv').on('click', '#booklistbtn', function() {
 		const gradeName = $(this).parent().prev().prev().prev().val();
 		const gradeprice = $(this).parent().prev().children("#gradeprice").text();
-		alert(gradeName);
-		alert(gradeprice);
+		const from = $('#ajaxfrom').val();
+		const to = $('#ajaxto').val();
+		const day = parseInt($('#daymanager').text());
+		const totalprice = gradeprice * day;
+		window.open(
+			`/hotel/client/roomdetail?grandname=${gradeName}&price=${totalprice}&from=${from}&to=${to}`,
+			"managerbookdetail",
+			"scrollbar=no, width=600, height=700, top=150, left=600"
+		)
 	})
 	$(document).on('click', '#managerbook', async function() {
-		/*	const from = $('#from').val();
-			const to = $('#to').val();
-			const datefrom = new Date(from);
-			const fromday = datefrom.getDate();
-			const frommonth = datefrom.getMonth() + 1;
-			const fromyer = datefrom.getFullYear();
-			const lastfrom = fromday + "/" + frommonth + "/" + fromyer
-			const dateto = new Date(to);
-			const today = dateto.getDate();
-			const tomenth = dateto.getMonth() + 1;
-			const toyer = dateto.getFullYear();
-			const lastto = today + "/" + tomenth + "/" + toyer;*/
 		const DAY_IN_MS = 1000 * 60 * 60 * 24; // 1 day in milliseconds
-
 		const from = $('#from').val();
 		const to = $('#to').val();
 		const datefrom = new Date(from);
@@ -163,7 +192,7 @@ $(document).ready(async function() {
 		const lastto = tomenth + "/" + today + "/" + toyer;
 		const diffTime = Math.abs(dateto - datefrom);
 		const diffDays = Math.ceil(diffTime / DAY_IN_MS); // 올림하여 일 수 계산
-		 // 총 일 수 출력
+		// 총 일 수 출력
 		const roomlist = await $.ajax({
 			url: '/hotel/manager/checkroom',
 			method: 'post',
@@ -173,9 +202,11 @@ $(document).ready(async function() {
 				to: lastto
 			}
 		})
+		$('#ajaxfrom').val(lastfrom);
+		$('#ajaxto').val(lastto);
 		printManagerRoomList(roomlist)
 		console.log(roomlist);
-		$('#daymanager').text(diffDays+"일");
+		$('#daymanager').text(diffDays + "일");
 	});
 
 
