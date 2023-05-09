@@ -35,7 +35,7 @@
 
 <!-- 전화번호를 이용해서 예약번호와 , 인원수를 뽑아낸다 -->
     <select id="findBookNoCountByTel" resultType="hotel.management.v1.manager.dto.ManagerDto$findBookNoCount">
-        select bookNo , totalCount from book where bookTel = #{tel}
+        select bookNo , totalCount from book where bookTel = #{tel} and TRUNC(bookdate) = TRUNC(sysdate)
     </select>
 
     <select id="searchRes" resultType="int">
