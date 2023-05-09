@@ -25,12 +25,8 @@ public class ManagerService {
    ManagerDao dao;
 
     public List<ManagerDto.findBookList> findBookList(){
-            System.out.println("ddd");
             List<ManagerDto.findBookList> list = dao.findBookList();
-            System.out.println("ddd");
             return list;
-     
-        
     }
 
     public List<ManagerDto.findUserList> userSearch(String name) {
