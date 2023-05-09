@@ -246,10 +246,20 @@ $(document).ready(function() {
 			successUrl: 'http://localhost:8081/pay/toss_success',
 			failUrl: 'http://127.0.0.1:5500//fail.html'
 		})
-		
-
 	})
 	
+		// 반응형
+	$('.mallCart-icon').click(function() {
+		console.log('1111111111');
+		if (cartClick%2!=0) {
+		  console.log('22222222222');
+		  $('.mallCart-popup').attr('style', 'display:block');
+		} else {
+		  console.log('3333333333333');
+		  $('.mallCart-popup').attr('style', 'display:none');
+		}
+		++cartClick;
+	  });
 	
 
 	
