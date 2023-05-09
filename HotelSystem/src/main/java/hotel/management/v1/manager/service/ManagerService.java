@@ -73,11 +73,17 @@ public class ManagerService {
     }
 
     public void checkIn(String roomNo , String tel ) {
+        System.out.println(1);
         tel = StringUtils.strip(tel);
+        System.out.println(2);
         Integer bookNo = dao.findBookNoByTel(tel);
+        System.out.println(2);
         Integer intRoomNo = Integer.parseInt(roomNo);
+        System.out.println(2);
         dao.setRoom(intRoomNo , bookNo);
+        System.out.println(2);
         dao.changeBookStatus(bookNo);
+        System.out.println(2);
         dao.changeRoomStatusCheckIn(intRoomNo);
     }
 

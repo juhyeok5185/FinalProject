@@ -65,6 +65,7 @@ public class ManagerRestController {
     //checkIn 버튼 클릭후 해당 방을 클릭할시 그방의 roomNo와 예약자의 이름을 받아서 방을 배정해준다.
     @PostMapping("/manager/checkIn")
     public ResponseEntity<?> checkIn(String roomNo , String name){ 
+        System.out.println(name + roomNo);
         service.checkIn(roomNo , name);
         return ResponseEntity.ok("");
     }

@@ -23,7 +23,7 @@
 
 <!-- bookNo를 tel을 이용해서 찾는다 -->
     <select id="findBookNoByTel" resultType="int">
-        select bookNo from book where booktel = #{tel} and bookStatus='체크인대기'
+        select bookNo from book where booktel = #{tel} and bookStatus='체크인대기' and TRUNC(bookdate) = TRUNC(sysdate)
     </select>
 
 <!-- 체크아웃 버튼시 예약 정보를 체크아웃으로 변경한다. -->
