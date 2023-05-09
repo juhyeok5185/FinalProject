@@ -70,15 +70,114 @@ function kakaojs(result) {
 			tax_free_amount: "0", //필수라 넣어야됨
 		},
 		success: function(res) {
-			location.href = "/hotel/diningreservationcomplete";
+			location.href = res.next_redirect_pc_url;
 		},
 		error: function(error) {
 			alert(error);
 		},
 	});
 }
+function printManagerRoomList(roomlist) {
+	let index = 1;
+	const roomlistarea = $('#managerroomlistdiv');
+	roomlistarea.empty();
+	for (const b of roomlist) {
+		const html = `<div id = "roomlist">
+		<input type="hidden" value="${b.gradeName}" id = "gradename">
+		<div id = "roomlistimg">
+		<img src = "/img/방이미지${index}.jpg" id = "roomimg"></div>
+		<div id = "roomlistinfo"><span>${b.gradeName}</span>
+		<span id = "breakfastprice" style="display: none;" >${b.breakfastprice}</span>
+		<span id = "gradeprice">${b.gradeprice}</span></div>
+		<div id = "roomlistbtn"><img id = "booklistbtn" src = "/img/선택버튼.png"></div>
+		<br>
+	</div><hr>`;
+		roomlistarea.append(html);
+		index++;
+	}
+}
 //----------------------------------------------------------------------------------------------------------
 $(document).ready(async function() {
+
+
+
+	$('#resradio').click(function() {
+		$('#bookradio').prop('checked', false);
+		const carea = $('#search');
+		carea.empty();
+		const html = ` <input type="text" id = "booker" placeholder="예약자" height="2px;">
+              <input type="text" id = "booktel" placeholder="연락처 입력" height="2px;">
+              <input type="date" id = "from" placeholder="체크인날짜 입력" height="2px;">
+              <button class="btn btn-secondary" style="width: 70px;" id="managerbook">예약</button>`;
+		carea.append(html);
+
+	})
+	$('#bookradio').click(function() {
+		$('#resradio').prop('checked', false);
+		const carea = $('#search');
+		carea.empty();
+		const html = ` 
+              <input type="date" id = "from" placeholder="체크인날짜 입력" height="2px;">
+                <input type="date" id = "to" placeholder="체크아웃날짜 입력" height="2px;">
+              <button class="btn btn-secondary" style="width: 70px;" id="managerbook">예약</button>
+              <span>총액 :</span>
+              <span id = "pricemanager"></span>
+              <span>숙박일 :</span>
+              <span id = "daymanager"></span>
+              `;
+		carea.append(html);
+
+	})
+	$('#managerroomlistdiv').on('click', '#booklistbtn', function() {
+		const gradeName = $(this).parent().prev().prev().prev().val();
+		const gradeprice = $(this).parent().prev().children("#gradeprice").text();
+		alert(gradeName);
+		alert(gradeprice);
+	})
+	$(document).on('click', '#managerbook', async function() {
+		/*	const from = $('#from').val();
+			const to = $('#to').val();
+			const datefrom = new Date(from);
+			const fromday = datefrom.getDate();
+			const frommonth = datefrom.getMonth() + 1;
+			const fromyer = datefrom.getFullYear();
+			const lastfrom = fromday + "/" + frommonth + "/" + fromyer
+			const dateto = new Date(to);
+			const today = dateto.getDate();
+			const tomenth = dateto.getMonth() + 1;
+			const toyer = dateto.getFullYear();
+			const lastto = today + "/" + tomenth + "/" + toyer;*/
+		const DAY_IN_MS = 1000 * 60 * 60 * 24; // 1 day in milliseconds
+
+		const from = $('#from').val();
+		const to = $('#to').val();
+		const datefrom = new Date(from);
+		const fromday = datefrom.getDate() < 10 ? "0" + datefrom.getDate() : datefrom.getDate(); // day가 한 자리 수인 경우에만 0을 붙임
+		const frommonth = datefrom.getMonth() + 1 < 10 ? "0" + (datefrom.getMonth() + 1) : (datefrom.getMonth() + 1);
+		const fromyer = datefrom.getFullYear();
+		const lastfrom = frommonth + "/" + fromday + "/" + fromyer;
+		const dateto = new Date(to);
+		const today = dateto.getDate() < 10 ? "0" + dateto.getDate() : dateto.getDate(); // day가 한 자리 수인 경우에만 0을 붙임
+		const tomenth = dateto.getMonth() + 1 < 10 ? "0" + (dateto.getMonth() + 1) : (dateto.getMonth() + 1);
+		const toyer = dateto.getFullYear();
+		const lastto = tomenth + "/" + today + "/" + toyer;
+		const diffTime = Math.abs(dateto - datefrom);
+		const diffDays = Math.ceil(diffTime / DAY_IN_MS); // 올림하여 일 수 계산
+		 // 총 일 수 출력
+		const roomlist = await $.ajax({
+			url: '/hotel/manager/checkroom',
+			method: 'post',
+			dataType: "json",
+			data: {
+				from: lastfrom,
+				to: lastto
+			}
+		})
+		printManagerRoomList(roomlist)
+		console.log(roomlist);
+		$('#daymanager').text(diffDays+"일");
+	});
+
 
 
 	$('#totalcnt').click(function() {
@@ -213,8 +312,8 @@ $(document).ready(async function() {
 
 		}
 		if ($myinfo == false) {
-			$('#booker').val('').attr('disabled',false);
-			$('#booktel').val('').attr('disabled',false);
+			$('#booker').val('').attr('disabled', false);
+			$('#booktel').val('').attr('disabled', false);
 		}
 
 

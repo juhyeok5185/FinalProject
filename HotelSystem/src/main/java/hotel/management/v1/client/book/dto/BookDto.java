@@ -2,6 +2,8 @@ package hotel.management.v1.client.book.dto;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -116,5 +118,9 @@ public class BookDto {
 		String tel;
 	}
 	
-	
+	@Data
+	public static class managercheckroom {
+		String from;
+		String to;
+	}	
 }

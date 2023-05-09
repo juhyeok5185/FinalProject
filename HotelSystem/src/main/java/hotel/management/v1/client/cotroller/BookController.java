@@ -25,7 +25,19 @@ import jakarta.servlet.http.HttpSession;
 public class BookController {
 	@Autowired
 	private BookService service;
-
+	
+	@GetMapping("/manager/book")
+	public void managerbook() {
+		
+	}
+	@GetMapping("/client/mydinnerbook")
+	public ModelAndView mydinnerbook(Principal pal, ModelAndView mav) {
+		List<BookDto.mypagedinner> list = service.findMydinnerByusername(pal.getName());
+		return new ModelAndView().addObject("list", list);
+	}
+	@GetMapping("/client/myroombook")
+	public void myroombook() {
+	}
 	@GetMapping("/client/roombook")
 	public String bookPage(Principal pal, RedirectAttributes ra, Model model) {
 		if (pal == null) {
@@ -76,6 +88,9 @@ public class BookController {
 
 	@PostMapping(value = "/client/dinnerbook", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> dinnerbook(BookDto.addbookfromDinner book, Principal pal) {
+		
+		
+		
 		service.addDinner(book, pal.getName());
 		return ResponseEntity.ok(null);
 	}
@@ -85,21 +100,22 @@ public class BookController {
 		service.findByusername(pal.getName());
 		return ResponseEntity.ok(null);
 	}
+	
 
-	@GetMapping("/client/mydinnerbook")
-	public ModelAndView mydinnerbook(Principal pal, ModelAndView mav) {
-		List<BookDto.mypagedinner> list = service.findMydinnerByusername(pal.getName());
-		return new ModelAndView().addObject("list", list);
+	@PostMapping(value = "/manager/checkroom", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> checkroom(BookDto.managercheckroom room){
+		System.out.println(room.toString()); 
+		List<BookDto.findRoom> roomlist = service.findRoom(room.getFrom(), room.getTo());
+		 
+		return roomlist!=null? ResponseEntity.ok(roomlist):ResponseEntity.status(HttpStatus.CONFLICT).body(null);
+
 	}
-
-	@GetMapping("/client/myroombook")
-	public void myroombook() {
-	}
-
+	
+	
+	
 	@PostMapping(value = "/client/myinfo",produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> test(Principal pal) {
 		BookDto.myInFo info = service.myinfoByUsername(pal.getName());
-		System.out.println(info.toString());
 		return ResponseEntity.ok(info);
 	}
 

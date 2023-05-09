@@ -61,7 +61,7 @@ public class PayController {
 		session.removeAttribute("tbodyArray");
 		
 		
-		return "/pay/success";
+		return "/hotel/reservationcomplete";
 	}
 	
 	@GetMapping("/pay/toss_success")
