@@ -735,8 +735,9 @@
 #reportpagination{
 	margin: auto;
 	position: relative;
-	left: 16.5vw;
+	left: 19vw;
 	top: 2vh;
+	color: #7a7a7a;
 }
 
 #titleclick{

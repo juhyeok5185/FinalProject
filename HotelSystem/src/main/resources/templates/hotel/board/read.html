@@ -32,14 +32,23 @@
     	alert("게시물을 성공적으로 삭제했습니다.");
     }	
     
-</script>
-<script th:inline="javascript">
-$(document).ready(function(){	
-	const msg = [[${msg}]];
-	if(msg!=null){
-		alert(msg);
-	}
-})
+    $(document).ready(function(){	
+    	const msg = [[${msg}]];
+    	if(msg!=null){
+    		alert(msg);
+    	}
+    })
+    
+    $(document).ready(function(){	
+    	var listno = /*[[${board.boardNo}]]*/ null;
+    	const bno = $("#boardNumber").val(); 
+    	if(listno < bno || bno == null){
+    		alert("게시물 정보가 잘못되었습니다.");
+    		return;
+    	}
+    })
+    
+    
 </script>
 </head>
 <body>
@@ -69,6 +78,7 @@ $(document).ready(function(){
               <td class="col1">작성일<hr></td>
               <td class="col2">
                <div th:text="${board.writeDay}"></div> 
+                <div id="boardNumber" th:text="${board.boardNo}"></div>
                <hr>
               </td>
               </tr>

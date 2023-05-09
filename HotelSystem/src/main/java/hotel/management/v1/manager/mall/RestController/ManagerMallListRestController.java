@@ -3,11 +3,13 @@ package hotel.management.v1.manager.mall.RestController;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
+import hotel.management.v1.exception.NotFoundMallListException;
 import hotel.management.v1.manager.mall.Dto.ManagerMallListDto;
 import hotel.management.v1.manager.mall.Service.ManagerMallListService;
 
@@ -15,20 +17,25 @@ import hotel.management.v1.manager.mall.Service.ManagerMallListService;
 public class ManagerMallListRestController {
 	@Autowired
 	private ManagerMallListService service;
-	
 
 	@PostMapping("/hotel/manager/managerMallList")
-	public ResponseEntity<List<ManagerMallListDto.MallListSearch>> mallList(ManagerMallListDto.FindMallList dto){
+	public ResponseEntity<List<ManagerMallListDto.MallListSearch>> mallList(ManagerMallListDto.FindMallList dto) {
 		List<ManagerMallListDto.MallListSearch> list = service.mallsearch(dto);
 		return ResponseEntity.ok(list);
 	}
-	
+
 	@PostMapping("/hotel/manager/delete")
-	public ResponseEntity<?> delete(String orderNo){
+	public ResponseEntity<?> delete(String orderNo) {
 		Integer orderno = Integer.parseInt(orderNo);
 		service.orderdetaildelete(orderno);
 		service.delete(orderno);
 		return ResponseEntity.ok("");
 	}
-	
+
+	@ExceptionHandler(NotFoundMallListException.class)
+	public ResponseEntity<String> NotFoundMallListException(NotFoundMallListException ex) {
+		String message = ex.getMessage();
+		return ResponseEntity.status(HttpStatus.CONFLICT).body(message);
+	}
+
 }

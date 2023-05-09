@@ -8,6 +8,29 @@
 	  );
 	}
 
+function searchmallData() {
+	try{
+	  const mallListArea = $('#mallListArea');
+  	  mallListArea.empty();
+	  $('.table').removeClass('table-hover');
+	}
+	catch(err){
+	  const mallListArea = $('#mallListArea');
+      const tableContent = `
+        <tr>
+          <td id="nullresult" rowspan="12">${err.message}</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        `;
+      mallListArea.append(tableContent);
+	}
+}
+
+
+/*
 function searchmallData(mallList) {
   const mallListArea = $('#mallListArea');
   mallListArea.empty();
@@ -25,6 +48,7 @@ function searchmallData(mallList) {
     mallListArea.append(tableContent);
 	}
 }
+*/
 
 $(document).ready(function(){
 	$('#nameSearchBtn').on('click' , async function(){

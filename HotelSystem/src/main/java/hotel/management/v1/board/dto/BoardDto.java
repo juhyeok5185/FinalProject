@@ -51,6 +51,7 @@ public class BoardDto {
 		private Integer end;
 		private Integer next;
 		private List<FindAll> board;
+		private String msg;
 	}
 	
 	@Data

@@ -43,6 +43,12 @@ public class BoardController {
 	@GetMapping("/hotel/board/list")
 	public ModelAndView list(@RequestParam(defaultValue = "1") Integer pageno) {
 		BoardDto.Pagination list = service.pagination(pageno);
+		if(list.getMsg() == "잘못된경로") {
+			return new ModelAndView("/hotel/board/list").addObject("board", list.getBoard())
+					.addObject("prev", list.getPrev()).addObject("start", list.getStart()).addObject("end", list.getEnd())
+					.addObject("next", list.getNext()).addObject("pageno", pageno).addObject("msg", list.getMsg());
+			
+		}
 		return new ModelAndView("/hotel/board/list").addObject("board", list.getBoard())
 				.addObject("prev", list.getPrev()).addObject("start", list.getStart()).addObject("end", list.getEnd())
 				.addObject("next", list.getNext()).addObject("pageno", pageno);
