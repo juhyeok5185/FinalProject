@@ -3858,19 +3858,19 @@ div #logintoolbar > a {
 	text-decoration: none;
 }
 
-#item-btn-1 {
+.item-btn-1 {
 	position: relative;
 	left: 47.5vw;
 	bottom: 1.5vh;
 }
 
-#item-btn-2 {
+.item-btn-2 {
 	position: relative;
 	left: 49.2vw;
 	bottom: 1.5vh;
 }
 
-#item-btn-3 {
+.item-btn-3 {
 	position: relative;
 	left: 50.5vw;
 	bottom: 1.5vh;
@@ -3887,18 +3887,56 @@ div #logintoolbar > a {
   background-color: white;
   border: 1px solid #DBDBDB;
   cursor: pointer;
+  z-index:2;
 }
+
+#cartIcon {
+	position: relative;
+	left: 1vw;
+    top: 1vh;
+}
+
 
 .mallCart-popup {
-position: relative;
-background-color: gray;
-opacity: 0.7;
-width: 100%;
-height: 100%;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    bottom: 0.05vh;
+    background-color: gray;
+    opacity: 0.7;
+    z-index: 1;
 }
 
+.mallCart-content {
+    position: fixed;
+    z-index: 1;
+    background-color: white;
+    width: 79vw;
+    height: 75vh;
+    left: 10vw;
+    top: 12vh;
+}
 
+.mallCart-title {
+	margin: 0;
+	position: relative;
+	top: 2vh;
+    left: 2vw;
+}
 
+.pickup-1 {
+	position: relative;
+    top: 3vh;
+    text-align: center;
+    left: 2vw;
+}
+
+.mallCart-table {
+	position: relative;
+	width: 78vw;
+	top: 7vh;
+    left: 2vw;
+}
 
 
 /* 반응형 나의 등급 주성 */
