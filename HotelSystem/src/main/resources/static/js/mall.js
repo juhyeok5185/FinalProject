@@ -52,11 +52,11 @@ function kakaojs(result) {
 
 const mallItems=[
 	{index: 1 , count:0 , price:3360000, name : 'BEDDING SET', stock:3},
-	{index: 2 , count:0 , price:20000, name : 88, stock:3},
-	{index: 3 , count:0 , price:20000, name : 88, stock:3},
-	{index: 4 , count:0 , price:20000, name : 88, stock:3},
-	{index: 5 , count:0 , price:20000, name : 88, stock:3},
-	{index: 6 , count:0 , price:20000, name : 88, stock:3},
+	{index: 2 , count:0 , price:2500000, name : 'MATTRESS', stock:3},
+	{index: 3 , count:0 , price:1850000, name : 'DUVET', stock:3},
+	{index: 4 , count:0 , price:400000, name : 'PILLOW', stock:3},
+	{index: 5 , count:0 , price:180000, name : 'ROOM SPRAY', stock:3},
+	{index: 6 , count:0 , price:93000, name : 'DEFUSER', stock:3},
 ];
 
 

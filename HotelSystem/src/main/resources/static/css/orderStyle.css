@@ -10,7 +10,7 @@
 	color: black;
 }
 
-.orderList-thead tr th{
+.orderListThead tr th{
 	color: black;
 }
 
@@ -32,7 +32,34 @@
   padding: 0 auto;
 }
 
+.orderList_page-1 {
+	width: 100%;
+	min-height: 100vh;
+	height: 100%;
+}
 
+.orderListToolbar-1 {
+    font-size: 12px;
+    width: 26vw;
+    position: relative;
+    left: 52vw;
+    color: black;
+    bottom: 10px;
+}
+
+.orderList_article-1 {
+	width: 80vw;
+	margin: auto;
+	margin-top: 2vh;
+}
+
+.orderListTable {
+	margin-top: 4vh;
+}
+
+.orderListThead-1 tr th {
+	color: black;
+}
 
 /*orderDetail*/
 .orderDetail-tr th, td {

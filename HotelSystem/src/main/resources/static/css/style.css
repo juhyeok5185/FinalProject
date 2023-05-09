@@ -3350,12 +3350,20 @@ div #logintoolbar > a {
     }
     
       /*명품관*/
-	#luxury_page {
-		display: none;
-	}
+	  #luxury_page {
+		  display: none;
+	  }
 	
     #luxuryarticle {
     	display: none;
+    }
+
+    .orderList_page {
+      display: none;
+    }
+
+    .orderList_article {
+      display: none;
     }
     
     /* 700이하에서 안보이게 함 */
@@ -3451,6 +3459,13 @@ div #logintoolbar > a {
     
     #luxuryarticle-1 {
     	display: none;
+    }
+
+    .orderList_page-1 {
+      display: none;
+    }
+    .orderList_article-1 {
+      display: none;
     }
     
     .itemList-icon {
@@ -3836,15 +3851,15 @@ div #logintoolbar > a {
 
 /* 나의등급 */
 
-/*명품관*/
+/*명품관 반응형*/
 #luxury_page-1 {
 	width: 100vw;
-	height: 300vh;
+	height: 100%;
+  min-height: 370vh;
 }
 
 #luxuryarticle-1 {
 	width: 80vw;
-	height: 300vh;
 	margin: auto;
 	margin-top: 2vh;
 }
