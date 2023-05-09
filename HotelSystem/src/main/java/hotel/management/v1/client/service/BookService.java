@@ -9,6 +9,7 @@ import hotel.management.v1.client.book.dao.BookDao;
 import hotel.management.v1.client.book.dto.BookDto;
 import hotel.management.v1.client.book.dto.BookDto.addbook;
 import hotel.management.v1.client.book.dto.BookDto.book;
+import hotel.management.v1.client.book.dto.BookDto.checkbookbyusername;
 import hotel.management.v1.client.book.dto.BookDto.dinner;
 import hotel.management.v1.client.book.dto.BookDto.finduser;
 import hotel.management.v1.client.book.dto.BookDto.myInFo;
@@ -76,6 +77,7 @@ public class BookService {
 		// TODO Auto-generated method stub
 		return dao.findUsersByUsername(name);
 	}
+
 
 
 }
