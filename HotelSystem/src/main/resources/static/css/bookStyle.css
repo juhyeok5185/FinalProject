@@ -94,12 +94,61 @@
 	margin-top: 10vh;
 	overflow: hidden;
 }
-#dinnerbookmain{
+
+#dinnerbookmain {
 	height: 120vh;
 }
-#inputdiv *{
+
+#inputdiv * {
 	margin-left: 10px;
 }
-#reservation-hotelinfo *{
+
+#reservation-hotelinfo * {
 	margin-left: 10px;
+}
+
+.orderDetail {
+	height: 699px;
+}
+
+.orderDetail-page {
+	height: 618px;
+}
+.detail-title{
+	text-align: center;
+	font-size: 30px
+}
+.detailOrder {
+	position: relative;
+	top: 10px;
+}
+
+.orderDetail-title {
+	height: 50px;
+	border-bottom: 1px solid #D8D8D8;
+	text-align: center;
+	
+}
+#bookdetail *{
+	height: 30px
+}
+#bookdetail td *{
+	margin-left: 30px;
+}
+#bookDetail-footer {
+	background-color: #f1e3c4;
+	width: 100%;
+	height: 80px;
+}
+#booker{
+	width: 65px;
+}
+#username{
+	width: 100px;
+}
+
+
+.bookDetail-logo img {
+	width: 100px;
+	height: 80px;
 }

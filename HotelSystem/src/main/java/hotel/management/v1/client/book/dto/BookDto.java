@@ -119,6 +119,14 @@ public class BookDto {
 	}
 	
 	@Data
+	public static class checkbookbyusername{
+		String from;
+		String to;
+		String username;
+	}
+	
+	
+	@Data
 	public static class managercheckroom {
 		String from;
 		String to;
