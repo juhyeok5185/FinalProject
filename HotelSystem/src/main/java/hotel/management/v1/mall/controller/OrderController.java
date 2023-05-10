@@ -23,34 +23,34 @@ import jakarta.servlet.http.HttpSession;
 public class OrderController {
 	@Autowired
 	private OrderService orderService;
-	
+
 	@PostMapping("/mall/order")
 	public ResponseEntity<?> order(OrdersDto.Order order, Principal principal, HttpSession session) {
 		session.setAttribute("tbodyArray", order.getTbodyArray());
 		session.setAttribute("pickupDay", order.getPickupDay());
 		return ResponseEntity.ok(null);
-	} //가은아 이거 restcontroller로 빼라
+	} // 가은아 이거 restcontroller로 빼라
 
 	@GetMapping("/mall/orderDetail")
 	public ModelAndView orderDetail(Integer orderNo) {
-		return new ModelAndView( "/hotel//mall/orderDetail").addObject("orderDetail", orderService.findByOrderNo(orderNo));
+		return new ModelAndView("/hotel//mall/orderDetail").addObject("orderDetail",
+				orderService.findByOrderNo(orderNo));
 	}
-		
+
 	@GetMapping("/mall/orderList")
 	public String list(Model model, Principal principal, RedirectAttributes re) {
 		if (principal == null) {
-			re.addFlashAttribute("msg","회원전용 페이지입니다. 로그인을 해주세요.");
+			re.addFlashAttribute("msg", "회원전용 페이지입니다. 로그인을 해주세요.");
 			return "redirect:/hotel/member/login";
 		}
 		model.addAttribute("orderlist", orderService.findAllOrder(principal.getName()));
 		return "/hotel/mall/orderList";
 	}
-	
+
 	@DeleteMapping("/mall/orderDelete")
 	public ResponseEntity<?> orderDelete(Integer orderNo, String itemName, Integer orderEA) {
 		orderService.orderDelete(orderNo, itemName, orderEA);
 		return ResponseEntity.ok(null);
 	}
-
 
 }

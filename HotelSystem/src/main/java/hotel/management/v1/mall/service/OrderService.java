@@ -13,20 +13,21 @@ import hotel.management.v1.mall.dto.OrdersDto.OrderList;
 public class OrderService {
 	@Autowired
 	OrderDao orderDao;
-	
+
 	public void mallOrder(String[] tbodyArray, String pickupDay, String username) {
 		String itemName = "";
 		int orderEA = 0;
 		int price = 0;
-		
-		for (int i = 0; i<tbodyArray.length; i++) {
-			int arrayIdx = tbodyArray[i].indexOf(":")+ 1;
-	
-			if (i%3==0) {
+		System.out.println("===============");
+		for (int i = 0; i < tbodyArray.length; i++) {
+			int arrayIdx = tbodyArray[i].indexOf(":") + 1;
+
+			if (i % 3 == 0) {
 				itemName = tbodyArray[i].substring(arrayIdx).trim().replaceAll("\"", "");
-			} else if (i%3==1) {
+				System.out.println(itemName);
+			} else if (i % 3 == 1) {
 				orderEA = Integer.parseInt(tbodyArray[i].substring(arrayIdx).trim().replaceAll("\"", ""));
-			} else if (i%3==2) {
+			} else if (i % 3 == 2) {
 				price = Integer.parseInt(tbodyArray[i].substring(arrayIdx).trim().replaceAll("\"|[{}\\[\\]]", ""));
 				orderDao.addOrder(itemName, username);
 				orderDao.addOrderDetail(price, pickupDay, orderEA);
@@ -34,11 +35,10 @@ public class OrderService {
 			}
 		}
 
-	
 	}
 
 	public List<OrdersDto.OrderList> findAllOrder(String username) {
-		List<OrdersDto.OrderList> list  = orderDao.findAllOrder(username);
+		List<OrdersDto.OrderList> list = orderDao.findAllOrder(username);
 		return list;
 	}
 
@@ -53,24 +53,4 @@ public class OrderService {
 		return 1;
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
