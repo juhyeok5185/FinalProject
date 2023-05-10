@@ -378,50 +378,70 @@
 	margin-top: 2vh;
 }
 
-
 #mallItem {
 	margin-top: 7vh;
 }
 
+.itemZone {
+	position: relative;
+    width: 80vw;
+    height: 43vh;
+    background-color: gray;
+    left: 10vw;
+	margin-bottom: 1vh;
+}
+
 .itemImg {
-	min-width: 50vw;
-	min-height: 50vh
+	min-width: 100%;
+    width: 80vw;
+    height: 35vh;
 }
 
-#mallItem div a {
-	text-decoration: none;
-}
-
-.item-btn-1 {
+.itemBtn {
 	position: relative;
-	left: 47.5px;
-	bottom: 1.5px;
+    left: 43.2vw;
+    bottom: 2.5vh;
 }
 
-.item-btn-2 {
+.itemBtn1 {
 	position: relative;
-	left: 49.2vw;
-	bottom: 1.5vh;
+    left: 43.5vw;
+    bottom: 2.5vh;
 }
 
-.item-btn-3 {
+.itemBtn2 {
 	position: relative;
-	left: 50.5vw;
-	bottom: 1.5vh;
+    left: 45.5vw;
+    bottom: 2.5vh;
+}
+
+.itemBtn3 {
+	position: relative;
+    left: 45.9vw;
+    bottom: 2.5vh;
+}
+
+.itemBtn4 {
+    position: relative;
+    left: 47.2vw;
+    bottom: 2.5vh;
 }
 
 /*명품관 반응형 아이콘*/
 .mallCart-icon {
-  position: fixed;
-  width: 8.6vw;
-  height: 6.3vh;
-  bottom: 10vh;
-  left: 85.5vw;
-  border-radius: 4vw;
-  background-color: white;
-  border: 1px solid #DBDBDB;
-  cursor: pointer;
-  z-index:2;
+	position: fixed;
+    bottom: 10vh;
+    left: 86.5vw;
+    border-radius: 25px;
+    background-color: white;
+    border: 1px solid #DBDBDB;
+    cursor: pointer;
+    z-index: 2;
+    min-width: 60px;
+    min-height: 60px;
+    width: 60px;
+    height: 60px;
+	transform: translate(-15%, -25%);
 }
 
 #cartIcon {
@@ -445,10 +465,12 @@
     position: fixed;
     z-index: 1;
     background-color: white;
-    width: 79vw;
+    width: 80%;
     height: 75vh;
     left: 10vw;
     top: 12vh;
+    border-radius: 20px;
+    border: 2px solid #856f56;
 }
 
 .mallCart-title {
