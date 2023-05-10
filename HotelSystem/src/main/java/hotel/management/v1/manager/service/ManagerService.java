@@ -57,9 +57,8 @@ public class ManagerService {
         }
 
         Integer searchRes = dao.searchRes(bookNoCount.getBookNo());
-        
         if (dinner == true){
-            if(searchRes == null){
+            if(searchRes == 0){
                 dao.updateDinner(bookNoCount.getBookNo() , bookNoCount.getTotalCount());
             }
         } else {
@@ -73,9 +72,7 @@ public class ManagerService {
     }
 
     public void checkIn(String roomNo , String tel ) {
-        System.out.println(1);
         tel = StringUtils.strip(tel);
-        System.out.println(2);
         Integer bookNo = dao.findBookNoByTel(tel);
         System.out.println(2);
         Integer intRoomNo = Integer.parseInt(roomNo);
