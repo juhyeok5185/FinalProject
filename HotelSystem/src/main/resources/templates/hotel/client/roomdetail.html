@@ -50,21 +50,33 @@
 						<input type="hidden" th:value=${to} id="ajaxto">
 						<table id="bookdetail" class="table table-hover">
 							<tr>
-								<td><input type="text" id="booker" placeholder="예약자"></td>
+								<td>
+								<input type="text" id="username" placeholder="회원아이디">
+									<button id = "checkbook" type = "button">예약확인</button>
+									<input type="hidden" id = "bookckresult" value="0">
+							</td>
 							</tr>
 							<tr>
 								<td>
-									<input type="text" id="username" placeholder="회원아이디">
-									<button id = "checkbook" type = "button">예약확인</button>
-									<input type="text" id = "bookckresult" value="0">
+									<input type="text" id="booker" placeholder="예약자">
 								</td>
 								
 							</tr>
 							<tr>
-								<td><input type="radio" id="myinfo"></td>
+								<td><input type="text" id="booktel" placeholder="예약자 전화번호">
+								
+								</td>
 							</tr>
 							<tr>
-								<td><input type="text" id="booktel" placeholder="예약자 전화번호"></td>
+								<td><input type ="number" id = "totalcnt" value="1"></td>
+							</tr>
+							<tr>
+								<td><label for="managerinfobox">회원정보로 예약:</label>
+								<input type="checkbox" id="managerinfobox" class="chekboox">
+								<label for="bfcheckbox">조식 여부 :</label>
+									<input type="checkbox" id ="bfcheckbox" class="chekboox">
+								<label for="dicheckbox">석식 여부 :</label>
+									<input type="checkbox" id ="dicheckbox" class="chekboox"></td>
 							</tr>
 
 						</table>

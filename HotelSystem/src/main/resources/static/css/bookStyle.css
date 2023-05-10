@@ -65,11 +65,15 @@
 	margin-right: 7vw;
 	margin-left: 2vw;
 }
-
+.chekboox{
+	position: relative;
+	top: 10px;
+	margin: 0 0;
+	}
 #bookpage {
 	overflow: hidden;
 	background-color: white;
-	width: 100vw;
+	width: 100%;
 	min-height: 71vh;
 	padding-top: 8vh;
 }

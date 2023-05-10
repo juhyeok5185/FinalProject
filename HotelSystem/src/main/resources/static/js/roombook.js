@@ -117,7 +117,7 @@ $(document).ready(async function() {
 				200: function() {
 					$('#bookckresult').val(1);
 				},
-				409:function(){
+				409: function() {
 					$('#bookckresult').val(3);
 				}
 			}
@@ -126,14 +126,54 @@ $(document).ready(async function() {
 
 
 	$('#managerbookbtn').click(function() {
+		const days= sessionStorage.getItem("day");
 		const result = $('#bookckresult').val();
 		if (result == 0) {
 			alert('예약확인을 해야 합니다.')
 			return
 		}
-		if(result==3){
+		if (result == 3) {
 			alert('이미 예약이 존재합니다')
 			return
+		}
+		if(result == 1){
+		const totalprice = $('#totalprice').val();
+		const booker =  $('#booker').val();
+		const booktel = $('#booktel').val();
+		const username = $('#username').val();
+		const gradename = $('#gradename').val();
+		const totalcnt = $('#totalcnt').val();
+		const from = $('#ajaxfrom').val();
+		const to = $('#ajaxto').val();
+		const bfcheckbox = $('#bfcheckbox').is(':checked');
+		const dicheckbox = $('#dicheckbox').is(':checked');
+		const param = {
+			username,
+			from,
+			to,
+			gradename,
+			totalcnt,
+			booker,
+			booktel,
+			bfcheckbox,
+			dicheckbox
+		}
+		console.log(param);
+		if(booker==''&&booktel==''){
+			alert("예약자와 예약자 전화번호를 입력하세요");
+		}
+		if(bfcheckbox){
+			
+		}
+		if(dicheckbox){
+			
+		}
+		$.ajax({
+			url:"/hotel/manager/checkin",
+			method: 'post',
+			dataType: "json",
+			data: param
+		})
 		}
 	})
 
@@ -206,6 +246,7 @@ $(document).ready(async function() {
 		$('#ajaxto').val(lastto);
 		printManagerRoomList(roomlist)
 		console.log(roomlist);
+		sessionStorage.setItem("days",diffDays);
 		$('#daymanager').text(diffDays + "일");
 	});
 
@@ -327,6 +368,37 @@ $(document).ready(async function() {
 			printtotalprice(gradeName, gradeprice);
 		}
 	});
+
+	$('#managerinfobox').click(async function() {
+		if ($('#username').val() == "") {
+			alert("사용자 이름을 입력하세요");
+			location.reload();
+		} else {
+			const $myinfo = $('#managerinfobox').is(':checked');
+			if ($myinfo == true) {
+				const res = await $.ajax({
+					url: "/hotel/client/myinfo",
+					method: 'post',
+					data:{
+						username : $('#username').val()
+					},
+					success: function(res) {
+						$('#booker').val(res.name).attr('disabled', true);
+						$('#booktel').val(res.tel).attr('disabled', true);
+					}
+				})
+
+
+			}
+			if ($myinfo == false) {
+				$('#booker').val('').attr('disabled', false);
+				$('#booktel').val('').attr('disabled', false);
+			}
+		}
+
+	})
+
+
 	$('#bookfooter').on("change", '#myinfobox', function() {
 		const $myinfo = $('#myinfobox').is(':checked');
 		if ($myinfo == true) {
@@ -336,7 +408,6 @@ $(document).ready(async function() {
 				success: function(res) {
 					$('#booker').val(res.name).attr('disabled', true);
 					$('#booktel').val(res.tel).attr('disabled', true);
-
 				}
 			})
 
@@ -350,6 +421,10 @@ $(document).ready(async function() {
 
 
 	})
+
+	
+
+
 
 	$("#reservation-btn").click(async function() {
 		const $foote2 = $("#bookfooter").html();

@@ -3,6 +3,7 @@ package hotel.management.v1.client.cotroller;
 import java.security.Principal;
 import java.util.List;
 
+import org.apache.ibatis.exceptions.TooManyResultsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -49,6 +50,12 @@ public class BookController {
 		return "/hotel/client/roombook";
 	}
 
+	@GetMapping("/client/roomdetail")
+	public ModelAndView roomdetail(String grandname,Integer price,String from,String to) {
+		
+		return new ModelAndView().addObject("gradename", grandname).addObject("totalprice", price)
+				.addObject("from", from).addObject("to",to);
+	}
 	@GetMapping("/client/dinnerbook")
 	public String dinnerPage(Principal pal, Model model, RedirectAttributes ra) {
 		if (pal == null) {
@@ -58,6 +65,11 @@ public class BookController {
 		return "/hotel/client/dinnerbook";
 	}
 
+	
+	
+	
+	
+	
 	@PostMapping("/client/chekin")
 	public ResponseEntity<?> chekin(BookDto.book book, Principal pal) {
 		service.add(book, pal.getName());
@@ -67,7 +79,7 @@ public class BookController {
 
 	@PostMapping(value = "/client/roombook", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<findRoom>> roomBook(String from, String to, HttpSession session, Principal pal) {
-		if (service.chekbook(pal.getName(), from, to) != null) {
+		if (service.chekbook(pal.getName(), from, to) != 0) {
 			return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
 		} else {
 			List<BookDto.findRoom> dto = null;
@@ -106,26 +118,42 @@ public class BookController {
 		return roomlist!=null? ResponseEntity.ok(roomlist):ResponseEntity.status(HttpStatus.CONFLICT).body(null);
 
 	}
-	@GetMapping("/client/roomdetail")
-	public ModelAndView roomdetail(String grandname,Integer price,String from,String to) {
-		
-		return new ModelAndView().addObject("gradename", grandname).addObject("totalprice", price)
-				.addObject("from", from).addObject("to",to);
-	}
 	
 	@PostMapping("/manager/checkbookbyusername")
 	public ResponseEntity<?> checkbookbyusername(BookDto.checkbookbyusername check){
-		System.out.println(check.toString());
-		if (service.chekbook(check.getUsername(),check.getFrom(),check.getTo())!=null) {
+		try {
+			System.out.println(check.toString());
+			if (service.chekbook(check.getUsername(),check.getFrom(),check.getTo())!=0) {
+				return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
+			}
+			return ResponseEntity.ok(null);
+		} catch (TooManyResultsException e) {
+			System.out.println(e.getStackTrace());
 			return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
 		}
-		return ResponseEntity.ok(null);
+		
 	}
 	
 	@PostMapping(value = "/client/myinfo",produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<?> test(Principal pal) {
-		BookDto.myInFo info = service.myinfoByUsername(pal.getName());
+	public ResponseEntity<?> myinfo(Principal pal,String username) {
+		BookDto.myInFo info = null;
+		if (username !=null) {
+			 info = service.myinfoByUsername(username);
+		}
+		if (pal!=null) {
+			info = service.myinfoByUsername(pal.getName());
+		}
 		return ResponseEntity.ok(info);
 	}
-
+	
+	
+	@PostMapping("/manager/checkin")
+	public ResponseEntity<?> managercheckin(BookDto.managerbook book){
+		System.out.println(book.toString());
+		BookDto.book bo = new BookDto.book(book.getFrom(), book.getTo(), book.getTotalcnt(), book.getGradename(), book.getBfcheckbox(),
+				book.getDicheckbox(), book.getBooker(),book.getBooktel());
+		service.add(bo, book.getUsername());
+		return ResponseEntity.ok(null);
+		
+	}
 }

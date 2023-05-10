@@ -59,10 +59,24 @@ public class BookDto {
 		String booktel;
 		String booker;
 	}
+	@Data 
+	public static class managerbook{
+		String username;
+		String from;
+		String to;
+		String gradename;
+		Integer totalcnt;
+		String booker;
+		String booktel;
+		Boolean bfcheckbox;
+		Boolean dicheckbox;
+	}
+	
 	
 	
 	@Data
 	@ToString
+	@AllArgsConstructor
 	public static class book {
 		String from;
 		String to;
@@ -97,6 +111,7 @@ public class BookDto {
 	public static class dinner{
 		String username;
 		Integer bookno;
+		String from;
 	}
 	@Data
 	public static class finduser {
