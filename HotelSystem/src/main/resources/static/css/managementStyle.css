@@ -122,11 +122,19 @@ tbody tr td {
 
 #detailPage {
   width: 100%;
-  height: 1000px;
+  height: 100vh;
 }
 #detailUserInfo {
+  width: 70vw;
+  height: 100vh;
+  margin: 0 auto;
+  padding-top: 25vh;
   text-align: center;
+}
+#detailTable tr {
+  border: 1px solid #a1886f;
 }
 #detailTable {
   /* margin-left: 31.5%; */
+  color: black;
 }

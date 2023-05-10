@@ -2850,10 +2850,10 @@ div #logintoolbar > a {
 .dark-mode #innerTextBox {
 	background-color: #2c2d30;
 }
-.dark-mode #innerTextBox span, th, td {
+.dark-mode #innerTextBox span th td {
 	color: gray;
 }
-.dark-mode #innerTextBox:hover span, th, td {
+.dark-mode #innerTextBox:hover span th td {
 	color: gray;
 }
 .dark-mode #totalPriceBox span {
