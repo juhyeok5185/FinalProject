@@ -240,6 +240,7 @@ $(document).ready(function () {
     }
   });
 
+  //데이터 피커
   const today = new Date();
   let dateFormat = "mm/dd/yy",
     from = $("#from")
@@ -300,4 +301,5 @@ $(document).ready(function () {
 
     return night + "박";
   }
+  //데이터피커
 });
