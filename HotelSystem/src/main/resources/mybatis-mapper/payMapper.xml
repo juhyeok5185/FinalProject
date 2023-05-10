@@ -7,4 +7,10 @@
 		partner_order_id=#{orderid},total_amount = #{amount}
 		, paytype = #{type} where bookno =(select max(b.bookno) from book b,payment p where b.bookno = p.bookno) 
 	</update>
+	<update id="paymenttoss">
+		update payment set tid = #{tid},
+		 item_name =#{itemname},
+		partner_order_id=#{orderid},total_amount = #{amount}
+		, paytype = #{type} where bookno =(select max(b.bookno) from book b,payment p where b.bookno = p.bookno) 
+	</update>
 </mapper>

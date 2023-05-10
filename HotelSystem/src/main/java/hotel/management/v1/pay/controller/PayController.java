@@ -66,12 +66,11 @@ public class PayController {
 	
 	@GetMapping("/pay/toss_success")
 	public String tosssuccess(@RequestParam("orderId") String orderId,@RequestParam("paymentKey") String paymentKey,@RequestParam("amount") Integer amount,Principal principal, HttpSession session) {
+		String gradename = (String)session.getAttribute("gradename");
 		String pickupDay = (String) session.getAttribute("pickupDay");
 		String[] tbodyArray = (String[])session.getAttribute("tbodyArray");
-		orderService.mallOrder(tbodyArray, pickupDay, principal.getName());
-		
-		payService.tossPayApprove(orderId,paymentKey,amount,principal.getName());
-		
+		payService.tossPayApprove(orderId,paymentKey,amount,gradename);
+		session.removeAttribute("gradename");
 		if(tbodyArray!=null) {
 			orderService.mallOrder(tbodyArray, pickupDay, principal.getName());
 			return "/hotel/luxurymallcomplete";
