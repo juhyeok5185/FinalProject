@@ -81,8 +81,12 @@ public class PayService {
 		return res;
 	}
 
-	public void tossPayApprove(String orderId, String paymentKey, Integer amount, String username) {
-		TossPayVo tp = new TossPayVo(orderId,paymentKey,amount,username);
+	public void tossPayApprove(String orderId, String paymentKey, Integer amount, String gradename) {
+		TossPayVo tp = new TossPayVo(orderId,paymentKey,amount,gradename);
+		
+		PayDto.bookAddPayment bookpayment = new bookAddPayment(orderId, paymentKey, gradename, amount, PayType.TOSS);
+		dao.paymenttoss(bookpayment);
+		
 	}
 
 	

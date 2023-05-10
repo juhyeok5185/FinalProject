@@ -19,9 +19,9 @@
 					class="nav-link dropdown-toggle" href="#" role="button"
 					data-bs-toggle="dropdown" id="textcolor">예약.주문확인</a>
 					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="#">객실</a></li>
-						<li><a class="dropdown-item" href="#">다이닝</a></li>
-						<li><a class="dropdown-item" href="#">명품관</a></li>
+						<li><a class="dropdown-item" href="/hotel/client/myroombook">객실</a></li>
+						<li><a class="dropdown-item" href="/hotel/client/mydinnerbook">다이닝</a></li>
+						<li><a class="dropdown-item" href="/hotel/mall/orderList">명품관</a></li>
 					</ul></li>
 				<li id="google_translate_element" class="nav-item dropdown"></li>
 			</ul>
@@ -89,9 +89,12 @@
 				<li><a class="dropdown-item" href="/hotel/member/changepassword" sec:authorize="hasAuthority('ROLE_USER')">비밀번호 변경</a></li>
 				<hr>
 				<li id="aboutfont">예약</li>
-				<li><a class="dropdown-item" href="#">예약</a></li>
-				<li><a class="dropdown-item" href="#">예약.주문조회</a></li>
+				<li><a class="dropdown-item" href="/hotel/client/roombook">객실 예약</a></li>
+				<li><a class="dropdown-item" href="/hotel/client/dinnerbook">다이닝 예약</a></li>
 				<li><a class="dropdown-item" href="/hotel/mall/itemList">명품관</a></li>
+				<li><a class="dropdown-item" href="/hotel/client/myroombook">객실예약 조회</a></li>
+				<li><a class="dropdown-item" href="/hotel/client/mydinnerbook">다이닝예약 조회</a></li>
+				<li><a class="dropdown-item" href="/hotel/mall/orderList">상품주문 조회</a></li>
 				<hr>
 				<li id="aboutfont">호텔소개</li>
 				<li><a class="dropdown-item" href="/hotel/hotelintroduce">개요</a></li>

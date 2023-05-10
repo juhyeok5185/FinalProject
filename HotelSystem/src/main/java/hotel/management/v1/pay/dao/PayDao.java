@@ -10,4 +10,7 @@ public interface PayDao {
 	
 
 	public Integer kakaobookadd(bookAddPayment bookpayment);
+
+	public Integer paymenttoss(bookAddPayment bookpayment);
+
 }
