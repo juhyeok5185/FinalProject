@@ -27,6 +27,9 @@
     <span th:if="${msg==null}">
         <div id="detailPage">
             <div id="detailUserInfo">
+            	<div id="detailInfo">
+            		<span>회원 상세정보</span>
+            	</div>
                 <table class="table table-bordered table-sm" id="detailTable">
                     <tr>
                         <td>이름</td>
@@ -45,7 +48,7 @@
                         <td th:text="${member.email}"></td>
                     </tr>
                     <tr>
-                        <td>주민번호</td>
+                        <td>생년월일</td>
                         <td th:text="${member.personalId}"></td>
                     </tr>
                     <tr>
@@ -69,13 +72,13 @@
                         <td th:text="${member.vip}"></td>
                     </tr>
                 </table>
-                <button id="blackBtn" class="btn btn-primary">블랙리스트 변경
+                <button id="blackBtn" class="btn btn-dark">블랙리스트 변경
                     <input type="hidden" th:field="*{member.userName}">
                 </button>
-                <button id="vipBtn" class="btn btn-primary">VIP 변경				
+                <button id="vipBtn" class="btn btn-dark">VIP 변경				
                     <input type="hidden" th:field="*{member.userName}">
                 </button>
-                <button id="ableBtn" class="btn btn-primary">아이디 활성화				
+                <button id="ableBtn" class="btn btn-dark">아이디 활성화				
                     <input type="hidden" th:field="*{member.userName}">
                 </button>
             </div>

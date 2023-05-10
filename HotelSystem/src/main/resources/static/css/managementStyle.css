@@ -128,13 +128,26 @@ tbody tr td {
   width: 70vw;
   height: 100vh;
   margin: 0 auto;
-  padding-top: 25vh;
+  padding-top: 5vh;
   text-align: center;
 }
 #detailTable tr {
-  border: 1px solid #a1886f;
+  border: 1px solid black;
 }
 #detailTable {
   /* margin-left: 31.5%; */
+  margin-top: 5vh;
   color: black;
+}
+#detailInfo {
+  font-size: 2.5em;
+}
+#blackBtn {
+  margin-top: 2vh;
+}
+#vipBtn {
+  margin-top: 2vh;
+}
+#ableBtn {
+  margin-top: 2vh;
 }
