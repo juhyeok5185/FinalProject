@@ -1,0 +1,473 @@
+/* 명품관 */
+#luxury_page {
+  width: 100%;
+  height:100%;
+  min-height: 180vh;
+  background-color: white;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+#luxuryarticle{
+  width: 50vw;
+  position: absolute;
+  left: 35vw;
+  margin-top: 10vh;
+}
+
+#luxuryarticle.add {
+	margin-top: 20vh;
+}
+
+#mall-aside{
+  width: 15%;
+  height: 25vh;
+  background-color:#f1e3c4; 
+  float: left;
+  position: absolute;
+  left: 15vw;
+  top: 24vh;
+}
+
+#luxurytem ul li {
+	list-style: none;
+	display: inline-block;
+	margin-right : 2vw;
+	margin-bottom: 6vh;
+	text-align: left;
+}
+
+#luxurytem ul li a {
+	text-decoration: none;
+}
+
+#luxurytem ul {
+	padding: 0;
+}
+
+.itemName {
+	color: black;
+	font-size: 24px;	
+} 
+
+.itemPrice {
+	color: black;
+}
+
+.item-btn {
+	cursor: pointer;
+	position: relative;
+	left: 9.4vw;
+	bottom: 2vh;
+}		
+
+.item-btn1 {
+	cursor: pointer;
+	position: relative;
+	left: 10.1vw;
+	bottom: 2vh;
+}			
+.item-btn2 {
+	cursor: pointer;
+	position: relative;
+	left: 10.6vw;
+	bottom: 2vh;
+}			
+
+#chargeInquiry {
+	background: url("/img/btn_estcharge_toggle2.png") 0 0 no-repeat;
+	width: 3vw;
+	height: 3.3vh;
+	background-position: 0 -32px;
+	position: relative;
+	bottom:1.7vh;
+	left: 0.6vw;
+	z-index: 3;
+	margin: auto;
+	display: block;
+}
+
+#chargeInquiry.fix {
+	position: fixed;
+	z-index: 3;
+	top:-77.5vh;
+    left: 49.1%;
+}
+
+#chargeInquiry.click {
+	position: fixed;
+	z-index: 3;
+	bottom: 88vh;
+	left: 49vw;
+}
+
+#totalCharge {
+	border-bottom:4px solid #856f56;
+	width: 100%;
+	height: 10.5vh;
+	background: white;
+	position: relative;
+	z-index: 1;
+}
+
+#totalCharge.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  margin-right:10vw;
+}
+							
+#totalChargeInner {
+	width: 80vw;
+	height: 10.5vh;
+	margin: 0 auto;
+}
+
+#totalBill {
+	width: 71.2vw;
+    height: 10.5vh;
+    padding:24px 0;
+}
+
+#totalBill.fix2 {
+	position: fixed;
+	top: -0.5vh;
+	left: 10.04vw;
+}
+
+#totalBox {
+	border-left: 1px solid #D8D8D8;
+	float: right;
+	width: 30vw;
+	height: 6vh;	
+	margin-right:1.3vw;
+}
+
+#totalText {
+	float: left;
+	width: 18vw;
+	height: 3vh;
+}
+
+#VAT {
+	width: 8vw;
+	float: left;
+	padding-top: 1vh;
+	margin: 0;
+	padding-left: 1vw;
+}
+
+#totalText span {
+	font-size: 15px;
+	font-weight: bold;
+	color: #362311;
+}
+
+#totalText p {
+	font-size: 8px;
+	margin: 0 auto;
+	color: #A4A4A4;
+}
+
+#totalPriceBox {
+	float: right;
+	color: #362311;
+	width: 10vw;
+	float: right;
+	text-align: right;
+	margin-top: 1.5vh;
+}
+
+#totalButton {
+	float: right;
+	width: 10vw;
+	height: 5vh;
+	text-align: center;
+}
+
+
+#totalBillDetailInner {
+	overflow: hidden;
+	transition: height 0.5s ease-in-out;
+	z-index: 2;
+	position: absolute;
+	left: -0.01vw;
+	background-color: white;
+}
+
+.totalBillDetail-collapsed {
+	transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	height: 0vh;
+	z-index: 2;
+	width: 100vw;
+}
+      
+.totalBillDetail-expanded {
+	height: 55vh;
+	transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	width: 100vw;
+	z-index: 2;
+	display: block;
+	border-bottom:4px solid #856f56;
+}
+
+
+#innerBox {
+	background-color: white;
+}
+
+#innerTextBox {
+	background-color: white;
+	width: 80vw;
+	height: 39.5vh;
+	position: absolute;
+	top:2vh;
+	left:10vw;
+}
+#textBox-title {
+	font-size: 25px;
+	color: #101010;
+	width: 10vw;
+}
+		
+
+#textBox-content {
+	width: 80vw;
+}
+
+
+#bg-popup{
+	width: 100vw;
+	height: 79vh;
+	background-color: gray;
+	opacity: 0.7;
+	position: fixed;
+	bottom: 0.01vh;
+	right: 0.01vw;
+	z-index: 1;
+}
+
+
+/*명품관 결제 팝업창 CSS*/
+#mallPaymentBtn {
+	cursor: pointer;
+}
+#paymentPopup {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	background-color: gray;
+	opacity: 0.7;
+	bottom: 0.01vh;
+	right: 0.01vw;
+	z-index: 5;
+}
+
+#paymentPopup-box {
+	width: 40vw;
+	height: 29vh;
+	background-color: white;
+	position: fixed;
+	left: 30vw;
+	top: 33vh;
+	opacity: 1;
+	margin: auto;
+	z-index: 6;
+}
+
+#paymentPopup-headerbar {
+	height: 8vh;
+	background-color: #cccccc;
+}
+
+#paymentPopup-headerbar>span {
+	position: absolute;
+	left: 1vw;
+	bottom: 23vh;
+	font-size: 20px;
+}
+
+#paymentPopup-cancle {
+	margin: 0;
+	position: relative;
+	left: 37.5vw;
+	top: 1.5vh;
+	width: 3vw;
+	height: 3vh;
+}
+
+#paymentPopup-cancle>a {
+	text-decoration: none;
+	color: black;
+}
+
+#paymentPopup-canclex {
+	color: #ffffff
+}
+
+#paymentPopup-btn>span {
+	font-size: 30px;
+}
+
+#choosePayment {
+	display: flex;
+	width: 40vw;
+	height: 24vh;
+	background-color: white;
+}
+
+.pickup {
+	position: relative;
+	left: 28vw;
+    top: 1.5vh;
+}
+
+#kakaopay-payment {
+	position: absolute;
+	top: 1.5vh;
+	left: 4.1vw;
+}
+
+#toss-payment {
+	position: absolute;
+	top: 1.5vh;
+	left: 4.1vw;
+}
+
+#choosePayment-box1 {
+	cursor : pointer;
+	width: 15vw;
+	height: 10vh;
+	border: 3px solid #eaeaea;
+	position: absolute;
+	left: 4.6vw;
+	top: 15vh;
+}
+
+#choosePayment-box2 {
+	cursor : pointer;
+	width: 15vw;
+	height: 10vh;
+	border: 3px solid #eaeaea;
+	position: absolute;
+	left: 20.4vw;
+	top: 15vh;
+}
+
+#choosePayment-box1:hover {
+	border: 3px solid #856f56;
+}
+
+#choosePayment-box2:hover {
+	border: 3px solid #856f56;
+}
+/*여기까지가 명품관 팝업창 설정*/
+
+
+/* 명품관 반응형 */
+#luxury_page-1 {
+	width: 100%;
+	height: 100%;
+  	min-height: 300vh;
+}
+
+#luxuryarticle-1 {
+	width: 100%;
+	margin: auto;
+	margin-top: 2vh;
+}
+
+
+#mallItem {
+	margin-top: 7vh;
+}
+
+.itemImg {
+	min-width: 50vw;
+	min-
+}
+
+#mallItem div a {
+	text-decoration: none;
+}
+
+.item-btn-1 {
+	position: relative;
+	left: 47.5px;
+	bottom: 1.5px;
+}
+
+.item-btn-2 {
+	position: relative;
+	left: 49.2vw;
+	bottom: 1.5vh;
+}
+
+.item-btn-3 {
+	position: relative;
+	left: 50.5vw;
+	bottom: 1.5vh;
+}
+
+/*명품관 반응형 아이콘*/
+.mallCart-icon {
+  position: fixed;
+  width: 8.6vw;
+  height: 6.3vh;
+  bottom: 10vh;
+  left: 85.5vw;
+  border-radius: 4vw;
+  background-color: white;
+  border: 1px solid #DBDBDB;
+  cursor: pointer;
+  z-index:2;
+}
+
+#cartIcon {
+	position: relative;
+	left: 1vw;
+    top: 1vh;
+}
+
+
+.mallCart-popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    bottom: 0.05vh;
+    background-color: gray;
+    opacity: 0.7;
+    z-index: 1;
+}
+
+.mallCart-content {
+    position: fixed;
+    z-index: 1;
+    background-color: white;
+    width: 79vw;
+    height: 75vh;
+    left: 10vw;
+    top: 12vh;
+}
+
+.mallCart-title {
+	margin: 0;
+	position: relative;
+	top: 2vh;
+    left: 2vw;
+}
+
+.pickup-1 {
+	position: relative;
+    top: 3vh;
+    text-align: center;
+    left: 2vw;
+}
+
+.mallCart-table {
+	position: relative;
+	width: 78vw;
+	top: 7vh;
+    left: 2vw;
+}

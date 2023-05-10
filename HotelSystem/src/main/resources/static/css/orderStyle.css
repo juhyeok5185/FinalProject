@@ -17,7 +17,7 @@
 .orderList_article {
   width: 50vw;
   position: relative;
-  left: 35vw;
+  left: 35vw;					
   margin-top: 10vh;
   overflow: hidden;
 }
