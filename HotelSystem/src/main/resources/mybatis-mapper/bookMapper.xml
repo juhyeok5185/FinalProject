@@ -29,13 +29,9 @@ from (
 	</insert>
 	<insert id="addDinner">
 		insert into dinner select b.bookno,b.totalcount,150000 from book b where
-		username=#{username} and b.bookno=#{bookno} and b.bookstatus = '체크인대기' and to_date(#{from},'MM/DD/YYYY') order by 1 desc FETCH FIRST 1 ROW ONLY
-	</insert>
-	<insert id="addDinnerbook">
-		insert into dinner select
-		b.bookno,b.totalcount,120000 from book b where b.username =
-		#{username} and b.bookno = #{resno} and rownum =1 order by 1 desc
-	</insert>
+		b.username=#{username} and b.bookno=#{bookno}	
+		</insert>
+	
 	<select id="findByUsernameAndBookdate" resultType="int">
 		select
 		b.bookno from book b where username = #{username} and bookdate =

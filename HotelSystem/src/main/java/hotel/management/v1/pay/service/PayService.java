@@ -11,8 +11,11 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import hotel.management.v1.pay.dao.PayDao;
+import hotel.management.v1.pay.dto.PayDto;
+import hotel.management.v1.pay.dto.PayDto.bookAddPayment;
 import hotel.management.v1.pay.entity.KakaoPayApproveVO;
 import hotel.management.v1.pay.entity.KakaoPayReadyVo;
+import hotel.management.v1.pay.entity.PayType;
 import hotel.management.v1.pay.entity.TossPayVo;
 import jakarta.servlet.http.HttpSession;
 
@@ -44,7 +47,12 @@ public class PayService {
 		String url = "https://kapi.kakao.com/v1/payment/ready";
 		KakaoPayReadyVo res = template.postForObject(url, request1, KakaoPayReadyVo.class);
 		//여기에다가 db에 저장하는 문법 만들기
-		dao.bookadd(res.getTid(),uuid,username);
+		//가은이가 갈라치기 해
+		String amount=(String)params.get("total_amount");
+		String itmename = (String)params.get("item_name");
+		PayDto.bookAddPayment bookpayment
+		= new bookAddPayment(res.getTid(), uuid,itmename ,Integer.parseInt(amount), PayType.KAKAO);
+		dao.kakaobookadd(bookpayment);
 		return res;
 	}
 
@@ -75,7 +83,6 @@ public class PayService {
 
 	public void tossPayApprove(String orderId, String paymentKey, Integer amount, String username) {
 		TossPayVo tp = new TossPayVo(orderId,paymentKey,amount,username);
-		dao.tossbookAdd(tp);
 	}
 
 	

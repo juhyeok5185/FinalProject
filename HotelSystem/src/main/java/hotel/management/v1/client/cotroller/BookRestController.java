@@ -23,52 +23,9 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/hotel")
-public class BookController {
+public class BookRestController {
 	@Autowired
 	private BookService service;
-	
-	@GetMapping("/manager/book")
-	public void managerbook() {
-		
-	}
-	@GetMapping("/client/mydinnerbook")
-	public ModelAndView mydinnerbook(Principal pal, ModelAndView mav) {
-		List<BookDto.mypagedinner> list = service.findMydinnerByusername(pal.getName());
-		return new ModelAndView().addObject("list", list);
-	}
-	@GetMapping("/client/myroombook")
-	public void myroombook() {
-	}
-	@GetMapping("/client/roombook")
-	public String bookPage(Principal pal, RedirectAttributes ra, Model model) {
-		if (pal == null) {
-			ra.addFlashAttribute("msg", "해당 상품은 멤버십 회원에게만 제공됩니다.");
-			return "redirect:/hotel/member/login";
-		}
-		BookDto.finduser user = service.findByusername(pal.getName());
-		model.addAttribute("user", user);
-		return "/hotel/client/roombook";
-	}
-
-	@GetMapping("/client/roomdetail")
-	public ModelAndView roomdetail(String grandname,Integer price,String from,String to) {
-		
-		return new ModelAndView().addObject("gradename", grandname).addObject("totalprice", price)
-				.addObject("from", from).addObject("to",to);
-	}
-	@GetMapping("/client/dinnerbook")
-	public String dinnerPage(Principal pal, Model model, RedirectAttributes ra) {
-		if (pal == null) {
-			ra.addFlashAttribute("msg", "해당 상품은 멤버십 회원에게만 제공됩니다.");
-			return "redirect:/hotel/member/login";
-		}
-		return "/hotel/client/dinnerbook";
-	}
-
-	
-	
-	
-	
 	
 	@PostMapping("/client/chekin")
 	public ResponseEntity<?> chekin(BookDto.book book, Principal pal) {
