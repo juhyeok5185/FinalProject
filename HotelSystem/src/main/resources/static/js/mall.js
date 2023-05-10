@@ -8,49 +8,6 @@ function sumTotalPrice() {
   totalPrice.text(tPrice + " 원");
 }
 
-class item {
-  constructor(itemName, orderEA, price) {
-    this.itemName = itemName;
-    this.orderEA = orderEA;
-    this.price = price;
-  }
-}
-
-function order(pickupDay, tbodyArray) {
-  $.ajax({
-    type: "post",
-    url: "/hotel/mall/order",
-    data: {
-      pickupDay: pickupDay,
-      tbodyArray: JSON.stringify(tbodyArray),
-    },
-    success: function (result) {},
-    error: function (error) {
-      console.log("실패");
-    },
-  });
-}
-
-// 카카오JS
-function kakaojs(result) {
-  $.ajax({
-    type: "get",
-    url: "/pay/start",
-    data: {
-      item_name: `${result.itemName}`, //상품명
-      quantity: "1", // 나는 고정
-      total_amount: `${result.itemPrice}`, //받아와야 하고
-      tax_free_amount: "0", //필수라 넣어야됨
-    },
-    success: function (res) {
-      location.href = res.next_redirect_pc_url;
-    },
-    error: function (error) {
-      console.log(error);
-    },
-  });
-}
-
 const mallItem = [
   {
     index: 1,
@@ -102,36 +59,15 @@ const mallItem = [
   },
 ];
 
-$(document).ready(function () {
-  let checkBtn = false;
-  let click = 0;
-  let trCount = 0;
-  var clientKey = "test_ck_D5GePWvyJnrK0W0k6q8gLzN97Eoq";
-  var tossPayments = TossPayments(clientKey);
-  let cartClick = 0;
+function addTr() {
+  const $tbody1 = $("#tbody1");
+  const $tbody2 = $("#tbody2");
 
-  // 상품담기
-  $(".item-btn").click(function () {
-    let index = $(this).data("index");
-    const $tbody1 = $("#tbody1");
-    const $tbody2 = $("#tbody2");
-
-    for (let i = 0; i < mallItem.length; i++) {
-      if (mallItem[i].index == index) {
-        if (mallItem[i].count >= mallItem[i].stock) {
-          alert("3개만 가능");
-          return;
-        }
-        mallItem[i].count++;
-        mallItem[i].totalPrice = mallItem[i].count * mallItem[i].price;
-      }
-    }
-
-    $tbody1.empty();
-    $tbody2.empty();
-    for (let i = 0; i < mallItem.length; i++) {
-      if (mallItem[i].count > 0) {
-        const tpl = `
+  $tbody1.empty();
+  $tbody2.empty();
+  for (let i = 0; i < mallItem.length; i++) {
+    if (mallItem[i].count > 0) {
+      const tpl = `
 				<tr>
 					<td class="tbodyName" id="tbodyName" style="line-height:50px">${mallItem[i].name}</td>
 					<td style="line-height:50px">
@@ -143,10 +79,79 @@ $(document).ready(function () {
 					<td style="line-height:50px"><button class="btn btn-outline-secondary delete" data-index=${mallItem[i].index}>X</button></td>
 				</tr>`;
 
-        $tbody1.append(tpl);
-        $tbody2.append(tpl);
+      $tbody1.append(tpl);
+      $tbody2.append(tpl);
+    }
+  }
+}
+
+class item {
+  constructor(itemName, orderEA, price) {
+    this.itemName = itemName;
+    this.orderEA = orderEA;
+    this.price = price;
+  }
+}
+
+function order(pickupDay, tbodyArray) {
+  $.ajax({
+    type: "post",
+    url: "/hotel/mall/order",
+    data: {
+      pickupDay: pickupDay,
+      tbodyArray: JSON.stringify(tbodyArray),
+    },
+    success: function (result) {},
+    error: function (error) {
+      console.log("실패");
+    },
+  });
+}
+
+// 카카오JS
+function kakaojs(result) {
+  $.ajax({
+    type: "get",
+    url: "/pay/start",
+    data: {
+      item_name: `${result.itemName}`, //상품명
+      quantity: "1", // 나는 고정
+      total_amount: `${result.itemPrice}`, //받아와야 하고
+      tax_free_amount: "0", //필수라 넣어야됨
+    },
+    success: function (res) {
+      location.href = res.next_redirect_pc_url;
+    },
+    error: function (error) {
+      console.log(error);
+    },
+  });
+}
+
+$(document).ready(function () {
+  let checkBtn = false;
+  let click = 0;
+  let trCount = 0;
+  var clientKey = "test_ck_D5GePWvyJnrK0W0k6q8gLzN97Eoq";
+  var tossPayments = TossPayments(clientKey);
+  let cartClick = 0;
+
+  // 상품담기
+  $(".item-btn").click(function () {
+    let index = $(this).data("index");
+
+    for (let i = 0; i < mallItem.length; i++) {
+      if (mallItem[i].index == index) {
+        if (mallItem[i].count >= mallItem[i].stock) {
+          alert("최대 " + mallItem[i].stock + "개까지만 선택할 수 있습니다.");
+          return;
+        }
+        mallItem[i].count++;
+        mallItem[i].totalPrice = mallItem[i].count * mallItem[i].price;
       }
     }
+
+    addTr();
     sumTotalPrice();
   });
 
@@ -170,7 +175,7 @@ $(document).ready(function () {
     let totalPrice2 = parseInt($totalPrice2.text());
 
     if (count1 == 1 || count2 == 1) {
-      alert("0개 이상");
+      alert("상품은 1개 이상부터 구매가 가능합니다.");
       return;
     }
     --count1;
@@ -220,7 +225,7 @@ $(document).ready(function () {
     let totalPrice2 = parseInt($totalPrice2.text());
 
     if (count1 == 3 || count2 == 3) {
-      alert("3개 이하");
+      alert("3개 이상 구매가 불가합니다.");
       return;
     }
     count1++;
@@ -250,8 +255,6 @@ $(document).ready(function () {
 
   // 삭제
   $(document).on("click", ".delete", function () {
-    const $tbody1 = $("#tbody1");
-    const $tbody2 = $("#tbody2");
     let index = $(this).data("index");
 
     for (let i = 0; i < mallItem.length; i++) {
@@ -260,27 +263,7 @@ $(document).ready(function () {
         mallItem[i].totalPrice = 0;
       }
     }
-
-    $tbody1.empty();
-    $tbody2.empty();
-    for (let i = 0; i < mallItem.length; i++) {
-      if (mallItem[i].count > 0) {
-        const tpl = `
-				<tr>
-					<td class="tbodyName" id="tbodyName" style="line-height:50px">${mallItem[i].name}</td>
-					<td style="line-height:50px">
-						<button class="btn btn-outline-secondary minus" data-index=${mallItem[i].index}>-<input type="hidden" value="${mallItem[i].price}"></button>
-						<span class="count">${mallItem[i].count}</span>
-						<button class="btn btn-outline-secondary plus" data-index=${mallItem[i].index}>+<input type="hidden" value="${mallItem[i].price}"></button>
-					</td>
-					<td class="price" style="line-height:50px">${mallItem[i].price}</td>
-					<td style="line-height:50px"><button class="btn btn-outline-secondary delete" data-index=${mallItem[i].index}>X</button></td>
-				</tr>`;
-
-        $tbody1.append(tpl);
-        $tbody2.append(tpl);
-      }
-    }
+    addTr();
     sumTotalPrice();
   });
 
@@ -327,7 +310,8 @@ $(document).ready(function () {
     $("html").attr("style", "overflow:none");
   });
 
-  // 결제하기
+  /* 결제 */
+  // 카카오페이
   $("#choosePayment-box1").click(function () {
     let trCount = 0;
     let pickupDay = $(".pickup").val();
@@ -342,17 +326,15 @@ $(document).ready(function () {
           saveName = true;
         }
         trCount++;
-        tbodyArray.push(
-          new item(mallItem[i].name, mallItem[i].count, mallItem[i].totalPrice)
-        );
+        tbodyArray.push(new item(mallItem[i].name, mallItem[i].count, mallItem[i].totalPrice));
       }
     }
-    let itemName =
-      `${trCount - 1}` == 0 ? firstName : firstName + ` 외${trCount - 1}건`;
+    let itemName = `${trCount - 1}` == 0 ? firstName : firstName + ` 외${trCount - 1}건`;
 
     order(pickupDay, tbodyArray);
     kakaojs({ itemPrice, itemName });
   });
+  //토스
   $("#choosePayment-box2").click(function () {
     let uuid = self.crypto.randomUUID();
     let pickupDay = $(".pickup").val();
@@ -367,13 +349,10 @@ $(document).ready(function () {
           saveName = true;
         }
         trCount++;
-        tbodyArray.push(
-          new item(mallItem[i].name, mallItem[i].count, mallItem[i].totalPrice)
-        );
+        tbodyArray.push(new item(mallItem[i].name, mallItem[i].count, mallItem[i].totalPrice));
       }
     }
-    let itemName =
-      `${trCount - 1}` == 0 ? firstName : firstName + ` 외${trCount - 1}건`;
+    let itemName = `${trCount - 1}` == 0 ? firstName : firstName + ` 외${trCount - 1}건`;
 
     order({ pickupDay, tbodyArray });
     tossPayments.requestPayment("TOSSPAY", {

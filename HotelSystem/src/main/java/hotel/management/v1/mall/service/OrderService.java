@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import hotel.management.v1.mall.dao.OrderDao;
 import hotel.management.v1.mall.dto.OrdersDto;
-import hotel.management.v1.mall.dto.OrdersDto.OrderList;
 
 @Service
 public class OrderService {
@@ -18,13 +17,10 @@ public class OrderService {
 		String itemName = "";
 		int orderEA = 0;
 		int price = 0;
-		System.out.println("===============");
 		for (int i = 0; i < tbodyArray.length; i++) {
 			int arrayIdx = tbodyArray[i].indexOf(":") + 1;
-
 			if (i % 3 == 0) {
 				itemName = tbodyArray[i].substring(arrayIdx).trim().replaceAll("\"", "");
-				System.out.println(itemName);
 			} else if (i % 3 == 1) {
 				orderEA = Integer.parseInt(tbodyArray[i].substring(arrayIdx).trim().replaceAll("\"", ""));
 			} else if (i % 3 == 2) {
