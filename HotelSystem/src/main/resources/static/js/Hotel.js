@@ -252,7 +252,6 @@ $(document).ready(function () {
       .on("change", function () {
         const selectedDate = getDate(this);
         to.datepicker("option", "minDate", selectedDate);
-        // 아래 코드로 당일도 선택할 수 없도록 설정합니다.
         to.datepicker("option", "beforeShowDay", function (date) {
           return [date.getTime() !== selectedDate.getTime()];
         });
