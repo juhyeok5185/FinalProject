@@ -174,6 +174,7 @@ $(document).ready(async function() {
 			dataType: "json",
 			data: param
 		})
+		window.close();
 		}
 	})
 
@@ -350,6 +351,7 @@ $(document).ready(async function() {
 			successUrl: "http://localhost:8081/pay/toss_success",
 			failUrl: "http://127.0.0.1:5500//fail.html",
 		});
+		
 	});
 
 	$("#paymentPopup-btn").click(function() {

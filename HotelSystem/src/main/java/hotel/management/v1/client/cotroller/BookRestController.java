@@ -28,8 +28,9 @@ public class BookRestController {
 	private BookService service;
 	
 	@PostMapping("/client/chekin")
-	public ResponseEntity<?> chekin(BookDto.book book, Principal pal) {
+	public ResponseEntity<?> chekin(BookDto.book book, Principal pal,HttpSession httpSession) {
 		service.add(book, pal.getName());
+		httpSession.setAttribute("gradename",book.getGradename());
 		return ResponseEntity.ok(null);
 
 	}
