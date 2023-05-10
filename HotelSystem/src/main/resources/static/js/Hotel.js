@@ -36,20 +36,20 @@ function chackDarkMode() {
     $body.addClass("dark-mode");
     $logoImg.attr("src", "/img/logo_darkmode.png");
     $footerLogoImg.attr("src", "/img/logo_darkmode.png");
-    $packageImg.attr("src","/img/whitepackage.png");
-    $packageImg1.attr("src","/img/whitepackage.png");
-    $discountImg1.attr("src","/img/whitediscount.png");
-    $boxImg1.attr("src","/img/white기타.png");
-    $packageImg2.attr("src","/img/whitepackage.png");
-    $discountImg2.attr("src","/img/whitediscount.png");
-    $boxImg2.attr("src","/img/white기타.png");
-    $darkPackageImg.attr("src","/img/whitepackage.png");
-    $darkPackageImg1.attr("src","/img/whitepackage.png");
-    $darkDiscountImg1.attr("src","/img/whitediscount.png");
-    $darkBoxImg1.attr("src","/img/white기타.png");
-    $darkPackageImg2.attr("src","/img/whitepackage.png");
-    $darkDiscountImg2.attr("src","/img/whitediscount.png");
-    $darkBoxImg2.attr("src","/img/white기타.png");
+    $packageImg.attr("src", "/img/whitepackage.png");
+    $packageImg1.attr("src", "/img/whitepackage.png");
+    $discountImg1.attr("src", "/img/whitediscount.png");
+    $boxImg1.attr("src", "/img/white기타.png");
+    $packageImg2.attr("src", "/img/whitepackage.png");
+    $discountImg2.attr("src", "/img/whitediscount.png");
+    $boxImg2.attr("src", "/img/white기타.png");
+    $darkPackageImg.attr("src", "/img/whitepackage.png");
+    $darkPackageImg1.attr("src", "/img/whitepackage.png");
+    $darkDiscountImg1.attr("src", "/img/whitediscount.png");
+    $darkBoxImg1.attr("src", "/img/white기타.png");
+    $darkPackageImg2.attr("src", "/img/whitepackage.png");
+    $darkDiscountImg2.attr("src", "/img/whitediscount.png");
+    $darkBoxImg2.attr("src", "/img/white기타.png");
     $checkbox.prop("checked", true);
 
     $("#img1").attr("src", "/img/res3.jpg");
@@ -62,7 +62,7 @@ function chackDarkMode() {
     $("#packageImg2").attr("src", "/img/whitepackage.png");
     $("#discountImg2").attr("src", "/img/whitediscount.png");
     $("#boxImg2").attr("src", "/img/white기타.png");
-    
+
     $("#darkPackageImg").attr("src", "/img/whitepackage.png");
     $("#darkPackageImg1").attr("src", "/img/whitepackage.png");
     $("#darkDiscountImg1").attr("src", "/img/whitediscount.png");
@@ -74,20 +74,20 @@ function chackDarkMode() {
     $body.removeClass("dark-mode");
     $logoImg.attr("src", "/img/logo.png");
     $footerLogoImg.attr("src", "/img/logo.png");
-    $packageImg.attr("src","/img/package.png");
-    $packageImg1.attr("src","/img/package.png");
-    $discountImg1.attr("src","/img/discount.png");
-    $boxImg1.attr("src","/img/기타.png");
-    $packageImg2.attr("src","/img/package.png");
-    $discountImg2.attr("src","/img/discount.png");
-    $boxImg2.attr("src","/img/기타.png");
-    $darkPackageImg.attr("src","/img/package.png");
-    $darkPackageImg1.attr("src","/img/package.png");
-    $darkDiscountImg1.attr("src","/img/discount.png");
-    $darkBoxImg1.attr("src","/img/기타.png");
-    $darkPackageImg2.attr("src","/img/package.png");
-    $darkDiscountImg2.attr("src","/img/discount.png");
-    $darkBoxImg2.attr("src","/img/기타.png");
+    $packageImg.attr("src", "/img/package.png");
+    $packageImg1.attr("src", "/img/package.png");
+    $discountImg1.attr("src", "/img/discount.png");
+    $boxImg1.attr("src", "/img/기타.png");
+    $packageImg2.attr("src", "/img/package.png");
+    $discountImg2.attr("src", "/img/discount.png");
+    $boxImg2.attr("src", "/img/기타.png");
+    $darkPackageImg.attr("src", "/img/package.png");
+    $darkPackageImg1.attr("src", "/img/package.png");
+    $darkDiscountImg1.attr("src", "/img/discount.png");
+    $darkBoxImg1.attr("src", "/img/기타.png");
+    $darkPackageImg2.attr("src", "/img/package.png");
+    $darkDiscountImg2.attr("src", "/img/discount.png");
+    $darkBoxImg2.attr("src", "/img/기타.png");
     $checkbox.prop("checked", false);
 
     $("#img1").attr("src", "/img/pool6.jpg");
@@ -113,20 +113,20 @@ function chackDarkMode() {
     if ($checkbox.prop("checked")) {
       $logoImg.attr("src", "/img/logo_darkmode.png");
       $footerLogoImg.attr("src", "/img/logo_darkmode.png");
-      $packageImg.attr("src","/img/whitepackage.png");
-      $packageImg1.attr("src","/img/whitepackage.png");
-      $discountImg1.attr("src","/img/whitediscount.png");
-      $boxImg1.attr("src","/img/white기타.png");
-      $packageImg2.attr("src","/img/whitepackage.png");
-      $discountImg2.attr("src","/img/whitediscount.png");
-      $boxImg2.attr("src","/img/white기타.png");
-      $darkPackageImg.attr("src","/img/whitepackage.png");
-      $darkPackageImg1.attr("src","/img/whitepackage.png");
-      $darkDiscountImg1.attr("src","/img/whitediscount.png");
-      $darkBoxImg1.attr("src","/img/white기타.png");
-      $darkPackageImg2.attr("src","/img/whitepackage.png");
-      $darkDiscountImg2.attr("src","/img/whitediscount.png");
-      $darkBoxImg2.attr("src","/img/white기타.png");
+      $packageImg.attr("src", "/img/whitepackage.png");
+      $packageImg1.attr("src", "/img/whitepackage.png");
+      $discountImg1.attr("src", "/img/whitediscount.png");
+      $boxImg1.attr("src", "/img/white기타.png");
+      $packageImg2.attr("src", "/img/whitepackage.png");
+      $discountImg2.attr("src", "/img/whitediscount.png");
+      $boxImg2.attr("src", "/img/white기타.png");
+      $darkPackageImg.attr("src", "/img/whitepackage.png");
+      $darkPackageImg1.attr("src", "/img/whitepackage.png");
+      $darkDiscountImg1.attr("src", "/img/whitediscount.png");
+      $darkBoxImg1.attr("src", "/img/white기타.png");
+      $darkPackageImg2.attr("src", "/img/whitepackage.png");
+      $darkDiscountImg2.attr("src", "/img/whitediscount.png");
+      $darkBoxImg2.attr("src", "/img/white기타.png");
       $body.addClass("dark-mode");
       localStorage.setItem("dark-mode-enabled", "true");
       $("#img1").attr("src", "/img/res3.jpg");
@@ -150,20 +150,20 @@ function chackDarkMode() {
       $body.removeClass("dark-mode");
       $logoImg.attr("src", "/img/logo.png");
       $footerLogoImg.attr("src", "/img/logo.png");
-      $packageImg.attr("src","/img/package.png");
-      $packageImg1.attr("src","/img/package.png");
-      $discountImg1.attr("src","/img/discount.png");
-      $boxImg1.attr("src","/img/기타.png");
-      $packageImg2.attr("src","/img/package.png");
-      $discountImg2.attr("src","/img/discount.png");
-      $boxImg2.attr("src","/img/기타.png");
-      $darkPackageImg.attr("src","/img/package.png");
-      $darkPackageImg1.attr("src","/img/package.png");
-      $darkDiscountImg1.attr("src","/img/discount.png");
-      $darkBoxImg1.attr("src","/img/기타.png");
-      $darkPackageImg2.attr("src","/img/package.png");
-      $darkDiscountImg2.attr("src","/img/discount.png");
-      $darkBoxImg2.attr("src","/img/기타.png");
+      $packageImg.attr("src", "/img/package.png");
+      $packageImg1.attr("src", "/img/package.png");
+      $discountImg1.attr("src", "/img/discount.png");
+      $boxImg1.attr("src", "/img/기타.png");
+      $packageImg2.attr("src", "/img/package.png");
+      $discountImg2.attr("src", "/img/discount.png");
+      $boxImg2.attr("src", "/img/기타.png");
+      $darkPackageImg.attr("src", "/img/package.png");
+      $darkPackageImg1.attr("src", "/img/package.png");
+      $darkDiscountImg1.attr("src", "/img/discount.png");
+      $darkBoxImg1.attr("src", "/img/기타.png");
+      $darkPackageImg2.attr("src", "/img/package.png");
+      $darkDiscountImg2.attr("src", "/img/discount.png");
+      $darkBoxImg2.attr("src", "/img/기타.png");
       localStorage.setItem("dark-mode-enabled", "false");
       $("#img1").attr("src", "/img/pool6.jpg");
       $("#img2").attr("src", "/img/pool4.jpg");
@@ -240,16 +240,22 @@ $(document).ready(function () {
     }
   });
 
-  //주혁
+  const today = new Date();
   let dateFormat = "mm/dd/yy",
     from = $("#from")
       .datepicker({
         defaultDate: null,
         changeMonth: true,
         numberOfMonths: 1,
+        minDate: today,
       })
       .on("change", function () {
-        to.datepicker("option", "minDate", getDate(this));
+        const selectedDate = getDate(this);
+        to.datepicker("option", "minDate", selectedDate);
+        // 아래 코드로 당일도 선택할 수 없도록 설정합니다.
+        to.datepicker("option", "beforeShowDay", function (date) {
+          return [date.getTime() !== selectedDate.getTime()];
+        });
         const $to = $("#to");
         $to.prop("disabled", false);
       }),
@@ -260,25 +266,9 @@ $(document).ready(function () {
         numberOfMonths: 1,
       })
       .on("change", function () {
-        from.datepicker("option", "maxDate", getDate(this));
-        const splitFrom = from.val().split("/");
-        const fromYear = splitFrom[2];
-        const fromMonth = splitFrom[0] - 1;
-        const fromDay = splitFrom[1];
-        const intFrom = new Date(fromYear, fromMonth, fromDay);
-        const splitTo = to.val().split("/");
-        const toYear = splitTo[2];
-        const toMonth = splitTo[0] - 1;
-        const toDay = splitTo[1];
-        const intTo = new Date(toYear, toMonth, toDay);
-        const diffInMilliseconds = intFrom - intTo;
-        const diffInSeconds = diffInMilliseconds / 1000;
-        const diffInMinutes = diffInSeconds / 60;
-        const diffInHours = diffInMinutes / 60;
-        const diffInDays = diffInHours / 24;
-        let night = -diffInDays;
-
-        $(".night").text(night + "박");
+        const selectedDate = getDate(this);
+        from.datepicker("option", "maxDate", selectedDate);
+        $(".night").text(calculateNight());
       });
 
   function getDate(element) {
@@ -289,5 +279,26 @@ $(document).ready(function () {
       date = null;
     }
     return date;
+  }
+
+  function calculateNight() {
+    const splitFrom = from.val().split("/");
+    const fromYear = splitFrom[2];
+    const fromMonth = splitFrom[0] - 1;
+    const fromDay = splitFrom[1];
+    const intFrom = new Date(fromYear, fromMonth, fromDay);
+    const splitTo = to.val().split("/");
+    const toYear = splitTo[2];
+    const toMonth = splitTo[0] - 1;
+    const toDay = splitTo[1];
+    const intTo = new Date(toYear, toMonth, toDay);
+    const diffInMilliseconds = intTo - intFrom;
+    const diffInSeconds = diffInMilliseconds / 1000;
+    const diffInMinutes = diffInSeconds / 60;
+    const diffInHours = diffInMinutes / 60;
+    const diffInDays = diffInHours / 24;
+    let night = Math.floor(diffInDays);
+
+    return night + "박";
   }
 });
