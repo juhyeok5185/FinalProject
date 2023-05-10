@@ -33,13 +33,14 @@ public class BookService {
 		BookDto.addbook ab = new BookDto.addbook(pal, book.getFrom(), book.getTotalcnt(), book.getBooktel(),
 				book.getBooker());
 
-//		dao.addBook(ab);
-//		dao.addRoomBooking(rb);
+		dao.addBook(ab);
+		dao.addRoomBooking(rb);
 		BookDto.whtyouname name = new BookDto.whtyouname(pal, book.getBooktel(), book.getBooker(), book.getFrom(),
 				book.getTo());
-		BookDto.dinner data = new dinner(name.getUsername(), dao.findBooknoByusername(name.getUsername()),name.getFrom());
+		BookDto.dinner data = new dinner(name.getUsername(), dao.findByUsernameAndBookdate(name.getUsername(),name.getFrom()),name.getFrom());
 		if (book.getDicheckbox()) {
-//			dao.addDinner(data);
+			System.out.println(data.toString());
+			dao.addDinner(data);
 		}
 	}
 
@@ -52,29 +53,25 @@ public class BookService {
 //		}
 		BookDto.addbook bo = new addbook(name, book.getFrom(), book.getTotalcnt(), book.getBooktel(), book.getBooker());
 		System.out.println(bo.toString());
-//		dao.addBook(bo);
+		dao.addBook(bo);
 		BookDto.dinner din = new dinner(name, dao.findBooknoByusername(name),book.getFrom());
-//		dao.addDinner(din);
+		dao.addDinner(din);
 		return null;
 	}
 
 	public finduser findByusername(String name) {
-		// TODO Auto-generated method stub
 		return dao.findByusername(name);
 	}
 
 	public List<mypagedinner> findMydinnerByusername(String name) {
-		// TODO Auto-generated method stub
 		return dao.findMydinnerByusername(name);
 	}
 
 	public Integer chekbook(String username, String from, String to) {
-		// TODO Auto-generated method stub
 		return dao.chekbook(username, from, to);
 	}
 
 	public myInFo myinfoByUsername(String name) {
-		// TODO Auto-generated method stub
 		return dao.findUsersByUsername(name);
 	}
 
