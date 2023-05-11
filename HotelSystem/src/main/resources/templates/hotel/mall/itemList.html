@@ -50,6 +50,8 @@
               }
             });
           </script>
+          
+          
           <div id="totalChargeInner">
             <div id="totalBill">
               <input type="text" class="pickup" id="from" name="from" placeholder="상품픽업 날짜를 고르세요" />
@@ -60,7 +62,7 @@
                     <p>부가가치세 포함</p>
                   </div>
                   <div id="totalPriceBox">
-                    <span id="totalPrice"></span>
+                    <span class="totalPrice"></span>
                   </div>
                 </div>
                 <div id="totalButton">
@@ -190,26 +192,44 @@
         <div class="mallCart-icon">
           <img id="cartIcon" alt="카트" src="/img/카트.png" width="45vw;" height="45vh;" />
         </div>
-        <div class="mallCart-content" style="display: none">
-          <h4 class="mallCart-title">요금상세</h4>
-          <input type="text" class="pickup-1" id="from" name="from" placeholder="상품픽업 날짜를 고르세요" />
-          <table class="mallCart-table">
-            <colgroup>
-              <col width="40%" />
-              <col width="30%" />
-              <col width="20%" />
-              <col width="10%" />
-            </colgroup>
-            <thead>
-              <tr>
-                <th>상품명</th>
-                <th>수량</th>
-                <th>가격</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody id="tbody2"></tbody>
-          </table>
+        <div class="mallCart-list" style="display: none">
+          <div class="mallCart-title">
+          	<h2 style="font-weight: bold">요금상세</h2>
+          	<input type="text" class="pickup"  id="pickup-1" name="from" placeholder="상품픽업 날짜를 고르세요" />
+          </div>
+          <div class="mallCart-content">
+	          <table class="mallCart-table">
+	            <colgroup>
+	              <col width="40%" />
+	              <col width="30%" />
+	              <col width="20%" />
+	              <col width="10%" />
+	            </colgroup>
+	            <thead>
+	              <tr>
+	                <th>상품명</th>
+	                <th>수량</th>
+	                <th>가격</th>
+	                <th></th>
+	              </tr>
+	            </thead>
+	            <tbody id="tbody2"></tbody>
+	          </table>
+          </div>
+          <div class="cartPay">
+          	<div id="cartTotalPrice">
+          		<span>요금합계 :</span>
+          		<span class="totalPrice" id="priceView"></span>
+          	</div>
+          	<div id="cartOrder">
+          		<div id="payType-kakao">
+          			<img alt="카카오" src="/img/kakaopay.png" style="width: 15vw; height: 7vh;">
+          		</div>
+          		<div id="payType-toss">
+          			<img alt="토스" src="/img/toss.png" style="width: 15vw; height: 7vh;">
+          		</div>
+          	</div>
+          </div>
         </div>
         <div id="luxuryarticle-1">
           <div id="headtit-1">
@@ -221,42 +241,42 @@
               <img class="itemImg" alt="침구세트" src="/img/침구세트.jpg" />
               <span class="itemName-1" data-index="1">BEDDING SET</span><br />
               <span class="itemPrice-1" data-index="1">3,360,000</span>
-              <span class="item-btn itemBtn" data-index="1"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+              <span class="item-btn" data-index="1"><img class="itemBtn" alt="선택버튼" src="/img/선택버튼.png" /></span>
             </div>
             <br />
             <div id="mallItem-2" class="itemZone">
               <img class="itemImg" alt="매트리스" src="/img/매트리스.jpg" />
               <span class="itemName-1" data-index="2">MATTRESS</span><br />
               <span class="itemPrice-1" data-index="2">2,500,000</span>
-              <span class="item-btn itemBtn1" data-index="2"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+              <span class="item-btn" data-index="2"><img class="itemBtn" alt="선택버튼" src="/img/선택버튼.png" /></span>
             </div>
             <br />
             <div id="mallItem-3" class="itemZone">
               <img class="itemImg" alt="이불" src="/img/이불.jpg" />
               <span class="itemName-1" data-index="3">DUVET</span><br />
               <span class="itemPrice-1" data-index="3">1,850,000</span>
-              <span class="item-btn itemBtn1" data-index="3"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+              <span class="item-btn" data-index="3"><img class="itemBtn" alt="선택버튼" src="/img/선택버튼.png" /></span>
             </div>
             <br />
             <div id="mallItem-4" class="itemZone">
               <img class="itemImg" alt="베개" src="/img/배개.jpg" />
               <span class="itemName-1" data-index="4">PILLOW</span><br />
               <span class="itemPrice-1" data-index="4">400,000</span>
-              <span class="item-btn itemBtn2" data-index="4"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+              <span class="item-btn" data-index="4"><img class="itemBtn1" alt="선택버튼" src="/img/선택버튼.png" /></span>
             </div>
             <br />
             <div id="mallItem-5" class="itemZone">
               <img class="itemImg" alt="룸스프레이" src="/img/룸스프레이.jpg" />
               <span class="itemName-1" data-index="5">ROOM SPRAY</span><br />
               <span class="itemPrice-1" data-index="5">180,000</span>
-              <span class="item-btn itemBtn3" data-index="5"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+              <span class="item-btn" data-index="5"><img class="itemBtn1" alt="선택버튼" src="/img/선택버튼.png" /></span>
             </div>
             <br />
             <div id="mallItem-6" class="itemZone">
               <img class="itemImg" alt="디퓨저" src="/img/호텔고급디퓨저아로마향.png" />
               <span class="itemName-1" data-index="6">DEFUSER</span><br />
               <span class="itemPrice-1" data-index="6">93,000</span>
-              <span class="item-btn itemBtn4" data-index="6"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+              <span class="item-btn" data-index="6"><img class="itemBtn2" alt="선택버튼" src="/img/선택버튼.png" /></span>
             </div>
           </div>
         </div>
