@@ -9,16 +9,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import hotel.management.v1.client.book.dto.BookDto;
 import hotel.management.v1.client.book.dto.BookDto.findRoom;
 import hotel.management.v1.client.service.BookService;
+import hotel.management.v1.pay.entity.PayType;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -26,11 +23,11 @@ import jakarta.servlet.http.HttpSession;
 public class BookRestController {
 	@Autowired
 	private BookService service;
-	
+
 	@PostMapping("/client/chekin")
-	public ResponseEntity<?> chekin(BookDto.book book, Principal pal,HttpSession httpSession) {
+	public ResponseEntity<?> chekin(BookDto.book book, Principal pal, HttpSession httpSession) {
 		service.add(book, pal.getName());
-		httpSession.setAttribute("gradename",book.getGradename());
+		httpSession.setAttribute("gradename", book.getGradename());
 		return ResponseEntity.ok(null);
 
 	}
@@ -67,21 +64,20 @@ public class BookRestController {
 		service.findByusername(pal.getName());
 		return ResponseEntity.ok(null);
 	}
-	
 
 	@PostMapping(value = "/manager/checkroom", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<?> checkroom(BookDto.managercheckroom room){
+	public ResponseEntity<?> checkroom(BookDto.managercheckroom room) {
 		List<BookDto.findRoom> roomlist = service.findRoom(room.getFrom(), room.getTo());
-		 
-		return roomlist!=null? ResponseEntity.ok(roomlist):ResponseEntity.status(HttpStatus.CONFLICT).body(null);
+
+		return roomlist != null ? ResponseEntity.ok(roomlist) : ResponseEntity.status(HttpStatus.CONFLICT).body(null);
 
 	}
-	
+
 	@PostMapping("/manager/checkbookbyusername")
-	public ResponseEntity<?> checkbookbyusername(BookDto.checkbookbyusername check){
+	public ResponseEntity<?> checkbookbyusername(BookDto.checkbookbyusername check) {
 		try {
 			System.out.println(check.toString());
-			if (service.chekbook(check.getUsername(),check.getFrom(),check.getTo())!=0) {
+			if (service.chekbook(check.getUsername(), check.getFrom(), check.getTo()) != 0) {
 				return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
 			}
 			return ResponseEntity.ok(null);
@@ -89,29 +85,29 @@ public class BookRestController {
 			System.out.println(e.getStackTrace());
 			return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
 		}
-		
+
 	}
-	
-	@PostMapping(value = "/client/myinfo",produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<?> myinfo(Principal pal,String username) {
+
+	@PostMapping(value = "/client/myinfo", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> myinfo(Principal pal, String username) {
 		BookDto.myInFo info = null;
-		if (username !=null) {
-			 info = service.myinfoByUsername(username);
+		if (username != null) {
+			info = service.myinfoByUsername(username);
 		}
-		if (pal!=null) {
+		if (pal != null) {
 			info = service.myinfoByUsername(pal.getName());
 		}
 		return ResponseEntity.ok(info);
 	}
-	
-	
+
 	@PostMapping("/manager/checkin")
-	public ResponseEntity<?> managercheckin(BookDto.managerbook book){
+	public ResponseEntity<?> managercheckin(BookDto.managerbook book) {
 		System.out.println(book.toString());
-		BookDto.book bo = new BookDto.book(book.getFrom(), book.getTo(), book.getTotalcnt(), book.getGradename(), book.getBfcheckbox(),
-				book.getDicheckbox(), book.getBooker(),book.getBooktel());
+		BookDto.book bo = new BookDto.book(book.getFrom(), book.getTo(), book.getTotalcnt(), book.getGradename(),
+				book.getBfcheckbox(), book.getDicheckbox(), book.getBooker(), book.getBooktel(), null,PayType.YET);
 		service.add(bo, book.getUsername());
+		service.manageradd(bo);
 		return ResponseEntity.ok(null);
-		
+
 	}
 }

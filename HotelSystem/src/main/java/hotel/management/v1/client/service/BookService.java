@@ -9,17 +9,20 @@ import hotel.management.v1.client.book.dao.BookDao;
 import hotel.management.v1.client.book.dto.BookDto;
 import hotel.management.v1.client.book.dto.BookDto.addbook;
 import hotel.management.v1.client.book.dto.BookDto.book;
-import hotel.management.v1.client.book.dto.BookDto.checkbookbyusername;
 import hotel.management.v1.client.book.dto.BookDto.dinner;
 import hotel.management.v1.client.book.dto.BookDto.finduser;
 import hotel.management.v1.client.book.dto.BookDto.myInFo;
 import hotel.management.v1.client.book.dto.BookDto.mypagedinner;
+import hotel.management.v1.pay.dao.PayDao;
 
 @Service
 public class BookService {
 	@Autowired
 	private BookDao dao;
-
+	
+	@Autowired
+	private PayDao pdao;
+	
 	public List<BookDto.findRoom> findRoom(String from, String to) {
 		List<BookDto.findRoom> list = dao.findRoomFromAndTo(from, to);
 
@@ -39,7 +42,6 @@ public class BookService {
 				book.getTo());
 		BookDto.dinner data = new dinner(name.getUsername(), dao.findByUsernameAndBookdate(name.getUsername(),name.getFrom()),name.getFrom());
 		if (book.getDicheckbox()) {
-			System.out.println(data.toString());
 			dao.addDinner(data);
 		}
 	}
@@ -52,7 +54,6 @@ public class BookService {
 //			System.out.println("널");
 //		}
 		BookDto.addbook bo = new addbook(name, book.getFrom(), book.getTotalcnt(), book.getBooktel(), book.getBooker());
-		System.out.println(bo.toString());
 		dao.addBook(bo);
 		BookDto.dinner din = new dinner(name, dao.findBooknoByusername(name),book.getFrom());
 		dao.addDinner(din);
@@ -73,6 +74,18 @@ public class BookService {
 
 	public myInFo myinfoByUsername(String name) {
 		return dao.findUsersByUsername(name);
+	}
+
+	public Integer manageradd(book book) {
+		// 만약 포스기에서 tid와 orderid가 넘어오면 여기서 넣어서 보내주기
+			return pdao.mangeradd(book);
+			
+		
+	}
+
+	public List<mypagedinner> findMyBookByUsername(String name) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

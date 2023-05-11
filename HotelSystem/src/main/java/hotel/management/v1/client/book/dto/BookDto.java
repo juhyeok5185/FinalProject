@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import hotel.management.v1.pay.entity.PayType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -86,6 +87,8 @@ public class BookDto {
 		Boolean dicheckbox;
 		String booker;
 		String booktel;
+		Integer paycode;
+		PayType paytype;
 		
 	}
 	@Data

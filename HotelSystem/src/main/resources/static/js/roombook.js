@@ -147,6 +147,7 @@ $(document).ready(async function() {
 		const to = $('#ajaxto').val();
 		const bfcheckbox = $('#bfcheckbox').is(':checked');
 		const dicheckbox = $('#dicheckbox').is(':checked');
+		const paycode = 1;
 		const param = {
 			username,
 			from,
@@ -156,18 +157,14 @@ $(document).ready(async function() {
 			booker,
 			booktel,
 			bfcheckbox,
-			dicheckbox
+			dicheckbox,
+			paycode
 		}
 		console.log(param);
 		if(booker==''&&booktel==''){
 			alert("예약자와 예약자 전화번호를 입력하세요");
 		}
-		if(bfcheckbox){
-			
-		}
-		if(dicheckbox){
-			
-		}
+		
 		$.ajax({
 			url:"/hotel/manager/checkin",
 			method: 'post',
@@ -183,6 +180,7 @@ $(document).ready(async function() {
 		$('#bookradio').prop('checked', false);
 		const carea = $('#search');
 		carea.empty();
+		$('#managerroomlistdiv').empty();
 		const html = ` <input type="text" id = "booker" placeholder="예약자" height="2px;">
               <input type="text" id = "booktel" placeholder="연락처 입력" height="2px;">
               <input type="date" id = "from" placeholder="체크인날짜 입력" height="2px;">
