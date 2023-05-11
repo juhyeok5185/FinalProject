@@ -123,8 +123,8 @@ function searchConditionCheck() {
   return (param = {
     isStay: $("#stayCheckBox").is(":checked"),
     isRestaurant: $("#restaurantCheckBox").is(":checked"),
-    fromDate: $("#from").val(),
-    toDate: $("#to").val(),
+    fromDate: $("#managerFrom").val(),
+    toDate: $("#managerTo").val(),
     todayCheckBox: $("#todayCheckBox").is(":checked"),
     roomNum: Number($("#searchRoomNumber").val()),
     name: $("#searchName").val(),
@@ -312,22 +312,22 @@ $(document).ready(function () {
     $("#stayCheckBox").prop("checked", false);
     $("#restaurantCheckBox").prop("checked", false);
     $("#todayCheckBox").prop("checked", true);
-    $("#from").val("");
-    $("#to").val("");
+    $("#managerFrom").val("");
+    $("#managerTo").val("");
     $("#searchRoomNumber").val("");
     $("#searchName").val("");
     $(".dropdown-item.active").removeClass("active");
     $(".dropdown-item[data-index='1']").addClass("active");
     $("#dropdownBtn").text($(".dropdown-item[data-index='1']").text());
-    $("#from").attr("disabled", true);
-    $("#to").attr("disabled", true);
+    $("#managerFrom").attr("disabled", true);
+    $("#managerTo").attr("disabled", true);
   });
 
   //todayCheck박스 이벤트
   $(document).on("change", "#todayCheckBox", function () {
     $("#todayCheckBox").is(":checked") == false
-      ? $("#from").attr("disabled", false)
-      : $("#from").attr("disabled", true);
+      ? $("#managerFrom").attr("disabled", false)
+      : $("#managerFrom").attr("disabled", true);
   });
 
   //memberDetail 코드
@@ -375,4 +375,40 @@ $(document).ready(function () {
       location.reload();
     } catch (err) {}
   });
+
+  //데이터 피커
+  const today = new Date();
+  let dateFormat = "mm/dd/yy",
+    from = $("#managerFrom")
+      .datepicker({
+        defaultDate: null,
+        changeMonth: true,
+        numberOfMonths: 1,
+      })
+      .on("change", function () {
+        const selectedDate = getDate(this);
+        to.datepicker("option", "minDate", selectedDate);
+        const $to = $("#managerTo");
+        $to.prop("disabled", false);
+      }),
+    to = $("#managerTo")
+      .datepicker({
+        defaultDate: null,
+        changeMonth: true,
+        numberOfMonths: 1,
+      })
+      .on("change", function () {
+        const selectedDate = getDate(this);
+        from.datepicker("option", "maxDate", selectedDate);
+      });
+
+  function getDate(element) {
+    let date;
+    try {
+      date = $.datepicker.parseDate(dateFormat, element.value);
+    } catch (error) {
+      date = null;
+    }
+    return date;
+  }
 });
