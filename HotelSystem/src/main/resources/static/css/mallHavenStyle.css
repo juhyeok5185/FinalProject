@@ -385,10 +385,15 @@
 .itemZone {
 	position: relative;
     width: 80vw;
-    height: 43vh;
-    background-color: gray;
-    left: 10vw;
-	margin-bottom: 1vh;
+    height: 42vh;
+	margin:0 auto;
+	margin-bottom: 3vh;
+}
+
+.itemName-1 {
+	position: relative;
+    top: 1vh;
+    font-size: 22px;
 }
 
 .itemImg {
@@ -399,33 +404,22 @@
 
 .itemBtn {
 	position: relative;
-    left: 43.2vw;
-    bottom: 2.5vh;
+    right: -39.4vw;
+    top: 0.35vh;
 }
 
 .itemBtn1 {
 	position: relative;
-    left: 43.5vw;
-    bottom: 2.5vh;
+    right: -41.3vw;
+    top: 0.35vh;
 }
 
 .itemBtn2 {
 	position: relative;
-    left: 45.5vw;
-    bottom: 2.5vh;
+    right: -42.6vw;
+    top: 0.35vh;
 }
 
-.itemBtn3 {
-	position: relative;
-    left: 45.9vw;
-    bottom: 2.5vh;
-}
-
-.itemBtn4 {
-    position: relative;
-    left: 47.2vw;
-    bottom: 2.5vh;
-}
 
 /*명품관 반응형 아이콘*/
 .mallCart-icon {
@@ -441,7 +435,7 @@
     min-height: 60px;
     width: 60px;
     height: 60px;
-	transform: translate(-15%, -25%);
+	transform: translate(-15%, -8%);
 }
 
 #cartIcon {
@@ -461,35 +455,79 @@
     z-index: 1;
 }
 
-.mallCart-content {
+.mallCart-list {
     position: fixed;
     z-index: 1;
     background-color: white;
-    width: 80%;
+    width: 80vw;
     height: 75vh;
-    left: 10vw;
-    top: 12vh;
+    left: 70px;
+    top: 11.5vh;
     border-radius: 20px;
-    border: 2px solid #856f56;
+    border: 4px solid #856f56;
 }
 
 .mallCart-title {
-	margin: 0;
-	position: relative;
-	top: 2vh;
-    left: 2vw;
-}
-
-.pickup-1 {
-	position: relative;
+    position: relative;
     top: 3vh;
-    text-align: center;
     left: 2vw;
+    width: 75vw;
+    height: 13vh;
+    border-bottom: 1px solid #DBDBDB;
+    padding: 1vw 1vh
 }
 
-.mallCart-table {
+#pickup-1 {
 	position: relative;
-	width: 78vw;
-	top: 7vh;
-    left: 2vw;
+    top: 2.7vh;
 }
+
+.mallCart-content {
+	position: relative;
+    width: 75vw;
+    top: 5vh;
+    margin: 0 auto;
+    height: 37vh;
+    border-bottom: 1px solid #DBDBDB;
+}
+ 
+.mallCart-table {
+	width: 77.6vw;
+	line-height: 2.6vh;
+}
+
+.cartPay {
+    position: relative;
+    width: 75vw;
+    height: 15vh;
+    margin: 0 auto;
+    top: 6.5vh;
+}
+
+#cartTotalPrice {
+    height: 7.7vh;
+    font-size: 22px;
+    padding: 2vh 2vw;
+    color: #362311;
+    border-bottom: 1px solid #DBDBDB;
+}
+
+#cartOrder {
+	display: flex;
+    height: 9vh;
+}
+
+#payType-kakao {
+	text-align:center;
+	line-height:9vh;
+	flex: 1;
+	cursor: pointer;
+}
+
+#payType-toss {
+	text-align:center;
+	line-height:8.5vh;
+	flex: 1;
+	cursor: pointer;
+}
+

@@ -1,64 +1,27 @@
+// 상품 배열
+const mallItem = [
+  { index: 1, count: 0, price: 3360000, name: "BEDDINGSET", stock: 3, totalPrice: 0 },
+  { index: 2, count: 0, price: 2500000, name: "MATTRESS", stock: 3, totalPrice: 0 },
+  { index: 3, count: 0, price: 1850000, name: "DUVET", stock: 3, totalPrice: 0 },
+  { index: 4, count: 0, price: 400000, name: "PILLOW", stock: 3, totalPrice: 0 },
+  { index: 5, count: 0, price: 180000, name: "ROOMSPRAY", stock: 3, totalPrice: 0 },
+  { index: 6, count: 0, price: 93000, name: "DEFUSER", stock: 3, totalPrice: 0 },
+];
+
 // 요금합계
 function sumTotalPrice() {
   let tPrice = 0;
-  const totalPrice = $("#totalPrice");
+  const totalPrice = $(".totalPrice");
+  const cartPrice = $('#priceView');
   for (let i = 0; i < mallItem.length; i++) {
     tPrice += mallItem[i].totalPrice;
   }
   totalPrice.text(tPrice + " 원");
+  cartPrice.text(tPrice + " 원");
 }
 
-const mallItem = [
-  {
-    index: 1,
-    count: 0,
-    price: 3360000,
-    name: "BEDDINGSET",
-    stock: 3,
-    totalPrice: 0,
-  },
-  {
-    index: 2,
-    count: 0,
-    price: 2500000,
-    name: "MATTRESS",
-    stock: 3,
-    totalPrice: 0,
-  },
-  {
-    index: 3,
-    count: 0,
-    price: 1850000,
-    name: "DUVET",
-    stock: 3,
-    totalPrice: 0,
-  },
-  {
-    index: 4,
-    count: 0,
-    price: 400000,
-    name: "PILLOW",
-    stock: 3,
-    totalPrice: 0,
-  },
-  {
-    index: 5,
-    count: 0,
-    price: 180000,
-    name: "ROOMSPRAY",
-    stock: 3,
-    totalPrice: 0,
-  },
-  {
-    index: 6,
-    count: 0,
-    price: 93000,
-    name: "DEFUSER",
-    stock: 3,
-    totalPrice: 0,
-  },
-];
 
+// ㅅㅏㅇ푸ㅁㅊㅜㄱㅏ
 function addTr() {
   const $tbody1 = $("#tbody1");
   const $tbody2 = $("#tbody2");
@@ -68,16 +31,16 @@ function addTr() {
   for (let i = 0; i < mallItem.length; i++) {
     if (mallItem[i].count > 0) {
       const tpl = `
-				<tr>
-					<td class="tbodyName" id="tbodyName" style="line-height:50px">${mallItem[i].name}</td>
-					<td style="line-height:50px">
-						<button class="btn btn-outline-secondary minus" data-index=${mallItem[i].index}>-<input type="hidden" value="${mallItem[i].price}"></button>
-						<span class="count">${mallItem[i].count}</span>
-						<button class="btn btn-outline-secondary plus" data-index=${mallItem[i].index}>+<input type="hidden" value="${mallItem[i].price}"></button>
-					</td>
-					<td class="price" style="line-height:50px">${mallItem[i].totalPrice}</td>
-					<td style="line-height:50px"><button class="btn btn-outline-secondary delete" data-index=${mallItem[i].index}>X</button></td>
-				</tr>`;
+		<tr>
+			<td class="tbodyName" id="tbodyName" style="line-height:50px">${mallItem[i].name}</td>
+			<td style="line-height:50px">
+				<button class="btn btn-outline-secondary minus" data-index=${mallItem[i].index}>-<input type="hidden" value="${mallItem[i].price}"></button>
+				<span class="count">${mallItem[i].count}</span>
+				<button class="btn btn-outline-secondary plus" data-index=${mallItem[i].index}>+<input type="hidden" value="${mallItem[i].price}"></button>
+			</td>
+			<td class="price" style="line-height:50px">${mallItem[i].totalPrice}</td>
+			<td style="line-height:50px"><button class="btn btn-outline-secondary delete" data-index=${mallItem[i].index}>X</button></td>
+		</tr>`;
 
       $tbody1.append(tpl);
       $tbody2.append(tpl);
@@ -128,6 +91,67 @@ function kakaojs(result) {
   });
 }
 
+function kakaoPayment() {
+	let trCount = 0;
+    let pickupDay = $(".pickup").val();
+    let itemPrice = parseInt($(`.totalPrice`).text());
+    let saveName = false;
+    let firstName = "";
+    const tbodyArray = [];
+    for (let i = 0; i < mallItem.length; i++) {
+      if (mallItem[i].count != 0) {
+        if (saveName == false) {
+          firstName = mallItem[i].name;
+          saveName = true;
+        }
+        trCount++;
+        tbodyArray.push(new item(mallItem[i].name, mallItem[i].count, mallItem[i].totalPrice));
+      }
+    }
+    let itemName = `${trCount - 1}` == 0 ? firstName : firstName + ` 외${trCount - 1}건`;
+
+    order(pickupDay, tbodyArray);
+    kakaojs({ itemPrice, itemName });
+};
+
+function tossPayment() {
+	let uuid = self.crypto.randomUUID();
+    let pickupDay = $(".pickup").val();
+    let itemPrice = parseInt($(`.totalPrice`).text());
+    let saveName = false;
+    let firstName = "";
+    const tbodyArray = [];
+    for (let i = 0; i < mallItem.length; i++) {
+      if (mallItem[i].count != 0) {
+        if (saveName == false) {
+          firstName = mallItem[i].name;
+          saveName = true;
+        }
+        trCount++;
+        tbodyArray.push(new item(mallItem[i].name, mallItem[i].count, mallItem[i].totalPrice));
+      }
+    }
+    let itemName = `${trCount - 1}` == 0 ? firstName : firstName + ` 외${trCount - 1}건`;
+
+    order({ pickupDay, tbodyArray });
+    tossPayments.requestPayment("TOSSPAY", {
+      amount: itemPrice,
+      orderId: uuid,
+      orderName: itemName,
+      successUrl: "http://localhost:8081/pay/toss_success",
+      failUrl: "http://127.0.0.1:5500//fail.html",
+    });
+};
+
+
+
+function checkChoose() {
+	if ($(".pickup").val() == "" || $(`.priceView`).text() == "") {
+      alert("픽업날짜 및 상품 선택은 필수입니다.");
+      return;
+    }
+}
+
 $(document).ready(function () {
   let checkBtn = false;
   let click = 0;
@@ -137,9 +161,24 @@ $(document).ready(function () {
   let cartClick = 0;
 
   // 상품담기
-  $(".item-btn").click(function () {
+  $(".item-btn").click(async function () {
+	let checkUser = "";
+	try {
+      checkUser = await $.ajax({
+        url: "/hotel/mall/checkUser",
+        method: "post",
+      });
+    } catch (err) {
+	  alert(err.responseText);
+      console.log(err);
+    }
+    
+	if(checkUser!="회원") {
+		location.href="/hotel/member/login";
+		return;
+	}
+   
     let index = $(this).data("index");
-
     for (let i = 0; i < mallItem.length; i++) {
       if (mallItem[i].index == index) {
         if (mallItem[i].count >= mallItem[i].stock) {
@@ -150,7 +189,6 @@ $(document).ready(function () {
         mallItem[i].totalPrice = mallItem[i].count * mallItem[i].price;
       }
     }
-
     addTr();
     sumTotalPrice();
   });
@@ -293,11 +331,23 @@ $(document).ready(function () {
   });
 
   // 결제 팝업창
-  $(document).on("click", "#mallPaymentBtn", function () {
-    if ($(".pickup").val() == "" || $(`#totalPrice`).text() == "") {
-      alert("픽업날짜 및 상품 선택은 필수입니다.");
-      return;
+  $("#mallPaymentBtn").click(async function () {
+	let checkUser = "";
+	try {
+      checkUser = await $.ajax({
+        url: "/hotel/mall/checkUser",
+        method: "post",
+      });
+    } catch (err) {
+	  alert(err.responseText);
+      console.log(err);
     }
+    
+	if(checkUser!="회원") {
+		location.href="/hotel/member/login";
+		return;
+	}
+	checkChoose();
     checkBtn = true;
     $("#paymentPopup").attr("style", "display:block;");
     $("#paymentPopup-box").attr("style", "display:block");
@@ -310,70 +360,77 @@ $(document).ready(function () {
     $("html").attr("style", "overflow:none");
   });
 
-  /* 결제 */
-  // 카카오페이
+  // 결제
   $("#choosePayment-box1").click(function () {
-    let trCount = 0;
-    let pickupDay = $(".pickup").val();
-    let itemPrice = parseInt($(`#totalPrice`).text());
-    let saveName = false;
-    let firstName = "";
-    const tbodyArray = [];
-    for (let i = 0; i < mallItem.length; i++) {
-      if (mallItem[i].count != 0) {
-        if (saveName == false) {
-          firstName = mallItem[i].name;
-          saveName = true;
-        }
-        trCount++;
-        tbodyArray.push(new item(mallItem[i].name, mallItem[i].count, mallItem[i].totalPrice));
-      }
-    }
-    let itemName = `${trCount - 1}` == 0 ? firstName : firstName + ` 외${trCount - 1}건`;
-
-    order(pickupDay, tbodyArray);
-    kakaojs({ itemPrice, itemName });
+    kakaoPayment();
   });
-  //토스
   $("#choosePayment-box2").click(function () {
-    let uuid = self.crypto.randomUUID();
-    let pickupDay = $(".pickup").val();
-    let itemPrice = parseInt($(`#totalPrice`).text());
-    let saveName = false;
-    let firstName = "";
-    const tbodyArray = [];
-    for (let i = 0; i < mallItem.length; i++) {
-      if (mallItem[i].count != 0) {
-        if (saveName == false) {
-          firstName = mallItem[i].name;
-          saveName = true;
-        }
-        trCount++;
-        tbodyArray.push(new item(mallItem[i].name, mallItem[i].count, mallItem[i].totalPrice));
-      }
-    }
-    let itemName = `${trCount - 1}` == 0 ? firstName : firstName + ` 외${trCount - 1}건`;
-
-    order({ pickupDay, tbodyArray });
-    tossPayments.requestPayment("TOSSPAY", {
-      amount: itemPrice,
-      orderId: uuid,
-      orderName: itemName,
-      successUrl: "http://localhost:8081/pay/toss_success",
-      failUrl: "http://127.0.0.1:5500//fail.html",
-    });
+	tossPayment();
   });
 
   /* 반응형 */
+  const today = new Date();
+  let dateFormat = "mm/dd/yy",
+    from = $("#pickup-1")
+      .datepicker({
+        defaultDate: null,
+        changeMonth: true,
+        numberOfMonths: 1,
+        minDate: today,
+      });
+ 
   // 카트팝업
   $(".mallCart-icon").click(function () {
     if (cartClick % 2 != 0) {
       $(".mallCart-popup").attr("style", "display:none");
-      $(".mallCart-content").attr("style", "display:none");
+      $(".mallCart-list").attr("style", "display:none");
+      $("html").attr("style", "overflow: none");
     } else {
       $(".mallCart-popup").attr("style", "display:block");
-      $(".mallCart-content").attr("style", "display:block");
+      $(".mallCart-list").attr("style", "display:block");
+      $("html").attr("style", "overflow: hidden");
     }
     ++cartClick;
   });
+  
+  $('#payType-kakao').click(async function() {
+	let checkUser = "";
+	try {
+      checkUser = await $.ajax({
+        url: "/hotel/mall/checkUser",
+        method: "post",
+      });
+    } catch (err) {
+	  alert(err.responseText);
+      console.log(err);
+    }
+    
+	if(checkUser!="회원") {
+		location.href="/hotel/member/login"
+		return ;
+	} 
+	checkChoose();
+	kakaoPayment();
+  })
+  
+  $('#payType-toss').click(async function() {
+	let checkUser = "";
+	try {
+      checkUser = await $.ajax({
+        url: "/hotel/mall/checkUser",
+        method: "post",
+      });
+    } catch (err) {
+	  alert(err.responseText);
+      console.log(err);
+    }
+    
+	if(checkUser!="회원") {
+		location.href="/hotel/member/login"
+		return ;
+	}  
+	checkChoose();
+	tossPayment();
+  })
+  
 });
