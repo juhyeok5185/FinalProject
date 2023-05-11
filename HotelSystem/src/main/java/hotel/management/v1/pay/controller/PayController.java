@@ -16,6 +16,7 @@ import hotel.management.v1.mall.dto.OrdersDto;
 import hotel.management.v1.mall.service.OrderService;
 import hotel.management.v1.pay.entity.KakaoPayApproveVO;
 import hotel.management.v1.pay.entity.KakaoPayReadyVo;
+import hotel.management.v1.pay.entity.PayType;
 import hotel.management.v1.pay.service.PayService;
 import jakarta.servlet.http.HttpSession;
 
@@ -47,16 +48,16 @@ public class PayController {
 		String pickupDay = (String) session.getAttribute("pickupDay");
 		String[] tbodyArray = (String[])session.getAttribute("tbodyArray");
 		
-		KakaoPayApproveVO res = payService.kakaoPayApprove(pgToken, session,principal.getName());
-		session.removeAttribute("tid");
-		session.removeAttribute("partner_order_id");
 
 
 		if(tbodyArray!=null) {
-			orderService.mallOrder(tbodyArray, pickupDay, principal.getName());
+			orderService.mallOrder(tbodyArray, pickupDay, principal.getName(), (String)session.getAttribute("tid"), (String)session.getAttribute("partner_order_id"), PayType.KAKAO);
 			return "/hotel/luxurymallcomplete";
 		}
 
+		KakaoPayApproveVO res = payService.kakaoPayApprove(pgToken, session,principal.getName());
+		session.removeAttribute("tid");
+		session.removeAttribute("partner_order_id");
 		session.removeAttribute("pickupDay");
 		session.removeAttribute("tbodyArray");
 		
@@ -69,12 +70,12 @@ public class PayController {
 		String gradename = (String)session.getAttribute("gradename");
 		String pickupDay = (String) session.getAttribute("pickupDay");
 		String[] tbodyArray = (String[])session.getAttribute("tbodyArray");
-		payService.tossPayApprove(orderId,paymentKey,amount,gradename);
-		session.removeAttribute("gradename");
 		if(tbodyArray!=null) {
-			orderService.mallOrder(tbodyArray, pickupDay, principal.getName());
+			orderService.mallOrder(tbodyArray, pickupDay, principal.getName(), paymentKey, orderId, PayType.TOSS);
 			return "/hotel/luxurymallcomplete";
 		}
+		payService.tossPayApprove(orderId,paymentKey,amount,gradename);
+		session.removeAttribute("gradename");
 		
 		return "/pay/toss_success";
 	}

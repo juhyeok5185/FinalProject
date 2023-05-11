@@ -30,5 +30,9 @@
 	<update id="plusEA">
 		update item i set i.itemea = i.itemea+#{orderEA} where itemname=#{itemName}
 	</update>
-
+	<update id="orderPay">
+		update payment set tid=#{tid}, partner_order_id=#{orderId}, item_name=#{itemName}, total_amount=#{price}, paytype=#{payType} 
+		where orderno =(select max(o.orderno) from orders o, payment p where o.orderno=p.orderno)
+	</update>
+	
 </mapper>

@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import hotel.management.v1.mall.dto.OrdersDto;
 import hotel.management.v1.mall.dto.OrdersDto.OrderList;
+import hotel.management.v1.pay.entity.PayType;
 
 @Mapper
 public interface OrderDao {
@@ -24,5 +25,7 @@ public interface OrderDao {
 	public Integer minusEA(String itemName, Integer orderEA);
 
 	public Integer plusEA(String itemName, Integer orderEA);
+
+	public Integer orderPay(String tid, String orderId, String itemName, Integer price, PayType payType);
 
 }

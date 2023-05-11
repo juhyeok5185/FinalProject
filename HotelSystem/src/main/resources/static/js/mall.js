@@ -45,7 +45,7 @@ const mallItem = [
     index: 5,
     count: 0,
     price: 180000,
-    name: "ROOM SPRAY",
+    name: "ROOMSPRAY",
     stock: 3,
     totalPrice: 0,
   },
