@@ -72,15 +72,36 @@
                         <td th:text="${member.vip}"></td>
                     </tr>
                 </table>
-                <button id="blackBtn" class="btn btn-dark">블랙리스트 변경
+                <span th:if="${member.black == true}">
+                    <button id="blackBtn" class="btn btn-dark">블랙리스트 비활성화
+                        <input type="hidden" th:field="*{member.userName}">
+                    </button>
+                </span>
+                <span th:if="${member.black == false}">
+                    <button id="blackBtn" class="btn btn-dark">블랙리스트 활성화
+                        <input type="hidden" th:field="*{member.userName}">
+                    </button>
+                </span>
+                <span th:if="${member.vip == true}">
+                    <button id="vipBtn" class="btn btn-dark">VIP 비활성화				
                     <input type="hidden" th:field="*{member.userName}">
-                </button>
-                <button id="vipBtn" class="btn btn-dark">VIP 변경				
+                    </button>
+                </span>
+                <span th:if="${member.vip == false}">
+                    <button id="vipBtn" class="btn btn-dark">VIP 활성화				
                     <input type="hidden" th:field="*{member.userName}">
-                </button>
-                <button id="ableBtn" class="btn btn-dark">아이디 활성화				
-                    <input type="hidden" th:field="*{member.userName}">
-                </button>
+                    </button>
+                </span>
+                <span th:if="${member.disabled == true}">
+                    <button id="ableBtn" class="btn btn-dark">아이디 활성화				
+                        <input type="hidden" th:field="*{member.userName}">
+                    </button>
+                </span>
+                <span th:if="${member.disabled == false}">
+                    <button id="ableBtn" class="btn btn-dark">아이디 활성화				
+                        <input type="hidden" th:field="*{member.userName}">
+                    </button>
+                </span>
             </div>
         </div>
     </span>
