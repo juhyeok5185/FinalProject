@@ -13,9 +13,9 @@ import hotel.management.v1.pay.entity.PayType;
 public class OrderService {
 	@Autowired
 	OrderDao orderDao;
-	
 
-	public void mallOrder(String[] tbodyArray, String pickupDay, String username, String tid, String orderId, PayType payType) {
+	public void mallOrder(String[] tbodyArray, String pickupDay, String username, String tid, String orderId,
+			PayType payType) {
 		String itemName = "";
 		int orderEA = 0;
 		int price = 0;
@@ -30,7 +30,7 @@ public class OrderService {
 				orderDao.addOrder(itemName, username);
 				orderDao.addOrderDetail(price, pickupDay, orderEA);
 				orderDao.minusEA(itemName, orderEA);
-				orderDao.orderPay(tid,orderId,itemName,price,payType);
+				orderDao.orderPay(tid, orderId, itemName, price, payType);
 			}
 		}
 

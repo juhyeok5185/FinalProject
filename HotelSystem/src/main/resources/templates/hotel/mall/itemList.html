@@ -33,25 +33,6 @@
         <!-- 요금합계 -->
         <div id="bg-popup" style="display: none"></div>
         <div id="totalCharge">
-          <script>
-            window.addEventListener("scroll", function () {
-              var totalCharge = document.getElementById("totalCharge");
-              var luxuryarticle = document.getElementById("luxuryarticle");
-              var sticky = totalCharge.offsetTop;
-
-              if (window.pageYOffset > sticky) {
-                totalCharge.classList.add("sticky");
-                luxuryarticle.classList.add("add");
-                chargeInquiry.classList.add("fix");
-              } else {
-                totalCharge.classList.remove("sticky");
-                luxuryarticle.classList.remove("add");
-                chargeInquiry.classList.remove("fix");
-              }
-            });
-          </script>
-          
-          
           <div id="totalChargeInner">
             <div id="totalBill">
               <input type="text" class="pickup" id="from" name="from" placeholder="상품픽업 날짜를 고르세요" />
@@ -194,41 +175,41 @@
         </div>
         <div class="mallCart-list" style="display: none">
           <div class="mallCart-title">
-          	<h2 style="font-weight: bold">요금상세</h2>
-          	<input type="text" class="pickup"  id="pickup-1" name="from" placeholder="상품픽업 날짜를 고르세요" />
+            <h2 style="font-weight: bold">요금상세</h2>
+            <input type="text" class="pickup pickup-1" placeholder="상품픽업 날짜를 고르세요" />
           </div>
           <div class="mallCart-content">
-	          <table class="mallCart-table">
-	            <colgroup>
-	              <col width="40%" />
-	              <col width="30%" />
-	              <col width="20%" />
-	              <col width="10%" />
-	            </colgroup>
-	            <thead>
-	              <tr>
-	                <th>상품명</th>
-	                <th>수량</th>
-	                <th>가격</th>
-	                <th></th>
-	              </tr>
-	            </thead>
-	            <tbody id="tbody2"></tbody>
-	          </table>
+            <table class="mallCart-table">
+              <colgroup>
+                <col width="40%" />
+                <col width="30%" />
+                <col width="20%" />
+                <col width="10%" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>상품명</th>
+                  <th>수량</th>
+                  <th>가격</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="tbody2"></tbody>
+            </table>
           </div>
           <div class="cartPay">
-          	<div id="cartTotalPrice">
-          		<span>요금합계 :</span>
-          		<span class="totalPrice" id="priceView"></span>
-          	</div>
-          	<div id="cartOrder">
-          		<div id="payType-kakao">
-          			<img alt="카카오" src="/img/kakaopay.png" style="width: 15vw; height: 7vh;">
-          		</div>
-          		<div id="payType-toss">
-          			<img alt="토스" src="/img/toss.png" style="width: 15vw; height: 7vh;">
-          		</div>
-          	</div>
+            <div id="cartTotalPrice">
+              <span>요금합계 :</span>
+              <span class="totalPrice" id="priceView"></span>
+            </div>
+            <div id="cartOrder">
+              <div id="payType-kakao">
+                <img alt="카카오" src="/img/kakaopay.png" style="width: 15vw; height: 7vh" />
+              </div>
+              <div id="payType-toss">
+                <img alt="토스" src="/img/toss.png" style="width: 15vw; height: 7vh" />
+              </div>
+            </div>
           </div>
         </div>
         <div id="luxuryarticle-1">

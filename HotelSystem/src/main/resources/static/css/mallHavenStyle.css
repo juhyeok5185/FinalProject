@@ -477,9 +477,10 @@
     padding: 1vw 1vh
 }
 
-#pickup-1 {
+.pickup-1 {
 	position: relative;
-    top: 2.7vh;
+    top: 0.7vh;
+    left: 0vw;
 }
 
 .mallCart-content {
