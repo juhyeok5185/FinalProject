@@ -541,6 +541,7 @@
   width: 100vw;
   height: 70vh;
 }
+
 .infopackage-image-left{
   float: left;  
   width: 70vw;
@@ -2866,6 +2867,7 @@ div #logintoolbar > a {
 	color: white;
 }
 
+
 /* 여기까지 */
 
 #nothing{
@@ -2909,9 +2911,14 @@ div #logintoolbar > a {
     margin: 7% 7% 7% 7%;
     height: 70%;
   }
+  
   }
   /*700 이상 보일곳*/
   @media screen and (max-width: 700px) {
+    .infopackage-image-area {
+      display: none;
+    }
+
   .hd,#nav1,#nav2 ,.reservation-area,#section3,#outline_page{
     display: none;
   }
@@ -3036,6 +3043,10 @@ div #logintoolbar > a {
   }
   /*700이하부터 보일곳*/
   @media screen and (min-width: 701px) {
+    .infopackage-image-area-min {
+      display: none;
+    }
+
     #dropmenu {
       display: none;
     }
@@ -3107,6 +3118,8 @@ div #logintoolbar > a {
     .itemList-content {
     	display: none;
     }
+
+    
     
     /* 700이상에서 안보이게 함 */
     #internalFacilities_staypage-1 {
