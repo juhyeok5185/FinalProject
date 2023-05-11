@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -86,6 +87,13 @@ public class PayController {
 
 	@GetMapping("/pay/fail")
 	public String Fail() {
-		return "/pay/fail";
+		return "redirect:/hotel/mall/itemlist";
 	}
+	
+	@PostMapping("/pay/cancle_do")
+	public String canclePay(String tid,Integer cancleAmount, Integer taxFree,Principal principal) {
+		payService.canclePay(tid,cancleAmount,taxFree,principal.getName());
+		return "/hotel/main";
+	}
+	
 }

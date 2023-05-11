@@ -14,6 +14,7 @@ import hotel.management.v1.pay.dao.PayDao;
 import hotel.management.v1.pay.dto.PayDto;
 import hotel.management.v1.pay.dto.PayDto.bookAddPayment;
 import hotel.management.v1.pay.entity.KakaoPayApproveVO;
+import hotel.management.v1.pay.entity.KakaoPayCancelVo;
 import hotel.management.v1.pay.entity.KakaoPayReadyVo;
 import hotel.management.v1.pay.entity.PayType;
 import hotel.management.v1.pay.entity.TossPayVo;
@@ -75,8 +76,6 @@ public class PayService {
 		String url = "https://kapi.kakao.com/v1/payment/approve";
 
 		KakaoPayApproveVO res = template.postForObject(url, request, KakaoPayApproveVO.class);
-		System.out.println(res.getApproved_at());
-		System.out.println(res.getAid());
 		
 		return res;
 	}
@@ -88,6 +87,29 @@ public class PayService {
 		dao.paymenttoss(bookpayment);
 		
 	}
+//환불
+
+	public KakaoPayCancelVo canclePay(String tid, Integer cancleAmount, Integer taxFree, String username) {
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("Authorization", "KakaoAK a9f2ff79213b981cd3e1ade179808e25");
+		headers.set("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
+
+		MultiValueMap<String, Object> payParams = new LinkedMultiValueMap<String, Object>();
+		payParams.add("cid", "TC0ONETIME");
+		payParams.add("tid", tid);
+		payParams.add("cancel_amount", cancleAmount);
+		payParams.add("partner_order_id", tid);
+		payParams.add("cancel_tax_free_amount", taxFree);
+		HttpEntity<Map> request = new HttpEntity<Map>(payParams, headers);
+
+		RestTemplate template = new RestTemplate();
+		String url = "https://kapi.kakao.com/v1/payment/cancel";
+
+		KakaoPayCancelVo res = template.postForObject(url, request, KakaoPayCancelVo.class);
+		
+		return res;
+	}
+	
 
 	
 }
