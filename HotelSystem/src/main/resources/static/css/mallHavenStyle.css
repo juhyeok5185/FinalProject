@@ -441,7 +441,7 @@
 #cartIcon {
 	position: relative;
 	left: 1vw;
-    top: 1vh;
+	top:1vh;
 }
 
 
@@ -530,4 +530,36 @@
 	flex: 1;
 	cursor: pointer;
 }
+/*앙*/
+.badge {
+	width: 20px;
+	height: 20px;
+	border-radius:10px 10px;	
+	position:absolute;
+	right:42px;
+	bottom:42px;		
+}
+.badgeadd{
+	color:white;
+	background-color: red;
+	font-weight: bold;
+}
+#badgeCnt{
+	width: 20px;
+	height: 20px;
+	border-radius:10px 10px;
+	font-size: 1px;
+	position:absolute;
+	right:0.5px;
+}
+
+
+
+
+
+
+
+
+
+
 

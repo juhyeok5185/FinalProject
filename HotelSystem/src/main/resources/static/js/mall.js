@@ -159,7 +159,7 @@ $(document).ready(function () {
   var clientKey = "test_ck_D5GePWvyJnrK0W0k6q8gLzN97Eoq";
   var tossPayments = TossPayments(clientKey);
   let cartClick = 0;
-
+  let countInfo=1;	
   // 상품담기
   $(".item-btn").click(async function () {
 	let checkUser = "";
@@ -191,6 +191,9 @@ $(document).ready(function () {
     }
     addTr();
     sumTotalPrice();
+    $('.badge').addClass('badgeadd');
+    
+    $('#badgeCnt').text(countInfo++);
   });
 
   // 구매수량 감소
@@ -239,6 +242,7 @@ $(document).ready(function () {
       }
     }
     sumTotalPrice();
+    countInfo-=1;
   });
 
   // 구매수량 증가
@@ -289,6 +293,7 @@ $(document).ready(function () {
       }
     }
     sumTotalPrice();
+    countInfo+=1;
   });
 
   // 삭제
@@ -297,6 +302,7 @@ $(document).ready(function () {
 
     for (let i = 0; i < mallItem.length; i++) {
       if (mallItem[i].index == index) {
+    	countInfo-=mallItem[i].count;
         mallItem[i].count = 0;
         mallItem[i].totalPrice = 0;
       }
@@ -391,6 +397,8 @@ $(document).ready(function () {
       $("html").attr("style", "overflow: hidden");
     }
     ++cartClick;
+    $('.badge').removeClass('badgeadd');
+    $('#badgeCnt').text('');
   });
   
   $('#payType-kakao').click(async function() {
