@@ -4,8 +4,11 @@ import java.security.Principal;
 import java.util.Map;
 import java.util.UUID;
 
+import hotel.management.v1.pay.dto.PayDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -91,9 +94,11 @@ public class PayController {
 	}
 	
 	@PostMapping("/pay/cancle_do")
-	public String canclePay(String tid,Integer cancleAmount, Integer taxFree,Principal principal) {
-		payService.canclePay(tid,cancleAmount,taxFree,principal.getName());
-		return "/hotel/main";
+	public ResponseEntity<?> canclePay(Integer bookno) {
+		PayDto.payment payment= payService.findBypayment(bookno);
+		System.out.println(payment.toString());
+		payService.canclePay(payment);
+		return payService.canclePay(payment)==null?ResponseEntity.status(HttpStatus.CONFLICT).body(null):ResponseEntity.ok(null);
 	}
 	
 }

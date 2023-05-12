@@ -57,7 +57,7 @@
 	<select id="findMyBookByusername"
 		resultType="hotel.management.v1.client.book.dto.BookDto$mypagedinner">
 		select
-		rb.checkin,rb.checkout,bk.booker,bk.booktel,rb.bookroomgrade
+		rb.checkin,rb.checkout,bk.booker,bk.booktel,rb.bookroomgrade,rb.bookno
 		from
 		roombooking rb ,book bk
 		where
@@ -91,7 +91,7 @@
 	</select>
 	<select id = "findmybookByfromAndto" resultType="hotel.management.v1.client.book.dto.BookDto$mypagedinner" >
 		select
-		rb.checkin,rb.checkout,bk.booker,bk.booktel,rb.bookroomgrade
+		rb.checkin,rb.checkout,bk.booker,bk.booktel,rb.bookroomgrade,rb.bookno
 		from
 		roombooking rb ,book bk
 		where rb.checkin  BETWEEN to_date(#{from},'YYYY-MM-DD') and to_date(#{to},'YYYY-MM-DD') and username = #{username} and rb.bookno = bk.bookno

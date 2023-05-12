@@ -81,6 +81,12 @@ public class BookRestController {
 
 	}
 
+	@PostMapping("/client/refundbook")
+	public ResponseEntity<?> refundbook(Integer bookno){
+		service.deletebook(bookno);
+		return ResponseEntity.ok(null);
+	}
+
 	@PostMapping("/manager/checkbookbyusername")
 	public ResponseEntity<?> checkbookbyusername(BookDto.checkbookbyusername check) {
 		try {

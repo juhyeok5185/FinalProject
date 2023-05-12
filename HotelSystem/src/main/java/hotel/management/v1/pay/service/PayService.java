@@ -2,6 +2,7 @@ package hotel.management.v1.pay.service;
 
 import java.util.Map;
 
+import hotel.management.v1.client.book.dto.BookDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -89,27 +90,31 @@ public class PayService {
 	}
 //환불
 
-	public KakaoPayCancelVo canclePay(String tid, Integer cancleAmount, Integer taxFree, String username) {
+	public KakaoPayCancelVo canclePay(PayDto.payment payment) {
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization", "KakaoAK a9f2ff79213b981cd3e1ade179808e25");
 		headers.set("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
 
 		MultiValueMap<String, Object> payParams = new LinkedMultiValueMap<String, Object>();
 		payParams.add("cid", "TC0ONETIME");
-		payParams.add("tid", tid);
-		payParams.add("cancel_amount", cancleAmount);
-		payParams.add("partner_order_id", tid);
-		payParams.add("cancel_tax_free_amount", taxFree);
+		payParams.add("tid", payment.getTid());
+		payParams.add("cancel_amount", payment.getTotal_amount());
+		payParams.add("partner_order_id", payment.getPartner_order_id());
+		payParams.add("cancel_tax_free_amount", 0);
 		HttpEntity<Map> request = new HttpEntity<Map>(payParams, headers);
 
 		RestTemplate template = new RestTemplate();
 		String url = "https://kapi.kakao.com/v1/payment/cancel";
-
 		KakaoPayCancelVo res = template.postForObject(url, request, KakaoPayCancelVo.class);
-		
+
 		return res;
 	}
-	
 
-	
+
+    public PayDto.payment findBypayment(Integer bookno) {
+		PayDto.payment payment = dao.findPaymentByBookno(bookno);
+		return payment;
+    }
+
+
 }

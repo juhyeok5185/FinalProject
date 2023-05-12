@@ -108,6 +108,11 @@ function printmyroombook(list){
 			<td>${l.booker}</td>
 			<td>${l.booktel}</td>
 			<td>${l.bookroomgrade}</td>
+			<td><input type="hidden" value="${l.bookno}">
+				<button class ="btn btn-danger" id = "deletebookbtn">예약삭제</button>
+			</td>
+			<td><button class = "btn" id = "updatebookbtn">예약변경</button></td>
+			
 		</tr>
 	`;
 	tbody.append(html);
@@ -138,7 +143,19 @@ $(document).ready(async function() {
 		
 		
 	})
-
+	$(document).on('click','#deletebookbtn',function (){
+		const bookno = $(this).prev().val();
+		$.ajax({
+			url:"/pay/cancle_do",
+			data:{bookno,_csrf:tokken},
+			method:'post',
+			statusCode: {
+				200:function (){
+					alert("성공");
+				}
+			}
+		})
+	})
 	$('#checkbook').click(function() {
 		const username = $('#username').val();
 		const from = $('#ajaxfrom').val();

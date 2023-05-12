@@ -1,5 +1,6 @@
 package hotel.management.v1.client.book.dto;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -72,8 +73,12 @@ public class BookDto {
 		Boolean bfcheckbox;
 		Boolean dicheckbox;
 	}
-	
-	
+	@Data
+	public static class checkbook{
+		Integer bookno;
+		Boolean rommbookno;
+		Boolean resno;
+	}
 	
 	@Data
 	@ToString
@@ -123,11 +128,14 @@ public class BookDto {
 	}
 	@Data
 	 public static class mypagedinner {
-		String checkin;
-		String checkout;
+		@JsonFormat(pattern = "yyyy/MM/dd")
+		LocalDate checkin;
+		@JsonFormat(pattern = "yyyy/MM/dd")
+		LocalDate checkout;
 		String booker;
 		String booktel;
 		String bookroomgrade;
+		Integer bookno;
 	}
 	
 	@Data

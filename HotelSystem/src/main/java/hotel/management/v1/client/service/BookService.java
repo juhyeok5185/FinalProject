@@ -85,6 +85,7 @@ public class BookService {
 	}
 
 	public List<mypagedinner> findMyBookByUsername(String name) {
+
 		return dao.findMyBookByusername(name);
 	}
 
@@ -97,5 +98,7 @@ public class BookService {
 	}
 
 
+	public void deletebook(Integer bookno) {
 
+	}
 }

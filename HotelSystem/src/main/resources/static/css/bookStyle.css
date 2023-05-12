@@ -161,12 +161,20 @@
 	background-color: #f1e3c4;
 	width: 100%;
 	height: 80px;
+
 }
 #booker{
 	width: 65px;
 }
 #username{
 	width: 100px;
+}
+#mybooktable *{
+	margin: 0 10px;
+}
+
+#mybooktable{
+	width: 47vw;
 }
 #mybooktable thead {
 	display:block;
@@ -182,7 +190,6 @@
 #mybookpagetbody{
 	height: 20vh;
 	overflow-y: scroll;
-
 }
 .bookDetail-logo img {
 	width: 100px;
