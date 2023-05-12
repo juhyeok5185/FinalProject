@@ -23,11 +23,12 @@
 </head>
 
 <body>
+<input type="hidden" id = "booktokken" name="_csrf" th:value="${_csrf.token}">
 <div th:replace="~{/fragment/nav.html}"></div>
 <div id="mybookPage_page">
 
     <!-- aside -->
-    <div id="myPageaside">
+    <div id="mybookPageaside">
         <div id="myPageinmenu">
             <h3 id="tit">마이페이지</h3>
             <ul id="myPagemenu">
