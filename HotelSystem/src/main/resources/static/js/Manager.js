@@ -119,7 +119,7 @@ function heightController(list) {
 }
 
 //search버튼 클릭스 검색 조건들 체크해주는 메소드
-function searchConditionCheck() {
+function searchConditionCheck(token) {
   return (param = {
     isStay: $("#stayCheckBox").is(":checked"),
     isRestaurant: $("#restaurantCheckBox").is(":checked"),
@@ -129,14 +129,17 @@ function searchConditionCheck() {
     roomNum: Number($("#searchRoomNumber").val()),
     name: $("#searchName").val(),
     listType: $(".dropdown-menu a.active").data("index"),
+    _csrf: token,
   });
 }
 
 $(document).ready(function () {
+  const token = $("#token").val();
+
   //검색버튼 클릭시 이벤트
   $(document).on("click", "#searchBtn", async function () {
     //검색시 조건들을 param 변수를 담는다
-    const param = searchConditionCheck();
+    const param = searchConditionCheck(token);
     //ajax data 형식으로 param을 전달한다.
     try {
       const list = await $.ajax({
@@ -165,7 +168,7 @@ $(document).ready(function () {
 
     //검색 조건 체크이후 ajax를 보내준다.
 
-    const param = searchConditionCheck();
+    const param = searchConditionCheck(token);
 
     try {
       const list = await $.ajax({
@@ -187,7 +190,8 @@ $(document).ready(function () {
     try {
       //url로 방등급을 보낸다.
       const roomList = await $.ajax({
-        url: "/hotel/manager/checkBtn?roomGrade=" + roomGrade,
+        url:
+          "/hotel/manager/checkBtn?roomGrade=" + roomGrade + "&_csrf=" + token,
         method: "post",
       });
       const checkInDropDown = $(".checkInDropDown > li");
@@ -218,7 +222,12 @@ $(document).ready(function () {
         const searchCondition = await $.ajax({
           //url로 roomNo와 bookerName을 보낸다.
           url:
-            "/hotel/manager/checkIn?roomNo=" + roomNo + "&name=" + bookerName,
+            "/hotel/manager/checkIn?roomNo=" +
+            roomNo +
+            "&name=" +
+            bookerName +
+            "&_csrf=" +
+            token,
           method: "post",
         });
         alert("방이 배정되었습니다.");
@@ -239,7 +248,7 @@ $(document).ready(function () {
     try {
       const searchCondition = await $.ajax({
         //url로 예약자를 보낸다.
-        url: "/hotel/manager/bookCancel?bookTel=" + booker,
+        url: "/hotel/manager/bookCancel?bookTel=" + booker + "&_csrf=" + token,
         method: "post",
       });
       alert("예약이 정상적으로 취소되었습니다.");
@@ -258,7 +267,13 @@ $(document).ready(function () {
     try {
       //url로 예약자와 방번호를 보낸다.
       const searchCondition = await $.ajax({
-        url: "/hotel/manager/checkOut?bookTel=" + booker + "&roomNo=" + roomNo,
+        url:
+          "/hotel/manager/checkOut?bookTel=" +
+          booker +
+          "&roomNo=" +
+          roomNo +
+          "&_csrf=" +
+          token,
         method: "post",
       });
       alert("체크아웃이 완료되었습니다");
@@ -283,6 +298,7 @@ $(document).ready(function () {
       breakfast: breakfastChecked,
       dinner: resNoChecked,
       bookTel: booktel,
+      _csrf: token,
     };
     try {
       const searchCondition = await $.ajax({
@@ -293,7 +309,8 @@ $(document).ready(function () {
       alert("예약이 변경되었습니다.");
       location.href = "/hotel/manager/bookList";
     } catch (err) {
-      console.log(err);
+      alert(err.responseText);
+      location.href = "/hotel/manager/bookList";
     }
   });
 
@@ -338,7 +355,7 @@ $(document).ready(function () {
     try {
       const blackBtn = await $.ajax({
         //url로 예약자 전송
-        url: "/hotel/manager/blackBtn?name=" + booker,
+        url: "/hotel/manager/blackBtn?name=" + booker + "&_csrf=" + token,
         method: "post",
       });
       alert(blackBtn);
@@ -353,7 +370,7 @@ $(document).ready(function () {
     try {
       //url로 전송
       const blackBtn = await $.ajax({
-        url: "/hotel/manager/vipBtn?name=" + booker,
+        url: "/hotel/manager/vipBtn?name=" + booker + "&_csrf=" + token,
         method: "post",
       });
       alert("변경이 완료되었습니다");
@@ -368,7 +385,7 @@ $(document).ready(function () {
     try {
       //url전송
       const blackBtn = await $.ajax({
-        url: "/hotel/manager/ableBtn?name=" + booker,
+        url: "/hotel/manager/ableBtn?name=" + booker + "&_csrf=" + token,
         method: "post",
       });
       alert("변경이 완료되었습니다");

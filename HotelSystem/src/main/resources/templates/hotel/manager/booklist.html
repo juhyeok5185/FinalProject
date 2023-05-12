@@ -24,7 +24,8 @@
   </script>
 </head>
 <body id="managerBody">
-<div class="managment">
+  <input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}">
+  <div class="managment">
   <div id="headerAndnav" class="navbar navbar-expand-sm">
     <div id="div_logo">
       <div id="logo">
@@ -33,6 +34,7 @@
     </div>  
     <form action="/hotel/member/logout" method="post">
 	    <div id="logoutArea">
+        <input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}">
 	          <button class="btn btn-primary">로그아웃</button>
 	    </div>
     </form>

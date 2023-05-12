@@ -41,6 +41,7 @@
       }
       
     $(document).ready(function(){
+      const token = $("#token").val();
       $('#searchName').on('keyup', function(event) {
       // 엔터키가 눌리면
       if (event.keyCode === 13) {
@@ -53,7 +54,7 @@
       const name = $('#searchName').val();
       try {
         const list = await $.ajax({
-          url: '/hotel/manager/memberSearch?name='+name,
+          url: '/hotel/manager/memberSearch?name='+name + '&_csrf=' + token,
           method: 'post'
       });
       addList(list);
@@ -79,6 +80,7 @@
   </script>
 </head>
 <body id="managerBody">
+  <input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}">
 <div class="managment">
   <div id="headerAndnav" class="navbar navbar-expand-sm">
     <div id="div_logo">
@@ -88,6 +90,7 @@
     </div>  
     <form action="/hotel/member/logout" method="post">
 	    <div id="logoutArea">
+        <input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}">
 	          <button class="btn btn-primary">로그아웃</button>
 	    </div>
     </form>

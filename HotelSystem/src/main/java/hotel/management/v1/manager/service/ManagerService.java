@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import hotel.management.v1.exception.NotFoundBookListException;
+import hotel.management.v1.exception.NotFoundBookNoException;
 import hotel.management.v1.exception.NotFoundUserListException;
 import hotel.management.v1.manager.dao.ManagerDao;
 import hotel.management.v1.manager.dto.ManagerDto;
@@ -48,22 +49,26 @@ public class ManagerService {
     }
 
     public void changeBook(boolean breakfast, boolean dinner, String tel) {
-        ManagerDto.findBookNoCount bookNoCount = dao.findBookNoCountByTel(tel);
-        
-        if(breakfast == true){
-            dao.updateBreakfast(bookNoCount.getBookNo());
-        } else {
-            dao.cancelBreakfast(bookNoCount.getBookNo());
-        }
-
-        Integer searchRes = dao.searchRes(bookNoCount.getBookNo());
-        if (dinner == true){
-            if(searchRes == 0){
-                dao.updateDinner(bookNoCount.getBookNo() , bookNoCount.getTotalCount());
+        try {
+            ManagerDto.findBookNoCount bookNoCount = dao.findBookNoCountByTel(tel);
+            if(breakfast == true){
+                dao.updateBreakfast(bookNoCount.getBookNo());
+            } else {
+                dao.cancelBreakfast(bookNoCount.getBookNo());
             }
-        } else {
-            dao.cancelDinner(bookNoCount.getBookNo());
+    
+            Integer searchRes = dao.searchRes(bookNoCount.getBookNo());
+            if (dinner == true){
+                if(searchRes == 0){
+                    dao.updateDinner(bookNoCount.getBookNo() , bookNoCount.getTotalCount());
+                }
+            } else {
+                dao.cancelDinner(bookNoCount.getBookNo());
+            }
+        } catch (Exception e) {
+            throw new NotFoundBookNoException("금일 예약된 회원만 예약을 변경할수있습니다.");
         }
+        
     }
 
     public List<ManagerDto.roomList> roomList(String roomGrade) {

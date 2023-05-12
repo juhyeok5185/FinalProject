@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import hotel.management.v1.exception.NotFoundBookListException;
+import hotel.management.v1.exception.NotFoundBookNoException;
 import hotel.management.v1.exception.NotFoundUserListException;
 import hotel.management.v1.manager.dto.ManagerDto;
 import hotel.management.v1.manager.service.ManagerService;
@@ -102,6 +103,13 @@ public class ManagerRestController {
     @ExceptionHandler(NotFoundBookListException.class)
     public ResponseEntity<String> handleNotFoundBookListException(NotFoundBookListException ex) {
         String message = ex.getMessage();
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(message);
+    }
+
+    @ExceptionHandler(NotFoundBookNoException.class)
+    public ResponseEntity<String> handleNotFoundBookNoException(NotFoundBookNoException ex) {
+        String message = ex.getMessage();
+        System.out.println(message);
         return ResponseEntity.status(HttpStatus.CONFLICT).body(message);
     }
 }
