@@ -123,8 +123,8 @@ public class BookDto {
 	}
 	@Data
 	 public static class mypagedinner {
-		LocalDateTime checkin;
-		LocalDateTime checkout;
+		String checkin;
+		String checkout;
 		String booker;
 		String booktel;
 		String bookroomgrade;

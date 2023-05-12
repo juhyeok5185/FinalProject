@@ -96,8 +96,46 @@ function printManagerRoomList(roomlist) {
 		index++;
 	}
 }
+
+function printmyroombook(list){
+	$('#mybookpagetbody').empty();
+	const tbody = $('#mybookpagetbody');
+	for(l of list){
+	const html = `
+		<tr>
+			<td>${l.checkin}</td>
+			<td>${l.checkout}</td>
+			<td>${l.booker}</td>
+			<td>${l.booktel}</td>
+			<td>${l.bookroomgrade}</td>
+		</tr>
+	`;
+	tbody.append(html);
+		
+	}
+}
 //----------------------------------------------------------------------------------------------------------
 $(document).ready(async function() {
+	$('#serchmybook').click(async function(){
+		const from = $('#mypagepickdatestart').val();
+		const to = $('#mypagepickdateend').val();
+		try{
+		const list  = await $.ajax({
+			url:"/hotel/client/findmybook",
+			method:'post',
+			data:{
+				from,
+				to
+			}
+		})
+		printmyroombook(list);
+		console.log(list);
+		}catch(err){
+			alert(err)
+		}
+		
+		
+	})
 	$('#checkbook').click(function() {
 		const username = $('#username').val();
 		const from = $('#ajaxfrom').val();
@@ -160,7 +198,6 @@ $(document).ready(async function() {
 			dicheckbox,
 			paycode
 		}
-		console.log(param);
 		if(booker==''&&booktel==''){
 			alert("예약자와 예약자 전화번호를 입력하세요");
 		}
@@ -244,11 +281,9 @@ $(document).ready(async function() {
 		$('#ajaxfrom').val(lastfrom);
 		$('#ajaxto').val(lastto);
 		printManagerRoomList(roomlist)
-		console.log(roomlist);
 		sessionStorage.setItem("days",diffDays);
 		$('#daymanager').text(diffDays + "일");
 	});
-
 
 
 	$('#totalcnt').click(function() {
@@ -261,7 +296,9 @@ $(document).ready(async function() {
 			return
 		}
 	});
+	$('#mypagepickdate').change(function (){
 
+	})
 
 
 
@@ -446,7 +483,6 @@ $(document).ready(async function() {
 
 				printRoomList($roomlist, $footer);
 			} catch (err) {
-				console.log(err.status);
 				if (err.status == '409') {
 					alert('해당 날짜에 이미 예약이 있습니다')
 					location.reload();

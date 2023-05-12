@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import hotel.management.v1.client.book.dto.BookDto;
 import hotel.management.v1.client.book.dto.BookDto.findRoom;
+import hotel.management.v1.client.book.dto.BookDto.mypagedinner;
 import hotel.management.v1.client.service.BookService;
 import hotel.management.v1.pay.entity.PayType;
 import jakarta.servlet.http.HttpSession;
@@ -30,6 +31,13 @@ public class BookRestController {
 		httpSession.setAttribute("gradename", book.getGradename());
 		return ResponseEntity.ok(null);
 
+	}
+
+	@PostMapping("/client/findmybook")
+	public ResponseEntity<List<mypagedinner>> findmybook(BookDto.managercheckroom data,Principal pal) {
+		System.out.println(data.toString());
+		List<mypagedinner> list = service.findmybookByfromAndto(data,pal.getName());
+		return ResponseEntity.ok(list);
 	}
 
 	@PostMapping(value = "/client/roombook", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -104,7 +112,7 @@ public class BookRestController {
 	public ResponseEntity<?> managercheckin(BookDto.managerbook book) {
 		System.out.println(book.toString());
 		BookDto.book bo = new BookDto.book(book.getFrom(), book.getTo(), book.getTotalcnt(), book.getGradename(),
-				book.getBfcheckbox(), book.getDicheckbox(), book.getBooker(), book.getBooktel(), null,PayType.YET);
+				book.getBfcheckbox(), book.getDicheckbox(), book.getBooker(), book.getBooktel(), null, PayType.YET);
 		service.add(bo, book.getUsername());
 		service.manageradd(bo);
 		return ResponseEntity.ok(null);

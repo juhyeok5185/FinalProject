@@ -9,8 +9,10 @@ import hotel.management.v1.client.book.dao.BookDao;
 import hotel.management.v1.client.book.dto.BookDto;
 import hotel.management.v1.client.book.dto.BookDto.addbook;
 import hotel.management.v1.client.book.dto.BookDto.book;
+import hotel.management.v1.client.book.dto.BookDto.checkbookbyusername;
 import hotel.management.v1.client.book.dto.BookDto.dinner;
 import hotel.management.v1.client.book.dto.BookDto.finduser;
+import hotel.management.v1.client.book.dto.BookDto.managercheckroom;
 import hotel.management.v1.client.book.dto.BookDto.myInFo;
 import hotel.management.v1.client.book.dto.BookDto.mypagedinner;
 import hotel.management.v1.pay.dao.PayDao;
@@ -30,7 +32,6 @@ public class BookService {
 	}
 
 	public void add(book book, String pal) {
-		// TODO Auto-generated method stub
 
 		BookDto.addRoomBook rb = new BookDto.addRoomBook(book.getTo(), book.getBfcheckbox(), book.getGradename(), pal,book.getFrom());
 		BookDto.addbook ab = new BookDto.addbook(pal, book.getFrom(), book.getTotalcnt(), book.getBooktel(),
@@ -84,8 +85,15 @@ public class BookService {
 	}
 
 	public List<mypagedinner> findMyBookByUsername(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.findMyBookByusername(name);
+	}
+
+	public List<mypagedinner> findmybookByfromAndto(managercheckroom date, String username) {
+		BookDto.checkbookbyusername data = new checkbookbyusername();
+		data.setFrom(date.getFrom());
+		data.setTo(date.getTo());
+		data.setUsername(username);
+		return dao.findmybookByfromAndto(data);
 	}
 
 

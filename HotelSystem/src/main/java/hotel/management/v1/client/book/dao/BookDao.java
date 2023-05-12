@@ -9,6 +9,7 @@ import hotel.management.v1.client.book.dto.BookDto.addRoomBook;
 import hotel.management.v1.client.book.dto.BookDto.addbook;
 import hotel.management.v1.client.book.dto.BookDto.checkbookbyusername;
 import hotel.management.v1.client.book.dto.BookDto.dinner;
+import hotel.management.v1.client.book.dto.BookDto.managercheckroom;
 import hotel.management.v1.client.book.dto.BookDto.myInFo;
 import hotel.management.v1.client.book.dto.BookDto.mypagedinner;
 import hotel.management.v1.client.book.dto.BookDto.whtyouname;
@@ -39,6 +40,10 @@ public interface BookDao {
 	public Integer chekbook(String username, String from, String to);
 
 	public myInFo findUsersByUsername(String name);
+
+	public List<mypagedinner> findMyBookByusername(String name);
+
+	public List<mypagedinner> findmybookByfromAndto(checkbookbyusername data);
 
 
 }

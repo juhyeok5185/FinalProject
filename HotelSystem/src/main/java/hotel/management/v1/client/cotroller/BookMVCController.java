@@ -26,9 +26,9 @@ public class BookMVCController {
 	}
 
 	@GetMapping("/client/mydinnerbook")
-	public ModelAndView mydinnerbook(Principal pal, ModelAndView mav) {
-		List<BookDto.mypagedinner> list = service.findMydinnerByusername(pal.getName());
-		return new ModelAndView().addObject("list", list);
+	public ModelAndView mydinnerbook(Principal pal) {
+		
+		return new ModelAndView();
 	}
 
 	@GetMapping("/client/myroombook")

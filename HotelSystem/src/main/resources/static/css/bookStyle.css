@@ -90,19 +90,29 @@
 	text-align: right;
 }
 
-#mypage_dinnerbook {
-	height: 130vh;
+#myroomlisttable{
+	min-height: 140vh;
+}
+
+
+
+#mybookPage_article {
+	height: 50vh;
 	width: 50vw;
 	position: absolute;
 	left: 35vw;
-	margin-top: 10vh;
+	margin-top: 19vh;
 	overflow: hidden;
 }
-
 #dinnerbookmain {
 	height: 120vh;
 }
-
+#mybookPage_page{
+	height: 70.9vh;
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+}
 #inputdiv * {
 	margin-left: 10px;
 }
@@ -150,9 +160,39 @@
 #username{
 	width: 100px;
 }
+#mybooktable thead {
+	display:block;
+	background: #a88;
+	color:#fff;
+}
 
+#mybooktable tbody{
+	max-height: 20vh;
+	display:block;
+	overflow:auto;
+}
+#mybookpagetbody{
+	height: 20vh;
+	overflow-y: scroll;
 
+}
 .bookDetail-logo img {
 	width: 100px;
 	height: 80px;
+}
+
+#mydinnerapge_page{
+	width: 100%;
+	height: 70.9vh;
+	background-color: white;
+	overflow: hidden;
+	margin: 0 auto;
+	padding: 0 0;
+}
+#mypage_dinnerbook{
+	width: 50vw;
+	position: relative;
+	left: 35vw;
+	margin-top: 10vh;
+	overflow: hidden;
 }
