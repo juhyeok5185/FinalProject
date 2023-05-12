@@ -441,7 +441,7 @@
 #cartIcon {
 	position: relative;
 	left: 1vw;
-	top:1vh;
+	top:0.9vh;
 }
 
 
@@ -479,7 +479,7 @@
 
 .pickup-1 {
 	position: relative;
-    top: 0.7vh;
+    top: 1.8vh;
     left: 0vw;
 }
 
@@ -531,7 +531,7 @@
 	flex: 1;
 	cursor: pointer;
 }
-/*앙*/
+
 .badge {
 	width: 20px;
 	height: 20px;

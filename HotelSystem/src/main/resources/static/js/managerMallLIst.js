@@ -51,6 +51,8 @@ function searchmallData(mallList) {
 */
 
 $(document).ready(function(){
+	const token = $('#token').val();
+		console.log(token);
 	$('#nameSearchBtn').on('click' , async function(){
   	const name = $('#name').val();
   	const tel = $('#tel').val();
@@ -59,7 +61,7 @@ $(document).ready(function(){
   	
   	try {
       const mallList = await $.ajax({
-      url: '/hotel/manager/managerMallList?name='+ name + '&tel=' + tel +'&orderNo=' + orderNo +'&contactDate=' + contactDate,
+      url: '/hotel/manager/managerMallList?name='+ name + '&tel=' + tel +'&orderNo=' + orderNo +'&contactDate=' + contactDate + '&_csrf=' + token,
       method:'post' });
       const mallListArea = $('#mallListArea');
       mallListArea.empty();
@@ -108,7 +110,7 @@ $(document).ready(function(){
       console.log(orderNo);
     try {
       const response = await $.ajax({
-        url: "/hotel/manager/delete?orderNo=" + orderNo,
+        url: "/hotel/manager/delete?orderNo=" + orderNo + '&_csrf=' + token,
         method: "post",
       });
       alert("주문이 취소되었습니다.");
@@ -127,7 +129,8 @@ $(document).ready(function(){
 	      url: "/hotel/manager/delete",
 	      method: "post",
 	      data:{
-		      orderNo:orderNo		  
+		      orderNo:orderNo,
+		      _csrf:token
 		  }
 	    });
 	    alert("주문이 취소되었습니다.");

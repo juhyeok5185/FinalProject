@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="/css/style.css">
   <title>J.H.H.L</title>
 <script th:inline="javascript">
-    $(document).ready(function(){    	
+    $(document).ready(function(){
     var user = /*[[${#authentication.principal}]]*/ null;
     const test = $("#test").text();
 	if(user.username==test){
@@ -48,11 +48,10 @@
     	}
     })
     
-    
 </script>
 </head>
 <body>
-    <div th:replace="~{/fragment/nav.html}"></div>
+  <input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}">
     <!--고객 문의 게시판-->
     <div id="reportpage"> 
       <div id="aside"> 
@@ -77,8 +76,8 @@
             <tr>
               <td class="col1">작성일<hr></td>
               <td class="col2">
+               <div id="boardNumber" th:text="${board.boardNo}" style="display: none;"></div>
                <div th:text="${board.writeDay}"></div> 
-                <div id="boardNumber" th:text="${board.boardNo}"></div>
                <hr>
               </td>
               </tr>
@@ -109,6 +108,7 @@
               <td class="col1" sec:authorize="hasRole('ADMIN')"><span id="notnull"></span>답변</td>
               <td class="col2" sec:authorize="hasRole('ADMIN')">
 	            <form action="/hotel/board/read" method="post">
+	              <input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}">
 	              <input type="hidden" name="username" th:field="*{board.username}">
 	              <input type="hidden" name="boardNo"  th:field="*{board.boardNo}">
 	              <textarea id="replyContent" name="replyContent" cols="80" rows="4"></textarea>
@@ -121,6 +121,7 @@
   <!-- 목록 --><div><a id="listbutton" type="button" class="btn btn-outline-dark" href="/hotel/board/list">목록</a></div> 
   <!-- 삭제 --><div id="deletebutton">
 				<form action="/hotel/board/delete" method="post">
+    			<input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}">
   				<input type="hidden" name="boardNo" th:field="*{board.boardNo}">
   				<input type="hidden" name="username" th:field="*{board.username}">
    			    <button id="deletebtn2" type="submit" class="btn btn-outline-dark" style="display:none" onclick="showAlert()">글삭제</button>  				

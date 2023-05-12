@@ -124,7 +124,7 @@
 								<button id="loginbut">로그인</button>
 							</div>
 						</div>
-						<input type="hidden" name="_csrf" th:value="${_csrf.token}">
+						<input type="hidden" name="_csrf" id="token" th:value="${_csrf.token}">
 					</form>
 					<div id="logintoolbar">
 						<a href="/hotel/member/join" id="join-btn1"><span id="loginlink">회원가입</span></a>

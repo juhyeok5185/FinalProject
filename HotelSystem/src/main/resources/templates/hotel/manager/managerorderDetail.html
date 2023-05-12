@@ -20,10 +20,10 @@
   <link rel="stylesheet" href="/css/mallStyle.css">
   <title>관리자</title>
   <script>
-
   </script>
   </head>
 <body>
+  <input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}">
    <div id="orderdetailPage">
         <div id="orderdetailInfo" style="text-align: center;">
             <table class="table table-bordered table-sm" id="detailTable">

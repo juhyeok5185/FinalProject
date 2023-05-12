@@ -19,12 +19,12 @@
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/mallStyle.css">
   <title>관리자</title>
-  
   <script>
 	
   </script>
 </head>
 <body>
+  <input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}">
 <div class="managment">
   <div id="headerAndnav" class="navbar navbar-expand-sm">
     <div id="div_logo">
@@ -34,7 +34,8 @@
     </div>  
  	<form action="/hotel/member/logout" method="post">
 	    <div id="logoutArea">
-	          <button class="btn btn-secondary">로그아웃</button>
+ 		  <input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}">
+	      <button class="btn btn-secondary">로그아웃</button>
 	    </div>
     </form>
   </div>
@@ -53,10 +54,10 @@
     <div id="malllist">
         <div id = "searcharea">
           <div id="search">
-              <input type="text" id = "name" placeholder="이름 입력" height="2px;">
-              <input type="text" id = "tel" placeholder="연락처 입력" height="2px;">
-              <input type="text" id = "orderNo" placeholder="주문번호 입력" height="2px;">
-              <button class="btn btn-secondary" style="width: 70px;" id="nameSearchBtn">검색</button>
+            <input type="text" id = "name" placeholder="이름 입력" height="2px;">
+            <input type="text" id = "tel" placeholder="연락처 입력" height="2px;">
+            <input type="text" id = "orderNo" placeholder="주문번호 입력" height="2px;">
+            <button class="btn btn-secondary" style="width: 70px;" id="nameSearchBtn">검색</button>
           </div>
         </div>
         <div>
