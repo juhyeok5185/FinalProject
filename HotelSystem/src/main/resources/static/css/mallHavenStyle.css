@@ -470,8 +470,8 @@
 .mallCart-title {
     position: relative;
     top: 3vh;
-    left: 2vw;
-    width: 75vw;
+    margin-left: 3.3vw;
+    width: 72vw;
     height: 13vh;
     border-bottom: 1px solid #DBDBDB;
     padding: 1vw 1vh
@@ -485,16 +485,18 @@
 
 .mallCart-content {
 	position: relative;
-    width: 75vw;
+    width: 72vw;
     top: 5vh;
     margin: 0 auto;
     height: 37vh;
     border-bottom: 1px solid #DBDBDB;
+    padding-left: 1vw;
 }
  
 .mallCart-table {
-	width: 77.6vw;
+	width: 72vw;
 	line-height: 2.6vh;
+	
 }
 
 .cartPay {
@@ -507,10 +509,13 @@
 
 #cartTotalPrice {
     height: 7.7vh;
-    font-size: 22px;
-    padding: 2vh 2vw;
+    font-size: 1.2em;
+    padding-top: 1.5vh;
+    padding-left: 2vw;
     color: #362311;
     border-bottom: 1px solid #DBDBDB;
+    width: 72vw;
+    margin-left: 1.5vw;
 }
 
 #cartOrder {
@@ -523,6 +528,17 @@
 	line-height:9vh;
 	flex: 1;
 	cursor: pointer;
+}
+
+#kakaoImg {
+	margin-top: 2.5vh;
+    width: 13vw;
+	height: 5vh;
+}
+#tossImg {
+	margin-top: 2.5vh;
+    width: 13vw;
+	height: 5vh;
 }
 
 #payType-toss {
