@@ -51,6 +51,7 @@
 </script>
 </head>
 <body>
+  <input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}">
     <!--고객 문의 게시판-->
     <div id="reportpage"> 
       <div id="aside"> 
@@ -75,8 +76,8 @@
             <tr>
               <td class="col1">작성일<hr></td>
               <td class="col2">
+               <div id="boardNumber" th:text="${board.boardNo}" style="display: none;"></div>
                <div th:text="${board.writeDay}"></div> 
-                <div id="boardNumber" th:text="${board.boardNo}"></div>
                <hr>
               </td>
               </tr>
