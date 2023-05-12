@@ -97,7 +97,10 @@ public class PayController {
 	public ResponseEntity<?> canclePay(Integer bookno) {
 		PayDto.payment payment= payService.findBypayment(bookno);
 		System.out.println(payment.toString());
+		System.out.println(payment.toString());
+		//DB날리는 거 만들기
 		payService.canclePay(payment);
+		
 		return payService.canclePay(payment)==null?ResponseEntity.status(HttpStatus.CONFLICT).body(null):ResponseEntity.ok(null);
 	}
 	
