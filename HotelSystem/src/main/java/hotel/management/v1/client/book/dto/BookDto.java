@@ -148,5 +148,12 @@ public class BookDto {
 	public static class managercheckroom {
 		String from;
 		String to;
-	}	
+	}
+
+
+	public static class mydinnerlist{
+		String booker;
+		String bookdate;
+		String booktel;
+	}
 }

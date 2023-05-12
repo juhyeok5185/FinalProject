@@ -94,14 +94,22 @@
 	min-height: 140vh;
 }
 
-
+#mybookPageaside{
+	width: 15vw;
+	height: 40vh;
+	background-color:#f1e3c4;
+	float: left;
+	position: absolute;
+	left: 15vw;
+	top: 10vh;
+}
 
 #mybookPage_article {
 	height: 50vh;
 	width: 50vw;
 	position: absolute;
 	left: 35vw;
-	margin-top: 19vh;
+	margin-top: 10vh;
 	overflow: hidden;
 }
 #dinnerbookmain {

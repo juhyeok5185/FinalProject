@@ -9,6 +9,13 @@ import lombok.ToString;
 
 public class OrdersDto {
 	@Data
+	@ToString
+	public static class Order {
+		private String pickupDay;
+		private String[] tbodyArray;
+	}
+
+	@Data
 	public static class OrderList {
 		private Integer orderNo;
 		private String itemName;
@@ -16,7 +23,7 @@ public class OrdersDto {
 		private LocalDate orderDate;
 		private Integer orderEA;
 	}
-	
+
 	@Data
 	public static class OrderDetail {
 		private String itemImage;
@@ -29,13 +36,5 @@ public class OrdersDto {
 		@JsonFormat(pattern = "yyyy-MM-dd")
 		private LocalDate pickupDay;
 	}
-	
-	@Data
-	@ToString
-	public static class Order {
-		private String pickupDay;
-		private String[] tbodyArray;
-	}
-	
-}
 
+}

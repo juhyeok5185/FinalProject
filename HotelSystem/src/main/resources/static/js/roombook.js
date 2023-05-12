@@ -116,6 +116,7 @@ function printmyroombook(list){
 }
 //----------------------------------------------------------------------------------------------------------
 $(document).ready(async function() {
+	const tokken = $('#booktokken').val();
 	$('#serchmybook').click(async function(){
 		const from = $('#mypagepickdatestart').val();
 		const to = $('#mypagepickdateend').val();
@@ -125,7 +126,8 @@ $(document).ready(async function() {
 			method:'post',
 			data:{
 				from,
-				to
+				to,
+				_csrf:tokken
 			}
 		})
 		printmyroombook(list);
@@ -136,6 +138,7 @@ $(document).ready(async function() {
 		
 		
 	})
+
 	$('#checkbook').click(function() {
 		const username = $('#username').val();
 		const from = $('#ajaxfrom').val();
@@ -143,7 +146,8 @@ $(document).ready(async function() {
 		const param = {
 			from,
 			to,
-			username
+			username,
+			_csrf:tokken
 		}
 
 		$.ajax({
@@ -196,7 +200,8 @@ $(document).ready(async function() {
 			booktel,
 			bfcheckbox,
 			dicheckbox,
-			paycode
+			paycode,
+			_csrf:tokken
 		}
 		if(booker==''&&booktel==''){
 			alert("예약자와 예약자 전화번호를 입력하세요");
@@ -275,7 +280,8 @@ $(document).ready(async function() {
 			dataType: "json",
 			data: {
 				from: lastfrom,
-				to: lastto
+				to: lastto,
+				_csrf:tokken
 			}
 		})
 		$('#ajaxfrom').val(lastfrom);
@@ -316,6 +322,7 @@ $(document).ready(async function() {
 		const param = {
 			from: $from,
 			to: $to,
+			_csrf:tokken
 		};
 		const $roomlist = await $.ajax({
 			url: "/hotel/client/roombook",
@@ -360,6 +367,7 @@ $(document).ready(async function() {
 			dicheckbox: $dicheckbox,
 			booker: $booker,
 			booktel: $booktel,
+			_csrf:tokken
 		};
 		$.ajax({
 			url: "/hotel/client/chekin",
@@ -417,7 +425,8 @@ $(document).ready(async function() {
 					url: "/hotel/client/myinfo",
 					method: 'post',
 					data:{
-						username : $('#username').val()
+						username : $('#username').val(),
+						_csrf:tokken
 					},
 					success: function(res) {
 						$('#booker').val(res.name).attr('disabled', true);
@@ -442,6 +451,9 @@ $(document).ready(async function() {
 			$.ajax({
 				url: "/hotel/client/myinfo",
 				method: 'post',
+				data:{
+					_csrf:tokken
+				},
 				success: function(res) {
 					$('#booker').val(res.name).attr('disabled', true);
 					$('#booktel').val(res.tel).attr('disabled', true);
@@ -471,6 +483,7 @@ $(document).ready(async function() {
 			const param = {
 				from: $from,
 				to: $to,
+				_csrf:tokken
 			};
 
 			try {
@@ -507,6 +520,7 @@ $(document).ready(async function() {
 			booktel: $booktel,
 			totalcnt: $totalcnt,
 			booker: $booker,
+			_csrf:tokken
 		};
 		if ($booker == "" && $booktel == "") {
 			alert("필수 입력사항을 확인하세요");

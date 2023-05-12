@@ -22,19 +22,19 @@ public class OrderRestController {
     @Autowired
     private OrderService orderService;
 
-    @PostMapping("/mall/order")
-    public ResponseEntity<?> order(OrdersDto.Order order, Principal principal, HttpSession session) {
-        session.setAttribute("tbodyArray", order.getTbodyArray());
-        session.setAttribute("pickupDay", order.getPickupDay());
-        return ResponseEntity.ok(null);
-    }
-
     @PostMapping("/mall/checkUser")
     public ResponseEntity<?> checkUser(Principal principal) {
         if (principal == null) {
             throw new NotFoundUserException("상품은 회원만 구매가 가능합니다. 로그인을 해주세요.");
         }
         return ResponseEntity.ok("회원");
+    }
+
+    @PostMapping("/mall/order")
+    public ResponseEntity<?> order(OrdersDto.Order order, Principal principal, HttpSession session) {
+        session.setAttribute("tbodyArray", order.getTbodyArray());
+        session.setAttribute("pickupDay", order.getPickupDay());
+        return ResponseEntity.ok(null);
     }
 
     @DeleteMapping("/mall/orderDelete")

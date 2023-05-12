@@ -27,7 +27,6 @@ public class BookMVCController {
 
 	@GetMapping("/client/mydinnerbook")
 	public ModelAndView mydinnerbook(Principal pal) {
-		
 		return new ModelAndView();
 	}
 
