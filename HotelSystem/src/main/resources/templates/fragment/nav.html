@@ -6,14 +6,24 @@
 <title>J.H.H.L</title>
 <style>
 </style>
+<script>
+	$(document).ready(function(){
+		$(".logout").click(function() {
+			const $form=$('<form>').attr("action","/hotel/member/logout").attr("method","post").appendTo($('body'));
+			$('<input>').attr('type','hidden').attr('name','_csrf').val($('#token').val()).appendTo($form);
+			$form.submit();
+		});
+	});
+</script>
 </head>
 <body>
+	<input type="hidden"  id="token" th:value="${_csrf.token}">
 	<div id="headerAndnav" class="navbar navbar-expand-sm">
 		<div id="header">
 			<ul class="navbar-nav hd">
 				<li class="nav-item" id="liLine"><a class="nav-link" href="/hotel/member/login" id="textcolor" sec:authorize="isAnonymous()">로그인</a></li>
 				<li class="nav-item" id="liLine"><a class="nav-link" href="/hotel/member/join" id="textcolor" sec:authorize="isAnonymous()">회원가입</a></li>
-				<li class="nav-item" id="liLine"><a class="nav-link" href="/hotel/member/logout" sec:authorize="hasAuthority('ROLE_USER')" id="textcolor">로그아웃</a></li>
+				<li class="nav-item" id="liLine"><a class="nav-link logout" href="#" sec:authorize="hasAuthority('ROLE_USER')" id="textcolor">로그아웃</a></li>
 				<li class="nav-item" id="liLine"><a class="nav-link" href="/hotel/member/myPage" sec:authorize="hasAuthority('ROLE_USER')" id="textcolor">마이페이지</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" role="button"
@@ -83,7 +93,7 @@
 				<li id="aboutfont">회원</li>
 				<li><a class="dropdown-item" href="/hotel/member/login" sec:authorize="isAnonymous()">로그인</a></li>
 				<li><a class="dropdown-item" href="/hotel/member/join" sec:authorize="isAnonymous()">회원가입</a></li>
-				<li><a class="dropdown-item" href="/hotel/member/logout" sec:authorize="hasAuthority('ROLE_USER')">로그아웃</a></li>
+				<li><a class="dropdown-item logout" href="#" sec:authorize="hasAuthority('ROLE_USER')">로그아웃</a></li>
 				<li><a class="dropdown-item" href="/hotel/member/myPage" sec:authorize="hasAuthority('ROLE_USER')">나의 등급</a></li>
 				<li><a class="dropdown-item" href="/hotel/member/profileupdate" sec:authorize="hasAuthority('ROLE_USER')">프로필 수정</a></li>
 				<li><a class="dropdown-item" href="/hotel/member/changepassword" sec:authorize="hasAuthority('ROLE_USER')">비밀번호 변경</a></li>

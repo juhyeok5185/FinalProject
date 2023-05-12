@@ -188,6 +188,7 @@ function resnewpassword2Check() {
 }
 
 $(document).ready(function() {
+	const token=$('#token').val();
 	$('#name').blur(nameCheck);
 	$('#personalId').blur(personalIdCheck);
 	$('#personalId2').blur(personalId2Check);
@@ -284,7 +285,10 @@ $(document).ready(function() {
   		try {
   			const check = await $.ajax({
   				url: '/hotel/member/checkNowPassword?nowpassword='+ nowpassword,
-  		    	method:'post'
+  		    	method:'post',
+  		    	data:{
+					  _csrf:$('#token').val()
+				  }
   			    });
   			if(check == true){
 					if(changeresult==true) {

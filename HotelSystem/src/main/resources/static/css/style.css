@@ -169,6 +169,7 @@
   padding: 0 0.8vh;
   border: 0;
 }
+
 #colorchange {
   color: #0000008C;
 }
@@ -2860,7 +2861,7 @@ div #logintoolbar > a {
 .dark-mode #totalPriceBox span {
 	color: white;
 }
-.dark-mode #VAT span, p {
+.dark-mode #VAT span, .dark-mode #VAT p {
 	color: white;
 }
 .dark-mode #VAT p {
@@ -3353,7 +3354,7 @@ div #logintoolbar > a {
 	
     #internalFacilities_staypage-1 {
 		width: 90vw;
-	    height:130vh;
+	    height:100vh;
 	    background-color: white;
 		overflow: hidden;
 		
@@ -3367,7 +3368,7 @@ div #logintoolbar > a {
 	
 	#internalFacilities_stayarticle-1 {
 		width: 100vw;
-		height:130vh;
+		height:100vh;
 	}
 	
 	#hotelintroduceimage {
@@ -3394,7 +3395,7 @@ div #logintoolbar > a {
 	
 	#totalStay-1 {
 	  width: 90vw;
- 	  height:121.5vh;
+ 	  height:91.2vh;
   	  background-color: white;
  	  overflow: hidden;
   	  margin-top: 2vh;
@@ -3483,8 +3484,6 @@ div #logintoolbar > a {
 }
 
 
-
-
 /* 부대시설 */
 #internal_common-1 {
   list-style: none;
@@ -3495,6 +3494,10 @@ div #logintoolbar > a {
 /* 나의등급 */
 
 /* 반응형 나의 등급 주성 */
+#internalFacilities_tem-1 {
+	padding-top: 5vh;
+	padding-left: 1vw;
+}
 #myPage_page-1 {
 	width: 100%;
 	height: 110vh;
@@ -3760,7 +3763,7 @@ div #logintoolbar > a {
     width: 80vw;
     position: absolute;
     left: 9vw;
-    margin-top: 5vh;
+    margin-top: 11vh;
 }
 #loginblock1_100 {
 	width:80vw;
@@ -4195,12 +4198,12 @@ div #logintoolbar > a {
 /* 반응형 회원가입 주성 */
 #joinpage-res {
 	width: 100%;
-    height:90vh;
+    height:85vh;
     background-color: white;
 }
 #joinarticle-res {
-	height: 75vh;
     width: 90vw;
+	height: 80vh;
     position: absolute;
     left: 9.5vw;
     margin-top: 5vh;
@@ -4541,7 +4544,7 @@ div #logintoolbar > a {
 .dark-mode #internalFacilities_tem-1 {
 	background-color: rgb(20, 20, 20);
 	padding-top: 5vh;
-	padding-left: 3vw;
+	padding-left: 1vw;
 }
 .dark-mode #internal_common-1 h6 {
 	color: #d5ccb0;
