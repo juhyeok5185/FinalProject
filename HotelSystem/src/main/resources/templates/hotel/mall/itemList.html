@@ -24,25 +24,25 @@
     <link rel="stylesheet" href="/css/mallHavenStyle.css" />
     <title>J.H.H.L</title>
     <script>
-    //스크롤 시 스티키 고정
-    window.addEventListener('scroll', function() {
-	  let totalCharge = document.getElementById('totalCharge');
-	  let luxuryarticle = document.getElementById('luxuryarticle');
-	  let sticky = totalCharge.offsetTop;
-      if (window.pageYOffset > sticky) {
-         totalCharge.classList.add('sticky');
-         luxuryarticle.classList.add('add');
-         chargeInquiry.classList.add('fix');
-      } else {
-         totalCharge.classList.remove('sticky');
-         luxuryarticle.classList.remove('add');
-         chargeInquiry.classList.remove('fix');
-      }
-    });
+      //스크롤 시 스티키 고정
+      window.addEventListener("scroll", function () {
+        let totalCharge = document.getElementById("totalCharge");
+        let luxuryarticle = document.getElementById("luxuryarticle");
+        let sticky = totalCharge.offsetTop;
+        if (window.pageYOffset > sticky) {
+          totalCharge.classList.add("sticky");
+          luxuryarticle.classList.add("add");
+          chargeInquiry.classList.add("fix");
+        } else {
+          totalCharge.classList.remove("sticky");
+          luxuryarticle.classList.remove("add");
+          chargeInquiry.classList.remove("fix");
+        }
+      });
     </script>
   </head>
   <body>
-  	<input type="hidden" name="_csrf" id="itemListToken" th:value="${_csrf.token}">
+    <input type="hidden" name="_csrf" id="itemListToken" th:value="${_csrf.token}" />
     <div class="hotel">
       <!-- 내브 -->
       <div th:replace="~{/fragment/nav.html}"></div>
@@ -61,7 +61,7 @@
                     <p>부가가치세 포함</p>
                   </div>
                   <div id="totalPriceBox">
-                    <span class="totalPrice"></span>
+                    <span class="totalPrice" id="totalPriceView"></span>
                   </div>
                 </div>
                 <div id="totalButton">
@@ -98,7 +98,10 @@
                 <div id="textBox-content">
                   <table class="table">
                     <colgroup>
-                      <col width="30%" /><col width="30%" /><col width="30%" /><col width="10%" />
+                      <col width="30%" />
+                      <col width="30%" />
+                      <col width="30%" />
+                      <col width="10%" />
                     </colgroup>
                     <thead>
                       <tr>
@@ -192,7 +195,7 @@
         <div class="mallCart-list" style="display: none">
           <div class="mallCart-title">
             <h2 style="font-weight: bold">요금상세</h2>
-            <input type="text" class="pickup pickup-1" placeholder="상품픽업 날짜를 고르세요" />
+            <input type="text" class="pickup pickup-1" placeholder="상품픽업 날짜를 고르세요" id="contactDay" />
           </div>
           <div class="mallCart-content">
             <table class="mallCart-table">
