@@ -133,6 +133,26 @@ function searchConditionCheck(token) {
   });
 }
 
+const intervalId = setInterval(async function () {
+  const token = $("#token").val();
+  const targetTime = new Date();
+  targetTime.setHours(11);
+  targetTime.setMinutes(00);
+
+  if (new Date() >= targetTime) {
+    clearInterval(intervalId);
+    try {
+      const list = await $.ajax({
+        url: "/hotel/manager/alarm?_csrf=" + token,
+        method: "post",
+      });
+      alert(JSON.stringify(list));
+    } catch (err) {
+      alert(err.responseText);
+    }
+  }
+}, 1000);
+
 $(document).ready(function () {
   const token = $("#token").val();
 

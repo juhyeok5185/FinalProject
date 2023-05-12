@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import hotel.management.v1.exception.NotFoundBookListException;
 import hotel.management.v1.exception.NotFoundBookNoException;
+import hotel.management.v1.exception.NotFoundCheckInBookException;
 import hotel.management.v1.exception.NotFoundUserListException;
 import hotel.management.v1.manager.dto.ManagerDto;
 import hotel.management.v1.manager.service.ManagerService;
@@ -92,6 +93,13 @@ public class ManagerRestController {
         return ResponseEntity.ok("");
     }
 
+    @PostMapping("/manager/alarm")
+    public ResponseEntity<?> alarm(){
+        System.out.println("1");
+        List<ManagerDto.alarm> list = service.checkOutAlarm();
+        return ResponseEntity.ok(list);
+    }
+
     //고객 이름 검색시 없을경우 발생하는 Exception
     @ExceptionHandler(NotFoundUserListException.class)
     public ResponseEntity<String> handleNotFoundUserListException(NotFoundUserListException ex) {
@@ -109,7 +117,12 @@ public class ManagerRestController {
     @ExceptionHandler(NotFoundBookNoException.class)
     public ResponseEntity<String> handleNotFoundBookNoException(NotFoundBookNoException ex) {
         String message = ex.getMessage();
-        System.out.println(message);
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(message);
+    }
+
+    @ExceptionHandler(NotFoundCheckInBookException.class)
+    public ResponseEntity<String> handleNotFoundCheckInBookException(NotFoundCheckInBookException ex) {
+        String message = ex.getMessage();
         return ResponseEntity.status(HttpStatus.CONFLICT).body(message);
     }
 }

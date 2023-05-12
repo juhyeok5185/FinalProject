@@ -91,4 +91,13 @@ public class ManagerDto {
         private Boolean black;
         private Boolean vip;
     }
+
+    @Data
+    @ToString
+    @Builder
+	public static class alarm {
+        private String booker;
+        private String booktel;
+        private Integer roomno;
+    }
 }

@@ -1,41 +1,65 @@
 /*명품관 상품 주문*/
-
 /*orderList*/
 .td-height {
 	line-height: 40px;
-	color: black;
-}
-
-.td-height a{
-	color: black;
 }
 
 .orderListThead tr th{
 	color: black;
 }
-
-.orderList_article {
-  width: 50vw;
-  position: relative;
-  left: 35vw;					
-  margin-top: 10vh;
-  overflow: hidden;
-}
-
+ 
+ .orderListTbody tr {
+ 	color : black;
+ }
+ 
+ .orderItemName {
+ 	color: black;
+ }
+ 
 .orderList_page {
   width: 100%;
-  min-height: 140vh;
-  height: 100%;
+  height: 70.4vh;
   background-color: white;
   overflow: hidden;
   margin:0 auto;
   padding: 0 auto;
 }
 
+.orderList_article {
+    width: 49vw;
+    position: absolute;
+    left: 35vw;
+    margin-top: 10vh;
+    overflow: hidden;
+}
+
+#tableDiv {
+	max-height: 40vh;
+	overflow-y: scroll;
+	margin-top: 4vh;
+}
+
+.orderListThead {
+	position: sticky;	
+	top:0vh;
+	background-color: #f1e3c4;
+}
+
+
 .orderList_page-1 {
 	width: 100%;
-	min-height: 180vh;
-	height: 100%;
+	height: 70.4vh;
+	overflow-y: hidden;
+}
+
+#orderListHead {
+  width: 80vw;
+  position: relative;
+  padding: 0.1vw 0.5vh 0 0;
+  border-bottom: 0.4rem solid #a1886f;
+  top: 6vh;
+  margin:0 auto;
+  color: #9e774c;
 }
 
 .orderListToolbar-1 {
@@ -49,20 +73,67 @@
 
 .orderList_article-1 {
 	width: 80vw;
+	height: 70.4vh;
 	margin: auto;
-	margin-top: 2vh;
+	
 }
 
-.orderListTable {
-	margin-top: 4vh;
+#tableDiv-1 {
+	max-height: 40vh;
+	overflow-y: scroll;
+	margin-top: 10vh;
+}
+
+.orderListThead-1 {
+	position: sticky;	
+	top:0vh;
+	background-color: #f1e3c4;
 }
 
 .orderListThead-1 tr th {
 	color: black;
 }
 
+/* 다크모드 */
+.dark-mode .orderList_page {
+	background-color: rgb(20, 20, 20);
+  }
+
+.dark-mode .orderListTbody, .dark-mode .orderItemName a {
+	color : white;
+}
+
+.dark-mode #orderListTbody-1, .dark-mode #orderListTbody-1 a {
+	color : white;
+}
+.dark-mode .orderListToolbar-1 {
+	color : white;
+}
+.dark-mode .orderListThead-1, .dark-mode .orderListThead-1 th {
+	color : white;
+	background-color : #212529;
+}
+.dark-mode .orderCancel-btn {
+	color:white;
+	border-color: white;
+}
+
+.dark-mode #orderListHead {
+	color : #d5ccb0;
+}
+.dark-mode .orderDetailCancel-btn {
+	color: white;
+	border-color: white;
+}
+.dark-mode .orderDetail-page {
+	background-color: rgb(20, 20, 20);
+}
+.dark-mode #orderDetailItem tr {
+	color : white;
+}
+
 /*orderDetail*/
-.orderDetail-tr th, td {
+.orderDetail-tr th td {
 	color: black;
 }
 
@@ -71,7 +142,10 @@
 }
  	
 .orderDetail-page {
-	height: 618px;
+	height: 621.5px;
+}
+#orderDetail-article {
+	height: 620px;
 }
  	
 .detailOrder {
@@ -91,16 +165,6 @@
     line-height: 50px;
 }
  	
-#orderDetail-footer {
-	background-color: #f1e3c4;
-	width: 100%;
-	height: 80px;
-}
- 	
-.orderDetail-logo img {
-	width: 100px;
-	height: 80px;
-}
  	
 .detail-title span{
  	position: relative;

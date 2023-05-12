@@ -570,7 +570,17 @@
 	right:0.5px;
 }
 
-
+.dark-mode .mallCart-list {
+	background-color: rgb(20, 20, 20);
+	border: 4px solid white;
+}
+.dark-mode .btn {
+	color: white;
+	border-color: white;
+}
+.dark-mode #cartTotalPrice {
+	color: white;
+}
 
 
 

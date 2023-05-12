@@ -56,7 +56,6 @@ class item {
 }
 
 function order({ pickupDay, tbodyArray, token }) {
-  console.log("order에 들어옴");
   $.ajax({
     type: "post",
     url: "/hotel/mall/order",
@@ -327,7 +326,6 @@ $(document).ready(function () {
     let saveName = false;
     let firstName = "";
     const tbodyArray = [];
-    console.log(pickupDay);
     for (let i = 0; i < mallItem.length; i++) {
       if (mallItem[i].count != 0) {
         if (saveName == false) {
@@ -434,14 +432,6 @@ $(document).ready(function () {
       return;
     }
 
-    console.log($("#contactDay").val());
-    console.log($("#priceView").text());
-    if ($("#contactDay").val() == "") {
-      console.log("들어옴");
-    }
-    if ($(".totalPrice").text() == "") {
-      console.log("들어옴223");
-    }
     if ($("#contactDay").val() == "" || $("#priceView").text() == "") {
       alert("픽업날짜 및 상품 선택은 필수입니다.");
       return;
@@ -453,8 +443,6 @@ $(document).ready(function () {
     let saveName = false;
     let firstName = "";
     const tbodyArray = [];
-
-    console.log(pickupDay);
 
     for (let i = 0; i < mallItem.length; i++) {
       if (mallItem[i].count != 0) {

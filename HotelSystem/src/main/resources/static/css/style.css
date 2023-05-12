@@ -1901,7 +1901,7 @@ div #logintoolbar > a {
 
 #subh{
   text-decoration: none;
-  color: #555;
+  color: black;
 }
 
 #gradeintro {
@@ -3634,7 +3634,7 @@ div #logintoolbar > a {
 /* 반응형 프로필 수정 주성 */
 #changepassword_page-1 {
 	width: 100vw;
-    height:70vh;
+    height:72vh;
     background-color: white;
     overflow: hidden;
     margin:0 auto;
@@ -3642,11 +3642,11 @@ div #logintoolbar > a {
 }
 
 #changepassword_article-1 {
-	height: 60vh;
     width: 80vw;
+	height: 57vh;
     position: absolute;
     left: 10vw;
-    margin-top: 10vh;
+    margin-top: 15vh;
     overflow: hidden;
 }
 
@@ -3656,6 +3656,7 @@ div #logintoolbar > a {
     border-top: 1px solid #a1886f;
     border-bottom: 1px solid #a1886f;
     margin-right: auto;
+    margin-top: 3vh;
 }
 
 #profileupdateintro-1 {
@@ -3668,7 +3669,7 @@ div #logintoolbar > a {
 #profileupdatebtn-1 {
 	width: 30vw;
     height: 3vh;
-    margin-top: 4.3vh;
+    margin-top: 7.3vh;
     margin-left: 25.5vw;
     background-color: #3a3125;
     border: 2px solid black;
@@ -4198,13 +4199,15 @@ div #logintoolbar > a {
 /* 반응형 회원가입 주성 */
 #joinpage-res {
 	width: 100%;
-    height:85vh;
+	max-height: 90vh;
+    min-height: 70vh;
     background-color: white;
 }
 #joinarticle-res {
     width: 90vw;
-	height: 80vh;
-    position: absolute;
+    max-height: 90vh;
+	min-height: 70vh;
+    position: relative;
     left: 9.5vw;
     margin-top: 5vh;
 }
@@ -4348,7 +4351,7 @@ div #logintoolbar > a {
 .dark-mode #changepassword_article-1 {
 	margin-top: 15vh;
 	height: 56vh;
-	left: 9vw;
+	left: 10vw;
 }
 .dark-mode #changepasswordtable-1 .col1 {
 	background-color: #212529;

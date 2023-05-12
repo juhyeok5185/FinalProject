@@ -14,9 +14,11 @@ import org.springframework.stereotype.Service;
 
 import hotel.management.v1.exception.NotFoundBookListException;
 import hotel.management.v1.exception.NotFoundBookNoException;
+import hotel.management.v1.exception.NotFoundCheckInBookException;
 import hotel.management.v1.exception.NotFoundUserListException;
 import hotel.management.v1.manager.dao.ManagerDao;
 import hotel.management.v1.manager.dto.ManagerDto;
+import hotel.management.v1.manager.dto.ManagerDto.alarm;
 import hotel.management.v1.util.ManagerUtil;
 
 
@@ -121,5 +123,12 @@ public class ManagerService {
             throw new NotFoundBookListException("검색정보가 없습니다.");
         }
         return list;  
+    }
+
+    public List<ManagerDto.alarm> checkOutAlarm() {
+        if(dao.checkOutAlarm().size() == 0){
+            throw new NotFoundCheckInBookException("모든 체크아웃이 완료되었습니다.");
+        }
+        return dao.checkOutAlarm();
     }
 }

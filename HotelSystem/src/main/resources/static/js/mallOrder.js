@@ -3,7 +3,7 @@ function detailPopup(url) {
 	window.open(
 		url,
 		"orderDetail-name",
-		"scrollbar=no, width=600, height=700, top=150, left=600"
+		"scrollbar=no, width=600, height=780, top=150, left=600"
 	)
 };
 
