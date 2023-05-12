@@ -13,11 +13,10 @@
 .orderListThead tr th{
 	color: black;
 }
-
+ 
 .orderList_page {
   width: 100%;
-  min-height: 140vh;
-  height: 100%;
+  height: 70.8vh;
   background-color: white;
   overflow: hidden;
   margin:0 auto;
@@ -25,7 +24,6 @@
 }
 
 .orderList_article {
-    height: 130vh;
     width: 50vw;
     position: absolute;
     left: 35vw;
@@ -36,7 +34,9 @@
 #tableDiv {
 	max-height: 40vh;
 	overflow-y: scroll;
+	margin-top: 4vh;
 }
+
 
 .orderListThead {
 	position: sticky;	
@@ -73,6 +73,12 @@
 .orderListThead-1 tr th {
 	color: black;
 }
+
+/* 다크모드 */
+.dark-mode .orderList_page {
+	background-color: rgb(20, 20, 20);
+  }
+
 
 /*orderDetail*/
 .orderDetail-tr th, td {
