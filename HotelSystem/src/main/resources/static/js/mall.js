@@ -9,7 +9,7 @@ const mallItem = [
 ];
 
 function checkChoose() {
-  if ($(".pickup").val() == "" || $(`.priceView`).text() == "") {
+  if ($('.pickup').val() == "" || $(`.priceView`).text() == "") {
     alert("픽업날짜 및 상품 선택은 필수입니다.");
     return;
   }
@@ -157,23 +157,7 @@ $(document).ready(function () {
   var tossPayments = TossPayments(clientKey);
   let cartClick = 0;
   let countInfo = 1;
-
-  //스크롤 시 스티키 고정
-  $(window).on("scroll", function () {
-    let totalCharge = $("#totalCharge");
-    let luxuryarticle = $("#luxuryarticle");
-    let sticky = totalCharge.offset().top;
-
-    if ($(window).scrollTop() > sticky) {
-      totalCharge.addClass("sticky");
-      luxuryarticle.addClass("add");
-      chargeInquiry.addClass("fix");
-    } else {
-      totalCharge.removeClass("sticky");
-      luxuryarticle.removeClass("add");
-      chargeInquiry.removeClass("fix");
-    }
-  });
+  const token=$("#itemListToken").val();
 
   // 상품담기
   $(".item-btn").click(async function () {
@@ -182,6 +166,9 @@ $(document).ready(function () {
       checkUser = await $.ajax({
         url: "/hotel/mall/checkUser",
         method: "post",
+        data: {
+			_csrf:token
+		}
       });
     } catch (err) {
       alert(err.responseText);
@@ -358,6 +345,9 @@ $(document).ready(function () {
       checkUser = await $.ajax({
         url: "/hotel/mall/checkUser",
         method: "post",
+        data: {
+			_csrf:token
+		}
       });
     } catch (err) {
       alert(err.responseText);
@@ -392,7 +382,7 @@ $(document).ready(function () {
   /* 반응형 */
   const today = new Date();
   let dateFormat = "mm/dd/yy",
-    from = $("#pickup-1").datepicker({
+    from = $(".pickup-1").datepicker({
       defaultDate: null,
       changeMonth: true,
       numberOfMonths: 1,
@@ -405,10 +395,12 @@ $(document).ready(function () {
       $(".mallCart-popup").attr("style", "display:none");
       $(".mallCart-list").attr("style", "display:none");
       $("html").attr("style", "overflow: none");
+      $('.mallCart-icon').attr('style','transform: translate(-15%, -8%)')
     } else {
       $(".mallCart-popup").attr("style", "display:block");
       $(".mallCart-list").attr("style", "display:block");
       $("html").attr("style", "overflow: hidden");
+      $('.mallCart-icon').attr('style','transform: translate(16%, -8%)')
     }
     ++cartClick;
     $(".badge").removeClass("badgeadd");
@@ -421,6 +413,9 @@ $(document).ready(function () {
       checkUser = await $.ajax({
         url: "/hotel/mall/checkUser",
         method: "post",
+        data: {
+			_csrf:token
+		}
       });
     } catch (err) {
       alert(err.responseText);
@@ -441,6 +436,9 @@ $(document).ready(function () {
       checkUser = await $.ajax({
         url: "/hotel/mall/checkUser",
         method: "post",
+        data: {
+			_csrf:token
+		}
       });
     } catch (err) {
       alert(err.responseText);

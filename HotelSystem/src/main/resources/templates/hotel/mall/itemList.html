@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE htl>
 <html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
   <head>
     <meta charset="UTF-8" />
@@ -23,8 +23,26 @@
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/mallHavenStyle.css" />
     <title>J.H.H.L</title>
+    <script>
+    //스크롤 시 스티키 고정
+    window.addEventListener('scroll', function() {
+	  let totalCharge = document.getElementById('totalCharge');
+	  let luxuryarticle = document.getElementById('luxuryarticle');
+	  let sticky = totalCharge.offsetTop;
+      if (window.pageYOffset > sticky) {
+         totalCharge.classList.add('sticky');
+         luxuryarticle.classList.add('add');
+         chargeInquiry.classList.add('fix');
+      } else {
+         totalCharge.classList.remove('sticky');
+         luxuryarticle.classList.remove('add');
+         chargeInquiry.classList.remove('fix');
+      }
+    });
+    </script>
   </head>
   <body>
+  	<input type="hidden" name="_csrf" id="itemListToken" th:value="${_csrf.token}">
     <div class="hotel">
       <!-- 내브 -->
       <div th:replace="~{/fragment/nav.html}"></div>
@@ -80,10 +98,7 @@
                 <div id="textBox-content">
                   <table class="table">
                     <colgroup>
-                      <col width="30%" />
-                      <col width="30%" />
-                      <col width="30%" />
-                      <col width="10%" />
+                      <col width="30%" /><col width="30%" /><col width="30%" /><col width="10%" />
                     </colgroup>
                     <thead>
                       <tr>
