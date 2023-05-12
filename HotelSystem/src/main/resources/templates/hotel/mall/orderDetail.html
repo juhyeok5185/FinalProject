@@ -31,7 +31,6 @@
 </head>
 <body>
  <div class="orderDetail">
-  	<!-- 내브 -->
     <div class="orderDetail-page"> 
     	<div id="orderDetail-article">
 			<div class="orderDetail-title">
@@ -45,9 +44,9 @@
 					<div class="orderItem-img">
 						<img alt="매트리스" th:src="${orderDetail.itemImage}" width="450px" height="210px">
 					</div>		
-					<table class="table table-hover">
+					<table class="table" id="orderDetailItem">
 						<colgroup>
-							<col width="40%"><col width="60%">
+							<col width="50%"><col width="50%">
 						</colgroup>
 						<tr class="orderDetail-tr" style="border-top:1px solid #DBDBDB;">
 							<th>주문번호</th>
@@ -85,13 +84,7 @@
     	</div>
 	</div>
 	<!--풋터-->
-	<div id="orderDetail-footer" class="navbar navbar-expand-sm">
-		<div id="div_logo">
-			<div class="orderDetail-logo">
-				<img src="/img/logo.png" alt="로고">
-			</div>
-		</div>
-	</div>
+	<div th:replace="~{/fragment/footer.html}"></div>
  </div>
 </body>
 </html>
