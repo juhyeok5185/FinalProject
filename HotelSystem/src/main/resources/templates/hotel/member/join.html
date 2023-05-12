@@ -119,6 +119,7 @@
 	                	<a href="/hotel/main"><input class="but3" type="button" value="가입취소"></a>
                 		<input id="join" class="but4" type="button" value="가입하기" >
               		</div>
+              		<input type="hidden" name="_csrf" th:value="${_csrf.token}">
               		</form>
       </div>
     </div>
@@ -215,6 +216,7 @@
 	                	<a href="/hotel/main"><input class="but3" type="button" value="가입취소"></a>
                 		<input id="join-res" class="but4" type="button" value="가입하기" >
               		</div>
+              		<input type="hidden" name="_csrf" th:value="${_csrf.token}">
               		</form>
       </div>
     </div>

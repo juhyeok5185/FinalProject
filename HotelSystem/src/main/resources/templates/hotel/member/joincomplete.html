@@ -46,6 +46,7 @@
 	       		<div>
 	       			<button id="todologin">로그인</button>
 	       		</div>
+	       		<input type="hidden" name="_csrf" th:value="${_csrf.token}">
        		</form>
        	</div>
       </div>
@@ -78,6 +79,7 @@
 	       		<div>
 	       			<button id="todologin-res">로그인</button>
 	       		</div>
+	       		<input type="hidden" name="_csrf" th:value="${_csrf.token}">
        		</form>
        	</div>
       </div>

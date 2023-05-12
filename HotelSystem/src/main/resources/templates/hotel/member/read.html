@@ -183,6 +183,7 @@
 			<div>
 				<button id="deletebtn">회원탈퇴</button>
 			</div>
+			<input type="hidden" name="_csrf" th:value="${_csrf.token}">
 		</form>
 			<div>
 				<button id="updatebtn">변경</button>
@@ -238,6 +239,7 @@
 			<div>
 				<button id="deletebtn-1">회원탈퇴</button>
 			</div>
+			<input type="hidden" name="_csrf" th:value="${_csrf.token}">
 		</form>
 			<div>
 				<button id="updatebtn-1">변경</button>
