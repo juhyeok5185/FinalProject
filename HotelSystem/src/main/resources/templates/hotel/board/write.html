@@ -70,6 +70,7 @@ $(document).ready(function(){
             	</tr>
              </table>
           	<span id="writebutton">
+          	  <input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}">
          	  <button class="btn btn-outline-dark">작성</button>
            	  <a type="button" class="btn btn-outline-dark" href="/hotel/board/list">목록</a>
           	</span>

@@ -70,10 +70,10 @@
   			<li class="page-item"><a class="page-link" th:href="@{'/hotel/board/list?pageno='+${prev}}" style="color:#7a7a7a">이전</a></li>
   			<li class="page-item" th:each="i: ${#numbers.sequence(start, end)}">
   			  <span th:if="${pageno eq i}">  
-  			   <a class="page-link active" th:href="@{'/hotel/board/list?pageno=' + ${i}}" th:text="${i}" style="background-color:#7a7a7a"></a>
+  			   <a class="page-link active" th:href="@{'/hotel/board/list?pageno=' + ${i}}" th:text="${i}" ></a>
   			  </span>
   			  <span th:if="${pageno != i}">
-    		   <a class="page-link" th:href="@{'/hotel/board/list?pageno=' + ${i}}" th:text="${i}" style="background-color:#7a7a7a"></a>
+    		   <a class="page-link" th:href="@{'/hotel/board/list?pageno=' + ${i}}" th:text="${i}" ></a>
   			  </span>
 			</li>
   			<li class="page-item"><a class="page-link" th:href="@{'/hotel/board/list?pageno='+${next}}" style="color:#7a7a7a">다음</a></li>
