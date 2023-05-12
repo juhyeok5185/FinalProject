@@ -22,4 +22,10 @@ public interface PayDao {
  	public void deletepayment(Integer bookno);
 
 	public BookDto.checkbook findbookByBookno(Integer bookno);
+
+	public void deletedinner(Integer bookno);
+
+	public void deleteroombooking(Integer bookno);
+
+	public void deletebook(Integer bookno);
 }

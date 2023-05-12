@@ -101,6 +101,7 @@ function printmyroombook(list){
 	$('#mybookpagetbody').empty();
 	const tbody = $('#mybookpagetbody');
 	for(l of list){
+
 	const html = `
 		<tr>
 			<td>${l.checkin}</td>
@@ -151,6 +152,7 @@ $(document).ready(async function() {
 			method:'post',
 			statusCode: {
 				200:function (){
+					location.reload();
 					alert("성공");
 				}
 			}

@@ -117,4 +117,17 @@ public class PayService {
     }
 
 
+    public void deletepayment(Integer bookno) {
+		dao.deletepayment(bookno);
+    }
+
+	public void findAndDeleteByBookByBookno(Integer bookno) {
+		BookDto.checkbook bookdata =  dao.findbookByBookno(bookno);
+		System.out.println(bookdata.toString());
+		if(bookdata.getRoombookno()!=null)
+			dao.deleteroombooking(bookno);
+		if(bookdata.getResno()!=null)
+			dao.deletedinner(bookno);
+		dao.deletebook(bookno);
+	}
 }

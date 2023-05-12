@@ -22,14 +22,24 @@
 
 	</select>
 	<select id="findbookByBookno" resultType="hotel.management.v1.client.book.dto.BookDto$checkbook">
-		select b.bookno,rb.bookno as roombookno,d.resno from book b
+		select b.bookno,rb.bookno as roombookno,d.resno as resno from book b
 		    left join roombooking rb on b.bookno = rb.bookno
 		    left join roombooking rb on b.bookno = rb.bookno
 		    LEFT join dinner d on b.bookno = d.resno
-			and b.bookno = #{bookno};
+			where b.bookno = #{bookno}
 
 	</select>
 	<delete id = "deletepayment">
 		delete payment where bookno = #{bookno}
+	</delete>
+
+	<delete id="deletedinner">
+		delete dinner where resno = #{bookno}
+	</delete>
+	<delete id="deleteroombooking">
+		delete roombooking where bookno = #{bookno}
+	</delete>
+	<delete id="deletebook">
+		delete book where bookno = #{bookno}
 	</delete>
 </mapper>

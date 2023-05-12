@@ -76,8 +76,8 @@ public class BookDto {
 	@Data
 	public static class checkbook{
 		Integer bookno;
-		Boolean rommbookno;
-		Boolean resno;
+		Integer roombookno;
+		Integer resno;
 	}
 	
 	@Data

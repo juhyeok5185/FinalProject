@@ -95,13 +95,19 @@ public class PayController {
 	
 	@PostMapping("/pay/cancle_do")
 	public ResponseEntity<?> canclePay(Integer bookno) {
-		PayDto.payment payment= payService.findBypayment(bookno);
-		System.out.println(payment.toString());
-		System.out.println(payment.toString());
+
 		//DB날리는 거 만들기
-		payService.canclePay(payment);
-		
-		return payService.canclePay(payment)==null?ResponseEntity.status(HttpStatus.CONFLICT).body(null):ResponseEntity.ok(null);
+		PayDto.payment payment =  payService.findBypayment(bookno);
+		payService.deletepayment(bookno);
+		payService.findAndDeleteByBookByBookno(bookno);
+		//이거 결제환불 어캐함
+		try {
+			payService.canclePay(payment);
+		}catch (Exception e){
+			return ResponseEntity.ok(null);
+		}
+
+		return ResponseEntity.ok(null);
 	}
 	
 }
