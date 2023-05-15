@@ -105,8 +105,23 @@ $(document).ready(function(){
     	}
 	})
 	
+	
+	
 	$(document).on('click',"#cencelBtn", async function(){
-		const orderNo = $(this).closest('tr').children('td:first').text().trim();
+		
+	  const orderno = parseInt($(this).closest('tr').children('td:first').text().trim());
+    
+      $.ajax({
+      url: "/pay/cancel_do",
+      data: { orderno, _csrf: token },
+      method: "post",
+      statusCode: {
+        200: function () {
+          alert("예약 취소가 완료되었습니다.");
+        },
+      },
+    });
+    /*
     try {
       const response = await $.ajax({
         url: "/hotel/manager/delete?orderNo=" + orderNo + '&_csrf=' + token,
@@ -118,6 +133,7 @@ $(document).ready(function(){
     } catch (err) {
       console.log(err);
     }
+  */
   });
   
     $(document).on('click',"#orderdetailcencelBtn", async function(){
@@ -132,7 +148,6 @@ $(document).ready(function(){
 		      _csrf:token
 		  }
 	    });
-	    
 	    
 	    alert("주문이 취소되었습니다.");
 	    window.opener.location.reload();
