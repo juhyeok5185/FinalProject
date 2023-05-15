@@ -262,9 +262,9 @@ $(document).ready(function () {
   });
 
   //예약취소
-  $(document).on("click", ".bookCancel", async function () {
+  $(document).on("click", ".bookCancel", function () {
     //예약자를 input hidden으로 숨겨두고 그값을 찾아온다.
-    let bookNo = $(this).find("input").val();
+    let bookno = parseInt($(this).find("input").val());
     $.ajax({
       url: "/pay/cancel_do",
       data: { bookno, _csrf: token },
@@ -272,7 +272,7 @@ $(document).ready(function () {
       statusCode: {
         200: function () {
           location.reload();
-          alert("성공");
+          alert("예약 취소가 완료되었습니다.");
         },
       },
     });

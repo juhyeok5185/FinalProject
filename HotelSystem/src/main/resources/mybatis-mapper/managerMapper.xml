@@ -17,7 +17,7 @@
 <!-- 예약취소 버튼 클릭시 book의 예약상태를 예약취소로 변경해준다. -->
     <update id="bookCancel">
         UPDATE book
-        SET bookStatus = '예약취소'
+        SET bookStatus = '예약취소' 
         WHERE bookTel = #{tel}
     </update>
 
