@@ -111,14 +111,14 @@ public class PayService {
 	}
 
 
-    public PayDto.payment findBypayment(Integer bookno) {
-		PayDto.payment payment = dao.findPaymentByBookno(bookno);
+    public PayDto.payment findBypayment(Integer bookno,Integer orderno) {
+		PayDto.payment payment = dao.findPaymentByBookno(bookno,orderno);
 		return payment;
     }
 
 
-    public void deletepayment(Integer bookno) {
-		dao.deletepayment(bookno);
+    public void deletepayment(Integer bookno,Integer orderno) {
+		dao.deletepayment(orderno,bookno);
     }
 
 	public void findAndDeleteByBookByBookno(Integer bookno) {

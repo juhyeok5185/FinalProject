@@ -27,12 +27,12 @@ public class BookMVCController {
 
 	@GetMapping("/client/mydinnerbook")
 	public ModelAndView mydinnerbook(Principal pal) {
-		return new ModelAndView();
+
+		return new ModelAndView().addObject("list",service.findMydinnerByusername(pal.getName()));
 	}
 
 	@GetMapping("/client/myroombook")
 	public ModelAndView myroombook(Principal pal) {
-
 		List<BookDto.mypagedinner> list = service.findMyBookByUsername(pal.getName());
 		return new ModelAndView().addObject("list", list);
 	}

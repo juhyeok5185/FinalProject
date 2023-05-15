@@ -93,12 +93,16 @@ public class PayController {
 
 	@PostMapping("/pay/cancle_do")
 	public ResponseEntity<?> canclePay(Integer bookno, Integer orderno) {
-
+		System.out.println(bookno);
+		System.out.println(orderno);
 		// DB날리는 거 만들기
-		PayDto.payment payment = payService.findBypayment(bookno);
-		payService.deletepayment(bookno);
+		PayDto.payment payment = payService.findBypayment(bookno,orderno);
+		System.out.println(payment.toString());
+		payService.deletepayment(payment.getBookno(),payment.getOrderno());
+
+
+
 		payService.findAndDeleteByBookByBookno(bookno);
-		// 이거 결제환불 어캐함
 		try {
 			payService.canclePay(payment);
 		} catch (Exception e) {

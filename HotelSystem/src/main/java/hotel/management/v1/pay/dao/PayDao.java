@@ -17,9 +17,9 @@ public interface PayDao {
 
 	public Integer mangeradd(book book);
 
-  	public PayDto.payment findPaymentByBookno(Integer bookno);
+  	public PayDto.payment findPaymentByBookno(Integer bookno,Integer orderno);
 
- 	public void deletepayment(Integer bookno);
+ 	public Integer deletepayment(Integer bookno,Integer orderno);
 
 	public BookDto.checkbook findbookByBookno(Integer bookno);
 

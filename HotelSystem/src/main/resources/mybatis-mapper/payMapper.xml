@@ -18,7 +18,19 @@
 	</update>
 
 	<select id = "findPaymentByBookno" resultType="hotel.management.v1.pay.dto.PayDto$payment">
-		select p.tid,p.partner_order_id,p.total_amount,p.bookno from payment p where p.bookno= #{bookno}
+		select p.tid,p.partner_order_id,p.total_amount,p.bookno from payment p
+
+
+
+
+		<trim prefix="where" suffixOverrides=",">
+			<if test="bookno!=null">p.bookno = #{bookno},</if>
+			<if test="orderno!=null">p.orderno = #{orderno},</if>
+		</trim>
+
+
+
+
 
 	</select>
 	<select id="findbookByBookno" resultType="hotel.management.v1.client.book.dto.BookDto$checkbook">
@@ -30,10 +42,17 @@
 
 	</select>
 	<delete id = "deletepayment">
-		delete payment where bookno = #{bookno}
+		delete payment
+
+
+	<trim prefix="where" suffixOverrides=",">
+		<if test="bookno!=null">bookno = #{bookno},</if>
+		<if test="orderno!=null">orderno = #{orderno},</if>
+	</trim>
 	</delete>
 
 	<delete id="deletedinner">
+
 		delete dinner where resno = #{bookno}
 	</delete>
 	<delete id="deleteroombooking">
