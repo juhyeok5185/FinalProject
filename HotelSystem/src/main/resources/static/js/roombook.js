@@ -536,6 +536,6 @@ $(document).ready(async function () {
         console.log(err);
       }
     }
-    location.href = "/reservationcomplete";
+
   });
 });
