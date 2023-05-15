@@ -17,8 +17,6 @@ public interface ManagerMallListDao {
 
 	public Integer orderdetaildelete(Integer orderNo);
 	
-	public Integer delete(Integer orderNo);	
-
 	public ManagerMallListDto.orderDetail orderDetail(Integer orderNo);
 
 }

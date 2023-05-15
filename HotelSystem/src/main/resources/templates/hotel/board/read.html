@@ -111,7 +111,7 @@
 	              <input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}">
 	              <input type="hidden" name="username" th:field="*{board.username}">
 	              <input type="hidden" name="boardNo"  th:field="*{board.boardNo}">
-	              <textarea id="replyContent" name="replyContent" cols="80" rows="4"></textarea>
+	              <textarea id="replyContent" name="replyContent" cols="80" rows="4" maxlength='50'></textarea>
 			      <span id="replybutton"><button id="replybutton" class="btn btn-outline-dark">답변</button></span>
 		        </form>
               </td>
