@@ -22,6 +22,9 @@ public class ManagerMallListMVCController {
 		@GetMapping("/hotel/manager/managerMallList")
 		public ModelAndView contactmallList(Integer pageno) {
 			List<ManagerMallListDto.MallListSearch> list = service.contactmallList();
+			if(list.size() == 0) {
+				return new ModelAndView("/hotel/manager/managerMallList").addObject("msg", "검색결과가 없습니다.");
+			}
 			return new ModelAndView("/hotel/manager/managerMallList").addObject("mallListArea",list);
 		}
 		

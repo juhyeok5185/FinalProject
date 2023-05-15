@@ -51,4 +51,8 @@ public class OrderService {
 		return 1;
 	}
 
+	public List<OrdersDto.Items> findByItemNo() {
+		return orderDao.findByItemNo();
+	}
+
 }

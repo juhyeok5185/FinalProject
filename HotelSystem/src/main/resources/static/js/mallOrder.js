@@ -26,7 +26,6 @@ $(document).ready(function () {
           },
           statusCode: {
             200: function () {
-              alert("11111");
               $.ajax({
                 url: "/pay/cancel_do",
                 method: "post",
@@ -45,8 +44,8 @@ $(document).ready(function () {
     } else {
       return;
     }
-    //window.close();
-    //window.opener.location.reload();
+    window.close();
+    window.opener.location.reload();
   });
 
   $(document).on("click", ".orderCancel-btn", function () {
@@ -69,7 +68,6 @@ $(document).ready(function () {
           },
           statusCode: {
             200: function () {
-              alert("11111112222");
               $.ajax({
                 url: "/pay/cancel_do",
                 method: "post",
@@ -85,7 +83,7 @@ $(document).ready(function () {
       } catch (err) {
         console.log(err);
       }
-      //location.reload();
+      location.reload();
     } else {
       return;
     }
