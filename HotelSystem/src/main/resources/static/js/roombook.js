@@ -1,6 +1,7 @@
 function printtotalprice(gradeName, gradeprice) {
   console.log(typeof gradeprice);
   console.log(gradeprice);
+  let priceperpercent = 0;
   let totalprice = parseInt(gradeprice);
   if ($("#bfcheckbox").is(":checked")) {
     totalprice += parseInt($("#breakfastprice").text());
@@ -14,12 +15,17 @@ function printtotalprice(gradeName, gradeprice) {
 
   const cntday = parseInt($(".night").text());
   const paytotalprice = totalprice * cntday;
-
-  console.log(cntday);
-  console.log(paytotalprice);
+  const mylevel = $('#boookmylevel').text();
+  parseInt(paytotalprice);
+  if (mylevel == 'GOLD'){
+    priceperpercent = paytotalprice-((paytotalprice/100)*10);
+  }
+  if (mylevel=='SILVER'){
+    priceperpercent = paytotalprice-((paytotalprice/100)*5);
+  }
   $("#roominfo").empty();
   $("#roomname").empty();
-  $("#roominfo").append(paytotalprice);
+  $("#roominfo").append(priceperpercent);
   $("#roomname").append(gradeName);
 }
 function printRoomList($roomlist, $footer) {
@@ -400,6 +406,7 @@ $(document).ready(async function () {
     const totalprice = $("#roominfo").text();
     const gradename = $("#roomname").text();
     parseInt(totalprice);
+    const mylevel = $('#boookmylevel').text();
     kakaojs({ totalprice, gradename });
   });
   $("#choosePayment-box2").click(function () {
@@ -429,6 +436,7 @@ $(document).ready(async function () {
     } else {
       const gradeName = $(this).parent().prev().prev().prev().val();
       const gradeprice = $(this).parent().prev().children("#gradeprice").text();
+
       printtotalprice(gradeName, gradeprice);
     }
   });
