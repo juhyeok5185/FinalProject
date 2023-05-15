@@ -96,11 +96,13 @@ public class PayController {
 		System.out.println(bookno);
 		System.out.println(orderno);
 		// DB날리는 거 만들기
-		PayDto.payment payment = payService.findBypayment(bookno,orderno);
+		PayDto.payment payment = payService.findBypayment(bookno, orderno);
 		System.out.println(payment.toString());
-		payService.deletepayment(payment.getBookno(),payment.getOrderno());
+		payService.deletepayment(payment.getBookno(), payment.getOrderno());
 
-
+		if (orderno != null && bookno == null) {
+			payService.findAndCancelOrder(orderno);
+		}
 
 		payService.findAndDeleteByBookByBookno(bookno);
 		try {
