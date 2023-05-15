@@ -114,7 +114,6 @@
                   <td></td>
                   <td></td>
               </tr>
-              <div th:text="${bookList}"></div>
               <tr th:if="${msg} == null" th:each="b : ${bookList}">
                   <td>
                     <a th:href="@{/hotel/manager/memberDetail(name=${b.booker})}" th:text="${b.booker}" target="_blank"></a>
