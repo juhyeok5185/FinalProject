@@ -395,7 +395,39 @@
     }
 
     #reservation-btn {
+        top : -30px;
+    }
+    #inputdiv *{
+        display: inline-block;
+    }
+    #inputdiv{
+        width: 90vw;
+    }
+    #payarea{
+        width: 70vw;
+    }
+    #paymentPopup-box{
+        width: 65vw;
+        left: 15vw;
+    }
+    #paymentPopup-cancle{
+        left: 59.4vw;
+    }
+    #choosePayment{
+        width: 65vw;}
+    #choosePayment-box1{
+        width: 24vw;
+    }
+    #kakaopay-payment{
+        left: 2.9vw;
+    }
 
+    #choosePayment-box2{
+        width: 24vw;
+        left: 36vw;
+    }
+    #toss-payment{
+        left: 3.1vw;
     }
 }
 
