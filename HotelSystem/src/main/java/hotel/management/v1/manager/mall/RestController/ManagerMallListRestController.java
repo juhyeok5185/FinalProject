@@ -28,7 +28,6 @@ public class ManagerMallListRestController {
 	public ResponseEntity<?> delete(String orderNo) {
 		Integer orderno = Integer.parseInt(orderNo);
 		service.orderdetaildelete(orderno);
-		service.delete(orderno);
 		return ResponseEntity.ok("");
 	}
 

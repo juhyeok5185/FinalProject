@@ -107,7 +107,6 @@ $(document).ready(function(){
 	
 	$(document).on('click',"#cencelBtn", async function(){
 		const orderNo = $(this).closest('tr').children('td:first').text().trim();
-      console.log(orderNo);
     try {
       const response = await $.ajax({
         url: "/hotel/manager/delete?orderNo=" + orderNo + '&_csrf=' + token,
@@ -133,6 +132,7 @@ $(document).ready(function(){
 		      _csrf:token
 		  }
 	    });
+	    
 	    alert("주문이 취소되었습니다.");
 	    window.opener.location.reload();
 	    window.close();
