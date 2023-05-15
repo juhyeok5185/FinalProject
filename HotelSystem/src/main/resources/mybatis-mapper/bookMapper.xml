@@ -76,9 +76,9 @@
 			dinner rb ,book bk
 		where
 
-			bk.bookdate BETWEEN SYSDATE - INTERVAL '1' MONTH AND SYSDATE
 
-		  and rb.resno = bk.bookno and username = #{username}
+
+		  rb.resno = bk.bookno and username = #{username}
 	</select>
 	<select id="chekbook" resultType="int">
 		SELECT count(b.bookno)
