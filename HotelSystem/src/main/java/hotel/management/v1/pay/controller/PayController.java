@@ -103,8 +103,9 @@ public class PayController {
 		if (orderno != null && bookno == null) {
 			payService.findAndCancelOrder(orderno);
 		}
-
-		payService.findAndDeleteByBookByBookno(bookno);
+		if (orderno == null && bookno != null) {
+			payService.findAndDeleteByBookByBookno(bookno);
+		}
 		try {
 			payService.canclePay(payment);
 		} catch (Exception e) {
