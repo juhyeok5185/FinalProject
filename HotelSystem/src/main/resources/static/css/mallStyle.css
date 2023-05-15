@@ -36,3 +36,28 @@
 	position: relative;
 	left:33vw;
 }
+
+/* 재고관리 CSS */
+#itemUpdate {
+	float: right;
+	width: 88%;
+	height: 65vh;
+}
+
+#itemUpdate-div {
+	margin-top: 6.5vh;
+	position: relative;
+}
+
+#itemUpdate-table {
+	width: 80vw;
+	margin-left: 3.5vw;
+}
+
+#itemUpdate-thead tr th {
+	line-height: 5vh;
+}
+
+#itemUpdate-tbody tr td{
+	line-height: 5vh;
+}

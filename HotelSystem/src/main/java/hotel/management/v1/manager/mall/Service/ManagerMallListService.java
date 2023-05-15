@@ -5,10 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import hotel.management.v1.exception.NotFoundMallListException;
 import hotel.management.v1.manager.mall.Dao.ManagerMallListDao;
 import hotel.management.v1.manager.mall.Dto.ManagerMallListDto;
-import hotel.management.v1.manager.mall.Dto.ManagerMallListDto.itemUpdate;
+import hotel.management.v1.manager.mall.Dto.ManagerMallListDto.ItemUpdate;
 
 @Service
 public class ManagerMallListService {
@@ -29,13 +28,16 @@ public class ManagerMallListService {
 		return dao.orderdetaildelete(orderNo);
 	}
 
-
 	public ManagerMallListDto.orderDetail orderDetail(Integer orderNo) {
 		return dao.orderDetail(orderNo);
 	}
 
-	public List<itemUpdate> findItemList() {
+	public List<ItemUpdate> findItemList() {
 		return dao.findItemList();
+	}
+
+	public Integer updateItemEA(Integer itemno) {
+		return dao.updateItemEA(itemno);
 	}
 
 }

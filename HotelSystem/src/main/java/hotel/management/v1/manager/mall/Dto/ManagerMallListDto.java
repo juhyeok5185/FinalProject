@@ -1,6 +1,5 @@
 package hotel.management.v1.manager.mall.Dto;
 
-
 import java.time.LocalDate;
 import java.util.List;
 
@@ -21,46 +20,46 @@ public class ManagerMallListDto {
 	@Builder
 	@ToString
 	public static class MallListSearch {
-		private String username; 
+		private String username;
 		@NonNull
 		private String tel;
 		@NonNull
 		private String name;
 		@NonNull
-		private Integer orderNo; 
-		private LocalDate orderDate; 
+		private Integer orderNo;
+		private LocalDate orderDate;
 		private LocalDate contactDate;
-		private Integer orderPrice; 
+		private Integer orderPrice;
 		private Integer orderEa;
 	}
-	
+
 	@Data
 	@AllArgsConstructor
 	@Builder
 	@ToString
-	public static class FindMallList{
-		private String name; 
+	public static class FindMallList {
+		private String name;
 		private String tel;
-		private Integer orderNo; 
+		private Integer orderNo;
 	}
-	
+
 	@Data
 	@AllArgsConstructor
 	@Builder
 	@ToString
-	public static class orderDetail{
-		private Integer orderNo; 
-		private String name; 
+	public static class orderDetail {
+		private Integer orderNo;
+		private String name;
 		private String tel;
 		private Integer itemNo;
-		private String itemName; 
-		private Integer orderPrice; 
-		private Integer orderEa; 
+		private String itemName;
+		private Integer orderPrice;
+		private Integer orderEa;
 	}
-	
-	
+
 	@Data
-	public static class itemUpdate {
+	@ToString
+	public static class ItemUpdate {
 		private Integer itemno;
 		private String itemname;
 		private Integer itemea;

@@ -18,33 +18,32 @@ import hotel.management.v1.manager.mall.Service.ManagerMallListService;
 public class ManagerMallListMVCController {
 	@Autowired
 	private ManagerMallListService service;
-		
-		@GetMapping("/hotel/manager/itemUpdate")
-		public ModelAndView itemUpdate() {
-			List<ManagerMallListDto.itemUpdate> itemList = service.findItemList();
-			return new ModelAndView().addObject("itemList", itemList);
+
+	@GetMapping("/hotel/manager/itemUpdate")
+	public ModelAndView itemUpdate() {
+		List<ManagerMallListDto.ItemUpdate> itemList = service.findItemList();
+		return new ModelAndView().addObject("itemList", itemList);
+	}
+
+	@GetMapping("/hotel/manager/managerMallList")
+	public ModelAndView contactmallList(Integer pageno) {
+		List<ManagerMallListDto.MallListSearch> list = service.contactmallList();
+		if (list.size() == 0) {
+			return new ModelAndView("/hotel/manager/managerMallList").addObject("msg", "검색결과가 없습니다.");
 		}
-	
-	
-		@GetMapping("/hotel/manager/managerMallList")
-		public ModelAndView contactmallList(Integer pageno) {
-			List<ManagerMallListDto.MallListSearch> list = service.contactmallList();
-			if(list.size() == 0) {
-				return new ModelAndView("/hotel/manager/managerMallList").addObject("msg", "검색결과가 없습니다.");
-			}
-			return new ModelAndView("/hotel/manager/managerMallList").addObject("mallListArea",list);
-		}
-		
-	    @GetMapping("/hotel/manager/managerorderDetail")
-	    public ModelAndView managerorderDetail(Integer orderNo){
-	        ManagerMallListDto.orderDetail detail = service.orderDetail(orderNo);
-	        return new ModelAndView("/hotel/manager/managerorderDetail").addObject("detail",detail);
-	    }
-	    
-	    @ExceptionHandler(NotFoundMallListException.class)
-		public ResponseEntity<String> NotFoundMallListException(NotFoundMallListException ex) {
-			String message = ex.getMessage();
-			return ResponseEntity.status(HttpStatus.CONFLICT).body(message);
-		}
-	    
+		return new ModelAndView("/hotel/manager/managerMallList").addObject("mallListArea", list);
+	}
+
+	@GetMapping("/hotel/manager/managerorderDetail")
+	public ModelAndView managerorderDetail(Integer orderNo) {
+		ManagerMallListDto.orderDetail detail = service.orderDetail(orderNo);
+		return new ModelAndView("/hotel/manager/managerorderDetail").addObject("detail", detail);
+	}
+
+	@ExceptionHandler(NotFoundMallListException.class)
+	public ResponseEntity<String> NotFoundMallListException(NotFoundMallListException ex) {
+		String message = ex.getMessage();
+		return ResponseEntity.status(HttpStatus.CONFLICT).body(message);
+	}
+
 }
