@@ -19,6 +19,13 @@ public class ManagerMallListMVCController {
 	@Autowired
 	private ManagerMallListService service;
 		
+		@GetMapping("/hotel/manager/itemUpdate")
+		public ModelAndView itemUpdate() {
+			List<ManagerMallListDto.itemUpdate> itemList = service.findItemList();
+			return new ModelAndView().addObject("itemList", itemList);
+		}
+	
+	
 		@GetMapping("/hotel/manager/managerMallList")
 		public ModelAndView contactmallList(Integer pageno) {
 			List<ManagerMallListDto.MallListSearch> list = service.contactmallList();

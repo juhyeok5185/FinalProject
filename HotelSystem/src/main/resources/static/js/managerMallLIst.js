@@ -165,6 +165,18 @@ $(document).ready(function(){
 	    console.log(err);
 	  }
 });
-  
-	})
+	
+	
+	// 상품업데이트
+	$('.update-btn').click(function() {
+		//const $itemno = 
+		$.ajax({
+			url: '/hotel/manager/mall/update',
+			method: 'post',
+			data: {
+				itemno : $itemno
+			}
+		})
+	})  
+})
 	

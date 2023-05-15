@@ -49,4 +49,9 @@
         where od.orderno = #{orderNo}	
 	</select>
 	
+	<select id="findItemList" resultType="hotel.management.v1.manager.mall.Dto.ManagerMallListDto$itemUpdate">
+		select itemno, itemname, itemea from item	
+	</select>
+	
+	
 </mapper>

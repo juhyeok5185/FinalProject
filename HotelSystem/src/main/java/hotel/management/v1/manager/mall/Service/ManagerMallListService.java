@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import hotel.management.v1.exception.NotFoundMallListException;
 import hotel.management.v1.manager.mall.Dao.ManagerMallListDao;
 import hotel.management.v1.manager.mall.Dto.ManagerMallListDto;
+import hotel.management.v1.manager.mall.Dto.ManagerMallListDto.itemUpdate;
 
 @Service
 public class ManagerMallListService {
@@ -31,6 +32,10 @@ public class ManagerMallListService {
 
 	public ManagerMallListDto.orderDetail orderDetail(Integer orderNo) {
 		return dao.orderDetail(orderNo);
+	}
+
+	public List<itemUpdate> findItemList() {
+		return dao.findItemList();
 	}
 
 }

@@ -59,5 +59,10 @@ public class ManagerMallListDto {
 	}
 	
 	
-	
+	@Data
+	public static class itemUpdate {
+		private Integer itemno;
+		private String itemname;
+		private Integer itemea;
+	}
 }

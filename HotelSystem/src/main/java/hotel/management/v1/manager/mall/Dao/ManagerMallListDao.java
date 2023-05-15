@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import hotel.management.v1.manager.mall.Dto.ManagerMallListDto;
+import hotel.management.v1.manager.mall.Dto.ManagerMallListDto.itemUpdate;
 
 @Mapper
 public interface ManagerMallListDao {
@@ -18,5 +19,7 @@ public interface ManagerMallListDao {
 	public Integer orderdetaildelete(Integer orderNo);
 	
 	public ManagerMallListDto.orderDetail orderDetail(Integer orderNo);
+
+	public List<itemUpdate> findItemList();
 
 }
