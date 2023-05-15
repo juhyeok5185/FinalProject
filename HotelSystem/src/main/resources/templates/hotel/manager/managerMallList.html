@@ -102,21 +102,6 @@
             	</td>
             	</tr>
             	
-         	    <tr th:if="${msg} == null" th:each="m : ${mallListArea}">
-                <tr th:each="m : ${mallListArea}">
-            	<td th:text="${m.orderNo}" ></td>
-            	<td th:text="${m.name}"></td>
-            	<td th:text="${m.tel}"></td>
-            	<td th:text="${m.contactDate}"></td>
-            	<td>
-				<button class="btn btn-secondary" style="width: 100px;"	th:onclick="|openPopup('/hotel/manager/managerorderDetail?orderNo=${m.orderNo}')|">
-				 주문상세
-            	</button>
-      	  	    <button class="btn btn-secondary" style="width: 100px;" id="cencelBtn" type="submit">
-      	  	     주문취소
-      	  	    </button>
-            	</td>
-            	</tr>
             </tbody>
           </table>
         </div>
