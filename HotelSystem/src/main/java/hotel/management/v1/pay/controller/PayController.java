@@ -26,63 +26,61 @@ import jakarta.servlet.http.HttpSession;
 public class PayController {
 	@Autowired
 	private PayService payService;
-	
+
 	@Autowired
 	private OrderService orderService;
-	
+
 	@GetMapping("/pay")
 	public String ready() {
 		return "pay/ready";
 	}
 
 	@GetMapping("/pay/start")
-	public @ResponseBody KakaoPayReadyVo kakaoPay(@RequestParam Map<String, Object> params, HttpSession session,Principal pal) {
+	public @ResponseBody KakaoPayReadyVo kakaoPay(@RequestParam Map<String, Object> params, HttpSession session,
+			Principal pal) {
 		String uuid = UUID.randomUUID().toString();
-		KakaoPayReadyVo res = payService.kakaoPay(params, uuid,pal.getName());
+		KakaoPayReadyVo res = payService.kakaoPay(params, uuid, pal.getName());
 		session.setAttribute("partner_order_id", uuid);
 		session.setAttribute("tid", res.getTid());
 		return res;
 	}
-	
-	
-	@GetMapping(value="/pay/success",produces = MediaType.APPLICATION_JSON_VALUE)
-	public String Success(@RequestParam("pg_token") String pgToken, HttpSession session,Principal principal) {
+
+	@GetMapping(value = "/pay/success", produces = MediaType.APPLICATION_JSON_VALUE)
+	public String Success(@RequestParam("pg_token") String pgToken, HttpSession session, Principal principal) {
 		String pickupDay = (String) session.getAttribute("pickupDay");
-		String[] tbodyArray = (String[])session.getAttribute("tbodyArray");
-		
+		String[] tbodyArray = (String[]) session.getAttribute("tbodyArray");
 
-
-		if(tbodyArray!=null) {
-			orderService.mallOrder(tbodyArray, pickupDay, principal.getName(), (String)session.getAttribute("tid"), (String)session.getAttribute("partner_order_id"), PayType.KAKAO);
+		if (tbodyArray != null) {
+			orderService.mallOrder(tbodyArray, pickupDay, principal.getName(), (String) session.getAttribute("tid"),
+					(String) session.getAttribute("partner_order_id"), PayType.KAKAO);
 			return "/hotel/luxurymallcomplete";
 		}
 
-		KakaoPayApproveVO res = payService.kakaoPayApprove(pgToken, session,principal.getName());
+		KakaoPayApproveVO res = payService.kakaoPayApprove(pgToken, session, principal.getName());
 		session.removeAttribute("tid");
 		session.removeAttribute("partner_order_id");
 		session.removeAttribute("pickupDay");
 		session.removeAttribute("tbodyArray");
-		
-		
+
 		return "/hotel/reservationcomplete";
 	}
-	
+
 	@GetMapping("/pay/toss_success")
-	public String tosssuccess(@RequestParam("orderId") String orderId,@RequestParam("paymentKey") String paymentKey,@RequestParam("amount") Integer amount,Principal principal, HttpSession session) {
-		String gradename = (String)session.getAttribute("gradename");
+	public String tosssuccess(@RequestParam("orderId") String orderId, @RequestParam("paymentKey") String paymentKey,
+			@RequestParam("amount") Integer amount, Principal principal, HttpSession session) {
+		String gradename = (String) session.getAttribute("gradename");
 		String pickupDay = (String) session.getAttribute("pickupDay");
-		String[] tbodyArray = (String[])session.getAttribute("tbodyArray");
-		if(tbodyArray!=null) {
+		String[] tbodyArray = (String[]) session.getAttribute("tbodyArray");
+		if (tbodyArray != null) {
 			orderService.mallOrder(tbodyArray, pickupDay, principal.getName(), paymentKey, orderId, PayType.TOSS);
 			return "/hotel/luxurymallcomplete";
 		}
-		payService.tossPayApprove(orderId,paymentKey,amount,gradename);
+		payService.tossPayApprove(orderId, paymentKey, amount, gradename);
 		session.removeAttribute("gradename");
-		
+
 		return "/pay/toss_success";
 	}
-	
-	
+
 	@GetMapping("/pay/cancel")
 	public String Cancel() {
 		return "redirect:/hotel/main";
@@ -92,22 +90,22 @@ public class PayController {
 	public String Fail() {
 		return "redirect:/hotel/mall/itemlist";
 	}
-	
-	@PostMapping("/pay/cancle_do")
-	public ResponseEntity<?> canclePay(Integer bookno) {
 
-		//DB날리는 거 만들기
-		PayDto.payment payment =  payService.findBypayment(bookno);
+	@PostMapping("/pay/cancle_do")
+	public ResponseEntity<?> canclePay(Integer bookno, Integer orderno) {
+
+		// DB날리는 거 만들기
+		PayDto.payment payment = payService.findBypayment(bookno);
 		payService.deletepayment(bookno);
 		payService.findAndDeleteByBookByBookno(bookno);
-		//이거 결제환불 어캐함
+		// 이거 결제환불 어캐함
 		try {
 			payService.canclePay(payment);
-		}catch (Exception e){
+		} catch (Exception e) {
 			return ResponseEntity.ok(null);
 		}
 
 		return ResponseEntity.ok(null);
 	}
-	
+
 }

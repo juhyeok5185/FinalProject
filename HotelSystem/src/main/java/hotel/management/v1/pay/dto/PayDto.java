@@ -6,17 +6,17 @@ import lombok.Data;
 
 public class PayDto {
 	@Data
-	public static class payment{
+	public static class payment {
 		String tid;
 		String partner_order_id;
 		Integer total_amount;
 		Integer bookno;
-
+		Integer orderno;
 	}
 
 	@Data
 	@AllArgsConstructor
-	public static class bookAddPayment{
+	public static class bookAddPayment {
 		String tid;
 		String orderid;
 		String itemname;
