@@ -11,6 +11,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 	<script src="/js/Hotel.js"></script>
+	<script src="/js/roombook.js"></script>
 	<script src="https://kit.fontawesome.com/7fe498c607.js" crossorigin="anonymous"></script>
 	<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72764d4407eae4771ae834fbbe85f476"></script>
 	<link href='https://unpkg.com/css.gg@2.0.0/icons/css/youtube.css' rel='stylesheet'>
@@ -25,6 +26,7 @@
 </head>
 
 <body>
+<input type="hidden" id = "booktokken" name="_csrf" th:value="${_csrf.token}">
 	<div th:replace="~{/fragment/nav.html}"></div>
 	<div id="mydinnerapge_page">
 
@@ -67,7 +69,35 @@
 			</div>
 			
 			<div id = "dinnerbookmain">
+				<div id="mybooktablediv">
 
+
+					<table id="mybooktable" class="table table-hover">
+						<thead>
+						<tr>
+							<th>체크인날짜</th>
+							<th>체크아웃날짜</th>
+							<th>예약자</th>
+							<th>예약자 연락처</th>
+							<th>방등급</th>
+							<th></th>
+							<th></th>
+						</tr>
+						</thead>
+						<tbody id="mybookpagetbody">
+						<tr th:each="l : ${list}">
+
+							<td th:text="${l.booker}"></td>
+							<td th:text="${l.booktel}"></td>
+							<td th:text = "${l.bookdate}"></td>
+							<td><input type="text" th:value = "${l.resno}" id = "mybooklistbookno"><button class ="btn btn-danger" id = "deletebookbtn">예약취소</button>
+							</td>
+
+						</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
 			</div>
 
 		</div>

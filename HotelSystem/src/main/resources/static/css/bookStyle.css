@@ -178,14 +178,17 @@
 }
 #mybooktable thead {
 	display:block;
-	background: #a88;
-	color:#fff;
+	background: #f1e3c4;
 }
 
 #mybooktable tbody{
 	max-height: 20vh;
 	display:block;
 	overflow:auto;
+}
+#roomlistinputarea{
+	height: 6vh;
+
 }
 #mybookpagetbody{
 	height: 20vh;

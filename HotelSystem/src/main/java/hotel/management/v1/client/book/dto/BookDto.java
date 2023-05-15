@@ -159,9 +159,12 @@ public class BookDto {
 	}
 
 
+	@Data
+	@ToString
 	public static class mydinnerlist{
 		String booker;
 		String bookdate;
 		String booktel;
+		Integer resno;
 	}
 }
