@@ -9,7 +9,6 @@ import hotel.management.v1.pay.dto.PayDto.bookAddPayment;
 
 @Mapper
 public interface PayDao {
-	
 
 	public Integer kakaobookadd(bookAddPayment bookpayment);
 
@@ -17,9 +16,9 @@ public interface PayDao {
 
 	public Integer mangeradd(book book);
 
-  	public PayDto.payment findPaymentByBookno(Integer bookno,Integer orderno);
+	public PayDto.payment findPaymentByBookno(Integer bookno, Integer orderno);
 
- 	public Integer deletepayment(Integer bookno,Integer orderno);
+	public Integer deletepayment(Integer bookno, Integer orderno);
 
 	public BookDto.checkbook findbookByBookno(Integer bookno);
 
@@ -28,4 +27,6 @@ public interface PayDao {
 	public void deleteroombooking(Integer bookno);
 
 	public void deletebook(Integer bookno);
+
+	public Integer findAndCancelOrder(Integer orderno);
 }

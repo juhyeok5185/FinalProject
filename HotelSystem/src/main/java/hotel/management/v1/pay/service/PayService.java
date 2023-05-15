@@ -25,8 +25,8 @@ import jakarta.servlet.http.HttpSession;
 public class PayService {
 	@Autowired
 	private PayDao dao;
-	
-	public KakaoPayReadyVo kakaoPay(Map<String, Object> params, String uuid,String username) {
+
+	public KakaoPayReadyVo kakaoPay(Map<String, Object> params, String uuid, String username) {
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization", "KakaoAK a9f2ff79213b981cd3e1ade179808e25");
 
@@ -44,16 +44,16 @@ public class PayService {
 		payParams.add("fail_url", "http://localhost:8081/pay/fail"); // 실패시 예약페이지
 
 		HttpEntity<Map> request1 = new HttpEntity<Map>(payParams, headers);
-		
+
 		RestTemplate template = new RestTemplate();
 		String url = "https://kapi.kakao.com/v1/payment/ready";
 		KakaoPayReadyVo res = template.postForObject(url, request1, KakaoPayReadyVo.class);
-		//여기에다가 db에 저장하는 문법 만들기
-		//가은이가 갈라치기 해
-		String amount=(String)params.get("total_amount");
-		String itmename = (String)params.get("item_name");
-		PayDto.bookAddPayment bookpayment
-		= new bookAddPayment(res.getTid(), uuid,itmename ,Integer.parseInt(amount), PayType.KAKAO);
+		// 여기에다가 db에 저장하는 문법 만들기
+		// 가은이가 갈라치기 해
+		String amount = (String) params.get("total_amount");
+		String itmename = (String) params.get("item_name");
+		PayDto.bookAddPayment bookpayment = new bookAddPayment(res.getTid(), uuid, itmename, Integer.parseInt(amount),
+				PayType.KAKAO);
 		dao.kakaobookadd(bookpayment);
 		return res;
 	}
@@ -77,18 +77,18 @@ public class PayService {
 		String url = "https://kapi.kakao.com/v1/payment/approve";
 
 		KakaoPayApproveVO res = template.postForObject(url, request, KakaoPayApproveVO.class);
-		
+
 		return res;
 	}
 
 	public void tossPayApprove(String orderId, String paymentKey, Integer amount, String gradename) {
-		TossPayVo tp = new TossPayVo(orderId,paymentKey,amount,gradename);
-		
+		TossPayVo tp = new TossPayVo(orderId, paymentKey, amount, gradename);
+
 		PayDto.bookAddPayment bookpayment = new bookAddPayment(orderId, paymentKey, gradename, amount, PayType.TOSS);
 		dao.paymenttoss(bookpayment);
-		
+
 	}
-//환불
+	// 환불
 
 	public KakaoPayCancelVo canclePay(PayDto.payment payment) {
 		HttpHeaders headers = new HttpHeaders();
@@ -110,24 +110,26 @@ public class PayService {
 		return res;
 	}
 
-
-    public PayDto.payment findBypayment(Integer bookno,Integer orderno) {
-		PayDto.payment payment = dao.findPaymentByBookno(bookno,orderno);
+	public PayDto.payment findBypayment(Integer bookno, Integer orderno) {
+		PayDto.payment payment = dao.findPaymentByBookno(bookno, orderno);
 		return payment;
-    }
+	}
 
-
-    public void deletepayment(Integer bookno,Integer orderno) {
-		dao.deletepayment(orderno,bookno);
-    }
+	public void deletepayment(Integer bookno, Integer orderno) {
+		dao.deletepayment(orderno, bookno);
+	}
 
 	public void findAndDeleteByBookByBookno(Integer bookno) {
-		BookDto.checkbook bookdata =  dao.findbookByBookno(bookno);
+		BookDto.checkbook bookdata = dao.findbookByBookno(bookno);
 		System.out.println(bookdata.toString());
-		if(bookdata.getRoombookno()!=null)
+		if (bookdata.getRoombookno() != null)
 			dao.deleteroombooking(bookno);
-		if(bookdata.getResno()!=null)
+		if (bookdata.getResno() != null)
 			dao.deletedinner(bookno);
 		dao.deletebook(bookno);
+	}
+
+	public void findAndCancelOrder(Integer orderno) {
+		dao.findAndCancelOrder(orderno);
 	}
 }
