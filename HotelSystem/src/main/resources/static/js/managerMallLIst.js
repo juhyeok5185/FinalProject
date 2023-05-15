@@ -133,6 +133,7 @@ $(document).ready(function(){
 		  }
 	    });
 	    
+	    
 	    alert("주문이 취소되었습니다.");
 	    window.opener.location.reload();
 	    window.close();
