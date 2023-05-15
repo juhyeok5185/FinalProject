@@ -78,6 +78,38 @@ $(document).ready(function(){
         </div>
       </div>
     </div>
+    <div id="reportpage-1"> 
+    <div class="insert">
+            <form action="/hotel/board/write" method="post">
+         	 <table>
+           		<tr>
+                  <td class="col1"><span id="notnull"></span>작성자</td>
+                  <td class="col2">
+                   <div th:text="${name}"></div> 
+                  </td>
+            	</tr>
+            	<tr>
+                  <td class="col1"><span id="notnull"></span>제목</td>
+                  <td class="col2">
+                   <textarea name="title" id="reporttitle" cols="80" rows="1" placeholder="" maxlength="20"></textarea>
+                  </td>
+            	</tr>
+            	<tr>
+                  <td class="col1"><span id="notnull"></span>내용</td>
+                  <td class="col2">
+                   <textarea name="content" id="reportcontent" cols="80" rows="5" placeholder="" maxlength="500"></textarea>
+                  </td>
+            	</tr>
+             </table>
+          	<span id="writebutton">
+          	  <input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}">
+         	  <button class="btn btn-outline-dark">작성</button>
+           	  <a type="button" class="btn btn-outline-dark" href="/hotel/board/list">목록</a>
+          	</span>
+            </form>
+        </div>
+    
+   </div>
     <!--풋터-->
   <div th:replace="~{/fragment/footer.html}"></div>
 </body>

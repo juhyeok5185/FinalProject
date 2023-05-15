@@ -109,10 +109,8 @@ function printmyroombook(list) {
 			<td>${l.booktel}</td>
 			<td>${l.bookroomgrade}</td>
 			<td><input type="hidden" value="${l.bookno}">
-				<button class ="btn btn-danger" id = "deletebookbtn">예약삭제</button>
+				<button class ="btn btn-danger" id = "deletebookbtn">예약취소</button>
 			</td>
-			<td><button class = "btn" id = "updatebookbtn">예약변경</button></td>
-			
 		</tr>
 	`;
     tbody.append(html);
@@ -141,6 +139,10 @@ $(document).ready(async function () {
     }
   });
   $(document).on("click", "#deletebookbtn", function () {
+  const val =   confirm("야 너 왜 안나와");
+  if (val==true){
+
+
     const bookno = $(this).prev().val();
     $.ajax({
       url: "/pay/cancel_do",
@@ -152,8 +154,13 @@ $(document).ready(async function () {
           alert("성공");
         },
       },
-    });
+    })
+  }
+  else{
+    return;
+    };
   });
+
   $("#checkbook").click(function () {
     const username = $("#username").val();
     const from = $("#ajaxfrom").val();
@@ -506,10 +513,7 @@ $(document).ready(async function () {
   });
 
   $("#dinnerbook").click(async function () {
-    $("#paymentPopup").attr("style", "display:block;");
-    $("#paymentPopup-box").attr("style", "display:block");
-    $("html").attr("style", "overflow: hidden");
-    $("#chargeInquiry").attr("style", "z-index:1; pointer-events: none;");
+
     const $bookdate = $("#from").val();
     const $booktel = $("#booktel").val();
     const $totalcnt = $("#totalcnt").val();
@@ -531,6 +535,18 @@ $(document).ready(async function () {
           data: param2,
           dataType: "json",
           method: "post",
+          statusCode:{
+            409:function (){
+              alert("이미 예약이 존재합니다")
+              location.reload();
+            },
+            200:function (){
+              $("#paymentPopup").attr("style", "display:block;");
+              $("#paymentPopup-box").attr("style", "display:block");
+              $("html").attr("style", "overflow: hidden");
+              $("#chargeInquiry").attr("style", "z-index:1; pointer-events: none;");
+            }
+          }
         });
       } catch (err) {
         console.log(err);

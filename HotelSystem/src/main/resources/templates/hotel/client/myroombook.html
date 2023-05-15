@@ -76,6 +76,7 @@
 
 
                 <table id="mybooktable" class="table table-hover">
+
                     <thead>
                     <tr>
                         <th>체크인날짜</th>
@@ -83,7 +84,6 @@
                         <th>예약자</th>
                         <th>예약자 연락처</th>
                         <th>방등급</th>
-                        <th></th>
                         <th></th>
                     </tr>
                     </thead>
@@ -94,9 +94,9 @@
                         <td th:text="${l.booker}"></td>
                         <td th:text="${l.booktel}"></td>
                         <td th:text="${l.bookroomgrade}"></td>
-                        <td><input type="hidden" th:value = "${l.bookno}" id = "mybooklistbookno"><button class ="btn btn-danger" id = "deletebookbtn">예약삭제</button>
+                        <td><input type="hidden" th:value = "${l.bookno}" id = "mybooklistbookno"><button class ="btn btn-danger" id = "deletebookbtn">예약취소</button>
                         </td>
-                        <td><button class = "btn" id = "updatebookbtn">예약변경</button></td>
+
                     </tr>
                     </tbody>
                 </table>

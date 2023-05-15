@@ -21,9 +21,6 @@ public class ManagerMallListService {
 
 	public List<ManagerMallListDto.MallListSearch> contactmallList() {
 		List<ManagerMallListDto.MallListSearch> list = dao.contactmallList();
-		if (list.size() == 0) {
-			throw new NotFoundMallListException("검색 결과가 없습니다.");
-		}
 		return list;
 	}
 

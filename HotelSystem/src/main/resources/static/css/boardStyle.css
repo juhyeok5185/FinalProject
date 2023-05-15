@@ -49,10 +49,7 @@
   position: relative;
   left: 1vw;
 }
-#logo img {
-  width: 8vw;
-  height: 11vh;  
-}
+
 .carousel-indicators{
   position: absolute;
   right: 1.2vw;
@@ -69,7 +66,6 @@
   bottom: 0;
   left: 0;
   margin: auto;
-  
   width :3.4vw;
   height: 3vh;
 }
@@ -793,6 +789,21 @@
 	text-indent:3px;
 }
 
+#managermallbody{
+	width:100%;
+}
+
+.hidden{
+	display:none;
+}
+
+#reportpage-1{
+	background: gray;
+	width:100%;
+	height:60vh;
+}
+
+
 
 
 /*요기까지*/
@@ -824,6 +835,7 @@
   color: #9e774c;
 }
 
+/*
 #toolbar {
   font-size: 12px;
   width: 10vw;
@@ -832,6 +844,7 @@
   color: black;
   bottom: 10px;
 }
+*/
 
 #logintool {
   font-size: 12px;

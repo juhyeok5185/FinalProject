@@ -27,7 +27,8 @@ public class BookMVCController {
 
 	@GetMapping("/client/mydinnerbook")
 	public ModelAndView mydinnerbook(Principal pal) {
-
+		if (pal==null)
+			return new ModelAndView().addObject("msg","로그인 전용입니다");
 		return new ModelAndView().addObject("list",service.findMydinnerByusername(pal.getName()));
 	}
 

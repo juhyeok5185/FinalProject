@@ -27,7 +27,6 @@
     	select od.username , us.tel , us.name , od.orderno , ord.orderdate , ord.contactdate , ord.orderprice , ord.orderea 
 		from orders od 
 		left join orderdetail ord on od.orderno = ord.orderno
-		left join payment pod on od.orderno = pod.orderno
 		left join users us on od.username = us.username
 		where contactdate is not null order by od.orderno desc
     </select>

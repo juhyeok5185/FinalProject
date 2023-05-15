@@ -65,7 +65,7 @@ public class BookService {
 		return dao.findByusername(name);
 	}
 
-	public List<mypagedinner> findMydinnerByusername(String name) {
+	public List<BookDto.mydinnerlist> findMydinnerByusername(String name) {
 		return dao.findMydinnerByusername(name);
 	}
 
@@ -100,5 +100,9 @@ public class BookService {
 
 	public void deletebook(Integer bookno) {
 
+	}
+
+	public Integer findmydinnerByusernameAndfrom(String from, String name) {
+		return dao.findmydinnerByusernameAndfrom(name,from);
 	}
 }
