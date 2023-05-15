@@ -37,4 +37,11 @@ public class OrdersDto {
 		private LocalDate pickupDay;
 	}
 
+	@Data
+	@ToString
+	public static class Items {
+		private Integer itemea;
+		private Integer itemno;
+	}
+
 }

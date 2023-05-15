@@ -28,4 +28,6 @@ public interface OrderDao {
 
 	public Integer orderPay(String tid, String orderId, String itemName, Integer price, PayType payType);
 
+	public List<OrdersDto.Items> findByItemNo();
+
 }
