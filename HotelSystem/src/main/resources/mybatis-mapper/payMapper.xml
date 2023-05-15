@@ -11,7 +11,8 @@
 		bookno = (select max(b.bookno) from book b,payment p where b.bookno = p.bookno) </update>
 
 	<select id="findPaymentByBookno" resultType="hotel.management.v1.pay.dto.PayDto$payment"> select
-		p.tid,p.partner_order_id,p.total_amount,p.bookno from payment p <trim prefix="where"
+		p.tid,p.partner_order_id,p.total_amount,p.bookno, p.orderno from payment p <trim
+			prefix="where"
 			suffixOverrides=",">
 			<if test="bookno!=null">p.bookno = #{bookno},</if>
 			<if test="orderno!=null">p.orderno =
@@ -24,7 +25,7 @@
 		d on b.bookno = d.resno where b.bookno = #{bookno} </select>
 	<delete id="deletepayment"> delete payment <trim prefix="where" suffixOverrides=",">
 			<if test="bookno!=null">bookno = #{bookno},</if>
-		<if test="orderno!=null">orderno =
+			<if test="orderno!=null">orderno =
 		#{orderno},</if>
 		</trim>
 	</delete>
@@ -32,4 +33,6 @@
 	<delete id="deletedinner"> delete dinner where resno = #{bookno} </delete>
 	<delete id="deleteroombooking"> delete roombooking where bookno = #{bookno} </delete>
 	<delete id="deletebook"> delete book where bookno = #{bookno} </delete>
+
+	<delete id="findAndCancelOrder"> delete orders where orderno=#{orderno}</delete>
 </mapper>

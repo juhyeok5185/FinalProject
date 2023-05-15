@@ -25,6 +25,7 @@
     <title>J.H.H.L</title>
   </head>
   <body>
+    <input type="hidden" name="_csrf" id="token" th:value="${_csrf.token}" />
     <div class="hotel">
       <!-- 내브 -->
       <div th:replace="~{/fragment/nav.html}"></div>
