@@ -2919,6 +2919,9 @@ div #logintoolbar > a {
     .infopackage-image-area {
       display: none;
     }
+     #reportpage{
+    	display: none;
+    }
 
   .hd,#nav1,#nav2 ,.reservation-area,#section3,#outline_page{
     display: none;
@@ -3048,6 +3051,11 @@ div #logintoolbar > a {
       display: none;
     }
 
+
+
+  #reportpage-1{
+    	display: none;
+    }
     #dropmenu {
       display: none;
     }

@@ -1,3 +1,5 @@
+<!-- 관리자 :  김동욱 -->
+
 <!DOCTYPE html>
 <html  lang="ko" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
@@ -47,11 +49,11 @@
     		return;
     	}
     })
-    
 </script>
 </head>
 <body>
   <input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}">
+   <div th:replace="~{/fragment/nav.html}"></div>
     <!--고객 문의 게시판-->
     <div id="reportpage"> 
       <div id="aside"> 
@@ -96,7 +98,7 @@
             <tr>
               <td class="col1"><span id="notnull"></span>내용<hr></td>
               <td class="col2">
-                <div th:text="${board.content}"></div>
+                <div th:text="${board.content}" style="word-break:break-all;"></div>
               <hr></td>
             </tr>
             <tr>
@@ -116,8 +118,8 @@
 		        </form>
               </td>
 		    </tr>
-		    <tr>
-		 	 <td>
+          </table>
+          <div>
   <!-- 목록 --><div><a id="listbutton" type="button" class="btn btn-outline-dark" href="/hotel/board/list">목록</a></div> 
   <!-- 삭제 --><div id="deletebutton">
 				<form action="/hotel/board/delete" method="post">
@@ -127,11 +129,11 @@
    			    <button id="deletebtn2" type="submit" class="btn btn-outline-dark" style="display:none" onclick="showAlert()">글삭제</button>  				
 				</form>
 			  </div>
-			 </td>
-			</tr>
-          </table>
+          </div>
        </div>
      </div>
+   </div>
+   <div id="reportpage-1">
    </div>
  <!--풋터-->
  <div th:replace="~{/fragment/footer.html}"></div>

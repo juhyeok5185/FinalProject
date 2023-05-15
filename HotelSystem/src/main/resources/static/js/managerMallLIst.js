@@ -30,7 +30,7 @@ function searchmallData() {
 }
 
 
-/*
+
 function searchmallData(mallList) {
   const mallListArea = $('#mallListArea');
   mallListArea.empty();
@@ -48,7 +48,8 @@ function searchmallData(mallList) {
     mallListArea.append(tableContent);
 	}
 }
-*/
+
+
 
 $(document).ready(function(){
 	const token = $('#token').val();
@@ -108,32 +109,28 @@ $(document).ready(function(){
 	
 	
 	$(document).on('click',"#cencelBtn", async function(){
-		
-	  const orderno = parseInt($(this).closest('tr').children('td:first').text().trim());
-    
+	  const orderno = $(this).closest('tr').children('td:first').text().trim();
+     try {
+      const response = await $.ajax({
+        url: "/hotel/manager/delete?orderNo=" + orderno + '&_csrf=' + token,
+        method: "post",
+      });
+      alert("주문이 취소되었습니다.");
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
       $.ajax({
       url: "/pay/cancel_do",
       data: { orderno, _csrf: token },
       method: "post",
       statusCode: {
         200: function () {
+      location.href = "/hotel/manager/managerMallList";
           alert("예약 취소가 완료되었습니다.");
         },
       },
     });
-    /*
-    try {
-      const response = await $.ajax({
-        url: "/hotel/manager/delete?orderNo=" + orderNo + '&_csrf=' + token,
-        method: "post",
-      });
-      alert("주문이 취소되었습니다.");
-      location.href = "/hotel/manager/managerMallList";
-      console.log(response);
-    } catch (err) {
-      console.log(err);
-    }
-  */
   });
   
     $(document).on('click',"#orderdetailcencelBtn", async function(){
@@ -148,6 +145,17 @@ $(document).ready(function(){
 		      _csrf:token
 		  }
 	    });
+	    
+	      $.ajax({
+      url: "/pay/cancel_do",
+      data: { orderNo, _csrf: token },
+      method: "post",
+      statusCode: {
+        200: function () {
+          alert("예약 취소가 완료되었습니다.");
+        },
+      },
+    });
 	    
 	    alert("주문이 취소되었습니다.");
 	    window.opener.location.reload();
