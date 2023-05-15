@@ -41,6 +41,7 @@
 			</div>
 			<form action="/hotel/member/logout" method="post">
 				<div id="logoutArea">
+					<input type="hidden" id = "booktokken" name="_csrf" th:value="${_csrf.token}">
 					<button class="btn btn-secondary">로그아웃</button>
 				</div>
 			</form>
