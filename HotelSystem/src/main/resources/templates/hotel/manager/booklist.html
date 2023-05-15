@@ -114,6 +114,7 @@
                   <td></td>
                   <td></td>
               </tr>
+              <div th:text="${bookList}"></div>
               <tr th:if="${msg} == null" th:each="b : ${bookList}">
                   <td>
                     <a th:href="@{/hotel/manager/memberDetail(name=${b.booker})}" th:text="${b.booker}" target="_blank"></a>
@@ -142,7 +143,7 @@
                           <li></li>
                         </ul>
                       </span>
-                      <button type="button" class="btn btn-primary bookCancel">예약취소 <input type="hidden" th:value="${b.bookTel}"></button>
+                      <button type="button" class="btn btn-primary bookCancel">예약취소 <input type="hidden" th:value="${b.bookNo}"></button>
                     </span>
                     <span th:if="${b.bookStatus == '체크인완료'}">
                       <button type="button" class="btn btn-danger checkOutBtn">체크아웃 <input type="hidden" th:value="${b.bookTel}"></button>

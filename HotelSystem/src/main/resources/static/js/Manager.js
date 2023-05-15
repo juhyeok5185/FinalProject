@@ -264,18 +264,18 @@ $(document).ready(function () {
   //예약취소
   $(document).on("click", ".bookCancel", async function () {
     //예약자를 input hidden으로 숨겨두고 그값을 찾아온다.
-    var booker = $(this).find("input").val();
-    try {
-      const searchCondition = await $.ajax({
-        //url로 예약자를 보낸다.
-        url: "/hotel/manager/bookCancel?bookTel=" + booker + "&_csrf=" + token,
-        method: "post",
-      });
-      alert("예약이 정상적으로 취소되었습니다.");
-      location.href = "/hotel/manager/bookList";
-    } catch (err) {
-      console.log(err);
-    }
+    let bookNo = $(this).find("input").val();
+    $.ajax({
+      url: "/pay/cancel_do",
+      data: { bookno, _csrf: token },
+      method: "post",
+      statusCode: {
+        200: function () {
+          location.reload();
+          alert("성공");
+        },
+      },
+    });
   });
 
   //체크아웃취소

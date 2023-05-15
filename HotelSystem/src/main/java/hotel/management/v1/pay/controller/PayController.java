@@ -91,7 +91,7 @@ public class PayController {
 		return "redirect:/hotel/mall/itemlist";
 	}
 
-	@PostMapping("/pay/cancle_do")
+	@PostMapping("/pay/cancel_do")
 	public ResponseEntity<?> canclePay(Integer bookno, Integer orderno) {
 		System.out.println(bookno);
 		System.out.println(orderno);
