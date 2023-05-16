@@ -409,15 +409,13 @@
   color:#343434;
 }
 
-
-
-
-
-
-
-
-
-
+/* 오시는길 지도 크기 */
+#k-m {
+	width:49vw; 
+	height:50vh; 
+	position:relative; 
+	overflow: hidden;
+}
 
 /*주혁이형 */
 
@@ -2082,19 +2080,6 @@ div #logintoolbar > a {
     color: #d5ccb0;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 #luxurytem {
   margin: auto;
   margin-top: 5vh;
@@ -2110,13 +2095,6 @@ div #logintoolbar > a {
 .col2 p {
 	color: black;
 }
-
-
-
-
-
-
-
 
 /*요기까지*/
 /*동현*/
@@ -2922,7 +2900,6 @@ div #logintoolbar > a {
      #reportpage{
     	display: none;
     }
-    
 
   .hd,#nav1,#nav2 ,.reservation-area,#section3,#outline_page{
     display: none;
@@ -2992,9 +2969,9 @@ div #logintoolbar > a {
     }
     
       /*명품관*/
-	  #luxury_page {
-		  display: none;
-	  }
+	#luxury_page {
+	  display: none;
+	}
 	
     #luxuryarticle {
     	display: none;
@@ -3007,6 +2984,38 @@ div #logintoolbar > a {
     .orderList_article {
       display: none;
     }
+    
+    /*오시는길 반응형*/
+    #aside {
+  		display: none;
+  	}
+    
+    /*오시는길 반응형*/ 
+	#comepage {
+		height: 70.8vh;
+		width: 100%
+	}
+	
+	#howtocomearticle {
+		height: 60vh;
+	    width: 100%;
+	    left: 0vw;
+	    margin-top: 5vh;
+	}
+	
+	#map-area {
+		position: relative;
+    	left: 10vw;
+    	width: 80vw;
+	}
+	
+	#k-m {
+		width: 80vw;
+	    height: 50vh;
+	    position: relative;
+	    overflow: hidden;
+	}
+	
     
     /* 700이하에서 안보이게 함 */
     #myPage_page {
@@ -3044,6 +3053,10 @@ div #logintoolbar > a {
     	width: 20vw;
     	height: 9vh;
 	}
+    
+    #reservationCompletePage {
+    	display: none;
+    }
     
   }
   /*700이하부터 보일곳*/
@@ -3129,7 +3142,11 @@ div #logintoolbar > a {
     .itemList-content {
     	display: none;
     }
-
+	
+    #joincompletepage-res {
+    	display: none;
+    }
+    
     
     
     /* 700이상에서 안보이게 함 */
@@ -4201,6 +4218,16 @@ div #logintoolbar > a {
     height: 3vh;
     margin-top: 2vh;
     margin-left: 30vw;
+    background-color: #3a3125;
+    border: 2px solid black;
+    color: #d5ccb0;
+}
+
+#orderListCheckbtn {
+	width: 32vw;
+    height: 3vh;
+    margin-top: 5vh;
+    margin-left: 24vw;
     background-color: #3a3125;
     border: 2px solid black;
     color: #d5ccb0;

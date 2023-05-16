@@ -17,10 +17,15 @@
 	<delete id="orderDetailDelete"> delete from orderdetail where orderno=#{orderNo} </delete>
 	<update id="minusEA"> update item i set i.itemea = i.itemea-#{orderEA} where
 		itemname=#{itemName} </update>
-	<update id="plusEA"> update item i set i.itemea = i.itemea+#{orderEA} where itemname=#{itemName} </update>
-	<update id="orderPay"> update payment set tid=#{tid}, partner_order_id=#{orderId},
+	<update id="plusEA"> 
+		update item i set i.itemea = i.itemea+#{orderEA} where itemname=#{itemName} 
+	</update>
+	<update id="orderPay"> 
+		update payment set tid=#{tid}, partner_order_id=#{orderId},
 		item_name=#{itemName}, total_amount=#{price}, paytype=#{payType} where orderno =(select
-		max(o.orderno) from orders o, payment p where o.orderno=p.orderno) </update>
-	<select id="findByItemNo" resultType="hotel.management.v1.mall.dto.OrdersDto$Items"> select
-		i.itemea, i.itemno from item i order by i.itemno</select>
+		max(o.orderno) from orders o, payment p where o.orderno=p.orderno) 
+	</update>
+	<select id="findByItemNo" resultType="hotel.management.v1.mall.dto.OrdersDto$Items"> 
+		select i.itemea, i.itemno from item i order by i.itemno
+	</select>
 </mapper>
