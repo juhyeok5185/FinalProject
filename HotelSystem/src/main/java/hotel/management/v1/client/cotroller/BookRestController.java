@@ -77,7 +77,6 @@ public class BookRestController {
     @PostMapping(value = "/manager/checkroom", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> checkroom(BookDto.managercheckroom room) {
         List<BookDto.findRoom> roomlist = service.findRoom(room.getFrom(), room.getTo());
-
         return roomlist != null ? ResponseEntity.ok(roomlist) : ResponseEntity.status(HttpStatus.CONFLICT).body(null);
 
     }
@@ -91,13 +90,11 @@ public class BookRestController {
     @PostMapping("/manager/checkbookbyusername")
     public ResponseEntity<?> checkbookbyusername(BookDto.checkbookbyusername check) {
         try {
-            System.out.println(check.toString());
             if (service.chekbook(check.getUsername(), check.getFrom(), check.getTo()) != 0) {
                 return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
             }
             return ResponseEntity.ok(null);
         } catch (TooManyResultsException e) {
-            System.out.println(e.getStackTrace());
             return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
         }
 
@@ -117,7 +114,6 @@ public class BookRestController {
 
     @PostMapping("/manager/checkin")
     public ResponseEntity<?> managercheckin(BookDto.managerbook book) {
-        System.out.println(book.toString());
         BookDto.book bo = new BookDto.book(book.getFrom(), book.getTo(), book.getTotalcnt(), book.getGradename(), book.getBfcheckbox(), book.getDicheckbox(), book.getBooker(), book.getBooktel(), null, PayType.YET);
         service.add(bo, book.getUsername());
         service.manageradd(bo);
