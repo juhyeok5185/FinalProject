@@ -1,11 +1,53 @@
 // 상품 배열
 const mallItem = [
-  { index: 1, count: 0, price: 3360000, name: "BEDDINGSET", stock: 3, totalPrice: 0 },
-  { index: 2, count: 0, price: 2500000, name: "MATTRESS", stock: 3, totalPrice: 0 },
-  { index: 3, count: 0, price: 1850000, name: "DUVET", stock: 3, totalPrice: 0 },
-  { index: 4, count: 0, price: 400000, name: "PILLOW", stock: 3, totalPrice: 0 },
-  { index: 5, count: 0, price: 180000, name: "ROOMSPRAY", stock: 3, totalPrice: 0 },
-  { index: 6, count: 0, price: 93000, name: "DEFUSER", stock: 3, totalPrice: 0 },
+  {
+    index: 1,
+    count: 0,
+    price: 3360000,
+    name: "BEDDINGSET",
+    stock: 3,
+    totalPrice: 0,
+  },
+  {
+    index: 2,
+    count: 0,
+    price: 2500000,
+    name: "MATTRESS",
+    stock: 3,
+    totalPrice: 0,
+  },
+  {
+    index: 3,
+    count: 0,
+    price: 1850000,
+    name: "DUVET",
+    stock: 3,
+    totalPrice: 0,
+  },
+  {
+    index: 4,
+    count: 0,
+    price: 400000,
+    name: "PILLOW",
+    stock: 3,
+    totalPrice: 0,
+  },
+  {
+    index: 5,
+    count: 0,
+    price: 180000,
+    name: "ROOMSPRAY",
+    stock: 3,
+    totalPrice: 0,
+  },
+  {
+    index: 6,
+    count: 0,
+    price: 93000,
+    name: "DEFUSER",
+    stock: 3,
+    totalPrice: 0,
+  },
 ];
 
 // 요금합계
@@ -333,10 +375,13 @@ $(document).ready(function () {
           saveName = true;
         }
         trCount++;
-        tbodyArray.push(new item(mallItem[i].name, mallItem[i].count, mallItem[i].totalPrice));
+        tbodyArray.push(
+          new item(mallItem[i].name, mallItem[i].count, mallItem[i].totalPrice)
+        );
       }
     }
-    let itemName = `${trCount - 1}` == 0 ? firstName : firstName + ` 외${trCount - 1}건`;
+    let itemName =
+      `${trCount - 1}` == 0 ? firstName : firstName + ` 외${trCount - 1}건`;
     order({ pickupDay, tbodyArray, token });
     kakaojs({ itemPrice, itemName });
   });
@@ -354,10 +399,13 @@ $(document).ready(function () {
           saveName = true;
         }
         trCount++;
-        tbodyArray.push(new item(mallItem[i].name, mallItem[i].count, mallItem[i].totalPrice));
+        tbodyArray.push(
+          new item(mallItem[i].name, mallItem[i].count, mallItem[i].totalPrice)
+        );
       }
     }
-    let itemName = `${trCount - 1}` == 0 ? firstName : firstName + ` 외${trCount - 1}건`;
+    let itemName =
+      `${trCount - 1}` == 0 ? firstName : firstName + ` 외${trCount - 1}건`;
 
     order({ pickupDay, tbodyArray, token });
     tossPayments.requestPayment("TOSSPAY", {
@@ -451,10 +499,13 @@ $(document).ready(function () {
           saveName = true;
         }
         trCount++;
-        tbodyArray.push(new item(mallItem[i].name, mallItem[i].count, mallItem[i].totalPrice));
+        tbodyArray.push(
+          new item(mallItem[i].name, mallItem[i].count, mallItem[i].totalPrice)
+        );
       }
     }
-    let itemName = `${trCount - 1}` == 0 ? firstName : firstName + ` 외${trCount - 1}건`;
+    let itemName =
+      `${trCount - 1}` == 0 ? firstName : firstName + ` 외${trCount - 1}건`;
 
     order({ pickupDay, tbodyArray, token });
     kakaojs({ itemPrice, itemName });
@@ -498,10 +549,13 @@ $(document).ready(function () {
           saveName = true;
         }
         trCount++;
-        tbodyArray.push(new item(mallItem[i].name, mallItem[i].count, mallItem[i].totalPrice));
+        tbodyArray.push(
+          new item(mallItem[i].name, mallItem[i].count, mallItem[i].totalPrice)
+        );
       }
     }
-    let itemName = `${trCount - 1}` == 0 ? firstName : firstName + ` 외${trCount - 1}건`;
+    let itemName =
+      `${trCount - 1}` == 0 ? firstName : firstName + ` 외${trCount - 1}건`;
 
     order({ pickupDay, tbodyArray, token });
     tossPayments.requestPayment("TOSSPAY", {

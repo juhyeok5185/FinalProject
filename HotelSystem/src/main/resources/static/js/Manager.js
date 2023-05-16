@@ -93,7 +93,7 @@ function searchData(list) {
 
     const tableContent = `
     <tr>
-    <td><a href="#" onclick="openPopup('/hotel/manager/memberDetail?name=${l.booker}')">${l.booker}</a></td>
+    <td><a href="#" onclick="openPopup('/hotel/manager/memberDetail?name=${l.booker}&tel=${l.bookTel}')">${l.booker}</a></td>
     <td>${l.bookTel}</td>
     <td>${l.totalCount}</td>
     <td>${roomNoContent}</td>
@@ -139,7 +139,7 @@ const intervalId = setInterval(async function () {
   targetTime.setHours(11);
   targetTime.setMinutes(00);
 
-  if (new Date() >= targetTime) {
+  if (new Date() == targetTime) {
     clearInterval(intervalId);
     try {
       const list = await $.ajax({
@@ -271,8 +271,8 @@ $(document).ready(function () {
       method: "post",
       statusCode: {
         200: function () {
-          location.reload();
           alert("예약 취소가 완료되었습니다.");
+          location.reload();
         },
       },
     });

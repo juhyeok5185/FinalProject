@@ -116,7 +116,7 @@
               </tr>
               <tr th:if="${msg} == null" th:each="b : ${bookList}">
                   <td>
-                    <a th:href="@{/hotel/manager/memberDetail(name=${b.booker})}" th:text="${b.booker}" target="_blank"></a>
+                    <a th:href="@{/hotel/manager/memberDetail(name=${b.booker} , tel=${b.bookTel})}" th:text="${b.booker}" target="_blank"></a>
                   </td>
                   <td th:text="${b.bookTel}"></td>
                   <td th:text="${b.totalCount}"></td>
