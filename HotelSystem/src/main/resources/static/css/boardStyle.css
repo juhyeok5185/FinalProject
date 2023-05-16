@@ -1824,9 +1824,14 @@ div #logintoolbar > a {
   word-break: break-all;
   width:60vw;
 }
-#reporttable {
+#readcontent3 {
+  word-break: break-all;
+  width:49vw;
 }
-
+#reporttable{
+	width:49vw;
+	margin-top: 3vh;
+}
 
 
 
