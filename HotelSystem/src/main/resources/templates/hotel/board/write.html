@@ -99,34 +99,30 @@ $(document).ready(function(){
         </div>
         <div class="insert-1">
             <form action="/hotel/board/write" method="post">
+            <div id="bigdiv"> 
+              <div id="smalldiv1">
+              작성자
+              </div>
+              <div id="smalldiv2" th:text="${name}"><span id="notnull"></span>
+              </div>	
+            </div>
          	 <table>
-           		<!-- 
-           		<tr class="col1" >
-                  <td class="col1-1"><span id="notnull"></span>
-                  <span>작성자 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
-                  			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  			 &nbsp;&nbsp;&nbsp;&nbsp;</span>
-                  <span th:text="${name}"></span></td>
-            	</tr>
-           		 -->
             	<tr>
                   <td class="col2">
-                   <textarea name="title" id="reporttitle-1" cols="70" rows="1" placeholder="제목을 작성해주세요." maxlength="20"></textarea>                
+                   <textarea name="title" id="reporttitle-1" cols="74" rows="1" placeholder="제목을 작성해주세요." maxlength="20"></textarea>                
                   </td>
             	</tr>
             	<tr>
                   <td class="col2">
-                   <textarea name="content" id="reportcontent-1" cols="70" rows="5" placeholder="내용을 작성해주세요." maxlength="500"></textarea>
+                   <textarea name="content" id="reportcontent-1" cols="74" rows="5" placeholder="내용을 작성해주세요." maxlength="500"></textarea>
                   </td>
             	</tr>
              </table>
-          	<span id="writebutton-1">
+          	<div id="writebutton-1">
           	  <input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}">
          	  <button class="btn btn-outline-dark" id="wbutton">작성</button>
            	  <a type="button" id="lbutton" class="btn btn-outline-dark" href="/hotel/board/list"><span>목록</span></a>
-          	</span>
+          	</div>
             </form>
         </div>
       </div>

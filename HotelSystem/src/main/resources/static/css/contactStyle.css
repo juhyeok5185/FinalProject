@@ -1,0 +1,45 @@
+/*관리자 : 김동욱*/
+
+#bigdiv{
+	display: flex;
+	width:98vw;
+	height:0vh;
+	margin:0 auto;
+	border: 1px solid black;
+}
+
+#reportpage-1{
+	width:100%;
+	height:90.8vh;
+
+}
+
+#p_content-0{
+	display: flex;
+	width:98vw;
+	height:0vh;
+	margin:0 auto;
+}
+
+#contactimg-2{
+	position:relative;
+	left:6vw; 
+}
+
+#contactreport{
+	position:relative;
+	top:1vh;
+	left: 6vw;
+}
+
+#contactreport-2{
+	position:relative;
+	top:1vh;
+	left: 6vw;
+	margin-top:1vh;
+}
+
+#contactimg-2{
+	width:30vw;
+	height:20vh;
+}

@@ -97,7 +97,7 @@
 <!-- 답변 --><tr>
               <td class="col1" sec:authorize="hasRole('ADMIN')"><span id="notnull"></span>답변</td>
               <td class="col2" sec:authorize="hasRole('ADMIN')">
-	            <form action="/hotel/manager/managerBoardRead" method="post">
+	            <form action="/hotel/board/read" method="post">
 	              <input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}">
 	              <input type="hidden" name="username" th:field="*{board.username}">
 	              <input type="hidden" name="boardNo"  th:field="*{board.boardNo}">

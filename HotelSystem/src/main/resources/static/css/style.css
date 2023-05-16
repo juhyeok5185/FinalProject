@@ -3018,6 +3018,9 @@ div #logintoolbar > a {
 	
     
     /* 700이하에서 안보이게 함 */
+    #page{
+       	display: none;
+    }
     #myPage_page {
     	display: none;
     }
@@ -3064,7 +3067,6 @@ div #logintoolbar > a {
     .infopackage-image-area-min {
       display: none;
     }
-
   	#reportpage-1{
     	display: none;
     }
@@ -4322,12 +4324,6 @@ div #logintoolbar > a {
 }
 .dark-mode #mission_font {
 	color: white;
-}
-.dark-mode #headtit-1 {
-	border-bottom: 5px solid #d5ccb0;
-}
-.dark-mode #headtit-1 h3 {
-	color: #d5ccb0;
 }
 .dark-mode #toolbar-1 {
 	color: white;

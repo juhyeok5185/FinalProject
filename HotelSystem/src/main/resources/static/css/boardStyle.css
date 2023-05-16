@@ -685,7 +685,6 @@
 	top:5vh;
 }
 
-
 #contactarticle {
   height: 100vh;
   width: 50vw;
@@ -806,6 +805,13 @@
 	resize: none;
 	text-indent:3px;
 }
+#replyContent-2{
+	resize: none;
+	text-indent:3px;
+	position:relative;
+	bottom: 0vh;
+	right: 8.5vw; 
+}
 
 #managermallbody{
 	width:100%;
@@ -817,11 +823,15 @@
 
 #reportpage-1{
 	width:100%;
-	height:60vh;
+	height:70.7vh;
 }
 #reportpage-2{
 	width:100%;
-	height:120vh;
+	height:70.5vh;
+}
+#reportpage-3{
+	width:100%;
+	height:77.5vh;
 }
 
 #reportarticle-1{
@@ -832,12 +842,13 @@
 #reporttitle-1{
 	resize: none;
  	text-indent:3px;
+ 	margin-top:2vh;
 }
 
 #reportcontent-1{
  	text-indent:3px;
 	resize: none;
-	
+	margin-top:1vh; 
 }
 
 #coluser-1{
@@ -850,16 +861,15 @@
 }
  
 #writebutton-1{
-   display: flex;
-        justify-content: center;
-        margin-top: 10px;
-        display: flex;
-        justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-top:10vh; 
 }
 
 #wbutton{
   position:relative;
-  left: 30vw;
+  left: 31vw;
   width:14vw;
   height:7vh;
   font-weight: bold;
@@ -873,7 +883,7 @@
   height: 7vh;
   text-decoration: none;
   position: relative;
-  right:35vw;
+  right:33vw;
 }
 
 #lbutton span {
@@ -915,6 +925,7 @@
   width: 14vw;
   height: 7vh;
   text-decoration: none;
+  
 }
 
 #reportinsert{
@@ -927,6 +938,25 @@
   left:75vw; 
   bottom:6.8vh;
   width: 14vw;
+  height: 7vh;
+}
+#replybutton-2{
+  position:relative;
+  left:40vw; 
+  bottom:9.1vh;
+  width: 17vw;
+  height: 7vh;
+}
+#listbutton-4{
+  margin-top:1vh;
+  width: 19vw;
+  height: 7vh;
+}
+#listbutton-5{
+  margin-left:38vw;
+  text-align: center;
+  line-height: 5.5vh;
+  width: 19vw;
   height: 7vh;
 }
 
@@ -951,6 +981,78 @@
   left:43vw;
   
 }
+
+#bigdiv{
+	display: flex;
+	width:98vw;
+	height:7vh;
+	margin:0 auto;
+	border: 1px solid black;
+	background: #faf9f4;
+}
+
+#smalldiv1{
+	flex: 1;
+	text-align: center;
+	line-height: 7vh;
+	font-size: 5vw;
+	border-right:1px solid black; 
+}
+
+#smalldiv2{
+	flex: 1;
+	text-align: center;
+	line-height: 7vh;
+	font-size: 5vw;
+}
+
+#readbigdiv{
+	display: flex;
+	width:98vw;
+	height:6vh;
+	margin:0 auto;
+	border: 1px solid black;
+	background: #faf9f4;
+}
+
+#readbigdiv-2{
+	display: flex;
+	width:98vw;
+	height:6vh;
+	margin:0 auto;
+	border: 1px solid black;
+}
+
+#readbigdiv-1{
+	display: flex;
+	width:98vw;
+	height:7.1vh;
+	margin:0 auto;
+}
+
+#readsmalldiv1{
+	flex: 1;
+	text-align: center;
+	line-height: 7vh;
+	font-size: 3vw;
+	border-right:1px solid black; 
+}
+
+#readsmalldiv2{
+	flex: 1;
+	text-align: center;
+	line-height: 7vh;
+	font-size: 3vw;
+	float: right;
+    width: 88%;
+    height: 100%;
+    min-height: 680px;
+}
+
+#readsmalldiv3{
+	
+}
+
 
 
 
