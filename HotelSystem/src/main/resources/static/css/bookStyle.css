@@ -261,6 +261,12 @@
 
     color: white;
 }
+.dark-mode #dinnerbookmain #mybooktable thead th{
+    border-bottom: none;
+}
+.dark-mode #dinnerbookmain #mybooktable thead th{
+    border-bottom: none;
+}
 .dark-mode #mydinnerapge_page{
     background-color: rgb(20,20,20);
 
@@ -376,10 +382,18 @@
 
 /* 700이상 보일곳*/
 @media screen and (max-width: 700px) {
+    #headtit {
+        display: inline-block;
+        left: 3.7vw;
+        width: 90.1vw;
+    }
     #mybookPageaside {
         display: none;
     }
-
+    #myPagetool{
+        width: 50vw;
+        left: 70vw;
+    }
     #mybookPage_article {
         width: 100%;
         left: 0;
