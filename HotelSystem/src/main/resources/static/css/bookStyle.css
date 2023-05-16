@@ -261,7 +261,10 @@
 
     color: white;
 }
+.dark-mode #mydinnerapge_page{
+    background-color: rgb(20,20,20);
 
+}
 #paymentPopup {
     width: 100vw;
     height: 100vh;
