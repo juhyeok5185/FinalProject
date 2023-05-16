@@ -107,8 +107,8 @@ $(document).ready(function () {
       method: "post",
       statusCode: {
         200: function () {
-          location.href = "/hotel/manager/managerMallList";
-          alert("예약 취소가 완료되었습니다.");
+          alert("주문 취소가 완료되었습니다.");
+          location.reload();
         },
       },
     });
@@ -116,19 +116,19 @@ $(document).ready(function () {
 
   $(document).on("click", "#orderdetailcencelBtn", async function () {
     try {
-      const orderNo = $("#hiddenvalue").val();
+      const orderno = $("#hiddenvalue").val();
       const response = await $.ajax({
         url: "/hotel/manager/delete",
         method: "post",
         data: {
-          orderNo: orderNo,
+          orderNo: orderno,
           _csrf: token,
         },
-      });
+      });  
 
       $.ajax({
         url: "/pay/cancel_do",
-        data: { orderNo, _csrf: token },
+        data: { orderno, _csrf: token },
         method: "post",
         statusCode: {
           200: function () {

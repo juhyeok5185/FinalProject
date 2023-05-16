@@ -118,7 +118,7 @@ public class PayController {
 			System.out.println(code);
 			if (code ==-404){
 				System.out.println("404발생");
-				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+				return ResponseEntity.ok(null);
 			}
 
 			return ResponseEntity.ok(null);

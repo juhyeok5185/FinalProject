@@ -614,7 +614,10 @@
 	color: white;
 }
 
-
+.dark-mode #headtit-1 {
+	border-bottom: 0.4rem solid white;
+	color: white;
+}
 
 
 
