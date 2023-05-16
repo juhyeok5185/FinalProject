@@ -2098,6 +2098,35 @@ div #logintoolbar > a {
 
 /*요기까지*/
 /*동현*/
+.dark-mode #reportpage{
+  background-color: rgb(20,20,20);
+  color: white;
+}
+.dark-mode #boardlist table tbody{
+  background-color: rgb(20,20,20);
+  color: white;
+}
+.dark-mode #boardlist table thead{
+  background-color: #212529;
+  color:white;
+
+}
+.dark-mode #reporttable {
+  background-color: #212529;
+  color:white;
+
+}
+.dark-mode #listbutton{
+  background-color: #212529;
+  color:white;
+
+}
+.dark-mode #listbutton:hover{
+  background-color: rgb(20,20,20);
+  color:gray;
+
+}
+
 .bookbtn{
 	cursor: pointer;
 }
@@ -3073,6 +3102,9 @@ div #logintoolbar > a {
   }
   /*700이하부터 보일곳*/
   @media screen and (min-width: 701px) {
+    #reportpage-3{
+      display: none;
+    }
     .infopackage-image-area-min {
       display: none;
     }
