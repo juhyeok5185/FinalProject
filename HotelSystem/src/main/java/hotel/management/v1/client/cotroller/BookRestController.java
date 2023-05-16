@@ -35,7 +35,6 @@ public class BookRestController {
 
     @PostMapping("/client/findmybook")
     public ResponseEntity<List<mypagedinner>> findmybook(BookDto.managercheckroom data, Principal pal) {
-        System.out.println(data.toString());
         List<mypagedinner> list = service.findmybookByfromAndto(data, pal.getName());
         return ResponseEntity.ok(list);
     }
@@ -63,7 +62,6 @@ public class BookRestController {
 
     @PostMapping(value = "/client/dinnerbook", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> dinnerbook(BookDto.addbookfromDinner book, Principal pal) {
-
         if (service.findmydinnerByusernameAndfrom(book.getFrom(), pal.getName()) > 0)
             return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
         service.addDinner(book, pal.getName());
@@ -124,6 +122,5 @@ public class BookRestController {
         service.add(bo, book.getUsername());
         service.manageradd(bo);
         return ResponseEntity.ok(null);
-
     }
 }

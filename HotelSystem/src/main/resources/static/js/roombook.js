@@ -145,7 +145,7 @@ $(document).ready(async function () {
     }
   });
   $(document).on("click", "#deletebookbtn", function () {
-  const val =   confirm("야 너 왜 안나와");
+  const val =   confirm("예약을 취소하겟습니까?");
   if (val==true){
 
 
@@ -157,7 +157,7 @@ $(document).ready(async function () {
       statusCode: {
         200: function () {
           location.reload();
-          alert("성공");
+          alert("취소되었습니다");
         },
       },
     })

@@ -113,4 +113,7 @@
 		select count(b.bookno) from book b,dinner d where b.bookno = d.resno and b.username = #{name} and b.bookdate=to_date(#{from},'MM/DD/YYYY')
 
 	</select>
+	<select id="findmydinnerByusernameAndfrom2" resultType="int">
+		select b.bookno from book b where b.username = #{name} and b.bookdate=to_date(#{from},'MM/DD/YYYY')
+	</select>
 </mapper>

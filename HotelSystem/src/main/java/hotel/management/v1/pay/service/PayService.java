@@ -26,7 +26,7 @@ public class PayService {
 	@Autowired
 	private PayDao dao;
 
-	public KakaoPayReadyVo kakaoPay(Map<String, Object> params, String uuid, String username) {
+	public KakaoPayReadyVo kakaoPay(Map<String, Object> params, String uuid, String username, String[] tbodyArray) {
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization", "KakaoAK a9f2ff79213b981cd3e1ade179808e25");
 
@@ -48,13 +48,13 @@ public class PayService {
 		RestTemplate template = new RestTemplate();
 		String url = "https://kapi.kakao.com/v1/payment/ready";
 		KakaoPayReadyVo res = template.postForObject(url, request1, KakaoPayReadyVo.class);
-		// 여기에다가 db에 저장하는 문법 만들기
-		// 가은이가 갈라치기 해
 		String amount = (String) params.get("total_amount");
 		String itmename = (String) params.get("item_name");
-		PayDto.bookAddPayment bookpayment = new bookAddPayment(res.getTid(), uuid, itmename, Integer.parseInt(amount),
-				PayType.KAKAO);
-		dao.kakaobookadd(bookpayment);
+		if (tbodyArray==null) {
+			PayDto.bookAddPayment bookpayment = new bookAddPayment(res.getTid(), uuid, itmename, Integer.parseInt(amount),
+					PayType.KAKAO);
+			dao.kakaobookadd(bookpayment);
+		}
 		return res;
 	}
 

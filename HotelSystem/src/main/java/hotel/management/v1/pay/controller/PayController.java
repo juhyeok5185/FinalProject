@@ -39,7 +39,8 @@ public class PayController {
 	public @ResponseBody KakaoPayReadyVo kakaoPay(@RequestParam Map<String, Object> params, HttpSession session,
 			Principal pal) {
 		String uuid = UUID.randomUUID().toString();
-		KakaoPayReadyVo res = payService.kakaoPay(params, uuid, pal.getName());
+		String[] tbodyArray = (String[]) session.getAttribute("tbodyArray");
+		KakaoPayReadyVo res = payService.kakaoPay(params, uuid, pal.getName(),tbodyArray);
 		session.setAttribute("partner_order_id", uuid);
 		session.setAttribute("tid", res.getTid());
 		return res;
@@ -93,7 +94,6 @@ public class PayController {
 
 	@PostMapping("/pay/cancel_do")
 	public ResponseEntity<?> canclePay(Integer bookno, Integer orderno) {
-		// DB날리는 거 만들기
 		PayDto.payment payment = payService.findBypayment(bookno, orderno);
 		payService.deletepayment(payment.getBookno(), payment.getOrderno());
 		if (orderno != null && bookno == null) {
