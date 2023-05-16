@@ -242,6 +242,25 @@
 #mallPaymentBtn {
     cursor: pointer;
 }
+ .dark-mode #bookpage{
+    background-color: rgb(20,20,20);
+}
+ .dark-mode #mybookPage_page{
+     background-color: rgb(20,20,20);
+
+ }
+ .dark-mode #mybookPageaside{
+     background-color: #212529;
+ }
+ .dark-mode #mybooktable thead{
+     background-color: #212529;
+     color: white;
+     }
+.dark-mode #mybooktable tbody{
+    background-color: rgb(20,20,20);
+
+    color: white;
+}
 
 #paymentPopup {
     width: 100vw;
