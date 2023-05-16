@@ -20,8 +20,6 @@ public class MallController {
 	@GetMapping("/mall/itemList")
 	public ModelAndView item() {
 		List<OrdersDto.Items> items = orderService.findByItemNo();
-		System.out.println("=========================");
-		System.out.println(items);
 		return new ModelAndView("/hotel/mall/itemList").addObject("list", items);
 	}
 

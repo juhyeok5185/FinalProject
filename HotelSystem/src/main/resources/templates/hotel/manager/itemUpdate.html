@@ -21,7 +21,7 @@
     <title>관리자</title>
   </head>
   <body>
-    <input type="hidden" id="booktokken" name="_csrf" th:value="${_csrf.token}" />
+    <input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}" />
     <div class="managment">
       <input id="ajaxfrom" type="hidden" />
       <input id="ajaxto" type="hidden" />
@@ -35,6 +35,7 @@
           <div id="logoutArea">
             <button class="btn btn-secondary">로그아웃</button>
           </div>
+           <input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}" />
         </form>
       </div>
       <div id="managmentmain">

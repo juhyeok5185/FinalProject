@@ -1,5 +1,4 @@
 function openPopup(url) {
-  console.log(url);
   window.open(url, "managerorderDetail", "width=500, height=350, scrollbars=1, toolbar=1, menubar=yes, left=300px, top=100px,text-align: center;");
 }
 
@@ -43,7 +42,6 @@ function searchmallData(mallList) {
 
 $(document).ready(function () {
   const token = $("#token").val();
-  console.log(token);
   $("#nameSearchBtn").on("click", async function () {
     const name = $("#name").val();
     const tel = $("#tel").val();
@@ -100,7 +98,6 @@ $(document).ready(function () {
         method: "post",
       });
       alert("주문이 취소되었습니다.");
-      console.log(response);
     } catch (err) {
       console.log(err);
     }
@@ -120,7 +117,6 @@ $(document).ready(function () {
   $(document).on("click", "#orderdetailcencelBtn", async function () {
     try {
       const orderNo = $("#hiddenvalue").val();
-      console.log(typeof orderNo);
       const response = await $.ajax({
         url: "/hotel/manager/delete",
         method: "post",
@@ -144,7 +140,6 @@ $(document).ready(function () {
       alert("주문이 취소되었습니다.");
       window.opener.location.reload();
       window.close();
-      console.log(response);
     } catch (err) {
       console.log(err);
     }
@@ -153,14 +148,22 @@ $(document).ready(function () {
   // 상품재고수량복구
   $(".update-btn").click(function () {
     let $itemno = parseInt($(this).parent().prev().prev().prev().text());
-    console.log(typeof $itemno);
+    let $itemea= parseInt($(this).parent().prev().text());
+    if($itemea==300) {
+		alert('최대수량입니다.');
+		return;
+	}
     $.ajax({
       url: "/hotel/manager/mall/updateItemEA",
       method: "post",
       data: {
         itemno: $itemno,
+        _csrf: token
       },
-      success: function () {},
+      success: function () {
+		  alert('수량 복구완료');
+		  location.reload();
+	  },
       error: function (error) {
         console.log(error);
       },

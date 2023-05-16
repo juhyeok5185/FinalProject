@@ -91,7 +91,6 @@ function kakaojs(result) {
   });
 }
 
-/*---------------------------------------*/
 $(document).ready(function () {
   let checkBtn = false;
   let click = 0;
