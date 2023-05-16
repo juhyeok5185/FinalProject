@@ -1,16 +1,12 @@
 function printtotalprice(gradeName, gradeprice) {
-  console.log(typeof gradeprice);
-  console.log(gradeprice);
   let priceperpercent = 0;
   let totalprice = parseInt(gradeprice);
   if ($("#bfcheckbox").is(":checked")) {
     totalprice += parseInt($("#breakfastprice").text());
 
-    console.log(totalprice);
   }
   if ($("#dicheckbox").is(":checked")) {
     totalprice += 150000;
-    console.log(totalprice);
   }
 
   const cntday = parseInt($(".night").text());
@@ -44,7 +40,6 @@ function printRoomList($roomlist, $footer) {
 							<input type="text" id = "booktel">
 				  </div><hr>`;
   $footer.append(html2);
-  console.log($roomlist);
   let index = 1;
   for (const b of $roomlist) {
     const html = `
