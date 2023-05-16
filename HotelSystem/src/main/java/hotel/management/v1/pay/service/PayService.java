@@ -31,7 +31,7 @@ public class PayService {
 		headers.set("Authorization", "KakaoAK a9f2ff79213b981cd3e1ade179808e25");
 
 		MultiValueMap<String, Object> payParams = new LinkedMultiValueMap<String, Object>();
-
+		
 		payParams.add("cid", "TC0ONETIME");
 		payParams.add("partner_order_id", uuid);
 		payParams.add("partner_user_id", username);
@@ -42,7 +42,7 @@ public class PayService {
 		payParams.add("approval_url", "http://localhost:8081/pay/success"); // 성공하면 예약성공페이지로
 		payParams.add("cancel_url", "http://localhost:8081/pay/cancel"); // 취소시 예약페이지
 		payParams.add("fail_url", "http://localhost:8081/pay/fail"); // 실패시 예약페이지
-
+		
 		HttpEntity<Map> request1 = new HttpEntity<Map>(payParams, headers);
 
 		RestTemplate template = new RestTemplate();

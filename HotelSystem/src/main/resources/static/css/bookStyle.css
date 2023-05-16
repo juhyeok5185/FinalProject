@@ -242,7 +242,35 @@
 #mallPaymentBtn {
     cursor: pointer;
 }
+ .dark-mode #bookpage{
+    background-color: rgb(20,20,20);
+}
+ .dark-mode #mybookPage_page{
+     background-color: rgb(20,20,20);
 
+ }
+ .dark-mode #mybookPageaside{
+     background-color: #212529;
+ }
+ .dark-mode #mybooktable thead{
+     background-color: #212529;
+     color: white;
+     }
+.dark-mode #mybooktable tbody{
+    background-color: rgb(20,20,20);
+
+    color: white;
+}
+.dark-mode #dinnerbookmain #mybooktable thead th{
+    border-bottom: none;
+}
+.dark-mode #dinnerbookmain #mybooktable thead th{
+    border-bottom: none;
+}
+.dark-mode #mydinnerapge_page{
+    background-color: rgb(20,20,20);
+
+}
 #paymentPopup {
     width: 100vw;
     height: 100vh;
@@ -354,10 +382,18 @@
 
 /* 700이상 보일곳*/
 @media screen and (max-width: 700px) {
+    #headtit {
+        display: inline-block;
+        left: 3.7vw;
+        width: 90.1vw;
+    }
     #mybookPageaside {
         display: none;
     }
-
+    #myPagetool{
+        width: 50vw;
+        left: 70vw;
+    }
     #mybookPage_article {
         width: 100%;
         left: 0;

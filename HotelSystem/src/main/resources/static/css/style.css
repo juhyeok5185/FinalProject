@@ -2846,6 +2846,15 @@ div #logintoolbar > a {
 	color: white;
 }
 
+/*오시는길 다크모드*/
+.dark-mode #comepage {
+	background-color: rgb(20,20,20);
+}
+
+.dark-mode #category {
+	color: black;
+}
+
 
 /* 여기까지 */
 
@@ -2992,7 +3001,7 @@ div #logintoolbar > a {
     
     /*오시는길 반응형*/ 
 	#comepage {
-		height: 70.8vh;
+		height: 70.3vh;
 		width: 100%
 	}
 	

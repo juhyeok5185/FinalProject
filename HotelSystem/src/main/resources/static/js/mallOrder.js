@@ -7,7 +7,7 @@ function detailPopup(url) {
 $(document).ready(function () {
   const token = $("#token").val();
 
-  $(document).on("click", ".orderDetailCancel-btn",async function () {
+  $(document).on("click", ".orderDetailCancel-btn",function () {
     const $orderNo = parseInt($("#order-no").val());
     const $itemName = $("#item-name").val();
     const $orderEA = parseInt($("#order-EA").val());
@@ -15,7 +15,7 @@ $(document).ready(function () {
     if (orderCancel) {
       alert("주문이 취소되었습니다.");
       try {
-        const a = await $.ajax({
+        $.ajax({
           url: "/hotel/mall/orderDelete",
           method: "delete",
           data: {
@@ -47,7 +47,7 @@ $(document).ready(function () {
     window.opener.location.reload();
   });
 
-  $(document).on("click", ".orderCancel-btn", async function () {
+  $(document).on("click", ".orderCancel-btn", function () {
     const $orderNo = parseInt($(this).closest("tr").find(".order-No").val());
     const $itemName = $(this).closest("tr").find(".item-Name").val();
     const $orderEA = parseInt($(this).closest("tr").find(".order-EA").val());
@@ -56,7 +56,7 @@ $(document).ready(function () {
     if (orderCancel) {
       alert("주문이 취소되었습니다.");
       try {
-        const b = await $.ajax({
+        $.ajax({
           url: "/hotel/mall/orderDelete",
           method: "delete",
           data: {
