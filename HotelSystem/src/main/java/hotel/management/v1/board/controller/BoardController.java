@@ -49,9 +49,28 @@ public class BoardController {
 				.addObject("prev", list.getPrev()).addObject("start", list.getStart()).addObject("end", list.getEnd())
 				.addObject("next", list.getNext()).addObject("pageno", pageno);
 	}
+	
+	@GetMapping("/hotel/manager/managerBoard")
+	public ModelAndView managerList(@RequestParam(defaultValue = "1") Integer pageno) {
+		BoardDto.Pagination list = service.pagination(pageno);
+		if (list.getMsg() == "잘못된경로") {
+			return new ModelAndView("/hotel/manager/managerBoard").addObject("board", list.getBoard())
+					.addObject("prev", list.getPrev()).addObject("start", list.getStart())
+					.addObject("end", list.getEnd()).addObject("next", list.getNext()).addObject("pageno", pageno)
+					.addObject("msg", list.getMsg());
+		}
+		return new ModelAndView("/hotel/manager/managerBoard").addObject("board", list.getBoard())
+				.addObject("prev", list.getPrev()).addObject("start", list.getStart()).addObject("end", list.getEnd())
+				.addObject("next", list.getNext()).addObject("pageno", pageno);
+	}
 
 	@GetMapping("/hotel/board/read")
 	public void read(Integer boardNo, Model model) {
+		service.findByNo(boardNo);
+		model.addAttribute("board", service.findByNo(boardNo));
+	}
+	@GetMapping("/hotel/manager/managerBoardRead")
+	public void managerread(Integer boardNo, Model model) {
 		service.findByNo(boardNo);
 		model.addAttribute("board", service.findByNo(boardNo));
 	}

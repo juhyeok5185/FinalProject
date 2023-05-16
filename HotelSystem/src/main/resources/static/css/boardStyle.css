@@ -755,6 +755,7 @@
 	text-decoration: none;
 }
 
+
 #reportwrite{
 	position:relative;
 	bottom: 6vh;
@@ -929,10 +930,32 @@
   height: 7vh;
 }
 
+.managment-2{
+  width:100%;
+  height:100%;
+  overflow: hidden;
+}
+
+#managerboardarticle{
+  width:85vw;
+  height:80vh;
+  float: right;
+  margin-top: 7vh;
+}
+
+#managerreportpagination{
+  height: 5vh;
+  width: 16vw;
+  text-align: center;
+  position:absolute;
+  left:43vw;
+  
+}
+
 
 
 #test{
-	background: red;
+  background: red;
 }
 
 /*요기까지*/
@@ -1788,11 +1811,21 @@ div #logintoolbar > a {
 	font-size: 0.75em
 }
 
+#managerlistbutton{
+	position:relative;
+	top:4vh;
+}
 
-
-
-
-
+#managerreplybutton{
+	position:relative;
+	bottom:1.5vh;
+}
+#readcontent {
+  word-break: break-all;
+  width:60vw;
+}
+#reporttable {
+}
 
 
 

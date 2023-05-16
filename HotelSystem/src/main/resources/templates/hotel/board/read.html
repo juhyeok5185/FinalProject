@@ -74,37 +74,36 @@
         </div>
         <hr>
          <div class="insert" id="reportinsert">
-          <table id="reporttable">
+          <table id="reporttable" class="table">
             <tr>
-              <td class="col1">작성일<hr></td>
+              <td class="col1">작성일</td>
               <td class="col2">
                <div id="boardNumber" th:text="${board.boardNo}" style="display: none;"></div>
                <div th:text="${board.writeDay}"></div> 
-               <hr>
               </td>
               </tr>
             <tr>
-              <td class="col1"><span id="notnull"> </span>작성자<hr></td>
+              <td class="col1"><span id="notnull"> </span>작성자</td>
               <td class="col2">
                <div th:text="${board.username}"></div>
-               <hr></td>
+               </td>
             </tr>
             <tr>
-              <td class="col1"><span id="notnull"></span>제목<hr></td>
+              <td class="col1"><span id="notnull"></span>제목</td>
               <td class="col2">
                <div th:text="${board.title}"></div>
-               <hr></td>
+               </td>
             </tr>
             <tr>
-              <td class="col1"><span id="notnull"></span>내용<hr></td>
+              <td class="col1"><span id="notnull"></span>내용</td>
               <td class="col2">
                 <div th:text="${board.content}" style="word-break:break-all;"></div>
-              <hr></td>
+              </td>
             </tr>
             <tr>
               <td class="col1" ><span id="notnull"></span>답변<hr></td>
               <td class="col2" >
-		        <span th:text="${board.replyContent}"></span>&nbsp;<hr></td>
+		        <span th:text="${board.replyContent}"></span>&nbsp;</td>
             </tr>
 <!-- 답변 --><tr>
               <td class="col1" sec:authorize="hasRole('ADMIN')"><span id="notnull"></span>답변</td>
@@ -147,14 +146,11 @@
         <hr>
          <div class="insert" id="reportinsert">
           <table id="reporttable">
-            <tr>
-              <td class="col1">작성일<hr></td>
-              <td class="col2">
+          
+            <tr><td class="col1">작성일<hr></td></tr>
+            <tr><td class="col2">
                <div id="boardNumber" th:text="${board.boardNo}" style="display: none;"></div>
-               <div th:text="${board.writeDay}"></div> 
-               <hr>
-              </td>
-              </tr>
+               <div th:text="${board.writeDay}"></div><hr></td></tr>
             <tr>
               <td class="col1"><span id="notnull"> </span>작성자<hr></td>
               <td class="col2">
