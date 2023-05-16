@@ -99,7 +99,7 @@
 	background-color: rgb(20, 20, 20);
   }
 
-.dark-mode .orderListTbody, .dark-mode .orderItemName a {
+.dark-mode .orderListTbody tr td, .dark-mode .orderItemName {
 	color : white;
 }
 
@@ -118,8 +118,9 @@
 	border-color: white;
 }
 
-.dark-mode #orderListHead {
-	color : #d5ccb0;
+.dark-mode .orderListThead, .dark-mode .orderListThead th {
+	background-color: #212529;;
+	color: white;
 }
 .dark-mode .orderDetailCancel-btn {
 	color: white;
@@ -131,6 +132,12 @@
 .dark-mode #orderDetailItem tr {
 	color : white;
 }
+
+.dark-mode #orderListHead {
+	border-bottom: 0.4rem solid white;
+	color: white;
+}
+
 
 /*orderDetail*/
 .orderDetail-tr th td {

@@ -18,6 +18,12 @@ public class ManagerMallListRestController {
 	@Autowired
 	private ManagerMallListService service;
 
+	@PostMapping("/hotel/manager/mall/updateItemEA")
+	public ResponseEntity<?> updateItemEA(Integer itemno) {
+		service.updateItemEA(itemno);
+		return ResponseEntity.ok(null);
+	}
+
 	@PostMapping("/hotel/manager/managerMallList")
 	public ResponseEntity<List<ManagerMallListDto.MallListSearch>> mallList(ManagerMallListDto.FindMallList dto) {
 		List<ManagerMallListDto.MallListSearch> list = service.mallsearch(dto);
@@ -28,7 +34,6 @@ public class ManagerMallListRestController {
 	public ResponseEntity<?> delete(String orderNo) {
 		Integer orderno = Integer.parseInt(orderNo);
 		service.orderdetaildelete(orderno);
-		service.delete(orderno);
 		return ResponseEntity.ok("");
 	}
 

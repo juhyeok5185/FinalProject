@@ -3,6 +3,7 @@ package hotel.management.v1.board.service;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import org.hibernate.validator.constraints.Length;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -28,9 +29,9 @@ public class BoardService {
 	private final static Integer BLOCKSIZE = 5;
 	
 	//게시물을 작성하기 위한 메소드
-	public void write(BoardDto.Write dto, String username) {
-		Board board = dto.toEntity(dto.getTitle(),dto.getContent(), username);
-		dao.write(board);
+	public void write(BoardDto.Write dto, String username) throws IllegalArgumentException {
+			Board board = dto.toEntity(dto.getTitle(),dto.getContent(), username);
+			dao.write(board);
 	}
 
 	//NoSuchElementException

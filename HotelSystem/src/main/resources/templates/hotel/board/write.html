@@ -59,13 +59,13 @@ $(document).ready(function(){
             	<tr>
                   <td class="col1"><span id="notnull"></span>제목</td>
                   <td class="col2">
-                   <textarea name="title" id="reporttitle" cols="80" rows="1" placeholder=""></textarea>
+                   <textarea name="title" id="reporttitle" cols="80" rows="1" placeholder="" maxlength="20"></textarea>
                   </td>
             	</tr>
             	<tr>
                   <td class="col1"><span id="notnull"></span>내용</td>
                   <td class="col2">
-                   <textarea name="content" id="reportcontent" cols="80" rows="5" placeholder=""></textarea>
+                   <textarea name="content" id="reportcontent" cols="80" rows="5" placeholder="" maxlength="500"></textarea>
                   </td>
             	</tr>
              </table>
@@ -74,6 +74,55 @@ $(document).ready(function(){
          	  <button class="btn btn-outline-dark">작성</button>
            	  <a type="button" class="btn btn-outline-dark" href="/hotel/board/list">목록</a>
           	</span>
+            </form>
+        </div>
+      </div>
+    </div>
+   
+   <!-- 반응형 -->
+    <div id="reportpage-1"> 
+          <div id="aside"> 
+        <div id="inmenu">
+          <h3 id="tit">고객문의</h3><br>
+          <ul id="menu">
+            <li id="m1first"><a href="/hotel/contact" id="subh">연락처</a></li> <br> 
+            <li id="m2last"><a href="/hotel/board/list" id="subh">문의하기</a></li>
+          </ul>   
+        </div>
+      </div>
+      <div id="reportarticle-1">
+       <div id="headtit"> 
+          <h3>문의하기</h3>
+          <div id="toolbar">
+            <i class="fa-solid fa-house"></i> > 고객문의 ><a href="/hotel/board/list" id="subh"> 문의하기</a>
+          </div>
+        </div>
+        <div class="insert-1">
+            <form action="/hotel/board/write" method="post">
+            <div id="bigdiv"> 
+              <div id="smalldiv1">
+              작성자
+              </div>
+              <div id="smalldiv2" th:text="${name}"><span id="notnull"></span>
+              </div>	
+            </div>
+         	 <table>
+            	<tr>
+                  <td class="col2">
+                   <textarea name="title" id="reporttitle-1" cols="74" rows="1" placeholder="제목을 작성해주세요." maxlength="20"></textarea>                
+                  </td>
+            	</tr>
+            	<tr>
+                  <td class="col2">
+                   <textarea name="content" id="reportcontent-1" cols="74" rows="5" placeholder="내용을 작성해주세요." maxlength="500"></textarea>
+                  </td>
+            	</tr>
+             </table>
+          	<div id="writebutton-1">
+          	  <input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}">
+         	  <button class="btn btn-outline-dark" id="wbutton">작성</button>
+           	  <a type="button" id="lbutton" class="btn btn-outline-dark" href="/hotel/board/list"><span>목록</span></a>
+          	</div>
             </form>
         </div>
       </div>

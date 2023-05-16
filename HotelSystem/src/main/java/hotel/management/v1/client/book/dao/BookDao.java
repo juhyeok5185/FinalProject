@@ -35,7 +35,7 @@ public interface BookDao {
 
 	public Integer findBooknoByusername(String name);
 
-	public List<mypagedinner> findMydinnerByusername(String name);
+	public List<BookDto.mydinnerlist> findMydinnerByusername(String name);
 
 	public Integer chekbook(String username, String from, String to);
 
@@ -46,4 +46,6 @@ public interface BookDao {
 	public List<mypagedinner> findmybookByfromAndto(checkbookbyusername data);
 
 
+   public   Integer findmydinnerByusernameAndfrom(String name, String from);
+   public  Integer findmydinnerByusernameAndfrom2(String name ,String from);
 }

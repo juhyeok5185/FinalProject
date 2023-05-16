@@ -4,6 +4,8 @@ import java.security.Principal;
 import java.util.Map;
 import java.util.UUID;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import hotel.management.v1.pay.dto.PayDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,6 +23,7 @@ import hotel.management.v1.pay.entity.KakaoPayReadyVo;
 import hotel.management.v1.pay.entity.PayType;
 import hotel.management.v1.pay.service.PayService;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.web.client.HttpClientErrorException;
 
 @Controller
 public class PayController {
@@ -39,7 +42,8 @@ public class PayController {
 	public @ResponseBody KakaoPayReadyVo kakaoPay(@RequestParam Map<String, Object> params, HttpSession session,
 			Principal pal) {
 		String uuid = UUID.randomUUID().toString();
-		KakaoPayReadyVo res = payService.kakaoPay(params, uuid, pal.getName());
+		String[] tbodyArray = (String[]) session.getAttribute("tbodyArray");
+		KakaoPayReadyVo res = payService.kakaoPay(params, uuid, pal.getName(),tbodyArray);
 		session.setAttribute("partner_order_id", uuid);
 		session.setAttribute("tid", res.getTid());
 		return res;
@@ -92,25 +96,33 @@ public class PayController {
 	}
 
 	@PostMapping("/pay/cancel_do")
-	public ResponseEntity<?> canclePay(Integer bookno, Integer orderno) {
-		System.out.println(bookno);
-		System.out.println(orderno);
-		// DB날리는 거 만들기
+	public ResponseEntity<?> canclePay(Integer bookno, Integer orderno) throws JsonProcessingException {
 		PayDto.payment payment = payService.findBypayment(bookno, orderno);
-		System.out.println(payment.toString());
 		payService.deletepayment(payment.getBookno(), payment.getOrderno());
-
 		if (orderno != null && bookno == null) {
 			payService.findAndCancelOrder(orderno);
 		}
-
-		payService.findAndDeleteByBookByBookno(bookno);
+		if (orderno == null && bookno != null) {
+			payService.findAndDeleteByBookByBookno(bookno);
+		}
 		try {
 			payService.canclePay(payment);
-		} catch (Exception e) {
+		} catch (HttpClientErrorException.BadRequest e) {
+			String kakao = e.getResponseBodyAsString();
+
+			ObjectMapper objectMapper = new ObjectMapper();
+			PayDto.kakaoexecption response = objectMapper.readValue(kakao, PayDto.kakaoexecption.class);
+			String msg = response.getMsg();
+			Integer code = response.getCode();
+			System.out.println(msg);
+			System.out.println(code);
+			if (code ==-404){
+				System.out.println("404발생");
+				return ResponseEntity.ok(null);
+			}
+
 			return ResponseEntity.ok(null);
 		}
-
 		return ResponseEntity.ok(null);
 	}
 

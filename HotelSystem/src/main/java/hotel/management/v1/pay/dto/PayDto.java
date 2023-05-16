@@ -1,8 +1,10 @@
 package hotel.management.v1.pay.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import hotel.management.v1.pay.entity.PayType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.ToString;
 
 public class PayDto {
 	@Data
@@ -23,4 +25,16 @@ public class PayDto {
 		Integer amount;
 		PayType type;
 	}
+
+
+	@Data
+	@ToString
+	public static class kakaoexecption{
+		@JsonProperty("msg")
+		String msg;
+		@JsonProperty("code")
+		Integer code;
+	}
+
+
 }

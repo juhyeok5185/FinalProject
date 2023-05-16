@@ -1,3 +1,5 @@
+<!-- 관리자 :  김동욱 -->
+
 <!DOCTYPE html>
 <html  lang="ko" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
@@ -47,11 +49,11 @@
     		return;
     	}
     })
-    
 </script>
 </head>
 <body>
   <input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}">
+   <div th:replace="~{/fragment/nav.html}"></div>
     <!--고객 문의 게시판-->
     <div id="reportpage"> 
       <div id="aside"> 
@@ -70,39 +72,44 @@
             <i class="fa-solid fa-house"></i> > 고객문의 ><a href="/hotel/board/list" id="subh"> 문의하기</a>
           </div>
         </div>
-        <hr>
          <div class="insert" id="reportinsert">
-          <table id="reporttable">
+          <table id="reporttable" class="table">
             <tr>
-              <td class="col1">작성일<hr></td>
+              <td class="col1">작성일</td>
               <td class="col2">
                <div id="boardNumber" th:text="${board.boardNo}" style="display: none;"></div>
                <div th:text="${board.writeDay}"></div> 
-               <hr>
               </td>
               </tr>
             <tr>
-              <td class="col1"><span id="notnull"> </span>작성자<hr></td>
+              <td class="col1"><span id="notnull"> </span>작성자</td>
               <td class="col2">
-               <div id="test" th:text="${board.username}"></div>
-               <hr></td>
+               <div th:text="${board.username}"></div>
+               </td>
             </tr>
             <tr>
-              <td class="col1"><span id="notnull"></span>제목<hr></td>
+              <td class="col1"><span id="notnull"></span>제목</td>
               <td class="col2">
                <div th:text="${board.title}"></div>
-               <hr></td>
+               </td>
             </tr>
             <tr>
-              <td class="col1"><span id="notnull"></span>내용<hr></td>
-              <td class="col2">
-                <div th:text="${board.content}"></div>
-              <hr></td>
+              <td class="col1" id="readcontent4"><span id="notnull"></span>내용</td>
+              <td class="col2" id="readcontent3">
+                <span th:text="${board.content}"></span>
+              </td>
+              	<script>
+              		const tdElement = $('#readcontent3'); // 원하는 td 요소를 선택합니다
+              		const tdHeight = tdElement.height();
+              		console.log(tdHeight);
+              		const $readcontent=$('#readcontent4');
+              		$readcontent.attr('style',`height=${tdHeight}`);
+				</script>
             </tr>
             <tr>
-              <td class="col1" ><span id="notnull"></span>답변<hr></td>
+              <td class="col1" ><span id="notnull"></span>답변</td>
               <td class="col2" >
-		        <span th:text="${board.replyContent}"></span>&nbsp;<hr></td>
+		        <span th:text="${board.replyContent}"></span>&nbsp;</td>
             </tr>
 <!-- 답변 --><tr>
               <td class="col1" sec:authorize="hasRole('ADMIN')"><span id="notnull"></span>답변</td>
@@ -111,13 +118,13 @@
 	              <input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}">
 	              <input type="hidden" name="username" th:field="*{board.username}">
 	              <input type="hidden" name="boardNo"  th:field="*{board.boardNo}">
-	              <textarea id="replyContent" name="replyContent" cols="80" rows="4"></textarea>
+	              <textarea id="replyContent" name="replyContent" cols="80" rows="4" maxlength='50'></textarea>
 			      <span id="replybutton"><button id="replybutton" class="btn btn-outline-dark">답변</button></span>
 		        </form>
               </td>
 		    </tr>
-		    <tr>
-		 	 <td>
+          </table>
+          <div>
   <!-- 목록 --><div><a id="listbutton" type="button" class="btn btn-outline-dark" href="/hotel/board/list">목록</a></div> 
   <!-- 삭제 --><div id="deletebutton">
 				<form action="/hotel/board/delete" method="post">
@@ -127,9 +134,97 @@
    			    <button id="deletebtn2" type="submit" class="btn btn-outline-dark" style="display:none" onclick="showAlert()">글삭제</button>  				
 				</form>
 			  </div>
-			 </td>
-			</tr>
-          </table>
+          </div>
+       </div>
+     </div>
+   </div>
+   
+   
+   <!-- 반응형 -->
+   <div id="reportpage-3">
+   <div id="reportarticle-1">
+      <div id="headtit"> 
+          <h3>문의하기</h3>
+          <div id="toolbar">
+            <i class="fa-solid fa-house"></i> > 고객문의 ><a href="/hotel/board/list" id="subh"> 문의하기</a>
+          </div>
+        </div>
+         <div class="insert" id="reportinsert">
+         
+           <div id="readbigdiv"> 
+             <div id="readsmalldiv1">
+              작성일
+             </div>
+              <div id="readsmalldiv2" th:text="${board.writeDay}"><span id="notnull"></span>
+              <div id="boardNumber" th:text="${board.boardNo}" style="display: none;"></div>
+             </div>	
+           </div>
+            
+          <div id="readbigdiv"> 
+            <div id="readsmalldiv1">
+            작성자
+            </div>
+              <div id="readsmalldiv2" th:text="${board.username}"><span id="notnull"></span>
+            </div>	
+          </div>
+            
+          <div id="readbigdiv"> 
+            <div id="readsmalldiv1">
+              제목
+            </div>
+          </div>
+          <div id="readbigdiv-2"> 
+           <div id="readsmalldiv2">
+            <div th:text="${board.title}" ></div>
+            </div>
+          </div>
+          
+          <div id="readbigdiv"> 
+           <div id="readsmalldiv1">
+           내용
+           </div>
+          </div>
+          <div id="readbigdiv-2">
+           <div id="readsmalldiv2">
+            <div id="readsmalldiv3" th:text="${board.content}"></div>
+           </div>
+          </div>
+          
+          <div id="readbigdiv"> 
+           <div id="readsmalldiv1">
+           답변
+           </div>
+          </div>
+          <div id="readbigdiv-2">
+           <div id="readsmalldiv2">
+            <div id="readsmalldiv3" th:text="${board.replyContent}"></div>
+           </div>
+          </div>
+          
+          <div id="readbigdiv"> 
+           <div id="readsmalldiv1">
+           관리자 답변하기
+           </div>
+          </div>
+          <div id="readbigdiv-1"> 
+           <div id="readsmalldiv1">
+           <div sec:authorize="hasRole('ADMIN')"><span id="notnull"></span></div>
+              <div sec:authorize="hasRole('ADMIN')">
+	            <form action="/hotel/board/read" method="post" style="height:9vh;">
+	              <input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}">
+	              <input type="hidden" name="username" th:field="*{board.username}">
+	              <input type="hidden" name="boardNo"  th:field="*{board.boardNo}">
+	              <textarea id="replyContent-2" name="replyContent" cols="48" rows="1" maxlength='50'></textarea>
+			      <span id="replybutton"><button id="replybutton-2" class="btn btn-outline-dark">답변</button></span>
+		        </form>
+              </div>
+           </div>
+          </div>
+          <div id="listbutton-4">
+          <div><a type="button" id="listbutton-5" class="btn btn-outline-dark" href="/hotel/board/list">목록</a></div> 
+          </div>
+          <div>
+          </div>
        </div>
      </div>
    </div>

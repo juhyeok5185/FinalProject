@@ -1,25 +1,27 @@
 function printtotalprice(gradeName, gradeprice) {
-  console.log(typeof gradeprice);
-  console.log(gradeprice);
+  let priceperpercent = 0;
   let totalprice = parseInt(gradeprice);
   if ($("#bfcheckbox").is(":checked")) {
     totalprice += parseInt($("#breakfastprice").text());
 
-    console.log(totalprice);
   }
   if ($("#dicheckbox").is(":checked")) {
     totalprice += 150000;
-    console.log(totalprice);
   }
 
   const cntday = parseInt($(".night").text());
   const paytotalprice = totalprice * cntday;
-
-  console.log(cntday);
-  console.log(paytotalprice);
+  const mylevel = $('#boookmylevel').text();
+  parseInt(paytotalprice);
+  if (mylevel == 'GOLD'){
+    priceperpercent = paytotalprice-((paytotalprice/100)*10);
+  }
+  if (mylevel=='SILVER'){
+    priceperpercent = paytotalprice-((paytotalprice/100)*5);
+  }
   $("#roominfo").empty();
   $("#roomname").empty();
-  $("#roominfo").append(paytotalprice);
+  $("#roominfo").append(priceperpercent);
   $("#roomname").append(gradeName);
 }
 function printRoomList($roomlist, $footer) {
@@ -38,7 +40,6 @@ function printRoomList($roomlist, $footer) {
 							<input type="text" id = "booktel">
 				  </div><hr>`;
   $footer.append(html2);
-  console.log($roomlist);
   let index = 1;
   for (const b of $roomlist) {
     const html = `
@@ -109,10 +110,8 @@ function printmyroombook(list) {
 			<td>${l.booktel}</td>
 			<td>${l.bookroomgrade}</td>
 			<td><input type="hidden" value="${l.bookno}">
-				<button class ="btn btn-danger" id = "deletebookbtn">예약삭제</button>
+				<button class ="btn btn-danger" id = "deletebookbtn">예약취소</button>
 			</td>
-			<td><button class = "btn" id = "updatebookbtn">예약변경</button></td>
-			
 		</tr>
 	`;
     tbody.append(html);
@@ -141,6 +140,10 @@ $(document).ready(async function () {
     }
   });
   $(document).on("click", "#deletebookbtn", function () {
+  const val =   confirm("예약을 취소하겟습니까?");
+  if (val==true){
+
+
     const bookno = $(this).prev().val();
     $.ajax({
       url: "/pay/cancel_do",
@@ -149,11 +152,16 @@ $(document).ready(async function () {
       statusCode: {
         200: function () {
           location.reload();
-          alert("성공");
+          alert("취소되었습니다");
         },
       },
-    });
+    })
+  }
+  else{
+    return;
+    };
   });
+
   $("#checkbook").click(function () {
     const username = $("#username").val();
     const from = $("#ajaxfrom").val();
@@ -393,6 +401,7 @@ $(document).ready(async function () {
     const totalprice = $("#roominfo").text();
     const gradename = $("#roomname").text();
     parseInt(totalprice);
+    const mylevel = $('#boookmylevel').text();
     kakaojs({ totalprice, gradename });
   });
   $("#choosePayment-box2").click(function () {
@@ -422,6 +431,7 @@ $(document).ready(async function () {
     } else {
       const gradeName = $(this).parent().prev().prev().prev().val();
       const gradeprice = $(this).parent().prev().children("#gradeprice").text();
+
       printtotalprice(gradeName, gradeprice);
     }
   });
@@ -506,10 +516,7 @@ $(document).ready(async function () {
   });
 
   $("#dinnerbook").click(async function () {
-    $("#paymentPopup").attr("style", "display:block;");
-    $("#paymentPopup-box").attr("style", "display:block");
-    $("html").attr("style", "overflow: hidden");
-    $("#chargeInquiry").attr("style", "z-index:1; pointer-events: none;");
+
     const $bookdate = $("#from").val();
     const $booktel = $("#booktel").val();
     const $totalcnt = $("#totalcnt").val();
@@ -531,11 +538,23 @@ $(document).ready(async function () {
           data: param2,
           dataType: "json",
           method: "post",
+          statusCode:{
+            409:function (){
+              alert("이미 예약이 존재합니다")
+              location.reload();
+            },
+            200:function (){
+              $("#paymentPopup").attr("style", "display:block;");
+              $("#paymentPopup-box").attr("style", "display:block");
+              $("html").attr("style", "overflow: hidden");
+              $("#chargeInquiry").attr("style", "z-index:1; pointer-events: none;");
+            }
+          }
         });
       } catch (err) {
         console.log(err);
       }
     }
-    location.href = "/reservationcomplete";
+
   });
 });

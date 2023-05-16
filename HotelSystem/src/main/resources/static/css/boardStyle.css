@@ -49,10 +49,7 @@
   position: relative;
   left: 1vw;
 }
-#logo img {
-  width: 8vw;
-  height: 11vh;  
-}
+
 .carousel-indicators{
   position: absolute;
   right: 1.2vw;
@@ -69,7 +66,6 @@
   bottom: 0;
   left: 0;
   margin: auto;
-  
   width :3.4vw;
   height: 3vh;
 }
@@ -684,6 +680,10 @@
   text-align: center;
 }
 
+#reportboard-1 {
+	position: relative;
+	top:5vh;
+}
 
 #contactarticle {
   height: 100vh;
@@ -739,6 +739,13 @@
 	top: 2vh;
 	color: #7a7a7a;
 }
+#reportpagination-1{
+	margin: auto;
+	position: relative;
+	left: 30vw;
+	top: 2vh;
+	color: #7a7a7a;
+}
 
 #titleclick{
 	border: none;
@@ -747,10 +754,16 @@
 	text-decoration: none;
 }
 
+
 #reportwrite{
 	position:relative;
 	bottom: 6vh;
 	left:6vw;
+}
+#reportwrite-1{
+	position:relative;
+	bottom: 6vh;
+	left:53vw;
 }
 
 #listbutton{
@@ -792,14 +805,262 @@
 	resize: none;
 	text-indent:3px;
 }
+#replyContent-2{
+	resize: none;
+	text-indent:3px;
+	position:relative;
+	bottom: 0vh;
+	right: 8.5vw; 
+}
+
+#managermallbody{
+	width:100%;
+}
+
+.hidden{
+	display:none;
+}
+
+#reportpage-1{
+	width:100%;
+	height:70.7vh;
+}
+#reportpage-2{
+	width:100%;
+	height:70.5vh;
+}
+#reportpage-3{
+	width:100%;
+	height:77.5vh;
+}
+
+#reportarticle-1{
+	position:relative;
+	top:8vh; 
+}
+
+#reporttitle-1{
+	resize: none;
+ 	text-indent:3px;
+ 	margin-top:2vh;
+}
+
+#reportcontent-1{
+ 	text-indent:3px;
+	resize: none;
+	margin-top:1vh; 
+}
+
+#coluser-1{
+  background-color: #faf9f4;
+  padding: 5px;
+  width: 10%;
+  text-align: left;
+  font-weight: bold;
+  font-size: 0.8em;
+}
+ 
+#writebutton-1{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-top:10vh; 
+}
+
+#wbutton{
+  position:relative;
+  left: 31vw;
+  width:14vw;
+  height:7vh;
+  font-weight: bold;
+}
+
+#lbutton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14vw;
+  height: 7vh;
+  text-decoration: none;
+  position: relative;
+  right:33vw;
+}
+
+#lbutton span {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+#col1-1{
+  text-align: center;
+}
+
+.col1-1 span {
+  display: inline-block;
+  font-size: 25px;
+  position:relative;
+  left: 18vw; 
+  font-weight: normal;
+} 
+
+#listbutton-1{
+  position:relative;
+  top:0vh;
+  left:45vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14vw;
+  height: 7vh;
+  text-decoration: none;
+}
+#listbutton-2{
+  position:relative;
+  top:25vh;
+  left:39vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14vw;
+  height: 7vh;
+  text-decoration: none;
+  
+}
+
+#reportinsert{
+  width: 70vw;
+  height: 70vh;
+}
+
+#replybutton-1{
+  position:relative;
+  left:75vw; 
+  bottom:6.8vh;
+  width: 14vw;
+  height: 7vh;
+}
+#replybutton-2{
+  position:relative;
+  left:40vw; 
+  bottom:9.1vh;
+  width: 17vw;
+  height: 7vh;
+}
+#listbutton-4{
+  margin-top:1vh;
+  width: 19vw;
+  height: 7vh;
+}
+#listbutton-5{
+  margin-left:38vw;
+  text-align: center;
+  line-height: 5.5vh;
+  width: 19vw;
+  height: 7vh;
+}
+
+.managment-2{
+  width:100%;
+  height:100%;
+  overflow: hidden;
+}
+
+#managerboardarticle{
+  width:85vw;
+  height:80vh;
+  float: right;
+  margin-top: 7vh;
+}
+
+#managerreportpagination{
+  height: 5vh;
+  width: 16vw;
+  text-align: center;
+  position:absolute;
+  left:43vw;
+  
+}
+
+#bigdiv{
+	display: flex;
+	width:98vw;
+	height:7vh;
+	margin:0 auto;
+	border: 1px solid black;
+	background: #faf9f4;
+}
+
+#smalldiv1{
+	flex: 1;
+	text-align: center;
+	line-height: 7vh;
+	font-size: 5vw;
+	border-right:1px solid black; 
+}
+
+#smalldiv2{
+	flex: 1;
+	text-align: center;
+	line-height: 7vh;
+	font-size: 5vw;
+}
+
+#readbigdiv{
+	display: flex;
+	width:98vw;
+	height:6vh;
+	margin:0 auto;
+	border: 1px solid black;
+	background: #faf9f4;
+}
+
+#readbigdiv-2{
+	display: flex;
+	width:98vw;
+	height:6vh;
+	margin:0 auto;
+	border: 1px solid black;
+}
+
+#readbigdiv-1{
+	display: flex;
+	width:98vw;
+	height:7.1vh;
+	margin:0 auto;
+}
+
+#readsmalldiv1{
+	flex: 1;
+	text-align: center;
+	line-height: 7vh;
+	font-size: 3vw;
+	border-right:1px solid black; 
+}
+
+#readsmalldiv2{
+	flex: 1;
+	text-align: center;
+	line-height: 7vh;
+	font-size: 3vw;
+	float: right;
+    width: 88%;
+    height: 100%;
+    min-height: 680px;
+}
+
+#readsmalldiv3{
+	
+}
 
 
+
+
+#test{
+  background: red;
+}
 
 /*요기까지*/
-
-
-
-
 
 /*남주성*/
 
@@ -824,6 +1085,7 @@
   color: #9e774c;
 }
 
+/*
 #toolbar {
   font-size: 12px;
   width: 10vw;
@@ -832,6 +1094,7 @@
   color: black;
   bottom: 10px;
 }
+*/
 
 #logintool {
   font-size: 12px;
@@ -1650,12 +1913,27 @@ div #logintoolbar > a {
 	font-size: 0.75em
 }
 
+#managerlistbutton{
+	position:relative;
+	top:4vh;
+}
 
-
-
-
-
-
+#managerreplybutton{
+	position:relative;
+	bottom:1.5vh;
+}
+#readcontent {
+  word-break: break-all;
+  width:60vw;
+}
+#readcontent3 {
+  word-break: break-all;
+  width:49vw;
+}
+#reporttable{
+	width:49vw;
+	margin-top: 3vh;
+}
 
 
 

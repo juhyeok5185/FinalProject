@@ -409,15 +409,13 @@
   color:#343434;
 }
 
-
-
-
-
-
-
-
-
-
+/* 오시는길 지도 크기 */
+#k-m {
+	width:49vw; 
+	height:50vh; 
+	position:relative; 
+	overflow: hidden;
+}
 
 /*주혁이형 */
 
@@ -497,7 +495,7 @@
   position: relative;
   top: 10px;
   margin-left: 2vw;
-  height: 30px;
+  height: 40px;
   width: 120px;
 }
 #reservation-hotelinfo{
@@ -2082,19 +2080,6 @@ div #logintoolbar > a {
     color: #d5ccb0;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 #luxurytem {
   margin: auto;
   margin-top: 5vh;
@@ -2110,13 +2095,6 @@ div #logintoolbar > a {
 .col2 p {
 	color: black;
 }
-
-
-
-
-
-
-
 
 /*요기까지*/
 /*동현*/
@@ -2868,6 +2846,15 @@ div #logintoolbar > a {
 	color: white;
 }
 
+/*오시는길 다크모드*/
+.dark-mode #comepage {
+	background-color: rgb(20,20,20);
+}
+
+.dark-mode #category {
+	color: black;
+}
+
 
 /* 여기까지 */
 
@@ -2918,6 +2905,9 @@ div #logintoolbar > a {
   @media screen and (max-width: 700px) {
     .infopackage-image-area {
       display: none;
+    }
+     #reportpage{
+    	display: none;
     }
 
   .hd,#nav1,#nav2 ,.reservation-area,#section3,#outline_page{
@@ -2988,9 +2978,9 @@ div #logintoolbar > a {
     }
     
       /*명품관*/
-	  #luxury_page {
-		  display: none;
-	  }
+	#luxury_page {
+	  display: none;
+	}
 	
     #luxuryarticle {
     	display: none;
@@ -3004,7 +2994,42 @@ div #logintoolbar > a {
       display: none;
     }
     
+    /*오시는길 반응형*/
+    #aside {
+  		display: none;
+  	}
+    
+    /*오시는길 반응형*/ 
+	#comepage {
+		height: 70.3vh;
+		width: 100%
+	}
+	
+	#howtocomearticle {
+		height: 60vh;
+	    width: 100%;
+	    left: 0vw;
+	    margin-top: 5vh;
+	}
+	
+	#map-area {
+		position: relative;
+    	left: 10vw;
+    	width: 80vw;
+	}
+	
+	#k-m {
+		width: 80vw;
+	    height: 50vh;
+	    position: relative;
+	    overflow: hidden;
+	}
+	
+    
     /* 700이하에서 안보이게 함 */
+    #page{
+       	display: none;
+    }
     #myPage_page {
     	display: none;
     }
@@ -3041,13 +3066,22 @@ div #logintoolbar > a {
     	height: 9vh;
 	}
     
+    #reservationCompletePage {
+    	display: none;
+    }
+    
   }
   /*700이하부터 보일곳*/
   @media screen and (min-width: 701px) {
     .infopackage-image-area-min {
       display: none;
     }
-
+  	#reportpage-1{
+    	display: none;
+    }
+    #reportpage-2{
+     	display: none;
+    }
     #dropmenu {
       display: none;
     }
@@ -3119,7 +3153,11 @@ div #logintoolbar > a {
     .itemList-content {
     	display: none;
     }
-
+	
+    #joincompletepage-res {
+    	display: none;
+    }
+    
     
     
     /* 700이상에서 안보이게 함 */
@@ -4196,6 +4234,16 @@ div #logintoolbar > a {
     color: #d5ccb0;
 }
 
+#orderListCheckbtn {
+	width: 32vw;
+    height: 3vh;
+    margin-top: 5vh;
+    margin-left: 24vw;
+    background-color: #3a3125;
+    border: 2px solid black;
+    color: #d5ccb0;
+}
+
 /* 반응형 회원가입 주성 */
 #joinpage-res {
 	width: 100%;
@@ -4285,12 +4333,6 @@ div #logintoolbar > a {
 }
 .dark-mode #mission_font {
 	color: white;
-}
-.dark-mode #headtit-1 {
-	border-bottom: 5px solid #d5ccb0;
-}
-.dark-mode #headtit-1 h3 {
-	color: #d5ccb0;
 }
 .dark-mode #toolbar-1 {
 	color: white;

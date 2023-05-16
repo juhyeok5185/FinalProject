@@ -47,9 +47,12 @@ public class OrderService {
 
 	public Integer orderDelete(Integer orderNo, String itemName, Integer orderEA) {
 		orderDao.orderDetailDelete(orderNo);
-		orderDao.orderDelete(orderNo);
 		orderDao.plusEA(itemName, orderEA);
 		return 1;
+	}
+
+	public List<OrdersDto.Items> findByItemNo() {
+		return orderDao.findByItemNo();
 	}
 
 }

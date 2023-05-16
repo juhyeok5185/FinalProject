@@ -35,7 +35,7 @@
     <form action="/hotel/member/logout" method="post">
 	    <div id="logoutArea">
         <input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}">
-	          <button class="btn btn-primary">로그아웃</button>
+	          <button class="btn btn-secondary">로그아웃</button>
 	    </div>
     </form>
   </div>
@@ -46,8 +46,9 @@
           <li><a href="/hotel/manager/bookList" id="textcolor">예약조회</a></li>
           <li><a href="/hotel/manager/memberSearch" id="textcolor">회원조회</a></li>
           <li><a href="/hotel/manager/book" id="textcolor">예약</a></li>
-          <li><a href="/hotel/mall/list" id="textcolor">명품관</a></li>
-          <li><a href="#" id="textcolor">문의게시판</a></li>
+          <li><a href="/hotel/manager/managerMallList" id="textcolor">주문조회</a></li>
+          <li><a href="/hotel/manager/itemUpdate" id="textcolor">재고관리</a></li>
+          <li><a href="/hotel/manager/managerBoard" id="textcolor">문의게시판</a></li>
         </ul>
       </div>
     </div>

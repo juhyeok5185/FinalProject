@@ -133,53 +133,112 @@
           <div id="luxurytem">
             <ul>
               <li class="luxurytem-1">
-                <span><img alt="침구세트" src="/img/침구세트.jpg" width="400vw;" height="300vh;" /></span><br />
+                <span th:if="${list[0].itemea > 0}">
+                  <span><img alt="침구세트" src="/img/침구세트.jpg" width="400vw;" height="300vh;" /></span><br />
+                </span>
+                <span th:if="${0 >= list[0].itemea}">
+                  <span><img alt="침구세트" src="/img/침구세트_soldout.jpg" width="400vw;" height="300vh;" /></span><br />
+                </span>
                 <span>
                   <span class="itemName" data-index="1">BEDDING SET</span><br />
                   <span class="itemPrice" data-index="1">3,360,000</span>
                 </span>
-                <span class="item-btn" data-index="1"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+                <span th:if="${list[0].itemea > 0}">
+                  <span class="item-btn" data-index="1"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+                </span>
+                <span th:if="${0 >= list[0].itemea}">
+                  <span class="item-dis-btn" data-index="1"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+                </span>
               </li>
               <li class="luxurytem-2">
-                <span><img alt="매트리스" src="/img/매트리스.jpg" width="400vw;" height="300vh;" /></span><br />
+                <span th:if="${list[1].itemea > 0}">
+                  <span><img alt="매트리스" src="/img/매트리스.jpg" width="400vw;" height="300vh;" /></span><br />
+                </span>
+                <span th:if="${0 >= list[1].itemea}">
+                  <span><img alt="매트리스" src="/img/매트리스_soldout.jpg" width="400vw;" height="300vh;" /></span><br />
+                </span>
                 <span>
                   <span class="itemName" data-index="2">MATTRESS</span><br />
                   <span class="itemPrice" data-index="2">2,500,000</span>
                 </span>
-                <span class="item-btn" data-index="2"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+                <span th:if="${list[1].itemea > 0}">
+                  <span class="item-btn" data-index="2"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+                </span>
+                <span th:if="${0 >= list[1].itemea}">
+                  <span class="item-dis-btn" data-index="2"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+                </span>
               </li>
               <li class="luxurytem-3">
-                <span><img alt="이불" src="/img/이불.jpg" width="400vw;" height="300vh;" /></span><br />
+                <span th:if="${list[2].itemea > 0}">
+                  <span><img alt="이불" src="/img/이불.jpg" width="400vw;" height="300vh;" /></span><br />
+                </span>
+                <span th:if="${0 >= list[2].itemea}">
+                  <span><img alt="이불" src="/img/이불_soldout.jpg" width="400vw;" height="300vh;" /></span><br />
+                </span>
                 <span>
                   <span class="itemName" data-index="3">DUVET</span><br />
                   <span class="itemPrice" data-index="3">1,850,000</span>
                 </span>
-                <span class="item-btn" data-index="3"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+                <span th:if="${list[2].itemea > 0}">
+                  <span class="item-btn" data-index="3"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+                </span>
+                <span th:if="${0 >= list[2].itemea}">
+                  <span class="item-dis-btn" data-index="3"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+                </span>
               </li>
               <li class="luxurytem-4">
-                <span><img alt="베개" src="/img/배개.jpg" width="400vw;" height="300vh;" /></span>
-                <br />
+                <span th:if="${list[3].itemea > 0}">
+                  <span><img alt="베개" src="/img/배개.jpg" width="400vw;" height="300vh;" /></span><br />
+                </span>
+                <span th:if="${0 >= list[3].itemea}">
+                  <span><img alt="베개" src="/img/배개_soldout.jpg" width="400vw;" height="300vh;" /></span><br />
+                </span>
                 <span>
                   <span class="itemName" data-index="4">PILLOW</span><br />
                   <span class="itemPrice" data-index="4">400,000</span>
                 </span>
-                <span class="item-btn item-btn1" data-index="4"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+                <span th:if="${list[3].itemea > 0}">
+                  <span class="item-btn item-btn1" data-index="4"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+                </span>
+                <span th:if="${0 >= list[3].itemea}">
+                  <span class="item-dis-btn1" data-index="4"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+                </span>
               </li>
               <li class="luxurytem-5">
-                <span><img alt="룸스프레이" src="/img/룸스프레이.jpg" width="400vw;" height="300vh;" /></span><br />
+                <span th:if="${list[4].itemea > 0}">
+                  <span><img alt="룸스프레이" src="/img/룸스프레이.jpg" width="400vw;" height="300vh;" /></span><br />
+                </span>
+                <span th:if="${0 >= list[4].itemea}">
+                  <span><img alt="룸스프레이" src="/img/룸스프레이_soldout.jpg" width="400vw;" height="300vh;" /></span><br />
+                </span>
                 <span>
                   <span class="itemName" data-index="5">ROOM SPRAY</span><br />
                   <span class="itemPrice" data-index="5">180,000</span>
                 </span>
-                <span class="item-btn item-btn1" data-index="5"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+                <span th:if="${list[4].itemea > 0}">
+                  <span class="item-btn item-btn1" data-index="5"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+                </span>
+                <span th:if="${0 >= list[4].itemea}">
+                  <span class="item-dis-btn1" data-index="5"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+                </span>
               </li>
               <li class="luxurytem-6">
-                <span><img alt="디퓨저" src="/img/호텔고급디퓨저아로마향.png" width="400vw;" height="300vh;" /></span><br />
+                <span th:if="${list[5].itemea > 0}">
+                  <span><img alt="디퓨저" src="/img/호텔고급디퓨저아로마향.png" width="400vw;" height="300vh;" /></span><br />
+                </span>
+                <span th:if="${0 >= list[5].itemea}">
+                  <span><img alt="디퓨저" src="/img/호텔고급디퓨저아로마향_soldout.png" width="400vw;" height="300vh;" /></span><br />
+                </span>
                 <span>
                   <span class="itemName" data-index="6">DEFUSER</span><br />
                   <span class="itemPrice" data-index="6">93,000</span>
                 </span>
-                <span class="item-btn item-btn2" data-index="6"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+                <span th:if="${list[5].itemea > 0}">
+                  <span class="item-btn item-btn2" data-index="6"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+                </span>
+                <span th:if="${0 >= list[5].itemea}">
+                  <span class="item-dis-btn2" data-index="6"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+                </span>
               </li>
             </ul>
           </div>
@@ -223,10 +282,10 @@
             </div>
             <div id="cartOrder">
               <div id="payType-kakao">
-                <img alt="카카오" src="/img/kakaopay.png" id="kakaoImg"/>
+                <img alt="카카오" src="/img/kakaopay.png" id="kakaoImg" />
               </div>
               <div id="payType-toss">
-                <img alt="토스" src="/img/toss.png" id="tossImg"/>
+                <img alt="토스" src="/img/toss.png" id="tossImg" />
               </div>
             </div>
           </div>
@@ -238,45 +297,105 @@
           </div>
           <div id="mallItem">
             <div id="mallItem-1" class="itemZone">
-              <img class="itemImg" alt="침구세트" src="/img/침구세트.jpg" />
+              <span th:if="${list[0].itemea > 0}">
+                <img class="itemImg" alt="침구세트" src="/img/침구세트.jpg" />
+              </span>
+              <span th:if="${0 >= list[0].itemea}">
+                <img class="itemImg" alt="침구세트" src="/img/침구세트_soldout.jpg" />
+              </span>
               <span class="itemName-1" data-index="1">BEDDING SET</span><br />
               <span class="itemPrice-1" data-index="1">3,360,000</span>
-              <span class="item-btn" data-index="1"><img class="itemBtn" alt="선택버튼" src="/img/선택버튼.png" /></span>
+              <span th:if="${list[0].itemea > 0}">
+                <span class="item-btn" data-index="1"><img class="itemBtn" alt="선택버튼" src="/img/선택버튼.png" /></span>
+              </span>
+              <span th:if="${0 >= list[0].itemea}">
+                <span class="item-dis-btn-1" data-index="1"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+              </span>
             </div>
             <br />
             <div id="mallItem-2" class="itemZone">
-              <img class="itemImg" alt="매트리스" src="/img/매트리스.jpg" />
+              <span th:if="${list[1].itemea > 0}">
+                <img class="itemImg" alt="매트리스" src="/img/매트리스.jpg" />
+              </span>
+              <span th:if="${0 >= list[1].itemea}">
+                <img class="itemImg" alt="매트리스" src="/img/매트리스_soldout.jpg" />
+              </span>
               <span class="itemName-1" data-index="2">MATTRESS</span><br />
               <span class="itemPrice-1" data-index="2">2,500,000</span>
-              <span class="item-btn" data-index="2"><img class="itemBtn" alt="선택버튼" src="/img/선택버튼.png" /></span>
+              <span th:if="${list[1].itemea > 0}">
+                <span class="item-btn" data-index="2"><img class="itemBtn" alt="선택버튼" src="/img/선택버튼.png" /></span>
+              </span>
+              <span th:if="${0 >= list[1].itemea}">
+                <span class="item-dis-btn-1" data-index="2"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+              </span>
             </div>
             <br />
             <div id="mallItem-3" class="itemZone">
-              <img class="itemImg" alt="이불" src="/img/이불.jpg" />
+              <span th:if="${list[1].itemea > 0}">
+                <img class="itemImg" alt="이불" src="/img/이불.jpg" />
+              </span>
+              <span th:if="${0 >= list[1].itemea}">
+                <img class="itemImg" alt="이불" src="/img/이불_soldout.jpg" />
+              </span>
               <span class="itemName-1" data-index="3">DUVET</span><br />
               <span class="itemPrice-1" data-index="3">1,850,000</span>
-              <span class="item-btn" data-index="3"><img class="itemBtn" alt="선택버튼" src="/img/선택버튼.png" /></span>
+              <span th:if="${list[2].itemea > 0}">
+                <span class="item-btn" data-index="3"><img class="itemBtn" alt="선택버튼" src="/img/선택버튼.png" /></span>
+              </span>
+              <span th:if="${0 >= list[2].itemea}">
+                <span class="item-dis-btn-1" data-index="3"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+              </span>
             </div>
             <br />
             <div id="mallItem-4" class="itemZone">
-              <img class="itemImg" alt="베개" src="/img/배개.jpg" />
+              <span th:if="${list[3].itemea > 0}">
+                <img class="itemImg" alt="베개" src="/img/배개.jpg" />
+              </span>
+              <span th:if="${0 >= list[3].itemea}">
+                <img class="itemImg" alt="베개" src="/img/배개_soldout.jpg" />
+              </span>
               <span class="itemName-1" data-index="4">PILLOW</span><br />
               <span class="itemPrice-1" data-index="4">400,000</span>
-              <span class="item-btn" data-index="4"><img class="itemBtn1" alt="선택버튼" src="/img/선택버튼.png" /></span>
+              <span th:if="${list[3].itemea > 0}">
+                <span class="item-btn" data-index="4"><img class="itemBtn1" alt="선택버튼" src="/img/선택버튼.png" /></span>
+              </span>
+              <span th:if="${0 >= list[3].itemea}">
+                <span class="item-dis-btn-2" data-index="4"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+              </span>
             </div>
             <br />
             <div id="mallItem-5" class="itemZone">
-              <img class="itemImg" alt="룸스프레이" src="/img/룸스프레이.jpg" />
+              <span th:if="${list[4].itemea > 0}">
+                <img class="itemImg" alt="룸스프레이" src="/img/룸스프레이.jpg" />
+              </span>
+              <span th:if="${0 >= list[4].itemea}">
+                <img class="itemImg" alt="룸스프레이" src="/img/룸스프레이_soldout.jpg" />
+              </span>
               <span class="itemName-1" data-index="5">ROOM SPRAY</span><br />
               <span class="itemPrice-1" data-index="5">180,000</span>
-              <span class="item-btn" data-index="5"><img class="itemBtn1" alt="선택버튼" src="/img/선택버튼.png" /></span>
+              <span th:if="${list[4].itemea > 0}">
+                <span class="item-btn" data-index="5"><img class="itemBtn1" alt="선택버튼" src="/img/선택버튼.png" /></span>
+              </span>
+              <span th:if="${0 >= list[4].itemea}">
+                <span class="item-dis-btn-2" data-index="5"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+              </span>
             </div>
             <br />
             <div id="mallItem-6" class="itemZone">
-              <img class="itemImg" alt="디퓨저" src="/img/호텔고급디퓨저아로마향.png" />
+              <span th:if="${list[5].itemea > 0}">
+                <img class="itemImg" alt="디퓨저" src="/img/호텔고급디퓨저아로마향.png" />
+              </span>
+              <span th:if="${0 >= list[5].itemea}">
+                <img class="itemImg" alt="디퓨저" src="/img/호텔고급디퓨저아로마향_soldout.png" />
+              </span>
               <span class="itemName-1" data-index="6">DEFUSER</span><br />
               <span class="itemPrice-1" data-index="6">93,000</span>
-              <span class="item-btn" data-index="6"><img class="itemBtn2" alt="선택버튼" src="/img/선택버튼.png" /></span>
+              <span th:if="${list[5].itemea > 0}">
+                <span class="item-btn" data-index="6"><img class="itemBtn2" alt="선택버튼" src="/img/선택버튼.png" /></span>
+              </span>
+              <span th:if="${0 >= list[5].itemea}">
+                <span class="item-dis-btn-3" data-index="6"><img alt="선택버튼" src="/img/선택버튼.png" /></span>
+              </span>
             </div>
           </div>
         </div>

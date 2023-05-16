@@ -128,9 +128,9 @@ public class BookDto {
 	}
 	@Data
 	 public static class mypagedinner {
-		@JsonFormat(pattern = "yyyy/MM/dd")
+		@JsonFormat(pattern = "yyyy-MM-dd")
 		LocalDate checkin;
-		@JsonFormat(pattern = "yyyy/MM/dd")
+		@JsonFormat(pattern = "yyyy-MM-dd")
 		LocalDate checkout;
 		String booker;
 		String booktel;
@@ -159,9 +159,13 @@ public class BookDto {
 	}
 
 
+	@Data
+	@ToString
 	public static class mydinnerlist{
 		String booker;
-		String bookdate;
+		@JsonFormat(pattern = "yyyy-MM-dd")
+		LocalDate bookdate;
 		String booktel;
+		Integer resno;
 	}
 }

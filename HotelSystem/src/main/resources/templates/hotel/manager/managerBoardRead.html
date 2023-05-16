@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="/css/managementStyle.css">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/mallStyle.css">
+    <link rel="stylesheet" href="/css/boardStyle.css">
   <title>관리자</title>
   <script>
 	
@@ -25,7 +26,7 @@
 </head>
 <body>
   <input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}">
-<div class="managment">
+<div class="managment-2">
   <div id="headerAndnav" class="navbar navbar-expand-sm">
     <div id="div_logo">
       <div id="logo">
@@ -52,63 +53,67 @@
         </ul>
       </div>
     </div>
-    <div id="malllist">
-        <div id = "searcharea">
-          <div id="search">
-            <input type="text" id = "name" placeholder="이름 입력" height="2px;">
-            <input type="text" id = "tel" placeholder="연락처 입력" height="2px;">
-            <input type="text" id = "orderNo" placeholder="주문번호 입력" height="2px;">
-            <button class="btn btn-secondary" style="width: 70px;" id="nameSearchBtn">검색</button>
-          </div>
-        </div>
-        <div>
-          <table class = "table table-hover">
-            <colgroup>
-              <col style="width: 20%">
-              <col style="width: 20%">
-              <col style="width: 20%">
-              <col style="width: 20%">
-              <col style="width: 20%">
-            </colgroup>
-            <thead>
-              <tr>
-                <th>주문번호</th>
-                <th>이름</th>
-                <th>연락처</th>
-                <th>픽업날짜</th>
-                <th>비고</th>
-              </tr>
-            </thead>
-            <tbody id="mallListArea">
-         	   <tr th:if="${msg} != null">
-                  <td rowspan="12" th:text="${msg}"></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-              </tr>
-            
-              <tr th:if="${msg} == null" th:each="m : ${mallListArea}">
-                <tr th:each="m : ${mallListArea}">
-            	<td th:text="${m.orderNo}" ></td>
-            	<td th:text="${m.name}"></td>
-            	<td th:text="${m.tel}"></td>
-            	<td th:text="${m.contactDate}"></td>
-            	<td>
-				<button class="btn btn-secondary" style="width: 100px;"	th:onclick="|openPopup('/hotel/manager/managerorderDetail?orderNo=${m.orderNo}')|">
-				 주문상세
-            	</button>
-      	  	    <button class="btn btn-secondary" style="width: 100px;" id="cencelBtn" type="submit">
-      	  	     주문취소
-      	  	    </button>
-            	</td>
-            	</tr>
-            	
-            </tbody>
-          </table>
-        </div>
-      </div>
     </div>
-  </div>
+        <div id="managerboardarticle">
+          <div class="insert" id="reportinsert">
+          <table id="reporttable" class="table">
+            <tr>
+              <td class="col1">작성일</td>
+              <td class="col2">
+               <div id="boardNumber" th:text="${board.boardNo}" style="display: none;"></div>
+               <div th:text="${board.writeDay}"></div> 
+              </td>
+              </tr>
+            <tr>
+              <td class="col1"><span id="notnull"> </span>작성자</td>
+              <td class="col2">
+               <div th:text="${board.username}"></div>
+              </td>
+            </tr>
+            <tr>
+              <td class="col1"><span id="notnull"></span>제목</td>
+              <td class="col2">
+               <div th:text="${board.title}"></div>
+               </td>
+            </tr>
+            <tr>
+              <td class="col1" id="readcontent1"><span id="notnull"></span>내용</td>
+              <td class="col2" id="readcontent" >
+                <span th:text="${board.content}"></span>
+              </td>
+              	<script>
+              		const tdElement = $('#readcontent'); // 원하는 td 요소를 선택합니다
+              		const tdHeight = tdElement.height();
+              		console.log(tdHeight);
+              		const $readcontent=$('#readcontent1');
+              		$readcontent.attr('style',`height=${tdHeight}`);
+				</script>		
+            </tr>
+            <tr>
+              <td class="col1" ><span id="notnull"></span>답변</td>
+              <td class="col2" >
+		        <span th:text="${board.replyContent}"></span></td>
+            </tr>
+<!-- 답변 --><tr>
+              <td class="col1" sec:authorize="hasRole('ADMIN')"><span id="notnull"></span>답변</td>
+              <td class="col2" sec:authorize="hasRole('ADMIN')">
+	            <form action="/hotel/board/read" method="post">
+	              <input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}">
+	              <input type="hidden" name="username" th:field="*{board.username}">
+	              <input type="hidden" name="boardNo"  th:field="*{board.boardNo}">
+	              <textarea id="replyContent" name="replyContent" cols="80" rows="4" maxlength='50'></textarea>
+			      <button id="managerreplybutton" class="btn btn-outline-dark">답변</button>
+		        </form>
+              </td>
+		    </tr>
+          </table>
+          <div>
+  <!-- 목록 --><div><a id="managerlistbutton" type="button" class="btn btn-outline-dark" href="/hotel/manager/managerBoard">목록</a></div> 
+          </div>
+       </div>
+        </div>
+       </div>
+   
 <div id="mallFooter">
   <div id="managerFooterLogo">
     <img src="/img/logo.png" alt="로꼬" width="200vw;">

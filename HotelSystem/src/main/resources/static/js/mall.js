@@ -143,6 +143,11 @@ $(document).ready(function () {
   let countInfo = 1;
   const token = $("#itemListToken").val();
 
+  $(document).on("click", ".item-dis-btn", function () {
+    alert("상품 재고 수량이 부족하여 구매가 불가능합니다.");
+    return;
+  });
+
   // 상품담기
   $(".item-btn").click(async function () {
     let checkUser = "";

@@ -202,6 +202,10 @@ $(document).ready(function () {
   chackDarkMode();
 
   //동현
+
+  $('#r-b').click(function (){
+    location.href = "/hotel/client/roombook"
+  })
   $("#mainbookbtn").click(function () {
     const from = $("#from").val();
     const to = $("#to").val();

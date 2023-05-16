@@ -22,6 +22,7 @@ public class OrderController {
 	public ModelAndView orderDetail(Integer orderNo) {
 		return new ModelAndView("/hotel//mall/orderDetail").addObject("orderDetail",
 				orderService.findByOrderNo(orderNo));
+
 	}
 
 	@GetMapping("/mall/orderList")

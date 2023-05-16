@@ -68,6 +68,18 @@
 
 
 	</select>
+
+	<select id = "findMydinnerByusername" resultType="hotel.management.v1.client.book.dto.BookDto$mydinnerlist">
+		select
+			bk.booker,bk.bookdate,bk.booktel,rb.resno
+		from
+			dinner rb ,book bk
+		where
+
+
+
+		  rb.resno = bk.bookno and username = #{username}
+	</select>
 	<select id="chekbook" resultType="int">
 		SELECT count(b.bookno)
 		FROM book b
@@ -97,5 +109,11 @@
 		where rb.checkin  BETWEEN to_date(#{from},'YYYY-MM-DD') and to_date(#{to},'YYYY-MM-DD') and username = #{username} and rb.bookno = bk.bookno
 	
 	</select>
+	<select id="findmydinnerByusernameAndfrom" resultType="int">
+		select count(b.bookno) from book b,dinner d where b.bookno = d.resno and b.username = #{name} and b.bookdate=to_date(#{from},'MM/DD/YYYY')
 
+	</select>
+	<select id="findmydinnerByusernameAndfrom2" resultType="int">
+		select b.bookno from book b where b.username = #{name} and b.bookdate=to_date(#{from},'MM/DD/YYYY')
+	</select>
 </mapper>
