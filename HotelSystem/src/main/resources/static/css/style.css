@@ -462,14 +462,6 @@
     color: #343434;
 }
 
-/* 오시는길 지도 크기 */
-#k-m {
-    width: 49vw;
-    height: 50vh;
-    position: relative;
-    overflow: hidden;
-}
-
 /*주혁이형 */
 
 .reservation-area {
@@ -2980,7 +2972,7 @@ div #logintoolbar > a {
     color: #d5ccb0;
 }
 
-.dark-mode #outline_page p {
+            .dark-mode #outline_page p {
     color: white;
 }
 
@@ -3182,8 +3174,6 @@ div #logintoolbar > a {
         margin: 3vw 3vw;
     }
 
-  
-
     #reportpage {
         height: 91vw;
     }
@@ -3275,38 +3265,6 @@ div #logintoolbar > a {
     .orderList_article {
         display: none;
     }
-
-    /*오시는길 반응형*/
-    #aside {
-        display: none;
-    }
-
-    /*오시는길 반응형*/
-    #comepage {
-        height: 70.3vh;
-        width: 100%
-    }
-
-    #howtocomearticle {
-        height: 60vh;
-        width: 100%;
-        left: 0vw;
-        margin-top: 5vh;
-    }
-
-    #map-area {
-        position: relative;
-        left: 10vw;
-        width: 80vw;
-    }
-
-    #k-m {
-        width: 80vw;
-        height: 50vh;
-        position: relative;
-        overflow: hidden;
-    }
-
 
     /* 700이하에서 안보이게 함 */
   	#page{
