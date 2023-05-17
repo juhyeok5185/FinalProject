@@ -3376,12 +3376,7 @@ div #logintoolbar > a {
     .infopackage-image-area-min {
         display: none;
     }
-    #reportarticle{
-        height: auto;
-        left: 0;
-        width: 90vw;
-        margin-top: 0;
-    }
+    
     #reportpage-1 {
         display: none;
     }
