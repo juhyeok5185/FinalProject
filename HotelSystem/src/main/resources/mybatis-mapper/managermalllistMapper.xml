@@ -8,21 +8,24 @@
 		resultType="hotel.management.v1.manager.mall.Dto.ManagerMallListDto$MallListSearch"> select
 		od.username , us.tel , us.name , od.orderno , ord.orderdate , ord.contactdate ,
 		ord.orderprice , ord.orderea from orders od left join orderdetail ord on od.orderno =
-		ord.orderno left join users us on od.username = us.username <where>
-			<if test="name != null and name != ''"> AND name like '%'||#{name}||'%' </if>
-        <if
-				test="tel != null and tel != ''"> AND tel like '%'||#{tel}||'%' </if>
-        <if
-				test="orderNo != null and orderNo != ''"> AND od.orderNo like '%'||#{orderNo}||'%' </if>
+		ord.orderno left join users us on od.username = us.username 
+		<where>
+		<if test="name != null" > AND name like '%'||#{name}||'%'</if>
+        <if	test="tel != null"> AND tel like '%'||#{tel}||'%' </if>
+        <if test="orderNo != null"> AND od.orderNo like '%'||#{orderNo}||'%'</if>
 		</where>
 	</select>
 
 	<select id="contactmallList"
-		resultType="hotel.management.v1.manager.mall.Dto.ManagerMallListDto$MallListSearch"> select
-		od.username , us.tel , us.name , od.orderno , ord.orderdate , ord.contactdate ,
-		ord.orderprice , ord.orderea from orders od left join orderdetail ord on od.orderno =
-		ord.orderno left join users us on od.username = us.username where contactdate is not null
-		order by od.orderno desc </select>
+		resultType="hotel.management.v1.manager.mall.Dto.ManagerMallListDto$MallListSearch">
+		SELECT od.username, us.tel, us.name, od.orderno, ord.orderdate, ord.contactdate,
+        ord.orderprice, ord.orderea FROM orders od
+		LEFT JOIN orderdetail ord ON od.orderno = ord.orderno
+		LEFT JOIN users us ON od.username = us.username
+		WHERE contactdate IS NOT NULL
+  		AND TRUNC(ord.contactdate) = TRUNC(sysdate)
+		ORDER BY od.orderno DESC
+		</select>
 
 	<delete id="orderdetaildelete"> delete from orderdetail where orderno = #{orderNo} </delete>
 

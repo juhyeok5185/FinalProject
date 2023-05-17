@@ -47,7 +47,7 @@ $(document).ready(function () {
     const tel = $("#tel").val();
     const orderNo = $("#orderNo").val();
     const contactDate = $("#contactDate").val();
-
+	console.log(name);
     try {
       const mallList = await $.ajax({
         url: "/hotel/manager/managerMallList?name=" + name + "&tel=" + tel + "&orderNo=" + orderNo + "&contactDate=" + contactDate + "&_csrf=" + token,
