@@ -45,7 +45,7 @@ public class MemberRestController {
 	
 	// 사용자 이름과 아이디와 이메일을 받아서 임시비밀번호를 메일로 보내주는 메소드
 	@PreAuthorize("isAnonymous()")
-	@PatchMapping("/member/find_password")
+	@PostMapping("/member/find_password")
 	public ResponseEntity<String> findPassword(String name, String username, String email) {
 		service.resetPassword(name, username, email);
 		return ResponseEntity.ok("임시비밀번호를 이메일로 보냈습니다");
@@ -63,6 +63,7 @@ public class MemberRestController {
 	@PreAuthorize("isAuthenticated()")
 	@PostMapping("/member/checkNowPassword")
 	public ResponseEntity<Boolean> checkNowPassword(String nowpassword , Principal principal) {
+		System.out.println(nowpassword);
 		Boolean result = service.checkPassword(nowpassword, principal.getName());
 		if (result == true) {
 			return ResponseEntity.ok(true);

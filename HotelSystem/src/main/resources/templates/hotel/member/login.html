@@ -25,7 +25,10 @@
 		}
 	</script>
 	<script>
+		
 		$(document).ready(function () {
+			const token = $("#token").val();
+
 			$('#username').keyup(function (e) {
 				e.preventDefault();
 				e.stopPropagation();
@@ -55,10 +58,10 @@
 
 			$('#findpasswordcheckbut').click(async function () {
 				try {
-					const url = '/hotel/member/find_password?name=' + $('#find_password_name').val() + '&username=' + $('#find_password_username').val() + '&email=' + $('#find_password_email').val();
+					const url = '/hotel/member/find_password?name=' + $('#find_password_name').val() + '&username=' + $('#find_password_username').val() + '&email=' + $('#find_password_email').val() + '&_csrf=' + token;
 					const result = await $.ajax({
 						url: url,
-						method: "patch"
+						method: "post"
 					});
 
 					alert("이메일로 임시비밀번호를 발급했습니다.");
@@ -70,7 +73,7 @@
 			//반응형
 			$('#findpasswordcheckbut-1').click(async function () {
 				try {
-					const url = '/hotel/member/find_password?name=' + $('#find_password_name-1').val() + '&username=' + $('#find_password_username-1').val() + '&email=' + $('#find_password_email-1').val();
+					const url = '/hotel/member/find_password?name=' + $('#find_password_name-1').val() + '&username=' + $('#find_password_username-1').val() + '&email=' + $('#find_password_email-1').val() + '&_csrf=' + token;
 					const result = await $.ajax({
 						url: url,
 						method: "patch"
