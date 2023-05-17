@@ -14,6 +14,7 @@ import hotel.management.v1.manager.service.ManagerService;
 
 @Controller
 @RequestMapping("/hotel")
+@Secured("ROLE_ADMIN")
 public class ManagerMVCController {
     @Autowired
     ManagerService service;
