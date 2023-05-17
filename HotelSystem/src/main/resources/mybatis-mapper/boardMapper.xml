@@ -5,7 +5,8 @@
 	<!-- 관리자 : 김동욱 -->
 	
 	<insert id="write">
-		insert into board(boardNo, username, writeDay, title, content)values(BOARD_SEQ_BOARDNO.nextval, #{username} , sysdate , #{title}, #{content})
+		insert into board(boardNo, username, writeDay, title, content)
+		values(BOARD_SEQ_BOARDNO.nextval, #{username} , sysdate , #{title}, #{content})
 	</insert>
 
 	<select id="list" resultType="hotel.management.v1.board.entity.Board">  
@@ -32,8 +33,10 @@
 
 	<select id="findAll" resultType="hotel.management.v1.board.dto.BoardDto$FindAll">
 		select * from (select rownum as rnum , 
-		b.* from (select boardNo, username, writeDay, title FROM board order by boardNo desc) 
-		b where rownum &lt; #{endRownum}) where rnum &gt; #{startRownum}
+		b.* from (select boardNo, username, writeDay, title 
+		FROM board order by boardNo desc) 
+		b where rownum &lt; #{endRownum}) 
+		where rnum &gt; #{startRownum}
 	</select>
 	
 	<delete id="delete">

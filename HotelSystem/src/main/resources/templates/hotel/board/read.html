@@ -23,8 +23,9 @@
 <script th:inline="javascript">
     $(document).ready(function(){
     var user = /*[[${#authentication.principal}]]*/ null;
-    const test = $("#test").text();
-	if(user.username==test){
+    const boardUsername = $("#boardUsername").text();
+    console.log(boardUsername);
+	if(user.username==boardUsername){
 		const btn = $("#deletebtn2");
 		btn.css("display" , "block");		
 	}
@@ -37,6 +38,7 @@
     $(document).ready(function(){	
     	const msg = [[${msg}]];
     	if(msg!=null){
+    	
     		alert(msg);
     	}
     })
@@ -84,7 +86,7 @@
             <tr>
               <td class="col1"><span id="notnull"> </span>작성자</td>
               <td class="col2">
-               <div th:text="${board.username}"></div>
+               <div id="boardUsername" th:text="${board.username}"></div>
                </td>
             </tr>
             <tr>
@@ -101,7 +103,6 @@
               	<script>
               		const tdElement = $('#readcontent3'); // 원하는 td 요소를 선택합니다
               		const tdHeight = tdElement.height();
-              		console.log(tdHeight);
               		const $readcontent=$('#readcontent4');
               		$readcontent.attr('style',`height=${tdHeight}`);
 				</script>
@@ -125,13 +126,13 @@
 		    </tr>
           </table>
           <div>
-  <!-- 목록 --><div id = "tolistbtndiv"><a id="listbutton" type="button" class="btn btn-outline-dark" href="/hotel/board/list">목록</a></div>
+  <!-- 목록 --><div id ="tolistbtndiv"><a id="listbutton" type="button" class="btn btn-outline-dark" href="/hotel/board/list">목록</a></div>
   <!-- 삭제 --><div id="deletebutton">
-				<form action="/hotel/board/delete" method="post">
-    			<input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}">
+				<form action="/hotel/board/delete" method="post" >
+    			<input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}" >
   				<input type="hidden" name="boardNo" th:field="*{board.boardNo}">
   				<input type="hidden" name="username" th:field="*{board.username}">
-   			    <button id="deletebtn2" type="submit" class="btn btn-outline-dark" style="display:none" onclick="showAlert()">글삭제</button>  				
+   			    <button id="deletebtn2" type="submit" class="btn btn-outline-dark" onclick="showAlert()" style="display:none;">글삭제</button>  				
 				</form>
 			  </div>
           </div>
