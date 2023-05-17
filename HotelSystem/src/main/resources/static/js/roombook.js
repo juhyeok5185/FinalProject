@@ -30,7 +30,7 @@ function printtotalprice(gradeName, gradeprice) {
 function printRoomList($roomlist, $footer) {
   const html2 = `<div id = "inputdiv">
 							<span>내정보 입력</span>  								
-							<input type="checkbox" id = "myinfobox">
+							<input type="checkbox" id = "myinfobox" checked>
 							<span>인원수</span>
 							<input type = "number" id = "totalcnt" max="4" min="1" value = "1">
 							<input type="checkbox" id = "bfcheckbox">
@@ -118,6 +118,26 @@ function printmyroombook(list) {
 		</tr>
 	`;
     tbody.append(html);
+  }
+}
+function myinfop() {
+  const $myinfo = $("#myinfobox").is(":checked");
+  if ($myinfo == true) {
+    $.ajax({
+      url: "/hotel/client/myinfo",
+      method: "post",
+      data: {
+        _csrf: tokken,
+      },
+      success: function (res) {
+        $("#booker").val(res.name).attr("disabled", true);
+        $("#booktel").val(res.tel).attr("disabled", true);
+      },
+    });
+  }
+  if ($myinfo == false) {
+    $("#booker").val("").attr("disabled", false);
+    $("#booktel").val("").attr("disabled", false);
   }
 }
 //----------------------------------------------------------------------------------------------------------
@@ -466,26 +486,7 @@ $(document).ready(async function () {
     }
   });
 
-  $("#bookfooter").on("change", "#myinfobox", function () {
-    const $myinfo = $("#myinfobox").is(":checked");
-    if ($myinfo == true) {
-      $.ajax({
-        url: "/hotel/client/myinfo",
-        method: "post",
-        data: {
-          _csrf: tokken,
-        },
-        success: function (res) {
-          $("#booker").val(res.name).attr("disabled", true);
-          $("#booktel").val(res.tel).attr("disabled", true);
-        },
-      });
-    }
-    if ($myinfo == false) {
-      $("#booker").val("").attr("disabled", false);
-      $("#booktel").val("").attr("disabled", false);
-    }
-  });
+
 
   $("#reservation-btn").click(async function () {
     const $foote2 = $("#bookfooter").html();
@@ -507,6 +508,7 @@ $(document).ready(async function () {
         });
 
         printRoomList($roomlist, $footer);
+        myinfop();
       } catch (err) {
         if (err.status == "409") {
           alert("해당 날짜에 이미 예약이 있습니다");
