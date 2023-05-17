@@ -28,7 +28,7 @@ public class OrderController {
 	@GetMapping("/mall/orderList")
 	public String list(Model model, Principal principal, RedirectAttributes re) {
 		if (principal == null) {
-			re.addFlashAttribute("msg", "회원전용 페이지입니다. 로그인을 해주세요.");
+			re.addFlashAttribute("msg", "로그인후 이용가능합니다.");
 			return "redirect:/hotel/member/login";
 		}
 		model.addAttribute("orderlist", orderService.findAllOrder(principal.getName()));
