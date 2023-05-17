@@ -120,26 +120,8 @@ function printmyroombook(list) {
     tbody.append(html);
   }
 }
-function myinfop() {
-  const $myinfo = $("#myinfobox").is(":checked");
-  if ($myinfo == true) {
-    $.ajax({
-      url: "/hotel/client/myinfo",
-      method: "post",
-      data: {
-        _csrf: tokken,
-      },
-      success: function (res) {
-        $("#booker").val(res.name).attr("disabled", true);
-        $("#booktel").val(res.tel).attr("disabled", true);
-      },
-    });
-  }
-  if ($myinfo == false) {
-    $("#booker").val("").attr("disabled", false);
-    $("#booktel").val("").attr("disabled", false);
-  }
-}
+
+
 //----------------------------------------------------------------------------------------------------------
 $(document).ready(async function () {
   const tokken = $("#booktokken").val();
@@ -261,16 +243,39 @@ $(document).ready(async function () {
       window.close();
     }
   });
+  $(document).on('click','#managerdinnerbook',function (){
+    alert('AAAA')
+    const booker = $('#booker').val();
+    const from = $('#from').val();
+    const totalcnt = $('#totalcnt').val()
+    $.ajax({
+      url:"/hotel/client/managerdinner",
+      method:'post',
+      data :{
+        _csrf:tokken,
+        from,
+        booker,totalcnt
+      },
+      statusCode:{
+        200:function (){
+          alert('예약이 완료되었습니다')
+        },
+        409:function (){
+          alert('이미 예약이 존제합니다')
+        }
+      }
+    })
+  })
 
   $("#resradio").click(function () {
     $("#bookradio").prop("checked", false);
     const carea = $("#search");
     carea.empty();
     $("#managerroomlistdiv").empty();
-    const html = ` <input type="text" id = "booker" placeholder="예약자" height="2px;">
-              <input type="text" id = "booktel" placeholder="연락처 입력" height="2px;">
+    const html = ` <input type="text" id = "booker" placeholder="사용자" height="2px;">
               <input type="date" id = "from" placeholder="체크인날짜 입력" height="2px;">
-              <button class="btn btn-secondary" style="width: 70px;" id="managerbook">예약</button>`;
+              <input type="number" id = "totalcnt" min="1" value="1" max="4">
+              <button class="btn btn-secondary" style="width: 70px;" id="managerdinnerbook">예약</button>`;
     carea.append(html);
   });
   $("#bookradio").click(function () {
@@ -508,7 +513,20 @@ $(document).ready(async function () {
         });
 
         printRoomList($roomlist, $footer);
-        myinfop();
+        $.ajax({
+          url: "/hotel/client/myinfo",
+          method: "post",
+          data: {
+            _csrf: tokken,
+          },
+          success: function (res) {
+            $("#booker").val(res.name).attr("disabled", true);
+            $("#booktel").val(res.tel).attr("disabled", true);
+          },
+        });
+
+
+
       } catch (err) {
         if (err.status == "409") {
           alert("해당 날짜에 이미 예약이 있습니다");
@@ -518,10 +536,10 @@ $(document).ready(async function () {
     } else {
       alert("이미 선택 하셨습니다");
     }
+
   });
 
   $("#dinnerbook").click(async function () {
-
     const $bookdate = $("#from").val();
     const $booktel = $("#booktel").val();
     const $totalcnt = $("#totalcnt").val();

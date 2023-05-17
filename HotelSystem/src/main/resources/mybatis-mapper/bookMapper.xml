@@ -116,4 +116,10 @@
 	<select id="findmydinnerByusernameAndfrom2" resultType="int">
 		select b.bookno from book b where b.username = #{name} and b.bookdate=to_date(#{from},'MM/DD/YYYY')
 	</select>
+	<insert id="managerdinner">
+		insert into book select book_seq_bookno.nextval,u.username,#{totalcnt},to_date(#{from},'YYYY-MM-DD'),u.tel,u.name,'체크인대기' from users u where u.username = #{booker}
+	</insert>
+	<insert id="manageraddDinnr">
+		insert into dinner select b.bookno,b.totalcount,150000 from book b where b.bookdate = to_date(#{from},'YYYY-MM-DD') and b.username = #{booker}
+	</insert>
 </mapper>
