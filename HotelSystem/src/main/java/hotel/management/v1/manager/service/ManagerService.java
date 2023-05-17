@@ -48,6 +48,7 @@ public class ManagerService {
         Integer intRoomNo = Integer.parseInt(roomNo);
         dao.changeRoomStatusEmpty(intRoomNo);
         dao.checkOut(tel);
+        dao.addBookCount(tel);
     }
 
     public void changeBook(boolean breakfast, boolean dinner, String tel) {

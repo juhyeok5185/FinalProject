@@ -60,6 +60,8 @@ public interface ManagerDao {
     public List<ManagerDto.findBookList> bookSearch(ManagerDto.bookSearchCondition dto);
 
     public List<alarm> checkOutAlarm();
+
+    public void addBookCount(String tel);
     
     
 }

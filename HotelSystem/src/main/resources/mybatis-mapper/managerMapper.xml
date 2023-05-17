@@ -129,6 +129,17 @@
         select booker , booktel, roomno from booklist where TRUNC(checkout) = TRUNC(sysdate) and bookstatus = '체크인완료'
     </select>
 
+    <update id="addBookCount">
+        UPDATE users
+        SET bookcnt = bookcnt + 1,
+            userlevel = CASE
+            WHEN bookcnt = 9 THEN 'SILVER'
+            WHEN bookcnt = 19 THEN 'GOLD'
+            ELSE userlevel
+            END
+        WHERE tel = #{tel}
+    </update>
+
  
  <!-- 스칼라를 이용해 조건들을 비교해서 해당 값을 뽑아내는 쿼리 -->
     <select id="bookSearch" resultType="hotel.management.v1.manager.dto.ManagerDto$findBookList">
