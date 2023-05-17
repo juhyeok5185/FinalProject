@@ -19,6 +19,13 @@
     <link rel="stylesheet" href="/css/mallStyle.css" />
     <link rel="stylesheet" href="/css/bookStyle.css" />
     <title>관리자</title>
+    <script th:inline="javascript">
+		const msg = [[${msg}]];
+		console.log(msg);
+		if (msg != null) {
+			alert(msg);
+		}
+	</script>
   </head>
   <body>
     <input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}" />

@@ -16,10 +16,11 @@ public class SecurityConfig {
 	private LoginFailHandler loginFailHandler;
 	@Autowired
 	private LoginSuccessHandler loginSuccessHandler;
-
+	@Autowired
+	private MyAccessDeniedHandler accessDeniedHandler;
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		//http.csrf().disable();
+		http.exceptionHandling().accessDeniedHandler(accessDeniedHandler);
 		http.formLogin().loginPage("/hotel/member/login")
 				.loginProcessingUrl("/hotel/member/login")
 				.successHandler(loginSuccessHandler)

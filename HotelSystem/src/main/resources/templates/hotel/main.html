@@ -20,6 +20,13 @@
     <link href="https://unpkg.com/css.gg@2.0.0/icons/css/shopping-bag.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/style.css" />
     <title>J.H.H.L</title>
+    <script th:inline="javascript">
+		const msg = [[${msg}]];
+		console.log(msg);
+		if (msg != null) {
+			alert(msg);
+		}
+	</script>
   </head>
   <body>
     <!--헤더겸 네비바-->
