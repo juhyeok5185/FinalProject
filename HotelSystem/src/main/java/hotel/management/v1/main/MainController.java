@@ -2,15 +2,26 @@ package hotel.management.v1.main;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/hotel")
 public class MainController {
     
     @GetMapping("/main")
-    public void viewMain(){}
+    public ModelAndView viewMain(HttpSession session,Model model){
+    	if(session.getAttribute("msg")!=null) {
+			String msg= (String)session.getAttribute("msg");
+			session.removeAttribute("msg");
+			return new ModelAndView().addObject("msg", msg);
+		}
+    	return new ModelAndView();
+    }
 
     @GetMapping("/contact")
     public void contact(){}
