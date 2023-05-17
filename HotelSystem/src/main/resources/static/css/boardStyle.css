@@ -2744,6 +2744,10 @@ div #logintoolbar > a {
   margin-left: 1vw;
   font-size: 1.8vw;
 }
+.dark-mode #reportwrite{
+	color:white;
+    border: 1px solid white;
+}
 @media screen and (max-width: 700px) {
 	#reportarticle{
 	width: 100%;
