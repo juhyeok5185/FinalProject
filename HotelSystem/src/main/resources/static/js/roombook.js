@@ -19,6 +19,9 @@ function printtotalprice(gradeName, gradeprice) {
   if (mylevel=='SILVER'){
     priceperpercent = paytotalprice-((paytotalprice/100)*5);
   }
+  if(mylevel=='BRONZE'){
+    priceperpercent = paytotalprice;
+  }
   $("#roominfo").empty();
   $("#roomname").empty();
   $("#roominfo").append(priceperpercent);

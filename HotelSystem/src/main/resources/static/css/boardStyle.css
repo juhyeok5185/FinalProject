@@ -162,20 +162,6 @@
   position: relative;
   top: 5vh;
 }
-#snssection{
-  width: 5vw;
-  height: 4vh;
-  position: relative;
-  left: 40vw;
-  bottom: 1.7vh;
-  padding: 0 2vw;
-}
-#snsicon {
-  position: relative;
-  bottom: 2.5vh;
-  left: 0.8vw;
-  display: flex;
-}
 #you {
   width: 1vw;
   height: 0.8vw;
