@@ -770,7 +770,7 @@
 }
 
 #howtocomearticle {
-    height: 130vh;
+    height: 110vh;
     width: 50vw;
     position: absolute;
     left: 35vw;
@@ -2489,7 +2489,7 @@ div #logintoolbar > a {
 .dark-mode #footer {
     background-color: #212529;
     height: 20vh;
-    width: 100vw;
+    width: 100%;
     display: flex;
     text-align: center;
     overflow: hidden;
