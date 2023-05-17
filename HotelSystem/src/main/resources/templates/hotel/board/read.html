@@ -22,47 +22,45 @@
   <title>J.H.H.L</title>
 <script th:inline="javascript">
     $(document).ready(function(){
-    var user = /*[[${#authentication.principal}]]*/ null;
-    const boardUsername = $("#boardUsername").text();
-    console.log(boardUsername);
-	if(user.username==boardUsername){
-		const btn = $("#deletebtn2");
-		btn.css("display" , "block");		
+      var user = /*[[${#authentication.principal}]]*/ null;
+      const boardUsername = $("#boardUsername").text();
+	  if(user.username==boardUsername){
+	  const btn = $("#deletebtn2");
+	  btn.css("display" , "block");		
 	}
     })
     
     function showAlert() {
-    	alert("게시물을 성공적으로 삭제했습니다.");
+      alert("게시물을 성공적으로 삭제했습니다.");
     }	
     
     $(document).ready(function(){	
-    	const msg = [[${msg}]];
-    	if(msg!=null){
-    	
-    		alert(msg);
-    	}
+      const msg = [[${msg}]];
+      if(msg!=null){
+      alert(msg);
+    }
     })
     
     $(document).ready(function(){	
-    	var listno = /*[[${board.boardNo}]]*/ null;
-    	const bno = $("#boardNumber").val(); 
-    	if(listno < bno || bno == null){
-    		alert("게시물 정보가 잘못되었습니다.");
-    		return;
-    	}
+      var listno = /*[[${board.boardNo}]]*/ null;
+      const bno = $("#boardNumber").val(); 
+      if(listno < bno || bno == null){
+      alert("게시물 정보가 잘못되었습니다.");
+      return;
+    }
     })
 </script>
 </head>
 <body>
   <input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}">
-   <div th:replace="~{/fragment/nav.html}"></div>
+  <div th:replace="~{/fragment/nav.html}"></div>
     <!--고객 문의 게시판-->
     <div id="reportpage"> 
       <div id="aside"> 
         <div id="inmenu">
           <h3 id="tit">고객문의</h3><br>
           <ul id="menu">
-            <li id="m1first"><a href="/hotel/contact" id="subh">연락처</a></li> <br> 
+            <li id="m1first"><a href="/hotel/contact" id="subh">연락처</a></li><br> 
             <li id="m2last"><a href="/hotel/board/list" id="subh">문의하기</a></li>
           </ul>   
         </div>
@@ -73,7 +71,7 @@
           <div id="toolbar">
             <i class="fa-solid fa-house"></i> > 고객문의 ><a href="/hotel/board/list" id="subh"> 문의하기</a>
           </div>
-        </div>
+       </div>
          <div class="insert" id="reportinsert">
           <table id="reporttable" class="table">
             <tr>
@@ -139,9 +137,6 @@
        </div>
      </div>
    </div>
-   
-   
-
  <!--풋터-->
  <div th:replace="~{/fragment/footer.html}"></div>
 </body>
