@@ -19,6 +19,8 @@ import hotel.management.v1.client.service.BookService;
 import hotel.management.v1.pay.entity.PayType;
 import jakarta.servlet.http.HttpSession;
 
+import static java.lang.System.out;
+
 @Controller
 @RequestMapping("/hotel")
 public class BookRestController {
@@ -54,7 +56,7 @@ public class BookRestController {
 
             } else {
                 dto = service.findRoom(session.getAttribute("from").toString(), session.getAttribute("to").toString());
-                System.out.println("세션있음");
+                out.println("세션있음");
             }
             return ResponseEntity.ok(dto);
         }
@@ -81,11 +83,7 @@ public class BookRestController {
 
     }
 
-    @PostMapping("/client/refundbook")
-    public ResponseEntity<?> refundbook(Integer bookno) {
-        service.deletebook(bookno);
-        return ResponseEntity.ok(null);
-    }
+
 
     @PostMapping("/manager/checkbookbyusername")
     public ResponseEntity<?> checkbookbyusername(BookDto.checkbookbyusername check) {
@@ -99,7 +97,15 @@ public class BookRestController {
         }
 
     }
-
+    @PostMapping(value = "/client/managerdinner", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> managerdiiner(BookDto.managerdinnerbook book){
+        String date[] =  book.getFrom().split("-");
+        String from = date[1]+"/"+date[2]+"/"+date[0];
+       if (service.findmydinnerByusernameAndfrom(from, book.getBooker()) > 0)
+         return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
+       service.managerdinner(book);
+        return ResponseEntity.ok(null);
+    };
     @PostMapping(value = "/client/myinfo", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> myinfo(Principal pal, String username) {
         BookDto.myInFo info = null;

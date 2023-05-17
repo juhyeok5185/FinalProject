@@ -47,4 +47,8 @@ public interface BookDao {
 
    public   Integer findmydinnerByusernameAndfrom(String name, String from);
    public  Integer findmydinnerByusernameAndfrom2(String name ,String from);
+
+  public   Integer managerdinner(BookDto.managerdinnerbook book);
+
+	public Integer manageraddDinnr(BookDto.managerdinnerbook book);
 }

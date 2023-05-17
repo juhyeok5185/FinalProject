@@ -90,11 +90,16 @@ public class BookService {
     }
 
 
-    public void deletebook(Integer bookno) {
 
-    }
 
     public Integer findmydinnerByusernameAndfrom(String from, String name) {
         return dao.findmydinnerByusernameAndfrom(name, from);
+    }
+
+    public Integer managerdinner(BookDto.managerdinnerbook book) {
+        System.out.println(book.toString());
+        dao.managerdinner(book);
+        return dao.manageraddDinnr(book);
+
     }
 }

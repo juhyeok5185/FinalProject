@@ -168,4 +168,11 @@ public class BookDto {
 		String booktel;
 		Integer resno;
 	}
+	@Data
+	@ToString
+	public static class managerdinnerbook{
+		String booker;
+		String from;
+		Integer totalcnt;
+	}
 }
