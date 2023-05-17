@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,10 +17,11 @@ import hotel.management.v1.manager.mall.Dto.ManagerMallListDto;
 import hotel.management.v1.manager.mall.Service.ManagerMallListService;
 
 @Controller
+@Secured("ROLE_ADMIN")
 public class ManagerMallListMVCController {
 	@Autowired
 	private ManagerMallListService service;
-
+	
 	@GetMapping("/hotel/manager/itemUpdate")
 	public ModelAndView itemUpdate() {
 		List<ManagerMallListDto.ItemUpdate> itemList = service.findItemList();
