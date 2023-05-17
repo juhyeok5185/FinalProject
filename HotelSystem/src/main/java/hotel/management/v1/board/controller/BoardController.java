@@ -78,7 +78,7 @@ public class BoardController {
 	@PostMapping("/hotel/board/read")
 	public ModelAndView reply(Integer boardNo, String replyContent, String username, RedirectAttributes ra) {
 		if (replyContent.equals("")) {
-			ra.addFlashAttribute("msg", "답변을 작성해주세요");
+			ra.addFlashAttribute("msg" , "답변을 작성해주세요");
 			return new ModelAndView("redirect:/hotel/board/read?boardNo=" + boardNo);
 		}
 		service.replyUpdate(boardNo, replyContent, username);
