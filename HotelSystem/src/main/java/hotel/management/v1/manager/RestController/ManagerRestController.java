@@ -22,28 +22,28 @@ public class ManagerRestController {
     @Autowired
     ManagerService service;
 
-    //검색조건들을 받아서 조건을 이용해 쿼리 조회후 list로 return하는 메소드
+    //검색조건들을 받아서 조건을 이용해 쿼리 조회후 list로 return하는 메소드 c
     @PostMapping("/manager/bookSearch")
     public ResponseEntity<List<ManagerDto.findBookList>> bookSearch(ManagerDto.bookSearchCondition dto) {
         List<ManagerDto.findBookList> list = service.bookSearch(dto);
         return ResponseEntity.ok(list);
     }
 
-    //고객의 이름을 받아서 이름에 해당하는 list를 return하는 메소드 (Exception 처리 완료)
+    //고객의 이름을 받아서 이름에 해당하는 list를 return하는 메소드 (Exception 처리 완료) c
     @PostMapping("/manager/memberSearch")
     public ResponseEntity<List> userSearch(String name) {
         List<ManagerDto.findUserList> list = service.userSearch(name);
         return ResponseEntity.ok(list);
     }
 
-    //예약취소 예약자 전화번호를 받아서 조회후 취소
+    //예약취소 예약자 전화번호를 받아서 조회후 취소 c
     @PostMapping("/manager/bookCancel")
     public ResponseEntity<?> bookCancel(String bookTel) {
         Integer bookCancel = service.bookCancel(bookTel);
         return ResponseEntity.ok("예약취소가 완료되었습니다.");
     }
 
-    //체크아웃 버튼 클릭시 Post(bookTel 사용하는지 확인 필요)
+    //체크아웃 버튼 클릭시 Post c
     @PostMapping("/manager/checkOut")
     public ResponseEntity<?> checkOut(String bookTel , String roomNo) {
         service.checkOut(bookTel , roomNo);
