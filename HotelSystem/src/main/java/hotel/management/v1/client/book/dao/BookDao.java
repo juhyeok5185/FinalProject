@@ -33,7 +33,6 @@ public interface BookDao {
 
 	public dinner findBookdata(whtyouname name);
 
-	public Integer findBooknoByusername(String name);
 
 	public List<BookDto.mydinnerlist> findMydinnerByusername(String name);
 
