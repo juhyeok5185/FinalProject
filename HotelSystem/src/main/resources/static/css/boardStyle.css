@@ -39,11 +39,7 @@
   position: relative;
   right: 4vw;
 }
-#headerAndnav {
-  background-color: #f1e3c4;
-  width: 100vw;
-  height: 9vh;
-}
+
 #div_logo{
   margin:0 auto;
   position: relative;
@@ -108,14 +104,7 @@
   width: 100vw;
   height: 36vh;
 }
-#footer {
-  background-color: #f1e3c4;
-  height: 20vh;
-  width: 100vw;
-  display: flex;
-  text-align: center;
-  overflow: hidden;
-}
+
 #footerLogo {
   width: 20vw;
   line-height: 20vh;
@@ -673,12 +662,6 @@
 
 /*문의게시판*/
 
-#reportboard {
-  height: 120vh;
-  width: 50vw;
-  margin: auto;
-  text-align: center;
-}
 
 #reportboard-1 {
 	position: relative;
@@ -2760,4 +2743,15 @@ div #logintoolbar > a {
   font-weight: bold;
   margin-left: 1vw;
   font-size: 1.8vw;
+}
+@media screen and (max-width: 700px) {
+	#reportarticle{
+	width: 100%;
+    height: 70vw;
+    position: static;
+    margin-top: 0;
+    }
+    #reportboard{
+    width:90vw;}
+    
 }
