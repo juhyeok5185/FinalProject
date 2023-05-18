@@ -18,6 +18,14 @@
 	<link href='https://unpkg.com/css.gg@2.0.0/icons/css/facebook.css' rel='stylesheet'>
 	<link rel="stylesheet" href="/css/style.css">
 	<script th:inline="javascript">
+		const msg = [[${msg}]];
+		if (msg != null) {
+			isLoadingStatus=false;
+			alert(msg);
+			loader.hide();
+		}
+	</script>
+	<script th:inline="javascript">
 	let isLoadingStatus=false;
 				$(document).on('click','#loginbut',function(){
 					if(!isLoadingStatus){
@@ -27,12 +35,6 @@
 				}
 			})
 				
-		const msg = [[${msg}]];
-		if (msg != null) {
-			isLoadingStatus=false;
-			loader.hide();
-			alert(msg);
-		}
 	</script>
 	<script>
 		$(document).ready(function () {
