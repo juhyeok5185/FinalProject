@@ -61,8 +61,8 @@
 }
 
 #logo img {
-    width: 8vw;
-    height: 11vh;
+    width: 10vw;
+    height: 4vh;
 }
 
 .carousel-indicators {
@@ -1832,7 +1832,6 @@ div #logintoolbar > a {
     border: 1px solid #cccccc;
     color: #faf1d0;
 }
-
 #findidcheckbut:hover {
     cursor: pointer;
 }
@@ -2183,6 +2182,8 @@ div #logintoolbar > a {
 
 /*요기까지*/
 /*동현*/
+
+#footerLogo img{width: 15vw;}
 .dark-mode #reportpage {
     background-color: rgb(20, 20, 20);
     color: white;
@@ -3357,18 +3358,24 @@ div #logintoolbar > a {
     }
 
     .dark-mode #logoImg-1 {
-        width: 20vw;
-        height: 9vh;
+        width: 35vw;
+        height: 4vh;
     }
 
     #logo img {
-        width: 20vw;
-        height: 9vh;
+        width: 35vw;
+        height: 4vh;
     }
 
     #reservationCompletePage {
         display: none;
     }
+    #footerLogoImg{
+    height: 10vw;
+    width: 50vw;
+    position: relative;
+    top: 6.5vh;
+}
 
 }
 
@@ -4892,8 +4899,10 @@ div #logintoolbar > a {
 }
 
 .dark-mode #footerLogoImg {
-    width: 20vw;
-    height: 20vh;
+    height: 10vw;
+    width: 50vw;
+    position: relative;
+    top: 6.5vh;
 }
 
 .dark-mode #logoImg {

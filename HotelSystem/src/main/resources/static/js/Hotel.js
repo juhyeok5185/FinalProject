@@ -16,7 +16,8 @@ function chackDarkMode() {
   let $checkbox = $("#dark-checkbox");
   let darkModeEnabled = localStorage.getItem("dark-mode-enabled");
   let $logoImg = $("#logoImg-1");
-  let $footerLogoImg = $("#footerLogoImg");
+  let $footerLogoImg = $("#footerLogoImg")
+  let $logofooter = $('#logo-footer');
   let $packageImg = $("#packageImg");
   let $packageImg1 = $("#packageImg1");
   let $discountImg1 = $("#discountImg1");
@@ -36,6 +37,7 @@ function chackDarkMode() {
     $body.addClass("dark-mode");
     $logoImg.attr("src", "/img/LOGO(1)-W.png");
     $footerLogoImg.attr("src", "/img/LOGO(1)-W.png");
+    $logofooter.attr("src", "/img/LOGO(1)-W.png");
     $packageImg.attr("src", "/img/whitepackage.png");
     $packageImg1.attr("src", "/img/whitepackage.png");
     $discountImg1.attr("src", "/img/whitediscount.png");
@@ -74,6 +76,7 @@ function chackDarkMode() {
     $body.removeClass("dark-mode");
     $logoImg.attr("src", "/img/LOGO(1)-B.png");
     $footerLogoImg.attr("src", "/img/LOGO(1)-B.png");
+    $logofooter.attr("src", "/img/LOGO(1)-B.png");
     $packageImg.attr("src", "/img/package.png");
     $packageImg1.attr("src", "/img/package.png");
     $discountImg1.attr("src", "/img/discount.png");
@@ -111,8 +114,9 @@ function chackDarkMode() {
 
   $checkbox.on("change", function () {
     if ($checkbox.prop("checked")) {
-      $logoImg.attr("src", "/img/logo_darkmode.png");
-      $footerLogoImg.attr("src", "/img/logo_darkmode.png");
+      $logoImg.attr("src", "/img/LOGO(1)-W.png");
+      $footerLogoImg.attr("src", "/img/LOGO(1)-W.png");
+      $logofooter.attr("src", "/img/LOGO(1)-W.png");
       $packageImg.attr("src", "/img/whitepackage.png");
       $packageImg1.attr("src", "/img/whitepackage.png");
       $discountImg1.attr("src", "/img/whitediscount.png");
@@ -148,8 +152,9 @@ function chackDarkMode() {
       $("darkBoxImg2").attr("src", "/img/white기타.png");
     } else {
       $body.removeClass("dark-mode");
-      $logoImg.attr("src", "/img/logo.png");
-      $footerLogoImg.attr("src", "/img/logo.png");
+      $logoImg.attr("src", "/img/LOGO(1)-B.png");
+      $footerLogoImg.attr("src", "/img/LOGO(1)-B.png");
+      $logofooter.attr("src", "/img/LOGO(1)-B.png");
       $packageImg.attr("src", "/img/package.png");
       $packageImg1.attr("src", "/img/package.png");
       $discountImg1.attr("src", "/img/discount.png");

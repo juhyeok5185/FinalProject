@@ -8,7 +8,10 @@
   position: relative;
   z-index: 1;
 }
-
+#logo-footer{
+	position: relative;
+	top: 8vh;
+}
 #luxuryarticle{
   width: 50vw;
   position: absolute;
