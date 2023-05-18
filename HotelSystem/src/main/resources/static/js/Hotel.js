@@ -34,8 +34,8 @@ function chackDarkMode() {
 
   if (darkModeEnabled === "true") {
     $body.addClass("dark-mode");
-    $logoImg.attr("src", "/img/logo_darkmode.png");
-    $footerLogoImg.attr("src", "/img/logo_darkmode.png");
+    $logoImg.attr("src", "/img/LOGO(1)-W.png");
+    $footerLogoImg.attr("src", "/img/LOGO(1)-W.png");
     $packageImg.attr("src", "/img/whitepackage.png");
     $packageImg1.attr("src", "/img/whitepackage.png");
     $discountImg1.attr("src", "/img/whitediscount.png");
@@ -72,8 +72,8 @@ function chackDarkMode() {
     $("#darkBoxImg2").attr("src", "/img/white기타.png");
   } else {
     $body.removeClass("dark-mode");
-    $logoImg.attr("src", "/img/logo.png");
-    $footerLogoImg.attr("src", "/img/logo.png");
+    $logoImg.attr("src", "/img/LOGO(1)-B.png");
+    $footerLogoImg.attr("src", "/img/LOGO(1)-B.png");
     $packageImg.attr("src", "/img/package.png");
     $packageImg1.attr("src", "/img/package.png");
     $discountImg1.attr("src", "/img/discount.png");
@@ -203,9 +203,9 @@ $(document).ready(function () {
 
   //동현
 
-  $('#r-b').click(function (){
-    location.href = "/hotel/client/roombook"
-  })
+  $("#r-b").click(function () {
+    location.href = "/hotel/client/roombook";
+  });
   $("#mainbookbtn").click(function () {
     const from = $("#from").val();
     const to = $("#to").val();
