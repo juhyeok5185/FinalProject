@@ -1122,20 +1122,7 @@
   list-style: none;
 }
 
-#m1first {
-  margin-top: 2vh;
-  list-style: none;
-}
 
-#m2last {
-  text-decoration: none;
-  color: #555;
-  list-style: none;
-}
-
-#menu {
-  padding-left: 0.1vw;
-}
 
 /* section */
 #internalFacilities_page {
@@ -1939,10 +1926,6 @@ div #logintoolbar > a {
   color: #555;
 }
 
-#subh{
-  text-decoration: none;
-  color: #555;
-}
 
 
 
