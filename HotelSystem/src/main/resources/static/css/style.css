@@ -2563,6 +2563,53 @@ div #logintoolbar > a {
 }
 
 /* 다크모드 주성 */
+.dark-mode #loginBox {
+	width: 60vw;
+    height: 29vh;
+    background-color: #000000;
+    position: fixed;
+    left: 19vw;
+    top: 33vh;
+    opacity: 1;
+    margin: auto;
+    z-index: 6;
+}
+.dark-mode #findidcheckbut-1 {
+	width: 20vw;
+    height: 3vh;
+    margin: auto;
+    padding: auto;
+    line-height: 3vh;
+    left: 1vw;
+    margin-top: 18.5vh;
+    background-color: #000000;
+    border: 1px solid #cccccc;
+    color: #faf1d0;
+}
+.dark-mode #findidbox2-1 p {
+	color: black;
+}
+.dark-mode #findpasswordcheckbar1_10 span {
+	color: black;
+}
+.dark-mode #findpasswordcheckbar1_30 span {
+	color: black;
+}
+.dark-mode #findpasswordbox2-1 p {
+	color: black;
+}
+.dark-mode #findpasswordcheckbut-1 {
+	background-color: black;
+}
+.dark-mode #passwordBox1 {
+	background-color: black;
+}
+.dark-mode #findpwlogin {
+	background-color: black;
+}
+.dark-mode #find_id2 {
+	background-color: black;
+}
 .dark-mode #internalFacilities_page {
     background-color: rgb(20, 20, 20);
     width: 100%;
