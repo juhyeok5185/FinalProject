@@ -3315,9 +3315,9 @@ div #logintoolbar > a {
     }
 
     /* 700이하에서 안보이게 함 */
-  	#page{
-  		height: 88.5vw;
-  	}
+    #aside{
+        display: none;
+    }
   	#contactarticle{
   	height: auto}
 
@@ -3666,7 +3666,7 @@ div #logintoolbar > a {
 }
 
 #footer-1 {
-    width: 100vw;
+    width: 100%;
     height: 20vh;
     background-color: #f1e3c4;
 }
