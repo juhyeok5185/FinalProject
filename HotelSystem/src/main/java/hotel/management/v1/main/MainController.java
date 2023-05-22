@@ -18,16 +18,18 @@ public class MainController {
     	if(session.getAttribute("msg")!=null) {
 			String msg= (String)session.getAttribute("msg");
 			session.removeAttribute("msg");
-			return new ModelAndView().addObject("msg", msg);
+			return new ModelAndView("hotel/main").addObject("msg", msg);
 		}
-    	return new ModelAndView();
+    	return new ModelAndView("hotel/main");
     }
 
     @GetMapping("/contact")
     public void contact(){}
     
     @GetMapping("/hotelintroduce")
-    public void hotelIntroduce(){}
+    public String hotelIntroduce(){
+        return "hotel/hotelintroduce";
+    }
     
     @GetMapping("/hotelstay")
     public void hotelStay(){}

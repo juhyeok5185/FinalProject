@@ -24,7 +24,7 @@
   <body>
     <!--헤더겸 네비바-->
     <div class="hotel">
-      <div th:replace="~{/fragment/nav.html}"></div>
+      <div th:replace="~{fragment/nav :: nav}"></div>
 
       <!--이미지 슬라이더-->
       <div id="imgslider" class="carousel slide" data-bs-ride="carousel">
@@ -182,7 +182,7 @@
         </div>
       </div>
       <!--풋터-->
-      <div th:replace="~{/fragment/footer.html}"></div>
+      <div th:replace="~{fragment/footer :: footer}"></div>
     </div>
   </body>
 </html>
