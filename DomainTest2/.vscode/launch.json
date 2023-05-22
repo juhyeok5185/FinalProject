@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DomainTest2Application<DomainTest2>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "hotel.management.v1.DomainTest2Application",
+            "projectName": "DomainTest2",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
