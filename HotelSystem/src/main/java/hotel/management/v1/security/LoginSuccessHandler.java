@@ -20,9 +20,9 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         if (authentication.getAuthorities().stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_ADMIN"))) {
-            String redirectUrl = request.getContextPath() + "/hotel/manager/bookList";
+            String redirectUrl = request.getContextPath() + "hotel/manager/bookList";
             if (request.isRequestedSessionIdValid() && !isMobile(request)) { // 700px 이상인 경우
-                response.sendRedirect(redirectUrl);
+                response.sendRedirect("hotel/manager/bookList");
             } else { // 700px 이하인 경우
                 response.setContentType("text/html;charset=UTF-8");
             }
@@ -30,7 +30,7 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
         }
 
         if (request.isRequestedSessionIdValid() && !isMobile(request)) { // 700px 이상인 경우
-            response.sendRedirect("/hotel/main");
+            response.sendRedirect("hotel/main");
         } else { // 700px 이하인 경우
             response.setContentType("text/html;charset=UTF-8");
         }

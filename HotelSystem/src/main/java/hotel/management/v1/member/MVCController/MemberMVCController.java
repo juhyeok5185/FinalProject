@@ -47,12 +47,14 @@ public class MemberMVCController {
 	// 로그인 페이지 불러오는 메소드
 	@PreAuthorize("isAnonymous()")
 	@GetMapping("/member/login")
-	public void login(HttpSession session, Model model) {
+	public String login(HttpSession session, Model model) {
 		// 로그인 페이지에서 알림을 띄우기 위해 사용
 		if (session.getAttribute("msg") != null) {
 			model.addAttribute("msg", session.getAttribute("msg"));
 			session.removeAttribute("msg");
+			return "hotel/member/login";
 		}
+		return "hotel/member/login";
 	}
 	
 	// 회원가입 완료 페이지 불러오는 메소드
