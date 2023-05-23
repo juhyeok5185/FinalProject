@@ -31,15 +31,15 @@ public class ManagerMallListMVCController {
 	public ModelAndView contactmallList(Integer pageno) {
 		List<ManagerMallListDto.MallListSearch> list = service.contactmallList();
 		if (list.size() == 0) {
-			return new ModelAndView("/hotel/manager/managerMallList").addObject("msg", "검색결과가 없습니다.");
+			return new ModelAndView("hotel/manager/managerMallList").addObject("msg", "검색결과가 없습니다.");
 		}
-		return new ModelAndView("/hotel/manager/managerMallList").addObject("mallListArea", list);
+		return new ModelAndView("hotel/manager/managerMallList").addObject("mallListArea", list);
 	}
 
 	@GetMapping("/hotel/manager/managerorderDetail")
 	public ModelAndView managerorderDetail(Integer orderNo) {
 		ManagerMallListDto.orderDetail detail = service.orderDetail(orderNo);
-		return new ModelAndView("/hotel/manager/managerorderDetail").addObject("detail", detail);
+		return new ModelAndView("hotel/manager/managerorderDetail").addObject("detail", detail);
 	}
 
 	@ExceptionHandler(NotFoundMallListException.class)

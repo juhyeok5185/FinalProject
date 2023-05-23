@@ -19,12 +19,20 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
+        System.out.println("석세스핸들러");
+        System.out.println("석세스핸들러");
+        System.out.println("석세스핸들러");
+        System.out.println("석세스핸들러");
+        System.out.println("석세스핸들러");
+        System.out.println("석세스핸들러");
+        
         if (authentication.getAuthorities().stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_ADMIN"))) {
             String redirectUrl = request.getContextPath() + "/hotel/manager/bookList";
             if (request.isRequestedSessionIdValid() && !isMobile(request)) { // 700px 이상인 경우
                 response.sendRedirect(redirectUrl);
             } else { // 700px 이하인 경우
-                response.setContentType("text/html;charset=UTF-8");
+               // response.setContentType("text/html;charset=UTF-8");
+                response.sendRedirect(redirectUrl);
             }
             return;
         }
@@ -32,7 +40,8 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
         if (request.isRequestedSessionIdValid() && !isMobile(request)) { // 700px 이상인 경우
             response.sendRedirect("/hotel/main");
         } else { // 700px 이하인 경우
-            response.setContentType("text/html;charset=UTF-8");
+            //response.setContentType("text/html;charset=UTF-8");
+            response.sendRedirect("/hotel/main");
         }
         memberDao.resetLoginCnt(authentication.getName());
     }
