@@ -1,3 +1,4 @@
+
 #paybookbtn {
     cursor: pointer;
 }
@@ -116,7 +117,9 @@
 }
 
 #dinnerbookmain {
+    width: 49vw;
     height: 120vh;
+    margin-top: 4vh;
 }
 
 #mybookPage_page {
@@ -202,7 +205,7 @@
 }
 
 #mybooktable tbody {
-    max-height: 20vh;
+    max-height: 62vh;
     display: block;
     overflow: auto;
 }
@@ -213,7 +216,7 @@
 }
 
 #mybookpagetbody {
-    height: 20vh;
+    height:62vh;
     overflow-y: scroll;
 }
 
@@ -293,7 +296,11 @@
     margin: auto;
     z-index: 999;
 }
-
+.dark-mode #headtit{
+    background-color: #212529;
+    border-bottom: 1px solid #DBDBDB;
+    border-top: 1px solid #DBDBDB;
+}
 #paymentPopup-headerbar {
     height: 8vh;
     background-color: #cccccc;
@@ -327,7 +334,10 @@
 #paymentPopup-btn > span {
     font-size: 30px;
 }
-
+#roomlistdiv{
+    margin-top: 4vh;
+    width: 49vw;
+}
 #choosePayment {
     display: flex;
     width: 40vw;
@@ -385,8 +395,10 @@
 
     #headtit {
         display: inline-block;
-        left: 3.7vw;
-        width: 90.1vw;
+        left: 0vw;
+        width:100%;
+        border:0;
+        background-color: #9e774c;
     }
     #mybookPageaside {
         display: none;
@@ -400,35 +412,45 @@
         margin: 5vh auto;
     }
     #myPagetool{
-        width: 50vw;
-        left: 70vw;
+        display: none;
+
     }
     #mybookPage_article {
         width: 100%;
         left: 0;
+        margin-top: 0;
+        height: 66vh;
     }
-
+    #headtit > h3{
+        color: white;
+        text-align: center;
+        margin-top: 4px;
+    }
     #mybooktable td, #mybooktable th {
         width: auto;
-    }
 
+    }
+    #dinnerbookmain{
+        height: 67vh;
+    }
     #myPageaside {
         display: none;
     }
 
     #mybooktable {
-        width: 90vw;
+        width: 100vw;
         margin: auto;
     }
 
     #roomlistinputarea {
-        margin: auto;
-        width: 90vw;
+
+        display: none;
     }
 
     #mypage_dinnerbook {
         width: 100%;
         left: 0;
+        margin-top: 0;
     }
 
     .reservation-site {
@@ -438,7 +460,9 @@
     #bookhr {
         display: none;
     }
-
+    #roomlistdiv{
+        margin:0;
+    }
     #reservation-btn {
         top : -30px;
     }
