@@ -22,7 +22,7 @@ public class BookMVCController {
 
     @GetMapping("/manager/book")
     public String managerbook() {
-        return "/manager/book";
+        return "hotel/manager/book";
     }
 
     @GetMapping("/client/mydinnerbook")
