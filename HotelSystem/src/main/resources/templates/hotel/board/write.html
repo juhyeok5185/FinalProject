@@ -17,18 +17,18 @@
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/boardStyle.css">
   <link rel="stylesheet" href="/css/board2Style.css">
-<script th:inline="javascript">
-$(document).ready(function(){	
-	const msg = [[${msg}]];
-	if(msg!=null){
-		alert(msg);
-	}
-})
-</script>
   <title>React Hotel</title>
+  <script th:inline="javascript">
+  $(document).ready(function(){	
+    const msg = [[${msg}]];
+    if(msg!=null){
+      alert(msg);
+    }
+  })
+  </script>
 </head>
 <body>
-    <div th:replace="~{/fragment/nav :: nav}"></div>
+    <div th:replace="~{fragment/nav :: nav}"></div>
     <!--고객 문의 게시판-->
     <div id="reportpage"> 
       <div id="aside"> 
@@ -128,6 +128,6 @@ $(document).ready(function(){
       </div>
     </div>
     <!--풋터-->
-  <div th:replace="~{/fragment/footer :: footer}"></div>
+  <div th:replace="~{fragment/footer :: footer}"></div>
 </body>
 </html>
