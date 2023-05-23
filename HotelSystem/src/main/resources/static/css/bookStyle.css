@@ -381,12 +381,8 @@
 }
 
 /* 700이상 보일곳*/
-@media screen and (max-width: 700px) {
-    #inputdiv *{
-        display: block;
-        text-align: center;
-        margin: 0 auto;
-    }
+@media screen and (max-width: 360px) {
+
     #headtit {
         display: inline-block;
         left: 3.7vw;
@@ -477,6 +473,11 @@
     }
     #toss-payment{
         left: 3.1vw;
+    }
+    #inputdiv *{
+        display: block;
+        text-align: center;
+        margin: 0 auto;
     }
 }
 
