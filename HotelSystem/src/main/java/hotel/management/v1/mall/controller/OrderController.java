@@ -13,14 +13,14 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import hotel.management.v1.mall.service.OrderService;
 
 @Controller
-@RequestMapping("/hotel")
+@RequestMapping("hotel")
 public class OrderController {
 	@Autowired
 	private OrderService orderService;
 
 	@GetMapping("/mall/orderDetail")
 	public ModelAndView orderDetail(Integer orderNo) {
-		return new ModelAndView("/hotel//mall/orderDetail").addObject("orderDetail",
+		return new ModelAndView("hotel//mall/orderDetail").addObject("orderDetail",
 				orderService.findByOrderNo(orderNo));
 
 	}
@@ -29,10 +29,10 @@ public class OrderController {
 	public String list(Model model, Principal principal, RedirectAttributes re) {
 		if (principal == null) {
 			re.addFlashAttribute("msg", "로그인후 이용가능합니다.");
-			return "redirect:/hotel/member/login";
+			return "redirect:hotel/member/login";
 		}
 		model.addAttribute("orderlist", orderService.findAllOrder(principal.getName()));
-		return "/hotel/mall/orderList";
+		return "hotel/mall/orderList";
 	}
 
 }

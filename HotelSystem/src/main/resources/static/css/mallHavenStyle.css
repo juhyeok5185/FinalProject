@@ -413,6 +413,16 @@
 	margin-top: 2vh;
 }
 
+#mallToolbar-1 {
+	font-size: 12px;
+    width: 30vw;
+    position: relative;
+    left: 50vw;
+    color: black;
+    bottom: 10px;
+}
+
+
 #mallItem {
 	margin-top: 7vh;
 }
@@ -439,20 +449,20 @@
 
 .itemBtn {
 	position: relative;
-    right: -39.4vw;
-    top: 0.35vh;
+    left: 15.8vw;
+    top: 0.29vh;
 }
 
 .itemBtn1 {
 	position: relative;
-    right: -41.3vw;
-    top: 0.35vh;
+    left: 19.3vw;
+    top: 0.29vh;
 }
 
 .itemBtn2 {
 	position: relative;
-    right: -42.6vw;
-    top: 0.35vh;
+    left: 21.5vw;
+    top: 0.29vh;
 }
 
 
