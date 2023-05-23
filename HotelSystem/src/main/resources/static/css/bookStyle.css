@@ -392,7 +392,10 @@
 
 /* 700이상 보일곳*/
 @media screen and (max-width: 360px) {
-
+    #bookpage{
+        margin: 0;
+        padding: 0;
+    }
     #headtit {
         display: inline-block;
         left: 0vw;
@@ -474,6 +477,7 @@
     }
     #payarea{
         width: 96vw;
+        margin-top:1vh;
     }
     #paymentPopup-box{
         width: 65vw;
@@ -502,6 +506,9 @@
         display: block;
         text-align: center;
         margin: 0 auto;
+    }
+    #bookformbox{
+        height: 65.4vh;
     }
 }
 
