@@ -475,18 +475,16 @@
 /*명품관 반응형 아이콘*/
 .mallCart-icon {
 	position: fixed;
-    bottom: 10vh;
-    left: 86.5vw;
-    border-radius: 25px;
+    bottom: 8vh;
+    left: 84.5vw;
+    border-radius: 18px;
     background-color: white;
     border: 1px solid #DBDBDB;
     cursor: pointer;
     z-index: 2;
-    min-width: 60px;
-    min-height: 60px;
-    width: 60px;
-    height: 60px;
-	transform: translate(-15%, -8%);
+    width: 12vw;
+    height: 5vh;
+    
 }
 
 #cartIcon {
@@ -512,7 +510,7 @@
     background-color: white;
     width: 80vw;
     height: 75vh;
-    left: 70px;
+    left: 10vw;
     top: 11.5vh;
     border-radius: 20px;
     border: 4px solid #856f56;

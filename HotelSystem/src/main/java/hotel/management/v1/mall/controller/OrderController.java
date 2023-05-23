@@ -20,7 +20,7 @@ public class OrderController {
 
 	@GetMapping("/mall/orderDetail")
 	public ModelAndView orderDetail(Integer orderNo) {
-		return new ModelAndView("hotel//mall/orderDetail").addObject("orderDetail",
+		return new ModelAndView("hotel/mall/orderDetail").addObject("orderDetail",
 				orderService.findByOrderNo(orderNo));
 
 	}
