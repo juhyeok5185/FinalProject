@@ -45,7 +45,17 @@
 	background-color: #f1e3c4;
 }
 
+@media screen and (max-width: 360px) {
+	.orderList_page {
+		display: inline-block;
+	}
+	
+	#myPageaside {
+		display: none;
+	}
+}
 
+/*
 .orderList_page-1 {
 	width: 100%;
 	height: 70.4vh;
@@ -92,7 +102,7 @@
 
 .orderListThead-1 tr th {
 	color: black;
-}
+} */
 
 /* 다크모드 */
 .dark-mode .orderList_page {

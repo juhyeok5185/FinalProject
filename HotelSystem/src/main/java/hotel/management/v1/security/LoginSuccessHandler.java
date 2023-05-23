@@ -19,12 +19,7 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-        System.out.println("석세스핸들러");
-        System.out.println("석세스핸들러");
-        System.out.println("석세스핸들러");
-        System.out.println("석세스핸들러");
-        System.out.println("석세스핸들러");
-        System.out.println("석세스핸들러");
+    
         
         if (authentication.getAuthorities().stream().anyMatch(auth -> auth.getAuthority().equals("ROLE_ADMIN"))) {
             String redirectUrl = request.getContextPath() + "/hotel/manager/bookList";
