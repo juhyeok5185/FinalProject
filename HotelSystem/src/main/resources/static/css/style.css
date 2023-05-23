@@ -463,7 +463,18 @@
 }
 
 /*주혁이형 */
-
+#img1 {
+	width: 100%; 
+	height: 70vh;
+}
+#img2 {
+	width: 100%; 
+	height: 70vh;
+}
+#img3 {
+	width: 100%; 
+	height: 70vh;
+}
 .reservation-area {
     background-color: white;
     margin-top: 5vh;
@@ -3327,6 +3338,9 @@ div #logintoolbar > a {
     }
 
     /* 700이하에서 안보이게 함 */
+    #imgslider {
+    	display: none;
+    }
     #aside{
         display: none;
     }
@@ -3475,6 +3489,9 @@ div #logintoolbar > a {
     #luxuryarticle-1 {
         display: none;
     }
+    #imgslider-res {
+    	display: none;
+    }
 
 
 
@@ -3554,6 +3571,18 @@ div #logintoolbar > a {
 }
 
 /*반응형 존*/
+#img1-res {
+	width: 100%;
+	height: 30vh;
+}
+#img2-res {
+	width: 100%;
+	height: 30vh;
+}
+#img3-res {
+	width: 100%;
+	height: 30vh;
+}
 #drop_icon {
     margin-right: 2vw;
 }
