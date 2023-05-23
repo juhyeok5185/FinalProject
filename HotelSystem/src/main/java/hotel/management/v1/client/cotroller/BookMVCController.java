@@ -15,21 +15,21 @@ import hotel.management.v1.client.book.dto.BookDto;
 import hotel.management.v1.client.service.BookService;
 
 @Controller
-@RequestMapping("/hotel")
+@RequestMapping("hotel")
 public class BookMVCController {
     @Autowired
     BookService service;
 
     @GetMapping("/manager/book")
-    public void managerbook() {
-
+    public String managerbook() {
+        return "/manager/book";
     }
 
     @GetMapping("/client/mydinnerbook")
     public ModelAndView mydinnerbook(Principal pal) {
         if (pal == null)
-            return new ModelAndView("/hotel/member/login").addObject("msg", "로그인후 이용가능합니다.");
-        return new ModelAndView().addObject("list", service.findMydinnerByusername(pal.getName()));
+            return new ModelAndView("hotel/member/login").addObject("msg", "로그인후 이용가능합니다.");
+        return new ModelAndView("hotel/client/mydinnerbook").addObject("list", service.findMydinnerByusername(pal.getName()));
     }
 
     @GetMapping("/client/myroombook")
@@ -37,24 +37,24 @@ public class BookMVCController {
         if (pal == null)
             return new ModelAndView("/hotel/member/login").addObject("msg", "로그인후 이용가능합니다.");
         List<BookDto.mypagedinner> list = service.findMyBookByUsername(pal.getName());
-        return new ModelAndView().addObject("list", list);
+        return new ModelAndView("hotel/client/myroombook").addObject("list", list);
     }
 
     @GetMapping("/client/roombook")
     public String bookPage(Principal pal, RedirectAttributes ra, Model model) {
         if (pal == null) {
             ra.addFlashAttribute("msg", "해당 상품은 멤버십 회원에게만 제공됩니다.");
-            return "redirect:/hotel/member/login";
+            return "redirect:hotel/member/login";
         }
         BookDto.finduser user = service.findByusername(pal.getName());
         model.addAttribute("user", user);
-        return "/hotel/client/roombook";
+        return "hotel/client/roombook";
     }
 
     @GetMapping("/client/roomdetail")
     public ModelAndView roomdetail(String grandname, Integer price, String from, String to) {
 
-        return new ModelAndView().addObject("gradename", grandname).addObject("totalprice", price)
+        return new ModelAndView("hotel/client/roomdetail").addObject("gradename", grandname).addObject("totalprice", price)
                 .addObject("from", from).addObject("to", to);
     }
 
