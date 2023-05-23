@@ -51,4 +51,6 @@ public interface BookDao {
   public   Integer managerdinner(BookDto.managerdinnerbook book);
 
 	public Integer manageraddDinnr(BookDto.managerdinnerbook book);
+
+	public Integer findUserByUsername(String username);
 }

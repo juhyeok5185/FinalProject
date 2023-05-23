@@ -122,4 +122,7 @@
 	<insert id="manageraddDinnr">
 		insert into dinner select b.bookno,b.totalcount,150000 from book b where b.bookdate = to_date(#{from},'YYYY-MM-DD') and b.username = #{booker}
 	</insert>
+	<select id="findUserByUsername" resultType="int">
+		select count(*)from users where username = #{username}
+	</select>
 </mapper>

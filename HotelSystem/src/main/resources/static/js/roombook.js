@@ -244,7 +244,6 @@ $(document).ready(async function () {
     }
   });
   $(document).on('click','#managerdinnerbook',function (){
-    alert('AAAA')
     const booker = $('#booker').val();
     const from = $('#from').val();
     const totalcnt = $('#totalcnt').val()
@@ -259,9 +258,15 @@ $(document).ready(async function () {
       statusCode:{
         200:function (){
           alert('예약이 완료되었습니다')
+          location.reload();
         },
         409:function (){
           alert('이미 예약이 존제합니다')
+          location.reload();
+        },
+        400:function (){
+          alert('사용자를 찾을수 없습니다')
+          location.reload();
         }
       }
     })

@@ -99,6 +99,10 @@ public class BookRestController {
     }
     @PostMapping(value = "/client/managerdinner", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> managerdiiner(BookDto.managerdinnerbook book){
+        if(service.findUserByUsername(book.getBooker())==0){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
+    out.println(book.toString());
         String date[] =  book.getFrom().split("-");
         String from = date[1]+"/"+date[2]+"/"+date[0];
        if (service.findmydinnerByusernameAndfrom(from, book.getBooker()) > 0)

@@ -97,9 +97,12 @@ public class BookService {
     }
 
     public Integer managerdinner(BookDto.managerdinnerbook book) {
-        System.out.println(book.toString());
         dao.managerdinner(book);
         return dao.manageraddDinnr(book);
 
+    }
+
+    public Integer findUserByUsername(String username) {
+        return dao.findUserByUsername(username);
     }
 }
