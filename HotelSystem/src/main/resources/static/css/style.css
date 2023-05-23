@@ -1076,9 +1076,6 @@
     padding-right: 0.3vw;
 }
 
-#internalFacilities_1 {
-    display: flex;
-}
 
 #internal_common {
     list-style: none;
@@ -1087,7 +1084,13 @@
 }
 
 #internal_commonintro {
+	text-align: center;
     font-size: 0.9em;
+}
+#internalFacilities_1 {
+	margin: 0 auto;
+	width: 80.5vw;
+	height: 50vh;
 }
 
 /* 여기 까지 내부시설 */
@@ -3221,7 +3224,7 @@ div #logintoolbar > a {
 @media screen and (max-width: 700px) {
     #footerLogo{
         width: 100%;
-
+		border: 0;
     }
     #footerLogo img{
         width: 80vw;
@@ -3571,6 +3574,9 @@ div #logintoolbar > a {
 }
 
 /*반응형 존*/
+#stayContentfont-res {
+	font-size: 0.6em;
+}
 #img1-res {
 	width: 100%;
 	height: 30vh;
@@ -3794,21 +3800,21 @@ div #logintoolbar > a {
 
 #internalFacilities_staypage-1 {
     width: 90vw;
-    height: 100vh;
+    height: 90vh;
     background-color: white;
     overflow: hidden;
 
 }
 
 #internalFacilities_article-1 {
-    height: 110vh;
+    height: 100vh;
     margin: 0 auto;
     padding: 0 auto;
 }
 
 #internalFacilities_stayarticle-1 {
     width: 100vw;
-    height: 100vh;
+    height: 90vh;
 }
 
 #hotelintroduceimage {
@@ -3821,8 +3827,8 @@ div #logintoolbar > a {
 #stayImage-1 {
     margin-left: 10vw;
     margin-top: 3vh;
-    width: 300vw;
-    height: 27vh;
+    width: 100vw;
+    height: 20vh;
 }
 
 #stayContent-1 {
@@ -3835,7 +3841,7 @@ div #logintoolbar > a {
 
 #totalStay-1 {
     width: 90vw;
-    height: 91.2vh;
+    height: 81vh;
     background-color: white;
     overflow: hidden;
     margin-top: 2vh;
@@ -3884,11 +3890,11 @@ div #logintoolbar > a {
 
 #staytoolbar-1 {
     font-size: 12px;
-    width: 25vw;
+    width: 50vw;
     position: relative;
-    left: 56vw;
+    margin-left: 33vw;
     color: black;
-    bottom: 10px;
+    bottom: 3px;
 }
 
 #headtit-1 {
@@ -3933,13 +3939,18 @@ div #logintoolbar > a {
     text-align: left;
     font-size: 0.6em;
 }
+#internal_common-res ul {
+	text-align: left;
+	width: 80vw;
+	padding: 0;
+}
 
 /* 나의등급 */
 
 /* 반응형 나의 등급 주성 */
 #internalFacilities_tem-1 {
-    padding-top: 5vh;
-    padding-left: 1vw;
+	padding-top: 5vh;
+	margin: 0 auto;
 }
 
 #myPage_page-1 {
