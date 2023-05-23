@@ -394,7 +394,7 @@
 @media screen and (max-width: 360px) {
     #bookpage{
         margin: 0;
-        padding: 0;
+        padding-top: 0.5vh;
     }
     #headtit {
         display: inline-block;
@@ -473,11 +473,12 @@
         display: inline-block;
     }
     #inputdiv{
-        width: 90vw;
+        width: 100%;
     }
     #payarea{
-        width: 96vw;
+        width: 100%;
         margin-top:1vh;
+        display: block;
     }
     #paymentPopup-box{
         width: 65vw;
@@ -509,6 +510,20 @@
     }
     #bookformbox{
         height: 65.4vh;
+    }
+    #roomlistimg{
+        display: none;
+    }
+
+    #paybtninfo{
+        margin: 0 auto;
+    }
+    #reservation-hotelinfo * {
+        display: block;
+        margin: 0 auto;
+    }
+    #reservation-hotelinfo{
+        height: auto;
     }
 }
 
