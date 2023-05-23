@@ -1554,7 +1554,7 @@ div #logintoolbar > a {
     background-color: #3a3125;
     width: 6.5vw;
     height: 3vh;
-    line-height: 3vh;
+    line-height: 2.5vh;
     padding-bottom: 0.1vh;
     margin: 5px;
     border: 1px solid black;
@@ -3238,9 +3238,6 @@ div #logintoolbar > a {
         display: none;
     }
 
-    #footer {
-        display: none;
-    }
 
     .dark-mode #footer {
         display: none;
@@ -3416,10 +3413,6 @@ div #logintoolbar > a {
     }
 
     #section2-1 {
-        display: none;
-    }
-
-    #footer-1 {
         display: none;
     }
 
@@ -4197,21 +4190,21 @@ div #logintoolbar > a {
 /* 반응형 로그인페이지 주성 */
 #loginpage-2 {
     width: 100vw;
-    height: 80vh;
+    height: 71vh;
     background-color: white;
 }
 
 #loginarticle-1 {
-    height: 75vh;
     width: 80vw;
+    height: 66.8vh;
     position: absolute;
-    left: 9vw;
-    margin-top: 11vh;
+    left: 10vw;
+    margin-top: 4.2vh;
 }
 
 #loginblock1_100 {
     width: 80vw;
-    height: 17vh;
+    height: 13vh;
     margin-top: 5vh;
 }
 
@@ -4239,23 +4232,22 @@ div #logintoolbar > a {
 
 #loginblock2_100 {
     width: 80vw;
-    height: 55.5vh;
-    margin-top: -9vh;
+    height: 40vh;
     padding: 0 auto;
 }
 
 #loginblock2_10 {
-    width: 60vw;
+    width: 80vw;
     height: 25vh;
     margin: 0 auto;
     text-align: center;
     background-color: #f1ebd6;
-    margin-top: 6.5vh;
+    margin-top: 1.5vh;
 }
 
 #loginblock2_20 {
-    width: 60vw;
-    height: 4vh;
+    width: 80vw;
+    height: 8.6vh;
     line-height: 4vh;
     margin: 0 auto;
     text-align: center;
@@ -4266,31 +4258,35 @@ div #logintoolbar > a {
 }
 
 #loginblocknav-1 {
-    width: 60vw;
+    width: 80vw;
     height: 5vh;
     line-height: 5vh;
     background-color: #faf9f7;
     border-bottom: 2px solid #9f8971;
     color: #948173;
 }
+#loginblocknav-1 p {
+    font-size: 0.8em;
+}
 
 #loginbut-1 {
-    width: 12vw;
-    height: 7.6vh;
+    width: 23vw;
+    height: 8.8vh;
     margin-left: 3vw;
     background-color: #3a3125;
     border: 2px solid black;
     color: #d5ccb0;
+    font-size: 0.9em;
 }
 
 #logintoolbar-1 {
     display: flex;
-    width: 55vw;
+    width: 75vw;
     height: 5vh;
     line-height: 3vh;
     font-size: 0.9rem;
-    margin-left: 4.7vw;
-    margin-top: -2vh;
+    margin-left: 1.9vw;
+    margin-top: 3vh;
 }
 
 #join_id-1 {
@@ -4298,12 +4294,11 @@ div #logintoolbar > a {
     text-decoration: none;
     color: #d5ccb0;
     background-color: #3a3125;
-    width: 15 w;
+    width: 33%;
     height: 3vh;
-    line-height: 3vh;
-    padding-bottom: 0.1vh;
+    line-height: 2.3vh;
     border: 1px solid black;
-    margin-top: 1vh;
+    margin-top: 0.9vh;
 }
 
 #find_id-1 {
@@ -4311,13 +4306,12 @@ div #logintoolbar > a {
     text-decoration: none;
     color: #d5ccb0;
     background-color: #3a3125;
-    width: 20 w;
+    width: 33%;
     height: 3vh;
-    line-height: 3vh;
-    padding-bottom: 0.1vh;
+    line-height: 2.3vh;
     border: 1px solid black;
-    margin-top: 1vh;
-    margin-left: 8.5vw;
+    margin-top: 0.9vh;
+    margin-left: 1.2vw;
 }
 
 #find_password-1 {
@@ -4325,30 +4319,32 @@ div #logintoolbar > a {
     text-decoration: none;
     color: #d5ccb0;
     background-color: #3a3125;
-    width: 20 w;
+    width: 34%;
     height: 3vh;
-    line-height: 3vh;
-    padding-bottom: 0.1vh;
+    line-height: 2.3vh;
     border: 1px solid black;
-    margin-top: 1vh;
-    margin-left: 8.5vw;
+    margin-top: 0.9vh;
+    margin-left: 1.2vw;
+}
+#loginlink {
+	font-size: 0.6em;
 }
 
 #loginbar_3 {
     display: flex;
-    margin: 5vw;
     margin-top: 3vh;
-    width: 25 w;
+    width: 55vw;
     height: 8vh;
 }
 
 #loginbar1_res {
-    width: 35vw;
+    width: 70vw;
     height: 10vh;
+    padding-left: 1.9vw;
 }
 
 #loginbarbut_res {
-    width: 15vw;
+    width: 28vw;
     height: 10vh;
 }
 
