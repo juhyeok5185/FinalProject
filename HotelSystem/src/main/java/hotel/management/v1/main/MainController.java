@@ -24,7 +24,9 @@ public class MainController {
     }
 
     @GetMapping("/contact")
-    public void contact(){}
+    public String contact(){
+        return "hotel/contact";
+    }
     
     @GetMapping("/hotelintroduce")
     public String hotelIntroduce(){
@@ -32,19 +34,29 @@ public class MainController {
     }
     
     @GetMapping("/hotelstay")
-    public void hotelStay(){}
+    public String hotelStay(){
+        return "hotel/hotelstay";
+    }
     
     @GetMapping("/internalfacilities")
-    public void internalFacilities(){}
+    public String internalFacilities(){
+        return "hotel/internalfacilities";
+    }
     
     @GetMapping("/report")
-    public void report(){}
+    public String report(){
+        return "hotel/report";
+    }
     
     @GetMapping("/luxuryhall")
-    public void luxuryHall(){}
+    public String luxuryHall(){
+        return "hotel/luxuryhall";
+    }
     
     @GetMapping("/howtocome")
-    public void howToCome(){}
+    public String howToCome(){
+        return "hotel/howtocome";
+    }
     
     @GetMapping("/test")
     public void index(){}

@@ -84,6 +84,14 @@
           <li><a class="dropdown-item" href="/hotel/member/login" sec:authorize="isAnonymous()">로그인</a></li>
           <li><a class="dropdown-item" href="/hotel/member/join" sec:authorize="isAnonymous()">회원가입</a></li>
           <li><a class="dropdown-item logout" href="#" sec:authorize="hasAuthority('ROLE_USER')">로그아웃</a></li>
+          <script>
+		        $(".logout").click(function () {
+		        	console.log('-=--------------');
+		          const $form = $("<form>").attr("action", "/hotel/member/logout").attr("method", "post").appendTo($("body"));
+		          $("<input>").attr("type", "hidden").attr("name", "_csrf").val($("#token").val()).appendTo($form);
+		          $form.submit();
+		        });
+		    </script>
           <li><a class="dropdown-item" href="/hotel/member/myPage" sec:authorize="hasAuthority('ROLE_USER')">나의 등급</a></li>
           <li><a class="dropdown-item" href="/hotel/member/profileupdate" sec:authorize="hasAuthority('ROLE_USER')">프로필 수정</a></li>
           <li><a class="dropdown-item" href="/hotel/member/changepassword" sec:authorize="hasAuthority('ROLE_USER')">비밀번호 변경</a></li>
