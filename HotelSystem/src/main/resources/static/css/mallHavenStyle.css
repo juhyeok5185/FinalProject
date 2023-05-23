@@ -547,22 +547,48 @@
 	line-height: 2.6vh;
 }
 
-.mallCart-table tbody tr td  {
-	font-size: 10px;
+#tbody2 tr td  {
+	font-size: 11px;
 }
 
+#tbody2 #tr-cnt {
+	position: relative;
+	right: 4vw;
+}
 
 #tbody2 .minus {
-	width:0.2vw;
+	width:0.1vw;
 	height:0.2vh;
 	font-weight:bold;
 	font-size: 2px;
 }
 #tbody2 .plus {
 	font-size: 2px;
-	width:0.2vw;
+	width:0.1vw;
 	height:0.2vh;
 	font-weight:bold;
+}
+#tbody2 .delete {
+	font-size: 2px;
+	width:0.1vw;
+	height:0.2vh;
+	font-weight:bold;
+}
+
+#tbody2 .minus > span {
+	position: relative;
+    bottom: 1vh;
+    right: 0.5vw;
+}
+#tbody2 .plus > span {
+	position: relative;
+    bottom: 1vh;
+    right: 0.9vw;
+}
+#tbody2 .delete > span {
+	position: relative;
+    bottom: 1vh;
+    right: 0.9vw;
 }
 
 .cartPay {

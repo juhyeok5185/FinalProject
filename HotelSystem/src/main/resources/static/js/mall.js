@@ -73,14 +73,14 @@ function addTr() {
     if (mallItem[i].count > 0) {
       const tpl = `
         <tr>
-          <td class="tbodyName" id="tbodyName" style="line-height:50px">${mallItem[i].name}</td>
-          <td style="line-height:50px">
-            <button class="btn btn-outline-secondary minus" data-index=${mallItem[i].index}>-<input type="hidden" value="${mallItem[i].price}"></button>
+          <td class="tbodyName" id="tbodyName" style="line-height:40px">${mallItem[i].name}</td>
+          <td style="line-height:40px" id="tr-cnt">
+            <button class="btn btn-outline-secondary minus" data-index=${mallItem[i].index}><span>-</span><input type="hidden" value="${mallItem[i].price}"></button>
             <span class="count">${mallItem[i].count}</span>
-            <button class="btn btn-outline-secondary plus" data-index=${mallItem[i].index}>+<input type="hidden" value="${mallItem[i].price}"></button>
+            <button class="btn btn-outline-secondary plus" data-index=${mallItem[i].index}><span>+</span><input type="hidden" value="${mallItem[i].price}"></button>
           </td>
-          <td class="price" style="line-height:50px">${mallItem[i].totalPrice}</td>
-          <td style="line-height:50px"><button class="btn btn-outline-secondary delete" data-index=${mallItem[i].index}>X</button></td>
+          <td class="price" style="line-height:40px">${mallItem[i].totalPrice}</td>
+          <td style="line-height:40px"><button class="btn btn-outline-secondary delete" data-index=${mallItem[i].index}><span>X</span></button></td>
         </tr>`;
 
       $tbody1.append(tpl);
