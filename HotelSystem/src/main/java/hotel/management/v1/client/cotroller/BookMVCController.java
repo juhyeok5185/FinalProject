@@ -28,14 +28,14 @@ public class BookMVCController {
     @GetMapping("/client/mydinnerbook")
     public ModelAndView mydinnerbook(Principal pal) {
         if (pal == null)
-            return new ModelAndView("/hotel/member/login").addObject("msg", "로그인후 이용가능합니다.");
+            return new ModelAndView("hotel/member/login").addObject("msg", "로그인후 이용가능합니다.");
         return new ModelAndView("hotel/client/mydinnerbook").addObject("list", service.findMydinnerByusername(pal.getName()));
     }
 
     @GetMapping("/client/myroombook")
     public ModelAndView myroombook(Principal pal) {
         if (pal == null)
-            return new ModelAndView("/hotel/member/login").addObject("msg", "로그인후 이용가능합니다.");
+            return new ModelAndView("hotel/member/login").addObject("msg", "로그인후 이용가능합니다.");
         List<BookDto.mypagedinner> list = service.findMyBookByUsername(pal.getName());
         return new ModelAndView("hotel/client/myroombook").addObject("list", list);
     }
