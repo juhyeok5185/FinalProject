@@ -45,6 +45,81 @@
 	background-color: #f1e3c4;
 }
 
+
+/*결제완료페이지*/
+#orderCompletePage {
+    width: 100%;
+    height: 120vh;
+    background-color: white;
+}
+
+#orderCompleteArticle {
+    height: 110vh;
+    width: 50vw;
+    position: absolute;
+    left: 25vw;
+    margin-top: 10vh;
+}
+
+#order-headtit {
+    width: 49vw;
+    position: relative;
+    border-bottom: 0.4rem solid #a1886f;
+    color: #555;
+}
+
+#order-tool {
+    font-size: 12px;
+    width: 10vw;
+    position: relative;
+    left: 44.8vw;
+    color: black;
+    bottom: 10px;
+}
+
+#order-headtit > h3 {
+    color: #9e774c;
+}
+
+#order-box {
+    width: 49vw;
+    height: 90vh;
+}
+
+#order-box1 {
+    width: 48.8vw;
+    height: 20.8vh;
+    line-height: 20.8vh;
+    text-align: center;
+    font-size: 1.4em;
+}
+
+#order-box3_1 {
+    margin-top: 3vh;
+    margin-left: 1.4vw;
+    width: 37vw;
+    height: 23.4vh;
+    border: 1px solid #cccccc;
+    background-color: #f1f1f1;
+    text-align: center;
+    line-height: 13.4vh;
+}
+
+#order-box2 {
+    width: 48.8vw;
+    height: 29.8vh;
+}
+
+#order-box3 {
+    margin-top: 3vh;
+    width: 40vw;
+    height: 29.8vh;
+    border: 2px solid #cebda5;
+    margin-left: 4.4vw;
+}
+
+
+
 @media screen and (max-width: 360px) {
 	.orderList_page {
 		display: block;
@@ -99,10 +174,37 @@
 		border-bottom: 1px solid #DBDBDB;
 		border-top: 1px solid #DBDBDB;
 		background-color : #212529;
-		
 	}
-
 	
+	/*결제완료 페이지 반응형*/
+	#orderCompletePage {
+		width: 100%;
+	}
+	
+	
+	#orderCompleteArticle {
+		width: 100%;
+	    position: relative;
+	    margin-top: 0;
+	    left: 0;
+	}
+	
+	#order-headtit {
+		display: none;
+	}
+	
+	#order-box {
+		width: 100%;
+		height: 90vh;
+	}
+	#order-box1 {
+		width: 100%;
+	    font-size: 0.9em;
+	    height: 15vh;
+	    line-height: 15vh;
+	}
+	
+
 }
 
 
