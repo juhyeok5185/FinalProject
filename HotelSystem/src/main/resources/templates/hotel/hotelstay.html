@@ -18,8 +18,8 @@
   <title>React Hotel</title>
 </head>
 <body>
-    <div th:replace="~{/fragment/nav.html}"></div>
-    <div id="internalFacilities_page"> 
+  <div th:replace="~{fragment/nav :: nav}"></div>
+  <div id="internalFacilities_page"> 
       <div id= "aside"> 
         <div id="inmenu">
           <h3 id="tit">호텔소개</h3>
@@ -89,6 +89,6 @@
       </div>
     </div>
     <!--풋터-->
-    <div th:replace="~{/fragment/footer.html}"></div>
+    <div th:replace="~{fragment/footer :: footer}"></div>
 </body>
 </html>

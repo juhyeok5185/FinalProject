@@ -159,7 +159,7 @@
     </style>
   </head>
   <body>
-    <div th:replace="~{/fragment/nav.html}"></div>
+    <div th:replace="~{fragment/nav :: nav}"></div>
     <!--고객 문의 게시판-->
     <div id="comepage">
       <div id="aside">
@@ -374,6 +374,6 @@
       </div>
     </div>
     <!--풋터-->
-    <div th:replace="~{/fragment/footer.html}"></div>
+    <div th:replace="~{fragment/footer :: footer}"></div>
   </body>
 </html>
