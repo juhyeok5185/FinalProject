@@ -82,7 +82,7 @@ public class PayController {
 		payService.tossPayApprove(orderId, paymentKey, amount, gradename);
 		session.removeAttribute("gradename");
 
-		return "pay/toss_success";
+		return "hotel/reservationcomplete";
 	}
 
 	@GetMapping("/pay/cancel")
