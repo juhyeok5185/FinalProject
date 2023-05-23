@@ -18,7 +18,7 @@
   <title>React Hotel</title>
 </head>
 <body>
-    <div th:replace="~{/fragment/nav.html}"></div>
+    <div th:replace="~{fragment/nav :: nav}"></div>
 	<div id="myPage_page"> 
 	
       <!-- aside -->
@@ -282,6 +282,6 @@
       </div>  
     </div>
     <!--풋터-->
-    <div th:replace="~{/fragment/footer.html}"></div>
+    <div th:replace="~{fragment/footer :: footer}"></div>
 </body>
 </html>
