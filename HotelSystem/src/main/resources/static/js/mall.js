@@ -417,8 +417,8 @@ $(document).ready(function () {
       amount: itemPrice,
       orderId: uuid,
       orderName: itemName,
-      successUrl: "http://localhost:8081/pay/toss_success",
-      failUrl: "http://127.0.0.1:5500//fail.html",
+      successUrl: "http://reacthms.kro.kr/pay/toss_success",
+      failUrl: "http://reacthms.kro.kr/hotel/main"
     });
   });
 
@@ -567,8 +567,8 @@ $(document).ready(function () {
       amount: itemPrice,
       orderId: uuid,
       orderName: itemName,
-      successUrl: "http://localhost:8081/pay/toss_success",
-      failUrl: "http://127.0.0.1:5500//fail.html",
+      successUrl: "http://reacthms.kro.kr/pay/toss_success",
+      failUrl: "http://reacthms.kro.kr/hotel/main"
     });
   });
 });
