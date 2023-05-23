@@ -29,7 +29,7 @@ public class OrderController {
 	public String list(Model model, Principal principal, RedirectAttributes re) {
 		if (principal == null) {
 			re.addFlashAttribute("msg", "로그인후 이용가능합니다.");
-			return "redirect:hotel/member/login";
+			return "redirect:/hotel/member/login";
 		}
 		model.addAttribute("orderlist", orderService.findAllOrder(principal.getName()));
 		return "hotel/mall/orderList";
