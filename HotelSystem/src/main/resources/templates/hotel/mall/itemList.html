@@ -45,7 +45,7 @@
     <input type="hidden" name="_csrf" id="itemListToken" th:value="${_csrf.token}" />
     <div class="hotel">
       <!-- 내브 -->
-      <div th:replace="~{/fragment/nav.html}"></div>
+      <div th:replace="~{fragment/nav :: nav}"></div>
       <!-- 700이상 -->
       <div id="luxury_page">
         <!-- 요금합계 -->
@@ -401,7 +401,7 @@
         </div>
       </div>
       <!-- 풋터 -->
-      <div th:replace="~{/fragment/footer.html}"></div>
+      <div th:replace="~{fragment/footer :: footer}"></div>
     </div>
   </body>
 </html>
