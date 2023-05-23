@@ -114,8 +114,6 @@ public class PayController {
 			PayDto.kakaoexecption response = objectMapper.readValue(kakao, PayDto.kakaoexecption.class);
 			String msg = response.getMsg();
 			Integer code = response.getCode();
-			System.out.println(msg);
-			System.out.println(code);
 			if (code ==-404){
 				System.out.println("404발생");
 				return ResponseEntity.ok(null);
