@@ -3222,6 +3222,10 @@ div #logintoolbar > a {
 
 /*700 이상 보일곳*/
 @media screen and (max-width: 700px) {
+    .dark-mode #footerLogo{
+        width: 100%;
+        border:0;
+    }
     #footerLogo{
         width: 100%;
 		border: 0;
@@ -3268,9 +3272,7 @@ div #logintoolbar > a {
     }
 
 
-    .dark-mode #footer {
-        display: none;
-    }
+
 
     #photo1 {
         height: 30vh;
@@ -3410,6 +3412,7 @@ div #logintoolbar > a {
 
 /*700이하부터 보일곳*/
 @media screen and (min-width: 701px) {
+
     #reportpage-3 {
         display: none;
     }
