@@ -3208,6 +3208,20 @@ div #logintoolbar > a {
 
 /*700 이상 보일곳*/
 @media screen and (max-width: 700px) {
+    #footerLogo{
+        width: 100%;
+
+    }
+    #footerLogo img{
+        width: 80vw;
+    }
+
+    #footer{
+        display: inline-block;
+    }
+    #footerInfo,#footerInfo_contact,#footerInfo_under{
+        display: none;
+    }
     .infopackage-image-area {
         display: none;
     }
