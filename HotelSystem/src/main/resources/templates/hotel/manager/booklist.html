@@ -16,20 +16,18 @@
   <link rel="stylesheet" href="/css/managementStyle.css">
   <link rel="stylesheet" href="/css/style.css">
   <title>관리자</title>
+</head>
   <script th:inline="javascript">
-    $(document).ready(function () {
       var currentHeight = $("#listarea").height();
       $("#listarea").height(currentHeight + [[${bookList}]].length * 46);
-    })
   </script>
-</head>
 <body id="managerBody">
   <input type="hidden" id="token" name="_csrf" th:value="${_csrf.token}">
   <div class="managment">
   <div id="headerAndnav" class="navbar navbar-expand-sm">
     <div id="div_logo">
       <div id="logo">
-        <a href="/hotel/manager/bookList"><img src="/img/logo.png" id="logoImg" alt="로고"></a>
+        <a href="/hotel/manager/bookList"><img src="/img/LOGO(1)-B.png" id="logoImg" alt="로고"></a>
       </div>
     </div>  
     <form action="/hotel/member/logout" method="post">
@@ -166,7 +164,7 @@
 
 <div id="managerFooter">
   <div id="managerFooterLogo">
-    <img src="/img/logo.png" alt="로꼬" width="200vw;">
+    <img src="/img/LOGO(1)-B.png" alt="로꼬" width="200vw; height="200px">
   </div>
 </div>
 

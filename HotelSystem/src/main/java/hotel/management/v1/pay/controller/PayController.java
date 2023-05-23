@@ -57,7 +57,7 @@ public class PayController {
 		if (tbodyArray != null) {
 			orderService.mallOrder(tbodyArray, pickupDay, principal.getName(), (String) session.getAttribute("tid"),
 					(String) session.getAttribute("partner_order_id"), PayType.KAKAO);
-			return "/hotel/luxurymallcomplete";
+			return "hotel/luxurymallcomplete";
 		}
 
 		KakaoPayApproveVO res = payService.kakaoPayApprove(pgToken, session, principal.getName());
@@ -66,7 +66,7 @@ public class PayController {
 		session.removeAttribute("pickupDay");
 		session.removeAttribute("tbodyArray");
 
-		return "/hotel/reservationcomplete";
+		return "hotel/reservationcomplete";
 	}
 
 	@GetMapping("/pay/toss_success")
@@ -77,12 +77,12 @@ public class PayController {
 		String[] tbodyArray = (String[]) session.getAttribute("tbodyArray");
 		if (tbodyArray != null) {
 			orderService.mallOrder(tbodyArray, pickupDay, principal.getName(), paymentKey, orderId, PayType.TOSS);
-			return "/hotel/luxurymallcomplete";
+			return "hotel/luxurymallcomplete";
 		}
 		payService.tossPayApprove(orderId, paymentKey, amount, gradename);
 		session.removeAttribute("gradename");
 
-		return "/pay/toss_success";
+		return "hotel/reservationcomplete";
 	}
 
 	@GetMapping("/pay/cancel")

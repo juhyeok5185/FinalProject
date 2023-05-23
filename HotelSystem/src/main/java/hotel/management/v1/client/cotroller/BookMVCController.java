@@ -22,7 +22,7 @@ public class BookMVCController {
 
     @GetMapping("/manager/book")
     public String managerbook() {
-        return "/manager/book";
+        return "hotel/manager/book";
     }
 
     @GetMapping("/client/mydinnerbook")
@@ -35,7 +35,7 @@ public class BookMVCController {
     @GetMapping("/client/myroombook")
     public ModelAndView myroombook(Principal pal) {
         if (pal == null)
-            return new ModelAndView("/hotel/member/login").addObject("msg", "로그인후 이용가능합니다.");
+            return new ModelAndView("hotel/member/login").addObject("msg", "로그인후 이용가능합니다.");
         List<BookDto.mypagedinner> list = service.findMyBookByUsername(pal.getName());
         return new ModelAndView("hotel/client/myroombook").addObject("list", list);
     }
@@ -44,7 +44,7 @@ public class BookMVCController {
     public String bookPage(Principal pal, RedirectAttributes ra, Model model) {
         if (pal == null) {
             ra.addFlashAttribute("msg", "해당 상품은 멤버십 회원에게만 제공됩니다.");
-            return "redirect:hotel/member/login";
+            return "redirect:/hotel/member/login";
         }
         BookDto.finduser user = service.findByusername(pal.getName());
         model.addAttribute("user", user);
@@ -64,7 +64,7 @@ public class BookMVCController {
             ra.addFlashAttribute("msg", "해당 상품은 멤버십 회원에게만 제공됩니다.");
             return "redirect:/hotel/member/login";
         }
-        return "/hotel/client/dinnerbook";
+        return "hotel/client/dinnerbook";
     }
 
 }

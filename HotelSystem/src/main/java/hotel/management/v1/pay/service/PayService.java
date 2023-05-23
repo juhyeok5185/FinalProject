@@ -39,9 +39,9 @@ public class PayService {
 		payParams.add("quantity", params.get("quantity"));
 		payParams.add("total_amount", params.get("total_amount"));
 		payParams.add("tax_free_amount", params.get("tax_free_amount"));
-		payParams.add("approval_url", "http://localhost:8081/pay/success"); // 성공하면 예약성공페이지로
-		payParams.add("cancel_url", "http://localhost:8081/pay/cancel"); // 취소시 예약페이지
-		payParams.add("fail_url", "http://localhost:8081/pay/fail"); // 실패시 예약페이지
+		payParams.add("approval_url", "http://reacthms.kro.kr/pay/success"); // 성공하면 예약성공페이지로
+		payParams.add("cancel_url", "http://reacthms.kro.kr/hotel/main"); // 취소시 예약페이지
+		payParams.add("fail_url", "http://reacthms.kro.kr/hotel/main"); // 실패시 예약페이지
 		
 		HttpEntity<Map> request1 = new HttpEntity<Map>(payParams, headers);
 

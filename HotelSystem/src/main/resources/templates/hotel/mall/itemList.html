@@ -45,7 +45,7 @@
     <input type="hidden" name="_csrf" id="itemListToken" th:value="${_csrf.token}" />
     <div class="hotel">
       <!-- 내브 -->
-      <div th:replace="~{/fragment/nav.html}"></div>
+      <div th:replace="~{fragment/nav :: nav}"></div>
       <!-- 700이상 -->
       <div id="luxury_page">
         <!-- 요금합계 -->
@@ -249,7 +249,7 @@
         <div class="mallCart-popup" style="display: none"></div>
         <div class="mallCart-icon">
           <div class="badge"><div id="badgeCnt"></div></div>
-          <img id="cartIcon" alt="카트" src="/img/카트.png" width="45vw;" height="45vh;" />
+          <img id="cartIcon" alt="카트" src="/img/카트.png" width="20vw;" height="20vh;" />
         </div>
         <div class="mallCart-list" style="display: none">
           <div class="mallCart-title">
@@ -401,7 +401,7 @@
         </div>
       </div>
       <!-- 풋터 -->
-      <div th:replace="~{/fragment/footer.html}"></div>
+      <div th:replace="~{fragment/footer :: footer}"></div>
     </div>
   </body>
 </html>

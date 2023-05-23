@@ -24,7 +24,7 @@ public class BoardController {
 
 	@GetMapping("/hotel/board/write")
 	public ModelAndView write(Principal principal, BoardDto.Write dto , String msg) {
-		return new ModelAndView("/hotel/board/write").addObject("name", principal.getName()).addObject("msg", msg);
+		return new ModelAndView("hotel/board/write").addObject("name", principal.getName()).addObject("msg", msg);
 	}
 
 	@PostMapping("/hotel/board/write")
@@ -40,12 +40,12 @@ public class BoardController {
 	public ModelAndView list(@RequestParam(defaultValue = "1") Integer pageno) {
 		BoardDto.Pagination list = service.pagination(pageno);
 		if (list.getMsg() == "잘못된경로") {
-			return new ModelAndView("/hotel/board/list").addObject("board", list.getBoard())
+			return new ModelAndView("hotel/board/list").addObject("board", list.getBoard())
 					.addObject("prev", list.getPrev()).addObject("start", list.getStart())
 					.addObject("end", list.getEnd()).addObject("next", list.getNext()).addObject("pageno", pageno)
 					.addObject("msg", list.getMsg());
 		}
-			return new ModelAndView("/hotel/board/list").addObject("board", list.getBoard())
+			return new ModelAndView("hotel/board/list").addObject("board", list.getBoard())
 				.addObject("prev", list.getPrev()).addObject("start", list.getStart()).addObject("end", list.getEnd())
 				.addObject("next", list.getNext()).addObject("pageno", pageno);
 	}
@@ -54,12 +54,12 @@ public class BoardController {
 	public ModelAndView managerList(@RequestParam(defaultValue = "1") Integer pageno) {
 		BoardDto.Pagination list = service.pagination(pageno);
 		if (list.getMsg() == "잘못된경로") {
-			return new ModelAndView("/hotel/manager/managerBoard").addObject("board", list.getBoard())
+			return new ModelAndView("hotel/manager/managerBoard").addObject("board", list.getBoard())
 					.addObject("prev", list.getPrev()).addObject("start", list.getStart())
 					.addObject("end", list.getEnd()).addObject("next", list.getNext()).addObject("pageno", pageno)
 					.addObject("msg", list.getMsg());
 		}
-		return new ModelAndView("/hotel/manager/managerBoard").addObject("board", list.getBoard())
+		return new ModelAndView("hotel/manager/managerBoard").addObject("board", list.getBoard())
 				.addObject("prev", list.getPrev()).addObject("start", list.getStart()).addObject("end", list.getEnd())
 				.addObject("next", list.getNext()).addObject("pageno", pageno);
 	}

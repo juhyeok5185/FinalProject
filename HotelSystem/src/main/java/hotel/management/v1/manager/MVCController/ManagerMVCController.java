@@ -25,9 +25,9 @@ public class ManagerMVCController {
     public ModelAndView booklist(){
         List<ManagerDto.findBookList> bookList = service.findBookList();
         if(bookList == null){
-            return new ModelAndView("hotel/manager/bookList").addObject("msg", "검색결과가 없습니다.");
+            return new ModelAndView("hotel/manager/booklist").addObject("msg", "검색결과가 없습니다.");
         }
-        return new ModelAndView("hotel/manager/bookList").addObject("bookList", bookList);
+        return new ModelAndView("hotel/manager/booklist").addObject("bookList", bookList);
     }
 
     //고객검색 페이지 불러오는 메소드
@@ -39,8 +39,8 @@ public class ManagerMVCController {
     public ModelAndView memberDetail(String name , String tel){
         ManagerDto.userDetail detail = service.memberDetail(name,tel);
         if(detail == null){
-            return new ModelAndView("/hotel/manager/memberDetail").addObject("msg", "없는 회원입니다.");
+            return new ModelAndView("hotel/manager/memberDetail").addObject("msg", "없는 회원입니다.");
         }
-        return new ModelAndView("/hotel/manager/memberDetail").addObject("member", detail);
+        return new ModelAndView("hotel/manager/memberDetail").addObject("member", detail);
     }
 }

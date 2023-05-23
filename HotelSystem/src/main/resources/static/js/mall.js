@@ -417,8 +417,8 @@ $(document).ready(function () {
       amount: itemPrice,
       orderId: uuid,
       orderName: itemName,
-      successUrl: "http://localhost:8081/pay/toss_success",
-      failUrl: "http://127.0.0.1:5500//fail.html",
+      successUrl: "http://reacthms.kro.kr/pay/toss_success",
+      failUrl: "http://reacthms.kro.kr/hotel/main"
     });
   });
 
@@ -453,12 +453,12 @@ $(document).ready(function () {
       $(".mallCart-popup").attr("style", "display:none");
       $(".mallCart-list").attr("style", "display:none");
       $("html").attr("style", "overflow: none");
-      $(".mallCart-icon").attr("style", "transform: translate(-15%, -8%)");
+      //$(".mallCart-icon").attr("style", "transform: translate(-15%, -8%)");
     } else {
       $(".mallCart-popup").attr("style", "display:block");
       $(".mallCart-list").attr("style", "display:block");
       $("html").attr("style", "overflow: hidden");
-      $(".mallCart-icon").attr("style", "transform: translate(16%, -8%)");
+      //$(".mallCart-icon").attr("style", "transform: translate(18%, -8%)");
     }
     ++cartClick;
     $(".badge").removeClass("badgeadd");
@@ -567,8 +567,8 @@ $(document).ready(function () {
       amount: itemPrice,
       orderId: uuid,
       orderName: itemName,
-      successUrl: "http://localhost:8081/pay/toss_success",
-      failUrl: "http://127.0.0.1:5500//fail.html",
+      successUrl: "http://reacthms.kro.kr/pay/toss_success",
+      failUrl: "http://reacthms.kro.kr/hotel/main"
     });
   });
 });

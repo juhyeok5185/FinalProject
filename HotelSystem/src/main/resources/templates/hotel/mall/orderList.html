@@ -28,7 +28,7 @@
     <input type="hidden" name="_csrf" id="token" th:value="${_csrf.token}" />
     <div class="hotel">
       <!-- 내브 -->
-      <div th:replace="~{/fragment/nav.html}"></div>
+      <div th:replace="~{fragment/nav :: nav}"></div>
       <!-- 700이상 -->
       <div class="orderList_page">
         <!-- aside -->
@@ -140,7 +140,7 @@
         </div>
       </div>
       <!-- 풋터 -->
-      <div th:replace="~{/fragment/footer.html}"></div>
+      <div th:replace="~{fragment/footer :: footer}"></div>
     </div>
   </body>
 </html>
