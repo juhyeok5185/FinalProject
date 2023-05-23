@@ -3214,6 +3214,7 @@ div #logintoolbar > a {
     }
     #footerLogo img{
         width: 80vw;
+        border: 0;
     }
 
     #footer{
