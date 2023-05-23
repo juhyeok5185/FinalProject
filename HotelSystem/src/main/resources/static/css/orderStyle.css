@@ -47,62 +47,65 @@
 
 @media screen and (max-width: 360px) {
 	.orderList_page {
-		display: inline-block;
+		display: block;
+	}
+	
+	.orderList_article {
+		display: block;
+		width: 100%;
+		position: relative;
+		left: 0;
+		margin-top: 0;
 	}
 	
 	#myPageaside {
 		display: none;
 	}
-}
+	
+	#headtit {
+		display: inline-block;
+	    border-bottom: 0;
+	    background-color: #9e774c;
+	    width: 100%;
+	}
+	
+	#headtit h3 {
+		display: block;
+		color: white;
+		text-align: center;
+		margin-top: 4px;
+	}
+	
+	#changepasswordtool {
+		display: none;
+	}
 
-/*
-.orderList_page-1 {
-	width: 100%;
-	height: 70.4vh;
-	overflow-y: hidden;
-}
+	#tableDiv {
+	   	max-height: 66vh;
+	    overflow-y: scroll;
+	    margin-top: 0;
+	    height: 66vh;
+	}
+	
+	.orderListThead tr th {
+		font-size: 15px;
+	}
+	
+	.orderListTbody tr td {
+		font-size: 14px;
+	}
+	
+	.dark-mode #headtit {
+		border-bottom: 1px solid #DBDBDB;
+		border-top: 1px solid #DBDBDB;
+		background-color : #212529;
+		
+	}
 
-#orderListHead {
-  width: 80vw;
-  position: relative;
-  padding: 0.1vw 0.5vh 0 0;
-  border-bottom: 0.4rem solid #a1886f;
-  top: 6vh;
-  margin:0 auto;
-  color: #9e774c;
-}
-
-.orderListToolbar-1 {
-	font-size: 12px;
-    width: 30.5vw;
-    position: relative;
-    left: 48vw;
-    color: black;
-    bottom: 10px;
-}
-
-.orderList_article-1 {
-	width: 80vw;
-	height: 70.4vh;
-	margin: auto;
 	
 }
 
-#tableDiv-1 {
-	max-height: 40vh;
-	overflow-y: scroll;
-	margin-top: 10vh;
-}
 
-.orderListThead-1 {
-	position: sticky;	
-	top:0vh;
-	background-color: #f1e3c4;
-}
-
-.orderListThead-1 tr th {
-	color: black;
-} */
 
 /* 다크모드 */
 .dark-mode .orderList_page {

@@ -63,10 +63,10 @@
           <div id="tableDiv">
             <table class="table" id="orderListTable">
               <colgroup>
-                <col width="20%" />
                 <col width="30%" />
                 <col width="30%" />
-                <col width="20%" />
+                <col width="30%" />
+                <col width="10%" />
               </colgroup>
               <thead class="orderListThead">
                 <tr>
@@ -84,7 +84,7 @@
                   </td>
                   <td class="td-height" th:text="${o.orderDate}"></td>
                   <td>
-                    <button type="button" class="btn btn-outline-secondary orderCancel-btn">주문취소</button>
+                    <button type="button" class="btn btn-outline-secondary orderCancel-btn">X</button>
                     <input type="hidden" th:value="${o.orderNo}" class="order-No" />
                     <input type="hidden" th:value="${o.itemName}" class="item-Name" />
                     <input type="hidden" th:value="${o.orderEA}" class="order-EA" />
