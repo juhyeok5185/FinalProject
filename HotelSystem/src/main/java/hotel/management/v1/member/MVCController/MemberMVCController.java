@@ -24,7 +24,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("/hotel")
+@RequestMapping("hotel")
 public class MemberMVCController {
 	@Autowired
 	private MemberService service;
