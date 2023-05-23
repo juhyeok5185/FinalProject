@@ -24,7 +24,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("/hotel")
+@RequestMapping("hotel")
 public class MemberMVCController {
 	@Autowired
 	private MemberService service;
@@ -33,7 +33,7 @@ public class MemberMVCController {
 	@PreAuthorize("isAnonymous()")
 	@GetMapping("/member/join")
 	public void join() {
-
+		
 	}
 	
 	// 회원가입을 처리하고 회원가입 완료페이지로 보내주는 메소드
@@ -69,7 +69,7 @@ public class MemberMVCController {
 	@GetMapping("/member/myPage")
 	public ModelAndView myPage(Principal principal) {
 		MemberDto.Read dto = service.read(principal.getName());
-		return new ModelAndView("/hotel/member/myPage").addObject("member", dto);
+		return new ModelAndView("hotel/member/myPage").addObject("member", dto);
 	}
 
 	
@@ -110,7 +110,7 @@ public class MemberMVCController {
 	public ModelAndView checkPassword(HttpSession session) {
 		if (session.getAttribute("isPasswordCheck") != null)
 			return new ModelAndView("redirect:/hotel/member/read");
-		return new ModelAndView("/hotel/member/profileupdate");
+		return new ModelAndView("hotel/member/profileupdate");
 	}
 	
 	// 프로필 변경 페이지에서 비밀번호를 입력하면 내 비밀번호와 비교한 후 일치하면 프로필변경 페이지로 이동 일치하지 않으면 비밀번호를 잘못 입력하셨습니다.라는 메세지를 띄우고 프로필변경(비밀번호 입력 페이지)로 보내준다.
@@ -138,7 +138,7 @@ public class MemberMVCController {
 		}
 		// dto에서 정보를 읽어와서 html 프로필변경(비밀번호 확인 후 페이지)에서 th:text="${member.username}"으로 읽은 정보를 불러오기 위해 사용
 		MemberDto.Read dto = service.read(principal.getName());
-		return new ModelAndView("/hotel/member/read").addObject("member", dto);
+		return new ModelAndView("hotel/member/read").addObject("member", dto);
 	}
 	
 	

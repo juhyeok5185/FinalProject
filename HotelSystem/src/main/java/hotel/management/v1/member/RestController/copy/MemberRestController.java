@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import hotel.management.v1.member.service.MemberService;
 
 @Controller
-@RequestMapping("/hotel")
+@RequestMapping("hotel")
 public class MemberRestController {
 	@Autowired
 	private MemberService service;
