@@ -415,9 +415,9 @@
 
 #mallToolbar-1 {
 	font-size: 12px;
-    width: 30vw;
+    width: 34vw;
     position: relative;
-    left: 50vw;
+    left: 47vw;
     color: black;
     bottom: 10px;
 }
@@ -449,20 +449,26 @@
 
 .itemBtn {
 	position: relative;
-    left: 15.8vw;
-    top: 0.29vh;
+    left: 11vw;
 }
 
 .itemBtn1 {
 	position: relative;
-    left: 19.3vw;
-    top: 0.29vh;
+    left: 14.5vw;
 }
 
 .itemBtn2 {
 	position: relative;
-    left: 21.5vw;
-    top: 0.29vh;
+    left: 17vw;
+}
+
+.itemName-1 {
+	font-size: 18px;
+    font-weight: bold;
+}
+
+.itemPrice-1 {
+	font-size: 15px;
 }
 
 
