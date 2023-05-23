@@ -22,7 +22,7 @@ import jakarta.servlet.http.HttpSession;
 import static java.lang.System.out;
 
 @Controller
-@RequestMapping("/hotel")
+@RequestMapping("hotel")
 public class BookRestController {
     @Autowired
     private BookService service;

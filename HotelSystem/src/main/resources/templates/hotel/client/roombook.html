@@ -38,7 +38,7 @@
 	<!--헤더겸 네비바-->
 	<div class="hotel">
 
-		<div th:replace="~{/fragment/nav.html}"></div>
+		<div th:replace="~{fragment/nav :: nav}"></div>
 		<!--고객 문의 게시판-->
 		<div id="bookpage">
 			<div id="bookarticle">
@@ -116,7 +116,7 @@
 		</div>
 		<!--풋터-->
 
-		<div th:replace="~{/fragment/footer.html}"></div>
+		<div th:replace="~{fragment/footer :: footer}"></div>
 	</div>
 </body>
 
