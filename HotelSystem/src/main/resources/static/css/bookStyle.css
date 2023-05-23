@@ -382,6 +382,11 @@
 
 /* 700이상 보일곳*/
 @media screen and (max-width: 700px) {
+    #inputdiv *{
+        display: block;
+        text-align: center;
+        margin: 0 auto;
+    }
     #headtit {
         display: inline-block;
         left: 3.7vw;
@@ -389,6 +394,14 @@
     }
     #mybookPageaside {
         display: none;
+    }
+    #roomlist{
+        padding: 0 1.1vw;
+    }
+    #roomimg{
+        width: 20vw;
+        height: 12vh;
+        margin: 5vh auto;
     }
     #myPagetool{
         width: 50vw;
