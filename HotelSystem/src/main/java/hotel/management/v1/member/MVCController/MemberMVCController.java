@@ -24,7 +24,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("hotel")
+@RequestMapping("/hotel")
 public class MemberMVCController {
 	@Autowired
 	private MemberService service;
@@ -41,7 +41,7 @@ public class MemberMVCController {
 	@PostMapping("/member/join")
 	public String join(MemberDto.Join dto) {
 		service.join(dto);
-		return "redirect:hotel/member/joincomplete";
+		return "redirect:/hotel/member/joincomplete";
 	}
 	
 	// 로그인 페이지 불러오는 메소드
@@ -89,7 +89,7 @@ public class MemberMVCController {
 	@PostMapping("/member/changepassword")
 	public String changePassword(HttpSession session, String newpassword, Principal principal) {
 		service.changePassword(newpassword, principal.getName());
-		return "redirect:hotel/member/myPage";
+		return "redirect:/hotel/member/myPage";
 	}
 	
 	
@@ -101,7 +101,7 @@ public class MemberMVCController {
 		service.delete(auth.getName());
 		handler.logout(req, res, auth);
 		ra.addFlashAttribute("msg", "감사합니다. 꼭 다시 한번 뵙고 싶습니다.");
-		return "redirect:hotel/main";
+		return "redirect:/hotel/main";
 	}
 
 	// 비밀번호가 세션에 들어와있으면 프로필 변경 페이지로 보내주고 비밀번호가 들어와있지 않으면 프로필 변경(비밀번호 입력 페이지)으로 보내주는 메소드
@@ -109,7 +109,7 @@ public class MemberMVCController {
 	@GetMapping("/member/profileupdate")
 	public ModelAndView checkPassword(HttpSession session) {
 		if (session.getAttribute("isPasswordCheck") != null)
-			return new ModelAndView("redirect:hotel/member/read");
+			return new ModelAndView("redirect:/hotel/member/read");
 		return new ModelAndView("hotel/member/profileupdate");
 	}
 	
@@ -118,14 +118,14 @@ public class MemberMVCController {
 	@PostMapping("/member/profileupdate")
 	public String checkPassword(String password, Principal principal, HttpSession session, RedirectAttributes ra) {
 		if (session.getAttribute("isPasswordCheck") != null)
-			return "redirect:hotel/member/read";
+			return "redirect:/hotel/member/read";
 		Boolean result = service.checkPassword(password, principal.getName());
 		if (result == true) {
 			session.setAttribute("isPasswordCheck", true);
-			return "redirect:hotel/member/read";
+			return "redirect:/hotel/member/read";
 		} else {
 			ra.addFlashAttribute("msg", "비밀번호를 잘못 입력하셨습니다.");
-			return "redirect:hotel/member/profileupdate";
+			return "redirect:/hotel/member/profileupdate";
 		}
 	}
 	
@@ -134,7 +134,7 @@ public class MemberMVCController {
 	@GetMapping("/member/read")
 	public ModelAndView read(Principal principal, HttpSession session) {
 		if (session.getAttribute("isPasswordCheck") == null) {
-			return new ModelAndView("redirect:hotel/member/profileupdate");
+			return new ModelAndView("redirect:/hotel/member/profileupdate");
 		}
 		// dto에서 정보를 읽어와서 html 프로필변경(비밀번호 확인 후 페이지)에서 th:text="${member.username}"으로 읽은 정보를 불러오기 위해 사용
 		MemberDto.Read dto = service.read(principal.getName());

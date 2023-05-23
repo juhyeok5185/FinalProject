@@ -4,15 +4,7 @@
     <meta charset="UTF-8" />
     <title>J.H.H.L</title>
     <style></style>
-    <script>
-      $(document).ready(function () {
-        $(".logout").click(function () {
-          const $form = $("<form>").attr("action", "/hotel/member/logout").attr("method", "post").appendTo($("body"));
-          $("<input>").attr("type", "hidden").attr("name", "_csrf").val($("#token").val()).appendTo($form);
-          $form.submit();
-        });
-      });
-    </script>
+   
   </head>
   <body>    
 	<span th:fragment="nav" id="nav">
@@ -23,6 +15,14 @@
           <li class="nav-item" id="liLine"><a class="nav-link" href="/hotel/member/login" id="textcolor" sec:authorize="isAnonymous()">로그인</a></li>
           <li class="nav-item" id="liLine"><a class="nav-link" href="/hotel/member/join" id="textcolor" sec:authorize="isAnonymous()">회원가입</a></li>
           <li class="nav-item" id="liLine"><a class="nav-link logout" href="#" sec:authorize="hasAuthority('ROLE_USER')" id="textcolor">로그아웃</a></li>
+           <script>
+		        $(".logout").click(function () {
+		        	console.log('-=--------------');
+		          const $form = $("<form>").attr("action", "/hotel/member/logout").attr("method", "post").appendTo($("body"));
+		          $("<input>").attr("type", "hidden").attr("name", "_csrf").val($("#token").val()).appendTo($form);
+		          $form.submit();
+		        });
+		    </script>
           <li class="nav-item" id="liLine"><a class="nav-link" href="/hotel/member/myPage" sec:authorize="hasAuthority('ROLE_USER')" id="textcolor">마이페이지</a></li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" id="textcolor">예약.주문확인</a>
