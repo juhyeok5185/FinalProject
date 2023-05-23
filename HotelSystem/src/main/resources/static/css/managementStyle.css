@@ -101,13 +101,14 @@
 
 #managerFooter {
   background-color: #f1e3c4;
-  height: 20%;
+  height: 200px;
   width: 100%;
  
 }
 
 #managerFooterLogo {
   text-align: center;
+  line-height: 200px;
 }
 
 tbody tr td {
