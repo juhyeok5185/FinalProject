@@ -17,7 +17,7 @@ import hotel.management.v1.mall.service.OrderService;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("/hotel")
+@RequestMapping("hotel")
 public class OrderRestController {
     @Autowired
     private OrderService orderService;

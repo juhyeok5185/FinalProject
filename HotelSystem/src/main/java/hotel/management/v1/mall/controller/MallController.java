@@ -12,7 +12,7 @@ import hotel.management.v1.mall.dto.OrdersDto;
 import hotel.management.v1.mall.service.OrderService;
 
 @Controller
-@RequestMapping("/hotel")
+@RequestMapping("hotel")
 public class MallController {
 	@Autowired
 	private OrderService orderService;
@@ -20,7 +20,7 @@ public class MallController {
 	@GetMapping("/mall/itemList")
 	public ModelAndView item() {
 		List<OrdersDto.Items> items = orderService.findByItemNo();
-		return new ModelAndView("/hotel/mall/itemList").addObject("list", items);
+		return new ModelAndView("hotel/mall/itemList").addObject("list", items);
 	}
 
 }
