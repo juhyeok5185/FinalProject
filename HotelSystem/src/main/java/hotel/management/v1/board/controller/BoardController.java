@@ -65,14 +65,16 @@ public class BoardController {
 	}
 
 	@GetMapping("/hotel/board/read")
-	public void read(Integer boardNo, Model model) {
+	public String read(Integer boardNo, Model model) {
 		service.findByNo(boardNo);
 		model.addAttribute("board", service.findByNo(boardNo));
+		return "hotel/board/read";
 	}
 	@GetMapping("/hotel/manager/managerBoardRead")
-	public void managerread(Integer boardNo, Model model) {
+	public String managerread(Integer boardNo, Model model) {
 		service.findByNo(boardNo);
 		model.addAttribute("board", service.findByNo(boardNo));
+		return "hotel/manager/managerBoardRead";
 	}
 
 	@PostMapping("/hotel/board/read")
