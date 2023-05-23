@@ -3591,7 +3591,7 @@ div #logintoolbar > a {
 }
 
 #membership-1 {
-    padding-left: 0.5vw;
+    margin-left: -1.1vw;
     letter-spacing: 1vw;
     color: #9d8c78;
 }
@@ -3725,7 +3725,7 @@ div #logintoolbar > a {
     display: block;
     box-sizing: border-box;
     position: absolute;
-    left: 6.5vw;
+    left: 5.5vw;
     top: 1.5vh;
     border-left: 40px solid currentColor;
     border-top: 30px solid transparent;
@@ -4480,11 +4480,11 @@ div #logintoolbar > a {
 }
 
 #passwordBox1 {
-    width: 60vw;
+    width: 80vw;
     height: 50vh;
     background-color: #9b7f5b;
     position: fixed;
-    left: 19vw;
+    left: 10vw;
     top: 23vh;
     opacity: 1;
     margin: auto;
@@ -4492,7 +4492,7 @@ div #logintoolbar > a {
 }
 
 #findpasswordbar-1 {
-    width: 60vw;
+    width: 80vw;
     height: 8vh;
     position: absolute;
     bottom: 41.3vh;
@@ -4504,7 +4504,7 @@ div #logintoolbar > a {
 }
 
 #findpasswordbox1-1 {
-    width: 58.7vw;
+    width: 78.5vw;
     height: 45.4vh;
     margin: auto;
     position: absolute;
@@ -4514,7 +4514,7 @@ div #logintoolbar > a {
 }
 
 #findpasswordbox2-1 {
-    width: 56.8vw;
+    width: 76.5vw;
     height: 20.4vh;
     margin: auto;
     position: absolute;
@@ -4525,14 +4525,14 @@ div #logintoolbar > a {
 }
 
 #findpasswordbox2_10 {
-    width: 56.5vw;
+    width: 76vw;
     height: 6.6vh;
     background-color: #fbfbfb;
     display: flex;
 }
 
 #findpasswordbox2_20 {
-    width: 56.5vw;
+    width: 76vw;
     height: 6.6vh;
     background-color: #fbfbfb;
     display: flex;
@@ -4572,7 +4572,7 @@ div #logintoolbar > a {
 
 #findpasswordcheckbar10 {
     display: flex;
-    width: 56.4vw;
+    width: 76.5vw;
     height: 16.1vw;
     margin: auto;
     padding: auto;
@@ -4584,20 +4584,20 @@ div #logintoolbar > a {
 }
 
 #findpasswordcheckbar1-1 {
-    width: 28.2vw;
-    height: 6vh;
-    line-height: 6vh;
+    width: 38.25vw;
+    height: 4.3vh;
+    line-height: 4.3vh;
 }
 
 #findpasswordcheckbar2-1 {
-    width: 28.2vw;
-    height: 6vh;
-    line-height: 6vh;
+    width: 38.25vw;
+    height: 4.3vh;
+    line-height: 4.3vh;
 }
 
 #passwordcancel {
     position: relative;
-    left: 27.2vw;
+    left: 37vw;
 }
 
 #passwordcancel > a {
