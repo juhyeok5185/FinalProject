@@ -25,7 +25,7 @@
 <body>
   <div th:replace="~{fragment/nav :: nav}"></div>
     <!--고객 문의 게시판-->
-    <div id="reportpage"> 
+    <div id=reportpage-board> 
       <div id="aside"> 
         <div id="inmenu">
           <h3 id="tit">고객문의</h3><br>
@@ -83,6 +83,67 @@
         </div>
       </div>
     </div>
+    
+    
+    <div id=reportpage-board-list-reaction> 
+      <div id="aside"> 
+        <div id="inmenu">
+          <h3 id="tit">고객문의</h3><br>
+          <ul id="menu">
+            <li id="m1first"><a href="/hotel/contact" id="subh">연락처</a></li> <br> 
+            <li id="m2last"><a href="/hotel/board/list" id="subh">문의하기</a></li>
+          </ul>   
+        </div>
+      </div>
+      <div id="reportarticle">
+        <div id="headtit"> 
+          <h3>문의하기</h3>
+          <div id="toolbar">
+            <i class="fa-solid fa-house"></i> > 고객문의 > <a href="/hotel/board/list" id="subh">문의하기</a>
+          </div>
+        </div>
+    <!--문의게시판목록-->
+         <hr>
+        <div id="reportboard">
+          <div id="boardlist">
+            <table class="table table-hover" style="text-align: center;">
+              <thead>
+                <tr>
+                  <th>번호</th>
+                  <th>제목</th>
+                  <th>작성자</th>
+                  <th>작성일</th>
+                </tr>
+              </thead>
+            <tbody>
+		      <tr th:each="b : ${board}">
+		      <td th:text=${b.boardNo}></td>
+		      <td><a id="titleclick" th:href="@{/hotel/board/read(boardNo=${b.boardNo})}" th:text=${b.title}></a></td>
+		      <td th:text="${b.username}"></td>
+		      <td th:text=${b.writeDay}></td>
+		      </tr>
+            </tbody>
+            </table>
+            <div id="reportpagination-1">
+		      <ul class="pagination">
+  			    <li class="page-item"><a class="page-link" th:href="@{'/hotel/board/list?pageno='+${prev}}" style="color:#7a7a7a">이전</a></li>
+  			    <li class="page-item" th:each="i: ${#numbers.sequence(start, end)}">
+  			      <span th:if="${pageno eq i}">  
+  			      <a class="page-link active" th:href="@{'/hotel/board/list?pageno=' + ${i}}" th:text="${i}" ></a>
+  			      </span>
+  			      <span th:if="${pageno != i}">
+    		      <a class="page-link" th:href="@{'/hotel/board/list?pageno=' + ${i}}" th:text="${i}" ></a>
+  			      </span>
+			    </li>
+  				<li class="page-item"><a class="page-link" th:href="@{'/hotel/board/list?pageno='+${next}}" style="color:#7a7a7a">다음</a></li>
+				</ul>
+               <a id="reportwrite-1" href="/hotel/board/write" type="button" class="btn btn-outline-dark" sec:authorize="hasRole('USER')">글쓰기</a>
+          	</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
     <!--풋터-->
     <div th:replace="~{fragment/footer :: footer}"></div>
 </body>
