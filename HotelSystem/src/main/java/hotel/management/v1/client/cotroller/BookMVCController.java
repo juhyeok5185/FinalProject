@@ -64,6 +64,8 @@ public class BookMVCController {
             ra.addFlashAttribute("msg", "해당 상품은 멤버십 회원에게만 제공됩니다.");
             return "redirect:/hotel/member/login";
         }
+        BookDto.finduser userinfo =  service.findByusername(pal.getName());
+        model.addAttribute("user",userinfo);
         return "hotel/client/dinnerbook";
     }
 

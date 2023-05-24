@@ -125,6 +125,7 @@ public class BookDto {
 	public static class finduser {
 		String username;
 		String userlevel;
+		String tel;
 	}
 	@Data
 	 public static class mypagedinner {

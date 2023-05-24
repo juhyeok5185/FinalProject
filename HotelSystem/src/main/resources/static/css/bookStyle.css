@@ -434,7 +434,9 @@
 
     }
     #dinnerbookmain{
+        width: 100%;
         height: 67vh;
+        margin: 0;
     }
     #myPageaside {
         display: none;
@@ -465,6 +467,7 @@
     }
     #roomlistdiv{
         margin:0;
+        width: 100%;
     }
     #reservation-btn {
         top : -30px;
@@ -520,11 +523,14 @@
     }
     #reservation-hotelinfo * {
         display: block;
-        margin: 0 auto;
+        margin: 0.5vh auto;
     }
     #reservation-hotelinfo{
         height: auto;
     }
+    #mybooktable tbody tr td{
+    line-height: 4vh;
+}
 }
 
 

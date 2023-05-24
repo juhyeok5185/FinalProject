@@ -7,7 +7,7 @@
 	</select>
 	<select id="findByusername"
 		resultType="hotel.management.v1.client.book.dto.BookDto$finduser">
-		select u.username,u.userlevel from users u where username =
+		select u.username,u.userlevel,u.tel from users u where username =
 		#{username}
 	</select>
 	<select id="findRoomFromAndTo"

@@ -74,8 +74,6 @@
                     <tr>
                         <th>체크인날짜</th>
                         <th>체크아웃날짜</th>
-                        <th>예약자</th>
-                        <th>예약자 연락처</th>
                         <th>방등급</th>
                         <th></th>
                     </tr>
@@ -84,10 +82,8 @@
                     <tr th:each="l : ${list}">
                         <td th:text="${l.checkin}"></td>
                         <td th:text="${l.checkout}"></td>
-                        <td th:text="${l.booker}"></td>
-                        <td th:text="${l.booktel}"></td>
                         <td th:text="${l.bookroomgrade}"></td>
-                        <td><input type="hidden" th:value = "${l.bookno}" id = "mybooklistbookno"><button class ="btn btn-danger" id = "deletebookbtn">예약취소</button>
+                            <td><input type="hidden" th:value = "${l.bookno}" id = "mybooklistbookno"><button class ="btn btn-outline-secondary" id = "deletebookbtn">X</button>
                         </td>
 
                     </tr>
