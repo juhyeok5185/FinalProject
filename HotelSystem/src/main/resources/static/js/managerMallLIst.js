@@ -147,13 +147,9 @@ $(document).ready(function () {
 
   // 상품재고수량복구
   $(".update-btn").click(function () {
-	  console.log("11")
     let $itemno = parseInt($(this).parent().prev().prev().prev().text());
-	  console.log("22")
     let $itemea= parseInt($(this).parent().prev().text());
-	  console.log("33")
     if($itemea==300) {
-	  console.log("44")
 		alert('최대수량입니다.');
 		return;
 	}
