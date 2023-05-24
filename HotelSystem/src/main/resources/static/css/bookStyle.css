@@ -527,6 +527,7 @@
     }
     #reservation-hotelinfo{
         height: auto;
+        margin-bottom: 2.5vh;
     }
     #mybooktable tbody tr td{
     line-height: 4vh;
