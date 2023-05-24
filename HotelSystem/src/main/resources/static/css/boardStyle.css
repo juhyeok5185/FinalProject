@@ -2499,7 +2499,7 @@ div #logintoolbar > a {
   }
   #reportpage-board-list-reaction{
     width: 100%;
-    height: 150vh;
+    height: 75vh;
     background-color: white;
     overflow: hidden;
   }
@@ -2790,7 +2790,7 @@ div #logintoolbar > a {
     }
 	#reportarticle-board{
 	width: 100%;
-    height: 310vw;
+    height: 130vh;
     position: static;
     margin-top: 0;
     }
