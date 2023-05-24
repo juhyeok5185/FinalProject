@@ -4524,7 +4524,7 @@ div #logintoolbar > a {
 
 #loginnewdim {
     width: 100vw;
-    height: 1000px;
+    height: 100%;
     background-color: gray;
     opacity: 0.7;
     position: fixed;
@@ -4543,7 +4543,7 @@ div #logintoolbar > a {
     background-color: #9b7f5b;
     position: fixed;
     left: 9vw;
-    top: 270px;
+    top: 20px;
     opacity: 1;
     margin: auto;
     z-index: 6;
@@ -4668,9 +4668,9 @@ div #logintoolbar > a {
 
 #findpasswordbar-1 {
     width: 80vw;
-    height: 8vh;
+    height: 80px;
     position: absolute;
-    bottom: 41.3vh;
+    bottom: 363px;
     padding-bottom: 1px solid black;
     text-align: left;
     padding-left: 0.5vw;
