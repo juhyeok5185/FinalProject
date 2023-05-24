@@ -2439,7 +2439,7 @@ div #logintoolbar > a {
   }
   #tolistbtndiv-1{
   	position:relative;
-	bottom:9vh;
+	bottom:0vh;
 	left:5vw; 
   }
 
@@ -2458,7 +2458,7 @@ div #logintoolbar > a {
  
   #reportpage-board-list-reaction{
     width: 100%;
-    height: 75vh;
+    height: 85vh;
     background-color: white;
     overflow: hidden;
   }
@@ -2750,8 +2750,7 @@ div #logintoolbar > a {
 	#reportarticle-board{
 	width: 100%;
     margin-top: 0;
-    height: 100%;
-    min-height: 45vh;
+    min-height: 70vh;
     }
     #reportboard{
     width:90vw;
