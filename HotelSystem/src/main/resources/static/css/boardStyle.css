@@ -712,11 +712,15 @@
 	color: #7a7a7a;
 }
 
-#titleclick{
+#titleclick-1{
 	border: none;
 	border-color: none;
 	color: #7a7a7a;
 	text-decoration: none;
+	overflow: hidden;
+ 	white-space: nowrap;
+  	text-overflow: ellipsis;
+  	max-width: 5em;
 }
 
 
@@ -2409,6 +2413,10 @@ div #logintoolbar > a {
   }
   /*700이하부터 보일곳*/
   @media screen and (min-width: 361px) {
+  	#titleclick-1{
+  	  display: none;
+  	}
+  
  	#reportpage-board-list-reaction{
   	  display: none;
   	}

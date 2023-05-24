@@ -84,6 +84,7 @@
       </div>
     </div>
     
+    <!-- 반응형 -->    
     
     <div id=reportpage-board-list-reaction> 
       <div id="aside"> 
@@ -118,7 +119,7 @@
             <tbody>
 		      <tr th:each="b : ${board}">
 		      <td th:text=${b.boardNo}></td>
-		      <td><a id="titleclick" th:href="@{/hotel/board/read(boardNo=${b.boardNo})}" th:text=${b.title}></a></td>
+		      <td><a id="titleclick-1" th:href="@{/hotel/board/read(boardNo=${b.boardNo})}" th:text=${b.title} ></a></td>
 		      <td th:text="${b.username}"></td>
 		      <td th:text=${b.writeDay}></td>
 		      </tr>
