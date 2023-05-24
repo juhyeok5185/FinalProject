@@ -701,7 +701,7 @@
 
 #deletebutton{
 	position:relative;
-	bottom: 4.4vh;
+	bottom: 9vh;
 }
 
 #deletebtn2{
@@ -2439,7 +2439,7 @@ div #logintoolbar > a {
   }
   #tolistbtndiv-1{
   	position:relative;
-	bottom:0vh;
+	bottom:5vh;
 	left:5vw; 
   }
 
