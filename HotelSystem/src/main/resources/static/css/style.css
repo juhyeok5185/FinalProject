@@ -1809,7 +1809,9 @@ div #logintoolbar > a {
     border: 1px solid #cccccc;
 }
 
-
+#password {
+	margin-top: 2vh;
+}
 #cancel {
     position: relative;
     left: 12.3vw;
@@ -4515,7 +4517,7 @@ div #logintoolbar > a {
 
 #loginbar1_res {
     width: 70vw;
-    height: 10vh;
+    height: 7vh;
     padding-left: 1.9vw;
 }
 
