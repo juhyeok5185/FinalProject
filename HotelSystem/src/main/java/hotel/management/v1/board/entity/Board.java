@@ -25,10 +25,10 @@ public class Board {
 	
 	private Integer boardNo;
 	private String username;
-	@JsonFormat(pattern = "yy/MM/dd")
+	@JsonFormat(pattern = "MM/dd")
 	private LocalDate writeDay;
 	private String replyContent;
-	@JsonFormat(pattern = "yy/MM/dd")
+	@JsonFormat(pattern = "MM/dd")
 	private LocalDate replywriteDay;
 	private String title; 
 	private String content;	

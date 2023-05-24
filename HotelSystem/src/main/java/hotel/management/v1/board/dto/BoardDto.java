@@ -62,7 +62,7 @@ public class BoardDto {
 		private Integer rnum;
 		private Integer boardNo;
 		private String username;
-		@JsonFormat(pattern = "yy/MM/dd")
+		@JsonFormat(pattern = "MM/dd")
 		private LocalDate writeDay;
 		private String title; 
 	}
