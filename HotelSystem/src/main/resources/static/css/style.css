@@ -809,11 +809,41 @@
     border-bottom: 0.4rem solid #a1886f;
     color: #555;
 }
+#changePasswordHeadtit {
+	width: 80vw;
+    position: relative;
+    border-bottom: 0.3rem solid #a1886f;
+    color: #555;
+}
 
 #headtit > h3 {
     color: #9e774c;
 }
-
+#nowpassword-res {
+	font-size: 0.7em;
+}
+#passwordCol1 {
+	background-color: #faf9f4;
+    padding: 10px;
+    width: 37vw;
+    text-align: left;
+    font-weight: bold;
+    font-size: 0.7em;
+}
+#passwordCheckCol1 {
+	background-color: #faf9f4;
+    padding: 10px;
+    width: 20vw;
+    text-align: left;
+    font-weight: bold;
+    font-size: 0.7em;
+}
+#passwordCheckCol2 {
+	width: 60vw;
+    text-align: left;
+    padding: 5px;
+    font-size: 0.7em;
+}
 #toolbar {
     font-size: 12px;
     width: 10vw;
@@ -821,6 +851,17 @@
     margin-left: 40.4vw;
     color: black;
     bottom: 10px;
+}
+#passwordCol2 {
+	width: 53vw;
+    text-align: left;
+    padding: 5px;
+}
+#newpassword-res {
+	font-size: 0.7em;
+}
+#newpassword2-res {
+	font-size: 0.7em;
 }
 
 #logintool {
@@ -876,12 +917,20 @@
 }
 
 #changepasswordtool {
-    font-size: 12px;
-    width: 13vw;
+    font-size: 0.7em;
+    width: 70vw;
     position: relative;
-    margin-left: 36.6vw;
+    margin-left: 37.5vw;
     color: black;
-    bottom: 10px;
+    bottom: 2px;
+}
+#changepasswordtool-res {
+    font-size: 0.7em;
+    width: 70vw;
+    position: relative;
+    margin-left: 18.5vw;
+    color: black;
+    bottom: 2px;
 }
 
 
@@ -892,6 +941,14 @@
     margin-left: 37.3vw;
     color: black;
     bottom: 10px;
+}
+#profileupdatetool-res {
+    font-size: 0.7em;
+    width: 63vw;
+    position: relative;
+    margin-left: 22vw;
+    color: black;
+    bottom: 2px;
 }
 
 #aside {
@@ -1985,7 +2042,27 @@ div #logintoolbar > a {
     line-height: 10vh;
     font-size: 0.8em;
 }
-
+#readintro-res {
+	width: 80vw;
+    height: 5vh;
+    line-height: 5vh;
+    font-size: 0.7em;
+    margin-top: 3vh;
+}
+#readCol1 {
+	background-color: #faf9f4;
+    padding: 10px;
+    width: 20vw;
+    text-align: left;
+    font-weight: bold;
+    font-size: 0.7em;
+}
+#readCol2 {
+	width: 60vw;
+    text-align: left;
+    padding: 5px;
+    font-size: 0.7em;
+}
 #radio-check {
     margin-left: 2vw;
 }
@@ -3958,21 +4035,21 @@ div #logintoolbar > a {
 
 #myPage_page-1 {
     width: 100%;
-    height: 110vh;
+    height: 90vh;
     margin: 0 auto;
 }
 
 #myPage_article-1 {
     width: 80%;
-    height: 110vh;
-    margin-left: 9vw;
+    height: 90vh;
+    margin-left: 10vw;
+    margin-top: 3vh;
 }
 
 #gradeintro-1 {
     width: 80vw;
     height: 10vh;
     border-bottom: 2px solid #eeebe8;
-    padding-top: 1vh;
 }
 
 #myenum-1 {
@@ -3983,7 +4060,7 @@ div #logintoolbar > a {
 
 #enumdiv-1 {
     margin: 0 auto;
-    width: 20vw;
+    width: 40vw;
     height: 3vh;
     line-height: 3vh;
     text-align: center;
@@ -4016,17 +4093,17 @@ div #logintoolbar > a {
 
 #gradeintro1_1b {
     width: 26.3vw;
-    height: 90.5vh;
+    height: 79.9vh;
 }
 
 #gradeintro1_2s {
     width: 26.3vw;
-    height: 90.5vh;
+    height: 79.9vh;
 }
 
 #gradeintro1_3g {
     width: 26.3vw;
-    height: 90.5vh;
+    height: 79.9vh;
 }
 
 #bronzebox1-1 {
@@ -4139,11 +4216,21 @@ div #logintoolbar > a {
 
 #profileupdateintro-1 {
     width: 80vw;
-    height: 10vh;
-    line-height: 10vh;
-    font-size: 0.8em;
+    height: 5vh;
+    line-height: 5vh;
+    font-size: 0.7em;
+    margin-top: 5vh;
 }
-
+#profileupdatebtn-1 {
+	width: 35vw;
+    height: 3vh;
+    margin-top: 5vh;
+    margin-left: 22.5vw;
+    background-color: #3a3125;
+    border: 2px solid black;
+    color: #d5ccb0;
+    font-size: 0.7em;
+}
 #profileupdatebtn-1 {
     width: 30vw;
     height: 3vh;
@@ -4157,9 +4244,10 @@ div #logintoolbar > a {
 /* 반응형 비밀번호 변경 주성 */
 #changepasswordintro-1 {
     width: 80vw;
-    height: 10vh;
-    line-height: 10vh;
-    font-size: 0.8em;
+    height: 5vh;
+    line-height: 5vh;
+    font-size: 0.7em;
+    margin-top: 5vh;
 }
 
 #changepasswordtable-1 td {
@@ -4177,15 +4265,39 @@ div #logintoolbar > a {
 #changepasswordbtn-res {
     width: 35vw;
     height: 3vh;
-    margin-top: 3vh;
+    margin-top: 5vh;
     margin-left: 22.5vw;
     background-color: #3a3125;
     border: 2px solid black;
     color: #d5ccb0;
+    font-size: 0.7em;
+}
+#deletebtn-1 {
+	width: 35vw;
+    height: 3vh;
+    margin-top: 5vh;
+    margin-left: 22.5vw;
+    background-color: #3a3125;
+    border: 2px solid black;
+    color: #d5ccb0;
+    font-size: 0.7em;
 }
 
+#updatebtn-1 {
+	width: 35vw;
+    height: 3vh;
+    margin-top: 5vh;
+    margin-left: 22.5vw;
+    background-color: #3a3125;
+    border: 2px solid black;
+    color: #d5ccb0;
+    font-size: 0.7em;
+}
 #changePasswordTit {
-    color: #633e10;
+	width: 80vw;
+    position: relative;
+    border-bottom: 0.3rem solid #a1886f;
+    color: #555;
 }
 
 /* 반응형 비밀번호 확인 후 프로필 수정 주성 */
@@ -4203,7 +4315,7 @@ div #logintoolbar > a {
     width: 80vw;
     position: absolute;
     left: 10vw;
-    margin-top: 10vh;
+    margin-top: 12vh;
     overflow: hidden;
 }
 

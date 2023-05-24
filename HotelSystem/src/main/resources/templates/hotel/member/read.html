@@ -200,21 +200,21 @@
 	<div id="changePasswordTit"> 
           <h3 >프로필 수정</h3>
     </div>
-	<div id="readintro">
+	<div id="readintro-res">
 	<span>고객님의 정보를 언제든지 확인, 변경하실 수 있습니다.</span>
 	</div>
 		<table id="readtable-1">
 			<tr>
-				<td class="col1">이름</td>
-				<td class="col2" th:text="${member.name}"></td>
+				<td id="readCol1">이름</td>
+				<td id="readCol2" th:text="${member.name}"></td>
 			</tr>
 			<tr>
-				<td class="col1">아이디</td>
-				<td class="col2" th:text="${member.username}"></td>
+				<td id="readCol1">아이디</td>
+				<td id="readCol2" th:text="${member.username}"></td>
 			</tr>
 			<tr>
-				<td class="col1">이메일</td>
-				<td class="col2">
+				<td id="readCol1">이메일</td>
+				<td id="readCol2">
 					<input type="text" name="email1" id="email1" th:value="${member.email1}">
 					&nbsp;@&nbsp;
 					<input type="text" name="email2" id="email2-1" th:value="${member.email2}">
@@ -228,8 +228,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="col1">휴대전화</td>
-				<td class="col2">
+				<td id="readCol1">휴대전화</td>
+				<td id="readCol2">
 					<input type="text" id="tel-1" name="tel" th:value="${member.tel}">
 				</td>
 			</tr>
