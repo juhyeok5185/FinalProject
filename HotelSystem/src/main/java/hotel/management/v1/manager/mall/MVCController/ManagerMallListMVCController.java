@@ -24,7 +24,7 @@ public class ManagerMallListMVCController {
 	@GetMapping("/hotel/manager/itemUpdate")
 	public ModelAndView itemUpdate() {
 		List<ManagerMallListDto.ItemUpdate> itemList = service.findItemList();
-		return new ModelAndView().addObject("itemList", itemList);
+		return new ModelAndView("hotel/manager/itemUpdate").addObject("itemList", itemList);
 	}
 
 	@GetMapping("/hotel/manager/managerMallList")
