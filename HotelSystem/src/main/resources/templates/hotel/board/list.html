@@ -21,16 +21,10 @@
   <title>React Hotel</title>
 </head>
 <script>
-$(document).ready(function() {
-	  $('#boardlist').each(function() {
-	    const titleElement = $('#titleclick-1');
-	    const titleText = titleElement.text();
-	    if (titleText.length > 6) {
-	      var truncatedText = titleText.substring(0, 6) + "..";
-	      titleElement.text(truncatedText);
-	    }
-	  });
-	});
+function split () {
+	console.log("dddd")
+	
+}
 </script>
 <body>
   <div th:replace="~{fragment/nav :: nav}"></div>
@@ -68,7 +62,7 @@ $(document).ready(function() {
             <tbody>
 		      <tr th:each="b : ${board}">
 		      <td th:text=${b.boardNo}></td>
-		      <td><a id="titleclick" class="title-click" th:href="@{/hotel/board/read(boardNo=${b.boardNo})}" th:text=${b.title}></a></td>
+		      <td><a id="titleclick" th:href="@{/hotel/board/read(boardNo=${b.boardNo})}" th:text=${b.title}></a></td>
 		      <td th:text="${b.username}"></td>
 		      <td th:text=${b.writeDay}></td>
 		      </tr>
@@ -119,7 +113,6 @@ $(document).ready(function() {
             <table class="table table-hover" style="text-align: center;">
               <thead>
                 <tr>
-                  <th>번호</th>
                   <th>제목</th>
                   <th>작성자</th>
                   <th>작성일</th>
@@ -127,10 +120,10 @@ $(document).ready(function() {
               </thead>
             <tbody>
 		      <tr th:each="b : ${board}">
-		      <td th:text=${b.boardNo}></td>
-		      <td id=""><a id="titleclick-1" th:href="@{/hotel/board/read(boardNo=${b.boardNo})}" th:text=${b.title}></a></td>
-		      <td th:text="${b.username}"></td>
-		      <td th:text=${b.writeDay}></td>
+		      <td><a id="titleclick-1" th:href="@{/hotel/board/read(boardNo=${b.boardNo})}" th:text="${#strings.length(b.title) &gt; 6 ? #strings.substring(b.title, 0, 6) + '...' : b.title}"></a></td>
+  	          <td th:text="${b.username}"></td>
+    		  <td th:text="${#strings.substring(b.writeDay, 5)}"></td>		      
+		         
 		      </tr>
             </tbody>
             </table>
