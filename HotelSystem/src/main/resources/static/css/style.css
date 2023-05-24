@@ -4464,7 +4464,7 @@ div #logintoolbar > a {
     line-height: 50px;
     font-size: 0.9rem;
     margin-left: 8.5px;
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 #join_id-1 {
@@ -4524,11 +4524,11 @@ div #logintoolbar > a {
 
 #loginnewdim {
     width: 100vw;
-    height: 100vh;
+    height: 1000px;
     background-color: gray;
     opacity: 0.7;
     position: fixed;
-    bottom: 0.01vh;
+    bottom: 1px;
     right: 0.01vw;
     z-index: 6;
 }
@@ -4538,12 +4538,12 @@ div #logintoolbar > a {
 }
 
 #loginBox {
-    width: 60vw;
-    height: 29vh;
+    width: 80vw;
+    height: 252px;
     background-color: #9b7f5b;
     position: fixed;
-    left: 19vw;
-    top: 33vh;
+    left: 9vw;
+    top: 330px;
     opacity: 1;
     margin: auto;
     z-index: 6;
@@ -4551,73 +4551,74 @@ div #logintoolbar > a {
 
 #findidbar-1 {
     width: 55vw;
-    height: 8vh;
+    height: 80px;
     position: absolute;
-    bottom: 20.3vh;
+    bottom: 176px;
     padding-bottom: 1px solid black;
     text-align: left;
-    padding-left: 0.5vw;
+    padding-left: 1vw;
     color: #ffffff;
     font-size: 1.3em;
 }
 
 #findidbox1-1 {
-    width: 58.7vw;
-    height: 24.5vh;
+    width: 78.7vw;
+    height: 209px;
     margin: auto;
     position: absolute;
     left: 0.7vw;
-    top: 4vh;
+    top: 40px;
     background-color: #ffffff;
 }
 
 #findidbox2-1 {
-    width: 56.7vw;
-    height: 13.4vh;
+    width: 76.5vw;
+    height: 134px;
     margin: auto;
     position: absolute;
     left: 1vw;
-    top: 2vh;
+    top: 4.5px;
     background-color: #fbfbfb;
     border: 1px solid #cccccc;
 }
 
 #findidbox2_30 {
-    width: 20%;
-    height: 6.6vh;
+    width: 30%;
+    height: 60px;
     background-color: #fbfbfb;
     display: flex;
-    line-height: 6.6vh;
+    line-height: 60px;
     padding-left: 1vw;
     margin: 0 auto;
 }
 
 #findidbox2_40 {
-    width: 80%;
-    height: 6.6vh;
+    width: 70%;
+    height: 60px;
     background-color: #fbfbfb;
     display: flex;
-    padding-top: 1.8vh;
-    padding-bottom: 1.8vh;
+    padding-top: 18px;
+    padding-bottom: 18px;
 }
 
 #findidbox2_10 {
-    width: 56vw;
-    height: 6.6vh;
+    width: 76vw;
+    height: 66px;
     background-color: #fbfbfb;
     display: flex;
 }
 
 #findidbox2_20 {
-    width: 56vw;
-    height: 6.6vh;
+    width: 76vw;
+    height: 66px;
     background-color: #fbfbfb;
     display: flex;
 }
 
 #findcancel {
     position: relative;
-    left: 27.2vw;
+    margin-left: 73vw;
+    bottom: 10px;
 }
 
 #findcancel > a {
@@ -4627,12 +4628,12 @@ div #logintoolbar > a {
 
 #findidcheckbut-1 {
     width: 20vw;
-    height: 3vh;
+    height: 30px;
     margin: auto;
     padding: auto;
-    line-height: 3vh;
+    line-height: 30px;
     left: 1vw;
-    margin-top: 18.5vh;
+    margin-top: 160px;
     background-color: #3a3125;
     border: 1px solid #cccccc;
     color: #faf1d0;
@@ -4700,35 +4701,35 @@ div #logintoolbar > a {
 
 #findpasswordbox2_10 {
     width: 76vw;
-    height: 6.6vh;
+    height: 66px;
     background-color: #fbfbfb;
     display: flex;
 }
 
 #findpasswordbox2_20 {
     width: 76vw;
-    height: 6.6vh;
+    height: 66px;
     background-color: #fbfbfb;
     display: flex;
 }
 
 #findidbox2_30 {
-    width: 20%;
-    height: 6.6vh;
+    width: 30%;
+    height: 66px;
     background-color: #fbfbfb;
     display: flex;
-    line-height: 6.6vh;
+    line-height: 66px;
     padding-left: 1vw;
     margin: 0 auto;
 }
 
 #findpasswordbox2_40 {
-    width: 80%;
-    height: 6.6vh;
+    width: 70%;
+    height: 66px;
     background-color: #fbfbfb;
     display: flex;
-    padding-top: 1.8vh;
-    padding-bottom: 1.8vh;
+    padding-top: 18px;
+    padding-bottom: 18px;
 }
 
 #findpasswordcheckbut-1 {
