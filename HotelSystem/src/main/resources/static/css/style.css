@@ -1361,6 +1361,12 @@
     margin-left: 1vw;
     margin-top: 2vh;
 }
+#findpasswordcheckbar1_10 {
+	font-size: 0.8em;
+}
+#findpasswordcheckbar1_30 {
+	font-size: 0.8em;
+}
 
 .col1 {
     background-color: #faf9f4;
@@ -1856,40 +1862,40 @@ div #logintoolbar > a {
 
 #findidbox2_3 {
     width: 20%;
-    height: 6.6vh;
+    height: 66px;
     background-color: #fbfbfb;
     display: flex;
-    line-height: 6.6vh;
+    line-height: 66px;
     padding-left: 1vw;
     margin: 0 auto;
 }
 
 #findpasswordbox2_3 {
-    width: 20%;
-    height: 6.6vh;
+    width: 30%;
+    height: 66px;
     background-color: #fbfbfb;
     display: flex;
-    line-height: 6.6vh;
+    line-height: 66px;
     padding-left: 1vw;
     margin: 0 auto;
 }
 
 #findidbox2_4 {
-    width: 80%;
-    height: 6.6vh;
+    width: 70%;
+    height: 66px;
     background-color: #fbfbfb;
     display: flex;
-    padding-top: 1.8vh;
-    padding-bottom: 1.8vh;
+    padding-top: 18px;
+    padding-bottom: 18px;
 }
 
 #findpasswordbox2_4 {
-    width: 80%;
-    height: 6.6vh;
+    width: 70%;
+    height: 66px;
     background-color: #fbfbfb;
     display: flex;
-    padding-top: 1.8vh;
-    padding-bottom: 1.8vh;
+    padding-top: 18px;
+    padding-bottom: 18px;
 }
 
 #findidcheckbut {
@@ -1956,7 +1962,7 @@ div #logintoolbar > a {
     background-color: #3a3125;
     text-decoration: none;
     color: #faf1d0;
-    font-size: 1.0em;
+    font-size: 0.8em;
     padding-top: 0.2vh;
     padding-bottom: 0.2vh;
     padding-left: 0.4vh;
@@ -1969,7 +1975,7 @@ div #logintoolbar > a {
     background-color: #3a3125;
     text-decoration: none;
     color: #faf1d0;
-    font-size: 1.0em;
+    font-size: 0.8em;
     padding-top: 0.2vh;
     padding-bottom: 0.2vh;
     padding-left: 0.4vh;
@@ -4656,11 +4662,11 @@ div #logintoolbar > a {
 
 #passwordBox1 {
     width: 80vw;
-    height: 50vh;
+    height: 435px;
     background-color: #9b7f5b;
     position: fixed;
     left: 10vw;
-    top: 23vh;
+    top: 230px;
     opacity: 1;
     margin: auto;
     z-index: 6;
@@ -4668,9 +4674,9 @@ div #logintoolbar > a {
 
 #findpasswordbar-1 {
     width: 80vw;
-    height: 80px;
+    height: 40px;
     position: absolute;
-    bottom: 363px;
+    bottom: 399px;
     padding-bottom: 1px solid black;
     text-align: left;
     padding-left: 0.5vw;
@@ -4680,21 +4686,21 @@ div #logintoolbar > a {
 
 #findpasswordbox1-1 {
     width: 78.5vw;
-    height: 45.4vh;
+    height: 392px;
     margin: auto;
     position: absolute;
     left: 0.7vw;
-    top: 4vh;
+    top: 40px;
     background-color: #ffffff;
 }
 
 #findpasswordbox2-1 {
     width: 76.5vw;
-    height: 20.4vh;
+    height: 204px;
     margin: auto;
     position: absolute;
     left: 1vw;
-    top: 2vh;
+    top: 3px;
     background-color: #fbfbfb;
     border: 1px solid #cccccc;
 }
@@ -4734,25 +4740,26 @@ div #logintoolbar > a {
 
 #findpasswordcheckbut-1 {
     width: 20vw;
-    height: 3vh;
+    height: 25px;
     margin: auto;
     padding: auto;
-    line-height: 3vh;
+    line-height: 25px;
     left: 1vw;
-    margin-top: 25vh;
+    margin-top: 230px;
     background-color: #3a3125;
     border: 1px solid #cccccc;
     color: #faf1d0;
+    font-size: 0.8em;
 }
 
 #findpasswordcheckbar10 {
     display: flex;
     width: 76.5vw;
-    height: 16.1vw;
+    height: 100px;
     margin: auto;
     padding: auto;
     left: 1vw;
-    margin-top: 2.5vh;
+    margin-top: 25px;
     position: absolute;
     border-top: 1px solid #3a3125;
     border-bottom: 1px solid #3a3125;
@@ -4760,19 +4767,20 @@ div #logintoolbar > a {
 
 #findpasswordcheckbar1-1 {
     width: 38.25vw;
-    height: 4.3vh;
-    line-height: 4.3vh;
+    height: 100px;
+    line-height: 50px;
 }
 
 #findpasswordcheckbar2-1 {
     width: 38.25vw;
-    height: 4.3vh;
-    line-height: 4.3vh;
+    height: 100px;
+    line-height: 50px;
 }
 
 #passwordcancel {
     position: relative;
     left: 37vw;
+    bottom: 10px;
 }
 
 #passwordcancel > a {
@@ -4790,7 +4798,7 @@ div #logintoolbar > a {
     background-color: #3a3125;
     text-decoration: none;
     color: #faf1d0;
-    font-size: 1.0em;
+    font-size: 0.8em;
     padding-top: 0.2vh;
     padding-bottom: 0.2vh;
     padding-left: 0.4vh;
