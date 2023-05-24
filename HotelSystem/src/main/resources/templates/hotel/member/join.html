@@ -144,8 +144,8 @@
         	<form id="join_form-res" method="post" action="/hotel/member/join" enctype="multipart/form-data">
 	        <table id="jointable-res">
 			          <colgroup>
-						  <col style="width: 20%;">
-						  <col style="width: 80%;">
+						  <col style="width: 35%;">
+						  <col style="width: 65%;">
 		  			  </colgroup>
 	                  <tr>
 	                    <td class="col1"><span style="color:red;">*</span>이름</td>
@@ -185,8 +185,8 @@
 	        		</div>
 	                <table id="jointable1-res">
 	                  <colgroup>
-						  <col style="width: 20%;">
-						  <col style="width: 80%;">
+						  <col style="width: 35%;">
+						  <col style="width: 65%;">
 		  			  </colgroup>
 	                  <tr>
 	                    <td class="col1"><span style="color:red;">*</span>아이디</td>
@@ -214,7 +214,7 @@
 	                </table>
 	                <div class="joincreate-res">
 	                	<a href="/hotel/main"><input class="but3" type="button" value="가입취소"></a>
-                		<input id="join-res" class="but4" type="button" value="가입하기" >
+                		<input class="but4" type="button" value="가입하기" >
               		</div>
               		<input type="hidden" name="_csrf" th:value="${_csrf.token}">
               		</form>
