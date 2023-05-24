@@ -59,13 +59,11 @@ public class PayController {
 					(String) session.getAttribute("partner_order_id"), PayType.KAKAO);
 			return "hotel/luxurymallcomplete";
 		}
-
 		KakaoPayApproveVO res = payService.kakaoPayApprove(pgToken, session, principal.getName());
 		session.removeAttribute("tid");
 		session.removeAttribute("partner_order_id");
 		session.removeAttribute("pickupDay");
 		session.removeAttribute("tbodyArray");
-
 		return "hotel/reservationcomplete";
 	}
 

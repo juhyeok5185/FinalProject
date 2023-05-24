@@ -18,7 +18,7 @@ public class ManagerMallListRestController {
 	@Autowired
 	private ManagerMallListService service;
 
-	@PostMapping("/hotel/manager/mall/updateItemEA")
+	@PostMapping("hotel/manager/mall/updateItemEA")
 	public ResponseEntity<?> updateItemEA(Integer itemno) {
 		service.updateItemEA(itemno);
 		return ResponseEntity.ok(null);
