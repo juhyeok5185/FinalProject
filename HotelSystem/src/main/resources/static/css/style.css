@@ -1377,7 +1377,6 @@
     padding: 5px;
     font-size: 1em;
 }
-
 #joinintro {
     display: flex;
 }
@@ -1410,17 +1409,17 @@
 }
 
 .but3 {
+    width: 30vw;
     height: 35px;
-    width: 150px;
     background-color: white;
     border: 1px solid #a1886f;
     color: #a1886f;
-    margin-left: 12vw;
+    margin-left: 1vw;
 }
 
 .but4 {
+    width: 30vw;
     height: 35px;
-    width: 150px;
     background-color: white;
     border: 1px solid #a1886f;
     color: #a1886f;
@@ -4877,18 +4876,18 @@ div #logintoolbar > a {
 /* 반응형 회원가입 주성 */
 #joinpage-res {
     width: 100%;
-    max-height: 90vh;
-    min-height: 70vh;
+    max-height: 900px;
+    min-height: 700px;
     background-color: white;
 }
 
 #joinarticle-res {
     width: 90vw;
-    max-height: 90vh;
-    min-height: 70vh;
+    max-height: 900px;
+    min-height: 700px;
     position: relative;
     left: 9.5vw;
-    margin-top: 5vh;
+    margin-top: 45px;
 }
 
 #joinintro-res {
@@ -4896,26 +4895,26 @@ div #logintoolbar > a {
 }
 
 #joinintro1-res {
-    height: 3vh;
-    width: 10vw;
+    height: 30px;
+    width: 13vw;
     font-size: 0.7em;
 }
 
 #joinintro2-res {
-    height: 3vh;
-    width: 17vw;
+    height: 30px;
+    width: 28vw;
     font-size: 0.7em;
-    margin-left: 52vw;
+    margin-left: 38vw;
     text-align: right;
 }
 
 #jointable-res {
-    height: 15vh;
-    width: 79vw;
+    height: 150px;
+    width: 80vw;
     border-top: 1px solid #a1886f;
     border-bottom: 1px solid #a1886f;
     margin-right: auto;
-    font-size: 0.85em;
+    font-size: 0.8em;
 }
 
 #jointable-res td {
@@ -4923,20 +4922,20 @@ div #logintoolbar > a {
 }
 
 #joinintro3-res {
-    height: 3vh;
-    width: 20vw;
+    height: 30px;
+    width: 40vw;
     margin-right: auto;
     font-size: 0.7em;
-    margin-top: 3vh;
+    margin-top: 30px;
 }
 
 #jointable1-res {
-    height: 15vh;
-    width: 79vw;
+    height: 150px;
+    width: 80vw;
     border-top: 1px solid #a1886f;
     border-bottom: 1px solid #a1886f;
     margin-right: auto;
-    font-size: 0.85em;
+    font-size: 0.8em;
 }
 
 #jointable1-res td {
@@ -4944,8 +4943,8 @@ div #logintoolbar > a {
 }
 
 .joincreate-res {
-    width: 79vw;
-    height: 10vh;
+    width: 80vw;
+    height: 100px;
     text-align: center;
     padding: 30px;
     border-bottom: 1px solid #a1886f;
