@@ -2342,15 +2342,12 @@ div #logintoolbar > a {
   .hd,#nav1,#nav2 ,.reservation-area,#section3,#aside,#outline_page{
     display: none;
   }
-  
-  #reportpage-board-reaction{
+  #reportpage-board-list-reaction{
   	  display: none;
   	}
-  
   #reportpage-board{
   	display: none;
   }
-
   #internalFacilities_article {
     display: none;
   }
@@ -2418,11 +2415,11 @@ div #logintoolbar > a {
   }
   /*700이하부터 보일곳*/
   @media screen and (min-width: 361px) {
-  	#titleclick-1{
+  
+    #reportpage-board-reaction{
   	  display: none;
   	}
-  	
- 	#reportpage-board-list-reaction{
+  	#titleclick-1{
   	  display: none;
   	}
     #reportpage {
