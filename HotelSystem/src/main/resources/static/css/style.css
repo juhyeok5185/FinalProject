@@ -750,7 +750,7 @@
 
 #reportboard {
 
-    width: 50vw;
+    width: 48vw;
     margin: auto;
     position: relative;
     top: 0.4vh;
@@ -3428,6 +3428,9 @@ div #logintoolbar > a {
     }
 
     /* 700이하에서 안보이게 함 */
+    #reportpage-board {
+    display: none;
+    }
     #imgslider {
     	display: none;
     }
@@ -3509,9 +3512,6 @@ div #logintoolbar > a {
     #reportpage-1 {
         display: none;
     }
-    #reportboard{
-        width: auto;
-    }
     #reportpage-2 {
         display: none;
     }
@@ -3544,7 +3544,7 @@ div #logintoolbar > a {
         display: none;
     }
 
-    .dark-mode #footer-1 {
+    #footer-1 {
         display: none;
     }
 
@@ -3659,6 +3659,7 @@ div #logintoolbar > a {
     #footer-1 {
         display: none;
     }
+    
 }
 
 /*반응형 존*/
