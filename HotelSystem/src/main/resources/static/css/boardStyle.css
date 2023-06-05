@@ -2741,4 +2741,7 @@ div #logintoolbar > a {
     .media-dropdown {
 		margin-right: 4vw;    
     }
+    .pagination {
+    	margin-left:-0.5vw;
+    }
 }
