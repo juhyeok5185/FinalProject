@@ -81,7 +81,7 @@
           </table>
           <div id="managerreportpagination">
 		    <ul class="pagination">
-  			<li class="page-item"><a class="page-link" th:href="@{'/hotel/manager/managerBoard?pageno='+${prev}}" style="color:#7a7a7a">이전</a></li>
+  			<li class="page-item"><a class="page-link" th:href="@{'/hotel/manager/managerBoard?pageno='+${prev}}" style="color:#7a7a7a; width: 70px;">이전</a></li>
   			<li class="page-item" th:each="i: ${#numbers.sequence(start, end)}">
   			  <span th:if="${pageno eq i}">  
   			   <a class="page-link active" th:href="@{'/hotel/manager/managerBoard?pageno=' + ${i}}" th:text="${i}" ></a>
@@ -90,7 +90,7 @@
     		   <a class="page-link" th:href="@{'/hotel/manager/managerBoard?pageno=' + ${i}}" th:text="${i}" ></a>
   			  </span>
 			</li>
-  			<li class="page-item"><a class="page-link" th:href="@{'/hotel/manager/managerBoard?pageno='+${next}}" style="color:#7a7a7a">다음</a></li>
+  			<li class="page-item"><a class="page-link" th:href="@{'/hotel/manager/managerBoard?pageno='+${next}}" style="color:#7a7a7a; width: 70px;">다음</a></li>
 			</ul>
           </div>
         </div>
